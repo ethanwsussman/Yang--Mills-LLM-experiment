@@ -1,0 +1,41 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[margin=1in]{geometry}
+\pdfsuppressptexinfo=-1
+\pdftrailerid{}
+\pdfinfoomitdate=1
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\makeatletter
+\newtheorem*{theoremzeroinner}{Theorem 0}
+\newenvironment{theoremzero}[1][]{%
+  \if\relax\detokenize{#1}\relax\theoremzeroinner\else\theoremzeroinner[#1]\fi
+  \def\@currentlabel{0}\ignorespaces}{\endtheoremzeroinner}
+\makeatother
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\numberwithin{equation}{section}
+\allowdisplaybreaks
+\setcounter{tocdepth}{2}
+
+
+%% ---- begin inlined file: title ----
+\title{The Yang--Mills continuum limit along Ba{\l}aban's renormalization group: a complete account of Theorem~0}
+
+%% ---- end inlined file: title ----
+\author{}
+\date{}
+
+\begin{document}
+%% The body of the account is in three files, to be placed in the same folder as this file.
+\input{theorem_0_complete_account_not_done_for_ethan_v2_part1}
+\input{theorem_0_complete_account_not_done_for_ethan_v2_part2}
+\input{theorem_0_complete_account_not_done_for_ethan_v2_part3}
+\end{document}
