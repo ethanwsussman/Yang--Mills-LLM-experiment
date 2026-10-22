@@ -1,0 +1,827 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathrsfs,mathtools,booktabs,array,longtable}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\allowdisplaybreaks
+\numberwithin{equation}{section}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\dd}{\mathrm d}
+\newcommand{\Vol}{\operatorname{Vol}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\Q}{\textup{[Q]}}
+\newcommand{\AG}{\textup{[A]}}
+\newcommand{\UR}{\textup{[R]}}
+\newcommand{\US}{\textup{[S]}}
+\newcommand{\qlabel}[1]{\nolinkurl{#1}}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\title{A digest of \texttt{QED3/qed3.tex}\\
+and comparison with Dimock's lattice QED analysis}
+\author{}
+\date{22 October 2026}
+
+\begin{document}
+\maketitle
+
+This note compares the local manuscript \cite{Q} with the supplied
+versions of \emph{Covariant Axial Gauge} \cite{A},
+\emph{Ultraviolet regularity for QED in $d=3$} \cite{R}, and
+\emph{Ultraviolet stability for QED in $d=3$} \cite{S}.
+These are abbreviated \Q, \AG, \UR, and \US.
+References to their sections and equations use their own numbering;
+selected searchable labels in \Q\ are collected at the end.
+The comparison describes definitions, identities, and the stated proof
+structure. It is not an independent verification of the long proofs in \Q.
+In particular, ``the manuscript obtains'' below reports its claimed results.
+
+\begin{center}
+\begin{tabular}{@{}P{0.24\textwidth}P{0.70\textwidth}@{}}
+\toprule
+Question & Answer at the level of the actual definitions\\
+\midrule
+Same lattice model? & No. The local Maxwell term is shared, but the
+fermion graph and operator, flux sectors, and treatment of harmonic
+gauge fields differ.\\[5pt]
+Same RG steps? & The same block-averaging and Gaussian-integration
+framework, with particularly close photon formulas. The full maps
+differ through the chamber first step, external-source bookkeeping,
+cutoffs, and volume-comparison construction.\\[5pt]
+Same small/large fields? & Closest to the global bounded-field analysis
+of \UR\ in the small-field part. The large-field argument in \Q\ is
+different from the spatial, multiscale expansion in \US.\\[5pt]
+Same effective actions? & The same kinetic/mass/vacuum/polymer
+decomposition in the small-field sector, but different operators,
+activity spaces, normalizations, and source dependence. The full
+large-field density of \US\ has additional history and boundary data.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{What the manuscript is trying to construct}
+
+The observable in \Q\ is the real field strength $F$, regarded in the
+continuum as a tempered two-form on $\R^3$. For a fixed positive reference
+mass $0<\bar m\le1$ and sufficiently small physical charge $e$, the
+manuscript chooses a cutoff-dependent real mass shift $m_{0,N}(e)$.
+Its regularization has
+\begin{equation}
+ \eta=L^{-N},\qquad q=e\sqrt\eta,\qquad
+ \mu_{\mathrm{lat}}=\bar m\eta+m_{0,N}(e),\qquad
+ R=8hL^T,\quad h=L^{\lfloor\log_L\bar m^{-1}\rfloor}.
+\end{equation}
+It takes the infinite-volume limit at fixed $\eta$ first, then takes
+subsequential limits as $\eta\downarrow0$. The main theorem concerns
+these limit laws and their translation-ergodic components; it does not
+assert uniqueness of the limit.
+
+The stated conclusion is that almost every such component satisfies
+the tensor Osterwalder--Schrader axioms, including clustering, and is
+non-Gaussian. The parent law is asserted to satisfy the other axioms,
+but clustering is asserted for the components. Two quantitative inputs
+are Gaussian domination and a positive fourth cumulant:
+\begin{align}
+ \int e^{F(g)}\,\dd\mu_\xi(F)&\le e^{\|g\|_2^2/2},\\
+ \kappa_4^{\mu_\xi}(f)&=e^4b(f)+O_f(e^{4+\sigma}),\qquad b(f)>0,
+ \label{eq:digest-cumulant}\\
+ b(f)&=-6\tr\big[(S_{\bar m}\,i\gamma\cdot\dd^*\beta)^4\big],
+ \quad f=\dd\dd^*\beta,
+ \quad S_{\bar m}=(\bar m+\gamma\cdot\partial)^{-1}.
+\end{align}
+The charge threshold for positivity may depend on the chosen probe
+$\beta$. This is a statement about field-strength Schwinger functions,
+not a construction here of every charged fermion or gauge-potential
+correlation function.
+
+There are two substantial parts to the argument.
+First, chamber geometry supplies reflection-positive crossings.
+Slab traces, fold inequalities, and comparison with adapted tori are
+used to obtain positivity at the three coordinate and six diagonal
+mirror families in the volume limit (\Q, Sections 2--4).
+Gaussian domination gives tightness and tensor moment bounds
+(Sections 5--6). The manuscript then uses reflection-positive
+reconstruction, a sharp spectral cone, analytic continuation and
+angular-frequency arguments, and the Bianchi identity to obtain full
+$O(3)$ covariance and componentwise clustering (Sections 7--8).
+It explicitly does not infer full rotational covariance just from the
+finite cubic reflection group.
+
+Second, the block integration in Sections 9--16 tunes the relevant
+couplings and controls polymer activities. Sections 17--23 compute
+free and interacting external-field responses on reference tori.
+Sections 24--26 choose compatible constants and transfer reference
+estimates, including products of translated Wick polynomials, to large
+volumes and then to ergodic components. A positive cumulant for the
+parent mixture alone would not suffice for the componentwise claim.
+Sections 27--28 assemble the tensor axioms and
+\eqref{eq:digest-cumulant}.
+
+The three Dimock papers have narrower and distinct roles.
+\AG\ develops the photon gauge fixing and block-integration machinery;
+it is not a fermionic QED construction. \UR\ controls a globally
+bounded-field RG flow and tunes vacuum energy and mass to prescribed
+terminal values (Theorems 1 and 3). \US\ incorporates the large-field
+corrections and proves, for the specified counterterms and small charge,
+\begin{equation}
+ \frac12\le\frac{Z(N,e)}{Z(N,0)}\le\frac32
+ \qquad\text{uniformly in }N
+ \label{eq:digest-stability}
+\end{equation}
+in fixed finite physical volume (\US, Theorem 2, (42)). That stability theorem alone is not
+the volume-first, non-Gaussian field-strength OS theorem stated in \Q.
+
+\section{The lattice models are different}
+
+\subsection{The common local structure and scaling}
+
+Both constructions use a real abelian connection, a quadratic Maxwell
+energy, four-component fermionic spin variables, and gauge-covariant
+nearest-neighbor hopping on their respective fermion graphs. In
+Dimock's physical lattice notation, with mesh $\eta$, the action is
+\begin{equation}
+ S_{\mathrm D}(A,\bar\psi,\psi)
+ =\tfrac12\|\dd A\|^2
+  +\langle\bar\psi,(D_A^{\mathrm W}+\bar m)\psi\rangle
+  +m_N\langle\bar\psi,\psi\rangle+\varepsilon_N\Vol,
+ \qquad
+ D_A^{\mathrm W}=\gamma\cdot\nabla_A-\tfrac\eta2\Delta_A.
+ \label{eq:digest-Wilson}
+\end{equation}
+The Wilson coefficient in this definition is one; covariant hopping
+has phase $e^{ie\eta A(b)}$ (\UR, Section 1.2, (3)--(12)).
+The starting physical torus in \UR\ and \US\ has side one.
+After rescaling to unit mesh, both schemes have the same engineering
+dimensions:
+\begin{equation}
+ e_k=eL^{(k-N)/2},\qquad
+ \bar m_k=\bar m L^{k-N},\qquad
+ A_L(b)=L^{-1/2}A(b/L),\qquad
+ \Psi_L(x)=L^{-1}\Psi(x/L).
+ \label{eq:digest-scaling}
+\end{equation}
+In \Q\ the reference mass is called $\mu_k$; its physical level length
+is $a_k=L^{k-N}$. The inverse-power mesh $\eta_k=L^{-k}$ used for
+reconstructed fine fields at level $k$ is a different quantity from
+$a_k$ and from the original physical cutoff $\eta$.
+The small parameter called $\varepsilon$ in activity bounds is also
+different from the vacuum energy and from the lattice spacing.
+
+\subsection{Chamber fermions are not Wilson fermions on the cubic sites}
+
+In \UR\ there is one four-component spinor per cubic site. In \Q\ a
+photon site $c\in\Z^3$ carries a cluster of $48$ chamber sites
+$(c,g)$, $g\in O_{\mathrm{cub}}$. Each chamber site carries four spin
+components, so the fine Dirac matrix has dimension $192V$, rather
+than $4V$, on a photon torus of $V$ sites.
+There are four chamber neighbors, with standard weights
+\begin{equation}
+ (w_0,w_1,w_2,w_3)=(6,6\sqrt2,6\sqrt2,6).
+\end{equation}
+Three types of bond stay within a cluster and have phase one; the
+fourth projects to a cubic photon link. Eight chamber bonds project
+to each photon link. The hopping matrices are
+\begin{equation}
+ w(x,x^{(i)})=\frac{w_i}{2}
+       (\rho-\gamma\cdot\widehat d_i(x)),\qquad 0<\rho<1,
+ \quad
+ (\mathcal D_A\psi)(x)
+ =M\psi(x)-\sum_i w(x,x^{(i)})U_A(x,x^{(i)})\psi(x^{(i)}),
+\end{equation}
+where $U_A(x,x')=e^{iqA(\pi x,\pi x')}$ and the mass after the diagonal
+shift is $m=M-\frac\rho2\sum_iw_i$ (\Q, Sections 2.2--2.3).
+This geometry is chosen so that a fermion bond crossing any of the
+nine mirror families is perpendicular to that mirror and connects
+reflected sites. The reflected crossing coefficients are
+$w_i(1\pm\rho)/2$.
+
+There is a precise Wilson comparison, but it does not identify the
+operators. Let $J$ inject a four-spinor as a constant on its cluster,
+let $J^*$ average over the $48$ labels, and let $Q_{\mathrm h}=1-JJ^*$.
+For the free unit-mesh symbol, \Q, Section 9.2 gives
+\begin{align}
+ D_{\mathrm{ll}}(p)&=m+i\gamma\cdot\sin p+
+                         \rho\sum_\mu(1-\cos p_\mu),\\
+ B_m(p)&=D_{\mathrm{ll}}(p)
+         -D_{\mathrm{lh}}(p)D_{\mathrm{hh}}(p)^{-1}D_{\mathrm{hl}}(p)
+       =m+i\gamma\cdot\sin p+O(|p|^2).
+ \label{eq:digest-Schur}
+\end{align}
+The compression $D_{\mathrm{ll}}$ is Wilson-like. The operator after
+eliminating the heavy modes is the Schur complement $B_m$, and it
+has the additional displayed term. The heavy modes also contribute
+to the determinant. Thus neither taking a cluster average nor noting
+the same leading Dirac symbol proves equality of the finite-cutoff
+models. The manuscript's heavy-gap and propagator estimates are
+additional input; they are not the cubic Wilson estimates with names
+changed. Agreement of the leading symbol is also not a proof that
+the two interacting regularizations have the same continuum law.
+
+\subsection{Fluxes and harmonic modes}
+
+In Dimock's model, $A$ is a globally defined real periodic one-cochain
+and $F=\dd A$. Its flux through each coordinate two-torus is zero.
+The harmonic one-form directions, which have zero Maxwell action,
+require separate treatment from ordinary exact gauge directions.
+\AG, Section 2.4, (21)--(22), and Section 3.1, (39)--(40), suppress
+torons by imposing zero averaged circulations. \US, Section 4.1,
+(409), likewise includes $\delta(Q^*A_K)$ in the final integral.
+\AG\ explicitly distinguishes this suppression from gauge fixing.
+
+The configuration space in \Q, Section 2.1 is instead
+\begin{align}
+ \operatorname{Conf}(\Gamma)
+ &=\{(A,z):A\in C^1(\Gamma;\R),\ z\in C^2(\Gamma;\Z),\ \dd z=0\}/\sim,
+ \\
+ (A,z)&\sim(A+2\pi k/q,z-\dd k),\qquad k\in C^1(\Gamma;\Z),\\
+ F&=\dd A+\frac{2\pi}{q}z,\qquad u_b=e^{iqA(b)}.
+ \label{eq:digest-flux-model}
+\end{align}
+It sums over all closed integer $z$ and integrates $A(b)$ over
+$[0,2\pi/q)$. The curvature is unbounded and closed. In particular,
+the closedness constraint excludes monopole defects; the formula
+should not be identified with a compact Wilson plaquette action or
+with an unconstrained integer-plaquette sum.
+Its finite-volume weight after integrating the fermions is
+\begin{equation}
+ e^{-\|F\|^2/2}\det\mathcal D_A\,\dd(A,z).
+\end{equation}
+The paired spin blocks give a nonnegative determinant for every real
+mass, including when the tuned total lattice mass is negative
+(\Q, Section 2.3).
+
+Even restricting \Q\ to zero total flux does not make its global
+photon prescription identical to Dimock's. The zero-flux sector
+unfolds as
+\begin{equation}
+ Z^{(0)}[\Phi]
+ =\mathcal N_n\int_{[-\pi,\pi]^3}\frac{\dd\theta}{(2\pi)^3}
+  \int_{V_{\mathrm t}}\Phi(\dd A)e^{-\|\dd A\|^2/2}
+        \det\mathcal D_{A+H_\theta}\,\dd\sigma(A).
+ \label{eq:digest-unfold}
+\end{equation}
+Here $V_{\mathrm t}$ is the transverse, mean-zero potential space and
+$H_\theta$ is a constant potential representing the three holonomies
+(\Q, Section 20.3). Thus the manuscript integrates over torons, rather
+than setting them to zero. The local Maxwell Gaussian on exact
+curvatures is the common part. The fermion determinant can depend on
+the holonomy, so this distinction is not just a field-independent
+normalization.
+
+\UR, Section 1.2 allows periodic or antiperiodic fermions. The main
+cutoff tori in \Q\ use fermions antiperiodic in all three directions;
+its estimates also track twists and other torus geometries. These
+boundary choices should be matched explicitly in any comparison.
+
+\section{Which parts of the RG step agree?}
+
+\subsection{A common exact Gaussian framework}
+
+Before adding cutoffs, Dimock's simultaneous block step has the form
+\begin{equation}
+ \widetilde\rho_{k+1}(A',\Psi')
+ =\int\delta(A'-QA)\,\delta(\tau A)\,
+       \delta_G\bigl(\Psi'-Q(\widetilde A)\Psi\bigr)
+       \rho_k(A,\Psi)\,\mathrm D\Psi\,\dd A,
+ \label{eq:digest-RG}
+\end{equation}
+followed by the rescaling in \eqref{eq:digest-scaling} and its measure
+normalizations (\UR, (392)--(393); \US, (4)--(5)). The gauge average
+is a straight-path average over an $L$-block, and $\tau$ averages the
+six coordinate-order paths from the block center. The fermion block
+factor is a Gaussian in Grassmann variables, with strength $b/L$,
+not a sharp delta constraint. Its covariant average uses the
+exponential of an averaged line integral, not the average of six
+separate exponentials (\UR, (38)--(48)).
+
+The photon definitions in \Q, Section 10 are closely aligned with
+\AG\ and \UR. Its cochain averages commute with $\dd$ in the
+appropriate degrees. The Landau background $H_k^{\mathrm{ph}}A$
+minimizes the Maxwell energy subject to
+\begin{equation}
+ \mathbf Q_k\mathscr A=A,\qquad
+ \mathcal R_k\dd^*\mathscr A=0,
+ \quad \mathcal R_k\text{ projects onto }
+           \Delta_{\mathrm{sc}}(\ker\mathbf Q_k).
+\end{equation}
+This is the constrained Landau prescription of \UR, (186)--(190).
+The one-step fluctuation is in the axial slice
+$\mathbf QZ=0$, $\tau Z=0$. Using a local coordinate map $C$,
+\begin{equation}
+ \Delta_k=(\dd H_k^{\mathrm{ph}})^T\dd H_k^{\mathrm{ph}},\qquad
+ C_k=(C^T\Delta_k C)^{-1},\qquad
+ Z=CC_k^{1/2}\zeta,\quad \zeta\sim\mu_I.
+ \label{eq:digest-photon}
+\end{equation}
+The uncut gauge-invariant fluctuation integral therefore has the
+same form as \AG, (152):
+\begin{equation}
+ F_{k+1}(\mathscr A)
+ =\int F_k\bigl(\mathscr A_L+
+                 H_k^{\mathrm{ph}}CC_k^{1/2}\zeta\bigr)\,\dd\mu_I(\zeta).
+\end{equation}
+The simultaneous use of a regular Landau background and positive
+axial fluctuation coordinates is shared machinery, not a departure
+introduced by \Q. The manuscript makes coordinate choices, local
+regularity bounds, and compatibility on covers explicit. Its actual
+nonlinear step also restricts this integral to a box, as discussed below.
+
+The fermionic Schur-complement identity has the same algebraic form
+in both analyses. With $\mathcal Q_k$ the applicable fine-to-coarse
+average and $\mathcal Q_k^\sharp(A)=\mathcal Q_k(-A)^T$, write
+\begin{align}
+ S_k(A)&=(D_A+\mu_k+b_k\mathcal Q_k^\sharp\mathcal Q_k)^{-1},\\
+ H_k(A)&=b_kS_k(A)\mathcal Q_k^\sharp(A),\\
+ D_k(A)&=b_k-b_k^2\mathcal Q_k(A)S_k(A)\mathcal Q_k^\sharp(A).
+ \label{eq:digest-fermion-block}
+\end{align}
+In \UR\ these are (78)--(84), with $D_A$ the cubic Wilson operator.
+In \Q\ the underlying $D_A$ is the chamber operator and
+$\mathcal Q_k=Q_kJ^*$. At level zero the manuscript uses the special
+convention $D_0=D_A+\mu_0$, $H_0=1$; the first one-step average is
+$Q(A)J^*$. That step integrates all $192n_0$ incoming pairs of
+Grassmann generators into $4n_1$ outgoing pairs, including the heavy
+components and their determinant. Later coarse fields have four
+components per coarse site. See \Q, Sections 9.5, 11.5, and 14.7.
+
+\subsection{The shared relevant flow, and the changes in its implementation}
+
+Both schemes extract vacuum energy and a scalar fermion mass from
+the polymer activity, and reblock and rescale the remainder. At zero
+external field the recursions have the common structure
+\begin{align}
+ m_{k+1}&=L\bigl(m_k+m(E_k)\bigr),\\
+ \varepsilon^{\mathrm v}_{k+1}
+   &=L^3\bigl(\varepsilon^{\mathrm v}_k+
+                  \varepsilon(E_k)+\delta\varepsilon_k^0\bigr),\\
+ E_{k+1}&=\mathcal L(RE_k)^{\mathrm{adj}}
+                   +\mathcal L E_k^{\mathrm{det}}+E_k^*(m_k,E_k).
+ \label{eq:digest-flow}
+\end{align}
+Placement of $\mathcal L$ in the notation for the last two terms
+varies between the sources. The adjustment preserves the evaluated
+activity while improving its quadratic-kernel representation.
+In \US\ the tiny vacuum correction is tracked separately from
+the main vacuum coupling.
+Compare \UR, (401)--(404), \US, (28), (33)--(34), and \Q, Section 14.7.
+The same characteristic contraction factor
+$O(L^{-1/4+2\varepsilon})$ appears in \UR\ and \Q.
+
+The extraction is substantive agreement. For small polymers,
+$d_M(X)\le L$, the constant coefficient at zero connection and the
+integrated ordinary quadratic kernel are subtracted. Consequently
+\begin{equation}
+ (RE)_{00}(X;0)=0,\qquad
+ \int_{X\times X}(RE)_{20}(X;0;x,y)\,\dd x\,\dd y=0.
+\end{equation}
+After summing over small polymers through a cube, symmetries make the
+mass matrix scalar and real. These are the same normalization
+conditions and relevant directions as in \UR, (317)--(326).
+In \Q\ the integrals additionally average cluster labels with measure
+$\eta_k^3/48$ and the extraction is evaluated at both connection slots
+equal to zero (Section 12.3). Large polymers are left unsubtracted;
+their geometric decay is used instead.
+
+Neither scheme introduces a separately tuned charge or photon-mass
+counterterm in this flow. The charge obeys
+$e_{k+1}=L^{1/2}e_k$. This bookkeeping does not assert that the photon
+effective action has no polarization corrections: field-dependent
+determinants and activities retain such corrections.
+
+The boundary-value construction for the relevant flow also agrees
+in method: activities start at $E_0=0$, masses are solved backwards
+from a terminal value, and the vacuum is obtained by a backwards
+scalar sum. \UR\ chooses $m_K=\varepsilon_K=0$
+(Section 7, Theorem 3); \US\ uses the corresponding controlled flow
+with a stopping scale satisfying $L^{N-K}=Mr_K$.
+
+The manuscript adds a specific comparison of local operations on
+odd covers (Sections 15--16). It selects one bare pair on a prescribed
+top torus of physical side
+\begin{equation}
+ R_{\mathrm{top}}=hMr_K,\qquad
+ R^*=R_{\mathrm{top}}/L,\qquad K=N+\log_Lh.
+\end{equation}
+These physical sides are cutoff-independent for fixed charge and
+reference mass. It then claims exact agreement of extracted
+couplings, and of local activities on suitable lifted polymers,
+on the smaller tori used in the construction. The terminal zeros are
+imposed on the top torus; the couplings need not vanish when a smaller
+torus stops. This shared tuning and the later transfer to arbitrarily
+large cutoff volumes are additional arguments, not consequences of
+the fixed-volume flow theorem in \UR.
+
+\section{Small and large fields: the main methodological difference}
+
+\subsection{Three different uses of ``small''}
+
+It is useful to distinguish small \emph{field amplitudes}, the larger
+complex \emph{analyticity domains}, and small \emph{polymers}.
+The latter is the geometric condition $d_M(X)\le L$; a large polymer
+can still be entirely in a small-field region.
+Grassmann fields have coefficient norms rather than pointwise
+probabilistic amplitude cutoffs.
+
+Both \UR\ and \Q\ use logarithmic real-field thresholds
+\begin{equation}
+ p_k=(-\log e_k)^p,\qquad p_{0,k}=(-\log e_k)^{p_0},
+ \qquad p_0<p,
+\end{equation}
+and complex connection domains of the form
+\begin{equation}
+ \|A\|_\infty<e_k^{-3/4+\varepsilon},\qquad
+ \|\partial A\|_\infty<e_k^{-3/4+2\varepsilon},\qquad
+ \|\delta_\alpha\partial A\|_\infty<e_k^{-3/4+3\varepsilon}.
+ \label{eq:digest-domain}
+\end{equation}
+The extended domain $\widetilde R_k$ allows a real background which
+has a small representative in a local gauge, plus a globally small
+complex part (\UR, Definitions 1--2; \Q, Sections 10.8 and 12.2).
+Thus ``small field'' is not the gauge-dependent assertion that every
+real potential, including its harmonic part, is globally small.
+Curvature bounds and local gauges connect the logarithmic cutoffs to
+these analytic domains. \US\ uses spatially multiscale analogues
+$R_{k,\Omega}$ and $\widetilde R_{k,\Omega}$, with additional margin
+factors (Definitions 1--2).
+
+\subsection{The bounded-field approximation in the regularity paper}
+
+\UR\ replaces the exact integral \eqref{eq:digest-RG} by one with
+$\chi_k\widehat\chi_k$ at each step. Its stated cutoffs are (396):
+\begin{equation}
+ \chi_k=\mathbf1\{\|\dd\mathcal A_k\|_\infty\le p_k\},\qquad
+ \widehat\chi_k=
+  \mathbf1\{\|A_k-H_k^xA_{k+1}\|_\infty\le p_{0,k}\},
+ \quad \mathcal A_k=H_kA_k
+ \label{eq:digest-D-cutoffs}
+\end{equation}
+on the whole torus. Its theorem controls this modified flow. The
+large-field complement is not established by that theorem; restoring
+it is a task of \US.
+
+\subsection{The spatial large-field expansion in the stability paper}
+
+\US\ retains all configurations by summing over histories
+\begin{equation}
+ \Pi=(\Pi_1,\ldots,\Pi_k),\qquad
+ \Pi_j=(\Omega_j,\Lambda_j;P_j,Q_j,R_j,U_j),\qquad
+ \Omega_1\supset\Lambda_1\supset\cdots\supset\Omega_k\supset\Lambda_k.
+\end{equation}
+The regions are assembled from scale-dependent $Mr_j$ cubes,
+where $r_j$ is a rounded power of $-\log e_j$. The bad sets record
+violations of the successive field and fluctuation restrictions;
+buffer layers separate the active regions. Older-scale gauge and
+fermion fields are retained outside the current active region.
+The representation includes multiscale minimizers, unintegrated
+fields, characteristic functions, and boundary activities $B_{k,\Pi}$
+(\US, Section 2.1, (6)--(27)).
+
+The bulk activity $E_k(X)$ is independent of the history when it lies
+in the small-field region. Relevant extraction is confined there;
+boundary corrections and large-field terms are controlled separately.
+Small exponential factors from violated cutoffs pay for summing all
+region histories. At the last scale the torus is a single $Mr_K$ cube:
+the terminal region is either the whole torus or empty. The partition
+function splits into the all-small contribution and the remaining
+histories (\US, Section 4.1, (410)--(412)); the latter require estimates
+of their fermionic as well as bosonic integrals (Section 4.2).
+
+\subsection{The manuscript's global event and its complement}
+
+The step used in \Q\ restricts the independent photon coordinates
+in \eqref{eq:digest-photon} to
+\begin{equation}
+ \mathrm{Box}_j=\{\zeta:|\zeta(\Upsilon)|\le p_{0,j}
+                              \text{ for every coordinate }\Upsilon\}.
+\end{equation}
+This is a cutoff on whitened Gaussian coordinates, rather than the
+literal potential-fluctuation cutoff in \UR, (396). They serve
+similar purposes but define different truncated integrals. The box
+mass is retained as a tiny vacuum contribution:
+\begin{equation}
+ \mu_I(\mathrm{Box}_j)
+   =e^{-\ell_j^3\delta\varepsilon_j^0},\qquad
+ \delta\varepsilon_j^0\le12e^{-p_{0,j}^2/2}.
+\end{equation}
+Domain preservation propagates the terminal small-field condition
+down through these boxes. The resulting event is
+\begin{equation}
+ \mathfrak G=\bigl\{\zeta_j\in\mathrm{Box}_j\ (j<k_*),\quad
+                     \|\dd A_*\|_\infty\le p_*\bigr\}.
+ \label{eq:digest-good-event}
+\end{equation}
+The exact iterated density in \Q, Section 22.2 represents the original
+fine density restricted to $\mathfrak G$. It does not by itself
+represent the whole measure after discarding the restriction.
+
+To control $\mathfrak G^c$, the manuscript uses a separate Gaussian
+domination result for the \emph{normalized, harmonic-averaged,
+zero-flux interacting law} $\bar\mu$:
+\begin{equation}
+ \bar\mu(e^{\langle g,F\rangle})
+  \le \exp\bigl(\|\operatorname{Pr}_{F_N}g\|^2/2\bigr),
+ \qquad F_N=\dd C^1.
+ \label{eq:digest-zero-domination}
+\end{equation}
+This is \Q, Section 21.5. The all-flux Gaussian bound does not
+automatically imply a bound on this conditional law. The manuscript
+retains a flux projection in its coordinate-slice trace to establish
+\eqref{eq:digest-zero-domination}. Nor is the displayed statement a
+uniform claim for every fixed twist separately.
+
+The photon tower coordinates are linear functionals of curvature
+with controlled row norms. Exponential Markov bounds and a union
+bound then give (\Q, Section 22.3)
+\begin{align}
+ \bar\mu(\mathfrak G^c)
+ &\le4\ell_*^3\sum_{i=1}^{k_*}L^{3i}
+   \exp\left[-\tfrac12
+          (v_*+\tfrac i2\log L)^{2p_0}\right]
+       +6\ell_*^3e^{-p_*^2/2}\\
+ &\le6\ell_*^3
+       \left(e^{-p_{0,*}/2}+e^{-p_*^2/(2C_0^2)}\right),
+ \qquad v_*=-\log e_*.
+ \label{eq:digest-tail}
+\end{align}
+This argument does not require independence under the interacting
+law. At fixed reference geometry, the scale sum absorbs the growing
+number of ultraviolet coordinates, and $\ell_*,e_*$ are independent
+of the ultraviolet cutoff after the specified threshold.
+For external-response derivatives, Section 23.4 additionally uses
+shifted events, real-source bounds, and holomorphic estimates; small
+probability at zero source alone would not bound those derivatives.
+
+The volume factor $\ell_*^3$ matters. This is not a direct argument
+that all fields remain globally small with high probability on
+arbitrarily large tori at fixed charge. The manuscript instead uses
+the two reference tori $R^*$ and $LR^*$, establishes a common pressure,
+and transfers local and product estimates by chessboard and partition
+comparison inequalities (Sections 22.6 and 25).
+Flux sectors are then handled as a separate part of that comparison:
+\begin{equation}
+ P_n(w)\le e^{-2\pi^2|w|^2/(q^2n)},\qquad q^2n=e^2R.
+\end{equation}
+This yields useful zero-sector dominance on the chosen reference
+scales when $e^2R$ is small. It does not say nonzero flux is negligible
+uniformly as $R\to\infty$. The transfer argument is what connects
+the reference estimates to the all-flux volume-first construction.
+
+Consequently \Q\ does not reproduce the history sum of \US.
+Its proposed replacement depends on reflection positivity, the
+sector-specific domination bound, and transfer between volumes.
+The success of Dimock's large-field analysis does not independently
+validate that replacement.
+
+\section{Effective actions: a dictionary, not an identity}
+
+\subsection{The meaning of the effective density}
+
+Here ``effective action'' refers to the density obtained by integrating
+short-distance variables while retaining coarse fields. These are
+Wilsonian block densities, not one-particle-irreducible effective
+actions defined by a Legendre transform. Three objects must be kept
+distinct: the full blocked density $\rho_k$, its chosen quadratic
+reference action, and its polymer correction $E_k$. In particular,
+$E_k$ is not the whole effective action, and $\log\det D_A$ is not
+the whole blocked density.
+
+In \AG, (61)--(62), the photon density is
+\begin{equation}
+ \rho_k(A_k)=Z_k F_k(H_k^xA_k)
+               e^{-\langle A_k,\Delta_kA_k\rangle/2}.
+\end{equation}
+The arbitrary interaction is retained in $F_k$; no fermionic mass
+extraction or complete interacting QED action is defined by this
+formula alone. Even the free blocked photon quadratic form is
+$\Delta_k$, not simply the original unit-lattice $\dd^*\dd$.
+
+\UR, (397)--(399), writes the global small-field density as
+\begin{equation}
+ \begin{aligned}
+ \rho_k(A_k,\Psi_k)=\mathcal N_k\exp\Bigl\{
+   &-\tfrac12\|\dd\mathcal A_k\|^2
+    -\langle\bar\Psi_k,D_k(\mathcal A_k)\Psi_k\rangle
+    -m_k\langle\bar\psi_k,\psi_k\rangle\\
+   &-\varepsilon_k\Vol
+    +\sum_X E_k(X,\mathcal A_k,\psi_k^\#)\Bigr\}.
+ \end{aligned}
+ \label{eq:digest-D-density}
+\end{equation}
+Here $\mathcal N_k$ abbreviates its field-independent factors
+$N_kZ_kZ_k(0)$. The inserted fields are
+\[
+ \psi_k=H_k(\mathcal A_k)\Psi_k,\qquad
+ \psi_k^\#=(\psi_k,\delta_{\alpha,\mathcal A_k}\psi_k),
+\]
+including barred variables. The sign of the activity in the exponent is positive,
+so it contributes with a negative sign to an action defined by
+$\rho_k\propto e^{-S_{\mathrm{eff},k}}$.
+
+An essential feature of \eqref{eq:digest-D-density} is that the running
+mass correction multiplies the \emph{inserted fine field}
+$\bar\psi_k\psi_k$. It is not simply added to the coarse matrix
+$D_k$ as a multiple of the identity. Both analyses use this
+separation between a fixed-reference-mass Gaussian and a running
+mass interaction.
+
+\subsection{The manuscript's density and external slot}
+
+\Q, Section 13.3 defines a matter density relative to the photon
+Gaussian. In abbreviated notation it is
+\begin{align}
+ \mathscr F_k^x(A,C;\Psi)
+ &=\det D_k(0)^{-1}\exp\Bigl\{
+      -\langle\bar\Psi,D_k(\mathscr A+C)\Psi\rangle
+      -m_k\langle\bar\psi,\psi\rangle
+      -\varepsilon_k^{\mathrm v}n_k\notag\\
+ &\hspace{23mm}
+      +\sum_X\mathscr E_k(X;\mathscr A,C;\psi^\#)
+      +\sum_X\mathfrak P_k(X,C)\Bigr\},\qquad
+      \mathscr A=H_k^{\mathrm{ph}}A,
+ \label{eq:digest-Q-density}\\
+ &\psi=H_k(\mathscr A+C)\Psi,\qquad n_k=\ell_k^3.\notag
+\end{align}
+The photon quadratic weight is outside this displayed matter
+density. It must be restored, or included in the reference Gaussian
+measure, before comparing with \eqref{eq:digest-D-density}.
+The factor $\det D_k(0)^{-1}$ is a free normalization. Its placement
+differs from Dimock's accumulated normalization factors, although
+both schemes track determinant ratios.
+
+The external connection $C$ is carried in a second analytic slot;
+only its sum with $\mathscr A$ enters the Dirac and field-insertion
+operators. The activity and a separate scalar family retain more
+information than dependence on that sum alone. The local fluctuation
+determinant is split as
+\begin{align}
+ \delta E_k^{\mathrm{det}}(X;\mathscr A,C)
+   &=E_k^d(X,\mathscr A+C)-E_k^d(X,C),\\
+ E_k^{\mathrm{det}}(X,C)&=E_k^d(X,C)-E_k^d(X,0).
+ \label{eq:digest-source-split}
+\end{align}
+The first term enters the new activity and the second accumulates
+in $\mathfrak P_k$ (\Q, Section 14.7). At $C=0$,
+$\mathfrak P_k(X,0)=0$ and $\mathscr E_k|_{C=0}=E_k$.
+An external-field-dependent scalar cannot be discarded as a vacuum
+constant when computing response derivatives. This bookkeeping is
+an explicit extension of the density in \UR, (397).
+
+Both activity constructions use balanced Grassmann kernels,
+covariant H\"older-difference legs, exponential polymer decay, and
+weights
+\begin{equation}
+ h_{k,1}=e_k^{-1/4},\qquad h_{k,2}=e_k^{-1/4+\varepsilon}.
+\end{equation}
+They are not literally the same Banach spaces. In \Q, Section 12.1,
+the kernels have chamber labels, cluster-normalized measures,
+specified admissible pair paths and boundary legs, and two connection
+arguments. Its displayed norm takes a supremum of the whole weighted
+coefficient norm over connections. \UR, (289)--(296), distinguishes
+this type of supremum from the stronger sum of coefficientwise
+suprema used in its basic norm. Bounds or identities between these
+spaces require the appropriate comparison; matching the weights
+alone is insufficient.
+
+\subsection{Exactness, normalization, and the full large-field density}
+
+The identity
+$\mathbf T_k^x\mathscr F_k^x=\mathscr F_{k+1}^x$ in \Q, Section 14.7
+is exact for its \emph{defined truncated transformation}, whose
+photon integral is over $\mathrm{Box}_k$. It is not an identity between
+an unrestricted integral and a truncated integral. Likewise, \UR's
+main theorem is about the modified step (394). Recovering the full
+partition function or source response requires their additional
+complement arguments.
+
+In \US\ the full density is instead a sum of terms of the form
+\begin{equation}
+ \rho_k
+ =\sum_\Pi\mathcal N_{k,\Omega}\int\dd m_{k,\Pi}\,
+ C_{k,\Pi}\chi_k(\Lambda_k)
+ \exp\left\{-\tfrac12\|\dd\mathcal A_{k,\Omega}\|^2
+             -S^+_{k,\Omega}+E_k(\Lambda_k)+B_{k,\Pi}\right\}.
+ \label{eq:digest-history-density}
+\end{equation}
+Here $\dd m_{k,\Pi}$ abbreviates the retained gauge, gauge-fluctuation,
+fermion, and fermion-fluctuation integrations of \US, (6).
+The mass and vacuum counterterms in $S^+_{k,\Omega}$ are localized
+in $\Lambda_k$; $B_{k,\Pi}$ contains boundary corrections.
+There is no counterpart of all these data in the global density
+\eqref{eq:digest-Q-density}. Suppressing the history and boundary
+terms would erase the part of \US\ which restores the large fields.
+
+There is a further convention issue even in Dimock's representations:
+\UR's theorem is stated up to a coarse-fermion phase change
+(Remark 2 after Theorem 1), and \US, Section 2.1 explicitly permits
+modifications preserving the fermion integral. Equal partition
+functions, equal densities after such variable changes, and equal
+coefficientwise formulas are distinct claims. A literal comparison
+must also match these choices.
+
+Finally, \Q's original normalized finite-volume law has no vacuum
+counterterm in its definition. A field-independent vacuum factor
+cancels from normalized expectations. The tuned vacuum nevertheless
+appears in the RG normalization and common pressure used to compare
+partition functions on the two reference volumes (Sections 16.4,
+20.4, and 22.6). This explains why the main theorem advertises a mass
+assignment while its RG analysis still tunes both relevant parameters.
+
+\section{What can, and cannot, be imported from Dimock}
+
+The closest identification is the photon block algebra of \AG\ and
+\UR\ with \Q, Section 10, at matched mesh, torus, and coarse data.
+The small-field renormalization architecture in \UR\ also provides
+the clear template for \Q: local propagators, determinant expansions,
+connected polymer logarithms, vacuum/mass extraction, adjustment,
+contraction, and a backwards/forwards fixed-point flow.
+
+Transferring the actual estimates requires the changes to the model
+and domains to be addressed. The manuscript supplies separate
+sections for the chamber heavy/light decomposition, the first
+fermion block integration, external-slot locality and analyticity,
+and agreement on covers. These are precisely the places where a
+reader should not substitute the corresponding Wilson-fermion
+theorem without further argument.
+
+The largest new dependencies are outside the common small-field RG:
+the all-flux reflection-positive construction; comparison with
+diagonally adapted tori; Gaussian domination in the zero-flux,
+harmonic-averaged law; reference-volume control and its transfer;
+and the continuum covariance and componentwise non-Gaussianity
+arguments. The three supplied Dimock papers do not establish these
+claims for the chamber model. Conversely, the absence of Dimock's
+large-field history sum from \Q\ is not by itself a missing step if
+the manuscript's proposed domination and transfer arguments hold.
+Those arguments must be assessed on their own terms.
+
+\section{Source locations for checking the comparison}
+
+The following labels are literal labels in \texttt{QED3/qed3.tex}.
+They allow the most consequential claims above to be located without
+depending on the equation numbering of a separately compiled PDF.
+
+\small
+\begin{longtable}{@{}P{0.29\textwidth}P{0.65\textwidth}@{}}
+\toprule
+Topic and manuscript section & Searchable label\\
+\midrule
+\endfirsthead
+\toprule Topic and manuscript section & Searchable label\\\midrule
+\endhead
+Main conclusion, \S1 & \qlabel{thm:main}\\[4pt]
+Flux quotient, \S2.1 & \qlabel{eq:reg-configuration}\\[4pt]
+Chamber operator, \S2.3 & \qlabel{eq:reg-dirac}\\[4pt]
+Light Schur complement, \S9.2 & \qlabel{prop:schur-symbol}\\[4pt]
+Photon block decomposition, \S10.5 &
+\qlabel{eq:photon-Gaussian-block-decomposition}\\[4pt]
+First fermion integration, \S11.5 & \qlabel{eq:Gaussian-block-integration}\\[4pt]
+Relevant extraction, \S12.3 & \qlabel{eq:rg-exact-extraction-identity}\\[4pt]
+Normalized matter density, \S13.3 & \qlabel{eq:rg-step-input-density}\\[4pt]
+Truncated block map, \S13.3 & \qlabel{eq:rg-step-block-transformation}\\[4pt]
+Nonlinear step, \S14.7 & \qlabel{thm:rgnl-current-step}\\[4pt]
+Common bare pair, \S16.4 & \qlabel{thm:rgfl-common-pair}\\[4pt]
+Zero-sector unfolding, \S20.3 & \qlabel{eq:external-zero-sector}\\[4pt]
+Zero-sector domination, \S21.5 &
+\qlabel{prop:interacting-zero-flux-domination}\\[4pt]
+Restricted terminal density, \S22.2 & \qlabel{thm:term-density}\\[4pt]
+Complement estimate, \S22.3 & \qlabel{prop:term-complement}\\[4pt]
+Common pressure, \S22.6 & \qlabel{thm:term-common-partition}\\[4pt]
+Response complement, \S23.4 & \qlabel{prop:interacting-complement}\\[4pt]
+Volume transfer, \S25.1 & \qlabel{prop:transfer-general}\\[4pt]
+Flux contribution, \S25.3 & \qlabel{prop:transfer-flux-defect}\\
+\bottomrule
+\end{longtable}
+\normalsize
+
+For Dimock, the main checkpoints are \AG, Sections 2.4, 3.3--3.5,
+and 3.10; \UR, Sections 1.2--1.4, 2.2--2.5, 3.1--3.2, 4.2--4.6,
+6.1, and 7; and \US, Sections 2.1--2.3 and 4.1--4.3.
+The supplied PDFs carry arXiv version stamps v3, v3, and v2,
+respectively. The comparisons above use those files, including their
+equation numbers, rather than assuming that the first submission
+dates in their filenames identify the versions.
+
+\begin{thebibliography}{Q}
+\raggedright
+\bibitem[Q]{Q}
+\emph{The field-strength Osterwalder--Schrader axioms for QED in three
+dimensions}, local manuscript \path{QED3/qed3.tex}, as present on
+22 October 2026.
+
+\bibitem[A]{A}
+J.~Dimock, \emph{Covariant Axial Gauge},
+\href{https://arxiv.org/abs/1410.2798v3}{arXiv:1410.2798v3}.
+Supplied file: \path{Dimock/Dimock14102798CovariantAxialGauge.pdf}.
+
+\bibitem[R]{R}
+J.~Dimock, \emph{Ultraviolet regularity for QED in $d=3$},
+\href{https://arxiv.org/abs/1512.04373v3}{arXiv:1512.04373v3}.
+Supplied file: \path{Dimock/Dimock151204373UVRegularityforQED.pdf}.
+
+\bibitem[S]{S}
+J.~Dimock, \emph{Ultraviolet stability for QED in $d=3$},
+\href{https://arxiv.org/abs/2009.01156v2}{arXiv:2009.01156v2}.
+Supplied file: \path{Dimock/Dimock200901156UVStabilityforQED.pdf}.
+\end{thebibliography}
+\end{document}
