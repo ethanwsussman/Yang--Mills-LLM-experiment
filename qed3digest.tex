@@ -168,14 +168,70 @@ $a_k$ and from the original physical cutoff $\eta$.
 The small parameter called $\varepsilon$ in activity bounds is also
 different from the vacuum energy and from the lattice spacing.
 
-\subsection{Chamber fermions are not Wilson fermions on the cubic sites}
+\subsection{Chamber fermions and the status of the 48-site model}
+
+\emph{Status of the model.} No independent reference was identified
+establishing the specific construction in \Q, Sections 2.2--2.3---a
+cluster of $48$ chamber spinors per cubic photon site, with the
+displayed hopping weights and projected gauge coupling---as a
+standard QED regulator. This assessment concerns the model itself,
+not just the phrase ``chamber fermions.'' Its geometry and the
+broader idea of fermions on a triangulation have established
+precedents, discussed below. The particular combination should be
+treated as the regulator specified by \Q; the three Dimock papers
+do not supply it. Failure to identify an earlier reference is not a
+claim that the construction is original.
+
+\emph{Geometry and fields.} Remove from $\R^3$ all the mirror planes
+\[
+ x_\mu\in\tfrac12\Z,\qquad x_\mu\pm x_\nu\in\Z\quad(\mu<\nu).
+\]
+The connected components are the chambers. Choose one point $v_0$
+inside the fundamental tetrahedron
+\[
+ C_0=\{0<x_3<x_2<x_1<\tfrac12\},
+ \qquad W=\Z^3\rtimes O_{\mathrm{cub}}.
+\]
+Place a four-component pair of Grassmann fields
+$\psi(x),\bar\psi(x)$ at every point $x\in Wv_0$, one point per
+chamber. Connect points in chambers sharing a wall: if $s_i$ is a
+wall reflection of $C_0$, the neighbors of $wv_0$ are $ws_iv_0$.
+Thus the fermions live on the graph of adjacent chambers; the photon
+field still lives on the original cubic links. ``Chamber'' specifies
+this choice of sites and hopping graph, not a new kind of particle.
+
+The geometry itself is standard. In affine-Weyl terminology these
+bounded chambers are \emph{alcoves} of type $\widetilde C_3$.
+Indeed, the $C_3$ roots $\pm2e_\mu$ and $\pm e_\mu\pm e_\nu$
+give exactly the displayed planes through $\alpha\cdot x\in\Z$.
+For affine reflection groups, alcoves, and their simple transitive
+action, see Humphreys \cite[Sections 4.1--4.5]{Humphreys1990}.
+This reference supplies the geometric background, not the chamber
+Dirac operator or its field-theoretic estimates.
+
+More concretely, the $48$ chambers around $c$ are the tetrahedra in
+the barycentric subdivision of the cube $c+[-\tfrac12,\tfrac12]^3$.
+For $c=0$, the vertices of $\overline C_0$ are the cube centre, a
+face centre, an edge midpoint, and a vertex:
+\[
+ (0,0,0),\quad (\tfrac12,0,0),\quad
+ (\tfrac12,\tfrac12,0),\quad
+ (\tfrac12,\tfrac12,\tfrac12).
+\]
+The eight choices of coordinate signs and six orderings of their
+absolute values give $48=2^3\,3!$ tetrahedra. Thus $48$ counts cells
+in this subdivision, not spin components or prescribed physical
+flavors. Choosing one fermion site inside each tetrahedron gives
+the vertices of its dual adjacency graph; the choice of a Dirac
+operator and gauge coupling is additional data.
 
 In \UR\ there is one four-component spinor per cubic site. In \Q\ a
 photon site $c\in\Z^3$ carries a cluster of $48$ chamber sites
 $(c,g)$, $g\in O_{\mathrm{cub}}$. Each chamber site carries four spin
 components, so the fine Dirac matrix has dimension $192V$, rather
 than $4V$, on a photon torus of $V$ sites.
-There are four chamber neighbors, with standard weights
+There are four chamber neighbors, with weights designated
+``standard'' in the manuscript,
 \begin{equation}
  (w_0,w_1,w_2,w_3)=(6,6\sqrt2,6\sqrt2,6).
 \end{equation}
@@ -195,6 +251,38 @@ This geometry is chosen so that a fermion bond crossing any of the
 nine mirror families is perpendicular to that mirror and connects
 reflected sites. The reflected crossing coefficients are
 $w_i(1\pm\rho)/2$.
+This is the reason for using the chamber graph: it makes the
+fermionic crossing compatible with the manuscript's reflection-
+positivity argument at coordinate and diagonal mirrors.
+Osterwalder and Seiler \cite{OsterwalderSeiler1978} provide the
+classical lattice gauge/fermion reflection-positivity and
+transfer-matrix background. They are cited for that framework,
+not as a reference establishing this particular chamber regulator.
+
+\emph{Related fermion constructions.} Burda, Jurkiewicz, and
+Krzywicki \cite[Section 1 and Section 2.4]{BurdaJurkiewiczKrzywicki1999}
+place spinors on simplices, equivalently on vertices of the dual
+graph, and couple simplices sharing a face. Their explicit
+Dirac--Wilson construction is two-dimensional, with a sketch of
+the three-dimensional extension in the conclusion. This is a
+precedent for the placement and adjacency of the fermions, but
+does not define the $48$-site cubic QED model. Brower et al.
+\cite[Sections 3--4]{BrowerEtAl2017} give another construction of
+Dirac fermions with a Wilson term on simplicial approximations to
+Riemannian manifolds, using spinors at the vertices of the
+triangulation and a spin connection on its links. These references
+establish a broader literature on simplicial fermions; neither
+specifies the chamber clusters with photons retained on the
+original cubic links and phases pulled back by $\pi$.
+
+In particular, the adjective ``standard'' attached to the weights
+in \Q\ denotes its chosen normalization. The references above do
+not establish those weights or the resulting coupled action as a
+standard model. Grouping the fields as
+$\Psi(c)=(\psi(c,g))_{g\in O_{\mathrm{cub}}}$ makes this a local
+lattice action with $192$ fermionic components per cubic cell, but
+that rewriting alone supplies neither an identification with
+cubic Wilson QED nor its ultraviolet estimates.
 
 There is a precise Wilson comparison, but it does not identify the
 operators. Let $J$ inject a four-spinor as a constant on its cluster,
@@ -211,7 +299,11 @@ For the free unit-mesh symbol, \Q, Section 9.2 gives
 The compression $D_{\mathrm{ll}}$ is Wilson-like. The operator after
 eliminating the heavy modes is the Schur complement $B_m$, and it
 has the additional displayed term. The heavy modes also contribute
-to the determinant. Thus neither taking a cluster average nor noting
+to the determinant. In particular, the $48$ chamber labels are not
+being identified with $48$ continuum fermion flavors: the claimed
+free decomposition has one four-component light sector and a gapped
+complement (\Q, Sections 9.1--9.2).
+Thus neither taking a cluster average nor noting
 the same leading Dirac symbol proves equality of the finite-cutoff
 models. The manuscript's heavy-gap and propagator estimates are
 additional input; they are not the cubic Wilson estimates with names
@@ -802,7 +894,7 @@ respectively. The comparisons above use those files, including their
 equation numbers, rather than assuming that the first submission
 dates in their filenames identify the versions.
 
-\begin{thebibliography}{Q}
+\begin{thebibliography}{BJK}
 \raggedright
 \bibitem[Q]{Q}
 \emph{The field-strength Osterwalder--Schrader axioms for QED in three
@@ -823,5 +915,38 @@ Supplied file: \path{Dimock/Dimock151204373UVRegularityforQED.pdf}.
 J.~Dimock, \emph{Ultraviolet stability for QED in $d=3$},
 \href{https://arxiv.org/abs/2009.01156v2}{arXiv:2009.01156v2}.
 Supplied file: \path{Dimock/Dimock200901156UVStabilityforQED.pdf}.
+
+\bibitem[H]{Humphreys1990}
+J.~E.~Humphreys, \emph{Reflection Groups and Coxeter Groups},
+Cambridge Studies in Advanced Mathematics \textbf{29},
+Cambridge University Press, 1990, Sections 4.1--4.5.
+\href{https://doi.org/10.1017/CBO9780511623646}{doi:10.1017/CBO9780511623646}.
+Background on affine reflection groups and alcoves.
+
+\bibitem[OS]{OsterwalderSeiler1978}
+K.~Osterwalder and E.~Seiler, \emph{Gauge field theories on a lattice},
+Annals of Physics \textbf{110} (1978), 440--471.
+\href{https://doi.org/10.1016/0003-4916(78)90039-8}{doi:10.1016/0003-4916(78)90039-8}.
+Background on lattice gauge/fermion reflection positivity and transfer
+matrices; not a source for the chamber discretization of \Q.
+
+\bibitem[BJK]{BurdaJurkiewiczKrzywicki1999}
+Z.~Burda, J.~Jurkiewicz, and A.~Krzywicki,
+\emph{Wilson fermions on a randomly triangulated manifold},
+Physical Review D \textbf{60} (1999), 105029.
+\href{https://doi.org/10.1103/PhysRevD.60.105029}{doi:10.1103/PhysRevD.60.105029};
+\href{https://arxiv.org/abs/hep-lat/9905015}{arXiv:hep-lat/9905015}.
+Related construction on the dual graph of a triangulation;
+not the $48$-site QED regulator of \Q.
+
+\bibitem[B]{BrowerEtAl2017}
+R.~C.~Brower, G.~T.~Fleming, A.~D.~Gasbarro, T.~G.~Raben,
+C.-I.~Tan, and E.~S.~Weinberg,
+\emph{Lattice Dirac fermions on a simplicial Riemannian manifold},
+Physical Review D \textbf{95} (2017), 114510.
+\href{https://doi.org/10.1103/PhysRevD.95.114510}{doi:10.1103/PhysRevD.95.114510};
+\href{https://arxiv.org/abs/1610.08587}{arXiv:1610.08587}.
+Related simplicial Dirac/Wilson construction; not the chamber
+discretization of \Q.
 \end{thebibliography}
 \end{document}
