@@ -886,7 +886,7 @@ The sets
 \end{gather*}
 are open and convex.
 The matrix $J:=\operatorname{diag}(i,1,1)$ sends $y$ to the point $Jy=(iy_1,\vec y)$, called a \emph{Euclidean point}, and sends $e_1$ to $ie_0$.
-Every linear map $M$ of $\mathbb C^3$ acts on $b\in\Lambda^2\mathbb C^3$ through $\wedge^2M$, abbreviated $Mb$; it acts componentwise on tuples, and on fields through $(M\cdot g)(y)=M\,g(M^{-1}y)$.
+Every linear map $M$ of $\mathbb C^3$ acts on $b\in\Lambda^2\mathbb C^3$ through $\wedge^2M$, abbreviated $Mb$; it acts componentwise on tuples, and, for $M\in\operatorname{GL}(3,\mathbb R)$, on fields through $(M\cdot g)(y)=M\,g(M^{-1}y)$.
 In particular $J(e_1\wedge e_k)=i\,e_0\wedge e_k$ and $|Jb|=|b|$; moreover
 \begin{equation}
 \overline{Jy}=J\theta y,\qquad \overline{Jb}=J\theta\bar b.
@@ -2591,7 +2591,7 @@ Hence $\ell$ is smooth off a null set, and
 \end{equation*}
 is bounded; therefore $j<\infty$.
 \item[2.] The density $\varrho:=\exp(-\frac12\|F\|^2)\det(D_A+\boldsymbol\mu)$ is smooth, and almost everywhere one has $\partial_u\varrho=-\varrho\,s$, where $s:=\langle du,F\rangle-\partial_u\ell$.
-The argument of Steps~1 and~2 of the proof of Proposition~5.3, with $\varrho$ substituted for $\exp(-V)$, yields $E_n[\partial_u\Phi]=E_n[\Phi\,s]$ for every $\Phi$ of polynomial growth in $F$; it makes no use of the sign of $\boldsymbol\mu$.
+The argument of Steps~1 and~2 of the proof of Proposition~5.3, with $\varrho$ substituted for $\exp(-V)$, yields $E_n[\partial_u\Phi]=E_n[\Phi\,s]$ for every $\Phi$ smooth in $A$ such that $\Phi$ and $\partial_u\Phi$ grow at most polynomially in $F$; it makes no use of the sign of $\boldsymbol\mu$.
 \item[3.] For $\Phi=\langle du,F\rangle$ this reads $E_n[\langle du,F\rangle\,s]=\|du\|^2$, that is, $E_n[\langle du,F\rangle\,\partial_u\ell]=(x-1)\|du\|^2$.
 Expanding $s^2$, one obtains the first identity.
 By the Schwarz inequality, $\|du\|^4\le x\|du\|^2\cdot E_ns^2$, that is, $1\le x(2-x+j)$, which is the inequality $(1-x)^2\le jx$.
@@ -6169,7 +6169,7 @@ Fix smooth functions $\sigma_\delta\colon\mathbb R\to[0,1]$ with $|\sigma_\delta
 \begin{equation*}
 \Psi_\alpha:=\frac{\sigma_\delta(\Psi_\alpha')}{\zeta_\delta\bigl(\sum_{\alpha'}\sigma_\delta(\Psi_{\alpha'}')\bigr)}.
 \end{equation*}
-These functions are admissible in Step~7, and, the map $(t_{\alpha'})_{\alpha'}\mapsto\sigma_\delta(t_\alpha)/\zeta_\delta(\sum_{\alpha'}\sigma_\delta(t_{\alpha'}))$ being Lipschitz, $\limsup\|\Psi_\alpha-1_{B_\alpha}\|_2\le\mathsf c\,m\,\delta$.
+These functions are admissible in Step~7, and, the map $(t_{\alpha'})_{\alpha'}\mapsto\sigma_\delta(t_\alpha)/\zeta_\delta(\sum_{\alpha'}\sigma_\delta(t_{\alpha'}))$ being bounded and continuous, $\limsup\|\Psi_\alpha-1_{B_\alpha}\|_2\le\mathsf c\,m\,\delta$.
 Since $P1_{B_\alpha}=1_{B_\alpha}$, the inequality \eqref{eq:weighted-continuum} yields in the limit $(\mathrm{FI}^I_\mu)$ with $C'=1+c_W$.
 Suppose first that $c_W<\infty$.
 For $m=1$ and $B_1=\mathcal S'$, the condition $(\mathrm{FI}^I_\mu)$ is the inequality
