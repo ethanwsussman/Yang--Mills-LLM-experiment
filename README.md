@@ -1,32 +1,38 @@
-**Disclaimer** *This repository contains work-in-progress, written largely by LLM. Its content has not been satisfactorily vetted. All claims should be understood as tentative, pending verification.* Novel mathematical ideas should be attributed to Claude (under the guidance of LA).
+**Disclaimer** *This repository contains work-in-progress, written largely by LLM. Its content has not been satisfactorily vetted. All claims should be understood as tentative, pending verification.* Novel mathematical ideas should be attributed to Claude, under the guidance of one of us [LA]. Older mathematical ideas may not be attributed properly now, but should be in due course.
+
+#### Update ####
+In light of OpenAI's recent announcement to have constructed YM4, this update serves to clarify that we will continue working. Arguably it is now all the more important to have an "open-source" alternative to OpenAI's construction, one that we can work on and understand together. 
+
+#### Current project status ####
+- QED3: Current manuscript, 263 pages (QED3.pdf). Total slop, 4007 pages. Closed slop, 4007 pages.
+- YM3: Current manuscript, 857 + 1044 pages (YMM1.pdf + YMM2.pdf). Total slop, ~30k. Closed slop, ~30k. Note: page count includes further investigations of the theory beyond existence.
+- YM4: Current manuscript, unfinished. Total slop, ~61k pages. Closed slop, ~20k pages.
+
+Closed slop is the slop that has been refereed and frozen. For QED3, the current manuscript should be roughly the length of a human-written version. For YM3, which has undergone less deslopification, the final count should be less.
 
 ## This project ##
-
-We are attempting to induce LLMs to develop, push, and extend Balaban's program to construct Yang--Mills_4 (YM4) and other quantum gauge theories. Following Dimock and others, we are beginning with superrenormalizable theories in three spacetime dimensions, in which the ultraviolet singularities are less severe. 
-
-This repository contains a manuscript [[QED3]][1] which, if correct, contains a full construction of quantum electrodynamics in three dimensions (QED3), in infinite volume. It includes a proof of the Osterwalder--Schrader axioms for the field strength tensor $F_{\mu\nu}$. While we have not verified the contents of the manuscript, we believe it is essentially correct and have done our best to reach a reasonable state of confidence. The manuscript is LLM-approved, but LLMs are fallible. A few parts have been checked by hand. The manuscript has been divided into a number of submanuscripts, each of which is intended to be a digestible unit. 
-
-As time goes on, we hope to associate to each submanuscript a human-written equivalent. The example RPM1 [[RPM1]][2] is a hybrid, half-written by one of us [E] and completed by Astra.
+We are attempting to induce LLMs to develop, push, and extend Balaban's program to construct Yang--Mills_4 (YM4) and other quantum gauge theories. This repository contains LLM-written documents at various stages of polish, including slop containing a prospective construction of YM4. That construction must be elaborated and checked. We are working on it. [ES: I believe it is more likely than not that the slop is mostly correct and can be elaborated to our satisfaction. I urge caution.]
+The more polished documents in this repository concern superrenormalizable theories in three spacetime dimensions, in which the ultraviolet singularities are less severe. These are quantum electrodynamics (QED3) and Yang--Mills (YM3) in three-dimensions. Following Dimock and others, we began with QED3. The manuscript [[QED3]][1], if correct, contains a full construction of QED3, including a proof of the Osterwalder--Schrader axioms for the field strength tensor $F_{\mu\nu}$. While we have not verified the contents of the manuscript, we believe it is essentially correct and have done our best to reach a reasonable state of confidence. The manuscript is LLM-approved, but LLMs are fallible. A few parts have been checked by hand. The manuscript has been divided into a number of submanuscripts, each of which is intended to be a digestible unit. 
+As time goes on, we hope to associate to each submanuscript a human-written equivalent. The example RPM1 [[RPM1]][2] is a hybrid, half-written by one of us [E] and completed by Astra. We intend to apply this same procedure to the other submanuscripts in this repository.
 
 [1]:https://github.com/ethanwsussman/Yang--Mills-LLM-experiment/blob/main/QED3/qed3.pdf
 [2]:https://github.com/ethanwsussman/Yang--Mills-LLM-experiment/blob/main/RP%20O(d)%20trick%20(RP1)/RPM1.pdf
 
-For Yang--Mills in three-dimensions (YM3), we have a manuscript [[YMM1]][3] which, if correct, contains a verification of the Osterwalder--Schrader axioms for $\mathrm{tr}[F^2]$. We believe this manuscript is essentially correct also. [ES: I am less confident than for QED3, but I do think the manuscript is correct.] We are also working on processing a sequel which handles $\mathrm{tr}[F_{jk}F_{\ell m}]$. Re. YM4, see LA's comment below. Initially, we will make less of an effort to simplify the YM3 manuscript than the QED3 manuscript. Attempts at digestion should begin with QED3 or an even simpler model (such as $\phi^4_2$ or $\phi^4_3$). For this reason, if the YM3 manuscript is mathematically correct and using the approach developed in the QED3 manuscript, we will consider that a win (for now!). The same goes for any progress we see on YM4.
+For YM3, we have a manuscript [[YMM1]][3] which, if correct, contains a verification of the Osterwalder--Schrader axioms for $\mathrm{tr}[F^2]$. We believe this manuscript is essentially correct also. [ES: I am less confident than for QED3, but I do think the manuscript is correct.] We have posted a sequel which handles $\mathrm{tr}[F_{jk}F_{\ell m}]$ and a number of other extensions. Initially, we will make less of an effort to simplify the YM3 manuscript than the QED3 manuscript. Attempts at digestion should begin with QED3 or an even simpler model (such as $\phi^4_d$ for $d=2,3$). For this reason, if the YM3 manuscript is mathematically correct and using the approach developed in the QED3 manuscript, we will consider that a win (for now!). 
+
+For each of QED3, YM3, and YM4, we are including an "assembly overview." This document is meant to illustrate how the main result is assembled from various submanuscripts. The assembly overviews for the three models have analogous structure. Thus, the reader interested in understanding a part of YM4 can look at the analogous parts of QED3 and YM3. This also serves to demonstrate the ideas while we try to wrangle the YM4 slop into an acceptable state.
 
 [3]:https://github.com/ethanwsussman/Yang--Mills-LLM-experiment/blob/main/QED3/qed3.pdf
 
-We welcome anyone to use any of the documents in this repository for any purpose whatsoever. Moreover, if anyone has any interest in aiding with the formalization, digestion, or rewriting of any of the results here, we will welcome their contribution. If there is sufficient interest in this endeavor, a collaborative project could be made of it. For now, our first priority is pushing the models hard. We believe that the ideas developed in the QED3 and YM3 manuscripts can be applied to YM4. The evidence (in the form of existing slop) currently points in this direction and development is underway. 
-
 The manuscripts cited above are the result of cutting material from literally thousands of pages of slop generated by Claude. That slop is highly redundant and over-elaborated. It is then fed to Codex to extract a minimal manuscript. This seems to work reasonably well. Occasionally it introduces minor errors not found in the original slop. [ES: Levent's slop is mathematically impeccable, as far as I can tell. Most (if not all) issues with the drafts can be blamed on my processing.] A more pervasive problem is that some definitions that are explicit in the slop must be inferred in the abridged version. We have not figured out how to fix this. As long as an LLM can infer the relevant definitions from context, we do not think this should cause major problems. Please let us know if you find something which is undefined and whose definition cannot be inferred from context. And of course, let us know of any mistakes you find.
 
-[LA: At the moment we do (appear to) have a YM4 (i.e. $`\mathbb{R}^4`$, not just in finite volume) existence argument / slop, but it is extremely long and basically not understandable as is. Thus in the meanwhile it is being written much more methodically (thus quite slowly!) and our intention with e.g. QED3 and then YM3 (both also $`\mathbb{R}^3`$) is to show some of the coolest YM4 arguments (e.g. winning O(4)-invariance via an [RP trick](RP%20O%28d%29%20trick%20%28RP1%29/README.md)) in a much simpler, and shorter to write, setting.
-I take blame for the immodesty of the previous sentence! However we have been made aware of emails going around from groups now working on the exact same thing, making sudden progress off of the arguments above, so I wanted to be clear we are not stuck! The goal is understanding and rigor. Please, we need to not incentivize rushing out 10,000-page slop, which I think would be especially useless here!]
 
-## Guide to repository contents ##
+## Collaboration ##
+Anyone may use any of the documents in this repository for any purpose whatsoever. We encourage collaboration. 
+[ES: Right now, our priority is checking and cleaning up the slop, but that slop is not supposed to be the end product. Indeed, we would like to make a collaborative project out of out rewriting it. 
+I subscribe to the now frequently repeated mantra that our goal is mathematical understanding. Dropping 1000+ pages of slop and declaring it a finished business would be inimical to that end. And since mathematical understanding takes time (not to mention work) to develop, a race to "digest" would be similarly counterproductive. The solution I see is to proceed in a collaborative fashion, at a human pace. In a thousand pages of slop I am sure we can find enough for us all to earn our living. We welcome the contribution of anyone interested. Contributions could take different forms: formalization, verification, restructuring, exposition, code-generation, etc. Credit is important for professional reasons, and so part of this proposal is that credit would be distributed in the manner of the experimental collaborations that exist in physics.]
 
-TODO.
 
 ## Other similar projects ## 
-
-1) https://github.com/marikgoldstein/scalar-qed
+1) https://github.com/marikgoldstein/scalar-qed-existence
 2) https://github.com/pmaronow/3d-ym-torus
