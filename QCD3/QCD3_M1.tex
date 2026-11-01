@@ -5361,6 +5361,59 @@ the lag threshold are no larger.  This proves uniformity
 on those systems.
 \end{proof}
 
+\begin{lemma}[Changing the Grassmann weight]\label{C-398-41}
+Let $\mathsf d_\lambda$, $\lambda>0$, multiply every barred and
+unbarred generator, including every formal background generator,
+by $\lambda$. For any positive weight $w$,
+\[
+ \|\mathsf d_\lambda F\|_w=\|F\|_{\lambda w}.
+\]
+This identity also holds for the family norms. The map
+$\mathsf d_\lambda$ commutes with background substitution,
+its local and walk terms, transport, gauge transformations,
+coefficient evaluation and filing. It preserves locality,
+holomorphy and the cell-unit cancellation used in
+\cref{C-388-24}.
+
+Consequently \cref{C-388-24} holds at every weight $h>0$
+in place of $h_F$, with the same $C_7$. The bound on its
+quadratic cell units then has $h^{-2}$ in place of $h_F^{-2}$;
+the norm of the family and the weights on its later generators
+are both formed using $h$.
+\end{lemma}
+\begin{proof}
+The map $\mathsf d_\lambda$ carries a decomposition in the
+definition of the fibre norm bijectively to a decomposition
+whose degree-$p$ coefficient is multiplied by $\lambda^p$.
+Its cost at $w$ is the original cost at $\lambda w$.
+Taking infima proves the identity. Taking the sums and
+suprema defining the family norms preserves it.
+
+Each listed operation acts on coefficients or substitutes
+linear combinations for generators, and hence commutes with
+$\mathsf d_\lambda$. Quadratic kernels, moved diagonal terms
+and cell sums are multiplied by $\lambda^2$. Their zero-sum
+conditions are preserved. Coefficients are only multiplied
+by constants, which preserves holomorphy and gauge covariance.
+
+For a family measured at $h$, apply \cref{C-388-24} to
+$\mathsf d_{h/h_F}F$ at $h_F$. Its norm is the norm of $F$
+at $h$, and its quadratic first-moment bound has the required
+factor
+\[
+ (h/h_F)^2h^{-2}=h_F^{-2}.
+\]
+All terms in that lemma's local decomposition commute with
+this scaling. Their norms at $h_F$, including the norms with
+$C_Hh_F$ on later generators, are therefore exactly the
+corresponding norms at $h$ and $C_Hh$ for $F$.
+The same argument applies to the difference between torus
+and infinite-lattice cell sums, and at each fixed pair radius.
+The coefficient estimate in \cref{C-388-21} supplies the
+required first-moment bound at $h$: its two background factors
+cancel against the two leg weights in precisely the same way.
+\end{proof}
+
 The potential of a complete step consists of the gauge vertex
 and the variations of the old scalar terms, together with
 \[
@@ -6067,6 +6120,9 @@ Its extracted mass satisfies
 The estimates hold at real coupling sequences in their
 window and at complex sequences in the fixed inner
 coupling discs, under the same sharp mass windows.
+They also hold at any fixed weight $h\ge h_F$, with the norm
+constants formed at $h$ and a sufficiently small coupling
+ceiling depending on $h$.
 \end{proposition}
 
 \begin{proof}
@@ -6253,6 +6309,37 @@ only weakens the bound.  This proves the proposition.
 The squared mass shift has weight four precisely
 because $|s_k|=O(\mathsf t_k^{-1})$; the argument does not
 assert a cubic error in a wider $O(\phi(\mathsf t_k))$ window.
+
+For the assertion at $h\ge h_F$, apply the same expansion to
+the original potentials with their norms measured at $h$.
+The bilinear vertex and mass-member bounds become
+$C_Vh^2\delta_k$ and $c_{\mathsf S}h^2|s_k|$.
+By \cref{C-398-41}, the old-reading constant remains $C_7$.
+The leg ratios become
+\[
+ c_\psi(h)=2A_\kappa\Gamma_F/h,\qquad
+ c'_\psi(h)=c_\psi(h)+
+ \left(c_h/a_{\rm an}+C_G\right)c_\diamond/(C_Vh^2).
+\]
+The fluctuation covariance and its Gram bound are unchanged;
+the larger external weights only improve the leg room.
+Thus the joined cluster bound has the same $K_M$ and
+$c_{\rm cl}$. Form $r_1,r_2,r_4$ at $h$; the scalar radius
+$r_3$ is unchanged. The preceding coefficient estimates then
+hold with the norm at $h$. The explicit second-order family
+has bound $C_{\rm sl}(h)C_V^2h^4/|x_k|$, where
+\[
+ C_{\rm sl}(h)=K_MM^3
+       \max\{c_{\rm cl}^{-1},2/(\beta_0C_Vh^2)\}.
+\]
+The tested-Gaussian comparison and its two-constants argument
+use this bound in the quotient norm at $h$. Their counting
+and harmonic-measure constants are unchanged. Form
+$C_r,C_{(2)},C_0,C_1,C_\chi$, then $C_2,C_3$, at $h$ and
+decrease the coupling ceiling to close the same induction.
+Since $c_\psi(h)\le c_\psi(h_F)$, its contraction floor is
+already satisfied. The finite flow and its extracted numbers
+are unchanged: only their estimates have been recomputed.
 \end{proof}
 
 \begin{proposition}[Closing the forward mass flow]\label{C-396-33}
@@ -6400,30 +6487,207 @@ This supplies $|b_{k+1}|\le B_\sharp$ in
 Prop.~\ref{C-396-33}, subject to the
 admitted pure step inputs throughout.
 
-Pointing the new fermion terms can be done without
-dividing them equally among arbitrary polymer cubes.
-For a homogeneous degree-$n$ term, $n\ge2$, let
-$N_p$ count its legs at place $p$ and put
-$F_p=n^{-1}N_pF$.  Then $\sum_pF_p=F$ and the norm
-of the sum over any subset of places is at most
-$\|F\|$.  Along the potential path
+For a homogeneous degree-$n$ term $F$, $n\ge2$, let $N_p$
+count its legs at place $p$ and put $F_p=n^{-1}N_pF$.
+Then $\sum_pF_p=F$, and the norm of a sum over any subset
+of places is at most $\|F\|$. Along the path
 $\mathcal V_t=\mathcal V_0+t\mathcal V^{\rm F}$ define
 \[
  E^\bullet(X,p)=\int_0^1
        E'[\mathcal V_t;(\mathcal V^{\rm F})_p](X)\,dt.
 \]
-Summing the pointers gives
-$E[\mathcal V_0+\mathcal V^{\rm F}](X)-
-E[\mathcal V_0](X)$.  The marked cluster majorant
-bounds this derivative, so the preceding estimates
-hold with the pointer summed; send $p$ to its block
-site of the new level.  Scalar remainders use the
-gauge bond pointing, and closed fermion
-normalizers use their diagonal trace pointer.  The
-field-independent wrapping loop terms use the
-equal thirds on the three wrapping rows.
-Quadratic and cubic coefficient extraction commutes
-with this linear pointing operation.
+Its sum over $p$ is
+$E[\mathcal V_0+\mathcal V^{\rm F}](X)-E[\mathcal V_0](X)$.
+Send each place $p$ to its level-$(k+1)$ block site $z(p)$
+and write
+$\widetilde E^\bullet(X;z)=\sum_{z(p)=z}E^\bullet(X,p)$.
+Scalar remainders use the gauge bond pointing, closed
+fermion normalizers use their diagonal trace pointer,
+and the field-independent wrapping loops use equal
+thirds on the three wrapping rows. Quadratic and cubic
+coefficient extraction commutes with these operations.
+
+The estimates proved above hold for the sum over any set
+of pointers: its insertion is bounded by the original
+vertex, and the extracted mass terms have disjoint blocks.
+In a stored layer, however, different pointers are evaluated
+at different pairs. We need the sum of their individual
+norms. The following estimate provides it.
+
+\begin{lemma}[Summing the pointers]\label{C-423-17}
+Consider the small-field step from level $k$ to level $k+1$
+on $\mathbb Z^3$ or on a torus, with the pointing above,
+the sharp mass window $|s_k|\le2\bar B_M/\mathsf t_k$,
+and the bounds
+$\|E^{(i)}_{\ge2}\|_i\le C_2\phi(\mathsf t_{i-1})^2$
+for $i\le k$. The coupling may be real or in its admitted
+complex disc; the fine mass is that of the datum.
+For a pointed family set
+\[
+ \|F\|^{\rm pt}_j
+ =\sup_\square\sum_{X\supset\square}e^{\kappa d_j(X)}
+       \sum_{z\in X}\sup_P\|F(X;P;z)\|_{h^{(j)}}.
+\]
+Here $P$ ranges over the regular complex pairs at the fixed
+radii, separately for each pointed term. Put
+\[
+ \varsigma_k=\sum_{i\le k}\omega_{k+1-i}
+                          \|E^{(i)}_{\ge2}\|_i,
+ \qquad \omega_n=C_7L^{n/4},
+\]
+using the larger of the two family norms on a torus. Let
+\[
+ C_2^0=2(C_{(2)}+C_0),\qquad
+ \mathfrak y_k=C_2^0\phi(\mathsf t_k)^2
+       +K_\mu^{-1}c_sh_F^2|s_k|^2+K_Mc_\psi\varsigma_k,
+\]
+where
+\[
+ c_s=2K_Mc_{\rm cl}
+       (c'_\psi c_{\mathsf S}h_F/c_\diamond)^2
+       \max\{K_\mu,4c_b^{-2}C^\psi_{am}/\nu\}.
+\]
+Then $\widetilde E^\bullet_{\ge2}(X;z)=0$ unless $z\in X$,
+and
+\begin{align*}
+ \sup_P\|\widetilde E^\bullet_{\ge2}(X;P;z)\|
+       &\le C_E^{-1}\mathfrak y_k e^{-\kappa_+d_{k+1}(X)},\\
+ \|\widetilde E^\bullet_{\ge2}\|^{\rm pt}_{k+1}
+       &\le8M^3\mathfrak y_k,\\
+ \|E^{(k+1)}_{\ge2}\|^{\rm pt}_{k+1}
+       &\le(8M^3+K_\mu-1)\mathfrak y_k
+        \le C_2^{\rm pt}\phi(\mathsf t_k)^2,
+       \qquad C_2^{\rm pt}=8M^3C_2.
+\end{align*}
+The final bound holds under the contraction floor and coupling
+ceiling
+\[
+ \theta_E C_\omega S_\omega\le\frac1{4\sqrt2},
+ \qquad16c_sh_F^2\bar B_M^2\gamma^2\le C_2,
+\]
+where
+\[
+ \theta_E=\sqrt2K_\mu K_M
+ \left[c_\psi+
+       (c_h/a_{\rm an}+C_G)c_{\rm cl}/(4C_Vh_F^2)\right].
+\]
+The earlier families enter only through their unpointed norms.
+\end{lemma}
+
+\begin{proof}
+Only a vertex having a place in $X$ can contribute to
+$E^\bullet(X,p)$. Its assigned block site also lies in $X$.
+This proves the support statement. All other terms in the
+pointing are scalar, except the extracted mass terms, each
+supported on the single cube containing its pointer.
+
+Use the four-variable deformation and the radii $r_i$ in
+the proof of \cref{C-398-28}. A pointed cluster term is the
+mean of the terms obtained by replacing one vertex by its
+insertion at $z$. The cluster majorant is multilinear and
+increasing in the vertex norms. Since the insertion has no
+larger norm than that vertex, \cref{C-388-19} gives
+\[
+ \|\widetilde E^\bullet(X;P;z;\zeta)\|
+       \le2K'_Mc_{\rm cl}e^{-\kappa_+d_{k+1}(X)}
+       \quad(|\zeta_i|<r_i).
+\]
+The pointed terms are holomorphic on this open polydisc.
+Indeed, on $|\zeta_i|<\rho r_i$, $\rho<1$, the three
+linear origins have total size at most $3\rho c_\diamond$,
+and the vertex has size at most $c_\diamond$. The potential
+and its pointing path therefore stay strictly inside the
+cluster domain. These smaller polydiscs exhaust the stated
+domain.
+
+Write the part of degree at least two as
+$\sum_na_n^\bullet(X;z)\zeta^n$. Cauchy's estimate on
+the radii $\rho r_i$, followed by $\rho\uparrow1$, gives
+\[
+ \|a_n^\bullet(X;P;z)\|
+       \le2K'_Mc_{\rm cl}r^{-n}e^{-\kappa_+d_{k+1}(X)}.
+\]
+If $r_2$ or $r_4$ is infinite, the corresponding origin
+vanishes and coefficients with a positive power of that
+variable vanish. The cancellations used in
+\cref{C-398-28} hold at each pointer: the coefficient
+$(1,0,0,0)$ is odd in the gauge fluctuation;
+$(0,0,n_3,0)$ is scalar; and the part of degree at least
+two of $(0,0,n_3,1)$ vanishes because the mass insertion
+has only a single fluctuation leg or a fully contracted pair.
+
+The two weight-two coefficients $(2,0,0,0)$ and
+$(1,0,1,0)$ are bounded together by
+\[C_E^{-1}C_{(2)}\phi^2e^{-\kappa_+d(X)},\]
+where
+$\phi=\phi(\mathsf t_k)$ and $K_M=C_EK'_M$.
+The coefficient $(0,0,0,2)$ is bounded by
+\[C_E^{-1}K_\mu^{-1}c_sh_F^2|s_k|^2e^{-\kappa_+d(X)}.\]
+Summing the remaining coefficients of weight at least
+three as in \cref{C-398-28} gives
+\[
+ C_E^{-1}(C_0+C_1C_2)\phi^3e^{-\kappa_+d(X)}
+ \le C_E^{-1}(C_{(2)}+\tfrac32C_0)
+                       \phi^2e^{-\kappa_+d(X)}.
+\]
+Here we used $C_2=4K_\mu(C_{(2)}+C_0)$,
+$K_\mu C_1\phi\le1/4$, and $\phi\le1/2$.
+
+The coefficient linear in the old origin is kept separately.
+On the axis $(0,\zeta_2,0,0)$ the potential is
+$\zeta_2\mathcal V^{\rm old}_{\ge2}(0)$.
+The marked majorant bounds its pointing by
+$K_\Pi|\zeta_2|\|\mathcal V^{\rm old}_{\ge2}(0)\|
+e^{-\kappa_+d(X)}$ on the disc where this potential has
+size below $c_{\rm cl}$. Cauchy's estimate for its first
+coefficient divides by $|\zeta_2|$. Since
+$\|\mathcal V^{\rm old}_{\ge2}(0)\|\le c_\psi\varsigma_k$
+and $K_\Pi\le K'_M$, its bound is
+$C_E^{-1}K_Mc_\psi\varsigma_ke^{-\kappa_+d(X)}$.
+The preceding estimates prove the first inequality, since
+$2C_{(2)}+\tfrac32C_0\le C_2^0$.
+
+A polymer of tree size $d$ contains at most $8(d+1)$ cubes
+and hence at most $8M^3e^d$ pointers. There are at most
+$2048\cdot9216^d$ such polymers through a given cube.
+The floor $\kappa_+-\kappa-1\ge2c_E$, with
+$c_E=\log18432$, therefore gives
+\[
+ \sum_{X\supset\square}e^{\kappa d(X)}
+      \sum_{z\in X}\sup_P
+          \|\widetilde E^\bullet_{\ge2}(X;P;z)\|
+ \le8M^3C_E^{-1}\mathfrak y_k\,
+        2048\sum_{d\ge0}(9216e^{-2c_E})^d
+ \le8M^3\mathfrak y_k.
+\]
+The supremum is taken before the pointer sum throughout.
+
+The extracted mass terms stand on disjoint blocks of the
+sites in a cube. Their norms sum to at most
+$c_{\mathsf S}|\mu_{k+1}|h_F^2$. Mass extraction and
+$\|\widetilde E_{\ge2}\|_{k+1}\le\mathfrak y_k$ bound
+this by $(K_\mu-1)\mathfrak y_k$. Thus
+\[
+ \|E^{(k+1)}_{\ge2}\|^{\rm pt}_{k+1}
+ \le(8M^3+K_\mu-1)\mathfrak y_k
+ \le8M^3K_\mu\mathfrak y_k.
+\]
+Finally,
+\[
+ K_\mu\mathfrak y_k
+ \le\tfrac12C_2\phi^2+c_sh_F^2|s_k|^2
+                                      +\theta_E\varsigma_k.
+\]
+The mass window gives $|s_k|\le2\bar B_M\gamma\phi$;
+the stated ceiling bounds its contribution by
+$C_2\phi^2/4$. The calibration sum gives
+$\varsigma_k\le C_\omega S_\omega C_2\phi^2$, so the
+last contribution is at most $C_2\phi^2/(4\sqrt2)$.
+Since $1/2+1/4+1/(4\sqrt2)<1$, the claimed bound follows.
+The cluster and polymer counts hold on both lattices with
+the same constants, including both families on a torus.
+\end{proof}
+
 
 The scalar pointing must retain the same quadratic
 normalization as \cref{C-388-37}.  Let
@@ -6553,8 +6817,12 @@ Raise $h_F$ to meet the leg room and
 \[
  h_F\ge8K_\mu K_MA_\kappa\Gamma_F C_7S_2^\sharp.
 \]
-Next form $C_r,C_{(2)},C_0,C_1,C_\chi$, then $C_2$,
-$C_T$, $C_3$, $C'_\rho$ and the forward-flow constant.
+Next form $C_r,C_{(2)},C_0,C_1,C_\chi,c_s$, then $C_2$,
+$C_2^{\rm pt}=8M^3C_2$, $C_T$, $C_3$, $C'_\rho$ and the
+forward-flow constant. The additional pointer estimate uses
+$\theta_EC_\omega S_\omega\le1/(4\sqrt2)$, imposed when
+$h_F$ is chosen, and the final ceiling
+$16c_sh_F^2\bar B_M^2\gamma^2\le C_2$.
 Finally lower $\gamma$ to meet the finitely many
 smallness conditions, including
 \[
@@ -7776,9 +8044,25 @@ small-field estimates read at the tier radius
 $C_{\mathcal A}\delta_k$.
 They control the current-region terms once the
 old zero-moment cancellation is justified there.
-The same vertex on stored layers and its
-external collar dependence contribute at most
-$2C_V^Fh_F^2C_{\mathcal A}\delta_k$.
+For the variation on stored layers, let $C_V^F$ bound
+the vertex, the mass member and the regular activities by
+\[
+ \|\mathcal V_B^{\rm F}(Y;B)\|
+ \le C_V^Fh_F^2|B|_Ye^{-(\kappa-1)d_k(Y)}.
+\]
+Here only the part depending on $B$ is included, and
+the made boundary terms and edge terms are estimated separately.
+The vertex count is $L^{3k}L^{-2k}L^{-k}=1$ per
+level-$k$ cube. The mass and regular terms use the stored-layer
+counts below, with $C_2^{\rm pt}$ when their pointers
+are evaluated separately. Cauchy's estimate on
+$\sup|B|\le\beta_0$ supplies their factor $|B|_Y$;
+the shift in $\mathcal L_m$ has the additional factor
+$L^{-4(k-m)}$, which makes the layer sum finite.
+Thus $C_V^F$ is fixed after $C_2^{\rm pt}$ and $C_{\rm lay}$,
+before the final choice of $\gamma$, and is uniform in $k$.
+The integrated and external collar variations together
+contribute at most $2C_V^Fh_F^2C_{\mathcal A}\delta_k$.
 
 \emph{Where an old coefficient can be evaluated.}
 The tiers give a triple at level $t=k+1$. On
@@ -7971,11 +8255,13 @@ and the remainder pays crossing. This
 still has constant $A_\kappa$, since
 $e^{1/8}/(1-e^{-11/8})<1.517$ and the
 local term fits its defining factor two.
-The sum over pointers of one polymer
-is bounded by its original insertion norm.
-Thus the bound for these terms is
+The individual pointed terms are evaluated at their own pairs.
+Thus their norms must be summed before the polymer count.
+By \cref{C-423-17}, at level $j$ this costs
+$\epsilon_j^{\rm pt}=C_2^{\rm pt}\phi(\mathsf t_{j-1})^2$.
+The bound for these terms is therefore
 $\Theta_k C_\omega c_{\rm rim}^{\rm pt}
-C_2\phi(\mathsf t_k)^2$, with
+C_2^{\rm pt}\phi(\mathsf t_k)^2$, with
 \[
  c_{\rm rim}^{\rm pt}=
  \frac{3L}{L-2}c_{\rm geo}(1+L^2)
@@ -8039,12 +8325,13 @@ the stored-layer sum has the bound
 \begin{split}
  b_k^{\rm lay}={}&2C_V^Fh_F^2C_{\mathcal A}\delta_k\\
  &+\Theta'_k
- \left(C_\omega S_\omega+\frac{L}{L-2}C_{\rm lay}S'_\omega\right)
-                                  C_2\phi(\mathsf t_k)^2\\
+ \left(C_\omega S_\omega C_2+
+       \frac{L}{L-2}C_{\rm lay}S'_\omega C_2^{\rm pt}\right)
+                                  \phi(\mathsf t_k)^2\\
  &+\Theta_k\left[
- C_\omega(c_{\rm rim}+c_{\rm rim}^{\rm pt})
-              +39(1+2n_{\rm wk})S'_\omega\right]
-                                  C_2\phi(\mathsf t_k)^2\\
+ C_\omega c_{\rm rim}C_2+C_\omega c_{\rm rim}^{\rm pt}C_2^{\rm pt}
+              +39(1+2n_{\rm wk})S'_\omega C_2\right]
+                                  \phi(\mathsf t_k)^2\\
  &+\frac L{L-2}C_{\rm lay}\Theta'_k
                      w_0\nu C_H^2h_F^2L\bar B_M\gamma^2 .
 \end{split}
@@ -8372,26 +8659,226 @@ level. Its mass is not estimated by the free determinant
 alone: its remaining interacting Grassmann integral must
 also be bounded below.
 
-On the last level read the old activities at weight
-$2A_\kappa h_*$ and the coarse generators at weight $2h_*$,
-where $h_*$ is a coarse Gram weight depending on $m_-$.
-Each leg read through its local part and walk terms costs
-at most $A_\kappa$, which the activity weight pays.
-Impose the final ceiling $\gamma\le\gamma(2A_\kappa h_*,5B_s)$.
-Regroup their trivial-background degree-two terms at their
-pointers, so that the actual zero-moment cancellation occurs
-inside each regrouped polymer. The power counting above gives
+Put
 \[
- \|P\|_{2h_*}\le C_*\phi(\mathsf t_{K-1})^2.
+ \Gamma_*^2=\frac2{c_bm_-},\qquad h_* =\max\{h_F,\Gamma_*\}.
 \]
-Include the mass member $-M_{h_\emptyset}$ as well as the
-bilinear part of $P$ in the perturbation $p$. The former has
-operator norm at most $C_{\mathsf S_1}\bar B_M\gamma^2$;
-impose $C_{\mathsf S_1}\bar B_M\gamma^2\le c_bm_-/8$.
-The activity bilinear is small by the displayed bound after
-the final floor is increased. Thus $\|p\|\le c_bm_-/2$. Hence
-$G_*=D_K+p$ has real part at least $c_bm_-/2$, and its
-inverse has a uniform exponentially decaying Gram bound.
+Read the old activities at weight $H=2A_\kappa h_*$ and
+the level-$K$ generators at weight $2h_*$. Impose
+$\gamma\le\gamma(H,5B_s)$ and form the activity constants
+at this auxiliary weight, using \cref{C-398-28} and \cref{C-398-41}. The activities themselves do
+not depend on the norm used to estimate them. We shall
+localize their sum
+\[
+ P=\sum_{j\le K}\sum_XE^{(j)}_{\ge2}(X)
+       =\sum_YP(Y)
+\]
+on level-$K$ polymers, with
+\begin{equation}\label{eq:qcd-last-level-activity}
+ \sup_\square\sum_{Y\supset\square}e^{\kappa d_K(Y)}
+                   \|P(Y)\|_{2h_*}
+ \le\epsilon_P:=C_{2,*}\phi(\mathsf t_{K-1})^2.
+\end{equation}
+The constant $C_{2,*}$ may depend on $m_-$ through $h_*$,
+but is independent of the cutoff and volume.
+
+For degree at least four, and for the activities born at
+level $K$, substitute the local and walk parts of every
+background leg directly. File the resulting term on the
+level-$K$ hull of $X$, enlarged successively by its walk
+polymers. This assignment does not depend on its pointer,
+so the pointers can first be summed inside the activity.
+The extra leg weights give the usual factor $L^{-(K-j)}$.
+
+For degree two at level $j<K$, the cancellation must be
+localized before this substitution. Write
+$\Phi=\mathsf H_{j,K}\Psi_K$ and read each background in
+two stages, first through $\mathsf H_{n,j}$ and then through
+$\mathsf H_{j,K}$. Relative to a direct substitution this
+costs at most $(A_\kappa C_H)^2$. For a pointed term
+$(z,X)$, compare its coefficient with the trivial pair,
+keeping the transports. A piece consists of $X$ and one
+local or walk term in each of its two level-$j$ legs.
+Write $m_p$ for its zeroth moment, with both columns
+transported to $z$ along the paths of the piece. On a
+torus use the lifted paths, including the seam signs.
+Expanding each leg as its value at $z$ plus its difference
+from that value leaves terms with a difference and the
+term $\bar\Phi(z)m_p\Phi(z)$.
+
+File the terms with differences on the hull of the whole
+piece and its level-$K$ walks. File the term without a
+difference on the cube containing $z$ and its two
+level-$K$ walks, independently of $X$. All such moments
+at $z$ now belong to the same $P(Y)$ and can be summed
+there. Their sum is $q_j(z)$ on the infinite lattice.
+On a torus it is $q_j(z)+\Sigma^{\rm w}-\Sigma^{\rm nf}$,
+where the last two sums consist of wrapping pieces and
+the infinite-lattice pieces that do not fit. Each has
+$d_j(Z_p)\ge\ell_j/(2M)-2$, with $\ell_j=\ell L^{K-j}$.
+Thus the torus discrepancy retains exponential decay.
+
+The remaining $q_j(z)$ terms are combined cell by cell.
+Their coefficients commute with colour and sum to zero
+in each cell $c$. Transport the fields to $z_c$ by block
+links along paths inside $c$, of length at most $2M$.
+Then
+\[
+ \sum_{z\in c}\bar\Phi(z)q_j(z)\Phi(z)
+ =\sum_{z\in c}\left[
+ (\bar\Phi(z)-\bar\Phi(z_c))q_j(z)\Phi(z)
+ +\bar\Phi(z_c)q_j(z)(\Phi(z)-\Phi(z_c))\right].
+\]
+File these terms on the cube containing $c$, enlarged by
+the walks of their legs. Every retained term therefore
+has either a field comparison, a difference, or a
+wrapping factor. The total $P$ is unchanged.
+
+We give the counts needed for \eqref{eq:qcd-last-level-activity}.
+Put $d=K-j$. The local comparison and difference estimates
+of \cref{C-388-24} give the factors $L^{-d}$ and $L^{d/4}$,
+respectively, per level-$K$ cube. These factors already
+include the count of $L^{3d}$ level-$j$ cubes. For a
+piece of degree two let
+\[
+ D'_p=M(1+d_j(X))+9M_w\sum_i(|\omega'_i|+1),
+\]
+where $\omega'_i$ are its level-$j$ walks. Recounting the
+first cubes of those walks costs at most
+$(2C_H)^2(1+8C_{\rm nb}M^3A_\kappa)^2(1+d_j(X))^2$.
+The transports in the comparison with the trivial pair
+cost at most
+\[
+ e^{\alpha_1C_tD'_p/4}
+ \le e^{\kappa(1+d_j(X))/8}
+       e^{\sum_i(|\omega'_i|+1)/8}
+\]
+under $2C_t\alpha_1M\le\kappa$ and
+$18C_t\alpha_1M_w\le1$.
+The comparison also costs $D_p'^2$, while the difference
+terms cost at most $(C_tD'_p)^2$.
+Split the residual rate after taking the level-$K$ hull as
+\[
+ e^{-\kappa(1-L^{-d})d_j(X)}
+       =e^{-\kappa'_jd_j(X)}e^{-\kappa'_jd_j(X)},
+ \qquad\kappa'_j=\tfrac12\kappa(1-L^{-d})\ge\kappa/4.
+\]
+The first factor pays the polynomial in $d_j(X)$ and the
+transport exponential, at the finite cost
+\[
+ c_{\rm pr}^{(K)}
+ =2e^{\kappa/8}C_t^2M^2
+                 \sup_{u\ge0}(1+u)^4e^{-\kappa u/8}.
+\]
+The walk weights pay the factors involving their lengths.
+
+There is a separate count because the degree-two terms
+are formed at each pointer. By \cref{C-423-17} their
+support contains $z$, and the pointed form of the
+unpointed estimate gives
+\[
+ \sum_{X\ni z}e^{\kappa d_j(X)}
+       \sup_P\|E^{(j)}_{\ge2}(X;P;z)\|_H
+        \le\epsilon_j,\qquad
+ \epsilon_j=C_2\phi(\mathsf t_{j-1})^2.
+\]
+The mass term has this support property too, since it
+stands on the cube of $z$. If $X$ meets a level-$K$ cube
+$\square$, then
+$\operatorname{dist}(z,\square)\le M(d_j(X)+2)$ in
+level-$j$ units. The second residual factor consequently
+contributes at most
+$e^{-\kappa(\operatorname{dist}(z,\square)/M-2)^+/4}$.
+There are $M^3L^{3d}$ pointers inside $\square$ and at
+most $(2n+3)^3M^3L^{3d}$ in the outer shell of width $M$
+at distance between $nM$ and $(n+1)M$. Hence their total
+cost is
+\[
+ c_{\rm pt}^{(K)}L^{3d}\epsilon_j,\qquad
+ c_{\rm pt}^{(K)}
+ =M^3\left[1+\sum_{n\ge0}(2n+3)^3
+                              e^{-\kappa(n-2)^+/4}\right].
+\]
+The preceding power counts already include
+$L^{3d}\epsilon_j$. Replacing that count by the pointer sum
+therefore multiplies them by $c_{\rm pt}^{(K)}$ alone.
+
+Both stages of a leg can make its term reach additional
+level-$K$ cubes. A level-$j$ walk $\omega'$ followed by
+a level-$K$ walk $\omega$ reaches at most
+\[
+ (2|\omega|+5)^3[1+(2|\omega'|+5)^3]
+ \le n_{\rm wk}(1+2.3n_{\rm wk})
+                         e^{|\omega|}e^{|\omega'|/2}
+\]
+cubes for each cube of the hull. Use the weight
+$e^{3|\omega'|/2}$ for the first walk. Its weighted sum
+still has constant $A_\kappa$, as proved in the
+stored-layer count: $e^{|\omega'|}$ pays the length and
+transport factors, and $e^{|\omega'|/2}$ pays this new
+count. The second walk uses $e^{|\omega|}$. The resulting
+factor for the two legs is
+$1+2n_{\rm wk}(1+2.3n_{\rm wk})$.
+
+The torus discrepancy is filed at the pointer and its
+two level-$K$ walks. It costs at most
+\[
+ c_{\rm wr}^{(K)}L^{3d}
+           e^{-\kappa(\ell_j/(2M)-2)}\epsilon_j,
+ \qquad
+ c_{\rm wr}^{(K)}=2(1+2n_{\rm wk})M^3C_H^2C_{\rm wr},
+\]
+where $C_{\rm wr}$ is the row-sum constant in the torus
+part of \cref{C-388-24}. This is summable in $d$, since
+$\ell_j\ge2L^d$.
+For the cell terms, the difference of neighboring fields
+uses the block-link H\"older estimate directly. With
+$\alpha=3/4$, their count is
+\[
+ c_{\rm q}^{(K)}L^{d/4}\epsilon_j,
+ \qquad c_{\rm q}^{(K)}
+ =8(1+2n_{\rm wk})M^4C'^2C_H\max\{2,C(\alpha)\},
+\]
+where $C'$ bounds the weighted row sums of the background
+kernels. Here $M^3$ counts the pointers in a cell and
+$2M$ bounds its transport length. These transports are
+unitary at the real configurations used for the lower bound.
+
+All displayed geometric constants precede $h_F$. The
+calibration estimate
+\[
+ \phi(\mathsf t_{j-1})^2
+ \le L^{-d}(1+d\log L)^{2\mathfrak p_0}
+                         \phi(\mathsf t_{K-1})^2
+\]
+now completes the sum: its slowest term is bounded by
+$\sum_{d\ge0}L^{-3d/4}(1+d\log L)^{2\mathfrak p_0}<\infty$.
+This defines a finite $C_{2,*}$ containing the preceding
+counts and proves \eqref{eq:qcd-last-level-activity}.
+
+Include the mass member $-M_{h_\emptyset}$ and the bilinear
+part of $P$ in $-\langle\bar\Psi,p\Psi\rangle$.
+The mass member has operator norm at most
+$C_{\mathsf S_1}\bar B_M\gamma^2$; impose
+$C_{\mathsf S_1}\bar B_M\gamma^2\le c_bm_-/8$.
+For the activity bilinear, a row in $\square$ has row
+sum at most $(2h_*)^{-2}\sum_{Y\supset\square}\|P(Y)\|$,
+and the same holds for columns. Schur's test therefore
+bounds its operator norm by $(2h_*)^{-2}\epsilon_P$.
+Choose the threshold $c_*(m_-)$ in
+$\phi(\gamma^{-2})\le c_*(m_-)$ so this is at most
+$c_bm_-/8$. Then $\|p\|\le c_bm_-/4$, and
+$G_*=D_K+p$ has real part at least $c_bm_-/2$.
+Its inverse has Gram bound $\Gamma_*$ and exponential
+decay. Indeed $D_K$ and the mass member have exponential
+kernels, and \eqref{eq:qcd-last-level-activity} gives rate
+$\kappa/M$ for the activity bilinear. Conjugating by
+$e^{\alpha_*|y-y_0|}$, with $\alpha_*>0$ small enough
+depending on $m_-$ and these fixed kernel bounds, changes
+$G_*$ by at most $c_bm_-/4$. The inverse is then bounded
+by $2\Gamma_*^2e^{-\alpha_*|y-y'|}$, uniformly in the
+cutoff and volume.
+
 Apply the finite Grassmann forest expansion to the remaining
 terms of degree at least four, between fixed coarse cubes.
 The interpolation matrix is positive semidefinite and
@@ -8957,14 +9444,89 @@ $|f(\mathfrak c')-f(\mathfrak c)|\le
 The maximum, rather than a sum over the coordinates, occurs.
 Choose
 $\kappa_\sigma\le\min\{\kappa/(4c_{\mathcal D}M),1/(24M_w)\}$.
-Half the polymer decay and half the walk decay pay the
-distance in \eqref{eq:qcd-increment-locality}; the rest
-pay the polynomial and walk sums. This gives
-$B_\nu=4c_{\rm inc}h_F^{-2}C_w^{\rm s}$.
-Only the displayed terms in $C_w^{\rm s}$ involve
-$B_\sigma$, and their coefficients are proportional to
-$\theta_E$. Hence $B_\nu=\alpha_\nu+\beta_\nu B_\sigma$
-with the claimed order of choices.
+After paying the distance in \eqref{eq:qcd-increment-locality},
+the remaining polymer factor is
+$(1+d(X))e^{-3\kappa d(X)/4}$. A local leg has factor one;
+a walk leg of $t$ steps has factor
+$C_{\rm nb}^{-t}e^{-11t/4}$, since
+$C_{\rm nb}q_{\rm sup}\le e^{-3}$ and the distance bound
+uses only $e^{-t/4}$. A zero-step walk and the local term
+are separate terms.
+
+Let $S_\kappa$ be the supremum of the sum of these products
+over the polymers and both legs contributing to the symmetric
+zeroth moment at a fixed site, over all levels, tori and
+$\mathbb Z^3$. We verify that
+\begin{equation}\label{eq:qcd-increment-count}
+ S_\kappa\le
+ 8C_{\rm nb}(1-e^{-1/4})^{-1}C_{\rm cnt}
+ \left[1+8(M/M_w+2)^3(1-e^{-11/4})^{-1}\right],
+\end{equation}
+where
+\[
+ C_{\rm cnt}:=\sup_\square\sum_{X\ni\square}
+                          e^{-\kappa d(X)/2}
+ \le2048(1-e^{-2})^{-1}.
+\]
+The last inequality follows from the polymer count in
+\cref{C-388-19}, with the existing rate floor
+$9216e^{-\kappa/2}<e^{-2}$.
+
+The operators at every point of $2\mathscr D_k(a_k^{\rm rad})$
+are those of the history without large fields, at its fine
+mass matrix. Hence there is one layer, with blocks of side
+one in level units, and no stored place. The walk cubes form
+one partition into cubes of side $M_w$.
+For the leg whose column is the fixed site $y$, at most
+$C_{\rm nb}$ walk cubes can meet the block supporting that
+column. At each first or last cube there are at most
+$C_{\rm nb}^t$ walks of $t$ steps. The local term and the
+walk terms therefore have total factor at most
+$1+C_{\rm nb}(1-e^{-11/4})^{-1}$. Including both terms in
+the symmetric zeroth moment costs at most
+$C_{\rm nb}(1-e^{-1/4})^{-1}$.
+
+For a fixed such leg, $X$ meets either the block of $y$ or
+the threefold walk cube at its row. That cube has side
+$3M_w\le M$ and meets at most eight cubes of side $M$.
+For the other leg, count its possible first cubes at the
+rows of $X$; a row twin is counted by its last cubes.
+The polymer has at most $8(1+d(X))$ cubes of side $M$.
+The cutoff of a walk cube extends by $M_w/4$ on each side.
+If it is nonzero at a row in a given $M$-cube, the walk cube
+lies in the concentric cube of side $M+5M_w/2$.
+At most $(M/M_w+2)^3$ disjoint walk cubes can do so.
+Indeed choose a translate of the grid $M_w\mathbb Z^3$
+with exactly $(M/M_w+2)^3$ points in that larger cube;
+each half-open walk cube contains exactly one grid point.
+The same count holds on a torus; if its side is smaller
+than the larger cube, the torus has side $M$ and contains
+only $(M/M_w)^3$ walk cubes.
+Thus the other leg contributes at most
+\[
+ 1+8(1+d(X))(M/M_w+2)^3(1-e^{-11/4})^{-1}.
+\]
+The polynomial factors are absorbed by
+$(1+d)^2e^{-\kappa d/4}\le1$, using $\kappa>8$.
+Summing first over the leg at $y$, then the polymers
+meeting the indicated eight cubes, and finally the other
+leg proves \eqref{eq:qcd-increment-count}.
+
+Let $C'$ be the fixed constant from the extension and Cauchy
+bound above, enlarged if necessary so that $C'\ge2$.
+The coefficient estimate of \cref{C-388-21} now gives
+\[
+ c_{\rm inc}:=C'\eta_{\min}^{-2}
+       \max\{1,C^\psi_{am}\}e^{\kappa/4+1/2}S_\kappa,
+ \qquad B_\nu=4c_{\rm inc}h_F^{-2}C_w^{\rm s}.
+\]
+Here $\eta_{\min}$ is the uniform positive lower bound on
+the constant-field background factor. All factors in
+$c_{\rm inc}$ are fixed before $h_F$. Only the displayed
+terms in $C_w^{\rm s}$ involve $B_\sigma$, and their
+coefficients are proportional to $\theta_E$.
+Hence $B_\nu=\alpha_\nu+\beta_\nu B_\sigma$ with the
+claimed order of choices.
 \end{proof}
 
 \begin{lemma}[Comparison with the infinite lattice]\label{C-407-33}
@@ -11814,6 +12376,9 @@ $C_{\rm pw}$ and the enlarged cell-unit constant $C_{(N)}$
 before $C_\omega$, and then $c_{\rm cs}$ and $C_{\rm pc}$.
 Their bounds divide out the same two leg weights $h^2$;
 none depends on the subsequent choice of $h_F$.
+Form also $C_{\rm cnt}$, $C'$, $S_\kappa$ and $c_{\rm inc}$
+from \eqref{eq:qcd-increment-count} and the subsequent formula,
+after $M$ and the kernel bounds and before $h_F$.
 
 \emph{The fibre weight and source constants.}
 Choose $h_F$ sufficiently large. Besides
@@ -11888,7 +12453,8 @@ or a final small-coupling threshold.
 
 Form the zero-source constants in their proved order:
 $r_x,C_{\rm sl},C_r,C_{(2)},C_0,C_1,C_\chi,c_s,\theta_s$,
-then $C_2,C_T,C_3$, then $C_\rho',C_\rho,C_s$, and then
+then $C_2,C_2^{\rm pt}=8M^3C_2,C_T,C_3$, then
+$C_\rho',C_\rho,C_s$, and then
 $C_w,C_b,C_e,B_z,C_\mu$. Here $C_3$ is the cubic mass
 remainder constant; later source remainder constants are
 different constants. The separate mass-member estimates
@@ -11923,8 +12489,11 @@ their order-$\phi$ leg families to belong to the smaller
 balls about the normalized zero-source families. The cubic
 mass decomposition is used only in the constant-coordinate
 window, with $C_\rho$ fixed before $B_\sigma$.
-All local-energy, stored-source, history-majorant and later
-insertion constants are now finite and can be formed.
+Form $C_V^F$ after the stored-layer constants and
+$C_2^{\rm pt}$, using the variation estimate in
+\cref{C-399-21}. All local-energy, stored-source,
+history-majorant and later insertion constants are now
+finite and can be formed.
 
 Allow the remaining constants to depend on the fixed mass interval,
 and choose the physical bilinear-source radius at this point.
@@ -11986,7 +12555,15 @@ ratio $\tau=x_j/\mathsf t_j$, with $|\tau-1|\le1/4$.
 Its construction and retained collar term are those of
 \cref{C-399-44,C-399-43}. Impose the explicit frame thresholds
 and the three $\varepsilon_\flat/4$ bounds in
-\cref{C-399-47,C-399-48,C-399-21}. The three-share
+\cref{C-399-47,C-399-48,C-399-21}. In the stored-layer
+bound $b^{\rm lay}(\gamma)$ use the displayed formula for
+$b_k^{\rm lay}$ with $\delta_k=\delta(\gamma^{-2})$,
+$\phi(\mathsf t_k)=\phi(\gamma^{-2})$ and the corresponding
+$\Theta'(\gamma),\Theta(\gamma)$; its two pointer terms
+retain the factor $C_2^{\rm pt}$. Also require
+$16c_sh_F^2\bar B_M^2\gamma^2\le C_2$.
+These are ceilings on $\gamma$ after all their coefficients
+have been fixed. The three-share
 recursion of \cref{C-399-21} has factor $64/51$,
 so these three shares give
 $\frac{64}{51}\frac34\varepsilon_\flat
@@ -12073,7 +12650,11 @@ For the common lower bound impose
 \]
 The first pays the running mass member; the second pays
 the activity bilinear and the last interacting forest
-expansion. The threshold $\gamma(h,A)$ is obtained by
+expansion. In choosing $c_*(m_-)$ include the constants
+$c_{\rm pt}^{(K)},c_{\rm pr}^{(K)},c_{\rm wr}^{(K)},c_{\rm q}^{(K)}$
+in $C_{2,*}$ from \eqref{eq:qcd-last-level-activity},
+formed at the auxiliary weight $2A_\kappa h_*$.
+The threshold $\gamma(h,A)$ is obtained by
 taking the infimum of its positive continuous ceilings
 on the compact rectangle $[h_F,h]\times[1,A]$.
 It is positive and decreases in $h,A$. Thus this last
@@ -12704,6 +13285,13 @@ and the quadratic origin do not depend on $z,\xi$ and cancel
 in these differences; the insertion terms have the uniform
 bound $2K'_Mc_{\rm ins}c_{\rm cl}e^{-\kappa_+d_i(X)}$.
 At $z=\xi=0$, expand in $\eta\mathcal L_i+q_i$.
+The quadratic origin throughout this expansion is
+$\mathcal V^{\rm q}+\mathcal V^v$: the q potential together
+with the quadratic term added by the source weight. Its
+untested logarithm is the source-dependent $\mathbf G^v$
+of \cref{C-407-16}. Thus the pointing formula of
+\cref{C-388-37} uses this origin in both its tested and
+untested parts, with $\mathbf G^v$ as the divisor.
 The terms of order at least four are fourth order in $w$ and
 have norm at most $N_{\rm h}/3$ by Cauchy on $|\eta|=2$.
 The terms of orders zero and two differ from $F_i^{\rm G}$
@@ -12809,11 +13397,42 @@ applies to the new activity, since its potential
 uses only the previously constructed families.
 
 At the trivial pair $\mathcal L_j=0$: a linear gauge functional
-there would be an invariant adjoint colour vector. The scalar
-constant, together with the logarithmic mass of the fixed
-relative-weight origin, gives $e_j^{\rm G}$; the free fermion normalizer
-gives $e_j^{\rm F}$, the fourth-order families give $e_j^{\rm H}$,
-and the remainder gives $e_j^{\rm I}$. The Gaussian sums telescope
+there would be an invariant adjoint colour vector. At this pair, compare the tested expansion with origins
+$\mathcal V^{\rm q}+\mathcal V^v$ and $Q_j^{\rm G}$ with
+the untested expansion at coefficient $\tau=1$.
+Changing both sorts costs $2K_P^\Pi p_*$, and removing
+the tests costs $K_P^\Pi p_*$. The subtracted zero-source
+value costs at most a further $3K_P^\Pi p_*$.
+Changing the coefficient costs
+$2K_\Pi\|Q_j^{\rm G}\|\bar B/(\sigma_\star\mathsf t_{j-1})$.
+Their sum is bounded by
+\[
+ \left[6K_P^\Pi p_*+
+ \frac{2K_\Pi\|Q_j^{\rm G}\|\bar B}
+ {\sigma_\star\mathsf t_{j-1}}\right]e^{-\kappa_+d_j(X)}
+       \le C\phi(x_{j-1})e^{-\kappa_+d_j(X)}.
+\]
+The Gaussian divisor is compared separately after subtracting
+its zero-source value. On $|\tau'-1|<\sigma_\star/2$,
+keep $\tau'v=v'_{j-1}$ fixed. Then $\mathcal V^v$ is
+unchanged, and the norm of $\mathcal V^{\rm q}+\mathcal V^v$
+is below $c_{\rm cl}/2$. The pointed Gaussian bound of
+\cref{C-407-16}, summed over at most $8M^3e^{d_j(X)}$
+sites, and Schwarz's lemma on this disc give
+\[
+ |\mathbf G^v(X;1)-\mathbf G_\tau(X;1)
+                    -\mathbf G^{v'}_j(X)|
+ \le32M^3C_G^v(1+\sigma_\star^{-1})
+       \frac{\bar B}{\mathsf t_{j-1}}e^{-\kappa d_j(X)}.
+\]
+Here $\mathbf G^{v'}_j$ is the relative-weight logarithm
+at $\tau'=1$, and $C_G^v$ is the fixed pointed bound from
+that proposition. The loss of one decay unit pays the site
+count. This error belongs to $e_j^{\rm I}$.
+The scalar Gaussian constant, together with
+$\mathbf G^{v'}_j$, gives $e_j^{\rm G}$; the free fermion
+normalizer gives $e_j^{\rm F}$, the fourth-order families give
+$e_j^{\rm H}$, and the remaining terms give $e_j^{\rm I}$. The Gaussian sums telescope
 by exact Gaussian integration. In this identity the linear term is
 $\mathcal L_i^{\rm G}$, the first background-gauge jet of
 $\mathcal L_i$, and the quadratic term is $Q_i^{\rm G}=q_i(1)$;
@@ -12951,11 +13570,23 @@ $\delta_{\Gamma\Gamma'}(2\pi^2)^{-1}\mathcal K_4$ with error at most
 \end{lemma}
 
 \begin{proof}
+In the component norm on $\mathfrak{su}(2)$, the quadratic
+part of $a_p(e^{iA})$ is $\frac12|(dA)_p|^2$.
+The Gaussian weight is therefore
+$\exp[-\frac\beta2\sum_p|(dA)_p|^2]$.
 The flat constrained-curvature identity
-\cite[Prop.~120.3]{YMM1} identifies the free covariance
-per colour with the closed-curvature projection. Its canonical
-step hypotheses hold by \cref{C-396-12}. Away from coincidence its continuum kernel is the
-dipole matrix
+\cite[Prop.~120.3]{YMM1} identifies the curvature covariance
+per colour as $\beta^{-1}C_K^{\rm free}$, with
+$C_K^{\rm free}$ the closed-curvature projection. Its canonical
+step hypotheses hold by \cref{C-396-12}. Thus the connected
+covariance of the quadratic action densities is
+\[
+ \frac{\dim\mathfrak{su}(2)}{2}\,
+             \beta^{-2}C_K^{\rm free}(p,q)^2.
+\]
+The two source derivatives supply $a_K^{-2}$, and
+$\beta a_K=\mathsf b$. Away from coincidence the continuum
+kernel of the projection is the dipole matrix
 $\mathbb K_3(x)=(3xx^{\mathsf T}-|x|^2I)/(4\pi|x|^5)$.
 The squared entries sum to $3/(8\pi^2|x|^6)$.
 The free case of \cite[Prop.~121.2]{YMM1}, including
