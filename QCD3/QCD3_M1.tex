@@ -9,13 +9,15 @@
 \RequirePackage{amsmath,amsthm,amssymb,mathtools}
 \RequirePackage{mathrsfs}
 \RequirePackage{enumitem}
+\RequirePackage{longtable}
 \RequirePackage{perpage}
 \RequirePackage{xcolor}
 \definecolor{manuscriptred}{rgb}{0.6,0.1,0.1}
 \definecolor{manuscriptblue}{rgb}{0.1,0.3,0.5}
 \definecolor{manuscriptmagenta}{HTML}{60445C}
 \RequirePackage[breaklinks=true,colorlinks=true,
-  linkcolor=manuscriptred,citecolor=manuscriptblue,urlcolor=manuscriptmagenta]{hyperref}
+  linkcolor=manuscriptred,citecolor=manuscriptblue,urlcolor=manuscriptmagenta,
+  filecolor=manuscriptmagenta]{hyperref}
 \RequirePackage{cleveref}
 \hypersetup{pdfauthor={}}
 
@@ -30,6 +32,7 @@
 \newtheorem{ms@theorem}{Theorem}
 \renewcommand{\thems@theorem}{\Alph{ms@theorem}}
 \newtheorem*{ms@theoremstar}{Theorem}
+\newtheorem*{ms@theoremzero}{Theorem 0}
 \newtheorem{ms@proposition}{Proposition}[section]
 \newtheorem{ms@lemma}[ms@proposition]{Lemma}
 \newtheorem{ms@definition}[ms@proposition]{Definition}
@@ -44,6 +47,8 @@
   {\popQED\endms@theorem}
 \newenvironment{theorem*}[1][]{\ms@majorstart\ms@theoremstar[#1]}
   {\popQED\endms@theoremstar}
+\newenvironment{theoremzero}{\ms@majorstart\ms@theoremzero}
+  {\popQED\endms@theoremzero}
 \newenvironment{proposition}[1][]{\ms@minorstart\ms@proposition[#1]}
   {\popQED\endms@proposition}
 \newenvironment{lemma}[1][]{\ms@minorstart\ms@lemma[#1]}
@@ -59,20 +64,21 @@
 \newtheorem{remark}[ms@proposition]{Remark}
 \newtheorem*{remark*}{Remark}
 
-\crefname{ms@theorem}{theorem}{theorems}
-\Crefname{ms@theorem}{Theorem}{Theorems}
-\crefname{ms@proposition}{proposition}{propositions}
-\Crefname{ms@proposition}{Proposition}{Propositions}
-\crefname{ms@lemma}{lemma}{lemmas}
-\Crefname{ms@lemma}{Lemma}{Lemmas}
-\crefname{ms@definition}{definition}{definitions}
-\Crefname{ms@definition}{Definition}{Definitions}
-\crefname{ms@corollary}{corollary}{corollaries}
-\Crefname{ms@corollary}{Corollary}{Corollaries}
-\crefname{remark}{remark}{remarks}
-\Crefname{remark}{Remark}{Remarks}
+\crefname{ms@theorem}{Thm.}{Thms.}
+\Crefname{ms@theorem}{Thm.}{Thms.}
+\crefname{ms@proposition}{Prop.}{Props.}
+\Crefname{ms@proposition}{Prop.}{Props.}
+\crefname{ms@lemma}{Lem.}{Lems.}
+\Crefname{ms@lemma}{Lem.}{Lems.}
+\crefname{ms@definition}{Def.}{Defs.}
+\Crefname{ms@definition}{Def.}{Defs.}
+\crefname{ms@corollary}{Cor.}{Cors.}
+\Crefname{ms@corollary}{Cor.}{Cors.}
+\crefname{remark}{Rem.}{Rems.}
+\Crefname{remark}{Rem.}{Rems.}
 
 \makeatother
+
 
 \title[Massive SU(2) gauge theory]{Massive SU(2) gauge theory in three dimensions}
 \date{}
@@ -110,6 +116,19 @@ $\beta=\mathsf b/a$ and $m_0=a\mathsf m$. The torus measure is
 Here $D_{U,+}$ is the $\tau_3=1$ internal block for one flavour
 of the massive chamber operator. Its determinant and that
 of the other block are complex conjugates.
+
+\begin{theoremzero}
+Fix the number of flavours and a compact positive mass interval.
+For sufficiently weak gauge coupling, the chamber model has
+subsequential continuum limits of the centered action-density
+and scalar and pseudoscalar bilinear correlations on separated
+supports, after the infinite-volume limit. Every such limit is
+Euclidean covariant and reflection positive at every plane.
+It reconstructs a finite family of Hermitian local Wightman
+fields, each with a nonzero two-point function.
+\end{theoremzero}
+The precise statement, including the order of limits, field
+family and parameter assumptions, is \cref{C-396-28}.
 
 We retain the action density and a finite family of colour-singlet
 fermion bilinears. Let $\tau_0=1,\tau_1,\tau_2,\tau_3$
@@ -236,18 +255,14 @@ These last two bounds permit the finite-family rotation argument
 and reconstruction. Nonvanishing follows from the short-distance
 two-point laws, not from reflection positivity alone.
 
-The chamber model and the matter arguments are those of
-\cite{fermion-notes}; the gauge construction and the general
-functional results are taken from \cite{gauge-notes,YMM1}.
-For the gauge induction we use
-\cite[Corollary II-202-43]{gauge-notes}, which establishes
-its numerical and structural hypotheses at every admissible
-choice of the pure gauge constants. \Cref{def:qcd-gauge-admission}
-recalls its proof, and \cref{C-396-12} verifies that the
-additional matter conditions preserve an admissible choice.
-The applicability to the fermion and source terms is checked
-in the local and history expansions below. We retain the
-single massive chamber model and the observables in
+We adapt the gauge construction and the general functional results
+of \cite{YMM1} to the chamber model defined in
+\cref{sec:qcd-lattice-foundation}. The fermion estimates and their
+use in the local and history expansions are proved below.
+\Cref{def:qcd-gauge-admission} verifies the numerical and structural
+hypotheses of the gauge induction; \cref{C-396-12} checks that the
+additional matter conditions preserve the required choice of
+constants. We use the observables in
 \eqref{eq:qcd-physical-observables}. The scalar field indexed
 by $0$ is the action density. No gauge potential or coloured
 quark field is reconstructed here.
@@ -520,8 +535,9 @@ the opposite normal, and the antiperiodic sign from that period
 reverses it once more. Thus the far crossing matrices are again
 $t_s\pm t_s\gamma(n)/2$, both positive; the gauge half-link
 factorisation and the top-monomial calculation are unchanged.
-This proves the antiperiodic coordinate-torus assertion
-\label{C-391-33}, including mirrors through sites.
+\phantomsection\label{C-391-33}
+This proves the antiperiodic coordinate-torus assertion,
+including mirrors through sites.
 A diagonal plane does not cut this cubic torus into two slabs.
 
 \subsection{Decay, finite-rank perturbations and the specification}
@@ -1024,10 +1040,9 @@ finite-volume conditional kernel differs uniformly from $\gamma_B$
 by the ratio estimate following \cref{C-386-27}, the error being
 the sum of \eqref{eq:qcd-vanishing-tilt} and the torus determinant
 error. Conditional integration is exact before passage to the limit.
+\phantomsection\label{C-386-28}
 The image formula also proves convergence of local continuous
 Grassmann expectations to $\omega_\nu$ along these weighted laws.
-This is the assertion of \label{C-386-28}the slowly varying weight
-lemma that is needed below.
 
 \subsection{Operators inserted at a bond mirror}
 
@@ -1328,7 +1343,7 @@ $\Delta_{\dot K}$, and block diagonal covariances factorize
 expectations of even elements in distinct blocks.
 
 We use the forest interpolation identity
-\cite[Theorem~III.1]{AbdesselamRivasseau1994} for a polynomial $H$ in
+\cite[Thm.~III.1]{AbdesselamRivasseau1994} for a polynomial $H$ in
 edge variables on $n$ vertices:
 \begin{equation}\label{C-386-51}
  H(1)=\sum_{\mathcal F}\int_{[0,1]^{\mathcal F}}dt\,
@@ -1595,7 +1610,7 @@ gives
 \]
 Its value under $\delta$ is zero by the link equation.
 Since $K_S$ maps trigonometric polynomials onto themselves,
-Peter--Weyl density \cite[Theorem~37.5(ii)]{Etingof} and local boundedness imply
+Peter--Weyl density \cite[Thm.~37.5(ii)]{Etingof} and local boundedness imply
 $\delta(Z_{S,j}^{-1}H)=0$ for every $H$ in the new coordinates
 and the old coordinates other than $\widetilde u_j|_S$.
 For an arbitrary element of the enlarged algebra, its resampling
@@ -1858,7 +1873,7 @@ chosen side. Cubic-torus limits are periodic Gibbs laws by
 \cref{C-389-10}, so the last assertion follows.
 \end{proof}
 
-\section{The pure gauge input and local expansions}
+\section{The pure gauge input and local expansions}\label{sec:qcd-gauge-input}
 
 We use the finite gauge construction of \cite{YMM1} with the following
 conventions and hypotheses. Fix its odd blocking integer $L\ge13$,
@@ -1894,7 +1909,7 @@ sides to be the cofinal set $\mathfrak L(g)=\{2L^m:m\ge m_g\}$, where
  \left\lceil\log_L C_{\rm s}\right\rceil\right\}.
 \]
 Here $C_{\rm s}\ge2$ is the fixed chart-room constant of
-\cite[Corollary~69.4 and its preceding torus-room calculation]{YMM1}.
+\cite[Cor.~69.4 and its preceding torus-room calculation]{YMM1}.
 This is the room for the larger local charts as well as the
 finite induction. Omitting finitely many sides does not alter
 the class of infinite-volume torus limits.
@@ -1927,7 +1942,7 @@ give matrices $W_x$ near one, and
 \]
 The continuation is used only on the logarithm branch specified
 there. Outside the small-curvature domain use the Borel real
-extension of \cite[Proposition~4.5 and its preceding definition]{YMM1}.
+extension of \cite[Prop.~4.5 and its preceding definition]{YMM1}.
 This fixes the global map as well as its analytic branch;
 it does not choose a branch separately in each history.
 
@@ -1953,7 +1968,7 @@ In level-$j$ units, a regular pair $(\mathbf U,\mathbf J)$ is
 represented by a triple $(U,A',\mathbf J)$, with $U$ real and
 $\mathbf U=e^{iL^{-j}A'}U$ complex. It belongs to
 the analytic core $\mathcal U_j^\circ(X;b_0,b_1)$ of
-\cite[Definition~49.1]{YMM1}: its curvature and current have the
+\cite[Def.~49.1]{YMM1}: its curvature and current have the
 indicated small bounds, its local real gauge potentials have
 the stated bounds, and every required reduced block tower
 exists on the prescribed logarithm branch and satisfies the
@@ -1995,7 +2010,7 @@ holomorphic on the cores, local and gauge covariant, with
 exponential polymer bounds. Its history decomposition is
 linear in a bounded Borel density, coefficientwise for a
 finite-dimensional algebra-valued density.
-We use \cite[Theorem~V and Definition~52.1]{YMM1}: holomorphic local Gaussian
+We use \cite[Thm.~V and Def.~52.1]{YMM1}: holomorphic local Gaussian
 kernels and interaction, the real-reference bounds, the
 gauge covariance and independence of the triple representing
 a given pair $(\mathbf U,\mathbf J)$, the polymer
@@ -2003,7 +2018,7 @@ bounds and its stated numerical inequalities. The output
 has rate $\kappa_+=(1+4\beta_s)\kappa$. The quadratic
 term caused by changing the gauge Gaussian coefficient,
 denoted by q in the expansion, is kept as a separate scalar family.
-We also use \cite[Proposition~51.16]{YMM1}: at fixed radius the change of an old array gains
+We also use \cite[Prop.~51.16]{YMM1}: at fixed radius the change of an old array gains
 the size of the shift, and at radius $a$ its bound is
 \[
  \frac65K_\Lambda\frac{C_{\mathcal A}\delta(\mathsf t_k)}a
@@ -2026,7 +2041,7 @@ by taking the absolute value of an uncentered density would introduce
 an extensive error depending on the external field.
 
 We recall the conditional-integral estimate of
-\cite[Proposition~75.1, Lemma~75.2 and Proposition~75.3]{YMM1}.
+\cite[Prop.~75.1, Lem.~75.2 and Prop.~75.3]{YMM1}.
 Let $(C,\Gamma,\mathbf m)$
 be a holomorphic Gaussian system satisfying its mean, error,
 geometry and tested-bond conditions. Suppose $F(B;n)$ has the
@@ -2086,7 +2101,7 @@ to each quadratic term, and the identities of the actual density
 must also be checked. We make those checks in
 \cref{C-399-32,C-399-41,C-399-43,C-399-44}.
 
-\section{Fermion block integration}
+\section{Fermion block integration}\label{sec:qcd-block-integration}
 
 We now express a fermion block integral as a Schur complement
 and a determinant. Coercivity gives the inverse needed in this
@@ -2291,6 +2306,17 @@ $q_1=L^{-1/2}Q(V)\iota^*$. It satisfies
  c_{\mathrm{fl}}=\min\left\{\frac\theta{2L},
                     \frac{c_\Delta}{6L^3(L-1)}\right\}>0.
 \]
+These assertions hold for every real $\mathrm{SU}(2)$ configuration.
+Let $c_{\mathrm{hop}}=9/2$ be the bound on the site-changing
+hopping coefficient, and put
+$\delta_0=c_{\mathrm{fl}}/[4e(c_{\mathrm{hop}}+6\theta)]$.
+For every set $Y$ of chambers, the compression $\Gamma_{0,Y}$ obeys
+\[
+ |\Gamma_{0,Y}^{-1}(v,v')|
+ \le\frac2{c_{\mathrm{fl}}}
+       e^{-\delta_0|x_v-x_{v'}|_1}.
+\]
+The same estimate holds on the mirror tori used below.
 \end{lemma}
 
 \begin{proof}
@@ -2315,6 +2341,25 @@ summing the block inequality gives
           (\langle f,\Delta f\rangle+\theta\|q_1f\|^2).
 \]
 Adding $m_0\|f\|^2$ proves the fluctuation floor.
+
+For a real weight $\eta$ changing by at most $\delta_0$ across
+a bond, twisting $D$ changes its norm by at most
+$c_{\mathrm{hop}}(e^{\delta_0}-1)$. Write
+$q_1^*q_1=L^{-1}\iota P\iota^*$, where $P$ is the sum of
+the block projections. The variation of $\eta$ from a block
+centre is at most $3L\delta_0/2\le1$, so
+\[
+ \|e^\eta Pe^{-\eta}-P\|\le e^{3L\delta_0}-1
+                         \le6eL\delta_0.
+\]
+The two changes together cost at most $c_{\mathrm{fl}}/2$.
+Compression commutes with multiplication by $e^\eta$; hence
+the twisted compressed operator has real part at least
+$m_0+c_{\mathrm{fl}}/2$ and inverse norm at most
+$2/c_{\mathrm{fl}}$. Take
+$\eta(x)=\delta_0\operatorname{dist}_1(x,x_{v'})$ to obtain
+the kernel bound. The argument is local to blocks and walls,
+so it also applies on every mirror torus.
 \end{proof}
 
 Let $q_1=L^{-1/2}Q(U)\iota^*$ and
@@ -2484,7 +2529,7 @@ On the history without large-field regions the closed form is
        \mathfrak a_k^2R_k\mathcal K_k^{-1}R_k^*.
 \]
 
-\section{Fluctuation operators in a regular gauge background}
+\section{Fluctuation operators in a regular gauge background}\label{sec:qcd-regular-operators}
 
 The block integral requires estimates on its covariance that remain
 uniform as the lattice spacing decreases.  The small mass does not
@@ -2642,8 +2687,7 @@ plaquette bound $\epsilon'\mathsf s(x)^{-2}$.  Then
 \[
  \|D[U]g\|^2\ge\frac{c_e}{16}\mathcal E_U(g)
  -C_{\mathrm{pu}}(1+c_e)c_{\mathrm{hop}}^2
-       (R'^{-2}+R'^2\epsilon'^2)\|\mathsf s^{-1}g\|^2,
- \qquad c_{\mathrm{hop}}=\tfrac92.
+        (R'^{-2}+R'^2\epsilon'^2)\|\mathsf s^{-1}g\|^2.
 \]
 \end{lemma}
 
@@ -2882,10 +2926,10 @@ $n-1$ in place of $n$.
 \end{lemma}
 
 \begin{proof}
-We use the fermion averaging argument of \cite{fermion-notes}.
-The pure gauge input is \cite[equation (1063), p.~473]{YMM1}:
-on the double block, after reducing fixed radii, the iterates
-are holomorphic and
+We first estimate the iterated gauge fields and then the products
+defining the fermion averages. By
+\cite[equation (1063), p.~473]{YMM1}, on the double block,
+after reducing fixed radii, the iterates are holomorphic and
 \[
  V_i^{\rm c}=e^{iX_i}V_i,\quad
  \xi_i:=\sup|X_i|\le C_{\rm av}\sigma L^{i-n},\qquad
@@ -2900,7 +2944,7 @@ To use that double-block statement on $B$, reflect its data
 into the neighbouring block, put $U=1$ and $X=0$ on the
 crossing bonds, and observe that every crossing plaquette is
 one. The average in $B$ is independent of this extension by
-\cite[Lemma~14.2]{YMM1}.
+\cite[Lem.~14.2]{YMM1}.
 
 The contour rearrangement estimate gives
 $r_i=e^{9L^2\omega_i/8}-1$. The real quaternion identity
@@ -3032,8 +3076,8 @@ mirror tori as well as on the original history.
 Put $C_{\mathrm{inv}}=\max\{2/\theta+2LC_S,2/c_{\rm fl}\}$.
 The Schur formula bounds the fluctuation inverse by $C_{\mathrm{inv}}$.
 Choose $C_D$ to dominate $2(c_{\rm tw}+\theta)C_{\mathrm{inv}}^2$
-and $4/c_{\rm fl}$, choose the fluctuation twist rate $\alpha_D$
-after $C_D$, and increase $R_0$ until
+and $4/c_{\rm fl}$, choose the fluctuation twist rate
+$0<\alpha_D\le\delta_*/4$ after $C_D$, and increase $R_0$ until
 \[
  \alpha_DR_0\ge\max\{2\log L,32\},\qquad
  R_0\ge1+16/\delta_*.
@@ -3225,6 +3269,26 @@ All these estimates are uniform in $k$, $K$, the volume and $N_f$.
 \end{proposition}
 
 \begin{proof}
+At the first step $\mathcal K_1=\Gamma_0$ and
+$1\le\mathsf s_1\le L$. The preceding all-field bound
+also admits a matrix source of norm at most
+$\varrho_\sharp\le c_{\mathrm{fl}}/4$: the twisted real
+part loses at most $c_{\mathrm{fl}}/4$, so the kernel
+prefactor becomes $4/c_{\mathrm{fl}}$. For a weight of
+rate at most $\min\{\delta_*,\delta_0\}/8$, the twisted
+kernel is bounded by
+$(4/c_{\mathrm{fl}})e^{-7\delta_0|x_v-x_{v'}|_1/8}$.
+Summing over the $\nu_0=48$ chambers at each site gives
+\[
+ |e^\eta\mathcal K_1^{-1}e^{-\eta}g|_{(1)}
+ \le\frac{4L\nu_0}{c_{\mathrm{fl}}}
+       \left(\coth\frac{7\delta_0}{16}\right)^3|g|_{(2)}.
+\]
+Include this number in $C_{\rm sup}$ before choosing the
+walk constants. It applies to the full and mirror inverses
+at every real configuration. The regular complex domains
+are treated by the perturbation bounds below.
+
 Partition the regular layers into cubes $\square$ of side
 $M_wL^{n(\square)}$ and choose $\sum h_\square^2=1$, with
 $h_\square$ supported in the concentric cube $W_\square$ of
@@ -3348,7 +3412,9 @@ At level $n\ge1$, eliminating the block equations gives
                  \mathcal W_\omega S.
 \]
 The leftover term is $\mathcal H^{\rm loc}_{(n)}$.
-Each average of a field is at most $2L^n$ times its supremum;
+In the per-chamber supremum norm, $\iota^*$ has norm $\sqrt{48}$:
+it is $48^{-1/2}$ times the sum over the chambers at a site.
+Thus each average is at most $2\sqrt{48}L^n$ times the supremum;
 $L^{m-1}\le\mathsf s\le L^m$ on its layer gives the size bound.
 Write $\psi_\omega=\mathcal W_\omega S\Psi$ and
 $\varphi_\omega=\iota^*\psi_\omega$.
@@ -3357,7 +3423,7 @@ $c_T\epsilon_*L^{2(n-m)}$. On the complex class,
 \cref{lem:qcd-complex-block-averages} adds
 $C_Q\alpha_1^*L^{n-m+1}$. Multiplying by the normalized average
 factor $L^n$ and the size bound
-$|\varphi_\omega|\le2|\psi_\omega|_{(1)}/\mathsf s_k(x)$
+$|\varphi_\omega|\le2\sqrt{48}|\psi_\omega|_{(1)}/\mathsf s_k(x)$
 bounds this contribution by
 \[
  C(c_T\epsilon_*L^2+C_Q\alpha_1^*L^2)
@@ -3605,7 +3671,17 @@ component decomposition.
 
 \begin{lemma}[Rows reaching stored layers]\label{C-397-33}
 Choose the weight constant $C_H$ at least twice the enlarged
-whole-background row constant.  If a row $x$ of level $n$
+whole-background row constant and above the fine-resolvent
+constant below. On the regularity and source domains of
+\cref{C-397-29}, with $j=k-1$, one has
+\begin{equation}\label{eq:qcd-fine-resolvent-kernel}
+ |\mathcal K_k(\mathsf n)^{-1}(v,v')|
+ \le C_H(1+|x_v-x_{v'}|_1)^{-2}
+                   e^{-\alpha_Dd_{h,k}(x_v,x_{v'})},
+ \qquad \mathsf n=-a_KJ.
+\end{equation}
+The same bound holds jointly with the complex gauge class.
+If a row $x$ of level $n$
 lies in the layer $\mathcal L_m$, $n\le m$, then at a real
 regular configuration
 \[
@@ -3624,6 +3700,237 @@ $\sum_y|\mathsf H_{n,k}(x,y)|\le C_HL^{-(k-n)}$ and
 the difference bound $C_H(\alpha)L^{-(1+\alpha)(k-n)}$.
 \end{lemma}
 \begin{proof}
+\emph{The fine resolvent.}
+We give the point-source argument, since a weighted operator
+bound alone does not give the power in
+\eqref{eq:qcd-fine-resolvent-kernel}. Retain
+$\alpha_D\le\delta_*/4$ and the separation floors chosen in
+\cref{C-397-29}. Write $\mathsf s=\mathsf s_k$, $d=d_{h,k}$,
+and fix a place $v'$ and a unit fibre vector $\xi$. Put
+\[
+ x'=x_{v'},\qquad s'=\mathsf s(x'),\qquad
+ F=\mathcal K_k(\mathsf n)^{-1}\delta_{v'}\xi,
+ \qquad \eta(x)=\delta_*d(x,x').
+\]
+All constants in this argument depend only on the previously
+chosen operator constants. They are independent of the history,
+volume, cutoff and flavour multiplicity. Let
+$t=|x-x'|_1$ and $\rho=|x-x'|_\infty$. The Lipschitz bound
+on $\mathsf s$ gives
+\[
+ t\le(Rs'+1)(e^{d/R}-1)\le2s'de^{d/R},\qquad
+ \max\{\mathsf s(x)/s',s'/\mathsf s(x)\}\le e^{2d/R}.
+\]
+Consequently, if $\delta R\ge4$,
+\begin{equation}\label{eq:qcd-metric-to-bare-decay}
+ e^{-\delta d}\le C_\delta s'^2(1+t)^{-2},\qquad
+ C_\delta=4\sup_{u\ge0}(1+u)^2e^{-\delta u/2}.
+\end{equation}
+
+Choose the fixed $\varepsilon_0>0$ in the local regularity
+argument small enough for its absorptions below, and reduce
+$\epsilon_*$ so that
+$\epsilon_*L^2\varepsilon_0^2\le\epsilon_{\rm lr}$.
+If
+$\varepsilon_0s'<64$, the twisted inverse bound gives
+\[
+ |F(x)|\le2C_S(\mathsf s(x)s')^{1/2}e^{-\eta(x)}
+       \le2C_Ss'e^{-15\delta_*d/16}.
+\]
+Apply \eqref{eq:qcd-metric-to-bare-decay} with
+$\delta=\delta_*/2$. The remaining exponential has rate
+at least $\alpha_D$, and $s'<64/\varepsilon_0$ bounds
+the remaining prefactor. This proves the claim in this case.
+
+Suppose now that $l=\varepsilon_0s'\ge64$.
+The separation of the layers puts $Q_{2l}(x')$ inside
+$\Omega_1$, with its required neighbouring bonds, and gives
+\[
+ |U_p-1|\le\epsilon_*L^2s'^{-2},\qquad
+ \tfrac34s'\le\mathsf s\le\tfrac54s'
+\]
+on this cube and on the layer blocks meeting it. The lengths
+of these blocks lie between $3s'/4$ and $5Ls'/4$.
+Use the axial gauge rooted at $x'$, extended by the identity
+outside $Q_{2l}(x')$, so that $u(x')=1$ and
+\[
+ |U^u(b)-1|\le\epsilon_*L^2s'^{-2}|z-x'|_1
+\]
+for bonds at $z$ in the cube. After this unitary gauge change
+the operator is
+\[
+ \mathcal K=D[U^u]+m_0+\mathsf W-\mathsf Y,
+ \qquad
+ \mathsf Y=a_K\widehat J-(D[\mathsf U^u]-D[U^u]).
+\]
+The second term in $\mathsf Y$ is zero at real links.
+The penalty kernel on a block of level $n$ is bounded by
+$5\theta L^{-4n}$, by the complete-average estimates.
+The finite-range coefficients of $\mathsf Y$ near $x'$ are
+bounded by
+$\upsilon=(L\varrho_\sharp+3c_{\rm hop}\alpha_1^*)/s'$.
+
+\emph{A local approximation with two terms.}
+Let $G=(D[1]+m_0)^{-1}$ be the free kernel on $\mathbb Z^3$
+from \cref{C-397-32}, read in the lifted cutoff cube.
+Choose cutoffs $\chi,\chi'$ with gradients
+at most $4/l$, where $\chi=1$ on $Q_l(x')$ and vanishes
+off $Q_{3l/2}(x')$, and $\chi'=1$ on $Q_{3l/2+1}(x')$
+and vanishes off $Q_{2l-1}(x')$. Put
+\[
+ \widetilde g=\mathsf Y\chi G\delta_{v'}\xi,
+ \qquad F^{\rm p}=\chi G\delta_{v'}\xi+\chi'G\widetilde g.
+\]
+The support of $\widetilde g$ lies where $\chi'=1$.
+Direct multiplication gives
+$\mathcal KF^{\rm p}=\delta_{v'}\xi+g+g'$, where
+\[
+ \begin{split}
+ g={}&[D[U^u],\chi]G\delta_{v'}\xi
+       +\chi(D[U^u]-D[1])G\delta_{v'}\xi
+       +\mathsf W\chi G\delta_{v'}\xi,\\
+ g'={}&[D[U^u],\chi']G\widetilde g
+       +\chi'(D[U^u]-D[1])G\widetilde g
+       +\mathsf W\chi'G\widetilde g
+       -\mathsf Y\chi'G\widetilde g.
+ \end{split}
+\]
+In particular the second term in $F^{\rm p}$ cancels the
+first occurrence of $-\mathsf Y\chi G\delta_{v'}\xi$.
+This cancellation is needed for the weighted norm of the error.
+
+The free bound $|G(z)|\le C(1+|z|)^{-2}$ gives the following
+bounds for the three terms of $g$, in their displayed order:
+\[
+ Cl^{-3}\ \text{on the cutoff shell},\qquad
+ C\epsilon_*L^2s'^{-2}(1+|z-x'|)^{-1},\qquad
+ C\theta\varepsilon_0s'^{-3}.
+\]
+The last term is supported on the blocks meeting the cutoff;
+their union has at most $C(Ls')^3$ sites. For it, sum
+$5\theta L^{-4n}(1+|z-x'|)^{-2}$ over the cutoff cube.
+For the second approximation use the elementary convolution
+bound in three dimensions,
+\[
+ \sum_y(1+|z-y|)^{-2}(1+|y-x'|)^{-2}
+       \le C(1+|z-x'|)^{-1}.
+\]
+Thus $|G\widetilde g(z)|\le C\upsilon(1+|z-x'|)^{-1}$.
+The four terms of $g'$ are bounded respectively by
+\[
+ Cs'^{-1}l^{-2},\qquad C\epsilon_*L^2s'^{-3},\qquad
+ C\theta\varepsilon_0^2s'^{-3},\qquad
+ Cs'^{-2}(1+|z-x'|)^{-1},
+\]
+on the second shell, the cutoff cube, its meeting blocks,
+and the neighbouring cutoff cube. Here and below fixed
+powers of $\varepsilon_0,L$ are included in $C$.
+On all these supports $\mathsf s\asymp s'$ and $\eta$ is
+bounded. Squaring and summing the displayed bounds gives
+\[
+ \|\mathsf s^{1/2}e^\eta(g+g')\|_2\le C s'^{-1}.
+\]
+For example, the square of the last term's weighted norm is bounded by
+\[
+ Cs'\,s'^{-4}
+ \sum_{|z-x'|_\infty\le2l}(1+|z-x'|_\infty)^{-2}
+ =O(s'^{-2}).
+\]
+In contrast, the uncancelled $\widetilde g$ would have
+weighted norm of order $\upsilon s'^{1/2}$.
+Also $|F^{\rm p}(x)|\le C(1+\rho)^{-2}$ on $\rho\le2l$
+and $F^{\rm p}=0$ outside this cube.
+
+\emph{The remainder.}
+Set $F^{\rm r}=uF-F^{\rm p}=-\mathcal K^{-1}(g+g')$.
+The twisted inverse estimate yields
+\[
+ \|\mathsf s^{-1/2}e^\eta F^{\rm r}\|_2
+       \le C_{\rm par}s'^{-1}.
+\]
+Its equation is
+\[
+ (D[U^u]+m_0)F^{\rm r}
+       =-(g+g')-\mathsf WF^{\rm r}+\mathsf YF^{\rm r}.
+\]
+On a block of level $n$, Cauchy--Schwarz and the penalty
+kernel bound give
+\[
+ |\mathsf WF^{\rm r}(x)|
+ \le C\theta L^{-5n/2}\|F^{\rm r}\|_{\ell^2(B)}
+ \le C\theta\mathsf s(x)^{-2}e^{-\eta(x)}s'^{-1}.
+\]
+Define
+\[
+ v(x)=
+ \begin{cases}
+ (1+\rho)^{-2},&\rho\le l,\\
+ (1+l)^{-2}(s'/\mathsf s(x))e^{-\eta(x)},&\rho>l,
+ \end{cases}
+ \qquad A=\sup_x|F^{\rm r}(x)|/v(x).
+\]
+This supremum is finite on the finite torus. When $\rho\le32$,
+or when $\rho>l$ and $\varepsilon_0\mathsf s(x)<64$,
+the weighted $\ell^2$ bound already gives
+$|F^{\rm r}(x)|\le Cv(x)$.
+At every remaining site apply \cref{C-397-32} to the real
+operator $D[U^u]+m_0$ on a cube of half-side
+\[
+ l_x=\rho/8\quad(\rho\le l),\qquad
+ l_x=\varepsilon_0\mathsf s(x)/16\quad(\rho>l).
+\]
+These lengths are at least four. The enlarged cube stays at
+distance at least $7\rho/10$ from $x'$, and $v\le3v(x)$
+there. The same separation and curvature bounds as above
+verify the local regularity hypotheses.
+
+For $\rho\le l$, the local $\ell^2$ contribution is bounded by
+$C\rho^{-2}(\rho/s')^{1/2}$. The penalty contribution is
+$C l_xs'^{-3}$. The curvature, shell and remaining source
+errors cost at most
+$C(\epsilon_*L^2s'^{-2}+l^{-2}+s'^{-2})$ when their
+supports meet the cube. Each is at most $Cv(x)$.
+For $\rho>l$, the first two contributions are bounded by
+\[
+ C\bigl(l_x^{-3/2}\mathsf s(x)^{1/2}
+              +l_x\theta\mathsf s(x)^{-2}\bigr)s'^{-1}e^{-\eta(x)}
+ \le C\mathsf s(x)^{-1}s'^{-1}e^{-\eta(x)}\le Cv(x).
+\]
+The errors $g+g'$ away from their centre are $O(s'^{-3})$.
+They contribute only within distance $3Ls'$ of $x'$, where
+$\mathsf s(x)\asymp s'$ and $\eta$ is bounded, so their
+contribution has the same bound.
+
+It remains to absorb $\mathsf YF^{\rm r}$. If $n'$ is the
+least level of a block meeting the local cube, its contribution
+is at most
+\[
+ 3C_{\rm lr}l_x
+ (L^{1-k}\varrho_\sharp+3c_{\rm hop}\alpha_1^*L^{1-n'})A v(x).
+\]
+Here $l_x\le\varepsilon_0L^k/8$ and
+$l_xL^{-n'}\le\varepsilon_0/6$. Choose
+$C_{\rm lr}\varepsilon_0\le1/8$,
+$L\varrho_\sharp\le1/8$ and
+$c_{\rm hop}\alpha_1^*L\le1/64$, reducing the existing
+radii if necessary. The coefficient is at most $1/2$.
+Thus $A\le C+A/2$, proving $|F^{\rm r}(x)|\le Cv(x)$.
+
+For $\rho\le2l$, $d(x,x')\le8\varepsilon_0$, so the bounds
+on $F^{\rm p},F^{\rm r}$ give the asserted kernel estimate.
+For $\rho>2l$ the approximation vanishes and
+\[
+ |F(x)|\le Cl^{-2}e^{-7\delta_*d(x,x')/8}.
+\]
+Apply \eqref{eq:qcd-metric-to-bare-decay} once more, with
+$\delta=\delta_*/2$. Its factor $s'^2$ cancels $l^{-2}$
+up to the fixed $\varepsilon_0^{-2}$, and the remaining
+rate exceeds $\alpha_D$. This proves
+\eqref{eq:qcd-fine-resolvent-kernel}. The argument used the
+complex perturbation and the matrix source together; it
+does not require a positive real part for their sum.
+
+\emph{The background rows.}
 For a column $P$ of level $n_P\ge1$, its fine background
 is $\mathcal K_k^{-1}(T^k_{n_P})^*\theta_{n_P}\delta_{y_P}$.
 The source has norm $L^{-n_P/2}$, is supported in its
@@ -4370,6 +4677,30 @@ the pair on the resulting polymer and commutes with cube
 isometries.  These scalar facts, including their rate and geometry conditions,
 are the external cluster input verified in \cref{C-396-12}.
 
+Here is the norm used for one origin, at a fixed admitted pair:
+\begin{equation}\label{eq:qcd-origin-norm}
+ \|\mathbb V\|_{\star,r}
+ =\sup_{Y,a}
+ \frac{e^{r d_k(Y)}\|\mathbb V(Y;a)\|}
+ {1+M^{-3}\displaystyle\sum_{b\in\mathfrak X^{\circ+}\langle Y\rangle}|a(b)|^2}.
+\end{equation}
+The set $\mathfrak X^{\circ+}\langle Y\rangle$ consists of the
+positively oriented nonpivot fluctuation bonds read by $Y$.
+The variable is $a=\mathsf t_k^{1/2}B$: the supremum is over
+the tested domain for sort $\Sigma_{\rm v}$ and all real
+fluctuations for sort $\Sigma_{\rm q}$. The numerator uses
+absolute value for a scalar origin and the fibre norm for an
+even Grassmann-valued origin. All bounds are uniform in the
+admitted pair. This is the quadratic-growth norm of the scalar
+cluster construction in \cite[Section 47.2, equation (704)]{YMM1}; the label
+$\Sigma_{\rm q}$ specifies the domain, not polynomial degree.
+Its input rate is
+$\lambda_V=(\mathsf C_{\rm ex}/L)\lambda_1+2\lambda_{\rm s}$.
+The admitted rate inequalities give
+$\lambda_V\le(1-2\delta_w)\kappa\le\kappa-1$.
+Consequently the summed potential norm in \cref{C-388-19}
+dominates $\|\mathbb V\|_{\star,\lambda_V}$ on the same domain.
+
 \begin{lemma}[The quadratic origin and Gaussian normalization]
 \label{C-388-37}
 Put $\tau=x_k/\mathsf t_k$, with $|\tau-1|<\sigma_\star$.
@@ -4452,12 +4783,25 @@ in \cref{C-388-34} give the same scalar majorant.
 \end{proof}
 
 \begin{lemma}[Grassmann-valued cluster expansion]\label{C-388-19}
+For a local potential define
+\[
+ \|V\|_r=\sup_{Z,P,B}\sup_{\square\subset Z}
+       \sum_{\square\subset Y\subset Z}
+          e^{r d_k(Y)}\|V(Y;P|_Y,B)\|.
+\]
+Here $Z$ ranges over the level-$k$ polymers, including the
+torus, $P$ over its admitted pairs of radius $a$, and $B$
+over the fluctuation domain. All terms in a sum use the
+restriction of the same $P,B$. The fibre norm has weights
+$h^{(k+1)}$ on the backgrounds and $h_W$ on the fluctuations.
+The level family norm, with the supremum inside the polymer
+sum and rate $\kappa$, dominates $\|V\|_{\kappa-1}$.
 Let $\mathcal V=\mathcal V^{\rm g}+\mathcal V^{\natural}$ be
 even, local and holomorphic on the pair radii, with
 \[
  |\mathcal V^{\rm g}(Y;B)|\le\varepsilon_V
        (1+M^{-3}\sum_{b\subset Y}\mathsf t_k|B(b)|^2)e^{-\lambda_Vd_k(Y)},
- \qquad\|\mathcal V^{\natural}\|_{k;a}
+  \qquad\|\mathcal V^{\natural}\|_{\kappa-1}
                       \le\varepsilon_{\natural},
  \quad \varepsilon_V+\varepsilon_{\natural}\le c_{\rm cl}.
 \]
@@ -4487,7 +4831,7 @@ $S(Z,s)=S_k^{\rm sym}(Z,s)$ set
  \mathfrak J_F(Z,s)F=
  \mathfrak J(Z,s)[B\mapsto\mu_{S(Z,s)}F(B)].
 \]
-Its Gram bound and Lemma~\ref{C-387-18} give
+Its Gram bound and Lem.~\ref{C-387-18} give
 $\|\mu_SF\|\le\|F\|$ on the closed decoupling polydisc.
 For every linear functional $\ell$ of norm at most one,
 \[
@@ -4551,6 +4895,70 @@ holomorphy.  All operations use only data on the polymer, so
 they preserve locality and covariance.  Since the radii enter
 only through the input bounds, outputs at two radii agree on
 their common domain.
+\end{proof}
+
+\begin{lemma}[First variation of the expansion]\label{C-388-39}
+Use the setting and norms of \cref{C-388-19}, with
+$\varepsilon_V+\varepsilon_\natural<c_{\rm cl}$.
+Let $f=(f(Y))$ be even, local and holomorphic on the same pair
+and fluctuation domains, vanish at $(B,\bar W,W)=0$, and have
+finite potential norm $\|f\|=\|f\|_{\kappa-1}$. At each pair,
+its cluster-origin norm satisfies
+$\|f\|_{\star,\lambda_V}\le\|f\|$. On the disc
+$|\lambda|\|f\|<c_{\rm cl}-\varepsilon_V-\varepsilon_\natural$,
+the activity is holomorphic and
+\[
+ \|\widetilde E[\mathcal V+\lambda f](X)
+                   -\widetilde E[\mathcal V](X)\|
+ \le K_\Pi|\lambda|\|f\|_{\star,\lambda_V}
+                       e^{-\kappa_+d_{k+1}(X)}.
+\]
+Its derivative $E'[\mathcal V;f]$ is linear in $f$ and satisfies
+\[
+ \|E'[\mathcal V;f](X)\|
+ \le K_\Pi\|f\|_{\star,\lambda_V}e^{-\kappa_+d_{k+1}(X)},
+ \qquad
+ \sup_\square\sum_{X\supset\square}e^{\kappa d_{k+1}(X)}
+       \|E'[\mathcal V;f](X)\|\le K_M\|f\|.
+\]
+The same difference and derivative bounds hold when $\lambda f$
+is added as a fourth tested origin to any admitted system of
+at most three tested origins, for
+$|\lambda|\|f\|_{\star,\lambda_V}<w_*$. The derivatives are
+holomorphic in any additional parameters for which the data
+are holomorphic with uniform bounds on an open set.
+\end{lemma}
+\begin{proof}
+Keep $\lambda f$ as a separate origin. Mark every vertex belonging
+to it. The terms of the expansion without marked vertices are
+exactly those of the original system, with the same regions,
+tests and conditional integrals. Absolute convergence therefore
+identifies the difference of the expansions with the sum of
+terms containing a marked vertex. The marked-origin estimate
+of \cite[Thm. R and its proof]{YMM1}, transferred to the
+even Grassmann algebra by the contraction and duality argument
+of \cref{C-388-34}, bounds that sum by
+\[
+  K_\Pi|\lambda|\|f\|_{\star,\lambda_V}e^{-\kappa_+d(X)}.
+\]
+This argument reads only the sizes of the at most four origins.
+In particular it applies to the system consisting of the tested
+quadratic origin, $\mathcal V^{\rm g}$, $\mathcal V^\natural$
+and $\lambda f$.
+
+On the stated disc the last two origins can be joined into
+$\mathcal V^\natural+\lambda f$. The connected sum is unchanged
+by joining origins of the same sort, and the subtracted Gaussian
+family is independent of $\lambda$. This proves the first bound.
+Divide by $|\lambda|$ and let $\lambda\to0$. Joint holomorphy
+in two insertion parameters proves linearity of the derivative.
+The polymer count in \cref{C-388-19} gives
+\[
+ \sum_{X\supset\square}e^{-(\kappa_+-\kappa)d_{k+1}(X)}
+ \le4096,\qquad4096K_\Pi\le K_M,
+\]
+and proves the family bound. A Cauchy integral on a smaller
+insertion circle proves holomorphy in the additional parameters.
 \end{proof}
 
 \subsection{Relevant extraction and old activities}
@@ -4811,8 +5219,42 @@ The trivial bound covers radii below one.  The finitely
 many intermediate lags use the first radial estimate
 and $L^{-n}\le L^{n_{\rm lg}}L^{-2n}$.
 
-The two legs contribute $L^{-2n}$ and the cell count
-$L^{3n}$, giving $CL^{-n}\varepsilon_j$ per new cube.
+To sum these bounds, fix each walk simultaneously at all rows of
+$X$. A walk term vanishes at rows for which its first cube is
+not an allowed first cube; for a barred leg use the last cube
+of its row twin. The rows in a level-$j$ block have the same
+allowed first cubes, at most $C_{\rm nb}$ of them. Consequently
+the number of possible first cubes, and likewise of last cubes,
+is at most
+\[
+ N_X=C_{\rm nb}M^3\#X
+       \le8C_{\rm nb}M^3(1+d_j(X)).
+\]
+For a fixed first cube the positive weighted walk sum is at
+most $A_\kappa$. Including the one local term, the sum of the
+suprema of the row bounds for one leg at level $n'\le j$ is
+therefore at most
+\[
+ 2C_HL^{-(j-n')}(1+N_XA_\kappa)
+ \le2C_HL^{-(j-n')}(1+8C_{\rm nb}M^3A_\kappa)(1+d_j(X)).
+\]
+Apply this to the two legs in $B_{\mathcal E}$. Absolute
+convergence and bilinearity identify their sum with the
+quadratic activity. The additional factor $(1+d_j(X))^2$
+must be retained when summing the bounds of its individual
+holomorphic terms. Together with the path factor $D^2$, it
+costs at most
+\[
+ M^2\sup_{d\ge0}(1+d)^4e^{-7\kappa d/8}<\infty.
+\]
+This number and $(1+8C_{\rm nb}M^3A_\kappa)^2$ are included
+in $C_7$ and the later old-activity constants, before choosing
+the fibre weight. Higher-degree terms are evaluated at one
+pair and retain the ordinary row walk count.
+
+The two legs contribute $L^{-2n}$, the gauge comparison
+$L^{-2n}$, and the cell count $L^{3n}$, giving
+$CL^{-n}\varepsilon_j$ per new cube.
 Enlarge the filing polymer by the at most eight level-$k$
 cubes meeting $Q$.  They lie in a cube of side $2M$ and
 cost the fixed factor $e^{\kappa c_0}$.  The polynomials
@@ -4959,10 +5401,18 @@ fluctuation family has factor $C_{\mathcal A}\delta_k/a$.
 Admissibility gives $(\alpha_0/a)\mathsf s_a\le1/9$.
 Thus these estimates also hold on each admissible constant
 radius system.  They supply the input sizes for
-Lemma~\ref{C-388-19}. Their simultaneous use in the matter
+Lem.~\ref{C-388-19}. Their simultaneous use in the matter
 induction is verified in \cref{C-396-12}.
 
 \section{The cumulative mass term}
+
+We must control the mass terms accumulated over all preceding
+scales. The three-square identity first gives the sign of each
+Gaussian slice. We then bound their sum and identify it with
+the entire second-order contribution of the interacting step.
+Finally we estimate the cubic remainder and close the forward
+mass recursion. These are separate parts of the argument;
+positivity of the slices alone does not bound their sum.
 
 \begin{lemma}[The three-square identity]\label{C-398-4}
 Let $m\ge0$, $a=\mathfrak a_k$, $R=R_k(U)$, $P=R^*R$,
@@ -5372,7 +5822,7 @@ passages used below without selecting an unbounded
 representative of the quotient.
 
 Let $\sigma_*>0$ be the relative coupling radius of the pure
-one-step expansion in \cite[equation~(890) and Theorem~V]{YMM1},
+one-step expansion in \cite[equation~(890) and Thm.~V]{YMM1},
 and put $r_x=\tfrac14\min\{\tfrac12,\sigma_*\}$.
 About a real admissible coupling sequence $x^\circ$, the full
 coupling domain is the product of discs
@@ -5477,7 +5927,7 @@ $\|T^{(j)}\|_j\le C_Th_F^4/\mathsf t_{j-1}$.  Moreover
 
 \begin{proof}
 All terms have the symmetries used in
-Lemma~\ref{C-388-21}.  The Gaussian curvature slice is
+Lem.~\ref{C-388-21}.  The Gaussian curvature slice is
 invariant under the isometries preserving its level, since
 its orthogonal projection is defined by centered plaquette
 averages.  The fermion tower and its averages have the same
@@ -5491,7 +5941,7 @@ It therefore preserves a vanishing zeroth moment at every
 later level.
 
 The identity holds at $k=1$.  If it holds at $k$, apply
-Lemma~\ref{C-398-20}.  Gaussian integration carries the
+Lem.~\ref{C-398-20}.  Gaussian integration carries the
 bare mass form to the next bare background mass form plus
 a constant.  In particular its coefficient becomes
 $L^{-k}=L\,L^{-(k+1)}$; no new normalization occurs.
@@ -5696,7 +6146,7 @@ At the trivial pair the coefficient $z_1z_3$ also vanishes:
 the expectation of one adjoint colour vector multiplied
 by a colour-invariant scalar is an invariant vector and
 is zero.  This follows from colour invariance.  By the exact identity in
-Lemma~\ref{C-388-14}, the $z_1^2$ coefficient is
+Lem.~\ref{C-388-14}, the $z_1^2$ coefficient is
 $\mathscr A_{k+1}$, apart from the tested-Gaussian
 comparison.  The linear determinant vertex has zero
 colour trace, and the mean of a second-order
@@ -5795,7 +6245,7 @@ induction bounds, closes with
  C_3=4K_\mu(C_\chi+C_0+C_1C_2).
 \]
 Extract its zeroth moment.  Since $\eta_{k+1}\ge c_b$,
-Lemma~\ref{C-388-21} gives
+Lem.~\ref{C-388-21} gives
 $|\rho_{k+1}|\le
 c_b^{-2}C^\psi_{am}h_F^{-2}C_3\phi(\mathsf t_k)^3$;
 discarding the additional factor $\nu^{-1}\le1$
@@ -5937,7 +6387,7 @@ costs $(\alpha_0/a)^2$ and the action costs
 $(a/\alpha_0)^2$; they cancel.  Hence the same extraction
 factor works on all the stated radius systems.
 The normalizer part is bounded before the polymer
-constants by Proposition~\ref{C-397-43}; the admitted
+constants by Prop.~\ref{C-397-43}; the admitted
 pure normalizer increment is bounded by
 $(1+L^{-1})c_{2,\mathrm{loop}}$.
 Choose
@@ -5947,7 +6397,7 @@ The remaining increment is at most one once
 $\gamma$ is small, by the displayed scalar
 extraction estimate and the sharp mass window.
 This supplies $|b_{k+1}|\le B_\sharp$ in
-Proposition~\ref{C-396-33}, subject to the
+Prop.~\ref{C-396-33}, subject to the
 admitted pure step inputs throughout.
 
 Pointing the new fermion terms can be done without
@@ -6120,11 +6570,11 @@ smallness conditions, including
 \]
 For fixed earlier admissible constants these last
 ceilings hold for sufficiently small $\gamma$.
-Proposition~\ref{C-396-12} verifies a simultaneous assignment
+Prop.~\ref{C-396-12} verifies a simultaneous assignment
 with the pure, history and source conditions.
 
 
-\section{Histories and the common vacuum energy}
+\section{Histories and the common vacuum energy}\label{sec:qcd-histories}
 
 Let $T_\ell=(\mathbb R/\ell\mathbb Z)^3$ be the physical torus.
 We use the admitted pure gauge histories in the calibration frame
@@ -6132,8 +6582,12 @@ $\mathsf t_j=L^{K-j}\mathsf b$. Their tests, coordinates, stored
 gauge factors and profiles $\varphi_j$ are unchanged. The running
 coefficients satisfy $|x_j-\mathsf t_j|\le\bar B$ and
 $|s_j|\le\bar B_M/x_j$.
+The weight of the calibration frame is the constant
+$\mathsf{bw}=\beta=\mathsf t_0$. The running coefficients
+enter the exponent and the Gaussian covariance $x_j^{-1}C_j$;
+they do not change the tests, the coordinates or the block kernels.
 The histories and their free-coordinate measures are those of
-\cite[Section~44 and Theorem~D]{YMM1}. Write $\mathcal S=\mathcal S(h)$
+\cite[Section~44 and Thm.~D]{YMM1}. Write $\mathcal S=\mathcal S(h)$
 for the discrete label of $h$, distinct from its free evaluation
 coordinates. The integration regions
 satisfy $\Omega_j\supset\Lambda_j$, and $Z_j=\Lambda_j^c$.
@@ -6183,6 +6637,15 @@ The exponent of a history has the form
 For a scalar plaquette weight $q$, the weighted action here is
 $A(q,U)=\sum_pq(p)a_p(U)$, with the history profiles transferred
 to plaquettes by the convention of the cited gauge construction.
+In particular,
+\[
+ -A(\beta_h^F,U)=-\beta A(U)
+                    +\sum_{j\le k}L^jb_jA(\varphi_j,U).
+\]
+The last sum is bounded by a constant times
+$\Sigma_{\mathcal L}(h)$ in the scalar estimate below and
+is included in its layer constant. This permits the history
+integration estimate to use the fixed frame weight $\beta$.
 Here $s_h=\sum_{j\le k}L^{-j}\mu_j\varphi_j$ is the mass
 profile and $M_h=\mathsf S_1(s_h\psi^{\rm bg})$ is its
 quadratic mass member. On $\Omega_j\setminus\Lambda_j$ its coefficient is
@@ -6202,7 +6665,7 @@ component identities on which the expansion rests.
 Consider an admitted centered gauge frame at step $k+1$,
 including the first-step frame, with all the class-size,
 external-field and Gaussian bounds required by
-\cite[Proposition~76.2 and Theorem~AF]{YMM1}.
+\cite[Prop.~76.2 and Thm.~AF]{YMM1}.
 Let its values lie in the finite even Grassmann algebra with
 integrated and external generators, with integrated weights
 at least $\Gamma_F$. Suppose the contraction maps
@@ -6502,7 +6965,7 @@ With $\delta_k=\delta(\mathsf t_k)$, write
        (1+E+\alpha_0^2B_\sharp)+M^3g_k\mathfrak b_k^3.
 \]
 These are the quantities in
-\cite[Proposition~58.26, equations~(1318)--(1319)]{YMM1},
+\cite[Prop.~58.26, equations~(1318)--(1319)]{YMM1},
 evaluated at the calibration coupling. The tier bounds are
 \[
  \|V_{\rm rg}^F\|_{r_V}
@@ -6562,58 +7025,84 @@ stated sizes.
 
 \begin{lemma}[Variation of an earlier boundary coefficient]
 \label{C-399-48}
-Let a family $g_{j,X}$ with values in a finite normed
-space be holomorphic on its admitted pair slices and
-bounded by $b^\bullet e^{-\kappa d_j(X)}$. Apply the
-ordinary or pinned coefficient localization of the
-admitted history frame, with the prescribed stored data.
-Its sum is the difference of the two values at the
-shifted and unshifted pairs, and its local norm bound is
-the scalar localization bound with $b^\bullet$ in place
-of the scalar bound. Summed over the old made and edge
-families it is at most
+Let $g_{j,X}$ be an earlier made or edge family with
+values in a finite normed space. Suppose it depends on
+the pair, is Borel in the real and stored data, is
+holomorphic on the admitted slices of its filing domain, and
+satisfies $\|g_{j,X}\|\le b^\bullet e^{-\kappa d_j(X)}$.
+Apply the ordinary or pinned coefficient localization of the
+history frame, keeping the prescribed stored data fixed.
+The resulting coefficients are local, analytic on the tiers
+and Borel there. Their sum is the difference of the values
+at the shifted and unshifted configurations. Summed over
+the earlier made and edge families, their bound at each
+output polymer $Y$ is
 \[
  C^{\rm bd}\vartheta_{0,k}
        (b^{\rm mk}+b^{\rm ed})e^{-r_Vd_k(Y)}.
 \]
-The terms have $d_k(Y)\ge7L\check R_{k+1}-2$,
-the prescribed pair ties, and the locality, symmetry and
-Borel properties of their inputs. At a pinned substitution
-the joint gauge action on external legs is removed with
-the levelling function at that same parameter value.
+They vanish unless $d_k(Y)\ge7L\check R_{k+1}-2$.
+For a jointly gauge-invariant made term with external
+legs, depending on the pair, the coefficient at a
+pinned substitution need not itself be a function of the
+pair. Its product with the inverse joint action of the
+levelling function, formed at the same parameters, is a
+function of the pair and has the joint covariance and tie
+of the original term.
 \end{lemma}
 \begin{proof}
-Each localized coefficient is a finite bracket, with
+The coefficient localization is a finite bracket, with
 coefficients $\pm1$, of values at substituted triples.
-The triples do not depend on the function being
-localized. For a norm-one functional $\ell$,
-localization therefore commutes with $\ell$.
-The scalar estimate uses analyticity and the bound on
-$\ell\circ g_{j,X}$, not scalar gauge invariance. Its
-Cauchy radius contributes
+The substituted triples do not depend on $g_{j,X}$.
+Consequently localization commutes with every norm-one
+linear functional $\ell$. The scalar localization estimate
+uses the analyticity and bound of $\ell\circ g_{j,X}$;
+it does not require scalar gauge invariance. Its Cauchy
+radius contributes
 $C_{\rm sb}C_{\mathcal A}a^\bullet
-e^{C_{\rm sb}\bar\kappa}$, and the domain sum contributes
-$C_B(0)$. The made and edge localization radii have
+e^{C_{\rm sb}\bar\kappa}$. The domain-count constant
+$C_B(0)$ includes this factor $C_{\rm sb}$. The made and edge radii satisfy
 $a^{\rm mk}\le c_-^{-1}\vartheta_{0,k}$ and
-$a^{\rm ed}\le\vartheta_{0,k}$; hence
-$C^{\rm bd}\ge
-C_{\mathcal A}e^{C_{\rm sb}\bar\kappa}C_B(0)(1+c_-^{-1})$
-gives the assertion after taking the supremum over $\ell$.
-The scalar tie identity, applied coefficient by
-coefficient, gives the sum rule at unchanged stored data.
+$a^{\rm ed}\le\vartheta_{0,k}$. Thus the choice
+\[
+ C^{\rm bd}\ge
+ C_{\mathcal A}e^{C_{\rm sb}\bar\kappa}C_B(0)(1+c_-^{-1})
+\]
+gives the stated bound after taking the supremum over
+$\ell$. The bracket sum rule gives the difference of the
+two endpoint values, at unchanged stored data.
 
-For external legs, the pinned value is
-$\theta_{u_{s,\lambda}}^{-1}
-g_{j,X}(T_{X|h'}(s,\lambda);q|_X)$.
-The substituted triple and its levelling function must
-use the same $(s,\lambda)$. The normalization to a tame
-point preserves both of them and the function's pair
-value. Their admitted measurability, followed by the
-finite bracket, gives Borel dependence on the entire
-local domain. Covariance of the shift gives the joint
-gauge identity. This controls variation of coefficients;
-the explicit change of a fermion leg will be estimated
-separately with its weight room.
+For the assertion about the pair, write
+\[
+ \Pi_{j,X}(s,\lambda;\mathfrak u)
+ =\theta_{u_{s,\lambda}}^{-1}
+  g_{j,X}\bigl(T_{X|h'}(s,\lambda;\mathfrak u);q|_X\bigr),
+\]
+where $\theta_v$ turns the nonstored generators by $v$ and
+leaves the stored generators fixed. The coefficient and
+$u_{s,\lambda}$ use the same parameters. At two triples
+with one pair, let $u$ and $\widetilde u$ be their
+levelling functions. The substituted coefficients are
+related by $\widetilde g=\theta_{\widetilde u u^{-1}}g$.
+For real turns this follows from joint covariance: the
+connecting gauge transformation is one at the tops and
+stored sites, so it preserves the stored data. Holomorphy
+in the turn parameters gives the identity at the pinned
+turn. Hence
+$\theta_{\widetilde u}^{-1}\widetilde g
+=\theta_u^{-1}g$. This proves pair dependence of $\Pi$;
+the same covariance identity gives its tie.
+
+At fixed real configuration and stored data, normalization
+to a tame point is linear in the two form coordinates.
+It preserves the substituted coefficient and the levelling
+function. At the normalized point these are locally
+holomorphic in the form coordinates, the fluctuation and
+the interpolation parameters. Their composition with
+normalization is therefore analytic on the tiers.
+The maps are Borel at fixed parameters, and the finite
+brackets preserve Borel dependence. These assertions
+concern the admitted filing domains and tiers.
 \end{proof}
 
 \begin{lemma}[Local bound for the retained collar correction]
@@ -6980,6 +7469,83 @@ coefficient substitution, as in \cref{C-399-48}.
 Coefficient variation itself is estimated by that
 lemma, separately from these leg changes.
 
+\emph{Combining the coefficient and leg changes.}
+Fix a made term with base $X$ at level $j\le k$.
+Let $g_s$ be its coefficient at the pinned substituted
+triple, $u_s$ the levelling function, and $c_s$ the change
+of its background legs, all formed at the same shift
+parameters $s$ and at shift amplitude $\lambda=1$.
+Thus $u_0=1$, $c_0=0$, and at $s=\mathbf1$ these are the
+coefficient, levelling function and leg change of the step.
+Stored generators of $h'$ are left in their places.
+With $g_s[\ell]$ denoting substitution of the nonstored
+legs $\ell$, put
+\[
+\begin{split}
+ G(s)&=g_s[a],\\
+ R^b(s)&=g_s[a+b]-g_s[a],\\
+ R^c(s)&=g_s[a+b+c_s]-g_s[a+b],\\
+ R^u(s)&=g_s[u_s(a+b+c_s)]-g_s[a+b+c_s].
+\end{split}
+\]
+The change from the new formal legs to the old reading is
+\[
+ G(\mathbf1)-G(0)+R^b(\mathbf1)
+                    +R^c(\mathbf1)+R^u(\mathbf1).
+\]
+Here $R^c(0)=R^u(0)=0$; $R^b(0)$ is the term with a
+leg at $W$ and no dependence on $B$.
+
+Expand only the parts $b,c_s$ into local terms and walks.
+For a monomial and a choice $\omega$ of these parts, let
+$N_\omega$ be the base $X^\uparrow$ enlarged by the cubes
+met by their walks. For an edge term also include the
+blocks read by its stored-leg site factors. The product
+reads only those components of the shift that meet
+$N_\omega$, and is consistent when its domain is enlarged.
+Its brackets $[Y\setminus N_\omega\mid N_\omega]$ are
+therefore assigned to $Y\supset N_\omega$. Their sum,
+together with the value at the base, recovers the product
+at $s=\mathbf1$. The bracket of $G$ gives its difference
+between $s=\mathbf1$ and $s=0$.
+
+The split above is used to estimate the terms. A separate
+part of a made term can read the real factor of the
+triple. For each choice $\omega$, its part from $G$, $R^b$
+or $R^c$ is $g_s[\omega]$, and its part from $R^u$ is
+$g_s[u_s\omega]-g_s[\omega]$. Their sum is
+\[
+ g_s[u_s\omega]
+   =\bigl(\theta_{u_s}^{-1}g_s\bigr)[\omega]
+   =\Pi_{j,X}(s,1;\mathfrak u)[\omega].
+\]
+All parts have the same roots $N_\omega$. Their brackets
+at each $Y$ thus add to the bracket of $\Pi_{j,X}[\omega]$;
+the value kept at the base has the same identity because
+$u_0=1$. Lem.~\ref{C-399-48} and covariance of the chosen
+legs imply that this sum is a function of the pair, with
+the required tie and joint covariance. Summing these
+identities at $Y$ proves the corresponding properties
+of the member of the frame at $Y$.
+
+For analyticity fix the real configuration $U$ and the
+stored data on $Y$. On the normalized, tame slice, the
+pinned substituted triple and the levelling function are
+locally holomorphic in the form coordinates, $B$ and $s$.
+The canonical substitution radius is at least two, so
+the levelling function is also holomorphic for
+$|\lambda|<2$. The parts $b,c_s$ are locally holomorphic
+by their local and walk formulas: the moved configuration
+stays in the admitted complex class for $\sup|B|\le\beta_0$.
+The normalization preserves the coefficient and levelling
+function. Composition with it therefore proves analyticity
+on every tier. The walk sums converge uniformly on the
+parameter domains, and their finite brackets retain this
+property. This argument applies to the separate parts
+used for estimates as well as to their recombination.
+For an edge term the substituted triple is plain and
+there is no $u_s$ or $R^u$; each part already reads the pair.
+
 There is no factor equal to the number of legs.
 Indeed, if $h_i=h_{a,i}+h'_{b,i}$ and
 $h_{b,i}\le\rho_i h'_{b,i}$ with the split parts
@@ -6991,6 +7557,123 @@ $\sum_i t_i\le\prod_i h_i$. Thus the sum of the
 split terms is at most $\max_i\rho_i$ times the
 original norm. This permits the walk carrying the
 split leg to retain its own crossing factor.
+
+\emph{Counting the domains of the brackets.}
+For the parts $R^c,R^u$, put $p_l=h'_{b,l}/h_l$.
+The nonsplit parts have weights at most
+$(1-p_l/2)h_l$. Their telescoping sum is bounded
+using
+\[
+ \sum_i p_i\prod_{l\ne i}(1-p_l/2)\le1,
+ \qquad 0\le p_l\le1.
+\]
+Indeed, the left side is affine in each $p_l$;
+at a vertex with $q$ nonzero coordinates it is
+$q2^{1-q}\le1$, and at the zero vertex it is zero.
+This gives respectively the largest ratio
+$h_c/h_b'$ or $2h_u/h_b'$ times the coefficient norm.
+The estimate for $R^b$ uses the preceding telescoping
+with ratio $h_b/h_b'$. Each first split leg therefore
+keeps its own ratio in all three parts.
+
+This count must be made on one parameter contour for
+each output polymer. Set
+\[
+ x=C_{\rm g}e^{(\kappa+2)c_0}e^{-(\bar\kappa-1)}
+       \le e^{-8},\qquad
+ r=1+e^{\bar\kappa-1}<e^{\bar\kappa}.
+\]
+The floor on $\bar\kappa$ gives these inequalities and
+$r/(r-1)\le e^x$. For a fixed term and $Y$, let $R_N(s)$
+be the sum of its parts from $R^b,R^c,R^u$ with roots
+$N_\omega=N$. On the common torus
+$\mathfrak T_r(Y)=\{s:|s_D|=r\text{ for every }D\subset Y\}$,
+Cauchy's formula gives
+\[
+ R_N[Y\setminus N\mid N]
+ =\int_{\mathfrak T_r(Y)}R_N(s)
+     \prod_{D\in N}\frac{s_D}{s_D-1}
+     \prod_{D\in Y\setminus N}\frac1{s_D-1}
+     \prod_{D\subset Y}\frac{d\theta_D}{2\pi}.
+\]
+This also includes the base value when $N=Y$.
+Consequently the norm of the part through the legs at $Y$
+is at most
+\[
+ \sup_{s\in\mathfrak T_r(Y)}
+ \sum_N e^{x\#N}e^{-(\bar\kappa-1)\#(Y\setminus N)}
+                                      \|R_N(s)\|.
+\]
+The sum is evaluated at one $s$. This allows us to apply
+the algebra norm and telescope the legs before taking
+the supremum.
+
+Every component of $Y\setminus N$ meets one of at most
+$26\#N$ neighbouring cubes of $N$. There are at most
+$C_{\rm g}^n$ connected sets of $n$ cubes through a given
+cube, and adjoining a cube increases the size by at most
+$c_0$. At any rate $0\le\kappa'\le\kappa+2$, the resulting
+domain sum is therefore at most
+\[
+ (1-x)^{-26\#N}\le e^{27x\#N}.
+\]
+It follows that $e^{\kappa'd_k(Y)}$ times the preceding
+norm is bounded by
+\[
+ \sup_{s\in\mathfrak T_r(Y)}
+       \sum_N e^{28x\#N}e^{\kappa'd_k(N)}\|R_N(s)\|.
+\]
+At fixed $s$, decompose $g_s$ into products of unit
+vectors in its Grassmann norm, substitute the chosen
+parts of the legs, and use their walk bounds. Taking
+the infimum over these decompositions gives the norm
+of $g_s$, so the bound retains the ratio of the first
+split leg. It introduces no separate supremum for each
+root or monomial.
+
+The remaining factor is paid by the same weight reserves.
+Indeed,
+\[
+ \#N_\omega\le8\bigl(d_k(X^\uparrow)+1\bigr)
+                  +8\sum_l(|\omega_l|+1),\qquad
+ 224x\le\frac1{13}.
+\]
+Thus
+\[
+ e^{28x\#N_\omega}
+ \le e^{(d_k(X^\uparrow)+1)/13}
+                    \prod_l e^{(|\omega_l|+1)/13}.
+\]
+The walk estimate holds with $e^{3|\omega|/2}$ in place
+of $e^{|\omega|}$ and the same $A_\kappa$; it pays
+$e^{|\omega_l|/13}$. The preceding bounds, with the
+floor on $h_F$ and ceiling on the coupling, give
+\[
+ \frac{h_b+h_c+2h_u}{h_b'}\le\frac18,
+ \qquad e^{1/13}(h_b+h_c+2h_u)\le\frac12h_b'.
+\]
+Here $h_u=C_{\rm m}c_hL^{-5(k-m)}\sup|B|\,w_k(n,x)$.
+The factor two bounds its levelling factor on
+$|\lambda|<2$. Hence every expanded leg other than
+the first split leg retains its weight reserve.
+
+Since $d_k(X^\uparrow)\le d_j(X)$, the base factor
+$e^{d_k(X^\uparrow)/13}$ is paid by
+$\kappa_+-\kappa\ge2c_E+1$. The count through a cube is
+\[
+ 2048\sum_{m\ge0}
+    \bigl(9216e^{-(2c_E+1)+1/13}\bigr)^m
+       \le e^{-1/2}C_E,\qquad C_E=4096.
+\]
+With the edge pointer factor $(d_j(X)+3)^3$ the same
+sum is at most $2048\cdot28\le e^{-1/2}94C_E$.
+The two factors $e^{1/13}$ from the base and first
+split leg fit in the spare $e^{1/2}$. For a mass edge
+the base has size zero and $e^{2/13}<C_E$ suffices.
+The coefficient variation is still estimated directly
+by Lem.~\ref{C-399-48}, polymer by polymer at rate $r_V$.
+The leg contributions use the count below, in the summed
+norm at rate $\kappa-1\ge r_V$.
 
 There are $L^{3(k-j)}$ lower cubes in a level-$k$
 cube. A made term reaching layer $m>j$ has
@@ -7553,7 +8236,7 @@ with part of their decay reserved for this weight; see
 \cite[Equations~(1455)--(1456) and their preceding definitions,
 p.~592]{YMM1}.
 The component majorant and its product integral
-\cite[Propositions~66.2 and 66.3]{YMM1} give
+\cite[Props.~66.2 and 66.3]{YMM1} give
 \begin{equation}\label{eq:qcd-history-interface}
  e^{-\operatorname{Re}E+\operatorname{Re}\sum_jf_j}
  \int\|g_h\|\,d\mathscr M_h^{\rm fr}
@@ -7617,11 +8300,31 @@ contribution. The wrapping constant is covered by
 $C_{\rm fs}\Sigma_{\mathcal L}$.
 
 For completeness the same count in all degrees is finite.
-Each background leg from level $j$ to a layer $n$ costs
-$L^{-(n-j)}$. Degree at least four thus gives net decay
-$L^{-(n-j)}$ after the cube count. In degree two the
-field-dependent part gains curvature $L^{-2(n-j)}$ in radial
-gauge. At the trivial field group the kernel by its total
+Each background leg from level $j$ to a layer $n$ costs at most
+$CL^{1-(n-j)}$. Degree at least four gives net decay
+$L^{-(n-j)}$ after the cube count, with fixed powers of $L$
+in the constant. In degree two, sum the gauge-comparison
+bounds over the walks at all rows of $X$, as in the proof
+of \cref{C-388-24}. The possible first cubes number at most
+$N_X=C_{\rm nb}M^3\#X$. For each leg the sum of its
+weighted bounds is at most
+\[
+ 2C_HL^{1-(n-j)}(1+N_XA_\kappa).
+\]
+The two factors $1+N_XA_\kappa$, the squared path length
+and the complex transports cost at most a fixed multiple of
+\[
+ (1+8C_{\rm nb}M^3A_\kappa)^2
+ 2e^{\kappa/8}M^2\sup_{d\ge0}(1+d)^4e^{-7\kappa d/8}.
+\]
+The walk weights pay the remaining length polynomials.
+With $L^{3(n-j)}$ pointers per level-$n$ cube, the scale
+factors are
+\[
+ L^{3(n-j)}L^{2-2(n-j)}L^{2-2(n-j)}=L^4L^{-(n-j)}.
+\]
+These fixed factors enter the constants before $h_F$ is
+chosen. At the trivial field group the kernel by its total
 zero moment and use differences of legs; their H\"older
 exponent $3/4$ gives a possible factor $L^{(n-j)/4}$.
 The birth size is at most
@@ -7633,7 +8336,7 @@ decay. The mass profile costs
 $w_0\nu C_H^2h_F^2L\bar B_M\Sigma_{\mathcal L}$.
 Reading formal legs through the whole real background costs
 at most one per leg by the enlarged row bound. Together with
-Lemma~\ref{C-399-17} these estimates give a finite $C_E^F$.
+Lem.~\ref{C-399-17} these estimates give a finite $C_E^F$.
 
 The density estimate uses only degree zero and the stored
 factor. Before the store is integrated, its scalar coefficient
@@ -7663,7 +8366,7 @@ may depend on the positive lower mass bound.
 \end{theorem}
 \begin{proof}
 The upper bound is \eqref{eq:qcd-history-sum-interface}, with
-$E=E_k$ and the label error from Lemma~\ref{C-399-24}.
+$E=E_k$ and the label error from Lem.~\ref{C-399-24}.
 For the lower bound retain the empty history at the last
 level. Its mass is not estimated by the free determinant
 alone: its remaining interacting Grassmann integral must
@@ -7718,7 +8421,7 @@ Enlarging $C_P$ proves the asserted lower bound with the
 same $E_k$ as in the upper bound.
 \end{proof}
 
-\section{The source chain and local source energies}
+\section{The source chain and local source energies}\label{sec:qcd-source-chain}
 
 To control the correlations we insert sources before integrating any
 fields.  A source for the action density changes the plaquette weight;
@@ -7729,14 +8432,14 @@ local step.  We then prove that the same energy normalizes the sum of
 all histories.  This distinction matters at complex sources, where a
 history density need not be positive.
 
-The resulting correlation estimate is Theorem~\ref{C-407-6} below.
+The resulting correlation estimate is Thm.~\ref{C-407-6} below.
 Its constants are independent of both the cutoff and the torus side.
 The estimate uses locality of the source energy and reflection
 positivity: the former makes separated sources almost additive, and
 the latter converts a whole-volume bound into a bound for one cell.
 Throughout this section we use the ordered choices of constants
 and the pure gauge construction verified in
-Proposition~\ref{prop:qcd-joint-admission}.
+Prop.~\ref{prop:qcd-joint-admission}.
 
 The sources are $s=(w,J)$, with $w$ complex Lipschitz and $J$
 a bounded field in
@@ -7831,7 +8534,7 @@ On $2\mathscr D_j(a)$ the operator source satisfies
 $L^{j+1}\|\mathsf n\|<2r_M$. The weighted inverse and walk
 construction therefore applies through $\mathcal K_{j+1}$
 and $\Gamma_j$, uniformly on the full matrix ball, by
-Lemma~\ref{C-397-29}. In particular it gives holomorphic
+Lem.~\ref{C-397-29}. In particular it gives holomorphic
 localized covariances with their Gram bound and backgrounds
 with the same localized row and H\"older estimates, at the
 fixed enlarged constants. No positivity of
@@ -7849,11 +8552,20 @@ matrix entry, whose total is canceled in the extraction.
 \begin{proposition}[One step at the sources]\label{C-407-16}
 Suppose the old data are defined on $2\mathscr D_i(a)$,
 $i\le k$, where $a_k^{\rm rad}\le a\le\alpha_0$.
-Their parts with legs have size at most
-$2C_w^{\rm s}\phi_{i-1}$. After subtracting the explicit
-normalizers and the Gaussian family, their scalar
-fluctuation parts have size at most
+Assume, polymer by polymer and at each pointer, that they read
+the pair only on its core, are jointly gauge invariant, and
+are holomorphic in the pair and the independent source coordinates
+on that core. Their scalar parts are strictly gauge invariant.
+Assume also that the families, including their pointed scalar
+parts, agree on common domains when the pair radius is reduced.
+For the parts with legs, sum the norms of the unextracted
+activity, the mass member and the individual moved forms;
+assume this sum is at most $2C_w^{\rm s}\phi_{i-1}$.
+After subtracting the explicit normalizers and the Gaussian
+family, take the maximum of the unpointed scalar fluctuation
+norm and all its pointed norms. Assume this maximum is at most
 $2C_w^{\rm s}\phi_{i-1}+C'_{\rm lin}\tau_{i-1}(w;a)$.
+These bounds hold at every admitted reduced radius.
 Then the next source step is defined and has these bounds
 at level $k+1$. Its data are holomorphic in the pair and
 coordinates, and agree when restricted to a smaller
@@ -7890,7 +8602,7 @@ as $h_F\to\infty$.
 \begin{proof}
 The relative weight is $v_k=-L^{K-k}w/x_k$.
 Put its centered quadratic in the q origin, as in
-Lemma~\ref{C-399-32}, and keep its Gaussian family
+Lem.~\ref{C-399-32}, and keep its Gaussian family
 $\mathbf G^v$ outside the small family. Its norm is at most
 $C_G^v(|x_k-\mathsf t_k|/\mathsf t_k+\sup|v_k|)$.
 The remaining gauge vertices have size
@@ -8027,14 +8739,16 @@ The localized row sums give this inequality. Reaching the filed
 cell from a cell $c'$ leaves the summable factor $e^{-r(c',c)}$.
 Consequently, writing $n=k-j\ge1$ and
 $\epsilon_j=\epsilon_j^{{\rm s},\psi}$,
-\[
+\begin{equation}\label{eq:qcd-moved-piece-bounds}
+\begin{gathered}
  \sum_{z\in c,X,p}\|a_{X,p}(z)\|
        e^{\kappa L^{-n}d_j(Z_p)}(1+d_j(Z_p))^3
        \le C_{\rm pw}h_F^{-2}\epsilon_j,
  \qquad
  \sum_{Z_p\supset\square,z}\|a_{X,p}(z)\|
        e^{\kappa d_j(Z_p)}\le C_{\rm pw}h_F^{-2}\epsilon_j.
-\]
+\end{gathered}
+\end{equation}
 Here
 $C_{\rm pw}=2e^{\kappa/2}S'_\kappa C C_{\rm wk}A_\kappa^2$,
 where $S'_\kappa=\sup_d(1+d)^3e^{-5\kappa d/13}$.
@@ -8116,6 +8830,64 @@ $\phi_{i-1}/\phi_k\le CL^{-(k+1-i)/2}
 (1+(k+1-i)\log L)^{\mathfrak p_0}$.
 The prescribed floor on $h_F$ closes the leg size.
 
+We next verify the asserted properties at each pointer. Each
+member of the potential reads the independent coordinates on
+its filing polymer: the gauge and linear vertices read $w$,
+the mass member reads $\sigma_k$, and the local inverses read
+$\mathsf n$. An old term is filed with the polymer of its
+coefficient and all walks of its legs. Its local source
+dependence is therefore retained. Local moments are likewise
+filed with their actual pieces. The connected expansion then
+reads only the coordinates on its union polymer.
+
+For a place $p$, put $\dot V=(V_\psi)_p$, using the share
+$n^{-1}N_p$ in degree $n\ge2$; one may also sum these shares
+over the places of a site. This map preserves locality and
+evenness, commutes with gauge transformations, and has norm
+at most one on every polynomial. Define
+\[
+ H(X;\mathfrak c,t,\lambda)
+   =\widetilde E[V_0+tV_\psi+\lambda\dot V](X),\qquad
+ E^\bullet(X;\dot V)
+   =\int_0^1\partial_\lambda H(X;\mathfrak c,t,0)\,dt.
+\]
+For $|t|<9/8$ and $|\lambda|<1$ the potential has size at most
+\[
+ \tfrac12c_{\rm cl}+(9/8+1)\tfrac18c_{\rm cl}
+       =\tfrac{49}{64}c_{\rm cl}<c_{\rm cl}.
+\]
+Thus \cref{C-388-19,C-388-39} apply on an open set containing
+the integration segment. The Cauchy formula for
+$\partial_\lambda H$, followed by the uniformly bounded
+integral in $t$, proves holomorphy in $\mathfrak c$ and the
+pair. Both operations preserve the gauge identity of
+\cref{C-388-36}. Taking degree zero gives strict scalar
+invariance. The first-variation bound applies at every
+pointer, with the norm of $V_\psi$ as its insertion bound.
+
+For the restriction assertion let $a_k^{\rm rad}\le a'\le a$.
+The coordinate domains satisfy
+$2\mathscr D_k(a)\subset2\mathscr D_k(a')$.
+The explicit old families are localized at their fixed radii
+in both constructions. The old scalar fluctuation arrays,
+including every pointed member, agree on the radius-$a'$
+cores by the inductive hypothesis. Their bracket localization
+commutes with this restriction, with the same slot and zero
+counterterms. Hence their fluctuations agree at every admitted
+$B$; at $k=0$ this array is empty. The two potentials and their
+insertions therefore agree at the smaller radius, as do $H$
+and $E^\bullet$.
+
+The scalar terms pointed at bonds obey the same restriction
+identity. The tests, quadratic origin and gauge vertices are
+defined at the fixed radii. Their paths and insertions depend
+only on their values at the given pair. The remaining scalar
+origin is the localized old array just considered, together
+with the linear source term. It has the same value on the
+smaller core at every fluctuation, so its paths, insertions
+and connected sums also agree there. Summing with the fixed
+tent functions preserves this identity.
+
 For degree zero let $D$ denote the new scalar activity
 less its explicit Gaussian and normalizer families.
 The scalar subtraction is exactly
@@ -8131,6 +8903,13 @@ M^3|\widetilde e_{k+1}|+\|\mathbf L_0\|$, where
 $M^3|\widetilde e_{k+1}|\le\|D(0)\|$ by its translation-cell
 mean. The local action part $\mathbf L_0$ is the zero-source
 one, formed at its fixed radius.
+Every term in this subtraction is local and holomorphic
+in the independent coordinates. The evaluations at the
+trivial pair, which belongs to every radius, preserve
+agreement on smaller cores; $\widetilde e_{k+1}$ and
+$\mathbf L_0$ are independent of that radius. Thus the
+pointed scalar families have all the properties required
+in the next step's hypothesis.
 There is no inverse-square radius loss from extracting a
 new action coefficient. The scalar recursion is
 \[
@@ -8315,9 +9094,19 @@ at real $c$, by the reality of that flow. This conclusion
 does not assert the same reality for individual pointed
 or polymer pieces.
 
-For the torus comparison let $\Delta_i,\Delta_i^0$ be the
-differences of the leg and scalar families on polymers
-of diameter less than a quarter of the side. At constant
+For the torus comparison, match each polymer of diameter less
+than a quarter of the side with its translate in $\mathbb Z^3$.
+Define $\Delta_i$ by the level-$i$ family norm with
+\[
+ \sum_\sigma\|F^{\rm tor}_\sigma(Z)-F^\infty_\sigma(Z)\|
+\]
+in place of the norm of the activity at $Z$. The summands are
+the new activity before extraction, each moved form $P_{z;X,p}$
+on its own $Z_p=Z$, and the local mass member. The last member
+has zero difference: both lattices use the same $\mu_i$ and
+the same algebra of formal legs. Let $\Delta_i^0$ be the maximum
+of the scalar difference norm and the corresponding difference
+norms at every pointer, including the action terms. At constant
 coordinates $\mathsf n=0$, the new cell-sum identity has
 only the error in $\mathfrak s_i^{-1}\sum_y A_i(y,z)$ and
 the omitted large polymers. Keep each summand on its $Z_p$.
@@ -8328,8 +9117,35 @@ $r_i^{\rm c}$ bounded by
 $C\phi_i e^{-4c_t\ell/\lambda_i}$, using the moved-piece
 bound and the constant-chain sizes $\epsilon_i^{\rm c}
 \le C\phi_{i-1}$. These constants precede $B_\sigma$.
-Lemma~\ref{C-407-33}, the source-step variation bound and
-the local moment rule give
+Extraction is bounded in this norm. Indeed, if $Z_p$ has
+diameter less than a quarter of the side, its walks do not
+wrap around the torus. Their local inverses and moment maps
+agree on both lattices. Thus the difference of the two forms
+is the moment of the single difference family $E^{\rm dif}$
+before extraction. The piece count in
+\cref{eq:qcd-moved-piece-bounds} gives
+\[
+ \sum_{Z_p\supset\square}\sum_z
+     \|a^{\rm dif}_{X,p}(z)\|e^{\kappa d_i(Z_p)}
+       \le C_{\rm pw}h_F^{-2}\|E^{\rm dif}\|.
+\]
+Multiplying by the norm of a local mass form and using
+$\mathfrak s_i\ge\eta_{\min}^2$ bounds the forms by
+\[
+ \eta_{\min}^{-2}c_{\mathsf S}M^{-3}C_{\rm pw}
+ \|E^{\rm dif}\|.
+\]
+Including the unextracted term therefore
+costs at most $K_\mu^{\rm s}$, the same factor used for the
+source-step sizes. The derivative of the new activity with
+legs in the old leg potential is at most $50K_M/9$ on the
+admitted ball. Since
+$\theta_E^{\rm s}=\sqrt2K_\mu^{\rm s}K_Mc'_\psi$,
+its contribution is at most $4\theta_E^{\rm s}$ times the
+old leg norm. Its derivative in the scalar potential has
+an additional factor $\|\mathcal V_\psi\|/c_{\rm cl}$,
+because the part with legs vanishes when $\mathcal V_\psi=0$.
+These estimates, \cref{C-407-33} and the local moment rule give
 \[
 \begin{split}
  \Delta_{k+1}\le{}&C_{\rm img}K_Me^{-2c_t\ell/\lambda_{k+1}}
@@ -8612,14 +9428,14 @@ $C_N^{\mathsf n}N_fL^j\|\mathsf n\|e^{-(\kappa+1)d_j(X)}
 Together these bounds give the first assertion.
 
 For the difference estimate use the coordinate Cauchy
-argument in the proof of Proposition~\ref{C-407-16}.
+argument in the proof of Prop.~\ref{C-407-16}.
 If $X$ misses $S$, the source entries agree on $X$.
 A background walk can see their difference only by
 reaching $S$. After half its decay has been reserved
 for summation, the remaining half gives the factor
 $e^{-\operatorname{dist}(X,S)/(12\sqrt3M_wL^j)}$.
 The chain entries have the exponential locality of
-Lemma~\ref{C-407-13}. As
+Lem.~\ref{C-407-13}. As
 $\kappa_\sigma\le1/(24M_w)$, these give
 \eqref{eq:qcd-source-energy-tail}. If $X$ meets $S$,
 use twice the first bound. The entropy sum proves the
@@ -8764,7 +9580,7 @@ The constants are fixed before the lower mass bound
 and the final coupling ceiling.
 \end{lemma}
 \begin{proof}
-Lemma~\ref{C-407-21} places the coordinates in
+Lem.~\ref{C-407-21} places the coordinates in
 $2\mathscr D_{j-1}(\alpha_0)$. There the part with legs has size
 $2C_w^{\rm s}\phi_{j-1}$. Its background maps have the localized
 row and H\"older bounds at the fine mass matrix, with the admitted
@@ -8862,7 +9678,7 @@ are bounded by the part with legs of the potential. The cluster
 majorant is multilinear and nondecreasing in the vertex norms,
 so these insertions obey the same bound as that part. The bond
 insertions require the pointed scalar estimate of
-Lemma~\ref{C-388-37}. The gauge and old-activity insertions cost
+Lem.~\ref{C-388-37}. The gauge and old-activity insertions cost
 at most $9$ times their input norms, followed by the first-variation
 constant $K_\Pi$ and the tent count $3L^3$. The resulting scalar
 constant is $K_M^\bullet$. For the linear source term the tent
@@ -8917,7 +9733,7 @@ $\mathsf n=-a_KJ$ satisfies
  \le\bigl(\tfrac12+2^{-(k-m)-1}\bigr)C_HL^{-(m-i)}.
 \]
 The row twin has the same bound. Hence a formal leg retained at
-the weight of Proposition~\ref{C-399-15} costs at most one when
+the weight of Prop.~\ref{C-399-15} costs at most one when
 it is evaluated in ${\rm Gr}_h$ at weight $h_F$.
 \end{lemma}
 \begin{proof}
@@ -8931,8 +9747,8 @@ unchanged on $S_0$. The resolvent identity gives
  \psi_P(\mathsf n)-\psi_P(0)
    =-\mathcal K_k(\mathsf n)^{-1}\hat{\mathsf n}\psi_P(0).
 \]
-The complex-mass inverse bound and the zero-source background
-row sum imply
+The kernel bound \eqref{eq:qcd-fine-resolvent-kernel} and the
+zero-source background row sum of \cref{C-397-33} imply
 \[
  \sum_P|\psi_P(\mathsf n)(v)-\psi_P(0)(v)|
  \le2C_H^2\|\mathsf n\|\mathsf s(x_v)^{-1}
@@ -8955,9 +9771,12 @@ $\nu_P$ places. The two sums are bounded by
 At level $i\ge1$ the closed Schur formula expresses the field
 as $q_i\cdots q_1\psi+\theta_i^{-1}\mathsf e_i$. Only $\psi$
 changes with $\mathsf n$. The composed averages contribute
-$2L^i$, and the part of $\mathsf e_i$ depending on $\psi$
-contributes $4L^i/(L-1)$. Since the kernel is trivial in flavour,
-its row sum is at most $C_{\rm bl}L^i$. The change of the level
+$2\sqrt{48}L^i$, and the part of $\mathsf e_i$ depending on $\psi$
+contributes $4\sqrt{48}L^i/(L-1)$. The factor $\sqrt{48}$
+comes from $\iota^*$ in the per-chamber supremum norm.
+Since $\sqrt{48}<\nu'=8$, their sum is at most
+$C_{\rm bl}L^i$; the averages act trivially in flavour.
+The change of the level
 $i$ row is consequently at most
 $2C_{\rm bl}c_{\mathsf M}C_H^2L^i\|\mathsf n\|$.
 
@@ -8980,7 +9799,7 @@ retained is at most one.
 At a complex source the scalar coefficient of a history is no
 longer a positive measure. We therefore carry the identity of
 measures and the estimates in all Grassmann degrees through the
-induction. Lemma~\ref{C-407-34} then supplies the density and its
+induction. Lem.~\ref{C-407-34} then supplies the density and its
 integrable norm majorant. The gauge tests and the stored variables
 remain those of the unsourced construction.
 
@@ -9004,30 +9823,36 @@ where the sum is over the kept pieces,
 $|K^v_{t,D}|\le\gamma_{\rm kp}S_{t,D}/2$. Its quadratic bound
 holds with $\gamma^\dagger=\gamma_{\rm kp}/2$, and its
 formed-factor bound with $(\mathsf B_{\rm fr}^\flat+1,\kappa)$.
-\item The action has weight $\beta_k-a_K^{-1}w$, whose real
-part leaves at least $(1-\mathsf a)\beta_k$, with the fixed
-loss $\mathsf a\in(0,1/2]$ used below.
+\item The action has running weight $\beta_h^F-a_K^{-1}w$.
+Its difference from the fixed weight $\beta-a_K^{-1}w$ is
+the source-independent layer term in
+\eqref{eq:qcd-history-format}, already included in the scalar
+bound. For history integration use
+$\mathsf{bw}=\beta-a_K^{-1}\operatorname{Re}w
+\ge(1-\mathsf a)\beta$, where the fixed loss
+$\mathsf a\in(0,1/2]$ satisfies the source ceiling
+$4\varrho\le\mathsf a(\gamma^{-2}-\bar B)$.
 \item The stored quadratic form is $\mathbb D_h(\mathsf n)$.
 Its row and column sums are bounded by $C_D^{\Sigma,\rm s}$,
 and its exponential by $e^{\mathsf c_G\Sigma'(h)}$, with
 $\max\{\mathsf c_{\rm tw},C_D^{\Sigma,\rm s}\}$ in
 $\mathsf c_G$.
 \item The mass profile is the sourced history profile of
-Lemma~\ref{C-407-21}; it and the regular sum with legs have the
-bounds of Lemma~\ref{C-407-35}.
+Lem.~\ref{C-407-21}; it and the regular sum with legs have the
+bounds of Lem.~\ref{C-407-35}.
 \item The regular activities are those of
-Proposition~\ref{C-407-16} at $\mathfrak c^h$. Extraction keeps
+Prop.~\ref{C-407-16} at $\mathfrak c^h$. Extraction keeps
 each moved form on its actual polymer $Z_p$, with its own
 pointer. The pointed sum rule holds, the source-step sizes
 hold, and the scalar entries and their edge parts satisfy
-Lemma~\ref{C-407-40}.
+Lem.~\ref{C-407-40}.
 \item The made boundary terms and the edge parts satisfy the
 unsourced boundary estimates with $\mathsf B_\natural$ and
 $E_0^{\rm s}$ in place of $\mathsf B$ and $E_0$. No reality
 is required at a complex source. They include the rejected
 halves, the reblocked linear term, the sourced strip rows and
 the forms pointed on the rims. Their dependence on the history
-has the coordinate tails of Lemma~\ref{C-407-21}. At step $j$
+has the coordinate tails of Lem.~\ref{C-407-21}. At step $j$
 the interior leg size obeys
 $\bar v_j^{\rm s}\le b^{\rm blk,s}\le c_{\rm cl}/8$,
 and the frame leg size obeys
@@ -9038,7 +9863,7 @@ the sourced strip rows add at most
 $\eta_j^{\rm sr}K^{\rm lb}\mathsf{sz}_j^\natural
 e^{-\kappa_+d_j(X)}$, where $\eta_j^{\rm sr}<1/8$.
 Formal legs in stored layers have the cost at most one of
-Lemma~\ref{C-407-41}.
+Lem.~\ref{C-407-41}.
 \item The vacuum constant of the label satisfies
 \[
  -\mathcal E^{\rm F}_{k,\mathcal S}
@@ -9061,7 +9886,7 @@ formed factor or vacuum constant.
 The next lemma identifies the expansion used at one step. Its
 estimates use only the bounds at previous steps. The estimates
 for the newly generated boundary terms, recorded in the proof of
-Proposition~\ref{C-407-22}, are one-step estimates under precisely
+Prop.~\ref{C-407-22}, are one-step estimates under precisely
 that hypothesis.
 
 \begin{lemma}[The centered frame at a source]\label{C-407-38}
@@ -9124,7 +9949,7 @@ weighted Gaussian part is at most
 $(9/16)e^{-\kappa''d_t(X)}$; its part with legs is at most
 $K^{\rm lb}\mathsf{sz}^\natural e^{-\kappa''d_t(X)}$.
 Inside $\Lambda_t$ the expansion agrees term by term with
-Proposition~\ref{C-407-16}, including its pointed outputs.
+Prop.~\ref{C-407-16}, including its pointed outputs.
 \end{lemma}
 \begin{proof}
 The weighted quadratic and linear terms are the centered
@@ -9154,7 +9979,7 @@ entries. Its constituent estimates require only analyticity,
 invariance, the tie and the bounds on entries, made terms and
 formed factors. These hold here with
 $(E_0^{\rm s},\mathsf B_\natural,\mathsf B_{\rm fr}^\flat+1)$,
-by Lemma~\ref{C-407-40} and the inductive statement. In
+by Lem.~\ref{C-407-40} and the inductive statement. In
 particular an edge part has at most
 $M^3\#_{\pi_j}X\le8M^3e^{d_j(X)}$ pointers. Its scalar part
 is therefore at most $8M^3E_0^{\rm s}e^{-\kappa d_j(X)}$,
@@ -9191,6 +10016,32 @@ bounded by the one-step recurrence below: it reads earlier
 frame sizes only, and gives $(64/51)b^{\rm tot,s}$ at the
 new step.
 
+The boundary members at a complex source have the same
+analyticity on the tiers as in the proof of
+Prop.~\ref{C-399-15}. Their coefficients are
+holomorphic on their filing slices; the background
+maps at $m_0+\widehat{\mathsf n}$ have the bounds and
+holomorphy of Lem.~\ref{C-397-29} and the localized
+operator construction; and the shift,
+substituted triples and levelling functions read no
+source. The normalization and composition argument
+therefore applies unchanged. In particular it uses
+the admitted slices for a made boundary coefficient.
+It does not require an extension of that coefficient
+to every complex link configuration.
+
+The coefficient and leg pieces of a made term are
+recombined at each polymer and each choice of leg parts
+as the bracket of $\Pi_{j,X}[\omega]$. This gives the
+pair dependence of the member of the frame. Edge
+pieces have that dependence individually. Their
+products are Borel by the coefficient, background and
+shift formulas, and uniform convergence preserves
+Borel dependence in the walk sums. Thus the source
+frame has the pair, analyticity and measurability
+properties required by the joined expansion, as well
+as the sizes just proved.
+
 The noncentered sizes sum to less than $6\varepsilon_\flat$.
 Using $\varepsilon_\flat=(64eL^3\mathsf K_{\rm ap}^{\max})^{-1}$
 and $\varepsilon^{\rm O}=(16eL^3\mathsf K_{\rm ap}^{+})^{-1}$,
@@ -9201,7 +10052,7 @@ is at most $1/(8\mathsf K_{\rm ap}^{\max})$, so the cluster
 bound is $9/32$. The canonical source-step hypotheses and the
 pair comparison give the remaining hypotheses of the centered
 expansion, including those of its first-step version.
-Lemma~\ref{C-399-41} applies this expansion in the even
+Lem.~\ref{C-399-41} applies this expansion in the even
 Grassmann algebra. Its majorant reads the sizes just obtained;
 the positive Gaussian, its tests and its admissible centers
 are gauge objects. It supplies the cluster properties and the
@@ -9214,8 +10065,8 @@ field is read, the boundary class vanishes, and the cross term
 has no polymer. The centered quadratic and the ordinary
 quadratic class combine into the weighted quadratic origin;
 the linear member joins the scalar potential. The origin-joining
-identity of Proposition~\ref{C-388-34} and the interior
-identification of Lemma~\ref{C-399-45} give the asserted
+identity of Prop.~\ref{C-388-34} and the interior
+identification of Lem.~\ref{C-399-45} give the asserted
 termwise equality, also at every pointer.
 \end{proof}
 
@@ -9244,17 +10095,17 @@ The background change and completion of the square use the
 sourced operators, with their doubled bounds. Stored generators
 are kept at their old places; the other legs acquire the
 canonical levelling factors. The boundary coefficient estimate
-of Lemma~\ref{C-399-48} applies with $\mathsf B_\natural$,
+of Lem.~\ref{C-399-48} applies with $\mathsf B_\natural$,
 since it uses analyticity and bounds without a reality condition.
 The normalizer is $\delta Z_k^{\rm F}$ at the matrix source.
 
-Lemma~\ref{C-407-38} gives the joined centered expansion, with
+Lem.~\ref{C-407-38} gives the joined centered expansion, with
 the first-step version when $k=0$. The first fermion covariance
 is defined at every configuration by its positive real-part
 bound, so no regularity hypothesis is added at that step.
 Inside $\Lambda_{k+1}$ the history coordinates lie in the
 doubled source window, and the expansion is the source step of
-Proposition~\ref{C-407-16}. Take out its vacuum number, action
+Prop.~\ref{C-407-16}. Take out its vacuum number, action
 coefficient, source energy, and local mass increment. The
 increment uses only pieces with $Z_p\subset\Lambda_{k+1}$.
 Its forms stay on these $Z_p$: interior pointers enter the
@@ -9276,19 +10127,19 @@ preintegral value at the conditional mean. The scalar linear
 term evaluated at the stored field leaves the integral as an
 exponential and is reblocked into the new boundary term. The
 sum rule for the sourced strip rows is the one in
-Lemma~\ref{C-399-42}. These are the sourced counterparts of
-the identities in Proposition~\ref{C-399-43}.
+Lem.~\ref{C-399-42}. These are the sourced counterparts of
+the identities in Prop.~\ref{C-399-43}.
 
 All operations are coefficientwise in the finite-dimensional
 even algebra. In particular the conditioning integral is
 followed by the Gaussian Berezin integral with the symmetrized
-sourced decoupling covariance of Proposition~\ref{C-397-40}.
+sourced decoupling covariance of Prop.~\ref{C-397-40}.
 Its conjugation maps the source to $\gamma_4J^\dagger\gamma_4$,
 and its charge conjugation to $J^{\mathsf c}$; it is not a
 positivity assertion at a fixed complex source. For an
 interchange of integrals, first use Tonelli for the fibre norm,
 then Fubini for each coefficient. The needed integrability and
-common null set are supplied by Lemma~\ref{C-407-34}. Wherever
+common null set are supplied by Lem.~\ref{C-407-34}. Wherever
 the scalar argument uses a nonvanishing exponential, use the
 invertibility of an even exponential. Its scalar coefficient
 is itself a nonvanishing complex exponential.
@@ -9305,17 +10156,17 @@ and the matrix mass and increments commute with colour. This
 proves the one-value assertion.
 
 The remaining task is quantitative. The kept-half and store
-bounds are proved below; Lemma~\ref{C-407-35} bounds the mass
-and regular terms with legs; Lemma~\ref{C-407-40} bounds the
+bounds are proved below; Lem.~\ref{C-407-35} bounds the mass
+and regular terms with legs; Lem.~\ref{C-407-40} bounds the
 scalar entries and their scale sum; and
-Lemma~\ref{C-407-41} pays the stored formal legs. The one-step
+Lem.~\ref{C-407-41} pays the stored formal legs. The one-step
 boundary recurrence below uses only preceding frame sizes and
 preserves $(64/51)b^{\rm tot,s}$. The rim outputs of
-Lemma~\ref{C-407-38}, the sourced strip bounds and the pointed
+Lem.~\ref{C-407-38}, the sourced strip bounds and the pointed
 extraction just described give the boundary clause. Finally
-the local energy comparison of Lemma~\ref{C-407-21} gives the
+the local energy comparison of Lem.~\ref{C-407-21} gives the
 label errors. These estimates give each clause of
-Definition~\ref{C-407-36} at level $k+1$ and complete the
+Def.~\ref{C-407-36} at level $k+1$ and complete the
 induction.
 \end{proof}
 
@@ -9338,10 +10189,10 @@ The factorization is $Z[s]=e^{E_k(s)}Z_k^{\rm sub}[s]$,
 and $Z_k^{\rm sub}[s^\star]=\overline{Z_k^{\rm sub}[s]}$.
 \end{proposition}
 \begin{proof}
-Proposition~\ref{C-407-37} gives the complex measure identity
+Prop.~\ref{C-407-37} gives the complex measure identity
 and the full-degree form of every history. The history chain
 remains in the
-doubled coordinate window by Lemma~\ref{C-407-21}.
+doubled coordinate window by Lem.~\ref{C-407-21}.
 The physical source ball lies in the fixed-radius
 domains, so all local norms needed by the histories
 are the fixed-radius norms of the source step.
@@ -9371,7 +10222,7 @@ $\beta_\upsilon=8C_Ee^{6\delta_\upsilon M}k_\upsilon$,
 $r_\upsilon-\delta_\upsilon M\ge c_E$,
 $W_t\ge LM$ and
 $\delta_\upsilon LM/2\ge342(\kappa'+1)$,
-\cite[Theorem~AG and Proposition~79.3]{YMM1} give
+\cite[Thm.~AG and Prop.~79.3]{YMM1} give
 \[
  \|\widehat\Upsilon\|\le C_\Upsilon\beta_\upsilon,
  \quad \operatorname{osc}\widehat\varphi_X
@@ -9454,7 +10305,7 @@ Stripping produces additional boundary rows. Those from the
 two halves have their quadratic bound times
 $C_{\rm fl}^{\rm tr}e^{-\check R_t}$, uniformly bounded because
 $\mathfrak b(\mathsf t_{t-1})^2e^{-\check R_t}
-\le e^{-2}C_{\mathfrak b}$. Apply Lemma~\ref{C-399-42} to the
+\le e^{-2}C_{\mathfrak b}$. Apply Lem.~\ref{C-399-42} to the
 other two families, the rim cluster sums and the reblocked
 linear term. They are local, jointly gauge invariant and
 analytic on its complex box; their bounds there are respectively
@@ -9484,7 +10335,7 @@ unchanged piece contained in $\Omega_{m-1}\setminus\Omega_{m+2}$.
 Every other piece is taken whole.
 
 The difference pieces have the cell-sum bound of
-Lemma~\ref{C-407-35}. A whole piece reaching layer $m>j$ has
+Lem.~\ref{C-407-35}. A whole piece reaching layer $m>j$ has
 $d_j(Z)\ge7L^{m-j}-2$, so its cells and the unused decay are
 paid by
 \[
@@ -9505,7 +10356,7 @@ walk count cost at most
 The torus cell sums are filed on wrapping polymers with
 $d_j(Z)\ge L^{k-j}-2$ and use the convergent bound
 $\sum_{d\ge1}L^{3d}e^{-\kappa(1-L^{-1})(L^d-2)}\le1$.
-Formal stored legs cost at most one by Lemma~\ref{C-407-41}.
+Formal stored legs cost at most one by Lem.~\ref{C-407-41}.
 
 These estimates give the stored-layer share
 \[
@@ -9553,6 +10404,34 @@ $2\eta_{\min}^{-2}c_{\mathsf S}M^{-3}C_{\rm pw}C_w^{\rm s}
 \phi_{j-1}$. Their coefficients read no configuration; their
 reentry is through their legs alone.
 
+For the forms this uses a loss of one unit of decay.
+Their known bound sums $\|P_{z;X,p}\|e^{\kappa d_j(Z_p)}$
+through a cube. Apply the preceding bracket count at
+rate $\kappa-1$, with roots containing the hull
+$Z_p^\uparrow$. After the walk factors and the weight
+room have been used, its remaining factor is
+\[
+ e^{(\kappa-1+1/13)d_k(Z_p^\uparrow)}e^{2/13}
+   =e^{(\kappa-12/13)d_k(Z_p^\uparrow)}e^{2/13}.
+\]
+At $j=k$ it is bounded by $e^{\kappa d_j(Z_p)}e^{2/13}$.
+At $j<k$, use $d_k(Z_p^\uparrow)\le L^{-(k-j)}d_j(Z_p)$
+and
+\[
+ (\kappa-12/13)L^{-1}+\kappa(1-L^{-1})\le\kappa.
+\]
+The weight of the form therefore also pays the reach
+factor used in the boundary count. Finally
+$e^{2/13}<C_E$, already included in $C_{\rm bd}^{\rm s}$.
+This proves the displayed contribution of the forms
+in the summed norm at rate $\kappa-1\ge r_V$.
+The made and ordinary edge terms instead have the
+spare rate $\kappa_+$ and use their earlier domain count.
+Their coefficient and leg contributions remain
+$1/16$ and $9/64$ times the boundary maximum,
+respectively; they are recombined before asserting
+pair dependence of the frame.
+
 Set $\Sigma_{k+1}^\natural=\sup_{1\le j\le k}
 \mathsf{sz}_j^\natural$ and
 $\bar v^{\rm s}=\sup_{1\le j\le k}\bar v_j^{\rm s}$, both
@@ -9560,7 +10439,7 @@ zero at $k=0$. The old boundary terms entering through legs
 contribute at most $\frac18\frac98
 \max\{\Sigma_{k+1}^\natural,\bar v^{\rm s}\}$; their
 coefficient variations contribute at most $\frac1{16}$ times
-the same maximum, by Lemma~\ref{C-399-48} and the coefficient
+the same maximum, by Lem.~\ref{C-399-48} and the coefficient
 ceiling. Thus
 \[
  \mathsf{sz}_{k+1}^\natural
@@ -9574,12 +10453,12 @@ Since $(13/64)(64/51)+1=64/51$, induction preserves
 $(64/51)b^{\rm tot,s}$. Each of the three share ceilings is
 $\varepsilon_\flat/4$, giving the bound
 $16\varepsilon_\flat/17$ for the leg class. This verifies
-the one-step estimate used in Lemma~\ref{C-407-38}.
+the one-step estimate used in Lem.~\ref{C-407-38}.
 
 The complex stored tower has uniformly bounded row and
 column sums by its closed Schur form and the weighted
 inverse at $\mathsf n$; its fine-store entries remain
-of range one. Lemma~\ref{C-399-17} therefore bounds its
+of range one. Lem.~\ref{C-399-17} therefore bounds its
 exponential with a fixed enlarged constant. The stored
 mass profile is the convex interpolation of
 $L^{-n}(s_n+\sigma_n^h)$ and
@@ -9616,9 +10495,9 @@ is asserted.
 The extracted constants along $h$ differ from $E_k(s)$
 by the missing source polymers, boundary numbers and
 the coordinate-chain difference of
-Lemma~\ref{C-407-21}. Each costs at most
+Lem.~\ref{C-407-21}. Each costs at most
 $C'_{\mathfrak E}\#_j(\widetilde Z_j)$ and so has the
-same label-error form as Lemma~\ref{C-399-24}.
+same label-error form as Lem.~\ref{C-399-24}.
 The component estimate has created-cell rate
 $(1-a)c_*>c_\Theta$. Thus the weight $e^{\Theta^{(k)}(h)}$
 is paid by the same created-cell estimate. Apply the pure history summation interface
@@ -9627,8 +10506,128 @@ $C_\flat^F+C'_{\mathfrak E}$, choosing its threshold
 before the cutoff. This proves the norm sum.
 Berezin integration has norm at most one at $h_F\ge1$,
 so it bounds $Z_k^{\rm sub}$. Its lower bound at zero
-is Theorem~\ref{C-399-4}. Holomorphy follows from that
+is Thm.~\ref{C-399-4}. Holomorphy follows from that
 of the finite sourced partition function and $E_k(s)$.
+\end{proof}
+
+\begin{proposition}[Sources bounded at an intermediate scale]
+\label{C-407-43}
+Use the common assignment of \cref{C-396-12}, including the
+positive-mass ceilings for the lower bound in \cref{C-399-4}.
+For $1\le k\le K$ put
+\[
+ \mathcal P_k^\#=
+ \{(w,J):\ \|w\|_\sharp<2\varrho,
+                     \ \lambda_k\|J\|_\infty\le r_J/2\}.
+\]
+The part of $\mathcal P$ with $\|w\|_\sharp<2\varrho$
+lies in $\mathcal P_K^\#$, and
+$\mathcal P_K^\#\subset\mathcal P_k^\#\subset\mathcal P_j^\#$
+for $1\le j\le k$.
+The history induction of \cref{C-407-37}, with the format of
+\cref{C-407-36}, holds through level $k$ for every
+$s\in\mathcal P_k^\#$, with the same constants. In particular,
+\[
+ \sum_{h\in\mathcal H_k}e^{\Theta^{(k)}(h)}
+    \int\|g_h(s)\|\,d\mathscr M_h^{\rm fr}
+ \le\exp[\operatorname{Re}E_k(s)+(C+2)n_k].
+\]
+The factorization and bounds are
+\begin{equation}\label{eq:qcd-level-source-partition}
+\begin{gathered}
+ Z[s]=e^{E_k(s)}Z_k^{\rm sub}[s],\qquad
+ |Z_k^{\rm sub}[s]|\le e^{(C+2)n_k},\qquad
+ Z_k^{\rm sub}[0]\ge e^{-C_P(1+\log x_k)n_k},\\
+ \frac{|Z[s]|}{Z[0]}
+ \le\exp\!\left[\operatorname{Re}(E_k(s)-E_k(0))
+                +(C+2+C_P(1+\log x_k))n_k\right].
+\end{gathered}
+\end{equation}
+The function $Z_k^{\rm sub}$ is holomorphic on the interior,
+continuous on $\mathcal P_k^\#$, and respects source
+conjugation. The constant $C$ is independent of the positive
+mass floor; $C_P$ has the dependence stated in \cref{C-399-4}.
+\end{proposition}
+\begin{proof}
+The physical source ball has
+$\|J\|_\infty\le2\varrho_J\le c_Jm_-\le r_J/2$.
+Since $\lambda_j\le\lambda_k$ for $j\le k$, the inclusions
+follow. Moreover $\mathcal P_k^\#\subset
+\mathscr O_j\cap\mathscr O_j(\alpha_0)$ for $0\le j\le k$.
+Thus the local source chains, the history chains and the energies
+are defined in their fixed-radius coordinate domains. To extend
+the history bound we must also check the operators and stored
+terms; the existence of the local chain alone is insufficient.
+
+Write $\mathsf n=-a_KJ$. The source ceilings give
+\begin{equation}\label{eq:qcd-level-source-sizes}
+\begin{gathered}
+ L^j\|\mathsf n\|\le L^{-(k-j)}r_J/2\quad(j\le k),
+ \qquad L^{k+1}\|\mathsf n\|\le r_M/2,\\
+ \lambda_j\|J\|_\infty\le r_J/2
+       =r_M/(2L)\le\varrho_*/4\le\varrho_\sharp/4,
+ \qquad m_0+\|\mathsf n\|\le1.
+\end{gathered}
+\end{equation}
+Here $r_J=r_M/L$, $r_M\le L\varrho_*/2$, and
+$\varrho_*\le\varrho_\sharp$ are the already chosen radii.
+We check each use of $J$ in the induction up to a level $t\le k$.
+
+At a step from $t<k$, the first bound in
+\eqref{eq:qcd-level-source-sizes} puts the fine mass matrix
+in the source ball of \cref{C-397-29}. The tower, backgrounds,
+decoupled covariances and normalizer therefore have their
+usual doubled bounds. This includes the first step, where
+$a_K\|J\|_\infty\le L^{-k}r_J/2$. Restricting $J$ to a
+polymer preserves this ball, so the local conditional
+contraction and measure identities also apply. The conjugate
+source remains in the same class because
+$\|\gamma_4J^\dagger\gamma_4\|=\|J\|$.
+
+For the sum of old terms on a layer of level $j\le t$,
+$L^j\|\mathsf n\|\le r_M/(2L)$ is inside the cell-unit
+window of \cref{C-407-16}. For a stored layer $m<t$ the
+stronger lag estimate
+\[
+ L^m\|\mathsf n\|\le L^{-(t-m)}r_M/(2L)
+\]
+retains the gain used in the stored-leg estimate
+\cref{C-407-41}. Indeed its change of row sums is at most
+$\tfrac14L^{-(t-m)}C_HL^{-(m-i)}$, hence at most
+$2^{-(t-m)-1}C_HL^{-(m-i)}$, under the chosen ceiling
+$C_{\rm fl}r_M\le L$. The sums over layers consequently use
+the same constants as on $\mathcal P$.
+
+The stored tower has the same row and column bounds as well.
+On its fine layer the entries are bounded by
+$\mathsf c_{\rm disc}+m_0+\|\mathsf n\|
+\le\mathsf c_{\rm disc}+1$; on the other layers use the
+source operator bounds just checked. The history mass fields
+are those of \cref{C-407-21}, with
+$\|\sigma_j^h\|\le2B_\sigma\phi_j$. Their layer coefficients
+are bounded by
+$L^{-(j-1)}(\bar B_M+2B_\sigma)\phi_{j-1}$, as in
+the original sourced format.
+
+The normalizer walks and the label errors use the same
+coordinate balls. They give the same holomorphic vacuum
+constants and the error $C'_{\mathfrak E}\#_j(\widetilde Z_j)$.
+Every remaining source estimate reads only $w$: its supremum,
+its swing, the kept and rejected quadratic halves, and the
+loss of the real action weight. The condition
+$\|w\|_\sharp<2\varrho$ is unchanged. The bare sourced
+density is entire and has continuous coefficients on the
+compact link space, so the measure operations remain valid.
+
+These checks prove the format by induction on $t$, at the
+fixed class $\mathcal P_k^\#$. The proof of \cref{C-407-22}
+now gives the history bound with the same created-cell rate
+and layer constants. Berezin integration gives the upper
+partition bound. The lower bound at zero is
+\cref{C-399-4}; division proves the last inequality.
+Finally $Z_k^{\rm sub}=e^{-E_k}Z$, with $E_k$ holomorphic on
+the open set $\mathscr O_k$ containing $\mathcal P_k^\#$.
+This proves continuity, holomorphy and conjugation.
 \end{proof}
 
 \subsection{Separated energies and the cell bound}
@@ -9732,8 +10731,8 @@ norms are preserved, since the source vanishes in a
 strip along each wall. The coordinate-link reflection
 positivity and its chessboard inequality apply.
 
-For the folded source, use Proposition~\ref{C-407-22}
-and the zero-source floor in Theorem~\ref{C-399-4}.
+For the folded source, use Prop.~\ref{C-407-22}
+and the zero-source floor in Thm.~\ref{C-399-4}.
 Take the $\mathsf N$th root. Its normalization cost is
 $e^{c_V}$. The separated-energy estimate replaces
 $\mathsf N^{-1}(E_K(s^{\rm fold})-E_K(0))$ by the
@@ -9746,6 +10745,165 @@ average displayed above. This gives the cell seminorm
 bound. The multiple-cell chessboard inequality proves
 the final assertion, and also bounds a single-cell
 expectation by its seminorm.
+\end{proof}
+
+\begin{proposition}[A base source and a choice of stopping scale]
+\label{C-407-44}
+Use the source-energy hypotheses of \cref{C-407-23} and the
+common constant assignment of \cref{C-396-12}.
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item Let $s_0,s_0+s_i,s_0+\sum_i s_i\in\mathscr O_k$,
+where the supports $S_i$ of the increments $s_i$ are pairwise
+at distance at least $\delta>0$. Then
+\[
+ \left|E_k(s_0+\sum_i s_i)-\sum_iE_k(s_0+s_i)
+                         +(n-1)E_k(s_0)\right|
+ \le\sum_i\mathscr C_k(S_i;\delta).
+\]
+For $n\ge2$, suppose instead that the supports are pairwise
+disjoint, $\operatorname{dist}(S_1,S_2)\ge d>0$, and
+$s_0+\sum_i z_is_i\in\mathscr O_k$ on the polydisc of
+radii $\rho_i$. Then
+\[
+ \left|\partial_1\cdots\partial_n
+ E_k(s_0+\sum_i z_is_i)\big|_{z=0}\right|
+ \le2^{n-1}\prod_i\rho_i^{-1}\mathscr C_k(S_1;d).
+\]
+\item Suppose $s_0=(0,J_0)$, $s_i=(0,J_i)$,
+$\|J_0\|_\infty\le r_J/2$ and
+$\|J_i\|_\infty\le\varepsilon\le r_J/8$, with the
+supports $S_i$ pairwise at distance at least $\delta$.
+The first bound of \textup{(i)} at $k=K$ holds with
+\[
+ \mathscr C^\flat(S;\delta)
+  =C_{\mathscr C}\sum_{j=1}^K\#_j^+(S)
+                e^{-\kappa_E\delta/\lambda_j}\omega_j,
+ \quad
+ \omega_j=\begin{cases}
+ 1,&\lambda_j\le\delta,\\
+ \lambda_{j-1}/4,&\lambda_j>\delta.
+ \end{cases}
+\]
+For $S$ in a ball of radius $R_S$,
+\begin{equation}\label{eq:qcd-bilinear-base-additivity}
+ \mathscr C^\flat(S;\delta)
+       \le C_{\mathscr C}^\flat[1+(R_S/\delta)^3],
+\end{equation}
+uniformly in the cutoff and volume.
+\item Let a coordinate-link board have cells of physical
+side $l=qa_K$, where $q\ge3$ is odd and $\ell/l$ is an
+even integer. Write $\mathsf N=(\ell/l)^3$ and let $s$ be
+supported in one cell $\square$, at positive distance from
+its walls. For the source exponential $G_s$, let $s^{\rm ch}$
+be the source obtained by folding into all cells. Then
+\[
+ \|G_s\|_{\rm ch}^{\mathsf N}=Z[s^{\rm ch}]/Z[0]\ge0,
+ \qquad
+ |Z[\sum_\square s_\square]/Z[0]|
+       \le\prod_\square\|G_{s_\square}\|_{\rm ch}.
+\]
+Under the partition-bound hypotheses of \cref{C-407-43},
+$s\in\mathcal P_k^\#$ implies $s^{\rm ch}\in\mathcal P_k^\#$
+and
+\[
+ \|G_s\|_{\rm ch}\le
+ \exp\!\left[\frac{\operatorname{Re}(E_k(s^{\rm ch})-E_k(0))}
+                        {\mathsf N}
+      +(C+2+C_P(1+\log x_k))\frac{|\square|}{\lambda_k^3}\right].
+\]
+If the distance from the walls is at least $\delta$, put
+$\lambda_k^{\mathfrak b}(s)=\mathsf N^{-1}
+\sum_r(E_k(r_{\rm lin}s)-E_k(0))$. Then also
+\begin{equation}\label{eq:qcd-intermediate-cell-bound}
+ \|G_s\|_{\rm ch}\le
+ \exp\!\left[\operatorname{Re}\lambda_k^{\mathfrak b}(s)
+ +(C+2+C_P(1+\log x_k))\frac{|\square|}{\lambda_k^3}
+                  +\mathscr C_k(S;\delta)\right].
+\end{equation}
+\end{enumerate}
+The constant $C_{\mathscr C}^\flat$ depends only on
+$C_{\mathscr C},\kappa_E,M,L$ and is chosen before the
+positive mass floor and the final small-coupling threshold.
+\end{proposition}
+\begin{proof}
+For \textup{(i)}, apply the proof of \cref{C-407-25} with
+$s_0$ added to every argument. More explicitly, the contribution
+of a polymer is
+\[
+ \Delta_j(X)=e_j(X;s_0+\sum_i s_i)-\sum_i e_j(X;s_0+s_i)
+                                      +(n-1)e_j(X;s_0).
+\]
+Choose a nearest support $S_{i(X)}$ and write this as
+\[
+ [e_j(X;s_0+\sum_i s_i)-e_j(X;s_0+s_{i(X)})]
+ -\sum_{i\ne i(X)}[e_j(X;s_0+s_i)-e_j(X;s_0)].
+\]
+Each difference is bounded by \eqref{eq:qcd-source-energy-tail}
+using the supports other than $S_{i(X)}$. The same fine-scale
+packing gives $e^{-\kappa_E\delta/\lambda_j}$; at coarser
+scales use the differences from $s_0$ and the cube count.
+The source-independent constant in that proof therefore
+remains valid. For mixed derivatives apply
+$\prod_i(1-P_i)$ to $e_j(X;s_0+\sum_i z_is_i)$.
+Each $1-P_i$ changes the source only on $S_i$.
+The distance splitting in \cref{C-407-25}, followed by Cauchy's
+estimate on smaller polydiscs and a radius limit, proves the
+second assertion.
+
+For \textup{(ii)}, the sum of the increments has norm at most
+$\varepsilon$, since their supports are disjoint. The fine
+levels $\lambda_j\le\delta$ have the bound just proved.
+For a coarser level let $J$ be one increment or their sum and put
+\[
+ F(\tau)=e_j(X;(0,J_0+\tau J))-e_j(X;(0,J_0)).
+\]
+The domain $\mathscr O_{j-1}$ contains this family for
+\[
+ |\tau|<T_j=\frac{r_J/\lambda_{j-1}-\|J_0\|_\infty}{\varepsilon}
+              \ge\frac4{\lambda_{j-1}}.
+\]
+Here $F(0)=0$. Its bound from
+\eqref{eq:qcd-source-energy-tail} retains the distance from
+$X$ to the support of $J$ throughout the disc. Schwarz's
+lemma gives that bound at $\tau=1$ multiplied by
+$T_j^{-1}\le\lambda_{j-1}/4$. The coarse-level sum in the
+proof of \textup{(i)} therefore acquires exactly $\omega_j$.
+
+To sum it, write $u=K-j$, so $\lambda_j=L^{-u}$, and use
+$\#_j^+(S)\le64(1+2R_SL^u/M)^3$. On the levels
+$\lambda_j>\delta$, which occur only if $\delta<1$, the sum
+is at most $C_{\mathscr C}$ times
+\[
+ 432\sum_{u\ge0}L^{-u-1}
+ +432R_S^3\sum_{L^u<1/\delta}L^{2u-1}
+ \le36+40(R_S/\delta)^3.
+\]
+The fine levels are bounded by the exponentially convergent
+sum used in \eqref{eq:qcd-source-count}. This proves
+\eqref{eq:qcd-bilinear-base-additivity}; the logarithmic
+count of coarse levels has been replaced by a geometric sum.
+
+For \textup{(iii)}, $G_s$ is even and belongs to its cell
+algebra. Its reflections multiply to $G_{s^{\rm ch}}$.
+The reflection-positive chessboard argument in the proof of
+\cref{C-407-30} uses only the even number of slabs in each
+direction, so gives the displayed identity and product bound
+on this board. The reflected sources have the same supremum
+and Lipschitz norms; because they vanish near the walls, the
+norm of their disjoint sum is their maximum. Source conjugation
+and the spin lifts preserve the operator norm of $J$.
+Thus folding preserves $\mathcal P_k^\#$.
+
+Apply \eqref{eq:qcd-level-source-partition} to $s^{\rm ch}$
+and take the $\mathsf N$th root. Since
+$n_k/\mathsf N=|\square|/\lambda_k^3$, this gives the first
+cell estimate. If the support lies $\delta$ inside the cell,
+its distinct reflected images are separated by $2\delta$.
+Part \textup{(i)} replaces their total energy by the sum of
+their individual energies. The cube count under a reflection
+costs at most $27$, already included in $C_{\mathscr C}$.
+Finally conjugate images have the same real energy as their
+linear images. This proves \eqref{eq:qcd-intermediate-cell-bound}.
 \end{proof}
 
 \subsection{Uniform separated cumulants}
@@ -9812,7 +10970,7 @@ supports keep the total source in $\mathcal P$.
 The subtracted-partition upper bound and zero-source
 floor give $|G_\Lambda|\le e^{c_V\ell^3}$.
 Cauchy's estimate bounds every block derivative.
-Proposition~\ref{C-407-25} and
+Prop.~\ref{C-407-25} and
 \eqref{eq:qcd-source-count} bound the mixed energy
 derivative by $2^{n-1}\prod_i\rho_i^{-1}
 C\ell^3(1+d^{-3})$. These bounds prove the torus assertion.
@@ -9850,7 +11008,7 @@ Thus the partition derivative sum costs at most
 $C^ne^{nc_V}(16n)^{np/2}2^nn!\prod_i\rho_i^{-1}$.
 The mixed derivative of $\Lambda$ is zero unless all
 pieces are in one cell. In that case the reflected
-energy bound of Proposition~\ref{C-407-25} gives
+energy bound of Prop.~\ref{C-407-25} gives
 $C(1+d^{-1})^3\prod_i\rho_i^{-1}$ times its fixed
 combinatorial factor.
 Finally sum over the piece choices. Their number and
@@ -9893,88 +11051,499 @@ and $N_f\ge1$ counts the four-component flavours, each formed
 from the two conjugate two-component blocks.
 
 The gauge induction requires numerical bounds and also conditions
-on its radii, lattices and auxiliary objects. We first recall the
-result that verifies these conditions at an admissible choice of
-the pure gauge constants. The subsequent numerical construction
+on its radii, lattices and auxiliary objects. We first verify these conditions for the constants
+chosen in \cite[Prop.~69.1]{YMM1}. The subsequent numerical construction
 will preserve such a choice while imposing the matter bounds.
 
 \begin{lemma}[Admission of the pure gauge induction]
 \label{def:qcd-gauge-admission}
-Fix an admissible assignment of the canonical extended gauge
-list of \cite[Definition II-202-28]{gauge-notes}, with the
-prescribed defining maps for its determined constants, and fix
-the mollifier used in the history profiles. Use the fixed-data
-substitutions of \cite[Corollary II-202-43]{gauge-notes},
-including its constant threshold $\mathsf b_\times\equiv1/3$,
-and the canonical auxiliary and formed-factor data specified there.
-At this assignment
-the full constant-only conjunction $(\mathrm{Oj.a})$ of
-\cite[Definition II-191-23(5)--(6)]{gauge-notes} holds, as do
-the forty-one inequalities $(\mathrm{Oj.r})$ in (II-191-25).
-For every admissible finite coupling sequence and every
-admissible lattice over it, the remaining conditions
-$(\mathrm{Oj})$ hold for the canonical auxiliary data and
-formed factors at every history and step. Consequently the
-canonical finite gauge induction applies on these data.
+Choose the gauge constants in the order and with the defining formulas
+of \cite[Prop.~69.1 and its proof]{YMM1}. Fix the history mollifier:
+it is smooth, nonnegative, has integral one, is supported in the
+supremum-norm ball of radius $1/4$, and is invariant under signed
+coordinate permutations. Use the critical backgrounds, coordinate
+maps, retained quadratic forms and pivot logarithms of that
+construction, with their specified branches.
+
+Let $x_0,\ldots,x_K$ be an admissible coupling sequence as in
+\cref{sec:qcd-gauge-input}, with $x_j\ge\gamma^{-2}$, and suppose
+$MR(x_K)\le L^m$. At every step and every history the gauge
+construction has its required domains and numerical bounds. Its
+local auxiliary maps are holomorphic on their prescribed common
+balls and vanish at zero datum. Its retained exponents are defined
+on the full prescribed layered spaces, have finite oscillations,
+and agree exactly on extending a history. Consequently the canonical
+finite gauge induction applies. All assertions persist after
+decreasing $\gamma$.
 \end{lemma}
-\begin{proof}[Proof sketch]
-This is \cite[Corollary II-202-43]{gauge-notes}. We describe
-its verification and the reduction that supplies the conditions
-on actual objects. The detailed inequalities and their
-dependencies are in Verification table~1 of Definition~II-202-34
-and in the proof of Proposition~II-191-24 of that work.
 
-At one admissible assignment, every determined constant has
-the value of its prescribed formula. Verification table~1
-expresses each of its conditions through a list inequality,
-a defining formula, a declared range or an earlier derived
-inequality. Corollary~II-202-35 proves these conditions
-simultaneously for the same family of values. Its proof also
-checks the meaning of a repeated symbol at each occurrence
-and orders the dependencies of the entries. Thus the
-verification does not choose new constants for individual
-inequalities.
+\begin{proof}
+We first pass from the common numerical choice to a coupling
+sequence and a torus. We then check the two conditions involving
+actual functions: the auxiliary background maps and the retained
+exponents. This separates conditions needed to define a step from
+bounds on its output, which are proved by induction.
 
-The table's group for Definition~II-191-23 runs through the
-constant-only members of the lists
-$(\mathrm{oj}0)$--$(\mathrm{oj}8)$, whose conjunction is
-$(\mathrm{Oj.a})$. The next group verifies the forty-one
-additional inequalities $(\mathrm{Oj.r})$. These give
-Corollary~II-202-43(a), (b) at every admissible assignment,
-including its final value of $\gamma$.
+\emph{The common numerical choice.}
+The proof of \cite[Prop.~69.1]{YMM1} fixes the exponents
+$r_c\ge2$, $\mathfrak p_0\ge6r_c+1$ and
+$q\ge41\mathfrak p_0+1$, followed by the reserve fractions,
+$L$, the response parameters, the decay rates, the geometric
+lengths and the analytic radii. The constants in a defining formula
+are evaluated after its arguments have been fixed. The potential
+bound $E_0$, the increment bound $B_\sharp$ and the history bounds
+are then fixed. The threshold $\gamma$ is chosen last. In particular
+none of these choices uses $K$, a particular coupling sequence or
+the torus.
 
-Proposition~II-191-24 then proves
+Here is why the order permits the last choice. Write
+$F_p(x)=x^{-1/2}(\log x)^p$. After the earlier constants have
+been fixed, the remaining small quantities are bounded by finite
+sums of constant multiples of
 \[
- (\mathrm{Oj.a})\ \text{and}\ (\mathrm{Oj.r})
-             \quad\Longrightarrow\quad(\mathrm{Oj}).
+ F_p(x),\qquad (\log x)^{-(q-\mathfrak p_0)},\qquad
+ x^a(\log x)^p e^{-c(\log x)^{r_c}},\qquad
+ e^{-c(\log x)^{2\mathfrak p_0}},
+ \quad c>0.
 \]
-Its first five proof steps establish the bounds for a coupling
-sequence and its truncations, the lattice inequalities, the
-table of radii, and the quantitative step conditions. The
-first step of the induction has its own bound and is treated
-separately. Step~6 verifies the conditions on the formed
-factors carried by a history.
+The exponents and coefficients in each occurrence are fixed.
+These expressions tend to zero as $x\to\infty$; the third uses
+$r_c\ge2$. Each required upper bound can therefore be imposed on
+the whole interval $x\ge\gamma^{-2}$. The lower bounds on
+$\log\gamma^{-2}$ are finite. Bounded windows, such as those for
+the reserve fractions, the normalizer radius and the boundary
+rate, are made nonempty at their earlier stages of the choice;
+they are not repaired by the last choice of $\gamma$.
+This is the numerical construction proved in the cited proposition.
 
-Two conditions concern actual auxiliary objects. Step~7
-verifies both. The auxiliary systems are systems of
-trivial-datum maps by Proposition~II-179-19(5), whose
-formed-factor hypotheses were established in step~6.
-For the other condition, denoted $(\mathrm{Fo}')$, the
-factor-bound setting of Definition~II-110-4 is checked at
-the prescribed radii and rate. Theorem~II-110-22(a3) then
-defines the required oscillations of the canonical formed
-factors at every history. These conclusions concern the
-objects used in the construction, in addition to its
-numerical constants. Steps~8 and~9 finish the lists
-$(\mathrm{oj}0)$--$(\mathrm{oj}8)$, so every member of
-$(\mathrm{Oj})$ has been supplied. All result numbers in
-this paragraph refer to \cite{gauge-notes}.
+For use in the next proposition, the same order allows an additional
+floor or ceiling only at a stage where its dependencies have already
+been fixed and its permitted range remains nonempty. All later
+constants defined by formulas must then be evaluated at the new
+earlier values. Thus a larger rate or a smaller radius does not
+mean retaining numerical values obtained from the previous choice.
+The next proposition checks these requirements for the matter
+conditions explicitly.
 
-Theorem~II-191-31 and Corollary~II-191-32 of
-\cite{gauge-notes} apply this conjunction to the finite
-induction. The argument holds for every admissible finite
-sequence and lattice at the fixed assignment, as stated
-in Corollary~II-202-43(c).
+\emph{Couplings, radii and room on the torus.}
+Put $y_j=\log x_j$, $\check R_j=R(x_j)$,
+$\epsilon_j=A_0F_{\mathfrak p_0}(x_j)$,
+$\delta_j=A_1F_{\mathfrak p_0}(x_j)$ and
+$\mathfrak b_j=A_1y_j^{\mathfrak p_0}$. The choice of $\gamma$
+places $y_j$ above all the monotonicity thresholds. Consequently
+\[
+ \epsilon_j\le\epsilon(\gamma^{-2}),\qquad
+ \delta_j\le\delta(\gamma^{-2}),\qquad
+ y_j\ge\log\gamma^{-2},\qquad
+ \mathfrak b_j\ge A_1(\log\gamma^{-2})^{\mathfrak p_0}\ge1.
+\]
+In particular every linear smallness condition for the background,
+the shift, the averaging logarithm and the coordinate charts holds
+at every level. Conditions on the relative change of coupling
+follow from the same bound $|b_j|\le B_\sharp$ used in choosing
+the uniform regularity constants.
+
+The running radii are
+\[
+ \alpha_{\iota,j}=C_\iota F_q(x_j),\qquad \iota=0,1.
+\]
+At either stage containing level $j$ one uses these same values.
+Truncating a coupling sequence therefore restricts the table
+without changing any previous radius. Since $\log\gamma^{-2}>2q$,
+$F_q$ is decreasing on the required interval. The fixed ceiling
+conditions include
+\[
+ \begin{gathered}
+ (1+\beta_s)C_0F_q(\gamma^{-2})\le\min\{\alpha_0,\alpha_2\},
+ \qquad
+ (1+\beta_s)C_1F_q(\gamma^{-2})\le\alpha_1,\\
+ \mathsf o L^3M B^{(\rm cg)}C_0F_q(\gamma^{-2})\le\alpha_0,
+ \qquad a_\flat\le\alpha_0,\qquad \mathsf o L^3\ge3.
+ \end{gathered}
+\]
+Here $\mathsf o$ and $B^{(\rm cg)}$ are respectively the fixed
+local-gauge enlargement and its gauge bound in the layered-space
+construction of \cite{YMM1}. These inequalities place each
+layered-space reading in its fixed analytic class. They bound the
+real and complex local potentials, the current, and the reduced
+towers required by that class; the tower conditions are part of
+the layered-space definition. They are not inferred from curvature
+alone. 
+
+The adjacent-scale radius inequality is
+$\check R_j\le L^{K-j}\check R_K$. Thus
+\[
+ M\check R_j\le L^{m+K-j}.
+\]
+The lower bounds $\check R_j\ge\max\{L^2,\mathsf oL+1\}$ and
+$M>6$ imply
+\[
+ L^2M\le L^{m+K-j},\qquad
+ \mathsf oLM+6<L^{m+K-j},\qquad m'<m+K-j.
+\]
+The grain, mesh and containing boxes fit at every level, including
+the last. The same applies to every truncated history. These are
+the torus-room inequalities following \cite[Prop.~69.1]{YMM1}.
+The larger local charts used elsewhere in this paper require the
+stronger inequality $LMR(x_K)\le L^m$; this is supplied by
+$\ell\in\mathfrak L(g)$ in \cref{sec:qcd-gauge-input}, rather
+than by the weaker room assumption of this lemma.
+
+\emph{Gaussian integration and boundary terms.}
+The historical Gaussian uses the covariance and conditional mean
+of \cite[Prop.~57.5]{YMM1}. Denote its fixed collar factor by
+$\Theta_{\rm col}$. Write its external datum as $a=a'+a''$, where $a'$
+is real and belongs to the prescribed tier: it obeys
+$|a'|<\mathfrak b_k\min\{C_{\rm xt},(4\Theta_{\rm col})^{-1}\}$
+on the collar, $|a'|<\theta_c\mathfrak b_k$ on the rim,
+and $|a'|<C_{\rm xt}\mathfrak b_k$ elsewhere.
+The complex increment $a''$ vanishes on the rim
+and satisfies $|a''|\le\epsilon_a\mathfrak b_k$
+elsewhere. Both its real and imaginary parts enter
+the conditional-mean estimate.
+The chosen collar width and rim width control
+the collar and rim contributions to the conditional mean. The
+remaining contribution has the factor
+$e^{-\delta_M(W_t-2)/2}$ and is made small by the running
+separation. The complex covariance radius controls the imaginary
+part of the conditional mean. The common choice imposes both
+the mean bound and the normalizer positivity bound before the
+Gaussian expansion is applied. In particular the bounds concern
+the full external datum, not just its restriction to a polymer.
+
+To spell out the quantitative reserve, let $\mathcal K_{\rm ap}$
+be the fixed cluster prefactor and let $S_{\rm rg}(x)$,
+$S_{\rm bd}(x)$ and $S_0(x)$ denote the three potential bounds
+in the proof of \cite[Prop.~69.1]{YMM1}: regular and boundary
+potentials at a later step, and the potential at the first step.
+Their explicit formulas there have the first two types of decay
+displayed above. The Gaussian large-field penalty is
+\[
+ \Gamma_P(x)=C_{\rm mn}^{-1}(LM)^{-3}
+                \theta_c^2A_1^2(\log x)^{2\mathfrak p_0}.
+\]
+The common choice gives, uniformly for $x\ge\gamma^{-2}$,
+\[
+ \begin{gathered}
+ S_{\rm rg}(x),S_{\rm bd}(x)
+                   \le(12eL^3\mathcal K_{\rm ap})^{-1},\qquad
+ S_0(x)\le(6eL^3\mathcal K_{\rm ap})^{-1},\\
+ (LM)^3e^{-\Gamma_P(x)}\le(6\mathcal K_{\rm ap})^{-1}.
+ \end{gathered}
+\]
+The cluster estimate is therefore at most $1/3$: at a later
+step its two terms are bounded by
+$\mathcal K_{\rm ap}eL^3(S_{\rm rg}+S_{\rm bd})\le1/6$
+and $\mathcal K_{\rm ap}(LM)^3e^{-\Gamma_P}\le1/6$.
+At the first step the first term is instead
+$\mathcal K_{\rm ap}eL^3S_0\le1/6$. This separately checks
+the initial step, where no old potential family is available.
+
+For a step $t=k+1$, the rejected forms and the strip expansion
+have the joint bound
+\[
+ \mathsf b_{\rm rj}+\mathsf b_{\rm sr}
+ \le e^{-\check R_t}(c_3+c_4\mathfrak b_k^2),
+\]
+where $c_3,c_4$ are the fixed constants evaluated in the same
+proof. They are fixed before $\gamma$. The flow bound gives
+$x_k\le(3L/2)x_t$. With $y=\log x_t\ge\log(2L)$,
+\[
+ \mathfrak b_k^2\le A_1^2(2y)^{2\mathfrak p_0},\qquad
+ \check R_t\ge y^{r_c}\ge y,\qquad
+ (2y)^{2\mathfrak p_0}e^{-y/2}
+                     \le(8\mathfrak p_0/e)^{2\mathfrak p_0}.
+\]
+Consequently the preceding bound is at most
+\[
+ \gamma\bigl[c_3+c_4A_1^2
+                   (8\mathfrak p_0/e)^{2\mathfrak p_0}\bigr]
+ \le\tfrac13.
+\]
+Together with the cluster bound this leaves the boundary
+reserve $1-2/3$. The additional smallness conditions for the
+strip coordinate changes are imposed in the same numerical
+choice; their tails are a fixed constant times
+$e^{-\check R_t}$, compared with the already specified
+coordinate radius. Hence they hold for every history on the
+given sequence. No constant is selected separately for a
+particular background or history.
+
+\emph{The auxiliary background maps.}
+An octet $\square$ of level $n$ is the union of eight level
+$(n-1)$ cubes meeting a vertex. Put $Z=\square^{\sim5}$ and
+let $\mathbf B_j^\square$ be its reduced determining set at
+truncation $1\le j\le n$. The canonical maps are
+\[
+ H_{\square,j}(B)=\mathcal H_{\mathbf B_j^\square,1}(B),
+ \qquad \sup|B|<r_{\rm B}.
+\]
+Here $B$ assigns a complex Lie-algebra element to each
+determining row. By \cite[Lem.~51.6]{YMM1}, this map is
+the holomorphic potential in the normalized mean-Landau
+gauge, based at the identity configuration. Its exponential,
+together with the separate normalizing gauge, represents
+the critical background over the datum $e^{iB}$.
+The map vanishes at $B=0$. Its radius $r_{\rm B}>0$ and
+derivative bounds are independent of height and volume.
+Uniqueness for the mean-Landau condition and the node
+normalization makes these maps commute with adjunction,
+constant $\mathrm{SU}(2)$ gauge rotations and translations of lattice charts,
+as checked before \cite[Prop.~51.14]{YMM1}.
+
+The radii used to substitute an old interaction are the
+absolute system at height $k$:
+\[
+ a_{\iota,j}=\alpha_\iota\quad(1\le j\le k),\qquad
+ a_{\iota,k+1}=\frac{\alpha_\iota}{1+\beta_s},
+ \qquad \iota=0,1.
+\]
+Its output radii are $\bar a_\iota=
+(1+\beta_s)a_{\iota,k+1}=\alpha_\iota$, and
+$\max_\iota\bar a_\iota/a_{\iota,j}=1$ for $j\le k$.
+The common choice includes
+\[
+ \alpha_0+\alpha_1\le a^\star,\qquad
+ c_{\rm sh}M\alpha_0<\alpha_1,\qquad
+ \alpha_1^2\le c_\natural\alpha_0,\qquad
+ \frac{(1+\beta_s)\delta(\gamma^{-2})}{\alpha_0}
+                                                 \le s^\star.
+\]
+These are precisely the shape and shift-size conditions
+of \cite[Def.~51.12]{YMM1}. The slow-growth comparisons
+in that definition hold for the displayed absolute
+system. The choices $a^\star\le a^\star_{\rm oc}$ and
+$c_{\rm sh}\ge c^{\rm oc}_{\rm sh}$ are made when the
+fixed analytic radii are chosen. This radius system has
+a different purpose from the running radii of the
+layered spaces above.
+
+For $k\ge2$, the octet construction uses
+\[
+ b_\iota^{\rm oc}=\theta_{\rm oc}a_{\iota,k+1},\qquad
+ a_{\iota,k}^{\rm oc}=\frac{b_\iota^{\rm oc}}{1+\beta_s},
+ \qquad
+ a_{\iota,j}^{\rm oc}=\min\{a_{\iota,j},b_\iota^{\rm oc}\}
+ \quad(j<k).
+\]
+Here $0<\beta_s\le1/5$ and
+$(3/2)\theta_{\rm oc}^2<1$. The proof preceding
+\cite[Prop.~51.14]{YMM1} checks the same shape and
+slow-growth inequalities for this system. Its shift-size
+ceiling is $(1+\beta_s)s^\star/\theta_{\rm oc}$, the
+ceiling used in that substitution.
+
+Let a pair on $X'=(\square^{\sim5})^\uparrow$ belong to
+$\mathcal U_k^\circ(X';b_0^{\rm oc},b_1^{\rm oc})$.
+In particular, its restriction to $Z$ belongs to the
+window domain: it has the local potential and curvature
+bounds, and all the reduced real and complex towers
+exist with the required bounds at every truncation.
+Put the averaged datum $V$ in the comb gauge used in
+\cite[Prop.~51.11]{YMM1}. With $\eta_j=L^{-j}$ in the
+rescaled level-$j$ chart, set
+\[
+ \begin{split}
+  B_V&=i^{-1}\log V,\qquad
+  A_{\square,k}=H_{\square,k}(B_V),\\
+  Q_{\square,j}&=i^{-1}\log M_{\mathbf B_j^\square}
+                          (e^{i\eta_kA_{\square,k}}),\qquad
+  A_{\square,j}=H_{\square,j}(Q_{\square,j}).
+ \end{split}
+\]
+The reduced averaging map in this formula uses its
+specified logarithm branch.
+
+We check the domains of these compositions. In
+\cite[Prop.~51.11]{YMM1}, take the top window radii
+$\widetilde a_\iota=b_\iota^{\rm oc}/(1+2\beta_s)$ and
+the lower radii $a_\iota=a_{\iota,j}^{\rm oc}$, with
+$n=k$, $\tau=1$ and $B'=0$. Its hypotheses are
+\[
+ \widetilde a_0+\widetilde a_1\le a^\flat,\qquad
+ a_0+a_1\le a^\flat,\qquad
+ 2B_3^2K_{\rm tw}Ma_0<a_1,\qquad
+ \widetilde a_0\le t_{k-j}a_0.
+\]
+The constants $B_3,K_{\rm tw}$ and the radius $a^\flat$
+are fixed in that proposition; the radius is chosen
+after $M$ to satisfy the logarithm, averaging and
+response ceilings. The octet radius system gives
+these inequalities. The comparison sequence is
+$t_\nu=(6/5)\sqrt{1+\nu}$. For
+$\Theta_s=\sup_{\nu\ge1}t_\nu L^{-s\nu}$, the
+remaining hypotheses are
+\[
+ \begin{gathered}
+ \Theta_1\le1,\qquad
+ (1+10\beta_s)\Theta_2+\beta_s/4+1/1000\le1/8,\\
+ (1+3\beta_s)\Theta_3+5\beta_s\Theta_2
+                    +\beta_s/8+1/500\le1/16.
+ \end{gathered}
+\]
+Their suprema occur at $\nu=1$. The proof of
+\cite[Prop.~51.14]{YMM1} evaluates the last two left
+sides at $L=13$, $\beta_s=1/5$ as less than $0.082$
+and $0.039$, respectively. Thus these hypotheses
+hold uniformly in $k-j$.
+
+The substitution proposition now proves that $B_V$
+and $Q_{\square,j}$ lie inside the prescribed row
+balls. It gives, on $\square^{\sim3}$,
+\[
+ |A_{\square,j}|,|\nabla A_{\square,j}|<a_1/2,
+ \qquad |\partial e^{i\eta_jA_{\square,j}}-I|
+                                      <a_0\eta_j^2/8,
+ \qquad |J^{(j)}(e^{i\eta_jA_{\square,j}})|<a_0/16.
+\]
+Each required inner-polymer restriction therefore
+belongs to the stated analytic core. The restricted
+real background is identified by criticality and
+uniqueness: variations preserving the restricted
+datum extend by the original field, because the
+boundary bonds are fixed determining bonds.
+The identities extend to the complex logarithmic
+domains by holomorphy. The resulting maps and their
+domains are the canonical maps at every truncation.
+At heights $k\le1$ no octet substitution is required.
+
+\emph{Retained factors and their domains.}
+There are two possible retained exponents for a pair $(t,X)$:
+the kept quadratic form and the sum of external pivot
+logarithms. Write $t=l+1$. Their arguments are the pair
+read in level-$l$ units and the level-$l$ stored field,
+extended by zero on the other bonds of $X$.
+The radius ceilings above put this pair in
+$\mathscr O(X;\alpha_0,\alpha_1,\alpha_2)$ on the whole
+layered space, including its stored-data tiers.
+This class membership is the conclusion of
+\cite[Prop.~57.4]{YMM1}. Here $\mathfrak M$ is the fixed
+power of $L$ specifying the cube partition of the layered
+regions. The local hypotheses are part of the layered-space
+definition: at each layer the
+curvature, current, complex potential and first
+difference obey the graded radii; real local gauges
+exist on the prescribed cubes. Also, every cube made of
+level-$n$ $\mathfrak M$-cubes, contained in the domain and
+the level-$n$ region, and of side at most $12\mathfrak M$
+in level-$n$ units, has a containing embedded cube in the
+domain with a real gauge of index $n$ and bound $a_\flat$.
+The history gaps put the tiny cubes about fluctuation
+bonds inside the preceding layer, and the torus-room
+inequalities make them embedded. The radius tests
+for the cited proposition are exactly the three
+running-radius ceiling inequalities above, together
+with $a_\flat\le\alpha_0$. They hold uniformly at
+every level. Passing from the level-$t$ triple to
+the level-$(t-1)$ pair rescales $A'$ by $L^{-1}$
+and $\mathbf J$ by $L^{-3}$; hence the underlying
+configuration and its current in bare units are
+unchanged. The proposition then supplies
+$\mathscr O(X;\alpha_0,\alpha_1,\alpha_2)$ on the
+full layered domain.
+
+The fixed rate and pivot conditions are
+\[
+ \delta_\star^{\rm pl}LM\ge C_2(\kappa+1),\qquad
+ L\max\{\alpha_0,\alpha_1\}\le a_{\rm nf}.
+\]
+The common choice satisfies these, with the stronger rate
+reserve used in subsequent locality estimates.
+
+The construction preceding \cite[Prop.~62.3]{YMM1} checks the pivot
+condition even for a coarse bond crossing the last layer.
+The two averaging blocks then lie in a cube of side
+$2\mathfrak M$ in the last two layers. Their real and
+complex potentials are bounded by $L\alpha_0$ and
+$L\alpha_1$. The pivot estimate at
+$a=L\max\{\alpha_0,\alpha_1\}\le a_{\rm nf}$ therefore
+applies to this bond as well. It gives
+$|z_c-6\log L|\le C_za$ on the specified logarithm branch.
+Thus neither crossing bonds nor the last layer require
+restricting the domain of a factor.
+
+The kept quadratic form is holomorphic in the pair, and
+on the stored-data tier it obeys
+\[
+ |\varphi^{\rm kp}_{t,X}|
+ \le\tfrac12K_{\rm ch}C_{\rm xt}^2\mathfrak b_l^2
+                         e^{-\kappa(d_t(X)+1)}.
+\]
+For the other exponent there are at most $6M^3$ pivot
+bonds in $X$. Its domain is one cube or two adjacent
+cubes, so $d_t(X)=0$, and
+\[
+ |\varphi^{\rm el}_{t,X}-6N_X\log L|
+                         \le6M^3C_za_{\rm nf},
+ \qquad N_X\le6M^3.
+\]
+Define
+\[
+ \operatorname{osc}\varphi
+   =\sup_{\mathfrak q}\sup_{P,P'}
+       |\varphi(P;\mathfrak q)-\varphi(P';\mathfrak q)|,
+\]
+where $\mathfrak q$ ranges over the allowed stored-data tiers
+and $P,P'$ over the corresponding full layered space.
+At each fixed $\mathfrak q$, subtract the values at $P$ and $P'$. The first estimate is used
+twice; in the second, the same constant $6N_X\log L$
+cancels. Since $\mathfrak b_l\ge1$, this gives
+\[
+ \sum_{\nu\in\{{\rm kp},{\rm el}\}}
+        \operatorname{osc}\varphi^\nu_{t,X}
+ \le B_{\rm fr}^{\flat}\mathfrak b_l^2e^{-\kappa d_t(X)},
+ \qquad
+ B_{\rm fr}^{\flat}
+       =K_{\rm ch}C_{\rm xt}^2+12M^3C_za_{\rm nf},
+\]
+where an absent exponent contributes zero. This is a
+bound on actual finite oscillations over the specified
+domains. Each factor is Borel measurable and holomorphic
+on fixed-real slices; gauge transformations and conjugation
+preserve its defining formula and branch.
+
+Keep the name $(\nu,t,X)$ attached to each factor.
+Its pair reading and stored-data tier use only the history
+through step $t$, and its radii use only $x_0,\ldots,x_t$.
+Extending a history changes none of these. Thus names,
+domains and exponents are retained exactly. There are at
+most two names for each $(t,X)$ and finitely many domains
+on a finite lattice, so the family is finite. This also
+shows why the argument does not require an inductive bound
+on the previously collected interaction to define these
+factors.
+
+\emph{The finite induction.}
+The actual-step hypotheses are now available: the regular
+backgrounds and their coordinate neighborhoods; the common
+radii and stored-data tiers; the Gaussian and strip bounds;
+and the auxiliary maps and retained factors on their full
+domains. Start with Wilson's positive finite-volume
+measure. Given the integrable density at one level,
+\cite[Prop.~69.3]{YMM1} supplies the next density and its
+exact integration identity. Its proof makes the two Borel
+changes of variables, carries the kept quadratic forms
+and pivot factors with their fixed names, and applies the
+Gaussian and strip expansions on precisely the domains
+checked above. Its abstract measure step also supplies
+integrability and the exceptional null sets; these are
+not assumptions on every point in a chart image.
+
+If the initial small region of a step is empty, all its
+integration coordinates and local families are empty.
+The coordinate changes are then zero-dimensional, and
+the same identity is evaluation at the retained field.
+This case is included in the cited step proposition.
+The first nonempty step uses $S_0$, as checked above.
+At each subsequent step the numerical bounds give the
+same hypotheses for the new regular and boundary terms.
+The agreement of radii, maps and retained exponents under
+truncation makes these successive constructions one
+finite induction, as in \cite[Thm.~AC]{YMM1}.
+Finally, all coupling-dependent conditions were imposed
+uniformly for $x\ge\gamma^{-2}$. Decreasing $\gamma$
+therefore preserves every assertion on the resulting
+class of coupling sequences and tori.
 \end{proof}
 
 \begin{proposition}[A common choice and the finite induction]
@@ -10038,9 +11607,13 @@ Form also $C_D^{\Sigma,{\rm s}}$ from
 the same row-sum argument with $2C_D$, decay rate $\alpha_D/2$,
 and the fine-operator bound $\mathsf c_{\rm disc}+2$.
 This sourced tower constant also precedes the fibre weight.
-Here $C_H^\circ$ denotes the preliminary background-kernel bound
-of \cref{C-397-40}, before summing over all stored places; the
-row-sum enlargement is $(1+C_\Sigma L^{3/2})C_H^\circ$. Choose
+Here $C_H^\circ$ includes the preliminary background-kernel
+bound of \cref{C-397-40}, before summing over all stored
+places, and the parametrix and fine-resolvent constants in
+\cref{C-397-33}. These use the already fixed local regularity
+constants and radii, including its curvature and absorption
+ceilings. The row-sum enlargement is
+$(1+C_\Sigma L^{3/2})C_H^\circ$. Choose
 \[
  C_H\ge\max\{6C_S(c_{\rm hop}+b_F),\,8LC_{\rm sup},\,
  2(1+C_\Sigma L^{3/2})C_H^\circ,\,
@@ -10514,36 +12087,47 @@ uses $a=(1-c_\Theta/c_*)/2$ and rate
 $c=(c_*+c_\Theta)/2>c_\Theta$. Its deposit dials can be
 written as $(w',c_{\rm Dep}')=(c_\Theta/c,c)$, so that
 $w'<1$ and $c_{\rm Dep}'\le c$. Apply the actual thresholds
-of \cite[Proposition~67.6]{YMM1}, with these dials, the enlarged majorant
+of \cite[Prop.~67.6]{YMM1}, with these dials, the enlarged majorant
 and the logarithmic label-error constant. Their hypotheses
 hold since $2\mathfrak p_0>3r_c+2$ and the remaining
 threshold is finite. The quarter-stock allocation in
-Proposition~\ref{C-407-22} gives this integrated rate; it
+Prop.~\ref{C-407-22} gives this integrated rate; it
 does not assert a stronger pointwise loss-$a$ property.
 The later insertion ceilings are also scalar envelopes
 tending to zero. A finite minimum of all these positive
 thresholds completes the common choice.
 
 \emph{Application of the gauge induction.}
-Restrict the assignment just constructed to the pure gauge
-list. We verify that this is an admissible choice with the
-original determined maps. Each additional condition was
-imposed as a floor, a positive ceiling or a nonempty window
-on a chosen constant, using quantities fixed earlier.
-New determined constants were placed after their arguments.
-For example, the boundary requirement was imposed through
-$8M^3E_0\ge B^F$, and the covariance-radius requirement
-through $\varepsilon_{\mathcal W}\alpha_0\le2a_Q$.
-The original maps then give $B\ge B^F$ and
-$e_{\rm cov}\le a_Q$, as checked above. Thus neither a
-determined majorant nor a determined radius is reassigned
-independently of its formula. The remaining ceilings on
-$\gamma$ have a positive common lower interval.
-This is the restriction argument in
-\cite[proof of Theorem C-396-26, paragraph ``The choices'']{fermion-notes}.
-Existence and restriction of the pure choices, and their
-stability when $\gamma$ decreases, are
-\cite[Corollary II-202-29]{gauge-notes}.
+The pure gauge constants are chosen in the order of
+\cite[Prop.~69.1 and its proof, pp.~595--599]{YMM1}.
+At each stage above, the additional matter conditions impose
+floors, positive ceilings or nonempty windows on freely chosen
+constants, using only quantities already fixed. Every new constant
+defined by a formula is placed after its arguments. The defining
+formulas for the pure gauge constants are retained. Requirements
+on earlier constants are imposed at their original stages, before
+the subsequent constants are evaluated.
+
+In particular, the condition $B\ge B^F$ is obtained by requiring
+$8M^3E_0\ge B^F$ in the choice of $E_0$. The condition
+$e_{\rm cov}\le a_Q$ is obtained by imposing
+$\varepsilon_{\mathcal W}\alpha_0\le2a_Q$ on $\alpha_0$.
+The condition $C_{\mathcal A}\ge c_{\rm sh}$ is obtained from
+the floor on $A_0$ checked above. In each case the original
+formula gives the required value; no constant defined by a
+formula is chosen independently of its arguments.
+
+Choose the constants successively with these additional bounds.
+Omitting the matter-only constants then leaves a choice satisfying
+the pure gauge conditions, since their order, formulas and
+inequalities have been preserved. Finally, all conditions on
+$\gamma$ hold throughout a sufficiently small interval
+$(0,\gamma_*]$. For the pure conditions this follows from their
+uniform imposition for $x\ge\gamma_*^{-2}$ in the proof of
+\cite[Prop.~69.1]{YMM1}; for the additional conditions it follows
+from the positive thresholds and vanishing upper bounds verified
+above. Taking their finite minimum completes the choice and shows
+that decreasing $\gamma$ preserves it.
 
 \Cref{def:qcd-gauge-admission} therefore supplies all
 conditions of the pure gauge induction at this one restricted
@@ -10703,11 +12287,12 @@ $L_*(|x-p|+|q-y|)$, hence by
 $L_*|x-y|$. Thus disjoint translates with arbitrary
 signs retain the same norms.
 
-On the bidisc $|z_i|\le2/\|F_i\|_\circ$, the function in
+On the open bidisc $|z_i|<2/\|F_i\|_\circ$, the function in
 \eqref{eq:qcd-cell-holomorphic-bound} is bounded by $B$.
 Apply Schwarz's lemma on each complex line to $(\Psi-1)/(B+1)$.
 On the bidisc smaller by $1/(4B)$, $|\Psi-1|\le1/2$.
-Its logarithm therefore exists there, and Cauchy's estimate gives
+Its logarithm therefore exists there. Apply Cauchy's estimate
+on smaller circles and let their radii increase to obtain
 \[
  |\partial_1\partial_2\log\Psi(0)|
                   \le4B^2\|F\|_\circ\|H\|_\circ.
@@ -10758,8 +12343,8 @@ not an identity of individual cluster terms. The following bound
 accounts for it.
 
 \begin{lemma}[Changing the sort of an all-fluctuation family]\label{C-408-34}
-Assume the hypotheses of the small-field cluster expansion of
-Proposition~\ref{C-388-34}, with a region $R$, its decoupled
+Assume the local-step and cluster-expansion hypotheses of
+\cref{C-388-34,C-388-19}, with a region $R$, its decoupled
 Gaussian structure, finite threshold $\mathfrak b$ and all bond
 parameters equal to one. Let a base system have only origins of
 sort $\Sigma_{\rm q}$. Let $m\ge1$ families $\mathbb W_r$ be
@@ -11072,6 +12657,31 @@ $N_{\rm h}=K_M(1+c_{\rm cl})/2$. The inductive bounds are
  \qquad \|F_{i,\ge4}\|_{i;a}+\|F_{i,\rm h}\|_{i;a}
                                                    \le N_{\rm h}.
 \]
+We carry locality and holomorphy in the independent
+coordinates through this induction. Write
+$\mathcal O_j^{\rm lev}$ for the domain
+\eqref{eq:qcd-level-source-domain} and put
+\[
+ \mathfrak C_j=
+ \left\{\mathfrak c=(w,-a_KJ,(\sigma_k)_{k<j}):
+ (w,J)\in\mathcal O_j^{\rm lev},\quad
+ \|\sigma_k\|<2B_\sigma\phi(x_k)\ (k<j)\right\}.
+\]
+Here every $\sigma_k$ is a field on the bare sites with
+values in $\mathbb M$, and its norm is the supremum over
+those sites. On the finite torus this is an open set
+in a finite-dimensional complex vector space. At every
+pointer and fixed point of a core of radius $a$, each
+of $F_i^{\rm G}$, its constant and bilinear parts,
+$F_{i,\ge4}$, $F_{i,\rm h}$ and $F_{i,\rm r}$ is
+holomorphic in $\mathfrak c\in\mathfrak C_j$ and reads
+these coordinates in its polymer alone. The Gaussian
+families have this property also on the fixed pair
+radii. They and $F_{i,\ge4}$ read only $w$.
+Each family is a local, gauge-invariant function of
+the pair, holomorphic on the cores of radius $a$.
+The bounds above hold throughout $\mathfrak C_j$.
+
 The first two non-Gaussian families are holomorphic and fourth
 order in $w$, uniformly in $J$ and the independent coordinates
 $\sigma_k$. The scalar subtraction includes the zero-source
@@ -11098,7 +12708,7 @@ The terms of order at least four are fourth order in $w$ and
 have norm at most $N_{\rm h}/3$ by Cauchy on $|\eta|=2$.
 The terms of orders zero and two differ from $F_i^{\rm G}$
 only by the tests, the origin sort and $|x_{i-1}/\mathsf t_{i-1}-1|$.
-Lemma~\ref{C-408-34} bounds the change of origin sort,
+Lem.~\ref{C-408-34} bounds the change of origin sort,
 including the pointing insertions. Its all-fluctuation
 hypothesis holds for the quadratic and linear families above,
 and there are at most four origins including an insertion.
@@ -11147,6 +12757,57 @@ $V_i^{\rm h}$. With $C_{\rm rest}=C_0^{\rm lev}+C_{\rm r}^{\rm lev}$,
 the ceiling $8C_{\rm rest}\phi(\gamma^{-2}/2)\le c_{\rm cl}$
 makes every $z$ disc have radius at least two.
 
+The additional assertions in the induction follow
+alongside these bounds. By Prop.~\ref{C-407-16},
+the explicit members of the step and its fermion
+covariances are holomorphic in the independent
+coordinates. A walk reads $\mathsf n$ on the same set
+on which it reads the configuration. Every expanded
+leg is assigned to a polymer containing that walk;
+the mass-coordinate terms read the bare sites of
+their assigned polymers. Thus a potential member
+at $Y$ reads the coordinates in $Y$ alone.
+
+For a localized earlier scalar family, the induction
+gives a holomorphic family of bare arrays with zero
+counterterms. The parameter version of scalar
+localization preserves holomorphy at a fixed pair
+and fluctuation. Its restriction to $Y$ uses only
+the entries of that array on polymers contained in
+$Y$. Two coordinate vectors agreeing on $Y$ give
+the same restricted array, and hence the same
+localized member there. Uniform bounds on the
+field polydisc give joint holomorphy in the
+fluctuation and coordinates. Taking the first two
+Taylor terms in the fluctuation preserves these
+properties.
+
+The cluster expansion at $X$ reads potential
+members with $Y^\sharp\subset X$ and the fermion
+covariance decoupled to cubes in $X$. Those
+covariances read $\mathsf n$ in $X$ alone. Hence
+the expansion is holomorphic in
+$(\mathfrak c,z,\xi)$ and in $(\mathfrak c,\eta)$
+on the discs used above, and reads the coordinates
+in $X$ alone. This also holds at every pointer:
+the test and quadratic-origin terms read only
+$w$ locally, and the bond and fermion insertions
+are derivatives of the same local holomorphic
+families. The estimates for an inserted origin
+justify their parameter integrals.
+
+Differences in $z,\xi$, Cauchy integrals on
+$|\eta|=2$, and evaluation at the trivial pair
+preserve coordinate holomorphy and locality.
+They therefore preserve these properties in the
+definitions of all four families. The gauge
+identities hold before these linear operations;
+their scalar parts are invariant and functions
+of the pair. This closes the additional clauses
+of the induction. At step $j$ the same argument
+applies to the new activity, since its potential
+uses only the previously constructed families.
+
 At the trivial pair $\mathcal L_j=0$: a linear gauge functional
 there would be an invariant adjoint colour vector. The scalar
 constant, together with the logarithmic mass of the fixed
@@ -11161,14 +12822,111 @@ The pair-dependent parts have already been assigned to the small
 remainder. The fermion logarithmic germs telescope by
 \cref{C-397-12}. This proves both sum identities.
 
-For the tail retain the parameter $z$ in the remainder comparison.
-Locality and the source-chain and walk bounds give the exponential
-tail uniformly on its disc of radius $C/\phi(x_{j-1})$.
-At $z=0$ the two source configurations agree on $X$ and give the
-same purely Gaussian activity there; the free fermion terms cancel
-in the comparison. Schwarz's lemma therefore supplies the extra
-factor $\phi(x_{j-1})\le\phi(x_j)$ with the tail. This proves
-the asserted tail with the small factor retained.
+\emph{The tail.}
+Let $s,s'\in\mathcal O_j^{\rm lev}$,
+$S=\operatorname{supp}(s-s')$, and
+$D=\operatorname{dist}(X,S)$. If $X$ meets $S$,
+the two bounds for $e_j^{\rm I}$ suffice, after
+doubling their constant. Otherwise $w=w'$ and
+$J=J'$ on $X$. The source-chain bound gives,
+at every bare site of $X$ and for $k<j$,
+\[
+ |\sigma_k(s)-\sigma_k(s')|
+ \le C_{\rm t}\phi(x_k)e^{-\kappa_\sigma D/\lambda_j},
+\]
+since $\lambda_k\le\lambda_j$ and both sources
+belong to $\mathscr O_k$.
+
+We first record what this implies for a local
+holomorphic function $f$ of the independent
+coordinates, bounded on $\mathfrak C_j$ by
+$M_0e^{-\kappa d_j(X)}$. Set
+\[
+ \delta_k=(\sigma_k(s)-\sigma_k(s'))1_X,
+ \qquad
+ \theta=\frac{C_{\rm t}}{B_\sigma}
+                   e^{-\kappa_\sigma D/\lambda_j}.
+\]
+Keep $w',-a_KJ'$ fixed and replace every
+$\sigma_k(s')$ by $\sigma_k(s')+\zeta\delta_k$.
+This affine curve lies in $\mathfrak C_j$ for
+$|\zeta|<1/\theta$, because
+\[
+ \|\sigma_k(s')+\zeta\delta_k\|
+ \le B_\sigma\phi(x_k)(1+|\zeta|\theta)
+             <2B_\sigma\phi(x_k).
+\]
+When $\theta<1$, its value at $\zeta=1$ agrees
+with the chain of $s$ on $X$. Locality identifies
+the values of $f$ there. Schwarz's lemma applied
+to the difference from $\zeta=0$ gives
+$2\theta M_0e^{-\kappa d_j(X)}$. When
+$\theta\ge1$, the bounds at the two chain
+points give the same inequality. If $\theta=0$
+the coordinate vectors agree on $X$ and the
+difference vanishes. Consequently
+\[
+ |f(\mathfrak c_{j-1}(s))-f(\mathfrak c_{j-1}(s'))|
+ \le C_{\rm tail}M_0e^{-\kappa d_j(X)}
+                         e^{-\kappa_\sigma D/\lambda_j},
+ \qquad C_{\rm tail}=2\max\{1,C_{\rm t}/B_\sigma\}.
+\]
+
+Apply this estimate at each $z$ on the disc
+\[
+ |z|\le R=\frac{c_{\rm cl}}
+                   {4C_{\rm rest}\phi(x_{j-1})}\ge2
+\]
+to $\mathcal E(z;\mathfrak c)$, the degree-zero
+part at the trivial pair of the step-$j$ activity
+$\widetilde E(z,0)(X)$, before its scalar value
+is subtracted. The preceding coordinate induction
+applies on all of $\mathfrak C_j$, not only at
+the coordinate vectors of physical sources.
+The potential is within $c_{\rm cl}$ of the
+quadratic origin, so the cluster bound is
+\[
+ |\mathcal E(z;\mathfrak c)|
+       \le K_M(c_{\rm cl}+1)e^{-\kappa d_j(X)}.
+\]
+It follows that
+$\Delta(z)=\mathcal E(z;\mathfrak c_{j-1}(s))
+-\mathcal E(z;\mathfrak c_{j-1}(s'))$ satisfies
+\[
+ |\Delta(z)|\le
+ C_{\rm tail}K_M(c_{\rm cl}+1)e^{-\kappa d_j(X)}
+                              e^{-\kappa_\sigma D/\lambda_j}.
+\]
+At $z=0$ the activity has only the Gaussian
+scalar potential and quadratic origin. These
+read $w$ in $X$ alone, so $\Delta(0)=0$.
+
+The definition of the decomposition gives
+\[
+ e_j^{\rm I}(X;s)-e_j^{\rm I}(X;s')=\Delta(1).
+\]
+Indeed, the gauge normalizer, weighted Gaussian
+part and $e_j^{\rm G}$ read $w$ in $X$ alone
+and have equal values at the two sources.
+The free fermion normalizer cancels with
+$e_j^{\rm F}$. The change obtained by turning
+on $\xi$ is precisely $e_j^{\rm H}$ and is
+removed in $e_j^{\rm I}$. A second application
+of Schwarz's lemma, now in $z$, therefore gives
+\[
+\begin{split}
+ |e_j^{\rm I}(X;s)-e_j^{\rm I}(X;s')|
+ &\le R^{-1}\sup_{|z|\le R}|\Delta(z)|\\
+ &\le4C_{\rm rest}C_{\rm tail}K_M(1+c_{\rm cl}^{-1})
+       \phi(x_{j-1})e^{-\kappa d_j(X)}
+                         e^{-\kappa_\sigma D/\lambda_j}.
+\end{split}
+\]
+Take $C_I$ to be the larger of this constant
+and twice the preceding bound constant for
+$e_j^{\rm I}$. Since $\phi(x_{j-1})\le\phi(x_j)$,
+this proves the asserted tail. The constants
+$C_{\rm tail}$ and $C_I$ are fixed before $m_-$.
 \end{proof}
 
 \subsection{The free templates and the sum over scales}
@@ -11194,18 +12952,18 @@ $\delta_{\Gamma\Gamma'}(2\pi^2)^{-1}\mathcal K_4$ with error at most
 
 \begin{proof}
 The flat constrained-curvature identity
-\cite[Proposition~120.3]{YMM1} identifies the free covariance
+\cite[Prop.~120.3]{YMM1} identifies the free covariance
 per colour with the closed-curvature projection. Its canonical
 step hypotheses hold by \cref{C-396-12}. Away from coincidence its continuum kernel is the
 dipole matrix
 $\mathbb K_3(x)=(3xx^{\mathsf T}-|x|^2I)/(4\pi|x|^5)$.
 The squared entries sum to $3/(8\pi^2|x|^6)$.
-The free case of \cite[Proposition~121.2]{YMM1}, including
+The free case of \cite[Prop.~121.2]{YMM1}, including
 its lattice-kernel comparison and Riemann-sum estimate, gives error $C[a_K/(\vartheta d)+(d/\ell)^3]$ on the pair.
 Wick's rule multiplies this square by $\dim\mathfrak{su}(2)/2=3/2$,
 giving $9/(16\pi^2)$.
 For the scale-one remainder use instead the all-distance bound
-\cite[Proposition~120.5]{YMM1}:
+\cite[Prop.~120.5]{YMM1}:
 \[
  |C^{\rm bg}_{K,s}(p,q)|\le C(a_K/a_s)^3.
 \]
@@ -11597,7 +13355,7 @@ $\{(E,q):E\ge|q|\}$.
 \begin{proof}
 The analytic point-plate and tube constructions used in
 this proof are the general functional results of
-\cite[Propositions 97.1, 97.2 and the kernel
+\cite[Props. 97.1, 97.2 and the kernel
 construction preceding 98.2]{YMM1}.  Their inputs
 are precisely the reflection pictures, the cone
 $H\ge|P_\nu|$, the local insertion bound (R5), and
@@ -11803,7 +13561,7 @@ Laplace--Fourier representation give
                        =(\cosh4+1)\rho_\lambda.
 \]
 This is the positive-measure calculation in
-\cite[Proposition 96.4]{YMM1}; the representation
+\cite[Prop. 96.4]{YMM1}; the representation
 uniqueness used there is Proposition 96.1.
 In particular $\rho_D$ is bounded by a constant
 times $\rho_\lambda$ and is supported on the cone.
@@ -11847,7 +13605,7 @@ bound.  For large real $s$ the number of intersecting
 pairs decreases.  Induction and the identity theorem
 give equality at $s=0$.  This is the explicit
 separated-test argument of
-\cite[Proposition 95.4]{YMM1}; it does not require
+\cite[Prop. 95.4]{YMM1}; it does not require
 positivity of a joint classical law.
 
 We have obtained every rotation about $e_2$.
@@ -11950,7 +13708,7 @@ The same argument proves fine-to-coarse
 domination, and invariance of the root under
 the board reflections and a cell-centre
 reflection.  This is the finite reflection
-argument of \cite[Proposition 91.7]{YMM1},
+argument of \cite[Prop. 91.7]{YMM1},
 now in the commuting even cell algebra.
 
 For a fixed-cutoff periodic state $\omega_\nu$
@@ -12276,7 +14034,7 @@ The same constant works for the finite set of indices.
 
 \begin{proof}
 The point-field construction in three dimensions in
-\cite[Proposition 97.2]{YMM1} gives a norm-holomorphic
+\cite[Prop. 97.2]{YMM1} gives a norm-holomorphic
 family $B_\alpha(z,z')$ with the shift and adjoint laws
 \[
  T(\kappa)B_\alpha(z,z')T(\kappa')
@@ -12335,7 +14093,7 @@ is asserted.
 
 \begin{proof}
 We use the constructive general theorem
-\cite[Theorem AO]{YMM1} in its (Rec) form.
+\cite[Thm. AO]{YMM1} in its (Rec) form.
 Its exact four hypotheses are full Euclidean
 covariance, the separable reflection picture with
 strongly continuous translations, the circular
@@ -12437,11 +14195,17 @@ follow already for slab insertions and pass through
 the same point and boundary limits.
 
 The reconstruction fixes full tempered Minkowski
-vacuum distributions.  The construction given here
-identifies the Euclidean correlations only on the
-complement of the coincidence diagonals, equivalently
-on the Schwartz test space whose functions and all derivatives
-vanish on the coincidence diagonals. It
+vacuum distributions. Its Euclidean kernels agree with
+the limiting correlations at distinct points. The extension
+to Schwartz tests flat on every coincidence diagonal uses
+\cite[Prop. 108.4 and Section 93]{YMM1}, applied to each
+fixed string of labels. With $\wp=4$, its point bound is
+$|s_n(x)|\le C^n(2n^2)^{4n}
+\min(1,\min_{i\ne j}|x_i-x_j|)^{-4n}$.
+Taylor's formula for a flat test cancels this singular factor;
+Schwartz decay then makes its product with $s_n$ integrable.
+The tensor-density result identifies this integral with the
+Schwinger functional on that test space. This extension
 asserts neither convergence of lattice contact terms
 nor uniqueness of an extension across those diagonals.
 The separated-moment bound with $(n!)^\varkappa$ is
@@ -12464,9 +14228,9 @@ history bounds give the source estimates of
 \cref{C-407-22,C-407-6}. These bounds are uniform in the
 torus side and pass to every $\nu_K$.
 
-Proposition~\ref{C-389-25} gives a common spacing subsequence
+Prop.~\ref{C-389-25} gives a common spacing subsequence
 on every separated tuple, together with clause \textup{(i)}
-and the lattice symmetries. Proposition~\ref{C-389-27}
+and the lattice symmetries. Prop.~\ref{C-389-27}
 gives coordinate and diagonal reflection positivity on
 that same limit. The reflection-picture construction and
 \cref{C-389-28} give $H\ge|P_1|,|P_2|$.
@@ -12491,19 +14255,229 @@ terms give a nonzero two-point function for every index.
 These are clauses \textup{(iii)} and \textup{(iv)}.
 \end{proof}
 
+\appendix
+\section{Index of notation and conventions}
+\label{app:qcd-notation}
+
+The entries follow the order of the construction. The last column
+gives the definition or the passage immediately preceding the cited result.
+
+\begingroup
+\small
+\renewcommand{\arraystretch}{1.12}
+\begin{longtable}{@{}p{0.24\textwidth}@{\hspace{0.025\textwidth}}p{0.735\textwidth}@{}}
+\textbf{Notation} & \textbf{Meaning and location}\\
+\hline
+\endfirsthead
+\textbf{Notation} & \textbf{Meaning and location (continued)}\\
+\hline
+\endhead
+\endfoot
+\endlastfoot
+$W_3$, $v=(x,g)$, $v\cdot s$
+& The signed permutation group, a chamber at the lattice site $x$,
+and its four neighbours; \eqref{C-391-6}.\\
+$N_f$, $\nu=8N_f$, $\gamma_\mu$, $\gamma_4$
+& The number of four-component flavours, the dimension of the
+spin--internal--colour--flavour fibre at one chamber, and the spin
+matrices; \cref{sec:qcd-lattice-foundation,sec:qcd-block-integration}.\\
+$D_U$, $D[U]$, $m_0$
+& $D_U$ includes the bare mass; $D[U]=D_U-m_0$ is massless.
+The physical mass is $\mathsf m=a_K^{-1}m_0$;
+\eqref{C-391-10} and \cref{sec:qcd-block-integration}.\\
+$a_p(U)$, $A(U)$, $\beta$
+& The plaquette energy $1-\tfrac12\operatorname{tr}U_p$, its sum
+over positive plaquettes, and its coefficient $\beta=L^K\mathsf b$;
+\cref{sec:qcd-lattice-foundation}.\\
+$\mathfrak B$, $\Phi_{\alpha,K}$, $S^T_{n,K,\nu_K}$
+& The reflection-real meson basis, the action and meson insertions,
+and their joint cumulants. The index $0$ denotes the action density;
+\eqref{eq:qcd-physical-observables}. The centered moments $\sigma$
+are defined in \eqref{eq:qcd-centered-moments}.\\
+$L$, $M$, $a_K$, $\lambda_j$, $n_j$
+& The blocking factor, the polymer-block side in level-$j$ units,
+the spacing $a_K=L^{-K}$, the spacing $\lambda_j=L^{j-K}$,
+and the site count $n_j=\ell^3\lambda_j^{-3}$ on $T_\ell$;
+\cref{sec:qcd-gauge-input}.\\
+$\mathsf t_j$, $x_j$, $b_j$
+& The calibration $\mathsf t_j=L^{K-j}\mathsf b$, the running
+action coefficient, and its extracted increment:
+$x_{j+1}=L^{-1}x_j-b_{j+1}$; \cref{sec:qcd-gauge-input}.\\
+$\mathfrak m_j$, $s_j$, $\mu_j$
+& The rescaled bare mass $\mathfrak m_j=\lambda_j\mathsf m$,
+the accumulated correction, and its increment
+$s_{j+1}=Ls_j+\mu_{j+1}$, $s_0=0$;
+\cref{sec:qcd-gauge-input,C-396-33}.\\
+$R(t)$, $\epsilon(t)$, $\delta(t)$, $\mathfrak b(t)$
+& The range and gauge-field thresholds. The threshold for the
+rescaled fluctuation is $\mathfrak b(t)=t^{1/2}\delta(t)$;
+\cref{sec:qcd-gauge-input}.\\
+$\phi(t)$, $\widehat\phi(t)$, $\phi_\sharp(t)$, $\psi_\sharp(t)$
+& The functions controlling logarithmic losses. They are
+$t^{-1/2}(1+\log t)^{\mathfrak p_0}$,
+$(1+\log t)^{\mathfrak p_0}$,
+$t^{-1/2}(1+\log t)^{3\mathfrak p_0}$, and
+$t^{-1/2}(1+\log t)^{9\mathfrak p_0}$, respectively;
+\cref{sec:qcd-gauge-input}.\\
+$\mathcal M$, $U_j(V)$
+& The gauge block average and the critical gauge orbit on its
+fibre $\mathcal M^jU=V$; \cref{sec:qcd-gauge-input}.\\
+$(\mathbf U,\mathbf J)$, $(U,A',\mathbf J)$,
+$\mathcal U_j^\circ(X;b_0,b_1)$
+& A complex pair, a representative with
+$\mathbf U=e^{iL^{-j}A'}U$ and $U$ real, and its analytic core.
+The core includes bounds on the required block towers;
+\cref{sec:qcd-gauge-input}.\\
+$\mathcal P_j$, $\mathcal D_j$, $d_j(X)$, $X^\sharp$
+& The partition into $M$-blocks, its nonempty wall-connected
+polymers, their block-tree length, and the prescribed enlargement
+used in localization; \cref{sec:qcd-gauge-input}.\\
+$\iota$, $\Pi_0$, $\Pi_1$
+& The normalized embedding of a site spinor into chamber constants,
+the projection onto these constants, and its complement;
+\cref{sec:qcd-block-integration}.\\
+$Q(V)$, $R_k$, $q_{j+1}$
+& The normalized site average, its iterated chamber average
+$R_k=Q(\mathcal M^{k-1}U)\cdots Q(U)\iota^*$, and
+$q_1=L^{-1/2}Q(U)\iota^*$,
+$q_{j+1}=L^{-1/2}Q(\mathcal M^jU)$ for $j\ge1$;
+\cref{C-387-24,C-387-30}.\\
+$\theta=b_F$, $\theta_k$, $\mathfrak a_k$
+& The block penalty and the coefficients obtained by composing
+its Gaussian kernels. Here
+$\theta_k=b_F(1-L^{-1})/(1-L^{-k})$ and
+$\mathfrak a_k=L^{-k}\theta_k$; \cref{C-387-30}.\\
+$\mathbb D_j$, $\Gamma_j$, $\Psi^{\rm bg}$
+& The quadratic form after $j$ integrations, the form on the
+variables integrated at the next step, and the background
+substitution obtained by completing the square.
+The fluctuation covariance is $\Gamma_j^{-1}$;
+the definitions precede \cref{C-397-12}.\\
+$\mathcal K_i$, $\mathsf W_i$
+& The operator on the original chamber variables with all the
+level-$i$ block penalties added, and the sum of those penalties;
+\cref{sec:qcd-regular-operators}.\\
+$\mathsf L_i$, $\mathsf s_i$, $d_{h,i}$
+& The layer scale, its Lipschitz minorant, and the path distance
+with bond length $1/\max(\mathsf s_i(x),\mathsf s_i(x'))$;
+\cref{sec:qcd-regular-operators}.\\
+$\mathcal H_{(n)}$, $S_j^{\rm sym}$
+& The background map from the stored and current variables to
+level $n$, and the symmetrized localized covariance;
+\cref{C-397-40,C-397-33} and
+\eqref{eq:qcd-symmetric-covariance}.\\
+$\|F\|_h$, $h_F$, $\Gamma_F$
+& The Grassmann fibre norm with a weight for each generator,
+the fixed fermion weight, and the covariance allowance used
+in Gaussian contraction; \cref{C-387-18,C-397-40} and the
+definitions preceding \cref{C-388-14}.\\
+$\|F\|_{k;a}$, $h^{(k)}(n)$
+& The level-$k$ family norm at pair radius $a$, with weight
+$e^{\kappa d_k(X)}$ in the polymer sum, and the leg weight
+$C_HL^{-(k-n)}h_F$; the definitions preceding \cref{C-388-14}.\\
+$\|\mathbb V\|_{\star,r}$, $\|V\|_r$
+& The origin norm allowing quadratic fluctuation growth, and
+the norm that sums local potentials over polymers containing
+one specified cube; \eqref{eq:qcd-origin-norm} and
+\cref{C-388-19}.\\
+$h$, $\mathcal S(h)$, $\Omega_j$, $\Lambda_j$, $Z_j$
+& A history, its discrete label, its nested regions, its integration
+regions, and $Z_j=\Lambda_j^c$. The label is separate from
+the free coordinates at which that history is evaluated;
+\cref{sec:qcd-histories}.\\
+$\mathcal L_j$, $\mathfrak P_h$, $\varphi_j$
+& The layers $\Omega_j\setminus\Omega_{j+1}$, with last layer
+$\Omega_k$; their fermion places; and the fixed history cutoffs.
+The fermions on layers $j<k$ are stored;
+\cref{sec:qcd-histories}.\\
+$s=(w,J)$, $\mathsf n$, $\mathfrak c_k(s)$
+& The physical action and matrix sources, the bare matrix
+$\mathsf n=-a_KJ$, and the step coordinates
+$(w,\mathsf n,(\sigma_i)_{i\le k})$;
+\cref{sec:qcd-source-chain,C-407-13}.\\
+$\|w\|_{\sharp,j}$, $\|w\|_\sharp$, $\pi_j$
+& The norm
+$\max(\|w\|_\infty,40M\lambda_j\pi_j\operatorname{Lip}w)$,
+its final-level value, and
+$\pi_j=(1+(K-j)/n_\pi)^{\mathfrak p_0}$;
+\cref{sec:qcd-source-chain}.\\
+$\mathscr O_j$, $\mathscr D_j$, $\mathscr D_j(a)$
+& The physical source domain, the domain of independent step
+coordinates, and the latter domain at pair radius $a$.
+A doubled domain doubles each radius;
+\cref{sec:qcd-source-chain}.\\
+$\sigma_k$, $\nu_{k+1}$, $\mathcal N_k$, $\mathcal Z_k$
+& The source correction and its extracted increment,
+$\mathcal N_k=-\lambda_kJ+\sigma_k$, and the response
+$\mathcal Z_k=1-L^{K-k}\partial_J\sigma_k|_0$;
+the definitions preceding \cref{C-407-13}.\\
+$E_k(s)$, $Z_k^{\rm sub}[s]$
+& The extracted vacuum energy and the remaining partition
+function, with $Z[s]=e^{E_k(s)}Z_k^{\rm sub}[s]$;
+\cref{C-407-22}.\\
+\end{longtable}
+\endgroup
+
+\subsection*{Conventions}
+
+The barred and unbarred fermions are independent Grassmann
+generators. We normalize Berezin integration by
+$\mathrm{Ber}\,e^{-\bar\Psi A\Psi}=\det A$.
+At complex gauge fields, $q^+$ denotes the holomorphic continuation
+of the adjoint at real fields. The barred background substitution
+is the row twin given before \cref{C-397-12}; it is not obtained
+by taking the adjoint of the unbarred substitution.
+
+Operator formulas use lattice coordinates unless a physical
+scale is displayed. The physical torus has side $\ell$.
+Gauge links are periodic, and spinors are antiperiodic in each
+coordinate. In the volume-first construction, one first takes
+torus limits at fixed $K$ and then takes a subsequence as
+$K\to\infty$; see \cref{sec:qcd-continuum}.
+
+\subsection*{Terms used in the history expansion}
+
+\emph{Made and formed.}
+A made boundary entry is a term generated at an earlier step
+and retained near a boundary. A formed factor is one of the
+retained factors of the calibration construction. Their
+scalar contributions are listed separately in
+\cref{C-399-46}; the corresponding historical families are
+those of \cite[Prop.~58.26]{YMM1}.
+
+\emph{Tie.}
+This is agreement at real triples representing the same pair,
+with the same stored data. Its preservation under substitution
+is proved in \cite[Prop.~58.18]{YMM1}. For a term with
+external fermion legs, the coefficient and the legs must be
+transformed together, as in \cref{C-399-48}.
+
+\emph{Tier.}
+This is the prescribed range of a stored external field. Its
+bound depends on whether a bond lies in the collar, on the rim,
+or elsewhere; see \cite[Section~57.7]{YMM1}.
+The superscript $\mathrm{rad}$ on a historical family norm
+restricts the stored coordinates to these ranges, as specified
+in \cite[Section~58.15]{YMM1}.
+
+\emph{Guard.}
+For a fine region $Z_\circ$, $\operatorname{Gd}(Z_\circ)$ is
+the union of coarse cubes in $Z_\circ^\sharp$ meeting the
+integration region. Localization parameters are fixed at one
+on this set and vary outside it; see
+\cite[Section~57.3]{YMM1}.
+
+\emph{Pinned substitution and levelling function.}
+A pinned substitution applies the shift and then the prescribed
+local gauge transformation $u$. This transformation removes
+the endpoint factors of the response and preserves the stored
+transports at the specified pinnable tops. It is the levelling
+function of \cite[Section~58.6]{YMM1}; its use in an earlier
+term is described in \cite[Section~58.9]{YMM1}.
+With fermion legs, the inverse action of the same $u$ is
+included in their reading; see \cref{C-399-48}.
+
 \begin{thebibliography}{9}
-\bibitem{fermion-notes}
-\emph{Sketches on three-dimensional SU(2) lattice gauge theory with fermions},
-unpublished notes, revised version supplied 29 October 2026, source file
-\nolinkurl{sketches_SU2_lattice_gauge_theory_with_fermions_three_dimensions.tex}.
-\bibitem{gauge-notes}
-\emph{Three-dimensional lattice Yang--Mills theory},
-unpublished notes, Part II, version supplied 21 October 2026,
-files \nolinkurl{part_II_piece_2_of_3.tex} and
-\nolinkurl{part_II_piece_3_of_3.tex}.
-Definition II-191-23, Proposition II-191-24 and its inequalities
-(II-191-25), Theorem II-191-31, and Corollaries II-202-35
-and II-202-43.
 \bibitem{AbdesselamRivasseau1994}
 A.~Abdesselam and V.~Rivasseau,
 \emph{Trees, forests and jungles: a botanical garden for cluster expansions},
