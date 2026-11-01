@@ -1,22 +1,14 @@
-**QED3 field-strength construction (QE1)**
+**QED3 field-strength construction**
 
 **Disclaimer:** these documents are largely LLM-created. Their correctness has not been satisfactorily verified.
 
-Project codename: **QE1**.
-
 **Main theorem**
 
-There exists a non-Gaussian probability measure on the space of closed real tempered two-forms on $`\mathbb{R}^3`$ whose tensor Schwinger functions satisfy the Osterwalder–Schrader axioms, including clustering.
+There exists a non-Gaussian probability measure on the space of closed real tempered two-forms on $`\mathbb{R}^3`$ whose tensor Schwinger functions satisfy the Osterwalder–Schrader axioms, including clustering. It can be chosen as a translation-ergodic component of a volume-first continuum limit of the all-flux chamber QED3 laws, at a suitable positive charge with tuned bare masses. See [QED3, Theorem A](QED3.pdf) for the precise statement and hypotheses.
 
-The measure can be chosen as a translation-ergodic component of a volume-first continuum limit of the all-flux chamber QED3 field-strength laws, at sufficiently small positive charge with suitably tuned bare masses.
-
-See [QEM1, Theorem A](QEM1.pdf) for the precise statement and hypotheses.
-
-- **[QEO1](Submanuscripts/QEO1.pdf)** — [The QED3 construction: theorem contracts and proof assignments](Submanuscripts/QEO1.pdf).
-- **AI-written manuscript:** **[QEM1](QEM1.pdf)** — [The continuum field-strength construction for QED in three dimensions](QEM1.pdf) · [TeX source](QEM1.tex).
-- **AI-written manuscript:** **[QCM1](Submanuscripts/qed3-consequences.pdf)** — [Massless photons and Maxwell infrared limits in three-dimensional QED](Submanuscripts/qed3-consequences.pdf) · [TeX source](Submanuscripts/QCM1.tex). This manuscript proves further properties of the QED3 theory, including a massless photon and a Maxwell infrared limit.
-- **AI-written manuscript:** **[CTM1](Submanuscripts/CTM1.pdf)** — [Invariance at coinciding points](Submanuscripts/CTM1.pdf) · [TeX source](Submanuscripts/CTM1.tex).
-- **AI-written manuscript:** **[DPM1](Submanuscripts/DPM1.pdf)** — [Diagonal reflection positivity and rotation invariance without closedness](Submanuscripts/DPM1.pdf) · [TeX source](Submanuscripts/DPM1.tex).
+- **AI-written manuscript:** [QED3](QED3.pdf) · [TeX source](QED3.tex) — 242 pages.
+- **Assembly outline:** [PDF](QED3_assembly_outline.pdf) · [TeX source](QED3_assembly_outline.tex).
+- **Earlier manuscripts and submanuscripts:** [OLD](OLD/).
 - **Human-written manuscript:** to be added.
 
-- **AI-written main manuscript:** [Comprehensive edition](qed3.pdf) — 263 pages.
+**Archived comprehensive manuscript:** [PDF](OLD/qed3.pdf) · [TeX source](OLD/qed3.tex) — 263 pages.

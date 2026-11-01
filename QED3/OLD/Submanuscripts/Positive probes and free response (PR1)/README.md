@@ -23,8 +23,8 @@ S_M=(M+\gamma\cdot\partial)^{-1},\qquad
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-082-8bdf14f34f.dark.svg">
-    <img src="../../../assets/eq-082-8bdf14f34f.light.svg" alt="S_M=(M+\gamma\cdot\partial)^{-1},\qquad V_a=i\gamma\cdot a,\qquad q_{4,M}(a)=-\tfrac14\mathrm{tr}[(S_MV_a)^4]." width="479">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-082-8bdf14f34f.dark.svg">
+    <img src="../../../../assets/eq-082-8bdf14f34f.light.svg" alt="S_M=(M+\gamma\cdot\partial)^{-1},\qquad V_a=i\gamma\cdot a,\qquad q_{4,M}(a)=-\tfrac14\mathrm{tr}[(S_MV_a)^4]." width="479">
   </picture>
 </p>
 
@@ -37,8 +37,8 @@ b(f)=-6\mathrm{tr}[(S_{\bar m}i\gamma\cdot d^*\beta)^4]
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-083-428df9f559.dark.svg">
-    <img src="../../../assets/eq-083-428df9f559.light.svg" alt="b(f)=-6\mathrm{tr}[(S_{\bar m}i\gamma\cdot d^*\beta)^4] =24q_{4,\bar m}(d^*\beta). \tag{1}" width="363">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-083-428df9f559.dark.svg">
+    <img src="../../../../assets/eq-083-428df9f559.light.svg" alt="b(f)=-6\mathrm{tr}[(S_{\bar m}i\gamma\cdot d^*\beta)^4] =24q_{4,\bar m}(d^*\beta). \tag{1}" width="363">
   </picture>
 </p>
 
@@ -56,8 +56,8 @@ For every real $`a\in C_c^\infty(\mathbb{R}^3;\mathbb{R}^3)`$ and $`M>0`$, the o
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-084-d5118983c1.dark.svg">
-    <img src="../../../assets/eq-084-d5118983c1.light.svg" alt="\left|q_{4,M}(a)-\frac1{240\pi M^5} \int_{\mathbb{R}^3}|\mathrm{curl}a|^4\,\mathrm{d} x\right| \le C_aM^{-7}. \tag{2}" width="399">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-084-d5118983c1.dark.svg">
+    <img src="../../../../assets/eq-084-d5118983c1.light.svg" alt="\left|q_{4,M}(a)-\frac1{240\pi M^5} \int_{\mathbb{R}^3}|\mathrm{curl}a|^4\,\mathrm{d} x\right| \le C_aM^{-7}. \tag{2}" width="399">
   </picture>
 </p>
 
@@ -75,8 +75,8 @@ J_\eta v(y)=\eta^{-3}\int_{[-\eta/2,\eta/2]^3}v(y+z)\,\mathrm{d} z,
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-085-bf2b636dcf.dark.svg">
-    <img src="../../../assets/eq-085-bf2b636dcf.light.svg" alt="J_\eta v(y)=\eta^{-3}\int_{[-\eta/2,\eta/2]^3}v(y+z)\,\mathrm{d} z, \qquad \delta_{\eta,\mu}v(y)= \frac{v(y+\eta e_\mu/2)-v(y-\eta e_\mu/2)}{\eta}." width="562">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-085-bf2b636dcf.dark.svg">
+    <img src="../../../../assets/eq-085-bf2b636dcf.light.svg" alt="J_\eta v(y)=\eta^{-3}\int_{[-\eta/2,\eta/2]^3}v(y+z)\,\mathrm{d} z, \qquad \delta_{\eta,\mu}v(y)= \frac{v(y+\eta e_\mu/2)-v(y-\eta e_\mu/2)}{\eta}." width="562">
   </picture>
 </p>
 
@@ -89,8 +89,8 @@ a_{\eta,\nu}^0(y)=-\sum_{\mu\ne\nu}
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-086-d54813d5b9.dark.svg">
-    <img src="../../../assets/eq-086-d54813d5b9.light.svg" alt="a_{\eta,\nu}^0(y)=-\sum_{\mu\ne\nu} \delta_{\eta,\mu}J_\eta\beta_{\mu\nu}(y) \tag{3}" width="265">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-086-d54813d5b9.dark.svg">
+    <img src="../../../../assets/eq-086-d54813d5b9.light.svg" alt="a_{\eta,\nu}^0(y)=-\sum_{\mu\ne\nu} \delta_{\eta,\mu}J_\eta\beta_{\mu\nu}(y) \tag{3}" width="265">
   </picture>
 </p>
 
@@ -103,8 +103,8 @@ a_{\eta,\nu}(\eta c)=\sum_{z\in\mathbb{Z}^3}
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-087-7b51010c56.dark.svg">
-    <img src="../../../assets/eq-087-7b51010c56.light.svg" alt="a_{\eta,\nu}(\eta c)=\sum_{z\in\mathbb{Z}^3} a_{\eta,\nu}^0(\eta c+\eta e_\nu/2+Rz). \tag{4}" width="330">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-087-7b51010c56.dark.svg">
+    <img src="../../../../assets/eq-087-7b51010c56.light.svg" alt="a_{\eta,\nu}(\eta c)=\sum_{z\in\mathbb{Z}^3} a_{\eta,\nu}^0(\eta c+\eta e_\nu/2+Rz). \tag{4}" width="330">
   </picture>
 </p>
 
@@ -121,8 +121,8 @@ n_0=e_3,\quad n_1=(e_2-e_3)/\sqrt2,\quad
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-088-3712a64dff.dark.svg">
-    <img src="../../../assets/eq-088-3712a64dff.light.svg" alt="\begin{gathered} n_0=e_3,\quad n_1=(e_2-e_3)/\sqrt2,\quad n_2=(e_1-e_2)/\sqrt2,\quad n_3=-e_1,\\[0pt] (w_0,w_1,w_2,w_3)=(6,6\sqrt2,6\sqrt2,6). \end{gathered}" width="456">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-088-3712a64dff.dark.svg">
+    <img src="../../../../assets/eq-088-3712a64dff.light.svg" alt="\begin{gathered} n_0=e_3,\quad n_1=(e_2-e_3)/\sqrt2,\quad n_2=(e_1-e_2)/\sqrt2,\quad n_3=-e_1,\\[0pt] (w_0,w_1,w_2,w_3)=(6,6\sqrt2,6\sqrt2,6). \end{gathered}" width="456">
   </picture>
 </p>
 
@@ -139,8 +139,8 @@ For a spinor $`\psi:\mathbb{Z}^3\times O_{\mathrm{cub}}\to\mathbb{C}^4`$ with $`
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-089-941869c8ea.dark.svg">
-    <img src="../../../assets/eq-089-941869c8ea.light.svg" alt="\begin{split} (D^{\mathrm{ch}}[B]\psi)(c,g) ={}&amp;\sum_{i=0}^2M_i(g)\bigl(\psi(c,g)-\psi(c,gs_i)\bigr)\\[0pt] &amp;+M_3(g)\bigl(\psi(c,g) -e^{iB(c,c+ge_1)}\psi(c+ge_1,gr_{e_1})\bigr). \end{split} \tag{5}" width="518">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-089-941869c8ea.dark.svg">
+    <img src="../../../../assets/eq-089-941869c8ea.light.svg" alt="\begin{split} (D^{\mathrm{ch}}[B]\psi)(c,g) ={}&amp;\sum_{i=0}^2M_i(g)\bigl(\psi(c,g)-\psi(c,gs_i)\bigr)\\[0pt] &amp;+M_3(g)\bigl(\psi(c,g) -e^{iB(c,c+ge_1)}\psi(c+ge_1,gr_{e_1})\bigr). \end{split} \tag{5}" width="518">
   </picture>
 </p>
 
@@ -158,8 +158,8 @@ N_0(t)=\frac{\det(D^{\mathrm{ch}}[B_t]+m)}
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-090-9945683ac5.dark.svg">
-    <img src="../../../assets/eq-090-9945683ac5.light.svg" alt="N_0(t)=\frac{\det(D^{\mathrm{ch}}[B_t]+m)} {\det(D^{\mathrm{ch}}[0]+m)},\qquad c_j=N_0^{(j)}(0),\qquad a_{\mathrm{ch}}=(\log N_0)&#x27;&#x27;(0),\quad b_{\mathrm{ch}}=(\log N_0)^{(4)}(0). \tag{6}" width="711">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-090-9945683ac5.dark.svg">
+    <img src="../../../../assets/eq-090-9945683ac5.light.svg" alt="N_0(t)=\frac{\det(D^{\mathrm{ch}}[B_t]+m)} {\det(D^{\mathrm{ch}}[0]+m)},\qquad c_j=N_0^{(j)}(0),\qquad a_{\mathrm{ch}}=(\log N_0)&#x27;&#x27;(0),\quad b_{\mathrm{ch}}=(\log N_0)^{(4)}(0). \tag{6}" width="711">
   </picture>
 </p>
 
@@ -174,8 +174,8 @@ b_R(f)=-6\mathrm{Tr}(S^Ri\gamma\cdot a^R)^4,
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-091-553d9175c1.dark.svg">
-    <img src="../../../assets/eq-091-553d9175c1.light.svg" alt="b_R(f)=-6\mathrm{Tr}(S^Ri\gamma\cdot a^R)^4, \qquad b(f)=-6\mathrm{Tr}(S_{\bar m}i\gamma\cdot a)^4. \tag{7}" width="463">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-091-553d9175c1.dark.svg">
+    <img src="../../../../assets/eq-091-553d9175c1.light.svg" alt="b_R(f)=-6\mathrm{Tr}(S^Ri\gamma\cdot a^R)^4, \qquad b(f)=-6\mathrm{Tr}(S_{\bar m}i\gamma\cdot a)^4. \tag{7}" width="463">
   </picture>
 </p>
 
@@ -195,8 +195,8 @@ If $`R\ge D_\beta+1`$, the operators $`S^Ri\gamma\cdot a^R`$ and $`S_{\bar m}i\g
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-092-e044840ceb.dark.svg">
-    <img src="../../../assets/eq-092-e044840ceb.light.svg" alt="\begin{aligned} |b_{\mathrm{ch}}(\eta,R)-b_R(f)|&amp;\le C_1\eta^{1/4},\\[0pt] |b_R(f)-b(f)|&amp;\le C_2e^{-\bar m(R-D_\beta)}, \qquad R\ge D_\beta+1,\quad0&lt;\eta\le1,\quad R/\eta\in\mathbb{N}. \end{aligned} \tag{8}" width="607">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-092-e044840ceb.dark.svg">
+    <img src="../../../../assets/eq-092-e044840ceb.light.svg" alt="\begin{aligned} |b_{\mathrm{ch}}(\eta,R)-b_R(f)|&amp;\le C_1\eta^{1/4},\\[0pt] |b_R(f)-b(f)|&amp;\le C_2e^{-\bar m(R-D_\beta)}, \qquad R\ge D_\beta+1,\quad0&lt;\eta\le1,\quad R/\eta\in\mathbb{N}. \end{aligned} \tag{8}" width="607">
   </picture>
 </p>
 
@@ -210,8 +210,8 @@ c_{2j+1}=0,\qquad c_2=a_{\mathrm{ch}},\qquad
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-093-37943aa200.dark.svg">
-    <img src="../../../assets/eq-093-37943aa200.light.svg" alt="c_{2j+1}=0,\qquad c_2=a_{\mathrm{ch}},\qquad c_4=b_{\mathrm{ch}}+3c_2^2 ." width="306">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-093-37943aa200.dark.svg">
+    <img src="../../../../assets/eq-093-37943aa200.light.svg" alt="c_{2j+1}=0,\qquad c_2=a_{\mathrm{ch}},\qquad c_4=b_{\mathrm{ch}}+3c_2^2 ." width="306">
   </picture>
 </p>
 
@@ -223,8 +223,8 @@ There is $`C_{\rho,\bar m,\beta}<\infty`$, unchanged by real translations of $`\
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-094-598563ac28.dark.svg">
-    <img src="../../../assets/eq-094-598563ac28.light.svg" alt="|c_2|\le C_{\rho,\bar m,\beta}\quad(R\ge1),\qquad |c_4|\le C_{\rho,\bar m,\beta}\quad(R\ge D_\beta+1)." width="403">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-094-598563ac28.dark.svg">
+    <img src="../../../../assets/eq-094-598563ac28.light.svg" alt="|c_2|\le C_{\rho,\bar m,\beta}\quad(R\ge1),\qquad |c_4|\le C_{\rho,\bar m,\beta}\quad(R\ge D_\beta+1)." width="403">
   </picture>
 </p>
 

@@ -25,8 +25,8 @@ Let $`V`$ be a finite-dimensional real inner-product space with an orthogonal re
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-015-a18bbc46e5.dark.svg">
-    <img src="../../../assets/eq-015-a18bbc46e5.light.svg" alt="(g\cdot f)(x)=\rho(Q)f(Q^{-1}(x-b)),\qquad (g\cdot F)(f)=F(g^{-1}\cdot f),\qquad \widehat g A(F)=A(g^{-1}\cdot F). \tag{1}" width="663">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-015-a18bbc46e5.dark.svg">
+    <img src="../../../../assets/eq-015-a18bbc46e5.light.svg" alt="(g\cdot f)(x)=\rho(Q)f(Q^{-1}(x-b)),\qquad (g\cdot F)(f)=F(g^{-1}\cdot f),\qquad \widehat g A(F)=A(g^{-1}\cdot F). \tag{1}" width="663">
   </picture>
 </p>
 
@@ -37,8 +37,8 @@ Write $`U(a)=\widehat{\tau_a}`$. For open $`O\subset\mathbb{R}^3`$, let $`\Sigma
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-016-ceba0a928d.dark.svg">
-    <img src="../../../assets/eq-016-ceba0a928d.light.svg" alt="\mathbb{E}_\lambda[\overline{\mathcal R_r A}\,A]\ge0" width="112">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-016-ceba0a928d.dark.svg">
+    <img src="../../../../assets/eq-016-ceba0a928d.light.svg" alt="\mathbb{E}_\lambda[\overline{\mathcal R_r A}\,A]\ge0" width="112">
   </picture>
 </p>
 
@@ -55,8 +55,8 @@ x_j=0\quad(1\le j\le3),\qquad
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-017-6bbdb1a5cc.dark.svg">
-    <img src="../../../assets/eq-017-6bbdb1a5cc.light.svg" alt="x_j=0\quad(1\le j\le3),\qquad x_j-x_k=0,\quad x_j+x_k=0\quad(1\le j&lt;k\le3). \tag{2}" width="564">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-017-6bbdb1a5cc.dark.svg">
+    <img src="../../../../assets/eq-017-6bbdb1a5cc.light.svg" alt="x_j=0\quad(1\le j\le3),\qquad x_j-x_k=0,\quad x_j+x_k=0\quad(1\le j&lt;k\le3). \tag{2}" width="564">
   </picture>
 </p>
 
@@ -70,8 +70,8 @@ Let $`\mathcal I`$ be the translation-invariant sigma-algebra, with invariance u
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-018-c2156da0ed.dark.svg">
-    <img src="../../../assets/eq-018-c2156da0ed.light.svg" alt="\langle A,U(a)B\rangle_{L^2(\lambda)} \longrightarrow\langle A,PB\rangle_{L^2(\lambda)} \qquad(|a|\longrightarrow\infty) \tag{3}" width="414">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-018-c2156da0ed.dark.svg">
+    <img src="../../../../assets/eq-018-c2156da0ed.light.svg" alt="\langle A,U(a)B\rangle_{L^2(\lambda)} \longrightarrow\langle A,PB\rangle_{L^2(\lambda)} \qquad(|a|\longrightarrow\infty) \tag{3}" width="414">
   </picture>
 </p>
 
@@ -88,8 +88,8 @@ There is a unique translation-ergodic decomposition $`\lambda=\int\lambda_\xi\,\
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-019-99dccc7a74.dark.svg">
-    <img src="../../../assets/eq-019-99dccc7a74.light.svg" alt="\langle A,U(a)B\rangle_{L^2(\lambda_\xi)} \longrightarrow \overline{\mathbb{E}_{\lambda_\xi}A}\,\mathbb{E}_{\lambda_\xi}B \qquad(|a|\longrightarrow\infty) \tag{4}" width="407">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-019-99dccc7a74.dark.svg">
+    <img src="../../../../assets/eq-019-99dccc7a74.light.svg" alt="\langle A,U(a)B\rangle_{L^2(\lambda_\xi)} \longrightarrow \overline{\mathbb{E}_{\lambda_\xi}A}\,\mathbb{E}_{\lambda_\xi}B \qquad(|a|\longrightarrow\infty) \tag{4}" width="407">
   </picture>
 </p>
 
@@ -104,8 +104,8 @@ If in addition, for some fixed $`C\ge0`$,
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-020-50058a8048.dark.svg">
-    <img src="../../../assets/eq-020-50058a8048.light.svg" alt="\mathbb{E}_\lambda e^{F(f)}\le e^{C\|f\|_2^2/2} \qquad(f\in\mathcal S(\mathbb{R}^3;V)\text{ real}), \tag{5}" width="366">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-020-50058a8048.dark.svg">
+    <img src="../../../../assets/eq-020-50058a8048.light.svg" alt="\mathbb{E}_\lambda e^{F(f)}\le e^{C\|f\|_2^2/2} \qquad(f\in\mathcal S(\mathbb{R}^3;V)\text{ real}), \tag{5}" width="366">
   </picture>
 </p>
 

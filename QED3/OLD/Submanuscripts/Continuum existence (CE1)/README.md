@@ -23,8 +23,8 @@ $`h_k`$, $`k\in\mathbb{N}_0^d`$, set
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-021-d4cf338b25.dark.svg">
-    <img src="../../../assets/eq-021-d4cf338b25.light.svg" alt="(1-\Delta+|y|^2)h_k=\lambda_k h_k,\qquad \lambda_k=2|k|_1+d+1,\qquad |k|_1=k_1+\cdots+k_d." width="518">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-021-d4cf338b25.dark.svg">
+    <img src="../../../../assets/eq-021-d4cf338b25.light.svg" alt="(1-\Delta+|y|^2)h_k=\lambda_k h_k,\qquad \lambda_k=2|k|_1+d+1,\qquad |k|_1=k_1+\cdots+k_d." width="518">
   </picture>
 </p>
 
@@ -38,8 +38,8 @@ H_{-t}=\{F\in\mathcal S':\|F\|_{-t}<\infty\},\qquad
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-022-bfa43a93ba.dark.svg">
-    <img src="../../../assets/eq-022-bfa43a93ba.light.svg" alt="H_{-t}=\{F\in\mathcal S&#x27;:\|F\|_{-t}&lt;\infty\},\qquad \|F\|_{-t}^2= \sum_{\alpha=1}^r\sum_{k\in\mathbb{N}_0^d} \lambda_k^{-2t}|F(h_ke_\alpha)|^2." width="478">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-022-bfa43a93ba.dark.svg">
+    <img src="../../../../assets/eq-022-bfa43a93ba.light.svg" alt="H_{-t}=\{F\in\mathcal S&#x27;:\|F\|_{-t}&lt;\infty\},\qquad \|F\|_{-t}^2= \sum_{\alpha=1}^r\sum_{k\in\mathbb{N}_0^d} \lambda_k^{-2t}|F(h_ke_\alpha)|^2." width="478">
   </picture>
 </p>
 
@@ -63,8 +63,8 @@ laws on $`H_{-t}`$ such that $`P_j\Longrightarrow P`$. Suppose
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-023-fe6870479e.dark.svg">
-    <img src="../../../assets/eq-023-fe6870479e.light.svg" alt="\mathbb{E}_{P_j}e^{F(f)}\le e^{\|f\|_2^2/2} \qquad(j\ge1,\ f\in\mathcal S)." width="263">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-023-fe6870479e.dark.svg">
+    <img src="../../../../assets/eq-023-fe6870479e.light.svg" alt="\mathbb{E}_{P_j}e^{F(f)}\le e^{\|f\|_2^2/2} \qquad(j\ge1,\ f\in\mathcal S)." width="263">
   </picture>
 </p>
 
@@ -76,8 +76,8 @@ Then
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-024-7f2fdaa92e.dark.svg">
-    <img src="../../../assets/eq-024-7f2fdaa92e.light.svg" alt="\mathbb{E}_P e^{F(f)}\le e^{\|f\|_2^2/2} \qquad(f\in\mathcal S)." width="213">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-024-7f2fdaa92e.dark.svg">
+    <img src="../../../../assets/eq-024-7f2fdaa92e.light.svg" alt="\mathbb{E}_P e^{F(f)}\le e^{\|f\|_2^2/2} \qquad(f\in\mathcal S)." width="213">
   </picture>
 </p>
 
@@ -91,8 +91,8 @@ Z_j(z)=\mathbb{E}_{P_j}\exp\left(\sum_{a=1}^m z_aF(f_a)\right),
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-025-7fe52c1fb2.dark.svg">
-    <img src="../../../assets/eq-025-7fe52c1fb2.light.svg" alt="Z_j(z)=\mathbb{E}_{P_j}\exp\left(\sum_{a=1}^m z_aF(f_a)\right), \qquad Z(z)=\mathbb{E}_P\exp\left(\sum_{a=1}^m z_aF(f_a)\right)" width="473">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-025-7fe52c1fb2.dark.svg">
+    <img src="../../../../assets/eq-025-7fe52c1fb2.light.svg" alt="Z_j(z)=\mathbb{E}_{P_j}\exp\left(\sum_{a=1}^m z_aF(f_a)\right), \qquad Z(z)=\mathbb{E}_P\exp\left(\sum_{a=1}^m z_aF(f_a)\right)" width="473">
   </picture>
 </p>
 
@@ -106,8 +106,8 @@ S_n^{P_j}(f_1,\ldots,f_n)\longrightarrow
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-026-0062473dbb.dark.svg">
-    <img src="../../../assets/eq-026-0062473dbb.light.svg" alt="S_n^{P_j}(f_1,\ldots,f_n)\longrightarrow S_n^P(f_1,\ldots,f_n)." width="251">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-026-0062473dbb.dark.svg">
+    <img src="../../../../assets/eq-026-0062473dbb.light.svg" alt="S_n^{P_j}(f_1,\ldots,f_n)\longrightarrow S_n^P(f_1,\ldots,f_n)." width="251">
   </picture>
 </p>
 
@@ -119,8 +119,8 @@ D_f=\left\{z\in\mathbb C^m:
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-027-764a0fa30a.dark.svg">
-    <img src="../../../assets/eq-027-764a0fa30a.light.svg" alt="D_f=\left\{z\in\mathbb C^m: \sum_{a=1}^m|z_a|\|f_a\|_2&lt;2/5\right\}," width="277">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-027-764a0fa30a.dark.svg">
+    <img src="../../../../assets/eq-027-764a0fa30a.light.svg" alt="D_f=\left\{z\in\mathbb C^m: \sum_{a=1}^m|z_a|\|f_a\|_2&lt;2/5\right\}," width="277">
   </picture>
 </p>
 
@@ -136,8 +136,8 @@ with every derivative. Thus all joint cumulants converge, where
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-028-232b3ee118.dark.svg">
-    <img src="../../../assets/eq-028-232b3ee118.light.svg" alt="\kappa_n^P(f_1,\ldots,f_n) =\left.\partial_{z_1}\cdots\partial_{z_n} \log\mathbb{E}_P\exp\left(\sum_{a=1}^n z_aF(f_a)\right) \right|_{z=0}," width="405">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-028-232b3ee118.dark.svg">
+    <img src="../../../../assets/eq-028-232b3ee118.light.svg" alt="\kappa_n^P(f_1,\ldots,f_n) =\left.\partial_{z_1}\cdots\partial_{z_n} \log\mathbb{E}_P\exp\left(\sum_{a=1}^n z_aF(f_a)\right) \right|_{z=0}," width="405">
   </picture>
 </p>
 
@@ -157,8 +157,8 @@ topology. Suppose there is a constant $`0\le C<\infty`$ such that
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-029-66301abc28.dark.svg">
-    <img src="../../../assets/eq-029-66301abc28.light.svg" alt="\mathbb{E}_{\nu_a}\left|\sum_{\alpha,x}b_\alpha(x)u_\alpha(x)\right|^2 \le C\sum_{\alpha,x}|b_\alpha(x)|^2" width="266">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-029-66301abc28.dark.svg">
+    <img src="../../../../assets/eq-029-66301abc28.light.svg" alt="\mathbb{E}_{\nu_a}\left|\sum_{\alpha,x}b_\alpha(x)u_\alpha(x)\right|^2 \le C\sum_{\alpha,x}|b_\alpha(x)|^2" width="266">
   </picture>
 </p>
 
@@ -172,8 +172,8 @@ array $`b`$. Define
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-030-274d616518.dark.svg">
-    <img src="../../../assets/eq-030-274d616518.light.svg" alt="(F_a)_\alpha(y)=a^{-d/2}u_\alpha(x) \quad\text{for }y\in Q_{a,\alpha,x} :=a\bigl(x+t_\alpha+[-1/2,1/2)^d\bigr)." width="472">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-030-274d616518.dark.svg">
+    <img src="../../../../assets/eq-030-274d616518.light.svg" alt="(F_a)_\alpha(y)=a^{-d/2}u_\alpha(x) \quad\text{for }y\in Q_{a,\alpha,x} :=a\bigl(x+t_\alpha+[-1/2,1/2)^d\bigr)." width="472">
   </picture>
 </p>
 
@@ -185,8 +185,8 @@ Then $`F_a`$ is almost surely a real tempered distribution, and
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-031-7941393065.dark.svg">
-    <img src="../../../assets/eq-031-7941393065.light.svg" alt="\mathbb{E}_{\nu_a}|F_a(f)|^2\le C\|f\|_{L^2(\mathbb{R}^d;\mathbb{R}^r)}^2 \qquad(f\in\mathcal S)." width="284">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-031-7941393065.dark.svg">
+    <img src="../../../../assets/eq-031-7941393065.light.svg" alt="\mathbb{E}_{\nu_a}|F_a(f)|^2\le C\|f\|_{L^2(\mathbb{R}^d;\mathbb{R}^r)}^2 \qquad(f\in\mathcal S)." width="284">
   </picture>
 </p>
 
@@ -201,8 +201,8 @@ such that
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-032-f884c549b2.dark.svg">
-    <img src="../../../assets/eq-032-f884c549b2.light.svg" alt="\mathcal L(F_{a_{j_\ell}})\ \Longrightarrow\ \mu." width="115">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-032-f884c549b2.dark.svg">
+    <img src="../../../../assets/eq-032-f884c549b2.light.svg" alt="\mathcal L(F_{a_{j_\ell}})\ \Longrightarrow\ \mu." width="115">
   </picture>
 </p>
 
@@ -221,8 +221,8 @@ For $`g(x)=Qx+b`$, use the actions
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-033-b969e8456a.dark.svg">
-    <img src="../../../assets/eq-033-b969e8456a.light.svg" alt="(g\cdot f)(x)=\rho(Q)f(Q^{-1}(x-b)),\qquad (g\cdot F)(f)=F(g^{-1}\cdot f)." width="421">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-033-b969e8456a.dark.svg">
+    <img src="../../../../assets/eq-033-b969e8456a.light.svg" alt="(g\cdot f)(x)=\rho(Q)f(Q^{-1}(x-b)),\qquad (g\cdot F)(f)=F(g^{-1}\cdot f)." width="421">
   </picture>
 </p>
 
@@ -240,8 +240,8 @@ boundary, reflection positivity means
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-034-67aa422441.dark.svg">
-    <img src="../../../assets/eq-034-67aa422441.light.svg" alt="\mathbb{E}_P[\overline{B(r\cdot F)}B(F)]\ge0 \qquad\bigl(B\in L^2(\Sigma_{H^+},P)\bigr)." width="322">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-034-67aa422441.dark.svg">
+    <img src="../../../../assets/eq-034-67aa422441.light.svg" alt="\mathbb{E}_P[\overline{B(r\cdot F)}B(F)]\ge0 \qquad\bigl(B\in L^2(\Sigma_{H^+},P)\bigr)." width="322">
   </picture>
 </p>
 
@@ -255,8 +255,8 @@ Let $`P_j\Rightarrow P`$ weakly on $`H_{-t}`$, and suppose
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-035-36f7f4ffb2.dark.svg">
-    <img src="../../../assets/eq-035-36f7f4ffb2.light.svg" alt="\mathbb{E}_{P_j}e^{F(f)}\le e^{\|f\|_2^2/2} \qquad(j\ge1,\ f\in\mathcal S\text{ real})." width="293">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-035-36f7f4ffb2.dark.svg">
+    <img src="../../../../assets/eq-035-36f7f4ffb2.light.svg" alt="\mathbb{E}_{P_j}e^{F(f)}\le e^{\|f\|_2^2/2} \qquad(j\ge1,\ f\in\mathcal S\text{ real})." width="293">
   </picture>
 </p>
 
@@ -285,8 +285,8 @@ $`T_{j,g}:\mathcal S\to\mathcal S`$ satisfying
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-036-d539ccfd98.dark.svg">
-    <img src="../../../assets/eq-036-d539ccfd98.light.svg" alt="\mathbb{E}_{P_j}e^{iF(T_{j,g}f)}=\mathbb{E}_{P_j}e^{iF(f)},\qquad \|T_{j,g}f-g\cdot f\|_2\longrightarrow0 \quad(f\in\mathcal S)." width="423">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-036-d539ccfd98.dark.svg">
+    <img src="../../../../assets/eq-036-d539ccfd98.light.svg" alt="\mathbb{E}_{P_j}e^{iF(T_{j,g}f)}=\mathbb{E}_{P_j}e^{iF(f)},\qquad \|T_{j,g}f-g\cdot f\|_2\longrightarrow0 \quad(f\in\mathcal S)." width="423">
   </picture>
 </p>
 
@@ -301,8 +301,8 @@ $`f_a\in C_c^\infty(H_r^+;V)`$, and every $`z_a\in\mathbb{C}`$,
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-037-b59b194b66.dark.svg">
-    <img src="../../../assets/eq-037-b59b194b66.light.svg" alt="\sum_{a,b}\overline z_a z_b \mathbb{E}_{P_j}e^{iF(f_b-r\cdot f_a)}\ge0" width="184">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-037-b59b194b66.dark.svg">
+    <img src="../../../../assets/eq-037-b59b194b66.light.svg" alt="\sum_{a,b}\overline z_a z_b \mathbb{E}_{P_j}e^{iF(f_b-r\cdot f_a)}\ge0" width="184">
   </picture>
 </p>
 

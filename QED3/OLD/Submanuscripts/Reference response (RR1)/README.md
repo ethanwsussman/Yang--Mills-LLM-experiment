@@ -26,8 +26,8 @@ h=L^{\lfloor\log_L\bar m^{-1}\rfloor},\qquad
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-095-73586fe3c8.dark.svg">
-    <img src="../../../assets/eq-095-73586fe3c8.light.svg" alt="h=L^{\lfloor\log_L\bar m^{-1}\rfloor},\qquad \eta=L^{-N},\qquad q=e\sqrt\eta,\qquad K=N+\log_Lh." width="456">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-095-73586fe3c8.dark.svg">
+    <img src="../../../../assets/eq-095-73586fe3c8.light.svg" alt="h=L^{\lfloor\log_L\bar m^{-1}\rfloor},\qquad \eta=L^{-N},\qquad q=e\sqrt\eta,\qquad K=N+\log_Lh." width="456">
   </picture>
 </p>
 
@@ -39,8 +39,8 @@ R_{\rm top}=hMr_K,\qquad R^*=R_{\rm top}/L,\qquad
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-096-a09fa32640.dark.svg">
-    <img src="../../../assets/eq-096-a09fa32640.light.svg" alt="R_{\rm top}=hMr_K,\qquad R^*=R_{\rm top}/L,\qquad n_*=R^*/\eta,\qquad \ell_c=R^*/(2L),\qquad N_*=8L^3." width="587">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-096-a09fa32640.dark.svg">
+    <img src="../../../../assets/eq-096-a09fa32640.light.svg" alt="R_{\rm top}=hMr_K,\qquad R^*=R_{\rm top}/L,\qquad n_*=R^*/\eta,\qquad \ell_c=R^*/(2L),\qquad N_*=8L^3." width="587">
   </picture>
 </p>
 
@@ -57,8 +57,8 @@ Fix a real nonzero $`\beta\in C_c^\infty(\mathbb{R}^3;\Lambda^2)`$, put $`f=dd^*
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-097-709c8c6e1f.dark.svg">
-    <img src="../../../assets/eq-097-709c8c6e1f.light.svg" alt="\widehat a^o_\nu(x)= -\eta^{1/2}\sum_{\mu\ne\nu} (\delta_{\eta,\mu}J_\eta\beta_{\mu\nu}) (\eta x+\eta e_\nu/2). \tag{1}" width="366">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-097-709c8c6e1f.dark.svg">
+    <img src="../../../../assets/eq-097-709c8c6e1f.light.svg" alt="\widehat a^o_\nu(x)= -\eta^{1/2}\sum_{\mu\ne\nu} (\delta_{\eta,\mu}J_\eta\beta_{\mu\nu}) (\eta x+\eta e_\nu/2). \tag{1}" width="366">
   </picture>
 </p>
 
@@ -78,8 +78,8 @@ Write $`C(n_*)=\mathbb{Z}^3/n_*\mathbb{Z}^3`$ with its oriented cubical cells. L
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-098-b07fb3269a.dark.svg">
-    <img src="../../../assets/eq-098-b07fb3269a.light.svg" alt="\mathring\Phi(t)= \frac{\displaystyle\int_{[-\pi,\pi]^3}\frac{\mathrm{d}\theta}{(2\pi)^3} \int\det\bigl(D^{\rm ch}[q(A(u)+H_\theta+a(t))] +\boldsymbol\mu_N\bigr)\,\mathrm{d}\gamma_{n_*}(u)} {\displaystyle\int_{[-\pi,\pi]^3}\frac{\mathrm{d}\theta}{(2\pi)^3} \int\det\bigl(D^{\rm ch}[q(A(u)+H_\theta)] +\boldsymbol\mu_N\bigr)\,\mathrm{d}\gamma_{n_*}(u)}. \tag{2}" width="558">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-098-b07fb3269a.dark.svg">
+    <img src="../../../../assets/eq-098-b07fb3269a.light.svg" alt="\mathring\Phi(t)= \frac{\displaystyle\int_{[-\pi,\pi]^3}\frac{\mathrm{d}\theta}{(2\pi)^3} \int\det\bigl(D^{\rm ch}[q(A(u)+H_\theta+a(t))] +\boldsymbol\mu_N\bigr)\,\mathrm{d}\gamma_{n_*}(u)} {\displaystyle\int_{[-\pi,\pi]^3}\frac{\mathrm{d}\theta}{(2\pi)^3} \int\det\bigl(D^{\rm ch}[q(A(u)+H_\theta)] +\boldsymbol\mu_N\bigr)\,\mathrm{d}\gamma_{n_*}(u)}. \tag{2}" width="558">
   </picture>
 </p>
 
@@ -94,8 +94,8 @@ N_0(t)=\frac{\det\bigl(D^{\rm ch}[q(t/e)\widehat a_0]
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-099-6c29b79b33.dark.svg">
-    <img src="../../../assets/eq-099-6c29b79b33.light.svg" alt="N_0(t)=\frac{\det\bigl(D^{\rm ch}[q(t/e)\widehat a_0] +\bar m\eta\bigr)} {\det\bigl(D^{\rm ch}[0]+\bar m\eta\bigr)}, \qquad c_m=N_0^{(m)}(0),\quad m=2,4. \tag{3}" width="531">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-099-6c29b79b33.dark.svg">
+    <img src="../../../../assets/eq-099-6c29b79b33.light.svg" alt="N_0(t)=\frac{\det\bigl(D^{\rm ch}[q(t/e)\widehat a_0] +\bar m\eta\bigr)} {\det\bigl(D^{\rm ch}[0]+\bar m\eta\bigr)}, \qquad c_m=N_0^{(m)}(0),\quad m=2,4. \tag{3}" width="531">
   </picture>
 </p>
 
@@ -110,8 +110,8 @@ These are ordinary derivatives of the ratio. Put
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-100-fd8e82eff9.dark.svg">
-    <img src="../../../assets/eq-100-fd8e82eff9.light.svg" alt="\Theta_m^{(0)}= \left|\left[\prod_{c\in\mathcal C_*} (\partial_{t_c}^m-c_m)\right]\mathring\Phi(0) \right|^{1/N_*},\qquad \mathfrak e=\tfrac12(1/4-9\varepsilon)-12\varepsilon&gt;0." width="469">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-100-fd8e82eff9.dark.svg">
+    <img src="../../../../assets/eq-100-fd8e82eff9.light.svg" alt="\Theta_m^{(0)}= \left|\left[\prod_{c\in\mathcal C_*} (\partial_{t_c}^m-c_m)\right]\mathring\Phi(0) \right|^{1/N_*},\qquad \mathfrak e=\tfrac12(1/4-9\varepsilon)-12\varepsilon&gt;0." width="469">
   </picture>
 </p>
 
@@ -126,8 +126,8 @@ n_0=e_3,\quad n_1=(e_2-e_3)/\sqrt2,\quad
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-101-5483fd7e18.dark.svg">
-    <img src="../../../assets/eq-101-5483fd7e18.light.svg" alt="n_0=e_3,\quad n_1=(e_2-e_3)/\sqrt2,\quad n_2=(e_1-e_2)/\sqrt2,\quad n_3=-e_1,\qquad M_i(g)=\tfrac12w_i(\rho+\gamma\cdot gn_i)." width="670">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-101-5483fd7e18.dark.svg">
+    <img src="../../../../assets/eq-101-5483fd7e18.light.svg" alt="n_0=e_3,\quad n_1=(e_2-e_3)/\sqrt2,\quad n_2=(e_1-e_2)/\sqrt2,\quad n_3=-e_1,\qquad M_i(g)=\tfrac12w_i(\rho+\gamma\cdot gn_i)." width="670">
   </picture>
 </p>
 
@@ -144,8 +144,8 @@ On a unit torus the chamber operator is
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-102-7d60e13fb1.dark.svg">
-    <img src="../../../assets/eq-102-7d60e13fb1.light.svg" alt="\begin{split} (D^{\rm ch}[B]\psi)(c,g)={}&amp; \sum_{i=0}^2M_i(g)\bigl(\psi(c,g)-\psi(c,gs_i)\bigr)\\[0pt] &amp;+M_3(g)\bigl(\psi(c,g) -\mathrm e^{iB(c,c+ge_1)}\psi(c+ge_1,gr_{e_1})\bigr). \end{split} \tag{6}" width="518">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-102-7d60e13fb1.dark.svg">
+    <img src="../../../../assets/eq-102-7d60e13fb1.light.svg" alt="\begin{split} (D^{\rm ch}[B]\psi)(c,g)={}&amp; \sum_{i=0}^2M_i(g)\bigl(\psi(c,g)-\psi(c,gs_i)\bigr)\\[0pt] &amp;+M_3(g)\bigl(\psi(c,g) -\mathrm e^{iB(c,c+ge_1)}\psi(c+ge_1,gr_{e_1})\bigr). \end{split} \tag{6}" width="518">
   </picture>
 </p>
 
@@ -161,8 +161,8 @@ J_\eta v(y)=\eta^{-3}\int_{[-\eta/2,\eta/2]^3}v(y+z)\,\mathrm{d} z,
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-103-f32840df14.dark.svg">
-    <img src="../../../assets/eq-103-f32840df14.light.svg" alt="J_\eta v(y)=\eta^{-3}\int_{[-\eta/2,\eta/2]^3}v(y+z)\,\mathrm{d} z, \qquad \delta_{\eta,\mu}v(y)= \frac{v(y+\eta e_\mu/2)-v(y-\eta e_\mu/2)}{\eta}." width="562">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-103-f32840df14.dark.svg">
+    <img src="../../../../assets/eq-103-f32840df14.light.svg" alt="J_\eta v(y)=\eta^{-3}\int_{[-\eta/2,\eta/2]^3}v(y+z)\,\mathrm{d} z, \qquad \delta_{\eta,\mu}v(y)= \frac{v(y+\eta e_\mu/2)-v(y-\eta e_\mu/2)}{\eta}." width="562">
   </picture>
 </p>
 
@@ -182,8 +182,8 @@ Put
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-104-e169d9e420.dark.svg">
-    <img src="../../../assets/eq-104-e169d9e420.light.svg" alt="\begin{aligned} a&#x27;_{\eta,\nu}&amp;=-\sum_{\mu\ne\nu}\delta_{\eta,\mu}\beta_{\mu\nu},\\[0pt] f^\eta_{\mu\nu}&amp;=\delta_{\eta,\mu}a&#x27;_{\eta,\nu} -\delta_{\eta,\nu}a&#x27;_{\eta,\mu}. \end{aligned} \tag{7}" width="242">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-104-e169d9e420.dark.svg">
+    <img src="../../../../assets/eq-104-e169d9e420.light.svg" alt="\begin{aligned} a&#x27;_{\eta,\nu}&amp;=-\sum_{\mu\ne\nu}\delta_{\eta,\mu}\beta_{\mu\nu},\\[0pt] f^\eta_{\mu\nu}&amp;=\delta_{\eta,\mu}a&#x27;_{\eta,\nu} -\delta_{\eta,\nu}a&#x27;_{\eta,\mu}. \end{aligned} \tag{7}" width="242">
   </picture>
 </p>
 
@@ -197,8 +197,8 @@ On the physical lattice $`\eta\mathbb{Z}^3`$ set
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-105-ceeda23d82.dark.svg">
-    <img src="../../../assets/eq-105-ceeda23d82.light.svg" alt="b_{\eta,\mu\nu}(c) =(J_\eta\beta_{\mu\nu}) (c+\eta(e_\mu+e_\nu)/2),\qquad a_\eta^o=d_\eta^*b_\eta." width="365">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-105-ceeda23d82.dark.svg">
+    <img src="../../../../assets/eq-105-ceeda23d82.light.svg" alt="b_{\eta,\mu\nu}(c) =(J_\eta\beta_{\mu\nu}) (c+\eta(e_\mu+e_\nu)/2),\qquad a_\eta^o=d_\eta^*b_\eta." width="365">
   </picture>
 </p>
 
@@ -210,8 +210,8 @@ Here $`d_\eta`$ is the mesh-normalized forward cochain differential and $`d_\eta
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-106-b0bcb7fff3.dark.svg">
-    <img src="../../../assets/eq-106-b0bcb7fff3.light.svg" alt="a_{\eta,\nu}^o(c)=(J_\eta a&#x27;_{\eta,\nu})(c+\eta e_\nu/2). \tag{8}" width="275">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-106-b0bcb7fff3.dark.svg">
+    <img src="../../../../assets/eq-106-b0bcb7fff3.light.svg" alt="a_{\eta,\nu}^o(c)=(J_\eta a&#x27;_{\eta,\nu})(c+\eta e_\nu/2). \tag{8}" width="275">
   </picture>
 </p>
 
@@ -223,8 +223,8 @@ Transport to the unit lattice and define
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-107-7c1a5c790f.dark.svg">
-    <img src="../../../assets/eq-107-7c1a5c790f.light.svg" alt="\hat{\mathfrak a}_\eta^o(x,x+e_\nu) =\eta^{1/2}a_{\eta,\nu}^o(\eta x)." width="202">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-107-7c1a5c790f.dark.svg">
+    <img src="../../../../assets/eq-107-7c1a5c790f.light.svg" alt="\hat{\mathfrak a}_\eta^o(x,x+e_\nu) =\eta^{1/2}a_{\eta,\nu}^o(\eta x)." width="202">
   </picture>
 </p>
 
@@ -242,8 +242,8 @@ For a level-$`j`$ bond function $`A`$, $`\partial A`$ uses forward differences d
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-108-d8e2f5124d.dark.svg">
-    <img src="../../../assets/eq-108-d8e2f5124d.light.svg" alt="|\delta_\alpha\partial A|_\infty =\sup_{\mu,\nu}\sup_{0&lt;d(x,x&#x27;)\le1} \frac{|\partial_\nu A_\mu(x&#x27;)-\partial_\nu A_\mu(x)|} {d(x,x&#x27;)^\alpha}." width="340">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-108-d8e2f5124d.dark.svg">
+    <img src="../../../../assets/eq-108-d8e2f5124d.light.svg" alt="|\delta_\alpha\partial A|_\infty =\sup_{\mu,\nu}\sup_{0&lt;d(x,x&#x27;)\le1} \frac{|\partial_\nu A_\mu(x&#x27;)-\partial_\nu A_\mu(x)|} {d(x,x&#x27;)^\alpha}." width="340">
   </picture>
 </p>
 
@@ -255,8 +255,8 @@ g_\nu^{\eta'}[\beta']
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-109-b8a03c83f0.dark.svg">
-    <img src="../../../assets/eq-109-b8a03c83f0.light.svg" alt="g_\nu^{\eta&#x27;}[\beta&#x27;] =-\sum_{\mu\ne\nu}\delta_{\eta&#x27;,\mu}J_{\eta&#x27;}\beta&#x27;_{\mu\nu}." width="185">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-109-b8a03c83f0.dark.svg">
+    <img src="../../../../assets/eq-109-b8a03c83f0.light.svg" alt="g_\nu^{\eta&#x27;}[\beta&#x27;] =-\sum_{\mu\ne\nu}\delta_{\eta&#x27;,\mu}J_{\eta&#x27;}\beta&#x27;_{\mu\nu}." width="185">
   </picture>
 </p>
 
@@ -271,8 +271,8 @@ G_\nu(c)=\sqrt{a_{\rm s}}\,
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-110-c0d4d3a108.dark.svg">
-    <img src="../../../assets/eq-110-c0d4d3a108.light.svg" alt="G_\nu(c)=\sqrt{a_{\rm s}}\, g_\nu^0(a_{\rm s}c+\eta&#x27;e_\nu/2) \quad(c\in\eta&#x27;&#x27;\mathbb{Z}^3),\qquad W_\nu(x)=\sqrt{\eta&#x27;}\,g_\nu^0(\eta&#x27;x+\eta&#x27;e_\nu/2) \quad(x\in\mathbb{Z}^3)." width="626">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-110-c0d4d3a108.dark.svg">
+    <img src="../../../../assets/eq-110-c0d4d3a108.light.svg" alt="G_\nu(c)=\sqrt{a_{\rm s}}\, g_\nu^0(a_{\rm s}c+\eta&#x27;e_\nu/2) \quad(c\in\eta&#x27;&#x27;\mathbb{Z}^3),\qquad W_\nu(x)=\sqrt{\eta&#x27;}\,g_\nu^0(\eta&#x27;x+\eta&#x27;e_\nu/2) \quad(x\in\mathbb{Z}^3)." width="626">
   </picture>
 </p>
 
@@ -288,8 +288,8 @@ C_\beta=\sup_{\mathcal I_\beta}
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-111-244ba4b6b9.dark.svg">
-    <img src="../../../assets/eq-111-244ba4b6b9.light.svg" alt="C_\beta=\sup_{\mathcal I_\beta} (|G|_\infty+|\partial G|_\infty+ |\delta_\alpha\partial G|_\infty), \qquad \mathbf D=\sup_{\mathcal I_\beta}\|dW\|_{\ell^2(\text{plaquettes})}^2. \tag{58}" width="561">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-111-244ba4b6b9.dark.svg">
+    <img src="../../../../assets/eq-111-244ba4b6b9.light.svg" alt="C_\beta=\sup_{\mathcal I_\beta} (|G|_\infty+|\partial G|_\infty+ |\delta_\alpha\partial G|_\infty), \qquad \mathbf D=\sup_{\mathcal I_\beta}\|dW\|_{\ell^2(\text{plaquettes})}^2. \tag{58}" width="561">
   </picture>
 </p>
 
@@ -303,8 +303,8 @@ C_\beta\le2\sqrt h(1+h+3h^2)|\beta|_{C^3},
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-112-616721460f.dark.svg">
-    <img src="../../../assets/eq-112-616721460f.light.svg" alt="C_\beta\le2\sqrt h(1+h+3h^2)|\beta|_{C^3}, \qquad \mathbf D\le48|\beta|_{C^2}^2(D_\beta^{\rm buf}+3)^3 . \tag{59}" width="496">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-112-616721460f.dark.svg">
+    <img src="../../../../assets/eq-112-616721460f.light.svg" alt="C_\beta\le2\sqrt h(1+h+3h^2)|\beta|_{C^3}, \qquad \mathbf D\le48|\beta|_{C^2}^2(D_\beta^{\rm buf}+3)^3 . \tag{59}" width="496">
   </picture>
 </p>
 
@@ -319,8 +319,8 @@ For the fixed construction, mass $`0<\bar m\le1`$, and probe $`\beta`$ above, th
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-113-05dd993ab9.dark.svg">
-    <img src="../../../assets/eq-113-05dd993ab9.light.svg" alt="\Theta_4^{(0)}\le C e^{\mathfrak e},\qquad (1+|c_2|)\Theta_2^{(0)}\le C e^{\mathfrak e}. \tag{4}" width="331">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-113-05dd993ab9.dark.svg">
+    <img src="../../../../assets/eq-113-05dd993ab9.light.svg" alt="\Theta_4^{(0)}\le C e^{\mathfrak e},\qquad (1+|c_2|)\Theta_2^{(0)}\le C e^{\mathfrak e}. \tag{4}" width="331">
   </picture>
 </p>
 
@@ -338,8 +338,8 @@ Let $`\mathbb E^{(0)}`$ denote the normalized zero-flux curvature law on this sa
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-114-3c4a086e1c.dark.svg">
-    <img src="../../../assets/eq-114-3c4a086e1c.light.svg" alt="\mathbb E^{(0)}\prod_{c\in\mathcal C_*} (e^{-m}H_m(X_c)-c_m) =\left[\prod_{c\in\mathcal C_*} (\partial_{t_c}^m-c_m)\right]\mathring\Phi(0), \qquad m=2,4. \tag{5}" width="530">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-114-3c4a086e1c.dark.svg">
+    <img src="../../../../assets/eq-114-3c4a086e1c.light.svg" alt="\mathbb E^{(0)}\prod_{c\in\mathcal C_*} (e^{-m}H_m(X_c)-c_m) =\left[\prod_{c\in\mathcal C_*} (\partial_{t_c}^m-c_m)\right]\mathring\Phi(0), \qquad m=2,4. \tag{5}" width="530">
   </picture>
 </p>
 

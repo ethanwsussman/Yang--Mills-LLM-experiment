@@ -25,8 +25,8 @@ h=L^{\lfloor\log_L(1/\bar m)\rfloor},\qquad
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-140-67acf4e6e7.dark.svg">
-    <img src="../../../assets/eq-140-67acf4e6e7.light.svg" alt="h=L^{\lfloor\log_L(1/\bar m)\rfloor},\qquad \eta=L^{-N},\quad q=e\sqrt\eta,\qquad R=8hL^T,\quad n=R/\eta. \tag{1}" width="556">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-140-67acf4e6e7.dark.svg">
+    <img src="../../../../assets/eq-140-67acf4e6e7.light.svg" alt="h=L^{\lfloor\log_L(1/\bar m)\rfloor},\qquad \eta=L^{-N},\quad q=e\sqrt\eta,\qquad R=8hL^T,\quad n=R/\eta. \tag{1}" width="556">
   </picture>
 </p>
 
@@ -39,8 +39,8 @@ v_K=-\log(e\sqrt h),\qquad
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-141-c0b0449c35.dark.svg">
-    <img src="../../../assets/eq-141-c0b0449c35.light.svg" alt="v_K=-\log(e\sqrt h),\qquad r_K=\min\{L^i:i\in\mathbb{Z}_{\ge0},\ L^i\ge v_K^2\}, \qquad R^*=\frac{hMr_K}{L}=hL^{T^*}." width="590">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-141-c0b0449c35.dark.svg">
+    <img src="../../../../assets/eq-141-c0b0449c35.light.svg" alt="v_K=-\log(e\sqrt h),\qquad r_K=\min\{L^i:i\in\mathbb{Z}_{\ge0},\ L^i\ge v_K^2\}, \qquad R^*=\frac{hMr_K}{L}=hL^{T^*}." width="590">
   </picture>
 </p>
 
@@ -54,8 +54,8 @@ Fix real nonzero $`\beta\in C_c^\infty(\mathbb{R}^3;\Lambda^2)`$ and $`f=dd^*\be
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-142-8aba6b8299.dark.svg">
-    <img src="../../../assets/eq-142-8aba6b8299.light.svg" alt="\delta_{\eta,\mu}g= \frac{g(\,\cdot+\eta e_\mu/2)-g(\,\cdot-\eta e_\mu/2)}{\eta}." width="265">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-142-8aba6b8299.dark.svg">
+    <img src="../../../../assets/eq-142-8aba6b8299.light.svg" alt="\delta_{\eta,\mu}g= \frac{g(\,\cdot+\eta e_\mu/2)-g(\,\cdot-\eta e_\mu/2)}{\eta}." width="265">
   </picture>
 </p>
 
@@ -70,8 +70,8 @@ a'_{\eta,\nu}=-\sum_{\mu\ne\nu}\delta_{\eta,\mu}\beta_{\mu\nu},
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-143-6a7058633e.dark.svg">
-    <img src="../../../assets/eq-143-6a7058633e.light.svg" alt="a&#x27;_{\eta,\nu}=-\sum_{\mu\ne\nu}\delta_{\eta,\mu}\beta_{\mu\nu}, \qquad f^\eta_{\mu\nu}=\delta_{\eta,\mu}a&#x27;_{\eta,\nu} -\delta_{\eta,\nu}a&#x27;_{\eta,\mu}. \tag{2}" width="413">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-143-6a7058633e.dark.svg">
+    <img src="../../../../assets/eq-143-6a7058633e.light.svg" alt="a&#x27;_{\eta,\nu}=-\sum_{\mu\ne\nu}\delta_{\eta,\mu}\beta_{\mu\nu}, \qquad f^\eta_{\mu\nu}=\delta_{\eta,\mu}a&#x27;_{\eta,\nu} -\delta_{\eta,\nu}a&#x27;_{\eta,\mu}. \tag{2}" width="413">
   </picture>
 </p>
 
@@ -87,8 +87,8 @@ N_0(t)=\frac{\det(D^{\rm ch}[q(t/e)\widehat a_0]+\bar m\eta)}
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-144-75eb88e073.dark.svg">
-    <img src="../../../assets/eq-144-75eb88e073.light.svg" alt="N_0(t)=\frac{\det(D^{\rm ch}[q(t/e)\widehat a_0]+\bar m\eta)} {\det(D^{\rm ch}[0]+\bar m\eta)},\qquad c_m=N_0^{(m)}(0),\quad m=2,4. \tag{3}" width="529">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-144-75eb88e073.dark.svg">
+    <img src="../../../../assets/eq-144-75eb88e073.light.svg" alt="N_0(t)=\frac{\det(D^{\rm ch}[q(t/e)\widehat a_0]+\bar m\eta)} {\det(D^{\rm ch}[0]+\bar m\eta)},\qquad c_m=N_0^{(m)}(0),\quad m=2,4. \tag{3}" width="529">
   </picture>
 </p>
 
@@ -101,8 +101,8 @@ H_2(x;v)=x^2-v,\qquad H_4(x;v)=x^4-6vx^2+3v^2,\qquad
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-145-f77dcfafa1.dark.svg">
-    <img src="../../../assets/eq-145-f77dcfafa1.light.svg" alt="H_2(x;v)=x^2-v,\qquad H_4(x;v)=x^4-6vx^2+3v^2,\qquad W_m(x;v,c)=e^{-m}H_m(x;v)-c. \tag{4}" width="680">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-145-f77dcfafa1.dark.svg">
+    <img src="../../../../assets/eq-145-f77dcfafa1.light.svg" alt="H_2(x;v)=x^2-v,\qquad H_4(x;v)=x^4-6vx^2+3v^2,\qquad W_m(x;v,c)=e^{-m}H_m(x;v)-c. \tag{4}" width="680">
   </picture>
 </p>
 
@@ -117,8 +117,8 @@ Here and below $`e`$ is the charge, so $`e^{-m}`$ is its inverse power. With $`X
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-146-bd232b56db.dark.svg">
-    <img src="../../../assets/eq-146-bd232b56db.light.svg" alt="\Theta_m^{(0)} =\left|\mathbb E_{n_*}^{(0)} \prod_{c\in\{0,\ldots,2L-1\}^3}W_m(X_c;v_\eta,c_m) \right|^{1/N_*}. \tag{5}" width="385">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-146-bd232b56db.dark.svg">
+    <img src="../../../../assets/eq-146-bd232b56db.light.svg" alt="\Theta_m^{(0)} =\left|\mathbb E_{n_*}^{(0)} \prod_{c\in\{0,\ldots,2L-1\}^3}W_m(X_c;v_\eta,c_m) \right|^{1/N_*}. \tag{5}" width="385">
   </picture>
 </p>
 
@@ -131,8 +131,8 @@ b(f)=-6\mathrm{tr}\left[
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-147-61d842ff69.dark.svg">
-    <img src="../../../assets/eq-147-61d842ff69.light.svg" alt="b(f)=-6\mathrm{tr}\left[ \bigl((\bar m+\gamma\cdot\partial)^{-1}i\gamma\cdot d^*\beta \bigr)^4\right]," width="274">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-147-61d842ff69.dark.svg">
+    <img src="../../../../assets/eq-147-61d842ff69.light.svg" alt="b(f)=-6\mathrm{tr}\left[ \bigl((\bar m+\gamma\cdot\partial)^{-1}i\gamma\cdot d^*\beta \bigr)^4\right]," width="274">
   </picture>
 </p>
 
@@ -151,8 +151,8 @@ Z[O]=\sum_{\substack{z\in C^2(\mathbb{Z})\\dz=0}}
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-148-97c53c0568.dark.svg">
-    <img src="../../../assets/eq-148-97c53c0568.light.svg" alt="Z[O]=\sum_{\substack{z\in C^2(\mathbb{Z})\\dz=0}} \int_{[0,r_q)^{3V}} O(dA+r_qz)\exp\bigl(-\tfrac12\|dA+r_qz\|^2\bigr) \det(D^{\rm ch}[qA]+\boldsymbol\mu)\,\mathrm{d} A. \tag{14}" width="628">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-148-97c53c0568.dark.svg">
+    <img src="../../../../assets/eq-148-97c53c0568.light.svg" alt="Z[O]=\sum_{\substack{z\in C^2(\mathbb{Z})\\dz=0}} \int_{[0,r_q)^{3V}} O(dA+r_qz)\exp\bigl(-\tfrac12\|dA+r_qz\|^2\bigr) \det(D^{\rm ch}[qA]+\boldsymbol\mu)\,\mathrm{d} A. \tag{14}" width="628">
   </picture>
 </p>
 
@@ -167,8 +167,8 @@ The coordinate-torus Gaussian bound (**[LPM1](../Infinite-lattice%20reflection%2
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-149-efff95abf6.dark.svg">
-    <img src="../../../assets/eq-149-efff95abf6.light.svg" alt="\mathbb{E}^{\rm af}\exp\langle g,F^{\rm u}\rangle \le\exp(\|g\|^2/2) \tag{15}" width="293">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-149-efff95abf6.dark.svg">
+    <img src="../../../../assets/eq-149-efff95abf6.light.svg" alt="\mathbb{E}^{\rm af}\exp\langle g,F^{\rm u}\rangle \le\exp(\|g\|^2/2) \tag{15}" width="293">
   </picture>
 </p>
 
@@ -184,8 +184,8 @@ z_{r,n}=\int_{[-\pi,\pi]^3}\frac{\mathrm{d}\theta}{(2\pi)^3}
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-150-2ea8b16d2d.dark.svg">
-    <img src="../../../assets/eq-150-2ea8b16d2d.light.svg" alt="z_{r,n}=\int_{[-\pi,\pi]^3}\frac{\mathrm{d}\theta}{(2\pi)^3} \int\det(D^{\rm ch}[q(A(u)+H_\theta)] +\boldsymbol\mu)\,\mathrm{d}\gamma_n(u)&gt;0. \tag{16}" width="526">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-150-2ea8b16d2d.dark.svg">
+    <img src="../../../../assets/eq-150-2ea8b16d2d.light.svg" alt="z_{r,n}=\int_{[-\pi,\pi]^3}\frac{\mathrm{d}\theta}{(2\pi)^3} \int\det(D^{\rm ch}[q(A(u)+H_\theta)] +\boldsymbol\mu)\,\mathrm{d}\gamma_n(u)&gt;0. \tag{16}" width="526">
   </picture>
 </p>
 
@@ -197,8 +197,8 @@ Z_n^{(0)}[1]=Z_n^{\rm ph}z_{r,n},
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-151-d378bb160e.dark.svg">
-    <img src="../../../assets/eq-151-d378bb160e.light.svg" alt="Z_n^{(0)}[1]=Z_n^{\rm ph}z_{r,n}, \tag{17}" width="212">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-151-d378bb160e.dark.svg">
+    <img src="../../../../assets/eq-151-d378bb160e.light.svg" alt="Z_n^{(0)}[1]=Z_n^{\rm ph}z_{r,n}, \tag{17}" width="212">
   </picture>
 </p>
 
@@ -209,8 +209,8 @@ Z_n^{\rm ph}=r_q^{\,n^3+2}(2\pi)^{n^3-1}
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-152-ccc0fef0fa.dark.svg">
-    <img src="../../../assets/eq-152-ccc0fef0fa.light.svg" alt="Z_n^{\rm ph}=r_q^{\,n^3+2}(2\pi)^{n^3-1} \exp(-\mathcal L(n)/2). \tag{18}" width="339">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-152-ccc0fef0fa.dark.svg">
+    <img src="../../../../assets/eq-152-ccc0fef0fa.light.svg" alt="Z_n^{\rm ph}=r_q^{\,n^3+2}(2\pi)^{n^3-1} \exp(-\mathcal L(n)/2). \tag{18}" width="339">
   </picture>
 </p>
 
@@ -227,8 +227,8 @@ g_{[\eta]}(\sigma)=\eta^{-3/2}
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-153-1249ee35da.dark.svg">
-    <img src="../../../assets/eq-153-1249ee35da.light.svg" alt="g_{[\eta]}(\sigma)=\eta^{-3/2} \int_{Q_\eta(\sigma)}g_{\mu\nu}(y)\,\mathrm{d} y,\qquad Q_\eta(\sigma)=\eta\bigl(x+(e_\mu+e_\nu)/2+[-1/2,1/2)^3\bigr)," width="554">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-153-1249ee35da.dark.svg">
+    <img src="../../../../assets/eq-153-1249ee35da.light.svg" alt="g_{[\eta]}(\sigma)=\eta^{-3/2} \int_{Q_\eta(\sigma)}g_{\mu\nu}(y)\,\mathrm{d} y,\qquad Q_\eta(\sigma)=\eta\bigl(x+(e_\mu+e_\nu)/2+[-1/2,1/2)^3\bigr)," width="554">
   </picture>
 </p>
 
@@ -239,8 +239,8 @@ when $`\sigma=(x;\mu\nu)`$. The source of the introduction obeys $`d\widehat a^o
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-154-93f4315b51.dark.svg">
-    <img src="../../../assets/eq-154-93f4315b51.light.svg" alt="\langle d\widehat a,F^{\rm u}\rangle=F^\sharp(f^\eta)." width="139">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-154-93f4315b51.dark.svg">
+    <img src="../../../../assets/eq-154-93f4315b51.light.svg" alt="\langle d\widehat a,F^{\rm u}\rangle=F^\sharp(f^\eta)." width="139">
   </picture>
 </p>
 
@@ -253,8 +253,8 @@ All $`f^\eta`$ are supported in $`Q_\beta`$ for $`\eta\le1`$, and
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-155-0380c50321.dark.svg">
-    <img src="../../../assets/eq-155-0380c50321.light.svg" alt="\|f^\eta-f\|_{H^s}\le\eta^2\|\beta\|_{H^{s+4}} \quad(s\in\mathbb{R}). \tag{19}" width="328">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-155-0380c50321.dark.svg">
+    <img src="../../../../assets/eq-155-0380c50321.light.svg" alt="\|f^\eta-f\|_{H^s}\le\eta^2\|\beta\|_{H^{s+4}} \quad(s\in\mathbb{R}). \tag{19}" width="328">
   </picture>
 </p>
 
@@ -268,8 +268,8 @@ The variance converges with the quantitative estimate
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-156-3e72494f0c.dark.svg">
-    <img src="../../../assets/eq-156-3e72494f0c.light.svg" alt="\left|\sqrt{v_\eta}-\|f\|_2\right| \le21\eta|\beta|_{C^3}(D_\beta^{\rm buf})^{3/2} +\eta^2\|\beta\|_{H^4}. \tag{20}" width="403">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-156-3e72494f0c.dark.svg">
+    <img src="../../../../assets/eq-156-3e72494f0c.light.svg" alt="\left|\sqrt{v_\eta}-\|f\|_2\right| \le21\eta|\beta|_{C^3}(D_\beta^{\rm buf})^{3/2} +\eta^2\|\beta\|_{H^4}. \tag{20}" width="403">
   </picture>
 </p>
 
@@ -284,8 +284,8 @@ For the placed probe, the coordinate map $`g_c`$ carrying the base cell to cell 
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-157-0f6482f85e.dark.svg">
-    <img src="../../../assets/eq-157-0f6482f85e.light.svg" alt="\langle d\widehat a_c,d\widehat a_{c&#x27;}\rangle_n =v_\eta\mathbf1_{\{c=c&#x27;\}}. \tag{21}" width="252">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-157-0f6482f85e.dark.svg">
+    <img src="../../../../assets/eq-157-0f6482f85e.light.svg" alt="\langle d\widehat a_c,d\widehat a_{c&#x27;}\rangle_n =v_\eta\mathbf1_{\{c=c&#x27;\}}. \tag{21}" width="252">
   </picture>
 </p>
 
@@ -301,8 +301,8 @@ H_{-4}=\left\{F:\sum_\kappa\lambda_\kappa^{-8}
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-158-8e7285671b.dark.svg">
-    <img src="../../../assets/eq-158-8e7285671b.light.svg" alt="H_{-4}=\left\{F:\sum_\kappa\lambda_\kappa^{-8} |F(h_\kappa)|^2&lt;\infty\right\}." width="260">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-158-8e7285671b.dark.svg">
+    <img src="../../../../assets/eq-158-8e7285671b.light.svg" alt="H_{-4}=\left\{F:\sum_\kappa\lambda_\kappa^{-8} |F(h_\kappa)|^2&lt;\infty\right\}." width="260">
   </picture>
 </p>
 
@@ -321,8 +321,8 @@ v_K\ge8,\qquad e\sqrt h\log h\le1,\qquad
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-159-edd8d9bbfe.dark.svg">
-    <img src="../../../assets/eq-159-edd8d9bbfe.light.svg" alt="v_K\ge8,\qquad e\sqrt h\log h\le1,\qquad 6N_*Mv_K^2\exp(-v_K) \bigl(v_K\exp(-v_K)+\tfrac12\bigr)\le\pi^2," width="544">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-159-edd8d9bbfe.dark.svg">
+    <img src="../../../../assets/eq-159-edd8d9bbfe.light.svg" alt="v_K\ge8,\qquad e\sqrt h\log h\le1,\qquad 6N_*Mv_K^2\exp(-v_K) \bigl(v_K\exp(-v_K)+\tfrac12\bigr)\le\pi^2," width="544">
   </picture>
 </p>
 
@@ -335,8 +335,8 @@ D_\beta^{\rm buf}+3\eta\le\ell_c,\qquad
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-160-31bd2db04b.dark.svg">
-    <img src="../../../assets/eq-160-31bd2db04b.light.svg" alt="D_\beta^{\rm buf}+3\eta\le\ell_c,\qquad v+Q_\beta\subset[\ell_c/8,7\ell_c/8]^3 \tag{6}" width="373">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-160-31bd2db04b.dark.svg">
+    <img src="../../../../assets/eq-160-31bd2db04b.light.svg" alt="D_\beta^{\rm buf}+3\eta\le\ell_c,\qquad v+Q_\beta\subset[\ell_c/8,7\ell_c/8]^3 \tag{6}" width="373">
   </picture>
 </p>
 
@@ -357,8 +357,8 @@ L^3\log z_{r,n_*}-\log z_{r,Ln_*}&\le C_{\rm mat},\\[0pt]
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-161-552f953f3e.dark.svg">
-    <img src="../../../assets/eq-161-552f953f3e.light.svg" alt="\begin{aligned} L^3\log z_{r,n_*}-\log z_{r,Ln_*}&amp;\le C_{\rm mat},\\[0pt] \Theta_4^{(0)}&amp;\le C_{\rm ref}e^{\mathfrak e},\qquad (1+|c_2|)\Theta_2^{(0)}\le C_{\rm ref}e^{\mathfrak e}, \\[0pt] |c_2|+|c_4|^{1/2}&amp;\le C_{\rm ref},\qquad |c_4-3c_2^2-b(f)|\le C_{\rm ref}(e+\eta^{1/4}), \end{aligned} \tag{7}" width="543">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-161-552f953f3e.dark.svg">
+    <img src="../../../../assets/eq-161-552f953f3e.light.svg" alt="\begin{aligned} L^3\log z_{r,n_*}-\log z_{r,Ln_*}&amp;\le C_{\rm mat},\\[0pt] \Theta_4^{(0)}&amp;\le C_{\rm ref}e^{\mathfrak e},\qquad (1+|c_2|)\Theta_2^{(0)}\le C_{\rm ref}e^{\mathfrak e}, \\[0pt] |c_2|+|c_4|^{1/2}&amp;\le C_{\rm ref},\qquad |c_4-3c_2^2-b(f)|\le C_{\rm ref}(e+\eta^{1/4}), \end{aligned} \tag{7}" width="543">
   </picture>
 </p>
 
@@ -371,8 +371,8 @@ where
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-162-bc322e8d5f.dark.svg">
-    <img src="../../../assets/eq-162-bc322e8d5f.light.svg" alt="\mathfrak e=\tfrac12(1/4-9\varepsilon)-12\varepsilon,\qquad a_L=\frac{L^3-1}{(L-1)^3},\qquad \sigma=\mathfrak e-\frac{2a_L}{N_*}&gt;0." width="468">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-162-bc322e8d5f.dark.svg">
+    <img src="../../../../assets/eq-162-bc322e8d5f.light.svg" alt="\mathfrak e=\tfrac12(1/4-9\varepsilon)-12\varepsilon,\qquad a_L=\frac{L^3-1}{(L-1)^3},\qquad \sigma=\mathfrak e-\frac{2a_L}{N_*}&gt;0." width="468">
   </picture>
 </p>
 
@@ -388,8 +388,8 @@ u_4\le C_Ue^\sigma,\qquad
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-163-175e53965c.dark.svg">
-    <img src="../../../assets/eq-163-175e53965c.light.svg" alt="u_4\le C_Ue^\sigma,\qquad (1+|c_2|)u_2\le C_Ue^\sigma,\qquad |c_4-3c_2^2-b(f)|\le C_U(e^\sigma+\eta^{1/4}). \tag{8}" width="597">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-163-175e53965c.dark.svg">
+    <img src="../../../../assets/eq-163-175e53965c.light.svg" alt="u_4\le C_Ue^\sigma,\qquad (1+|c_2|)u_2\le C_Ue^\sigma,\qquad |c_4-3c_2^2-b(f)|\le C_U(e^\sigma+\eta^{1/4}). \tag{8}" width="597">
   </picture>
 </p>
 
@@ -403,8 +403,8 @@ For every $`T\ge T^*(e)+1`$ and every finite $`Y\subset(R^*/L)\mathbb{Z}^3`$ who
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-164-e6c1d6a0b3.dark.svg">
-    <img src="../../../assets/eq-164-e6c1d6a0b3.light.svg" alt="\left|\mathbb{E}_{N,T}\prod_{y\in Y} W_m(F^\sharp(\tau_yf^\eta);v_\eta,c_m)\right| \le u_m^{|Y|},\qquad m=2,4. \tag{9}" width="442">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-164-e6c1d6a0b3.dark.svg">
+    <img src="../../../../assets/eq-164-e6c1d6a0b3.light.svg" alt="\left|\mathbb{E}_{N,T}\prod_{y\in Y} W_m(F^\sharp(\tau_yf^\eta);v_\eta,c_m)\right| \le u_m^{|Y|},\qquad m=2,4. \tag{9}" width="442">
   </picture>
 </p>
 
@@ -418,8 +418,8 @@ Here $`\tau_yf(x)=f(x-y)`$ and $`\mathbb{E}_{N,T}`$ is expectation under $`\math
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-165-979d5717ce.dark.svg">
-    <img src="../../../assets/eq-165-979d5717ce.light.svg" alt="|\kappa_4(F^\sharp(f))-e^4b(f)| \le(8C_U+3C_U^2)e^{4+\sigma} +C_U(\eta^2+e^4\eta^{1/4}). \tag{10}" width="506">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-165-979d5717ce.dark.svg">
+    <img src="../../../../assets/eq-165-979d5717ce.light.svg" alt="|\kappa_4(F^\sharp(f))-e^4b(f)| \le(8C_U+3C_U^2)e^{4+\sigma} +C_U(\eta^2+e^4\eta^{1/4}). \tag{10}" width="506">
   </picture>
 </p>
 
@@ -432,8 +432,8 @@ Fix one charge. Let $`\mu`$ be any prescribed volume-first limit: for $`N_i\to\i
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-166-dad7b8cdfe.dark.svg">
-    <img src="../../../assets/eq-166-dad7b8cdfe.light.svg" alt="\mathbb{E}_{\mu_\xi}\exp(F(g))\le\exp(\|g\|_2^2/2) \quad\text{for all real }g\in\mathcal S(\mathbb{R}^3;\Lambda^2). \tag{11}" width="479">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-166-dad7b8cdfe.dark.svg">
+    <img src="../../../../assets/eq-166-dad7b8cdfe.light.svg" alt="\mathbb{E}_{\mu_\xi}\exp(F(g))\le\exp(\|g\|_2^2/2) \quad\text{for all real }g\in\mathcal S(\mathbb{R}^3;\Lambda^2). \tag{11}" width="479">
   </picture>
 </p>
 
@@ -446,8 +446,8 @@ Then, on one $`\nu`$-full set,
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-167-d135632d42.dark.svg">
-    <img src="../../../assets/eq-167-d135632d42.light.svg" alt="|\kappa_4^{\mu_\xi}(f)-e^4b(f)| \le C_fe^{4+\sigma},\qquad C_f=8C_U+3C_U^2. \tag{12}" width="437">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-167-d135632d42.dark.svg">
+    <img src="../../../../assets/eq-167-d135632d42.light.svg" alt="|\kappa_4^{\mu_\xi}(f)-e^4b(f)| \le C_fe^{4+\sigma},\qquad C_f=8C_U+3C_U^2. \tag{12}" width="437">
   </picture>
 </p>
 

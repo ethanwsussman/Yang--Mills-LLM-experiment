@@ -27,8 +27,8 @@ z_{r,n}(q,\boldsymbol\mu)=
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-127-6e478b7f60.dark.svg">
-    <img src="../../../assets/eq-127-6e478b7f60.light.svg" alt="z_{r,n}(q,\boldsymbol\mu)= \int_{[-\pi,\pi]^3}\frac{\mathrm{d}\theta}{(2\pi)^3} \int_{\mathcal F_n} \det\bigl(D^{\rm ch}[q(A(u)+H_\theta)]+\boldsymbol\mu\bigr) \,\mathrm{d}\gamma_n(u),\qquad H_{\theta,\nu}=\frac{\theta_\nu}{qn}. \tag{1}" width="643">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-127-6e478b7f60.dark.svg">
+    <img src="../../../../assets/eq-127-6e478b7f60.light.svg" alt="z_{r,n}(q,\boldsymbol\mu)= \int_{[-\pi,\pi]^3}\frac{\mathrm{d}\theta}{(2\pi)^3} \int_{\mathcal F_n} \det\bigl(D^{\rm ch}[q(A(u)+H_\theta)]+\boldsymbol\mu\bigr) \,\mathrm{d}\gamma_n(u),\qquad H_{\theta,\nu}=\frac{\theta_\nu}{qn}. \tag{1}" width="643">
   </picture>
 </p>
 
@@ -43,8 +43,8 @@ h=L^{\lfloor\log_L\bar m^{-1}\rfloor},\qquad
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-128-c3de5f4201.dark.svg">
-    <img src="../../../assets/eq-128-c3de5f4201.light.svg" alt="h=L^{\lfloor\log_L\bar m^{-1}\rfloor},\qquad \eta=L^{-N},\qquad K=N+\log_Lh,\qquad a_j=L^{j-N},\quad e_j=e\sqrt{a_j},\quad \mu_j=\bar m a_j." width="652">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-128-c3de5f4201.dark.svg">
+    <img src="../../../../assets/eq-128-c3de5f4201.light.svg" alt="h=L^{\lfloor\log_L\bar m^{-1}\rfloor},\qquad \eta=L^{-N},\qquad K=N+\log_Lh,\qquad a_j=L^{j-N},\quad e_j=e\sqrt{a_j},\quad \mu_j=\bar m a_j." width="652">
   </picture>
 </p>
 
@@ -56,8 +56,8 @@ R_{\rm top}=hMr_K,\qquad R_*=R_{\rm top}/L,\qquad
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-129-f4c9d54c6a.dark.svg">
-    <img src="../../../assets/eq-129-f4c9d54c6a.light.svg" alt="R_{\rm top}=hMr_K,\qquad R_*=R_{\rm top}/L,\qquad \mathcal T(e)=\{hL^t:t\in\mathbb{Z}_{\ge0},\ hL^t\le R_{\rm top}\}." width="525">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-129-f4c9d54c6a.dark.svg">
+    <img src="../../../../assets/eq-129-f4c9d54c6a.light.svg" alt="R_{\rm top}=hMr_K,\qquad R_*=R_{\rm top}/L,\qquad \mathcal T(e)=\{hL^t:t\in\mathbb{Z}_{\ge0},\ hL^t\le R_{\rm top}\}." width="525">
   </picture>
 </p>
 
@@ -71,8 +71,8 @@ Mv_*^2\le\ell_*<LMv_*^2,\qquad
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-130-2d4eef612d.dark.svg">
-    <img src="../../../assets/eq-130-2d4eef612d.light.svg" alt="Mv_*^2\le\ell_*&lt;LMv_*^2,\qquad \mu_*^{-1}&lt;L\ell_*,\qquad 0&lt;e_*\le e_K=e\sqrt h,\qquad 0&lt;\mu_*\le1. \tag{2}" width="609">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-130-2d4eef612d.dark.svg">
+    <img src="../../../../assets/eq-130-2d4eef612d.light.svg" alt="Mv_*^2\le\ell_*&lt;LMv_*^2,\qquad \mu_*^{-1}&lt;L\ell_*,\qquad 0&lt;e_*\le e_K=e\sqrt h,\qquad 0&lt;\mu_*\le1. \tag{2}" width="609">
   </picture>
 </p>
 
@@ -88,8 +88,8 @@ z_{r,n}^{\rm free}
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-131-f0dada9984.dark.svg">
-    <img src="../../../assets/eq-131-f0dada9984.light.svg" alt="z_{r,n}^{\rm free} =\int_{[-\pi,\pi]^3} \det(D^{\rm ch}[qH_\theta]+\bar m\eta) \frac{\mathrm{d}\theta}{(2\pi)^3}." width="293">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-131-f0dada9984.dark.svg">
+    <img src="../../../../assets/eq-131-f0dada9984.light.svg" alt="z_{r,n}^{\rm free} =\int_{[-\pi,\pi]^3} \det(D^{\rm ch}[qH_\theta]+\bar m\eta) \frac{\mathrm{d}\theta}{(2\pi)^3}." width="293">
   </picture>
 </p>
 
@@ -104,8 +104,8 @@ p_{\rm ch}^0(m)=\int_{[-\pi,\pi]^3}
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-132-b856b05285.dark.svg">
-    <img src="../../../assets/eq-132-b856b05285.light.svg" alt="p_{\rm ch}^0(m)=\int_{[-\pi,\pi]^3} \log\det\mathcal D_m(p)\frac{\mathrm{d} p}{(2\pi)^3}, \qquad p_F=p_{\rm ch}^0(\bar m\eta)+\varepsilon_{0,N}^{\rm v}(e). \tag{3}" width="533">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-132-b856b05285.dark.svg">
+    <img src="../../../../assets/eq-132-b856b05285.light.svg" alt="p_{\rm ch}^0(m)=\int_{[-\pi,\pi]^3} \log\det\mathcal D_m(p)\frac{\mathrm{d} p}{(2\pi)^3}, \qquad p_F=p_{\rm ch}^0(\bar m\eta)+\varepsilon_{0,N}^{\rm v}(e). \tag{3}" width="533">
   </picture>
 </p>
 
@@ -129,8 +129,8 @@ Fix the construction and the common pair specified above, and assume $`0<e\sqrt 
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-133-c1f70c62e7.dark.svg">
-    <img src="../../../assets/eq-133-c1f70c62e7.light.svg" alt="\begin{aligned} \left|\log z_{r,n}-\log z_{r,n}^{\rm free} -\varepsilon_{0,N}^{\rm v}(e)n^3\right| &amp;\le3e_*^{1/4-9\varepsilon},\\[0pt] \left|\log z_{r,n}-p_Fn^3\right| &amp;\le\varepsilon_P(R) :=\varepsilon_5(\bar mR)+3e_*^{1/4-9\varepsilon} \le\varepsilon_5(1/L)+3e_K^{1/4-9\varepsilon}. \end{aligned} \tag{4}" width="654">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-133-c1f70c62e7.dark.svg">
+    <img src="../../../../assets/eq-133-c1f70c62e7.light.svg" alt="\begin{aligned} \left|\log z_{r,n}-\log z_{r,n}^{\rm free} -\varepsilon_{0,N}^{\rm v}(e)n^3\right| &amp;\le3e_*^{1/4-9\varepsilon},\\[0pt] \left|\log z_{r,n}-p_Fn^3\right| &amp;\le\varepsilon_P(R) :=\varepsilon_5(\bar mR)+3e_*^{1/4-9\varepsilon} \le\varepsilon_5(1/L)+3e_K^{1/4-9\varepsilon}. \end{aligned} \tag{4}" width="654">
   </picture>
 </p>
 
@@ -152,8 +152,8 @@ In particular let $`R_*=R_{\mathrm{top}}/L`$, $`n_*=R_*/\eta`$, and $`N\ge N_{\r
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-134-b76db1d038.dark.svg">
-    <img src="../../../assets/eq-134-b76db1d038.light.svg" alt="\begin{aligned} |D_{\rm mat}| &amp;:=\left|L^3\log z_{r,n_*}-\log z_{r,Ln_*}\right| \le L^3\varepsilon_P(R_*)+\varepsilon_P(LR_*) \\[0pt] &amp;\le (L^3+1) \left[\varepsilon_5(\bar mR_*) +3e_K^{1/4-9\varepsilon}\right] \le C_{\rm mat},\\[0pt] C_{\rm mat}&amp;=(L^3+1)\bigl(\varepsilon_5(1/L)+1\bigr). \end{aligned} \tag{5}" width="473">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-134-b76db1d038.dark.svg">
+    <img src="../../../../assets/eq-134-b76db1d038.light.svg" alt="\begin{aligned} |D_{\rm mat}| &amp;:=\left|L^3\log z_{r,n_*}-\log z_{r,Ln_*}\right| \le L^3\varepsilon_P(R_*)+\varepsilon_P(LR_*) \\[0pt] &amp;\le (L^3+1) \left[\varepsilon_5(\bar mR_*) +3e_K^{1/4-9\varepsilon}\right] \le C_{\rm mat},\\[0pt] C_{\rm mat}&amp;=(L^3+1)\bigl(\varepsilon_5(1/L)+1\bigr). \end{aligned} \tag{5}" width="473">
   </picture>
 </p>
 
@@ -173,8 +173,8 @@ p_{\rm ch}^0(m)=
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-135-ec79c8d851.dark.svg">
-    <img src="../../../assets/eq-135-ec79c8d851.light.svg" alt="p_{\rm ch}^0(m)= \int_{[-\pi,\pi]^3}\log\mathfrak d_m(p) \frac{\mathrm{d} p}{(2\pi)^3}. \tag{25}" width="319">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-135-ec79c8d851.dark.svg">
+    <img src="../../../../assets/eq-135-ec79c8d851.light.svg" alt="p_{\rm ch}^0(m)= \int_{[-\pi,\pi]^3}\log\mathfrak d_m(p) \frac{\mathrm{d} p}{(2\pi)^3}. \tag{25}" width="319">
   </picture>
 </p>
 
@@ -191,8 +191,8 @@ There is a finite $`C_6`$, depending only on $`\rho`$, such that, with
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-136-52abcf590c.dark.svg">
-    <img src="../../../assets/eq-136-52abcf590c.light.svg" alt="\varepsilon_5(x)= C_6\log\frac1{1-e^{-\kappa_{(0)}x}}\qquad(x&gt;0), \tag{26}" width="356">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-136-52abcf590c.dark.svg">
+    <img src="../../../../assets/eq-136-52abcf590c.light.svg" alt="\varepsilon_5(x)= C_6\log\frac1{1-e^{-\kappa_{(0)}x}}\qquad(x&gt;0), \tag{26}" width="356">
   </picture>
 </p>
 
@@ -206,8 +206,8 @@ the free twisted determinant on a unit torus of side $`n\ge1`$ satisfies
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-137-c2879b4910.dark.svg">
-    <img src="../../../assets/eq-137-c2879b4910.light.svg" alt="\left|\log\det(D^{\rm ch}[qH_\theta]+m) -n^3p_{\rm ch}^0(m)\right| \le\varepsilon_5(mn). \tag{27}" width="415">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-137-c2879b4910.dark.svg">
+    <img src="../../../../assets/eq-137-c2879b4910.light.svg" alt="\left|\log\det(D^{\rm ch}[qH_\theta]+m) -n^3p_{\rm ch}^0(m)\right| \le\varepsilon_5(mn). \tag{27}" width="415">
   </picture>
 </p>
 
@@ -221,8 +221,8 @@ z_{r,n}^{\rm free}
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-138-35e9be3460.dark.svg">
-    <img src="../../../assets/eq-138-35e9be3460.light.svg" alt="z_{r,n}^{\rm free} =\int_{[-\pi,\pi]^3} \det(D^{\rm ch}[qH_\theta]+\bar m\eta) \frac{\mathrm{d}\theta}{(2\pi)^3}." width="293">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-138-35e9be3460.dark.svg">
+    <img src="../../../../assets/eq-138-35e9be3460.light.svg" alt="z_{r,n}^{\rm free} =\int_{[-\pi,\pi]^3} \det(D^{\rm ch}[qH_\theta]+\bar m\eta) \frac{\mathrm{d}\theta}{(2\pi)^3}." width="293">
   </picture>
 </p>
 
@@ -236,8 +236,8 @@ Then $`z_{r,n}^{\rm free}>0`$ and
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-139-3bbda7cc64.dark.svg">
-    <img src="../../../assets/eq-139-3bbda7cc64.light.svg" alt="\left|\log z_{r,n}^{\rm free} -n^3p_{\rm ch}^0(\bar m\eta)\right| \le\varepsilon_5(\bar mR). \tag{28}" width="322">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-139-3bbda7cc64.dark.svg">
+    <img src="../../../../assets/eq-139-3bbda7cc64.light.svg" alt="\left|\log z_{r,n}^{\rm free} -n^3p_{\rm ch}^0(\bar m\eta)\right| \le\varepsilon_5(\bar mR). \tag{28}" width="322">
   </picture>
 </p>
 

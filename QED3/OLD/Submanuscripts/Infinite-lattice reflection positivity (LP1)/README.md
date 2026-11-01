@@ -23,8 +23,8 @@ The space in which the volume limit is taken is
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-048-d91e313ae7.dark.svg">
-    <img src="../../../assets/eq-048-d91e313ae7.light.svg" alt="\Omega=\{F\in\mathbb{R}^{\mathcal P_2}:dF=0\}," width="182">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-048-d91e313ae7.dark.svg">
+    <img src="../../../../assets/eq-048-d91e313ae7.light.svg" alt="\Omega=\{F\in\mathbb{R}^{\mathcal P_2}:dF=0\}," width="182">
   </picture>
 </p>
 
@@ -52,8 +52,8 @@ parameter $`M`$, the chamber operator is
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-049-093157b5d0.dark.svg">
-    <img src="../../../assets/eq-049-093157b5d0.light.svg" alt="(\mathcal D_A\psi)(x) =M\psi(x)-\sum_{i=0}^3\frac{w_i}{2} \left(\rho-\gamma_{(x^{(i)}-x)/|x^{(i)}-x|}\right) e^{iqA(\pi(x),\pi(x^{(i)}))}\psi(x^{(i)})," width="493">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-049-093157b5d0.dark.svg">
+    <img src="../../../../assets/eq-049-093157b5d0.light.svg" alt="(\mathcal D_A\psi)(x) =M\psi(x)-\sum_{i=0}^3\frac{w_i}{2} \left(\rho-\gamma_{(x^{(i)}-x)/|x^{(i)}-x|}\right) e^{iqA(\pi(x),\pi(x^{(i)}))}\psi(x^{(i)})," width="493">
   </picture>
 </p>
 
@@ -74,8 +74,8 @@ For a bounded Borel function $`G`$ on $`\Omega`$, define
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-050-c9fc9bcf4f.dark.svg">
-    <img src="../../../assets/eq-050-c9fc9bcf4f.light.svg" alt="\mu_n(G)=\frac1{Z_{C(n)}[1]} \sum_{\substack{z\in C^2((\mathbb{Z}/n\mathbb{Z})^3;\mathbb{Z})\\dz=0}} \int_{[0,r_q)^{3n^3}} G(\widetilde F)\,e^{-\|F\|^2/2} \det\mathcal D_A^{C(n)}\,\mathrm{d} A, \qquad F=dA+r_qz." width="600">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-050-c9fc9bcf4f.dark.svg">
+    <img src="../../../../assets/eq-050-c9fc9bcf4f.light.svg" alt="\mu_n(G)=\frac1{Z_{C(n)}[1]} \sum_{\substack{z\in C^2((\mathbb{Z}/n\mathbb{Z})^3;\mathbb{Z})\\dz=0}} \int_{[0,r_q)^{3n^3}} G(\widetilde F)\,e^{-\|F\|^2/2} \det\mathcal D_A^{C(n)}\,\mathrm{d} A, \qquad F=dA+r_qz." width="600">
   </picture>
 </p>
 
@@ -102,8 +102,8 @@ $`\nu`$ be any subsequential weak limit of $`(\mu_{n_i})`$. Then:
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-051-cce45913ee.dark.svg">
-    <img src="../../../assets/eq-051-cce45913ee.light.svg" alt="\int_\Omega e^{\langle\beta,F\rangle}\,\mathrm{d}\nu(F) \le e^{\|\beta\|^2/2}, \qquad \langle\beta,F\rangle=\sum_{\sigma\in\mathcal P_2}\beta_\sigma F_\sigma, \qquad \|\beta\|^2=\sum_{\sigma\in\mathcal P_2}\beta_\sigma^2." width="482">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-051-cce45913ee.dark.svg">
+    <img src="../../../../assets/eq-051-cce45913ee.light.svg" alt="\int_\Omega e^{\langle\beta,F\rangle}\,\mathrm{d}\nu(F) \le e^{\|\beta\|^2/2}, \qquad \langle\beta,F\rangle=\sum_{\sigma\in\mathcal P_2}\beta_\sigma F_\sigma, \qquad \|\beta\|^2=\sum_{\sigma\in\mathcal P_2}\beta_\sigma^2." width="482">
   </picture>
 </p>
 
@@ -119,8 +119,8 @@ x_j=c\quad(c\in\tfrac12\mathbb{Z}),\qquad
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-052-f1a0de3590.dark.svg">
-    <img src="../../../assets/eq-052-f1a0de3590.light.svg" alt="x_j=c\quad(c\in\tfrac12\mathbb{Z}),\qquad x_j\pm x_k=c\quad(c\in\mathbb{Z},\ j&lt;k)." width="366">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-052-f1a0de3590.dark.svg">
+    <img src="../../../../assets/eq-052-f1a0de3590.light.svg" alt="x_j=c\quad(c\in\tfrac12\mathbb{Z}),\qquad x_j\pm x_k=c\quad(c\in\mathbb{Z},\ j&lt;k)." width="366">
   </picture>
 </p>
 
@@ -132,8 +132,8 @@ More precisely, write a mirror as $`\Pi=\{\ell(x)=c\}`$ and let
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-053-f3e98c0268.dark.svg">
-    <img src="../../../assets/eq-053-f3e98c0268.light.svg" alt="\theta_\Pi x =x-\frac{2(\ell(x)-c)}{|\nabla\ell|^2}\nabla\ell." width="192">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-053-f3e98c0268.dark.svg">
+    <img src="../../../../assets/eq-053-f3e98c0268.light.svg" alt="\theta_\Pi x =x-\frac{2(\ell(x)-c)}{|\nabla\ell|^2}\nabla\ell." width="192">
   </picture>
 </p>
 
@@ -147,8 +147,8 @@ corner of $`\sigma`$ lies in $`H`$. Then
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-054-2e8d27235f.dark.svg">
-    <img src="../../../assets/eq-054-2e8d27235f.light.svg" alt="\int_\Omega\overline{A(\theta_\Pi^*F)}A(F)\,\mathrm{d}\nu(F)\ge0 \qquad\bigl(A\in L^2(\Sigma_H,\nu)\bigr)." width="345">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-054-2e8d27235f.dark.svg">
+    <img src="../../../../assets/eq-054-2e8d27235f.light.svg" alt="\int_\Omega\overline{A(\theta_\Pi^*F)}A(F)\,\mathrm{d}\nu(F)\ge0 \qquad\bigl(A\in L^2(\Sigma_H,\nu)\bigr)." width="345">
   </picture>
 </p>
 

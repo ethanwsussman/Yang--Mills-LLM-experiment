@@ -30,8 +30,8 @@ The cluster injection and mean are
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-001-7f72201f4c.dark.svg">
-    <img src="../../../assets/eq-001-7f72201f4c.light.svg" alt="(J\xi)(c,g)=\xi(c),\qquad J^*f(c)=48^{-1}\sum_g f(c,g)." width="334">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-001-7f72201f4c.dark.svg">
+    <img src="../../../../assets/eq-001-7f72201f4c.light.svg" alt="(J\xi)(c,g)=\xi(c),\qquad J^*f(c)=48^{-1}\sum_g f(c,g)." width="334">
   </picture>
 </p>
 
@@ -49,8 +49,8 @@ Use the Pauli and Dirac matrices
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-002-64d4aaed16.dark.svg">
-    <img src="../../../assets/eq-002-64d4aaed16.light.svg" alt="\sigma_1=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix},\quad \sigma_2=\begin{pmatrix}0&amp;-i\\i&amp;0\end{pmatrix},\quad \sigma_3=\begin{pmatrix}1&amp;0\\0&amp;-1\end{pmatrix},\qquad \gamma_j=\sigma_3\otimes\sigma_j,\quad \gamma_5=\sigma_1\otimes1_2." width="597">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-002-64d4aaed16.dark.svg">
+    <img src="../../../../assets/eq-002-64d4aaed16.light.svg" alt="\sigma_1=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix},\quad \sigma_2=\begin{pmatrix}0&amp;-i\\i&amp;0\end{pmatrix},\quad \sigma_3=\begin{pmatrix}1&amp;0\\0&amp;-1\end{pmatrix},\qquad \gamma_j=\sigma_3\otimes\sigma_j,\quad \gamma_5=\sigma_1\otimes1_2." width="597">
   </picture>
 </p>
 
@@ -70,8 +70,8 @@ and weights are
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-003-f80f6a8262.dark.svg">
-    <img src="../../../assets/eq-003-f80f6a8262.light.svg" alt="\begin{gathered} x^{(i)}=(c,gs_i)\quad(0\le i\le2),\qquad x^{(3)}=(c+\eta ge_1,gr_{e_1}),\\[0pt] (n_0,n_1,n_2,n_3) =(e_3,(e_2-e_3)/\sqrt2,(e_1-e_2)/\sqrt2,-e_1),\\[0pt] (w_0,w_1,w_2,w_3)=(6,6\sqrt2,6\sqrt2,6). \end{gathered}" width="391">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-003-f80f6a8262.dark.svg">
+    <img src="../../../../assets/eq-003-f80f6a8262.light.svg" alt="\begin{gathered} x^{(i)}=(c,gs_i)\quad(0\le i\le2),\qquad x^{(3)}=(c+\eta ge_1,gr_{e_1}),\\[0pt] (n_0,n_1,n_2,n_3) =(e_3,(e_2-e_3)/\sqrt2,(e_1-e_2)/\sqrt2,-e_1),\\[0pt] (w_0,w_1,w_2,w_3)=(6,6\sqrt2,6\sqrt2,6). \end{gathered}" width="391">
   </picture>
 </p>
 
@@ -84,8 +84,8 @@ For a charge $`e_k>0`$, the chamber operator is
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-004-bf68354232.dark.svg">
-    <img src="../../../assets/eq-004-bf68354232.light.svg" alt="(D_Af)(x)=-\eta^{-1}\sum_{i=0}^3 \frac{w_i}{2}(\rho+\gamma\cdot gn_i) \bigl(U_A(x,x^{(i)})f(x^{(i)})-f(x)\bigr)," width="453">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-004-bf68354232.dark.svg">
+    <img src="../../../../assets/eq-004-bf68354232.light.svg" alt="(D_Af)(x)=-\eta^{-1}\sum_{i=0}^3 \frac{w_i}{2}(\rho+\gamma\cdot gn_i) \bigl(U_A(x,x^{(i)})f(x^{(i)})-f(x)\bigr)," width="453">
   </picture>
 </p>
 
@@ -110,8 +110,8 @@ Set
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-005-2ef18ad27b.dark.svg">
-    <img src="../../../assets/eq-005-2ef18ad27b.light.svg" alt="\begin{aligned} \varphi_A(z,c)&amp;=\exp\!\left(ie_k\eta \sum_{j&lt;k}\tau A(c_{j+1},c_j)\right),&amp; (Q_k(A)\xi)(z)&amp;=\eta^3\sum_{c\in\Delta_z}\varphi_A(z,c)\xi(c),\\[0pt] (Q_k^T(-A)v)(c)&amp;=\varphi_A(z,c)^{-1}v(z).&amp;&amp; \end{aligned}" width="588">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-005-2ef18ad27b.dark.svg">
+    <img src="../../../../assets/eq-005-2ef18ad27b.light.svg" alt="\begin{aligned} \varphi_A(z,c)&amp;=\exp\!\left(ie_k\eta \sum_{j&lt;k}\tau A(c_{j+1},c_j)\right),&amp; (Q_k(A)\xi)(z)&amp;=\eta^3\sum_{c\in\Delta_z}\varphi_A(z,c)\xi(c),\\[0pt] (Q_k^T(-A)v)(c)&amp;=\varphi_A(z,c)^{-1}v(z).&amp;&amp; \end{aligned}" width="588">
   </picture>
 </p>
 
@@ -127,8 +127,8 @@ The next average and its algebraic reverse are
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-006-17e6649757.dark.svg">
-    <img src="../../../assets/eq-006-17e6649757.light.svg" alt="\begin{aligned} U_A(z&#x27;,z)&amp;=\exp(ie_k\eta\tau A(z&#x27;,z)),\\[0pt] (Q(A)v)(z&#x27;)&amp;=L^{-3}\sum_{z\in B(z&#x27;)}U_A(z&#x27;,z)v(z),&amp; (Q^T(-A)v&#x27;)(z)&amp;=U_A(z&#x27;,z)^{-1}v&#x27;(z&#x27;). \end{aligned}" width="547">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-006-17e6649757.dark.svg">
+    <img src="../../../../assets/eq-006-17e6649757.light.svg" alt="\begin{aligned} U_A(z&#x27;,z)&amp;=\exp(ie_k\eta\tau A(z&#x27;,z)),\\[0pt] (Q(A)v)(z&#x27;)&amp;=L^{-3}\sum_{z\in B(z&#x27;)}U_A(z&#x27;,z)v(z),&amp; (Q^T(-A)v&#x27;)(z)&amp;=U_A(z&#x27;,z)^{-1}v&#x27;(z&#x27;). \end{aligned}" width="547">
   </picture>
 </p>
 
@@ -141,8 +141,8 @@ in spin. For $`k\ge1`$, define
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-007-353767c8fa.dark.svg">
-    <img src="../../../assets/eq-007-353767c8fa.light.svg" alt="\Pi_1(A)=JQ_k^T(-A)Q_k(A)J^*,\qquad \Pi_L(A)=JQ_k^T(-A)Q^T(-A)Q(A)Q_k(A)J^*." width="542">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-007-353767c8fa.dark.svg">
+    <img src="../../../../assets/eq-007-353767c8fa.light.svg" alt="\Pi_1(A)=JQ_k^T(-A)Q_k(A)J^*,\qquad \Pi_L(A)=JQ_k^T(-A)Q^T(-A)Q(A)Q_k(A)J^*." width="542">
   </picture>
 </p>
 
@@ -156,8 +156,8 @@ b_k=\frac{1-L^{-1}}{1-L^{-k}}\quad(k\ge1),\qquad
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-008-47c4a94800.dark.svg">
-    <img src="../../../assets/eq-008-47c4a94800.light.svg" alt="b_k=\frac{1-L^{-1}}{1-L^{-k}}\quad(k\ge1),\qquad \alpha_y=\frac{b_ki\gamma_5y}{b_k+i\gamma_5y},\qquad \beta_y=\frac{b_k^2b_L}{(b_k+b_L+i\gamma_5y)(b_k+i\gamma_5y)}." width="591">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-008-47c4a94800.dark.svg">
+    <img src="../../../../assets/eq-008-47c4a94800.light.svg" alt="b_k=\frac{1-L^{-1}}{1-L^{-k}}\quad(k\ge1),\qquad \alpha_y=\frac{b_ki\gamma_5y}{b_k+i\gamma_5y},\qquad \beta_y=\frac{b_k^2b_L}{(b_k+b_L+i\gamma_5y)(b_k+i\gamma_5y)}." width="591">
   </picture>
 </p>
 
@@ -175,8 +175,8 @@ F_y(A)=
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-009-4bbb8b32af.dark.svg">
-    <img src="../../../assets/eq-009-4bbb8b32af.light.svg" alt="F_y(A)= \begin{cases} D_A+\mu+\alpha_y\Pi_1(A)+\beta_y\Pi_L(A), &amp; k\ge1,\ y\in\mathbb{R}\cup\{\infty\},\\[0pt] D_A+\mu+b_L\Pi_L(A)+i\gamma_5y, &amp; k=0,\ y\in\mathbb{R}. \end{cases}" width="459">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-009-4bbb8b32af.dark.svg">
+    <img src="../../../../assets/eq-009-4bbb8b32af.light.svg" alt="F_y(A)= \begin{cases} D_A+\mu+\alpha_y\Pi_1(A)+\beta_y\Pi_L(A), &amp; k\ge1,\ y\in\mathbb{R}\cup\{\infty\},\\[0pt] D_A+\mu+b_L\Pi_L(A)+i\gamma_5y, &amp; k=0,\ y\in\mathbb{R}. \end{cases}" width="459">
   </picture>
 </p>
 
@@ -196,8 +196,8 @@ A_0=B_0+d\lambda,\qquad B_0,\lambda\ \hbox{real},\qquad
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-010-44a710159d.dark.svg">
-    <img src="../../../assets/eq-010-44a710159d.light.svg" alt="A_0=B_0+d\lambda,\qquad B_0,\lambda\ \hbox{real},\qquad \|B_0\|_\infty&lt;e_k^{-1+\varepsilon},\qquad d\lambda(c,c&#x27;)=\eta^{-1}(\lambda(c&#x27;)-\lambda(c))." width="593">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-010-44a710159d.dark.svg">
+    <img src="../../../../assets/eq-010-44a710159d.light.svg" alt="A_0=B_0+d\lambda,\qquad B_0,\lambda\ \hbox{real},\qquad \|B_0\|_\infty&lt;e_k^{-1+\varepsilon},\qquad d\lambda(c,c&#x27;)=\eta^{-1}(\lambda(c&#x27;)-\lambda(c))." width="593">
   </picture>
 </p>
 
@@ -214,8 +214,8 @@ U_A(x,x')=\exp(ie_k\eta\tau A(c,c')),\qquad
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-011-990426311a.dark.svg">
-    <img src="../../../assets/eq-011-990426311a.light.svg" alt="U_A(x,x&#x27;)=\exp(ie_k\eta\tau A(c,c&#x27;)),\qquad (\delta_{\alpha,A}v)(x,x&#x27;) =\frac{U_A(x,x&#x27;)v(x&#x27;)-v(x)} {d_X(x,x&#x27;)^\alpha}." width="524">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-011-990426311a.dark.svg">
+    <img src="../../../../assets/eq-011-990426311a.light.svg" alt="U_A(x,x&#x27;)=\exp(ie_k\eta\tau A(c,c&#x27;)),\qquad (\delta_{\alpha,A}v)(x,x&#x27;) =\frac{U_A(x,x&#x27;)v(x&#x27;)-v(x)} {d_X(x,x&#x27;)^\alpha}." width="524">
   </picture>
 </p>
 
@@ -228,8 +228,8 @@ N_\gamma(T)=\sup_z\sum_{z'}e^{\gamma d(z,z')}
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-012-b966f382d9.dark.svg">
-    <img src="../../../assets/eq-012-b966f382d9.light.svg" alt="N_\gamma(T)=\sup_z\sum_{z&#x27;}e^{\gamma d(z,z&#x27;)} \|\mathbf1_{\Delta_z}T\mathbf1_{\Delta_{z&#x27;}}\|_{\infty\to\infty}." width="292">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-012-b966f382d9.dark.svg">
+    <img src="../../../../assets/eq-012-b966f382d9.light.svg" alt="N_\gamma(T)=\sup_z\sum_{z&#x27;}e^{\gamma d(z,z&#x27;)} \|\mathbf1_{\Delta_z}T\mathbf1_{\Delta_{z&#x27;}}\|_{\infty\to\infty}." width="292">
   </picture>
 </p>
 
@@ -252,8 +252,8 @@ M>4L,\qquad q(1)\le\tfrac12,\qquad
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-013-c4bcd85512.dark.svg">
-    <img src="../../../assets/eq-013-c4bcd85512.light.svg" alt="M&gt;4L,\qquad q(1)\le\tfrac12,\qquad 0&lt;e_k\le e_0,\qquad 6Le_0^\varepsilon\le1,\qquad 4C_Va&#x27;e_0^\varepsilon\le1." width="517">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-013-c4bcd85512.dark.svg">
+    <img src="../../../../assets/eq-013-c4bcd85512.light.svg" alt="M&gt;4L,\qquad q(1)\le\tfrac12,\qquad 0&lt;e_k\le e_0,\qquad 6Le_0^\varepsilon\le1,\qquad 4C_Va&#x27;e_0^\varepsilon\le1." width="517">
   </picture>
 </p>
 
@@ -269,8 +269,8 @@ N_\gamma(S_y(A))\le32a'w_k(y),\qquad
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-014-23f4c9aaea.dark.svg">
-    <img src="../../../assets/eq-014-23f4c9aaea.light.svg" alt="N_\gamma(S_y(A))\le32a&#x27;w_k(y),\qquad N_\gamma(\delta_{\alpha,A}S_y(A))\le304a&#x27;,\qquad w_k(y)= \begin{cases}1,&amp;k\ge1,\\(1+|y|)^{-1},&amp;k=0.\end{cases}" width="617">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-014-23f4c9aaea.dark.svg">
+    <img src="../../../../assets/eq-014-23f4c9aaea.light.svg" alt="N_\gamma(S_y(A))\le32a&#x27;w_k(y),\qquad N_\gamma(\delta_{\alpha,A}S_y(A))\le304a&#x27;,\qquad w_k(y)= \begin{cases}1,&amp;k\ge1,\\(1+|y|)^{-1},&amp;k=0.\end{cases}" width="617">
   </picture>
 </p>
 

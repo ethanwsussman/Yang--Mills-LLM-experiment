@@ -28,8 +28,8 @@ the mesh:
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-055-bf99923517.dark.svg">
-    <img src="../../../assets/eq-055-bf99923517.light.svg" alt="\partial_\mu f(x)=\eta^{-1}(f(x+\eta e_\mu)-f(x)),\qquad (d\lambda)_\mu=\partial_\mu\lambda,\qquad (d\mathscr A)_{\mu\nu} =\partial_\mu\mathscr A_\nu-\partial_\nu\mathscr A_\mu." width="570">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-055-bf99923517.dark.svg">
+    <img src="../../../../assets/eq-055-bf99923517.light.svg" alt="\partial_\mu f(x)=\eta^{-1}(f(x+\eta e_\mu)-f(x)),\qquad (d\lambda)_\mu=\partial_\mu\lambda,\qquad (d\mathscr A)_{\mu\nu} =\partial_\mu\mathscr A_\nu-\partial_\nu\mathscr A_\mu." width="570">
   </picture>
 </p>
 
@@ -67,8 +67,8 @@ The scalar, bond, and plaquette averages to the unit lattice are
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-056-6c2938fcbc.dark.svg">
-    <img src="../../../assets/eq-056-6c2938fcbc.light.svg" alt="\begin{aligned} (\mathbf Q_k\lambda)(z) &amp;=\eta^3\sum_{c\in\Delta_z}\lambda(c),\\[0pt] (\mathbf Q_k\mathscr A)_\mu(z) &amp;=\eta^3\sum_{c\in\Delta_z}\sum_{j=0}^{N-1} \eta\mathscr A_\mu(c+j\eta e_\mu),\\[0pt] (\mathbf Q_k^{(2)}F)_{\mu\nu}(z) &amp;=\eta^3\sum_{c\in\Delta_z}\sum_{i,j=0}^{N-1} \eta^2F_{\mu\nu}(c+i\eta e_\mu+j\eta e_\nu). \end{aligned}" width="354">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-056-6c2938fcbc.dark.svg">
+    <img src="../../../../assets/eq-056-6c2938fcbc.light.svg" alt="\begin{aligned} (\mathbf Q_k\lambda)(z) &amp;=\eta^3\sum_{c\in\Delta_z}\lambda(c),\\[0pt] (\mathbf Q_k\mathscr A)_\mu(z) &amp;=\eta^3\sum_{c\in\Delta_z}\sum_{j=0}^{N-1} \eta\mathscr A_\mu(c+j\eta e_\mu),\\[0pt] (\mathbf Q_k^{(2)}F)_{\mu\nu}(z) &amp;=\eta^3\sum_{c\in\Delta_z}\sum_{i,j=0}^{N-1} \eta^2F_{\mu\nu}(c+i\eta e_\mu+j\eta e_\nu). \end{aligned}" width="354">
   </picture>
 </p>
 
@@ -83,8 +83,8 @@ $`\|d\mathscr A\|_2^2`$ under
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-057-2a758eca52.dark.svg">
-    <img src="../../../assets/eq-057-2a758eca52.light.svg" alt="\mathbf Q_k\mathscr A=A,\qquad \mathcal R_k\delta\mathscr A=0." width="196">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-057-2a758eca52.dark.svg">
+    <img src="../../../../assets/eq-057-2a758eca52.light.svg" alt="\mathbf Q_k\mathscr A=A,\qquad \mathcal R_k\delta\mathscr A=0." width="196">
   </picture>
 </p>
 
@@ -95,8 +95,8 @@ Set
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-058-0b32a78e16.dark.svg">
-    <img src="../../../assets/eq-058-0b32a78e16.light.svg" alt="\Delta_k=(dH_k^{\mathrm{ph}})^TdH_k^{\mathrm{ph}}." width="151">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-058-0b32a78e16.dark.svg">
+    <img src="../../../../assets/eq-058-0b32a78e16.light.svg" alt="\Delta_k=(dH_k^{\mathrm{ph}})^TdH_k^{\mathrm{ph}}." width="151">
   </picture>
 </p>
 
@@ -113,8 +113,8 @@ On bonds put
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-059-b4ef461f2f.dark.svg">
-    <img src="../../../assets/eq-059-b4ef461f2f.light.svg" alt="(\mathbf QA)(y,y+Le_\mu) =L^{-4}\sum_{z\in B(y)}A(\Gamma_{z,z+Le_\mu}),\qquad (\tau A)(y,z)=\tfrac16\sum_\pi A(\Gamma^\pi(y,z))." width="545">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-059-b4ef461f2f.dark.svg">
+    <img src="../../../../assets/eq-059-b4ef461f2f.light.svg" alt="(\mathbf QA)(y,y+Le_\mu) =L^{-4}\sum_{z\in B(y)}A(\Gamma_{z,z+Le_\mu}),\qquad (\tau A)(y,z)=\tfrac16\sum_\pi A(\Gamma^\pi(y,z))." width="545">
   </picture>
 </p>
 
@@ -144,8 +144,8 @@ Also
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-060-b31e3920c8.dark.svg">
-    <img src="../../../assets/eq-060-b31e3920c8.light.svg" alt="|\Delta_k(b,b&#x27;)|\le C_P^{\mathrm{ph}}e^{-\gamma_Pd(b,b&#x27;)}." width="189">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-060-b31e3920c8.dark.svg">
+    <img src="../../../../assets/eq-060-b31e3920c8.light.svg" alt="|\Delta_k(b,b&#x27;)|\le C_P^{\mathrm{ph}}e^{-\gamma_Pd(b,b&#x27;)}." width="189">
   </picture>
 </p>
 
@@ -160,8 +160,8 @@ The basis choices are translates of one fixed block basis, and
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-061-ae997217b6.dark.svg">
-    <img src="../../../assets/eq-061-ae997217b6.light.svg" alt="\dim V_k=(2-2L^{-3})\ell^3,\qquad \|z\|_2\le\|Cz\|_2\le\sqrt{5L^3}\|z\|_2." width="396">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-061-ae997217b6.dark.svg">
+    <img src="../../../../assets/eq-061-ae997217b6.light.svg" alt="\dim V_k=(2-2L^{-3})\ell^3,\qquad \|z\|_2\le\|Cz\|_2\le\sqrt{5L^3}\|z\|_2." width="396">
   </picture>
 </p>
 
@@ -174,8 +174,8 @@ with upper and lower bounds depending only on $`L`$, and
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-062-4e897e4c71.dark.svg">
-    <img src="../../../assets/eq-062-4e897e4c71.light.svg" alt="\big|\widetilde\Delta_k^{-1/2}(\Upsilon,\Upsilon&#x27;)\big| \le C_P^{\mathrm{ph}}e^{-\gamma_Pd(\Upsilon,\Upsilon&#x27;)}." width="230">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-062-4e897e4c71.dark.svg">
+    <img src="../../../../assets/eq-062-4e897e4c71.light.svg" alt="\big|\widetilde\Delta_k^{-1/2}(\Upsilon,\Upsilon&#x27;)\big| \le C_P^{\mathrm{ph}}e^{-\gamma_Pd(\Upsilon,\Upsilon&#x27;)}." width="230">
   </picture>
 </p>
 
@@ -195,8 +195,8 @@ $`\mathrm{Sq}_k=C\widetilde\Delta_k^{-1/2}`$,
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-063-9991239348.dark.svg">
-    <img src="../../../assets/eq-063-9991239348.light.svg" alt="\begin{aligned} &amp;\langle A_k^{\min}(A&#x27;)+\mathrm{Sq}_k\zeta,\, \Delta_k(A_k^{\min}(A&#x27;)+\mathrm{Sq}_k\zeta)\rangle\\[0pt] &amp;\hspace{35mm}=\|dH_{k+1}^{\mathrm{ph}}A&#x27;\|_2^2+\|\zeta\|_2^2. \end{aligned}" width="299">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-063-9991239348.dark.svg">
+    <img src="../../../../assets/eq-063-9991239348.light.svg" alt="\begin{aligned} &amp;\langle A_k^{\min}(A&#x27;)+\mathrm{Sq}_k\zeta,\, \Delta_k(A_k^{\min}(A&#x27;)+\mathrm{Sq}_k\zeta)\rangle\\[0pt] &amp;\hspace{35mm}=\|dH_{k+1}^{\mathrm{ph}}A&#x27;\|_2^2+\|\zeta\|_2^2. \end{aligned}" width="299">
   </picture>
 </p>
 
@@ -216,8 +216,8 @@ For every $`q\ge1`$,
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-064-db8496019c.dark.svg">
-    <img src="../../../assets/eq-064-db8496019c.light.svg" alt="\mu_I\{\sup_\Upsilon|\zeta(\Upsilon)|\le q\} =e^{-\ell^3\delta\varepsilon^0(q)},\qquad 0\le\delta\varepsilon^0(q)\le12e^{-q^2/2}." width="407">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-064-db8496019c.dark.svg">
+    <img src="../../../../assets/eq-064-db8496019c.light.svg" alt="\mu_I\{\sup_\Upsilon|\zeta(\Upsilon)|\le q\} =e^{-\ell^3\delta\varepsilon^0(q)},\qquad 0\le\delta\varepsilon^0(q)\le12e^{-q^2/2}." width="407">
   </picture>
 </p>
 
@@ -232,8 +232,8 @@ real gauge $`\nu`$ on this nonwrapping enlargement such that
 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../../../assets/eq-065-da4086ea2b.dark.svg">
-    <img src="../../../assets/eq-065-da4086ea2b.light.svg" alt="\|H_k^{\mathrm{ph}}A-d\nu\|_{i,\square^\dagger} \le C_B\|dA\|_\infty,\qquad i=1,2,3," width="324">
+    <source media="(prefers-color-scheme: dark)" srcset="../../../../assets/eq-065-da4086ea2b.dark.svg">
+    <img src="../../../../assets/eq-065-da4086ea2b.light.svg" alt="\|H_k^{\mathrm{ph}}A-d\nu\|_{i,\square^\dagger} \le C_B\|dA\|_\infty,\qquad i=1,2,3," width="324">
   </picture>
 </p>
 
