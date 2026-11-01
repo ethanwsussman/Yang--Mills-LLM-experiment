@@ -68,6 +68,7 @@
 \newcommand{\RPsource}{\Old{blob/main/RP\%20O\%28d\%29\%20trick\%20\%28RP1\%29/RPM1.tex}{RPM1}}
 \newcommand{\QCsource}{\Old{blob/main/QED3/QED3_supplement.tex}{QCM1}}
 \newcommand{\QEsource}{\Old{blob/main/QED3/OLD/QEM1.tex}{QEM1}}
+\newcommand{\CurrentQEsource}{\Old{blob/main/QED3/QED3.tex}{QED3.tex}}
 \begin{document}
 \thispagestyle{empty}
 \begin{center}
@@ -169,16 +170,16 @@ Spatial volume tends to infinity at fixed lattice spacing; the continuum limit i
  };
  \node[flow manuscript,flow target,text width=354mm,minimum height=56mm] (AS) at (209,-455) {
   \FlowHeading{AS}{An interacting Osterwalder--Schrader theory}
-  For sufficiently small positive charge \(e\), almost every ergodic component
-  of every prescribed volume-first limit satisfies the OS axioms and
+  For a suitable positive charge \(e\), the chamber model with
+  \(\rho=1/2\) and reference mass \(\bar m=1\) has a volume-first limit
+  with a translation-ergodic component \(\lambda\) satisfying the OS
+  axioms and
   \[
-   \bigl|\kappa_4^{\mu_\xi}(f)-e^4b(f)\bigr|\le C_f e^{4+\sigma},
-   \qquad
-   \kappa_4^{\mu_\xi}(f)\ge \tfrac12e^4b(f)>0.
+   \kappa_4^\lambda(f)>0.
   \]
-  Here \(f\) is the compact probe from FD, \(b(f)>0\), and \(\sigma>0\).
-  Both conclusions hold on one full-measure component set
-  for each fixed parent, charge, and probe.
+  Here \(f\) is the compact probe from FD. The OS properties hold on
+  a full-measure component set; positive fourth cumulant holds on a
+  set of positive measure. Their intersection supplies \(\lambda\).
  };
 
  % Primitive estimates and one-step integration.
@@ -301,28 +302,36 @@ infinity and choose an infinite-volume limit. Then take a subsequential
 limit as \(a\downarrow0\).
 
 \textbf{Final result.}
-Fix an admitted positive reference mass and chamber parameters.
-For sufficiently small positive physical charge \(e\), the common
-microscopic parameters selected by \Code{RT} give volume-first continuum
-subsequential limits of the all-flux curvature laws, with convergence of
+Fix the chamber model with Wilson parameter \(\rho=1/2\), chamber
+weights \((6,6\sqrt2,6\sqrt2,6)\), and physical reference mass
+\(\bar m=1\). For suitable construction constants and a suitable
+positive physical charge \(e\), the volume-independent microscopic
+mass shifts selected by \Code{RT} give a volume-first continuum
+limit \(\mu\) of the all-flux curvature laws, with convergence of
 all smeared correlation functions and joint cumulants.
-For every such parent, almost every
-translation-ergodic component \(\mu_\xi\) is a closed real tempered field,
-retains the sharp Gaussian bound, and has Schwinger functions satisfying
-the OS axioms, including clustering.
+Almost every translation-ergodic component \(\mu_\xi\) is a closed
+real tempered field, retains the sharp Gaussian bound, and has
+Schwinger functions satisfying the OS axioms, including clustering.
 
-For the fixed compact smooth probe \(f\) supplied by \Code{FD}, the same
-component set satisfies
+For the fixed compact smooth probe \(f\) supplied by \Code{FD}, write
+\(\mu=\int\mu_\xi\,d\nu(\xi)\). The fourth-order response and the
+bound for quadratic observables in two separated cells give
 \[
- \left|\kappa_4^{\mu_\xi}(f)-e^4b(f)\right|
- \le C_f e^{4+\sigma},
- \qquad \kappa_4^{\mu_\xi}(f)\ge \tfrac12e^4b(f)>0.
+ \int\kappa_4^{\mu_\xi}(f)\,d\nu(\xi)
+ \ge \tfrac12e^4b(f)>0.
 \]
-Here \(\kappa_4\) is the connected fourth moment of the smeared curvature,
-\(b(f)>0\), and \(\sigma>0\). The components are non-Gaussian.
-Both conclusions hold on one full-measure component set for each fixed
-parent, charge, and probe.
-\Sources{\QEsource, field-strength theorem; \VTsource, component cumulant theorem.}
+Here \(\kappa_4\) is the connected fourth moment of the smeared
+curvature and \(b(f)>0\) is the free coefficient. This is a bound
+on the average over components. The fourth cumulant is therefore
+positive on a set of positive \(\nu\)-measure. Intersecting it with the
+full-measure set supplied by \Code{CL} gives a translation-ergodic
+law \(\lambda\) satisfying all the OS axioms and
+\[
+ \kappa_4^\lambda(f)>0.
+\]
+In particular, \(\lambda\) is non-Gaussian.
+\Sources{\CurrentQEsource, existential field-strength theorem and the
+subsection ``A non-Gaussian component.''}
 
 
 \clearpage
@@ -431,7 +440,9 @@ sectors. The source identity and terminal logarithm estimates supply
 the complex bound used in \Code{LF} to differentiate the large-field
 remainder.}
 \Sources{Complex-source identities and response estimates in \RRsource;
-all-volume Wick-product bounds in \VTsource.}
+all-volume Wick-product bounds in \VTsource.
+The selection in \Code{AS} uses only the fourth-order expectation and
+the two-cell quadratic bound, as in \CurrentQEsource.}
 
 \Block{LP}{Reflection positivity and Gaussian domination in lattice QED}
 \Inputs{The all-flux chamber lattice model at fixed lattice parameters.}
@@ -505,12 +516,15 @@ invariant projections in \ECsource.}
 \Block{AS}{An interacting Osterwalder--Schrader theory}
 \Inputs{\Code{CL} and \Code{FP}, with the parameters from \Code{RT}
 and the probe from \Code{FD}.}
-\Theorem{For sufficiently small positive charge, almost every ergodic
-component of every prescribed volume-first parent satisfies the OS
-axioms and the positive fourth-cumulant estimate on page~2.
-Both conclusions hold on one full-measure component set for each
-fixed parent, charge, and probe.}
-\Sources{Component cumulants in \VTsource; assembly in \QEsource.}
+\Theorem{For the chamber model with \(\rho=1/2\) and
+\(\bar m=1\), suitable construction constants and a suitable positive
+charge give a volume-first continuum limit with a translation-ergodic
+component \(\lambda\) satisfying all the OS axioms and
+\(\kappa_4^\lambda(f)>0\). The component is selected from the
+intersection of the full-measure set with the structural OS properties
+and the positive-measure set with positive fourth cumulant.}
+\Sources{\CurrentQEsource, existential field-strength theorem and its
+component-selection proof.}
 
 \clearpage
 \section*{Where the existing material goes}
@@ -538,8 +552,7 @@ the interacting remainder. \Code{LF}: analytic interpolation of tail bounds.\\
 \PRsource & \Code{FD}: free second/fourth response and the positive probe.\\
 \VTsource & \Code{UV}: full photon/flux partition defect.
 \Code{IR}: pressure bounds and general observable transfer.
-\Code{FP}: all-flux Wick products and conditional component transfer.
-\Code{AS}: application to the selected continuum components.\\
+\Code{FP}: all-flux Wick products.\\
 \LPsource & \Code{LP}: lattice construction and reflection positivity.\\
 \CEsource & \Code{CL}: compactness, prescribed-parent recovery, and
 convergence of correlations and cumulants by complex sources and Cauchy's formula.\\
@@ -547,7 +560,9 @@ convergence of correlations and cumulants by complex sources and Cauchy's formul
 \Code{RP}, \Code{C}: general cone, invariant-projection, and clustering results.\\
 \RPsource & \Code{R}: rotations. \Code{RP}: spectral and analytic results.\\
 \QCsource & \Code{C}: quantitative clustering. \Code{RP}: analytic continuation and reconstruction.\\
-\QEsource & \Code{CL}: supported tensor tests. \Code{AS}: parameter admission and assembly.\\
+\QEsource & \Code{CL}: supported tensor tests.\\
+\CurrentQEsource & \Code{AS}: parameter admission, positive average
+component cumulant, and selection of a non-Gaussian ergodic law.\\
 \bottomrule
 \end{tabularx}
 \par\normalsize
