@@ -14,7 +14,6 @@ See [QEM1, Theorem A](QEM1.pdf) for the precise statement and hypotheses.
 
 - **[QEO1](Submanuscripts/QEO1.pdf)** — [The QED3 construction: theorem contracts and proof assignments](Submanuscripts/QEO1.pdf).
 - **AI-written manuscript:** **[QEM1](QEM1.pdf)** — [The continuum field-strength construction for QED in three dimensions](QEM1.pdf) · [TeX source](QEM1.tex).
-- **AI-written manuscript:** **[QCM1](Submanuscripts/qed3-consequences.pdf)** — [Massless photons and Maxwell infrared limits in three-dimensional QED](Submanuscripts/qed3-consequences.pdf) · [TeX source](Submanuscripts/QCM1.tex). This manuscript proves further properties of the QED3 theory, including a massless photon and a Maxwell infrared limit.
 - **AI-written manuscript:** **[CTM1](Submanuscripts/CTM1.pdf)** — [Invariance at coinciding points](Submanuscripts/CTM1.pdf) · [TeX source](Submanuscripts/CTM1.tex).
 - **AI-written manuscript:** **[DPM1](Submanuscripts/DPM1.pdf)** — [Diagonal reflection positivity and rotation invariance without closedness](Submanuscripts/DPM1.pdf) · [TeX source](Submanuscripts/DPM1.tex).
 - **Human-written manuscript:** to be added.
