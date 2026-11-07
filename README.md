@@ -6,7 +6,7 @@ In light of OpenAI's recent announcement to have constructed YM4, this update se
 #### Current project status ####
 - QED3: Current manuscript, 242 pages (QED3/QED3.pdf). Total slop, 4007 pages. Closed slop, 4007 pages.
 - YM3: Current manuscripts, 857 + 1201 pages (YM3_I.pdf + YM3_II.pdf). Total slop, ~30k. Closed slop, ~30k. Note: page count includes further investigations of the theory beyond existence.
-- YM4: Current manuscript, unfinished. Total slop, ~61k pages. Closed slop, ~20k pages.
+- YM4: Current manuscript, unfinished. Total slop, ~61k pages. Closed slop, ~30k pages.
 
 Closed slop is the slop that has been refereed and frozen. For QED3, the current manuscript should be roughly the length of a human-written version. For YM3, which has undergone less deslopification, the final count should be less.
 
