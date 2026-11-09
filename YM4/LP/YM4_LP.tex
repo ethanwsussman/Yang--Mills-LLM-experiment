@@ -1,0 +1,1286 @@
+\documentclass[11pt,letterpaper,reqno]{amsart}
+% BEGIN INLINE manuscript-style
+\makeatletter
+\NeedsTeXFormat{LaTeX2e}[2020/10/01]
+% Use with \documentclass[11pt,letterpaper,reqno]{amsart}.
+% This file controls presentation only. It supplies no mathematical content.
+
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern}
+\RequirePackage{microtype}
+\RequirePackage[letterpaper,margin=1in,headheight=15pt]{geometry}
+\RequirePackage{amsmath,amsthm,amssymb,mathtools}
+\RequirePackage{enumitem}
+\RequirePackage{perpage}
+\RequirePackage{longtable}
+\RequirePackage{xcolor}
+\definecolor{manuscriptred}{rgb}{0.6,0.1,0.1}
+\definecolor{manuscriptblue}{rgb}{0.1,0.3,0.5}
+\definecolor{manuscriptmagenta}{HTML}{60445C}
+\RequirePackage[breaklinks=true,colorlinks=true,
+  linkcolor=manuscriptred,citecolor=manuscriptblue,urlcolor=manuscriptmagenta]{hyperref}
+\RequirePackage{cleveref}
+\hypersetup{pdfauthor={}}
+
+% Retain the AMS paragraph, title, heading and running-head conventions.
+% Equation counters restart each section: 2.i, 2.ii, ... .
+% Appendix sections keep their letters: A.i, A.ii, ... .
+\numberwithin{equation}{section}
+\renewcommand{\theequation}{\thesection.\roman{equation}}
+% Prose references include "eq." and omit parentheses around the number.
+\renewcommand{\eqref}[1]{\textup{eq.~\ref{#1}}}
+\crefname{equation}{eq.}{eqs.}
+\Crefname{equation}{eq.}{eqs.}
+\creflabelformat{equation}{#2#1#3}
+\setcounter{tocdepth}{1}
+\renewcommand{\thefigure}{\Roman{figure}}
+\renewcommand{\thetable}{\Roman{table}}
+\MakePerPage{footnote}
+\renewcommand{\thefootnote}{%
+  \ifnum\value{footnote}>9\arabic{footnote}\else\fnsymbol{footnote}\fi}
+
+% Upright statements. Main results are A, B, C; supporting statements
+% share a section-local sequence. These end marks indicate typography,
+% never proof completeness, validation, or a deferred-proof status.
+\theoremstyle{definition}
+\newtheorem{ms@theorem}{Theorem}
+\renewcommand{\thems@theorem}{\Alph{ms@theorem}}
+\newtheorem*{ms@theoremstar}{Theorem}
+\newtheorem*{ms@theoremzero}{Theorem 0}
+\newtheorem{ms@proposition}{Proposition}[section]
+\newtheorem{ms@lemma}[ms@proposition]{Lemma}
+\newtheorem{ms@definition}[ms@proposition]{Definition}
+\newtheorem{ms@corollary}[ms@proposition]{Corollary}
+\newtheorem*{ms@corollarystar}{Corollary}
+
+\newcommand{\ms@majorstart}{%
+  \pushQED{\qed}\renewcommand{\qedsymbol}{$\blacksquare\square$}}
+\newcommand{\ms@minorstart}{%
+  \pushQED{\qed}\renewcommand{\qedsymbol}{$\blacksquare$}}
+\newenvironment{theorem}[1][]{\ms@majorstart\ms@theorem[#1]}
+  {\popQED\endms@theorem}
+\newenvironment{theorem*}[1][]{\ms@majorstart\ms@theoremstar[#1]}
+  {\popQED\endms@theoremstar}
+\newenvironment{theoremzero}[1][]{\ms@majorstart\ms@theoremzero[#1]}
+  {\popQED\endms@theoremzero}
+\newenvironment{proposition}[1][]{\ms@minorstart\ms@proposition[#1]}
+  {\popQED\endms@proposition}
+\newenvironment{lemma}[1][]{\ms@minorstart\ms@lemma[#1]}
+  {\popQED\endms@lemma}
+\newenvironment{definition}[1][]{\ms@minorstart\ms@definition[#1]}
+  {\popQED\endms@definition}
+\newenvironment{corollary}[1][]{\ms@majorstart\ms@corollary[#1]}
+  {\popQED\endms@corollary}
+\newenvironment{corollary*}[1][]{\ms@majorstart\ms@corollarystar[#1]}
+  {\popQED\endms@corollarystar}
+% The source's lemma/proposition variants are deliberately not carried over:
+% choose one marker for each statement type rather than encode proof status.
+
+\theoremstyle{remark}
+\newtheorem{remark}[ms@proposition]{Remark}
+\newtheorem*{remark*}{Remark}
+% The ordinary amsthm proof environment retains its open square.
+
+\crefname{ms@theorem}{theorem}{theorems}
+\Crefname{ms@theorem}{Theorem}{Theorems}
+\crefname{ms@proposition}{proposition}{propositions}
+\Crefname{ms@proposition}{Proposition}{Propositions}
+\crefname{ms@lemma}{lemma}{lemmas}
+\Crefname{ms@lemma}{Lemma}{Lemmas}
+\crefname{ms@definition}{definition}{definitions}
+\Crefname{ms@definition}{Definition}{Definitions}
+\crefname{ms@corollary}{corollary}{corollaries}
+\Crefname{ms@corollary}{Corollary}{Corollaries}
+\crefname{remark}{remark}{remarks}
+\Crefname{remark}{Remark}{Remarks}
+
+% Bibliography configuration for this manuscript.
+\makeatother
+% END INLINE manuscript-style
+
+\title[Periodic Wilson states and reflection positivity]{Periodic Wilson states and reflection positivity}
+\date{9 November 2026}
+\begin{document}
+\raggedbottom
+\begin{abstract}
+We study finite-period Gibbs states of the four-dimensional Wilson
+\(\operatorname{SU}(2)\) model at fixed lattice spacing. A transfer-kernel
+comparison and an exact conditional integration give a common period
+for these states. Reflected local perturbations then compare their
+expectations with those of reflection-positive states. Compact convex
+separation yields reflection positivity for the entire periodic class,
+including the coordinate and diagonal lattice mirrors and bounded
+Borel half-space observables. We also derive domination by finite
+chessboard seminorms.
+\end{abstract}
+\maketitle
+\tableofcontents
+
+\section{Introduction}
+
+Finite Wilson measures admit reflection inequalities on suitable
+periodic lattices. Passing such an inequality to a subsequential
+infinite-volume limit preserves it for that limit. A periodic Gibbs
+state is instead defined by its local conditional distributions and
+a finite-index group of translation periods. These conditions do not
+identify it with a chosen limit of finite periodic measures. The
+question is whether the reflection inequalities hold throughout this
+periodic class.
+
+The proofs below separate the symmetry of the states from the
+positivity of their reflection forms. A contraction of the transfer
+kernel first controls an antisymmetric observable on two adjacent
+layers. Exact integration against the Gibbs conditional density
+extends this comparison to observables on arbitrarily many layers.
+The resulting bond-reflection symmetry supplies a period common to
+all periodic states. With this period fixed, folding a repeated local
+source produces a reflection-positive comparison state. A separating
+local observable would contradict this comparison if a periodic
+state failed the reflection inequality.
+
+The finite-volume action has the compact-link form used in
+Ba{\l}aban's lattice construction \cite[pp.~251--252]{Bal87}.
+The state comparison is proved here from the conditional kernels,
+the positive convolution spectrum and finite reflection forms.
+No assertion of uniqueness of the Gibbs state is needed. The
+arguments hold at fixed spacing and fixed coupling. Their boundary
+estimates may depend on the spacing.
+They provide no continuum limit or mass-gap conclusion.
+
+Constants denoted by \(C\) may change between estimates. Their
+dependence is restricted to the fixed coupling, the lattice
+geometry and the specified finite supports unless additional
+parameters are displayed. All Haar measures have mass one.
+
+
+\section{Wilson measures and local limits}\label{sec:lp-measures}
+
+Let \(a>0\) be the lattice spacing, let \(\beta\ge0\) be the
+coupling, and let \(G=\operatorname{SU}(2)\).
+We use lattice units in the proofs, so the lattice is \(\mathbb Z^4\)
+and the physical position of \(x\) is \(ax\).
+A link field assigns \(U_\mu(x)\in G\) to the positive link
+\((x,x+e_\mu)\). The reversed link has value \(U_\mu(x)^{-1}\).
+On a torus we retain the base and direction as the link index.
+For \(\mu<\nu\) the plaquette \(p=(x;\mu,\nu)\) is oriented first
+along \(e_\mu\) and then along \(e_\nu\). Let \(U_p\) be its ordered
+boundary product and set
+\[
+ a_p(U)=1-\tfrac12\operatorname{tr}U_p,\qquad
+ w_\beta(g)=\exp\{-\beta(1-\tfrac12\operatorname{tr}g)\}.
+\]
+The trace is real on \(G\), and \(0\le a_p\le2\).
+If \(\Gamma\) is a full-rank period lattice, the Wilson measure on
+\(\mathbb Z^4/\Gamma\) is
+\begin{equation}\label{eq:lp-wilson}
+ d\mu_\Gamma(U)=Z_\Gamma(0)^{-1}\prod_p w_\beta(U_p)\prod_b dU_b .
+\end{equation}
+The two products are indexed by plaquettes and positive links,
+respectively, and \(dU_b\) is normalized Haar measure. The density is strictly positive. The
+bound \(e^{-2\beta\#\{p\}}\le Z_\Gamma(0)\le1\) follows by integrating
+the pointwise bounds on the weight against product Haar.
+Multiplying numerator and denominator by the same factor
+\(e^{\beta\,\#\{p\}}\) gives the weight
+\(\exp(\frac\beta2\sum_p\operatorname{Re}\operatorname{tr}U_p)\).
+This is the compact-link Wilson action used by Ba{\l}aban
+\cite[pp.~251--252, (0.2)]{Bal87}.
+
+Write \(\tau_v x=x+v\) for translation by \(v\in\mathbb Z^4\).
+For a lattice isometry \(s\), write \(sF(U)=F(s^*U)\), where
+\((s^*U)(x,y)=U(sx,sy)\) on the infinite lattice.
+On a quotient, apply \(s\) to an oriented lattice lift of the link
+and then project its base and direction, inverting the variable
+when the direction reverses. This uses the indexed link even when
+two quotient links have the same endpoints.
+Every isometry that descends to the torus preserves \(\mu_\Gamma\).
+It permutes the Haar variables, inverting those whose orientation
+changes. It preserves the plaquette trace because a change of base
+conjugates the holonomy and reversal inverts it.
+Site gauges act by \(U^g(x,y)=g(x)U(x,y)g(y)^{-1}\).
+The plaquette holonomy is conjugated at its base and Haar measure is
+invariant under both endpoint multiplications.
+
+On the infinite lattice, let \(\Omega=G^{\mathcal E_+}\) for the countable
+set \(\mathcal E_+\) of positive links. A local function depends on
+finitely many link variables. The product topology makes \(\Omega\)
+compact and metrizable. Continuous local functions are uniformly dense
+in \(C(\Omega)\). To see this, enumerate the links and freeze
+coordinates beyond the first \(N\). This changes the metric
+\(\sum_j 2^{-j}\min(1,\|U_j-V_j\|)\) by at most \(2^{-N}\).
+
+For a finite set \(D\) of positive link indices, let \(\mathcal P(D)\)
+be the plaquettes whose boundaries use a link of \(D\) in either
+orientation. Let \(\partial D\) be the positive link indices used
+by those boundaries and lying outside \(D\). For an exterior configuration \(\eta\), the Wilson
+conditional density on \(G^D\) is
+\begin{equation}\label{eq:lp-dlr}
+ h_D(V\mid\eta)=
+ \frac{\exp[-\beta\sum_{p\in\mathcal P(D)}a_p(V\eta)]}
+ {\int_{G^D}\exp[-\beta\sum_{p\in\mathcal P(D)}a_p(W\eta)]\,dW}.
+\end{equation}
+Here \(V\eta\) uses \(V\) on \(D\) and \(\eta\) outside it.
+Denote the resulting replacement kernel by \(\gamma_D\).
+Its denominator lies between \(e^{-2\beta|\mathcal P(D)|}\) and \(1\).
+The density is continuous in \((V,\eta|_{\partial D})\).
+For every continuous local \(F\), \(\gamma_D F\) is continuous and local,
+by uniform continuity on the finite compact coordinate space.
+Uniform approximation then gives \(\gamma_D C(\Omega)\subset C(\Omega)\).
+
+A Wilson DLR state is a probability \(\nu\) with
+\(\nu\gamma_D=\nu\) for all finite \(D\). This is equivalent to
+\(\gamma_DF\) being the conditional expectation of \(F\) given the
+exterior links. Indeed, for bounded exterior-measurable \(J\) one has
+\(\gamma_D(JF)=J\gamma_DF\), and the measure equation applies to \(JF\).
+The converse follows by integrating the conditional identity.
+A periodic state is invariant under a finite-index translation
+subgroup of \(\mathbb Z^4\).
+
+Every Wilson DLR state is invariant under site gauges.
+For a gauge with finite support, take \(D\) to contain all incident
+links. The exterior is fixed, and the Haar changes of variables on
+\(D\) preserve every plaquette trace in \eqref{eq:lp-dlr}.
+The DLR equation therefore gives invariance under that gauge.
+For a general site gauge and a local function, its action depends only
+on gauges at the endpoints of the finitely many links in its support.
+A finite-support gauge with these values gives the same integral.
+Continuous local functions determine the measures, so invariance
+extends to bounded Borel tests.
+
+\begin{lemma}[Local Gibbs limits]\label{lem:lp-compactness}
+Fix \(a>0\) and \(\beta\ge0\). Let \(\Gamma_i\) be torus period lattices
+whose shortest nonzero periods tend to infinity. The periodically
+lifted Wilson laws have weak subsequential limits on \(\Omega\).
+Each limit is a Wilson DLR state and retains the lattice isometries
+that preserve the torus laws eventually. In particular, a cofinal
+sequence of cubic tori yields a translation- and signed-permutation-
+invariant Wilson DLR state. For a fixed finite-index period subgroup
+\(Q\), the \(Q\)-invariant Wilson DLR class is compact and convex.
+
+The local DLR passage also applies after adding a fixed real
+periodic interaction of bounded Borel local terms, with a
+uniformly finite range and finitely many term types per period cell.
+Use tori compatible with that interaction. Along a convergent
+subsequence, expectations converge for every bounded Borel local
+test. If the interaction is multiplied by \(t\), any weak limit
+of its DLR states as \(t\to0\) is Wilson DLR, with the same local
+Borel convergence.
+\end{lemma}
+
+\begin{proof}
+Probability measures on a compact metric space are sequentially
+weakly compact. Fix \(D\) and continuous local \(F\). The window, its
+interaction neighborhood and the support of \(F\) embed injectively on
+all sufficiently large tori. Every torus interaction meeting
+the window then has a unique lifted occurrence meeting \(D\),
+counting the given term indices.
+Integrating the torus variables of \(D\) first therefore gives exactly
+\(\widetilde\mu_{\Gamma_i}(\gamma_DF)=\widetilde\mu_{\Gamma_i}(F)\),
+where the tilde denotes periodic lift. The identity is local in
+\(F\). The lifted law generally has other copies of the \(D\)-links
+in its infinite exterior. The two integrands are continuous, so the
+identity passes to a weak limit. Uniform approximation and the
+contraction of \(\gamma_D\) extend it to \(C(\Omega)\).
+Thus the Borel measures \(\nu\gamma_D\) and \(\nu\) agree.
+An isometry acts continuously on \(\Omega\), so its invariance
+passes to the limit. The same closed affine conditions establish
+compactness and convexity for a fixed \(Q\).
+
+For a Borel perturbation, use the same local conditional identity.
+The conditional density on any fixed window \(D\) is bounded by
+the exponential of the oscillation of the sum of interaction terms
+meeting \(D\). This gives a uniform bound for the marginal density
+relative to Haar on \(G^D\). The bound passes to weak limits by
+testing against nonnegative continuous functions. For a bounded
+Borel function on \(G^D\), approximation in Haar \(L^1\) by
+continuous functions now gives convergence of the expectations.
+The perturbed kernel preserves bounded Borel locality, so its
+local conditional identities pass to the limit. Equality of the
+resulting probability measures gives the full DLR equations.
+
+If the unscaled perturbation terms meeting \(D\) have total supremum
+bound \(C_D\), the ratio of the perturbed to Wilson conditional
+density lies between \(e^{-2|t|C_D}\) and \(e^{2|t|C_D}\), uniformly
+in the exterior. The conditional identities thus pass to the
+Wilson kernel as \(t\to0\), and the marginal bound is uniform
+for bounded \(t\).
+\end{proof}
+
+For a fixed finite bond window \(D\), the marginal density on \(D\)
+of an unperturbed Wilson law on a sufficiently large torus and its lift is
+\(\int h_D(V\mid\eta)\,d\widetilde\mu_\Gamma(\eta)\), by the local
+conditional identity. The same formula holds in a Wilson limit.
+As \(V\) ranges over \(G^D\), the continuous functions
+\(h_D(V\mid\cdot)\) form a compact family in supremum norm.
+Weak convergence and a finite uniform net give uniform convergence of
+these marginal densities along a convergent subsequence. They all
+have the lower bound \(e^{-2\beta|\mathcal P(D)|}\), so the
+ratios converge uniformly to one. Consequently, along a fixed cofinal
+family, the infimum of the uniform relative marginal error over its
+torus limit points tends to zero. Otherwise a violating subsequence
+would have a weak limit in the same class and satisfy the preceding
+uniform convergence. These statements concern fixed \(a,\beta,D\).
+
+\section{Finite reflection forms}\label{sec:lp-finite-rp}
+
+The reflection with normal \(n\) at height \(c\) is
+\[
+ \theta_c x=x-\frac{2(n\cdot x-c)}{|n|^2}n,
+ \qquad
+ \Theta_cF=\overline{\theta_cF}.
+\]
+We take \(n=e_\mu\) or \(e_\mu\pm e_\nu\) with \(\mu<\nu\).
+Preservation of \(\mathbb Z^4\) requires and is implied by
+\(c\in\frac12\mathbb Z\) in the coordinate case and \(c\in\mathbb Z\)
+in the diagonal case, by the displayed formula. There are four
+coordinate and twelve diagonal orientations. A coordinate cut is a
+site cut at integral \(c\) and a bond cut at half-integral nonintegral
+\(c\). In physical units the height offsets are multiplied by \(a\).
+On the infinite lattice a closed-half algebra consists of bounded
+Borel functions of links with both endpoints in that half.
+
+For \(q=|n|^2\) a split period lattice has the form
+\begin{equation}\label{eq:lp-split}
+ \Gamma=\Gamma_\parallel\oplus\mathbb Z(2zn/q),
+ \qquad
+ \Gamma_\parallel\subset\mathbb Z^4\cap n^\perp,
+ \qquad \operatorname{rank}\Gamma_\parallel=3 .
+\end{equation}
+Here \(z\) is a positive integer and the normal period vector is
+integral. The two cuts on the torus have heights \(c,c+z\) modulo
+\(2z\). The reflection interchanges the two intervening strips and
+fixes their common sites. At height \(c+z\) the displacement is
+exactly one normal period. On a torus a half-space link must have
+a lift lying wholly in the corresponding closed strip. This
+geometric convention distinguishes the two links of a shortest
+periodic circle even when they have the same projected endpoints.
+For diagonal cuts we take \(z\ge3\) and require every nonzero
+tangential period to have Euclidean length greater than \(2\).
+A plaquette has diameter \(\sqrt2\), so its vertices remain distinct
+under this quotient. The height ranges of the plaquettes crossing
+the two cuts are disjoint modulo the normal height period.
+Coordinate cuts allow all \(z\ge1\).
+
+\begin{proposition}[Finite reflection positivity]\label{prop:lp-finite-rp}
+Let \(\beta\ge0\). On a split torus as above the Wilson law is
+reflection invariant and
+\[
+             \mu_\Gamma(\Theta_cF\,F)\ge0
+\]
+for every bounded complex Borel function on either closed half.
+This includes both coordinate cut types on even coordinate tori.
+If \(E\) is bounded, real and measurable on one closed half, the
+normalized law with additional density \(e^{E+\theta_c E}\)
+has the same two properties.
+\end{proposition}
+
+\begin{proof}
+Write \(s(g)\in S^3\subset\mathbb R^4\) for the unit quaternion
+coordinates of \(g\in G\). Then
+\(\frac12\operatorname{tr}(gh^{-1})=s(g)\cdot s(h)\), and
+\begin{equation}\label{eq:lp-quaternion-gram}
+ w_\beta(gh^{-1})=e^{-\beta}\sum_{m\ge0}\frac{\beta^m}{m!}
+ \sum_{i_1,\ldots,i_m=1}^4
+ \prod_{j=1}^m s_{i_j}(g)\prod_{j=1}^m s_{i_j}(h).
+\end{equation}
+This is a positive Gram expansion in real bounded features. The
+coefficients sum to \(e^{3\beta}\), so the expansion and its finite
+products converge absolutely and uniformly.
+
+At a coordinate site cut no plaquette meets both strict halves.
+The plaquettes in the two halves occur in reflected pairs, and the
+plaquettes lying on the cuts depend only on the shared links.
+When the normal period is two, every plaquette with normal
+edges still lies in one strip by its geometric lift, even
+though its vertices lie on the cuts.
+Conditional on the shared links, the reflection form is an absolute
+square integrated against a positive measure.
+
+At a diagonal cut use a signed permutation to take \(n=e_1+e_2\).
+A link changes height by \(0\) or \(1\) in absolute value, so no
+link joins strict opposite sides. The only crossing plaquettes
+lie in the \((1,2)\) plane and have vertex heights \(c-1,c,c+1,c\)
+in cyclic order. Orient the two paths \(P_+,P_-\) joining the
+two height-\(c\) vertices in the same direction. The boundary
+holonomy is \(P_+P_-^{-1}\) up to base change and reversal.
+The reflection exchanges the two paths, and
+\eqref{eq:lp-quaternion-gram} applies. The links within the cuts
+are fixed pointwise and can be conditioned on.
+All remaining plaquettes lie in one closed half or in the cuts.
+Apply this argument at both cuts.
+
+At a coordinate bond cut let \(X,Y\) be the parallel link arrays
+in the two adjoining layers, identified by reflection, and let
+\(T_x\) be the crossing link from the \(X\) layer to the \(Y\)
+layer at \(x\). Reverse a crossing link when necessary to give it
+this orientation, which preserves its Haar measure.
+Each crossing plaquette has trace equal to that of
+\(X_{xy}T_yY_{xy}^{-1}T_x^{-1}\).
+For \((T\cdot Y)_{xy}=T_xY_{xy}T_y^{-1}\), its kernel before
+integrating the crossing links is
+\(C(X,T\cdot Y)\), where
+\[
+ C(X,Y)=\prod_{xy}w_\beta(X_{xy}Y_{xy}^{-1}).
+\]
+The function \(C\) is invariant under simultaneous layer gauges,
+since \((S\cdot X)_{xy}(S\cdot Y)_{xy}^{-1}\)
+is the conjugate of \(X_{xy}Y_{xy}^{-1}\) by \(S_x\).
+Haar invariance therefore gives
+\[
+ \int C(X,T\cdot Y)\,dT
+       =\iint C(S\cdot X,T\cdot Y)\,dS\,dT .
+\]
+The product Gram expansion of \(C\) now averages each feature in
+its own argument. Thus the integrated crossing kernel is again
+a positive Gram sum. The crossing links are independent Haar
+variables before the crossing factors are integrated. They enter
+neither half-space tests nor the one-side factors. The crossing
+variables at the two cuts are distinct, so their kernels multiply.
+For a coordinate period of two, the two layers may occur at both
+cuts, but the crossing links at those cuts still have distinct
+indices and the product Gram argument still applies.
+
+In each case, after identifying the two halves by reflection,
+the unnormalized pairing of \(F,H\) is a sum of terms
+\(b_j\int\overline{I_j(F;Y_0)}I_j(H;Y_0)\,d\lambda(Y_0)\)
+with \(b_j\ge0\). Here \(Y_0\) is the shared link array,
+\(\lambda\) includes its plaquette factors, and \(I_j\) integrates
+one half against its plaquette factors and the corresponding Gram
+feature. There is no shared link array at bond cuts.
+The coefficient bound and boundedness of the tests justify Fubini.
+This proves positivity and Cauchy--Schwarz for the reflection pairing.
+Reflection invariance follows from the lattice isometry in
+\eqref{eq:lp-wilson}. For the perturbed law, insert \(Fe^E\) into
+the pairing. Its additional density is reflection invariant.
+\end{proof}
+
+For a cofinal sequence of even cubic tori, every fixed continuous
+local test in an infinite coordinate half-space eventually lies in
+the corresponding torus half with the same link indices. Its reflection
+inequality passes to any weak limit. More generally this passage
+holds for each fixed mirror on cofinal split tori, and for the
+reflected perturbations of Proposition~\ref{prop:lp-finite-rp}.
+The following lemma completes the half-space algebra for these
+limits and for the periodic states considered later.
+
+\begin{lemma}[Completion of the half-space algebra]\label{lem:lp-borel-rp}
+Let \(\nu\) be a probability measure on \(\Omega\) invariant under
+an admissible reflection \(\theta_c\). If
+\(\nu(\Theta_cF F)\ge0\) for every continuous local function of
+the links in the closed positive half-space, the same inequality
+holds for every bounded Borel function of those links and for
+every bounded Borel function of the closed negative half-space.
+\end{lemma}
+
+\begin{proof}
+Continuous functions are dense in \(L^2\) of the positive-half
+marginal by regularity on its compact metric configuration space.
+Continuous cylinder functions approximate them uniformly. Thus
+each bounded Borel half-space function \(F\) has continuous local
+approximants \(F_j\to F\) in \(L^2(\nu)\). Reflection invariance
+makes \(\Theta_c\) an antilinear isometry. Cauchy--Schwarz gives
+\[
+ |\nu(\Theta_cF_j F_j)-\nu(\Theta_cF F)|
+ \le \|F_j-F\|_2(\|F_j\|_2+\|F\|_2),
+\]
+so positivity passes to \(F\). A test on the negative half is
+the reflected conjugate of a positive-half test. Its reflection
+form has the same value, which proves the other assertion.
+\end{proof}
+
+\section{Chessboards and a pressure comparison}\label{sec:lp-chessboard}
+
+\begin{lemma}[One-direction chessboard inequality]\label{lem:lp-chessboard}
+In a split torus let the normal height period be \(2MH\), with
+positive integers \(M\) and \(H\). Cut it into \(2M\) slabs
+with faces \(c+kH\), each of an admissible type and with the
+finite reflection forms of Proposition~\ref{prop:lp-finite-rp}.
+Suppose \(f_k\) is a bounded complex Borel function of links
+whose lattice lifts lie in closed slab \(k\). Copy a slab function
+using the unique element of the group generated by the face
+reflections that carries its slab to each destination. Conjugate
+the function when that element reverses orientation.
+Write \(d(f_k)\) for the Wilson expectation of this disseminated
+product. Then \(d(f_k)\ge0\) and
+\begin{equation}\label{eq:lp-chessboard}
+ \left|\mu_\Gamma\left(\prod_{k=0}^{2M-1}f_k\right)\right|
+                  \le \prod_{k=0}^{2M-1}d(f_k)^{1/(2M)} .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Reflection in face \(j\) sends the slab index \(k\) to
+\(2j-1-k\) modulo \(2M\). The generated group acts freely and
+transitively on slabs. Its translations change indices by even
+integers, and its reflections send an even index to an odd one. The corresponding
+maps of the torus satisfy these relations, since \(2MH\) is its
+normal height period. This gives unique copies from a reference
+slab, with conjugation on the reflected copies. A constant
+dissemination is the product of a function on one half with
+its conjugated reflection, so it has nonnegative expectation.
+Shared links may occur in two slab functions. Both halves permit
+those links and the same identity applies.
+
+Transport the \(2M\) profiles to the reference slab. For a filling
+\(\sigma\) of the slabs by these profile labels, divide its expectation
+by the product over slabs of \((d(f_{\sigma(k)})+\epsilon)^{1/(2M)}\),
+where \(\epsilon>0\). Call the resulting number \(T(\sigma)\).
+Reflection Cauchy--Schwarz gives
+\[
+     |T(\sigma)|^2\le T(\sigma_+)T(\sigma_-),
+\]
+where \(\sigma_\pm\) retain one semicircle each and reflect it
+to fill the other. The denominator factors for the two
+reflected fillings together repeat each original factor twice.
+Both reflected values are nonnegative.
+Choose a filling of maximal absolute value. If the maximum is
+positive, both reflections of this filling again attain it.
+Start at the first face of any constant cyclic run and retain
+the half beginning there. If the run has length less than \(M\),
+the retained half and its reflection have a run of twice that
+length. Once the run has length at least \(M\), retain a full
+semicircle of it to get a constant maximizing filling. A
+constant normalized filling is at most one. Thus the maximum
+is at most one, also when it is zero. Let \(\epsilon\downarrow0\).
+\end{proof}
+
+\begin{corollary}[Cubic chessboards]\label{cor:lp-board-chessboard}
+Let \(\Gamma=\bigoplus_{\mu=1}^4N_\mu\mathbb Z e_\mu\), where
+the positive integers \(N_\mu\) are the coordinate periods. Tile
+\(\mathbb Z^4/\Gamma\) by congruent axis-aligned cells whose width
+in direction \(\mu\) divides \(N_\mu\), giving an even number
+\(n_\mu\) of cells in that direction. Place their faces at
+coordinate bond cuts. A cell function depends only on links wholly within that cell.
+Let \(N=\prod_\mu n_\mu\), and define the chessboard seminorm of
+a cell function by
+\[
+ p_\Gamma(F)=\mu_\Gamma\!\left(\prod_C F^{[C]}\right)^{1/N},
+\]
+where the copies are disseminated in the four coordinate directions.
+For bounded complex Borel cell functions \(F_C\),
+\begin{equation}\label{eq:lp-board}
+ \left|\mu_\Gamma\left(\prod_C F_C\right)\right|
+        \le\prod_Cp_\Gamma(F_C).
+\end{equation}
+Moreover \(p_\Gamma(1)=1\), \(p_\Gamma(\bar F)=p_\Gamma(F)\),
+and \(p_\Gamma\) is absolutely homogeneous and subadditive.
+\end{corollary}
+
+\begin{proof}
+Apply Lemma~\ref{lem:lp-chessboard} first to the products in the
+slabs of direction one. Each resulting expectation is the
+dissemination of one such slab. Regroup its factors by their
+slabs in direction two and apply the same lemma. Reflections
+in distinct directions commute, and conjugating a product
+conjugates its factors. Thus the second step copies the previous
+pattern in the second direction, with the product of the two
+root exponents. Repeat in directions three and four.
+Each original cell then has exponent \(1/N\).
+The fully disseminated expectation is nonnegative by splitting
+at any pair of opposite faces. Exactly half the copies are
+conjugated, giving absolute homogeneity. Conjugating the entire
+nonnegative expectation gives the conjugation identity.
+Expand the dissemination of \(F+G\). Applying \eqref{eq:lp-board}
+to each term gives the binomial bound
+\((p_\Gamma(F)+p_\Gamma(G))^N\). Taking the root proves subadditivity.
+\end{proof}
+
+\begin{lemma}[Gibbs lower tangent]\label{lem:lp-lower-tangent}
+Let \(Q\subset\mathbb Z^4\) have finite index and let \(A\) be a
+bounded real Borel local observable. Let \(\Gamma_i\subset Q\)
+have rectangular fundamental parallelepipeds \(D_i\) with all
+side lengths tending to infinity. Put
+\(\kappa=[\mathbb Z^4:Q]^{-1}\) and \(V_i=[\mathbb Z^4:\Gamma_i]\).
+Let \(Z_i(t)\) be the integral of the unnormalized Wilson weight
+multiplied by
+\(\exp(t\sum_{v\in Q/\Gamma_i}(\tau_vA)^{\Gamma_i})\), with the
+superscript denoting periodization of the observable.
+For every \(Q\)-invariant Wilson DLR state \(\nu\) and fixed real \(t\),
+\begin{equation}\label{eq:lp-lower-tangent}
+        V_i^{-1}\log\frac{Z_i(t)}{Z_i(0)}
+                 \ge t\kappa\,\nu(A)-o(1).
+\end{equation}
+The error is uniform in \(\nu\). The statement applies to the
+rectangular split tori in \eqref{eq:lp-split}, including diagonal
+normals.
+\end{lemma}
+
+\begin{proof}
+Take \(D_i\) half-open, so its lattice vertices represent the
+torus classes once. Let \(\mathcal L_i\) consist of the positive
+links based at those vertices. This identifies its Haar variables
+with the torus link variables. Since \(\Gamma_i\subset Q\), the
+points of \(Q\cap D_i\) represent \(Q/\Gamma_i\). Let \(W_i\)
+sum over those finitely many anchors whose translated source
+supports are strictly interior to the window. This convention
+also includes constant sources, whose supports are empty.
+With the exterior links \(\eta\) fixed, Jensen's inequality for
+the conditional Wilson law gives
+\[
+ \log\gamma_{\mathcal L_i}(e^{tW_i})(\eta)
+                        \ge t\gamma_{\mathcal L_i}W_i(\eta),
+\]
+The logarithm on the left is an open-boundary partition ratio.
+Away from a collar of fixed thickness the torus and open
+plaquette and source terms agree as functions of the common
+Haar variables. In the collar their absolute differences have
+sum at most \(C(\beta+|t|\|A\|_\infty)|\partial_R D_i|\), where
+\(|\partial_R D_i|\) counts the sites in a collar of thickness
+\(R\) on both sides of the boundary. Each plaquette term is
+bounded by \(2\beta\) and each fixed translated support has
+bounded incidence per link. Comparing the two numerators and
+denominators by these pointwise bounds gives the same order of
+error for the logarithmic ratios, uniformly in \(\eta\).
+
+There are \(\kappa V_i\) torus source copies, and all but
+\(O(|\partial_R D_i|)\) occur in \(W_i\).
+Integrating the Jensen bound against \(\nu\), the DLR equation
+and \(Q\)-invariance give
+\[
+ \nu(\gamma_{\mathcal L_i}W_i)=\nu(W_i)
+       =(\kappa V_i+O(|\partial_R D_i|))\nu(A).
+\]
+Finally \(V_i\) is the Euclidean volume of \(D_i\).
+Disjoint unit cubes centered at the collar lattice sites lie
+in a collar enlarged by a fixed constant, whose volume divided
+by \(V_i\) tends to zero as every side length tends to infinity.
+This also proves the claim for tilted rectangular boxes.
+\end{proof}
+
+\section{Bond reflections and a common period}\label{lp:sec-link-symmetry}
+
+The period of a periodic Gibbs state may initially depend on the state.
+The next theorem replaces it by a common period. The proof uses a
+perturbation of the finite transfer kernel to compare adjacent layers,
+then uses the conditional law to remove outer layers of an arbitrary
+finite observable.
+
+\begin{theorem}[Bond-reflection symmetry]\label{lp:thm-link-symmetry}
+At spacing \(a>0\) and coupling \(\beta>0\), every periodic Wilson
+DLR state is invariant under reflection in every coordinate bond
+mirror \(x_\mu=a(i+\tfrac12)\), where \(i\in\mathbb Z\). In particular it is
+invariant under all translations in \(2a\mathbb Z^4\).
+\end{theorem}
+
+Assume \(\beta>0\) throughout this section and fix one coordinate
+as time. Section~\ref{sec:lp-measures} proves
+gauge invariance of every Wilson DLR state. A reflected state has
+the same property, since reflection preserves the Wilson specification.
+
+\subsection{The transfer kernel}
+
+Let \(C\) be the convolution operator on \(L^2(G)\) with kernel
+\(w_\beta(uv^{-1})\). This kernel is real, symmetric, and at least
+\(e^{-2\beta}\). For each integer \(d\ge1\), let \(\Pi_d\) be the
+Peter--Weyl projection for the irreducible representation of dimension
+\(d\). Convolution by a central function acts by a scalar on each
+such space. The Haar class density \(2\sin^2 t/\pi\) and the
+character \(\sin(dt)/\sin t\) give
+\begin{equation}\label{eq:lp-convolution-spectrum}
+ C=\sum_{d\ge1}\lambda_d\Pi_d,\qquad
+ d\lambda_d=e^{-\beta}(I_{d-1}(\beta)-I_{d+1}(\beta)),\qquad
+ \lambda_d=\frac{2e^{-\beta}}{\beta}I_d(\beta)>0 .
+\end{equation}
+Here
+\[
+ I_n(\beta)=\frac1\pi\int_0^\pi e^{\beta\cos t}\cos(nt)\,dt
+     =\sum_{k\ge0}\frac{(\beta/2)^{n+2k}}{k!(n+k)!}.
+\]
+The series follows by expanding
+\(e^{(\beta/2)(e^{it}+e^{-it})}\). Integration by parts in
+\(\int_0^\pi e^{\beta\cos t}\sin t\sin(dt)\,dt\) gives the
+last equality in \eqref{eq:lp-convolution-spectrum}.
+The series bounds \(I_{n+1}/I_n\) by \(\beta/(2(n+1))\), while
+\[
+ \frac{I_n}{I_{n+1}}
+     =\frac{2(n+1)}{\beta}+\frac{I_{n+2}}{I_{n+1}}
+     \le C_\beta(1+n).
+\]
+Thus the ratios between indices of bounded distance grow at most
+polynomially in the indices. The factorial decay of \(\lambda_d\),
+with the polynomial dimensions and derivatives of the matrix
+coefficients, gives trace class operators \(C\) and \(C^{1/2}\) with
+smooth real symmetric kernels.
+
+For a finite set \(\mathcal B\) of positive spatial bonds use
+\(C_{\mathcal B}=\bigotimes_{e\in\mathcal B}C\). Its kernel is
+\[
+ C_{\mathcal B}(u,v)=\prod_{e\in\mathcal B}w_\beta(u_ev_e^{-1}).
+\]
+Simultaneous vertex gauge transformations preserve this kernel. Write
+\(\Pi_{\boldsymbol d}\) for the tensor projections and
+\(\lambda_{\boldsymbol d}=\prod_e\lambda_{d_e}\).
+For a polynomial \(f\) in matrix entries and their conjugates,
+define on smooth functions
+\begin{equation}\label{eq:lp-smooth-transfer}
+ \widehat f F
+ =\sum_{\boldsymbol d,\boldsymbol d'}
+   \frac{\lambda_{\boldsymbol d}}{\lambda_{\boldsymbol d'}}
+   \Pi_{\boldsymbol d'}M_f\Pi_{\boldsymbol d}F .
+\end{equation}
+The tensor-product rule for \(\operatorname{SU}(2)\) confines each
+coordinate difference \(|d_e-d'_e|\) to a bound determined by
+the degree of \(f\) in that bond. Thus each index has a bounded
+number of partners, and each displayed ratio grows at most
+polynomially. The coefficients of a smooth function decay faster than
+any power of the joint index, by applying powers of the Casimir in
+each group coordinate. The sup norm of a matrix-coefficient block
+and of each fixed derivative is bounded by its \(L^2\) norm times
+a polynomial in the indices. This follows from orthogonality, the
+block dimension, and differentiation in the finite-dimensional
+representations. The series therefore converges in every smooth norm
+and defines a continuous map on smooth functions. It also acts on
+smooth families in finitely many additional variables, because
+derivatives in those variables commute with each term and satisfy
+the same bounds.
+
+Multiplying the series by \(C_{\mathcal B}\) gives
+\(C_{\mathcal B}\widehat f=M_f C_{\mathcal B}\) on this domain.
+By symmetry of the kernel this is the pointwise identity
+\begin{equation}\label{eq:lp-kernel-transfer}
+ f(w)\int C_{\mathcal B}(v,w)F(v)\,dv
+     =\int C_{\mathcal B}(v,w)(\widehat fF)(v)\,dv .
+\end{equation}
+The spectral definition in \eqref{eq:lp-smooth-transfer} supplies
+the domain of this operation. In particular the proof uses no
+application of an unbounded convolution inverse to a general
+smooth function.
+
+Consider a cubic torus of integer side \(s\ge2\) in lattice units,
+and let \(\mathcal E\) be the spatial bonds in one layer. Let \(P_{\rm g}\)
+average over the vertex gauge group of that layer, and let \(M\)
+multiply by its spatial Wilson factor. Define the transfer operator by
+\[
+ T=P_{\rm g} C_{\mathcal E}^{1/2}M C_{\mathcal E}^{1/2}P_{\rm g}.
+\]
+It is positive and trace class. The gauge action preserves the spatial
+Wilson factor and commutes with the convolution, so both \(M\) and
+\(C_{\mathcal E}^{1/2}\) commute with \(P_{\rm g}\). Across a time step the
+two spatial arrays \(u,v\) and the time links \(g\) give the
+factor \(C_{\mathcal E}(u,g\cdot v)\). On the bond \((x,y)\)
+the corresponding time plaquette has product
+\(u_{xy}g_yv_{xy}^{-1}g_x^{-1}=u_{xy}((g\cdot v)_{xy})^{-1}\).
+Integrating \(g\) inserts
+the projection \(P_{\rm g}\), with no extra factor because Haar is
+normalized. The remaining cyclic kernel integral equals
+\(\operatorname{Tr}(T^s)\).
+
+Let \(\Xi\) be a bounded operator commuting with complex conjugation on
+\(L^2(G^{\mathcal B})\) of norm at most one, commuting with the
+vertex gauge action. Suppose \(C_{\mathcal B}^{1/2}\Xi
+C_{\mathcal B}^{1/2}\) has a continuous strictly positive kernel
+\(k_\Xi(u,v)\). Define the real local perturbation
+\begin{equation}\label{eq:lp-transfer-perturbation}
+ \phi_\Xi(u,v)=\log\frac{k_\Xi(u,v)}{C_{\mathcal B}(u,v)},
+\end{equation}
+where the two spatial arrays in the original field are compared
+after transporting the upper one by the intervening time links.
+The simultaneous gauge covariance makes this a gauge-invariant
+observable of the original bonds.
+
+Take a periodic DLR state \(\nu\) and choose \(m\mathbb Z^4\)
+in its period group, with \(m\) large enough that translates
+of the spatial block at a given time step are disjoint. Repeat
+\(\phi_\Xi\) at those anchors on tori with \(s\) a sufficiently
+large multiple of \(m\). At step \(j\), the modified crossing
+operator before time-link integration is
+\(C_{\mathcal E}^{1/2}\Xi_j C_{\mathcal E}^{1/2}\), where \(\Xi_j\)
+is the tensor product of the inserted contractions and identities
+on the other bonds. Each \(\Xi_j\) has norm at most one and
+commutes with \(P_{\rm g}\). The modified partition function is the trace of the
+cyclic product of \(M C_{\mathcal E}^{1/2}\Xi_j C_{\mathcal E}^{1/2}P_{\rm g}\).
+The trace formulas follow by splitting the cyclic integral into
+two Hilbert--Schmidt kernels. Cyclicity of the trace and
+commutation with \(P_{\rm g}\) rewrite the product as \(\Xi_1T\cdots\Xi_sT\)
+inside the trace. The Schatten H\"older inequality, with
+\(\|\cdot\|_{\mathfrak S_s}\) the Schatten \(s\)-norm, gives
+\begin{equation}\label{eq:lp-transfer-contraction}
+ 0<Z_s(\phi_\Xi)=\operatorname{Tr}(\Xi_1T\cdots\Xi_sT)
+ \le\prod_{j=1}^s\|\Xi_jT\|_{\mathfrak S_s}
+ \le\|T\|_{\mathfrak S_s}^s=Z_s(0).
+\end{equation}
+The positivity at the left comes from the kernels in the modified
+integral, and the final equality uses positivity of \(T\).
+Lemma~\ref{lem:lp-lower-tangent} with period \(m\mathbb Z^4\)
+now gives \(\nu(\phi_\Xi)\le0\).
+
+\subsection{The comparison of two adjacent layers}
+
+Let \(Y(u,v)\) be real and continuous on the two arrays of a finite
+spatial block \(\mathcal B\). Suppose it is invariant under a common
+vertex gauge and antisymmetric under exchange of the arrays.
+As in \eqref{eq:lp-transfer-perturbation}, transport the upper array
+by the intervening time links. This defines the local observable of
+the original bond field whose expectation is denoted by \(\nu(Y)\).
+We claim
+\begin{equation}\label{eq:lp-adjacent-antisymmetry}
+                           \nu(Y)=0 .
+\end{equation}
+First suppose \(K(u,v)=Y(u,v)C_{\mathcal B}(u,v)\) is a polynomial.
+It is the kernel of a finite-rank real skew-adjoint operator.
+Choose a finite sum of joint Peter--Weyl spaces containing the
+support in both kernel variables. On this space define
+\(D=C_{\mathcal B}^{-1/2}K C_{\mathcal B}^{-1/2}\), using the
+positive eigenvalues in \eqref{eq:lp-convolution-spectrum}, and
+extend by zero on the orthogonal complement. The extension is real,
+skew-adjoint and commutes with the vertex gauge action. Hence
+\(\Xi_\varepsilon=e^{\varepsilon D}\) is an isometry for either
+sign of the real parameter \(\varepsilon\). Its sandwiched kernel
+is \(C_{\mathcal B}+\varepsilon K+O_K(\varepsilon^2)\) uniformly,
+because the difference has finite spectral support. Strict
+positivity of \(C_{\mathcal B}\) admits the kernel when
+\(|\varepsilon|<\varepsilon_0(K)\). Here the remainder bound and
+the positive radius depend on the fixed polynomial kernel \(K\),
+as well as the fixed coupling and block. The logarithm in \eqref{eq:lp-transfer-perturbation}
+therefore gives \(\phi_{\Xi_\varepsilon}=\varepsilon Y+O_K(\varepsilon^2)\)
+uniformly. The pressure comparison at each fixed \(\varepsilon\)
+gives \(\varepsilon\nu(Y)\le C_K\varepsilon^2\).
+Let \(\varepsilon\) tend to zero through both signs.
+
+For general \(Y\), approximate \(Y C_{\mathcal B}\) uniformly by
+real matrix-coordinate polynomials. Average each approximant
+under the common vertex gauge group and take its antisymmetric
+part. Both operations preserve polynomiality and uniform convergence.
+Division by the strictly positive kernel yields functions to which
+the polynomial case applies, converging uniformly to \(Y\).
+This proves \eqref{eq:lp-adjacent-antisymmetry}.
+
+\subsection{Removing the outer layers}
+
+On a finite stack of layers \([j_-,j_+]\), write \(t_{j,x}\) for
+the time link from \((j,x)\) to \((j+1,x)\), and \(U_j\) for
+the spatial array of layer \(j\) transported to the lowest layer.
+Explicitly, at vertex \(x\) use
+\(g_{j,x}=t_{j_-,x}\cdots t_{j-1,x}\) and act on the spatial
+bonds by \(g_j\) at their endpoints. In these coordinates the
+time links of the stack are the identity. A gauge-invariant
+polynomial observable of the stack is therefore a polynomial of
+the transported spatial arrays invariant under a common vertex
+gauge. Only finitely many vertices are needed for any local test.
+
+At an interior layer \(j\), resample the original spatial bonds
+of a finite block \(\mathcal B\), conditioning on all other bonds.
+The time links are fixed in this resampling, so the substitution
+to the transported variables preserves Haar. With
+\(w=U_{j-1}|_{\mathcal B}\), \(v=U_j|_{\mathcal B}\) and
+\(w'=U_{j+1}|_{\mathcal B}\), the conditional density is proportional to
+\begin{equation}\label{eq:lp-layer-density}
+        C_{\mathcal B}(w,v)e^{-V(v;\eta)}
+                         C_{\mathcal B}(v,w')\,dv .
+\end{equation}
+The two kernels account for the time plaquettes through these
+spatial bonds. The potential \(V\) is \(\beta\) times the sum of
+the spatial plaquette actions meeting the block, and \(\eta\)
+denotes its same-layer exterior variables. This list exhausts
+the plaquettes in the finite-bond conditional density.
+
+For a polynomial \(f(w)\) and a smooth local factor \(\Phi\)
+depending on the transported variables from layer \(j\) upward,
+put
+\begin{equation}\label{eq:lp-single-elimination}
+ \Phi^\flat=
+ \frac{\widehat f_v\bigl[e^{-V(v;\eta)}C_{\mathcal B}(v,w')\Phi\bigr]}
+      {e^{-V(v;\eta)}C_{\mathcal B}(v,w')}.
+\end{equation}
+The denominator is positive on the compact variable space.
+The smooth transfer operation leaves \(\Phi^\flat\) smooth and
+confines its dependence to finitely many variables from layer
+\(j\) upward. The new support can include same-layer neighbours and
+the block in layer \(j+1\). The identity \eqref{eq:lp-kernel-transfer}
+in the conditional numerator of \eqref{eq:lp-layer-density}
+gives \(\nu(f(w)\Phi)=\nu(\Phi^\flat)\). The normalizing factor
+is the same on both sides of that conditional equality. The
+reflected construction removes the upper outer layer.
+
+Consider a stack of \(2k+2\) layers symmetric about a bond mirror,
+where \(k\ge1\). Express a real invariant polynomial of the
+stack as a sum of terms \(f(w)h(z)\Phi\), using the outer arrays
+\(w,z\) and a common finite spatial block. Write \(u,v\) for
+the first and last retained arrays. Applying the lower then
+the upper identity to a term gives the expectation of
+\begin{equation}\label{eq:lp-double-elimination}
+                 \Upsilon^{-1}\widehat f_u\widehat h_v
+                                      (\Upsilon\Phi).
+\end{equation}
+When \(u,v\) are nonadjacent, \(\Upsilon\) is the product of
+their spatial factors and their two kernels toward the interior.
+For adjacent \(u,v\), the lower removal divides by
+\(e^{-V(u;\eta)}C_{\mathcal B}(u,v)\). The upper conditional
+numerator multiplies by \(e^{-V(v;\eta')}C_{\mathcal B}(u,v)\)
+before \(\widehat h_v\) acts. The common kernel cancels in
+these outside factors. The remaining multipliers independent
+of the operator variables can be moved through the operators,
+which commute on the distinct arrays. Thus in this case
+\[
+             \Upsilon=e^{-V(u;\eta)}e^{-V(v;\eta')}
+                                   C_{\mathcal B}(u,v).
+\]
+This explains why the common kernel enters once. For a fixed block,
+the expression is linear on the tensor product of the two outer
+polynomial spaces and the inner smooth functions. These are spaces
+of functions on independent variables, so the expression respects
+any decomposition of the original polynomial into products.
+Reversing
+the order of the layers exchanges the two operator factors
+and preserves the corresponding \(\Upsilon\), including its
+neighbour variables. The two-sided elimination therefore
+commutes with reversal of the transported array.
+
+Average the output of \eqref{eq:lp-double-elimination} over a
+common vertex gauge on its finite set of spatial sites. Its
+expectation stays the same, since this action can be realized
+by ordinary gauge transformations at the lowest original
+layer. The averaged output no longer depends on the choice
+of lowest layer for temporal transport. Indeed, changing
+the base to the first retained layer applies one common
+gauge to all retained arrays. Under the original bond
+reflection the transported array is reversed and transformed
+by the common gauge \(g_{j_+}^{-1}\). Both statements follow
+by multiplying the temporal links in the corresponding
+order. Gauge invariance of the averaged output removes
+these common actions pointwise. We obtain a continuous
+gauge-invariant observable of the retained stack, with
+the same expectation as the original polynomial and with
+elimination commuting with the original reflection.
+
+\begin{proof}[Proof of Theorem~\ref{lp:thm-link-symmetry}]
+For a gauge-invariant polynomial on the two layers adjacent to
+the mirror, reflection exchanges the transported arrays up
+to a common gauge. The difference of the two values is
+antisymmetric and has zero expectation by
+\eqref{eq:lp-adjacent-antisymmetry}. For an invariant polynomial
+on \(2k+2\) layers, the two-sided identity and its reflected
+version reduce the expectation comparison to a continuous
+invariant function on \(2k\) layers. Matrix-coordinate
+polynomials are uniformly dense among continuous functions
+on the finite product of groups by Stone--Weierstrass.
+Averaging the approximants over the relevant vertex gauge
+group gives uniform density within the invariant functions.
+Induction on \(k\) therefore proves reflection invariance of
+the expectations of invariant continuous local tests.
+
+Every finite local support fits in a finite even stack symmetric
+about the fixed bond mirror. For a general continuous local test,
+average over the vertex gauges of its finite support. The state and its reflected
+state have the same expectations before and after this
+averaging. The averaged test is invariant, so the two
+states agree on continuous local tests. These determine the
+measure on the product space. The time direction and the
+bond mirror were arbitrary. Two consecutive parallel bond
+reflections compose to translation by two lattice steps,
+which gives the claimed common period in physical units.
+\end{proof}
+
+\section{Reflection positivity of periodic Gibbs states}
+\label{lp:sec-fold}
+
+Work in lattice units. By Theorem~\ref{lp:thm-link-symmetry},
+the periodic Wilson DLR states form the class \(\mathcal G_\beta^P\)
+of Wilson DLR states invariant under \(P=2\mathbb Z^4\). A folded
+source will produce states in this class that dominate the
+expectation of a prescribed local test.
+
+\begin{lemma}[Domination by a reflected state]\label{lp:lem-fold-domination}
+Fix \(\beta>0\) and an admissible coordinate or diagonal mirror
+with normal \(n\) and height \(c\). For every bounded real Borel
+function \(A\) of finitely many bonds and every
+\(\nu\in\mathcal G_\beta^P\), there is
+\(\rho\in\mathcal G_\beta^P\) with
+\(\rho(A)\ge\nu(A)\). The state \(\rho\) is invariant under
+\(\theta_c\) and reflection positive on continuous local functions
+of bonds in the closed positive half-space.
+\end{lemma}
+
+\begin{proof}
+Choose \(b\in P\) so that \(B=\tau_b A\) depends only on bonds strictly
+above the mirror. Such a shift exists because \(n\) has a coordinate
+equal to \(1\). Choose an even integer \(h>0\) large enough that
+the endpoints of those bonds lie below height \(c+H\), where
+\(w=hn\) and \(H=n\cdot w=h|n|^2\). Put
+\[
+ P_\parallel=P\cap n^\perp,\qquad
+ Q=P_\parallel\oplus\mathbb Zw,\qquad
+ Q_f=P_\parallel\oplus\mathbb Z(2w).
+\]
+These are subgroups of \(P\), with \(Q\) of finite index and
+\([Q:Q_f]=2\). The tangential lattice \(P_\parallel\) has an
+orthogonal integer basis. For a coordinate normal use the other
+three doubled coordinate vectors. For \(n=e_\mu\pm e_\lambda\)
+use \(2(e_\mu\mp e_\lambda)\) and the two doubled coordinate
+vectors outside that pair.
+
+Take the torus with period lattice
+\(\Gamma_{M,J}=JP_\parallel\oplus\mathbb Z(2Mw)\), for sufficiently
+large positive integers \(M,J\), and write \(\Gamma=\Gamma_{M,J}\).
+Choose this cofinal tail so that the explicit diagonal period bounds
+preceding Proposition~\ref{prop:lp-finite-rp} hold whenever needed.
+It has \(2M\) slabs of height \(H\) between faces \(c+kH\).
+All its side lengths tend to infinity as \(M,J\to\infty\).
+For a local function \(D\) write \(D^\Gamma\) for its evaluation
+on the periodic lift of a torus configuration. Consider the
+unfolded and folded sums
+\begin{align*}
+ S_{\rm u}
+   &=\sum_{v\in Q/\Gamma}(\tau_v B)^\Gamma,\\
+ S_{\rm f}
+   &=\sum_{v\in Q_f/\Gamma}
+      \left((\tau_v B)^\Gamma+
+            (\tau_v\theta_{c+H}B)^\Gamma\right).
+\end{align*}
+The first places translated copies in all slabs. The second
+places translated copies in the even slabs and reflected copies
+in the odd slabs. It is invariant under \(Q_f\) and all face
+reflections. In fact translations by \(2w\) and reflection at
+height \(c+H\) generate the normal action used to place its terms.
+
+Let \(Z_{\rm u}(t)\) and \(Z_{\rm f}(t)\) be the Wilson partition
+functions on this torus with added exponents \(tS_{\rm u}\) and
+\(tS_{\rm f}\), respectively. To apply Lemma~\ref{lem:lp-chessboard},
+use the slab function
+\[
+ f_k=\exp\!\left[t\sum_{v\in P_\parallel/JP_\parallel}
+                          (\tau_{v+kw}B)^\Gamma\right]
+\]
+in slab \(k\). Its dissemination is a normal translate of the
+folded weight. The unperturbed torus measure is invariant under
+that translation, so each disseminated partition function is
+\(Z_{\rm f}(t)\). The chessboard inequality gives
+\begin{equation}\label{lp:eq-fold-partition}
+                         Z_{\rm u}(t)\le Z_{\rm f}(t).
+\end{equation}
+The same finite comparison holds when \(B\) depends on bonds
+of the closed slab, including bonds on its faces: the slab
+chessboard lemma permits these shared variables and retains each
+source occurrence with its own slab index.
+For a test \(A\) straddling the mirror, the unfolded partition
+function of its repeated array equals \(Z_{\rm u}(t)\) by the
+global torus translation by \(b\).
+
+Let \(\mu_{\Gamma,t}\) denote the normalized folded measure,
+\(N_\Gamma=[\mathbb Z^4:\Gamma]\), and
+\(\kappa=[\mathbb Z^4:Q]^{-1}\). Define
+\[
+ p_\Gamma(t)=N_\Gamma^{-1}
+                \log\!\left(\frac{Z_{\rm f}(t)}{Z_{\rm f}(0)}\right).
+\]
+Finite-volume differentiation gives
+\(p_\Gamma'(t)=\kappa\mu_{\Gamma,t}(B^\Gamma)\). Indeed the
+\(\kappa N_\Gamma\) source terms all have the same mean by
+\(Q_f\) periodicity and reflection at height \(c+H\).
+Convexity and \(p_\Gamma(0)=0\) imply
+\(p_\Gamma(t)\le t p_\Gamma'(t)\) for \(t>0\).
+Apply Lemma~\ref{lem:lp-lower-tangent} to the unfolded array,
+using \(\Gamma\subset Q\subset P\). For every fixed \(t>0\),
+\begin{equation}\label{lp:eq-fold-pressure}
+ t\kappa\nu(B)-o(1)
+ \le N_\Gamma^{-1}\log\frac{Z_{\rm u}(t)}{Z_{\rm u}(0)}
+ \le p_\Gamma(t)
+ \le t\kappa\mu_{\Gamma,t}(B^\Gamma),
+\end{equation}
+where the error tends to zero as \(M,J\to\infty\).
+
+At each pair of opposite slab faces the folded exponent has the
+form \(E+\theta E\), with \(E\) its contribution from the slabs in
+one closed half and \(\theta\) the reflection exchanging the halves.
+Thus Proposition~\ref{prop:lp-finite-rp} gives reflection positivity
+of \(\mu_{\Gamma,t}\) at these faces, by inserting \(Fe^{E}\) in
+the unperturbed form. Its reflection invariance follows from the
+same decomposition and invariance of the unperturbed measure.
+
+At fixed \(0<t\le1\), apply Lemma~\ref{lem:lp-compactness} to
+the bounded finite-range folded interaction. A subsequence of
+\(\mu_{\Gamma,t}\) converges to a perturbed DLR state \(\rho_t\),
+with convergence of bounded Borel local expectations.
+The period \(Q_f\) and reflection invariance pass to the limit.
+Every continuous local test in the closed half-space of height
+at least \(c\) eventually lies in the corresponding torus half,
+so its positivity passes to \(\rho_t\). From
+\eqref{lp:eq-fold-pressure} we have \(\nu(B)\le\rho_t(B)\).
+
+Now let \(t\downarrow0\) along a weakly convergent subsequence
+of these states. On a fixed finite bond set, the added exponent
+in the conditional density is \(O(t)\) uniformly in the exterior.
+By Lemma~\ref{lem:lp-compactness}, the limit \(\rho\) is a Wilson
+DLR state and \(\rho_t(B)\) converges to \(\rho(B)\) on this
+subsequence. The state \(\rho\) retains \(Q_f\) periodicity and
+the stated reflection properties, and \(\nu(B)\le\rho(B)\).
+Theorem~\ref{lp:thm-link-symmetry} upgrades its period to \(P\).
+Both \(\rho\) and \(\nu\) are then invariant under the original
+shift \(b\), giving \(\nu(A)\le\rho(A)\). The volume limit was
+taken at fixed \(t\) to remove the error in
+\eqref{lp:eq-fold-pressure} before division by \(t\kappa\).
+\end{proof}
+
+\begin{samepage}
+\begin{theorem}[All admissible mirrors]\label{lp:thm-all-mirrors}
+At any fixed spacing \(a>0\) and coupling \(\beta\ge0\), every
+Wilson \(\operatorname{SU}(2)\) DLR state with a finite-index
+period subgroup is invariant under all lattice translations and
+signed coordinate permutations. It is invariant and reflection
+positive at each mirror
+\[
+ x_\mu=c,\quad c\in\tfrac a2\mathbb Z,\qquad
+ x_\mu\pm x_\lambda=c,\quad c\in a\mathbb Z,\quad\mu<\lambda .
+\]
+The reflection inequality holds for every bounded Borel function
+of the bonds whose endpoints lie in either closed half-space.
+\end{theorem}
+\end{samepage}
+
+\begin{proof}
+If \(\beta=0\), the DLR equation on each finite bond set forces
+its marginal to be product Haar. Hence the state is the unique
+product-Haar law. Permutation and inversion invariance of Haar
+give all the stated lattice symmetries. Condition on the links
+contained in the mirror. The remaining link sets of the two closed
+halves are disjoint and independent, and the reflection fixes each
+conditioned link. A link with exactly one endpoint on the mirror
+belongs to the remaining set on its side. At a bond cut the crossing
+links belong to neither half. Integrating them contributes one. The reflection form is therefore
+an integral of an absolute square. This proves positivity for
+continuous local tests, and Lemma~\ref{lem:lp-borel-rp} gives the
+Borel assertion.
+
+Assume \(\beta>0\). In lattice units put
+\(K=\mathcal G_\beta^P\). For a fixed
+mirror let \(K_c\) consist of the states in \(K\) invariant
+under \(\theta_c\) and positive on the continuous local tests
+of the closed positive half-space. The DLR and period equations
+are closed affine conditions on probability measures. They can
+be tested by continuous cylinder functions, which the Wilson
+conditional kernels preserve. Hence \(K\) is compact and convex.
+The reflection equations and positivity
+inequalities on the specified tests give a closed convex
+subset \(K_c\). It is nonempty by taking an unperturbed
+subsequential limit on the split tori.
+
+If \(\nu\in K\setminus K_c\), a weak neighborhood of \(\nu\)
+defined by finitely many real continuous local tests is
+disjoint from \(K_c\). Their joint moment vectors for
+\(K_c\) form a compact convex subset of Euclidean space that
+excludes the vector for \(\nu\). A strict separating linear
+functional on these vectors gives a real continuous local
+function \(A\) with \(\nu(A)>\sup_{\rho\in K_c}\rho(A)\).
+This contradicts Lemma~\ref{lp:lem-fold-domination}, so \(K=K_c\).
+
+Lemma~\ref{lem:lp-borel-rp} extends positivity to the bounded
+Borel algebras of both closed half-spaces.
+
+The mirror was arbitrary. Composing the site and bond reflections
+at heights \(0\) and \(1/2\) in a coordinate direction gives a
+unit translation. Site reflections through the origin give the
+coordinate sign changes, and reflection in \(x_\mu=x_\lambda\)
+gives the coordinate transpositions. These generate the stated
+symmetries. The dilation \(x\mapsto ax\) restores the physical
+spacing and the listed mirror heights.
+\end{proof}
+
+\section{Domination by finite chessboard seminorms}\label{lp:sec-board-domination}
+
+For the cutoff boards of the model, let \(L\ge3\) be odd,
+\(a=L^{-K}\), and let the fine board side be \(l=L^j\ge a\),
+with \(K\) a nonnegative integer and \(j\) an integer. The
+board faces cut lattice bonds in half. A cell function uses
+only bonds whose endpoints lie in the open cell. On a cubic
+torus of side \(\ell=2L^m\) with an integer \(m\ge\max(0,j)\), the
+board has \(N=(\ell/l)^4\) cells and an even number in every
+direction. Write \(p_{l,\ell}\) for the seminorm of
+Corollary~\ref{cor:lp-board-chessboard} on this board.
+Copies use conjugation with each orientation-reversing
+isometry. A cell function may be presented on any actual
+cell and transported to the reference cell to compute its
+seminorm. The result is the same if the reference cell is
+changed, by invariance of the torus measure and conjugation
+invariance of the seminorm.
+
+\begin{samepage}
+\begin{theorem}[Fixed-spacing chessboard domination]\label{thm:lp-board-domination}
+Fix \(\beta\ge0\), a periodic Wilson DLR state \(\rho\), and a
+finite collection of occupied cells with bounded complex Borel
+functions \(F_C\) on those cells. For every sequence of the
+compatible torus sides \(\ell_k\to\infty\),
+\begin{equation}\label{eq:lp-board-domination}
+ \left|\rho\!\left(\prod_C F_C\right)\right|
+    \le \liminf_{k\to\infty}\prod_C p_{l,\ell_k}(F_C).
+\end{equation}
+Only the occupied cells enter the products.
+\end{theorem}
+\end{samepage}
+
+\begin{proof}
+First let \(H\) be bounded, real and Borel on one cell. Enclose
+a board of side \(\ell\) in a cube with faces on the board
+faces, and sum the reflected copies of \(H\) over its cells.
+Denote the sum by \(W_\ell\). Theorem~\ref{lp:thm-all-mirrors}
+gives \(\rho(W_\ell)=N\rho(H)\).
+Write \(\gamma\) for the DLR conditional kernel on the positive
+bonds anchored at the lattice sites of the cube. Conditional
+Jensen gives
+\[
+               N\rho(H)\le \rho\bigl(\log\gamma(e^{W_\ell})\bigr).
+\]
+Identify the anchored bonds with the torus bonds by reducing
+their anchors modulo the period. The conditional interaction
+and the torus action agree off a boundary layer. They differ
+in at most \(C(\ell/a)^3\) plaquette terms, uniformly in the
+outside configuration. The source copies use only bonds in
+open cells, so their sum is the same function of the integrated
+bonds in both integrals. Comparing the numerator and
+denominator of the conditional exponential moment gives
+\begin{equation}\label{eq:lp-board-jensen}
+ \rho(H)\le \log p_{l,\ell}(e^H)
+                   +C\beta\frac{l^4}{a^3\ell}.
+\end{equation}
+The error is divided by the number of cells. The comparison
+uses bounded plaquette actions and holds at fixed \(a,\beta,l\).
+
+For a bounded real cell function \(G\), take
+\(H=\log(1+tG)\) with \(t\|G\|_\infty<1/2\) and \(t>0\).
+Then \(\rho(H)\ge t\rho(G)-Ct^2\|G\|_\infty^2\).
+The seminorm triangle inequality and \(p_{l,\ell}(1)=1\) give
+\[
+ \log p_{l,\ell}(1+tG)\le t p_{l,\ell}(G).
+\]
+Insert these in \eqref{eq:lp-board-jensen}. Take the lower
+limit along the prescribed sequence at each fixed \(t\) and
+then send \(t\) to zero. This proves
+\(\rho(G)\le\liminf_k p_{l,\ell_k}(G)\).
+For a complex cell function \(F\), choose a real phase
+\(\varphi\) so that \(\rho(\operatorname{Re}(e^{-i\varphi}F))
+=|\rho(F)|\). Homogeneity, the triangle inequality and
+\(p(\overline F)=p(F)\) bound the seminorm of this real part
+by \(p(F)\). We have proved \eqref{eq:lp-board-domination}
+for a single cell.
+
+For a finite collection of cells, choose an origin for the
+coarse board on fine-board faces. Choose its allowed side
+\(l'=L^r l\), with an integer \(r\ge1\) large enough that one coarse
+cell contains all occupied fine cells strictly inside.
+The coarse origin can be shifted independently of the fine
+origin. The coarse faces are fine-board faces. The
+coarse board is compatible with every sufficiently large
+torus in the chosen sequence. The product \(G=\prod_C F_C\)
+is one bounded complex function on the coarse cell.
+Disseminate \(G\) on the coarse board. Every copied fine
+factor is transported by an element of the fine-board
+reflection group, since reflections in coarse faces belong
+to that group. Its fine seminorm is therefore the seminorm
+of the original factor. Each occupied-cell factor occurs
+once in every coarse copy. The fine-board chessboard bound,
+followed by the root for the number of coarse cells, yields
+\[
+                p_{l',\ell}(G)\le\prod_C p_{l,\ell}(F_C).
+\]
+Apply the one-cell bound to \(G\) on the coarse board and
+take the lower limit to conclude.
+\end{proof}
+
+\begin{thebibliography}{Ba87}
+\small
+\bibitem[Ba87]{Bal87}
+T.~Ba{\l}aban, \emph{Renormalization group approach to lattice gauge
+field theories. I. Generation of effective actions in a small field
+approximation and a coupling constant renormalization in four
+dimensions}, Comm. Math. Phys. \textbf{109} (1987), 249--301.
+\href{https://doi.org/10.1007/BF01215223}{doi:10.1007/BF01215223}.
+\end{thebibliography}
+\end{document}
