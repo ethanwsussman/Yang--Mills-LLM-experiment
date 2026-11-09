@@ -1,0 +1,2657 @@
+\documentclass[11pt,letterpaper,reqno]{amsart}
+% BEGIN INLINE manuscript-style
+\makeatletter
+\NeedsTeXFormat{LaTeX2e}[2020/10/01]
+% Use with \documentclass[11pt,letterpaper,reqno]{amsart}.
+% This file controls presentation only. It supplies no mathematical content.
+
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern}
+\RequirePackage{microtype}
+\RequirePackage[letterpaper,margin=1in,headheight=15pt]{geometry}
+\RequirePackage{amsmath,amsthm,amssymb,mathtools}
+\RequirePackage{enumitem}
+\RequirePackage{perpage}
+\RequirePackage{longtable}
+\RequirePackage{xcolor}
+\definecolor{manuscriptred}{rgb}{0.6,0.1,0.1}
+\definecolor{manuscriptblue}{rgb}{0.1,0.3,0.5}
+\definecolor{manuscriptmagenta}{HTML}{60445C}
+\RequirePackage[breaklinks=true,colorlinks=true,
+  linkcolor=manuscriptred,citecolor=manuscriptblue,urlcolor=manuscriptmagenta]{hyperref}
+\RequirePackage{cleveref}
+\hypersetup{pdfauthor={}}
+
+% Retain the AMS paragraph, title, heading and running-head conventions.
+% Equation counters restart each section: 2.i, 2.ii, ... .
+% Appendix sections keep their letters: A.i, A.ii, ... .
+\numberwithin{equation}{section}
+\renewcommand{\theequation}{\thesection.\roman{equation}}
+% Prose references include "eq." and omit parentheses around the number.
+\renewcommand{\eqref}[1]{\textup{eq.~\ref{#1}}}
+\crefname{equation}{eq.}{eqs.}
+\Crefname{equation}{eq.}{eqs.}
+\creflabelformat{equation}{#2#1#3}
+\setcounter{tocdepth}{1}
+\renewcommand{\thefigure}{\Roman{figure}}
+\renewcommand{\thetable}{\Roman{table}}
+\newcommand{\gineedspace}[1]{\par\begingroup
+  \dimen0=\pagegoal\advance\dimen0 by-\pagetotal
+  \ifdim\dimen0<#1\relax\newpage\fi\endgroup}
+\MakePerPage{footnote}
+\renewcommand{\thefootnote}{%
+  \ifnum\value{footnote}>9\arabic{footnote}\else\fnsymbol{footnote}\fi}
+
+% Upright statements. Main results are A, B, C; supporting statements
+% share a section-local sequence. These end marks indicate typography,
+% never proof completeness, validation, or a deferred-proof status.
+\theoremstyle{definition}
+\newtheorem{ms@theorem}{Theorem}
+\renewcommand{\thems@theorem}{\Alph{ms@theorem}}
+\newtheorem*{ms@theoremstar}{Theorem}
+\newtheorem*{ms@theoremzero}{Theorem 0}
+\newtheorem{ms@proposition}{Proposition}[section]
+\newtheorem{ms@lemma}[ms@proposition]{Lemma}
+\newtheorem{ms@definition}[ms@proposition]{Definition}
+\newtheorem{ms@corollary}[ms@proposition]{Corollary}
+\newtheorem*{ms@corollarystar}{Corollary}
+
+\newcommand{\ms@majorstart}{%
+  \pushQED{\qed}\renewcommand{\qedsymbol}{$\blacksquare\square$}}
+\newcommand{\ms@minorstart}{%
+  \pushQED{\qed}\renewcommand{\qedsymbol}{$\blacksquare$}}
+\newenvironment{theorem}[1][]{\ms@majorstart\ms@theorem[#1]}
+  {\popQED\endms@theorem}
+\newenvironment{theorem*}[1][]{\ms@majorstart\ms@theoremstar[#1]}
+  {\popQED\endms@theoremstar}
+\newenvironment{theoremzero}[1][]{\ms@majorstart\ms@theoremzero[#1]}
+  {\popQED\endms@theoremzero}
+\newenvironment{proposition}[1][]{\ms@minorstart\ms@proposition[#1]}
+  {\popQED\endms@proposition}
+\newenvironment{lemma}[1][]{\ms@minorstart\ms@lemma[#1]}
+  {\popQED\endms@lemma}
+\newenvironment{definition}[1][]{\ms@minorstart\ms@definition[#1]}
+  {\popQED\endms@definition}
+\newenvironment{corollary}[1][]{\ms@majorstart\ms@corollary[#1]}
+  {\popQED\endms@corollary}
+\newenvironment{corollary*}[1][]{\ms@majorstart\ms@corollarystar[#1]}
+  {\popQED\endms@corollarystar}
+% The source's lemma/proposition variants are deliberately not carried over:
+% choose one marker for each statement type rather than encode proof status.
+
+\theoremstyle{remark}
+\newtheorem{remark}[ms@proposition]{Remark}
+\newtheorem*{remark*}{Remark}
+% The ordinary amsthm proof environment retains its open square.
+
+\crefname{ms@theorem}{theorem}{theorems}
+\Crefname{ms@theorem}{Theorem}{Theorems}
+\crefname{ms@proposition}{proposition}{propositions}
+\Crefname{ms@proposition}{Proposition}{Propositions}
+\crefname{ms@lemma}{lemma}{lemmas}
+\Crefname{ms@lemma}{Lemma}{Lemmas}
+\crefname{ms@definition}{definition}{definitions}
+\Crefname{ms@definition}{Definition}{Definitions}
+\crefname{ms@corollary}{corollary}{corollaries}
+\Crefname{ms@corollary}{Corollary}{Corollaries}
+\crefname{remark}{remark}{remarks}
+\Crefname{remark}{Remark}{Remarks}
+
+% Bibliography configuration for this manuscript.
+\makeatother
+% END INLINE manuscript-style
+
+
+\title[Gaussian block integration]{Gaussian block integration and free action-density correlations}
+\date{Working draft, 9 November 2026}
+\begin{document}
+\raggedbottom
+\begin{abstract}
+We derive Gaussian integration on prescribed linear averaging fibres,
+with physical measures and residual gauge factors. The constrained
+minimizer, fluctuation covariance and effective action compose under
+successive block integrations. Fixed real coordinate integrals admit
+complex covariance parameters with coherent determinant branches,
+local moment bounds and a cost determined by the selected coordinates.
+For the flat four-dimensional curvature we compute the separated
+action-density correlations and compare their lattice and continuum
+kernels on a uniform class of separated tests. The quadratic data are
+given; nonlinear background admission and interacting comparisons are
+separate inputs.
+\end{abstract}
+\maketitle
+\tableofcontents
+
+\section{Introduction}
+
+Block integration separates a field into the minimizer with its
+prescribed average and a fluctuation with zero average. At the
+quadratic level this is an exact Gaussian decomposition. Its
+normalization depends on the constraint measure and, in a gauge
+theory, on the coordinates used along residual gauge directions.
+Those factors must be retained when integrations are composed or a
+gauge is changed.
+
+We first prove the finite-dimensional constrained formula and its
+composition law. The proof needs positivity on the constrained
+space, not on every direction of the ambient field space. We then
+identify the coarea and gauge determinants in physical coordinates.
+The complex integral is defined on fixed real coordinates, with a
+determinant logarithm continued from a positive real form. This
+permits fixed measurable cutoffs and gives estimates depending on
+the selected dimension. A real Gaussian restricted by convex
+coordinate tests has separate conditional and flux identities.
+
+The last part concerns the free curvature in four dimensions.
+Its separated Wick contractions have an explicit positive
+two-point coefficient. We keep the finite-lattice contact term,
+the periodic zero mode and the errors from mesh, volume and
+coarse conditioning. Continuum cancellations are stated at their
+actual scope; they are not exact assertions about every finite
+lattice. The continuum Wick-square notation describes separated
+correlation limits, not a claimed ultraviolet limit of each
+individual random observable.
+
+The Gaussian block transform and its constrained shift occur in
+\cite[\S\S A--B, D]{Bal84a}; mixed-scale constraints are treated
+in \cite[\S A]{Bal84b}. The background-field covariance is
+constructed in \cite[\S E, Theorem~3.15]{Bal85p}. We use the
+averaging geometry of \cite{BA} and the specified linear inverse,
+coercivity and local matrix estimates of \cite{MB}. The proofs
+below give the finite measure identities and free-density
+comparisons in the conventions stated here. They do not identify
+an interacting measure with the free model.
+
+In a physical application the complete constrained Hessian includes
+the multiplier paired with the second derivative of the constraint.
+Its identification and the admission of a nonlinear critical
+background must be supplied. Nonquadratic action, nonconstant
+Haar and chart factors, and interacting cutoff corrections are
+outside the present Gaussian calculation.
+
+\section{A Gaussian integral with a linear constraint}
+\label{gi:sec-real-gaussian}
+
+Let \(E,F\) be finite-dimensional real Hilbert spaces. We use
+the Lebesgue measure of their orthonormal coordinates, including
+the physical weights when the spaces are lattice fields. The
+adjoint for these pairings is \(Q^*\). On a complexification
+we continue it by bilinear transpose. Determinants on the zero
+space and the mass of its Lebesgue measure are one.
+
+For $\operatorname{SU}(2)$ we use traceless Hermitian Lie
+coordinates with real pairing
+$\langle X,Y\rangle=\tfrac12\operatorname{tr}(XY)$.
+The Pauli matrices are then an orthonormal real basis.
+
+Let \(Q:E\to F\) be onto and put \(K=\ker Q\), with its
+induced inner product and inclusion \(\iota_K:K\to E\).
+Write \(J_Q=(\det QQ^*)^{1/2}\). For every \(b\in F\)
+define the measure \(d\nu_{Q,b}\) on \(Q^{-1}(b)\) as
+\(J_Q^{-1}\) times its induced Lebesgue measure. We use
+\(\delta_F(Qx-b)\,dx\) for this measure. Indeed the
+orthogonal right inverse \(Q^*(QQ^*)^{-1}\) maps \(F\)
+to \(K^\perp\) with volume factor \(J_Q^{-1}\). This
+proves the coarea formula with \(db\) the declared Lebesgue
+measure of \(F\). Replacing that right inverse by any
+other right inverse adds a shear into \(K\) and preserves
+the volume factor. If \(S:F\to F'\) is an isomorphism,
+then \(d\nu_{SQ,Sb}=|\det S|^{-1}d\nu_{Q,b}\), since the
+fibre is the same and \(J_{SQ}=|\det S|J_Q\).
+
+For a symmetric precision \(T:E\to E\) put \(T_K=\iota_K^*T\iota_K\).
+If \(T_K>0\), write
+\[
+ I(T,Q;b)=\int_E e^{-\langle x,Tx\rangle/2}\,d\nu_{Q,b}(x),
+ \qquad I(T,Q)=I(T,Q;0).
+\]
+The constrained shift and the normalization below are the finite
+linear algebra of the block transform in \cite[\S D, eqs.~(1.64)--(1.65)]{Bal84a}.
+
+\begin{theorem}[Constrained minimizer and fluctuation law]
+\label{gi:thm-constrained-gaussian}
+Suppose that \(Q:E\to F\) is onto, \(T=T^*\), and \(T_K>0\).
+There is a unique linear map \(H:F\to E\) with
+\[
+ QH=I_F,\qquad \iota_K^*TH=0 .
+\]
+For \(Qx=b\), the minimum of \(\langle x,Tx\rangle/2\)
+is attained uniquely at \(Hb\) and equals
+\(\langle b,\Sigma b\rangle/2\), where \(\Sigma=H^*TH\).
+Let \(C=\iota_KT_K^{-1}\iota_K^*\) and let \(\gamma_C\)
+be the probability law on \(E\) of the centred Gaussian
+on \(K\) with covariance \(T_K^{-1}\). Then for each
+real \(b\) and bounded Borel \(\varphi:E\to\mathbb C\),
+\begin{equation}\label{gi:eq-constrained-gaussian}
+ \int_E \varphi(x)e^{-\langle x,Tx\rangle/2}\,d\nu_{Q,b}(x)
+     = I(T,Q)e^{-\langle b,\Sigma b\rangle/2}
+                            \int_E\varphi(Hb+u)\,d\gamma_C(u).
+\end{equation}
+The same identity holds for absolutely integrable \(\varphi\).
+With \(m=\dim F\), the zero-fibre constant is
+\begin{equation}\label{gi:eq-saddle-det}
+ \begin{aligned}
+ I(T,Q)&=(2\pi)^{\dim K/2}(\det T_K)^{-1/2}J_Q^{-1}
+         =(2\pi)^{\dim K/2}|\det\mathbb S(T,Q)|^{-1/2},\\
+ \det\mathbb S(T,Q)&=(-1)^m J_Q^2\det T_K,\qquad
+ \mathbb S(T,Q)=
+        \begin{pmatrix}T&Q^*\\Q&0\end{pmatrix}.
+ \end{aligned}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+For a right inverse \(L_Q\) of \(Q\), the map
+\[
+ H=L_Q-\iota_K T_K^{-1}\iota_K^*TL_Q
+\]
+is still a right inverse and satisfies \(\iota_K^*TH=0\).
+A difference of two such maps takes values in \(K\), where
+the vanishing equation forces that difference to be zero.
+Writing \(x=Hb+u\), \(u\in K\), removes the cross term in
+the precision. The remaining quadratic form in \(u\) is
+positive. This proves the minimizer and the effective
+quadratic action. Coarea gives \(J_Q^{-1}du\) on the
+fibre in these coordinates. Diagonalization of \(T_K\)
+and the one-dimensional Gaussian integral give the first
+line of \eqref{gi:eq-saddle-det} and the probability law
+in \eqref{gi:eq-constrained-gaussian}.
+
+Use the linear isomorphism
+\((u,b,\lambda)\mapsto(\iota_Ku+Hb,\lambda)\)
+on the two spaces of the saddle. Its absolute determinant is
+\(J_Q^{-1}\). The saddle form in these coordinates is the
+direct sum of \(T_K\) and
+\(\begin{pmatrix}\Sigma&I_F\\I_F&0\end{pmatrix}\).
+Exchanging the latter two block columns makes this matrix
+block triangular with identity diagonal and contributes
+the sign \((-1)^m\). This proves the determinant identity.
+\end{proof}
+
+The saddle is invertible and its inverse in the original
+physical pairings is
+\begin{equation}\label{gi:eq-saddle-inverse}
+             \mathbb S(T,Q)^{-1}
+                      =\begin{pmatrix}C&H\\H^*&-\Sigma\end{pmatrix}.
+\end{equation}
+In fact \(Tx+Q^*\lambda=f\), \(Qx=b\) first gives \(x=Cf+Hb\)
+by testing on \(K\). Applying \(H^*\) to the first equation
+then gives \(\lambda=H^*f-\Sigma b\). Adding a row quadratic
+term \(Q^*A Q\), \(A=A^*\), leaves \(H,C,I(T,Q)\) unchanged
+and replaces \(\Sigma\) by \(\Sigma+A\).
+
+When \(T>0\) on all of \(E\), set \(G_0=T^{-1}\).
+The equality \(TH=Q^*\Sigma\) follows from stationarity and
+the fact that \(\operatorname{ran}Q^*=K^\perp\). Applying
+\(QG_0\) gives
+\begin{equation}\label{gi:eq-positive-schur}
+ \Sigma=(QG_0Q^*)^{-1},\qquad
+ H=G_0Q^*\Sigma,\qquad C=G_0-HQG_0 .
+\end{equation}
+For the last formula the right side takes values in \(K\)
+and its product with \(\iota_K^*T\) is \(\iota_K^*\).
+These two properties characterize \(C\). A Gaussian of covariance \(G_0\)
+therefore decomposes as \(Hb+u\), where \(b\) has covariance
+\(\Sigma^{-1}\), \(u\) has law \(\gamma_C\), and the two
+variables are independent. This follows by integrating
+\eqref{gi:eq-constrained-gaussian} in \(b\). The constrained
+formula requires only the positive restriction \(T_K\).
+
+\section{Successive constraints}
+\label{gi:sec-successive}
+
+Let \(M:E\to F\) and \(N:F\to G\) be onto. Here \(G\) is
+a third real Hilbert space with its declared Lebesgue measure.
+For \(T=T^*\) positive on \(\ker(NM)\), use \(H_M,C_M,\Sigma_M\)
+for the operators of \cref{gi:thm-constrained-gaussian}
+with \((T,M)\). For the second step use \(H_N,C_N,\Sigma_N\)
+with \((\Sigma_M,N)\). These exist: \(T\) is positive on
+\(\ker M\), and \(H_M b\) is a nonzero vector in \(\ker(NM)\)
+for every \(b\ne0\) in \(\ker N\). Thus \(\Sigma_M\) is
+positive on \(\ker N\).
+
+\begin{proposition}[Gaussian composition]
+\label{gi:prop-successive}
+Under these hypotheses the operators for \((T,NM)\) satisfy
+\begin{equation}\label{gi:eq-composed-gaussian-operators}
+ H_{NM}=H_M H_N,\qquad
+ C_{NM}=C_M+H_M C_N H_M^*,\qquad
+ \Sigma_{NM}=\Sigma_N .
+\end{equation}
+For every \(c\in G\) and every bounded Borel test
+\(\varphi:E\to\mathbb C\),
+\begin{align}
+ &\int_E\varphi(x)e^{-\langle x,Tx\rangle/2}\,d\nu_{NM,c}(x)\notag\\
+ &\qquad=I(T,M)I(\Sigma_M,N;c)\,
+        \mathbb E\bigl[\varphi(H_MH_Nc+U+H_M V)\bigr],
+ \label{gi:eq-successive-tested}
+\end{align}
+where \(U,V\) are independent with laws \(\gamma_{C_M}\)
+and \(\gamma_{C_N}\). In particular
+\begin{equation}\label{gi:eq-successive-normalizers}
+                     I(T,NM)=I(T,M)I(\Sigma_M,N).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Write \(x=u+H_M(v+H_Nc)\), where \(u\in\ker M\)
+and \(v\in\ker N\). With \(c\) free this is an
+isomorphism onto \(E\) of absolute determinant
+\(J_M^{-1}J_N^{-1}\), by the two coarea changes.
+At \(c=0\) it maps the first two slots onto \(\ker(NM)\).
+The last slot is a right inverse to \(NM\), so the
+product \(J_M^{-1}J_N^{-1}\,du\,dv\) is exactly
+\(d\nu_{NM,c}\) in these coordinates for every \(c\).
+The precision in them is
+\[
+ \langle x,Tx\rangle
+  =\langle u,Tu\rangle+\langle v,\Sigma_Mv\rangle
+                                  +\langle c,\Sigma_Nc\rangle
+\]
+by the two stationarity equations. Thus \(u=v=0\) is
+the unique minimum on each fibre and the two centred
+Gaussian factors are independent. Applying the
+single-fibre normalization to them gives
+\eqref{gi:eq-successive-tested}. Computing the covariance
+of \(U+H_MV\) proves the middle identity in
+\eqref{gi:eq-composed-gaussian-operators}. Taking the
+constant test and \(c=0\) proves the product.
+\end{proof}
+
+For any finite chain of onto constraints, assume positivity on
+the kernel of their total composition. Use the composite of
+the remaining maps as \(N\) in \cref{gi:prop-successive}.
+The effective precision of the first step is then positive on
+the kernel of that remaining composite. Induction gives the
+successive law for all the stages. A second-stage
+quadratic weight on \(Mx\) can be included by adding it
+to \(\Sigma_M\). For example, suppose that the supplied
+complete first-stage Hessian is \(B_1\) and its lift \(H\)
+satisfies \(MH=I\) and \(\iota_{\ker M}^*B_1H=0\).
+Suppose that the first-stage gauge coordinate \(G_1\)
+satisfies \(G_1H=0\). If the supplied total form is
+\[
+ B_1+G_1^*G_1+M^*(A_2+G_2^*G_2)M,
+\]
+the first-step restricted precision is
+\((B_1+G_1^*G_1)|_{\ker M}\) as a quadratic form.
+The second-step precision is \(H^*B_1H+A_2+G_2^*G_2\).
+Positivity on the respective integration kernels permits
+\eqref{gi:eq-successive-normalizers}. This is the algebraic
+composition for a prescribed gauge and Hessian splitting.
+
+The corresponding identity for logarithms uses the same
+reference at both stages. If the first factor is evaluated
+at preceding data \(p(z)\) and the second at \(z\), define
+each normalized logarithm by subtracting its value at
+\(p(z_*)\) or \(z_*\), respectively. The total normalized
+logarithm is then the sum of the first evaluated at
+\(p(z)\) and the second at \(z\). This follows by applying
+\eqref{gi:eq-successive-normalizers} at \(z\) and \(z_*\).
+Any constant measure factor cancels in that difference.
+
+\subsection{The flat curvature slices}
+\label{gi:sec-free-slices}
+
+Fix an odd blocking factor \(L\ge3\) and a nonnegative integer \(K\)
+of levels. Use a periodic hierarchy in which each fine
+period is divisible by \(L^K\) and has at least two sites
+at level \(K\), as in the admitted geometry of \cite{BA,MB}.
+Let \(\mathcal E=\operatorname{ran}\mathrm d\) be the exact
+fine two-cochains on a compatible homogeneous periodic
+lattice, with the counting Hilbert pairing on raw
+plaquette fluxes. Write \(Q_j^{\rm pl}\) and \(Q_j^{\rm st}\)
+for the composed plain and straight link rows at the identity
+in raw link coordinates. Write \(\mathrm d_j\) for the
+coboundary at level \(j\), with \(\mathrm d=\mathrm d_0\).
+Let \(\mathcal R_j\) be the actual
+level-\(j\) sheet average on \(\mathcal E\), with
+\(\mathcal R_0=I\). In raw flux units, for a coarse plaquette
+\(P\) based at \(y\), this average is
+\[
+ (\mathcal R_j F)(P)=L^{-4j}
+   \sum_{z\in B^j(y)}\ \sum_{p\in\operatorname{Sq}^j(z;P)} F(p).
+\]
+Here \(B^j(y)\) is the level-\(j\) block of \(L^{4j}\)
+fine sites, and \(\operatorname{Sq}^j(z;P)\) is the square
+of \(L^{2j}\) oriented fine plaquettes parallel to \(P\),
+translated to start at \(z\). Multiplicities are retained
+under periodic projection. Put \(W_j=\mathcal E\ominus\ker\mathcal R_j\)
+and denote by \(P_j\) the orthogonal projection onto \(W_j\),
+extended by zero on \(\mathcal E^\perp\). In particular
+\(P_0=P_{\rm ex}\), the exact-form projection.
+The sheet composition and deterministic projection identities
+are given in \cite[The deterministic curvature slices]{MB}.
+For the hard constraints fix the internal coordinate spanning
+tree rooted at the center of each block, as in
+\cite[Kernel of a flat curvature slice]{MB}.
+
+\gineedspace{18\baselineskip}
+\begin{proposition}[Independent curvature slices]
+\label{gi:prop-free-slices}
+Let \(F_{\rm free}\) be the centred Gaussian with covariance
+\(g^2P_{\rm ex}\), \(g>0\). Its conditional mean given
+\(\mathcal R_jF_{\rm free}\) is \(P_jF_{\rm free}\), the
+least-norm exact cochain with that datum. The decomposition
+\begin{equation}\label{gi:eq-free-slices}
+ F_{\rm free}=P_KF_{\rm free}+
+                    \sum_{j=1}^K(P_{j-1}-P_j)F_{\rm free}
+\end{equation}
+has independent centred terms, with covariances \(g^2P_K\)
+and \(g^2(P_{j-1}-P_j)\). At step \(j\), take the
+intermediate link fields whose next straight block average
+\(S_La\) is zero and whose prescribed internal spanning-tree links
+are zero. Parametrize this subspace by its remaining
+nonpivot variables. If \(B_j\) sends these variables to
+their least-norm fine curvature, and \(A_j=B_j^*B_j\) is the restricted
+unit-coupling step precision in those variables, the precision
+at coupling \(g\) is \(g^{-2}A_j\). Its fluctuation covariance
+pushes forward to
+\[
+            B_j(g^2 A_j^{-1})B_j^*
+                        =g^2(P_{j-1}-P_j).
+\]
+\end{proposition}
+
+\begin{proof}
+Use the orthogonal split
+\(\mathcal E=W_j\oplus\ker\mathcal R_j\).
+The two Gaussian components are independent since the
+law on \(\mathcal E\) has scalar covariance. The restriction
+of \(\mathcal R_j\) to \(W_j\) is one-to-one and onto the
+range of \(\mathcal R_j\), so the datum fixes the first
+component. The second is centred. Orthogonality gives
+the asserted minimum. At the identity, the plain and
+straight link derivatives differ by a coarse gradient;
+their coarse coboundaries therefore agree. The exact
+flux formula in \cite[The flat derivative and its curl]{BA}
+gives, for both raw link rows,
+\begin{equation}\label{gi:eq-plain-straight-flux}
+ \mathrm d_j Q_j^{\rm pl}=\mathrm d_j Q_j^{\rm st}
+                         =\mathcal R_j\mathrm d .
+\end{equation}
+Thus observing either averaged link field modulo
+closed cochains gives the same conditioning, since the
+coarse coboundary identifies that quotient with the
+exact coarse cochains.
+
+The ranges \(W_j\) are nested by sheet composition.
+The successive differences of their projections are
+orthogonal projections with pairwise orthogonal ranges.
+Their telescoping sum proves \eqref{gi:eq-free-slices},
+and orthogonal coordinates of the scalar Gaussian
+prove the stated independence and covariances. Finally
+the hard-tree parametrization and flat slice result of
+\cite[Kernel of a flat curvature slice]{MB}
+identify \(B_j\) as an injection onto
+\(W_{j-1}\cap W_j^\perp\). For an injective map \(B_j\),
+the orthogonal projection onto its range is
+\(B_j(B_j^*B_j)^{-1}B_j^*\), as follows by testing
+the error against that range. This gives the lifted
+fluctuation covariance in the same counting units.
+\end{proof}
+
+\begin{proposition}[The flat curvature law in two gauges]
+\label{gi:prop-plain-straight-curvature}
+On the compatible periodic hierarchy of \cref{gi:prop-free-slices}
+at the identity connection, use the plain and straight rows
+and the counting inner products defined there.
+For a step $1\le j\le K$ put $A=\mathcal R_{j-1}|_{\mathcal E}$ and
+$V=A A^*$, viewed on $\mathcal E_{j-1}=\operatorname{ran}\mathrm d_{j-1}$.
+The stored real cochains carry counting inner products. Their
+linear subspaces carry the induced inner products and Lebesgue
+measures, which also determine all adjoints.
+Use the specified flat quadratic energy
+\[
+  \frac{1}{2g^2}\big\langle \mathrm d_{j-1}a,
+                     V^{-1}\mathrm d_{j-1}a\big\rangle
+\]
+on the intermediate links. Constrain the next plain row to zero
+and add the soft Gaussian penalty
+$\langle G_{\rm con}a,W_{\rm con}G_{\rm con}a\rangle/2$,
+where $W_{\rm con}$ is any fixed positive definite matrix
+on the contour coordinates. Here $G_{\rm con}a$ is the
+arithmetic mean of the contour path sums from the block center to each noncenter
+site. Alternatively, constrain the next straight row to zero and
+set the internal spanning-tree links to zero in each block. The two
+normalized laws have the same curvature pushforward. It has
+precision form $g^{-2}V^{-1}$ restricted to the exact intermediate
+curvatures annihilated by the next plaquette average. Its least-norm
+lift to the bare lattice has covariance $g^2(P_{j-1}-P_j)$.
+\end{proposition}
+
+\begin{proof}
+Use one colour. Both one-step link rows are onto. A right inverse assigns the
+datum of each positive coarse bond to all fine bonds crossing its
+literal outgoing block face on the periodic lift, and sets internal
+bonds to zero. Every translated
+straight segment crosses that face once and every internal contour
+sum is zero. This construction works on the stored bond occurrences,
+including across the periodic seam. Composing and taking curls
+shows that $A$ is onto $\mathcal E_{j-1}$. The least-norm lift
+of an intermediate curvature $h$ is $A^*V^{-1}h$. Its squared
+norm is $\langle h,V^{-1}h\rangle$. This is the flat effective
+curl energy used in \cite[Proposition~4.1 and Corollary~4.3]{MB}.
+
+Write $q_{\rm pl}$ for evaluation on block centers and $q_{\rm st}$
+for the arithmetic mean on each block. On a site gradient
+$\mathrm d_{j-1}\lambda$ the next raw link rows give, respectively,
+$\mathrm d_j q_{\rm pl}\lambda$ and $\mathrm d_j q_{\rm st}\lambda$.
+The first identity follows by telescoping each full contour from
+center to center. The second follows by telescoping the straight
+segments and averaging their endpoints. Both site rows are onto.
+Both link rows send a constant directional field $c$ to $Lc$.
+On either periodic lattice a closed link field is a gradient plus a
+constant directional field. For instance, at each nonzero Fourier
+frequency the coboundary symbol is wedge multiplication by the
+nonzero difference vector, whose kernel on links is its span.
+The zero frequency is the constant directional part.
+
+Let $h$ be exact with zero next plaquette average and choose any
+$a$ with $\mathrm d_{j-1}a=h$. Its next link datum is closed by
+\eqref{gi:eq-plain-straight-flux} for a single step. Subtract a
+constant fine field to remove the constant part of that datum,
+then subtract the gradient of a site lift to remove its gradient
+part. This works for either row. Thus the curl maps both zero-datum
+spaces onto the same curvature subspace. Its null space for either
+row consists of gradients with $q_{\rm pl}\lambda=0$ or
+$q_{\rm st}\lambda=0$, respectively. Indeed the constant part of a
+closed field in the zero-datum space must vanish, and a constant
+site value can be subtracted from $\lambda$ to impose the indicated
+condition.
+
+On the plain null space $G_{\rm con}\mathrm d_{j-1}\lambda$ lists the
+noncenter values of $\lambda$, since the contour sum is
+$\lambda(x)-\lambda(y)$ and $\lambda(y)=0$ at the center $y$.
+It is a bijection. Choose a linear lift of $h$ to the plain
+zero-datum space and add the null-space gradient. This linear
+splitting has a constant Jacobian, and the row coarea factor
+$J_Q^{-1}$ is constant as well. Changing the
+residual variables to $G_{\rm con}a$ in the Gaussian integral has constant
+Jacobian, and translation by the contour values of the lift leaves
+the integral unchanged. The soft integral hence multiplies the
+curvature density by a constant independent of $h$.
+
+For the straight row, integrate the desired tree link values
+along each internal tree to obtain a site function. Subtract its
+block means and then subtract its gradient from $a$. The row stays
+zero, and the resulting tree links vanish. A residual gradient
+vanishing on the tree has a constant potential in each block, and
+its zero block means force it to vanish. The hard-tree space thus
+maps bijectively to the same curvature subspace with constant
+Jacobian. In both cases normalization cancels the constant, giving
+the stated restriction of the curvature precision. The least-norm
+lift maps that subspace onto $W_{j-1}\cap W_j^\perp$ by sheet
+composition. Its energy is the bare squared norm divided by
+$2g^2$, which proves the last covariance identity.
+\end{proof}
+
+For the background current of the unit-coupling Wilson
+quadratic form and $F\in\mathcal E$, write
+$P_jF=(\mathcal R_j|_{\mathcal E})^*\phi$ for some coarse
+plaquette field $\phi$. The restricted adjoint includes
+$P_{\rm ex}$, and $\mathrm d^*P_{\rm ex}=\mathrm d^*$
+because $\mathrm d$ takes values in $\mathcal E$. Taking the transpose of
+\eqref{gi:eq-plain-straight-flux} gives
+\begin{equation}\label{gi:eq-free-background-current}
+     \mathrm d^* P_jF
+          =(Q_j^{\rm st})^*\mathrm d_j^*\phi .
+\end{equation}
+Thus the current has the row-multiplier form even in the flat
+quadratic theory. This is also the deterministic identity in
+\cite[The deterministic curvature slices]{MB}.
+Multiplying the quadratic action by $g^{-2}$ multiplies
+this current by the same factor.
+
+\section{Measure factors and changes of gauge}
+\label{gi:sec-gauge-measures}
+
+The Gaussian normalizer depends on the measures of both the field
+and constraint spaces. A gauge change preserves the physical
+quadratic form but changes the coordinates integrated along its
+null directions. We retain these two effects separately.
+
+\subsection{Physical coordinates}
+
+All determinants in this section use orthonormal coordinates in
+the declared real Hilbert spaces. Suppose that a stored coordinate
+array on $E$ has inner product $x^{\mathsf t}W_Ey$, with
+$W_E>0$, and that $F$ has Gram matrix $W_F>0$. Then
+\begin{equation}\label{gi:eq-coordinate-measures}
+ dx_E=(\det W_E)^{1/2}\,dx,\qquad
+ \delta_F(y)=(\det W_F)^{-1/2}\delta_{\rm array}(y),\qquad
+ Q^*=W_E^{-1}Q^{\mathsf t}W_F.
+\end{equation}
+Here $\mathsf t$ is the ordinary array transpose. The exponent
+of the operator $T$ is $x^{\mathsf t}W_ETx/2$. For the already defined $I(T,Q)$,
+\begin{equation}\label{gi:eq-array-integral}
+ I(T,Q)=\left(\frac{\det W_E}{\det W_F}\right)^{1/2}
+ \int_{\mathbb R^{\dim E}}\delta_{\rm array}(Qx)
+                         e^{-x^{\mathsf t}W_ETx/2}\,dx.
+\end{equation}
+Indeed $W_E^{1/2}$ and $W_F^{1/2}$ carry the two physical
+inner products to Euclidean ones. Their Jacobians give the
+first two formulas, and the defining identity for an adjoint
+gives the third. These changes include every lattice-volume
+weight. Replacing $Q^*$ by $Q^{\mathsf t}$ before making this
+change would alter both the covariance and the coarea factor.
+
+\subsection{A relative gauge normalizer}
+
+Let $E,F,\mathcal H,\mathcal K$ be finite-dimensional real
+Hilbert spaces. Assume injective maps
+$D:\mathcal H\to E$ and $d:\mathcal K\to F$, onto maps
+$Q:E\to F$ and $R:\mathcal H\to\mathcal K$, and the identity
+\begin{equation}\label{gi:eq-gauge-chain}
+                         QD=dR.
+\end{equation}
+Let $B=B^*$, $BD=0$, and suppose that $B$ is nonnegative on
+$\ker Q$, with null space there exactly $D(\ker R)$.
+Put $\mathcal H_0=\ker R$ and $D_0=D|_{\mathcal H_0}$.
+A residual gauge coordinate is a map $G:E\to Z$, where
+$Z$ is a real Hilbert space with a fixed norm and measure,
+$\dim Z=\dim\mathcal H_0$, and
+$GD_0:\mathcal H_0\to Z$ is invertible. Its determinant
+uses the induced Hilbert measure of $\mathcal H_0$ and
+the declared measure of $Z$.
+The operator $B+G^*G$ is positive on $\ker Q$: a zero vector
+for its quadratic form must equal $D_0v$, and $GD_0v=0$
+then gives $v=0$.
+
+\begin{theorem}[Relative gauge normalization]
+\label{gi:thm-relative-gauge}
+Under the preceding hypotheses, the quantity
+\begin{equation}\label{gi:eq-relative-gauge-normalizer}
+ \mathcal J(B,Q,R,G)
+   =\sqrt{\det(RR^*)}\,|\det(GD_0)|\,I(B+G^*G,Q)
+\end{equation}
+does not depend on the residual coordinate $G$.
+Let $S:E\to\mathcal K$, and suppose
+\[
+                 Q'=Q+dS,\qquad R'=R+SD
+\]
+are onto. If the same hypotheses hold for $Q',R'$ and an
+admitted residual coordinate $G'$, then
+\[
+             \mathcal J(B,Q',R',G')=\mathcal J(B,Q,R,G).
+\]
+Only the coarse gauge component of the constraint changes.
+\end{theorem}
+
+\begin{proof}
+We express the normalizer on the fixed physical quotient.
+Use the orthogonal complements
+$E_\perp=(\operatorname{ran}D)^\perp$ and
+$F_\perp=(\operatorname{ran}d)^\perp$, and let $P$ be
+the orthogonal projection onto $F_\perp$. Define
+$\overline Q=PQ|_{E_\perp}$ and
+$B_\perp=B|_{E_\perp}$ as a quadratic form. The map
+$\overline Q$ is onto: for a vector of $F_\perp$, choose
+a preimage under $Q$ and discard its $\operatorname{ran}D$
+component, which changes $Q$ only in $\operatorname{ran}d$.
+The restriction of $B_\perp$ to $\ker\overline Q$ is
+positive. In fact $Qu=d\eta$ there, and an $h$ with
+$Rh=\eta$ gives $u-Dh\in\ker Q$. Its action is that
+of $u$. If it is zero, $u-Dh=D_0v$, whence $u$ lies in
+$\operatorname{ran}D\cap E_\perp=\{0\}$.
+
+Write $a=u+Dv$, with $u\in E_\perp$, $v\in\mathcal H$.
+Its Jacobian is $J_D=\sqrt{\det(D^*D)}$. Set
+$L=(d^*d)^{-1}d^*Q|_{E_\perp}$. Splitting $F$ into
+$F_\perp\oplus\operatorname{ran}d$ gives
+\[
+ Qa=\overline Qu+d(Lu+Rv),\qquad
+ \delta_F(Qa)=J_d^{-1}\delta_{F_\perp}(\overline Qu)
+                                  \delta_{\mathcal K}(Lu+Rv),
+ \qquad J_d=\sqrt{\det(d^*d)}.
+\]
+The coarea formula for $R$ now writes
+$v=v_0-R^*(RR^*)^{-1}Lu$, $v_0\in\mathcal H_0$, with
+factor $J_R^{-1}=(\det RR^*)^{-1/2}$. Since $BD=0$,
+the action is $\langle u,Bu\rangle/2$. The gauge integral is
+\[
+ \int_{\mathcal H_0}
+   \exp\{-\tfrac12|G(u-DR^*(RR^*)^{-1}Lu)+GD_0v_0|^2\}\,dv_0
+       =\frac{(2\pi)^{(\dim\mathcal H-\dim\mathcal K)/2}}
+                    {|\det(GD_0)|}.
+\]
+Combining these exact changes of variables proves
+\begin{equation}\label{gi:eq-quotient-normalizer}
+ \mathcal J(B,Q,R,G)=
+ \frac{J_D}{J_d}(2\pi)^{(\dim\mathcal H-\dim\mathcal K)/2}
+       I(B_\perp,\overline Q).
+\end{equation}
+Every integral is finite by the established quotient positivity.
+The right side is independent of $G$. It is also unchanged by
+$Q\mapsto Q+dS$, because $P d=0$; all its other data are fixed.
+This proves both conclusions.
+\end{proof}
+
+\begin{corollary}[A residual gauge with a stabilizer]
+\label{gi:cor-relative-gauge-stabilizer}
+In \cref{gi:thm-relative-gauge}, allow \(D,d\) to have kernels.
+Require \(D|_{\ker R}\) to be injective and keep the other
+hypotheses, including that the null space of \(B\) on \(\ker Q\)
+is \(D(\ker R)\). Then the same invariant
+\(\mathcal J(B,Q,R,G)\), using the original Hilbert measures in
+\eqref{gi:eq-relative-gauge-normalizer}, is independent of \(G\)
+and is unchanged by the stated change of constraint. Require
+the corresponding hypotheses for the new \(R',Q',G'\).
+\end{corollary}
+
+\begin{proof}
+Write \(\mathcal H_{\rm s}=\ker D\),
+\(\mathcal K_{\rm s}=\ker d\), and let
+\(\mathcal H_{\rm e},\mathcal K_{\rm e}\) be their orthogonal
+complements. The restriction \(A=R|_{\mathcal H_{\rm s}}\)
+takes values in \(\mathcal K_{\rm s}\) by the gauge-chain identity.
+It is injective by injectivity of \(D|_{\ker R}\).
+If \(\zeta\in\mathcal K_{\rm s}\), choose \(v\) with \(Rv=\zeta\).
+Then \(Dv\in\ker Q\) and \(BDv=0\). By the prescribed null
+space there is \(v_0\in\ker R\) with \(Dv=Dv_0\).
+Thus \(v-v_0\in\mathcal H_{\rm s}\) and \(A(v-v_0)=\zeta\).
+This proves that \(A\) is an isomorphism.
+
+In the orthogonal decompositions of the two site spaces, write
+\[
+ R=\begin{pmatrix}A&B_R\\0&C_R\end{pmatrix}.
+\]
+The map \(C_R:\mathcal H_{\rm e}\to\mathcal K_{\rm e}\)
+is onto. The effective gradients \(D_{\rm e}=D|_{\mathcal H_{\rm e}}\)
+and \(d_{\rm e}=d|_{\mathcal K_{\rm e}}\) are injective and
+satisfy \(QD_{\rm e}=d_{\rm e}C_R\). The original \(\ker R\)
+is the graph \(w\mapsto(-A^{-1}B_Rw,w)\) over \(\ker C_R\).
+Let \(\pi:\ker R\to\ker C_R\) be the projection onto its
+second component, with absolute determinant \(J_\pi\) in
+the induced Hilbert measures. In particular
+\(D|_{\ker R}=(D_{\rm e}|_{\ker C_R})\pi\).
+The effective chain therefore has the same residual gauge
+image and the same required nondegeneracy on \(\ker Q\).
+
+The two coarea factors satisfy
+\begin{equation}\label{gi:eq-stabilizer-coarea}
+                 J_R J_\pi=|\det A|J_{C_R}.
+\end{equation}
+To verify this, use \(w\in\ker C_R\) and
+\(r=(r_{\rm s},r_{\rm e})\in\mathcal K\) as coordinates
+on \(\mathcal H\). Set
+\[
+ v_{\rm e}=w+L_C r_{\rm e},\qquad
+ v_{\rm s}=A^{-1}(r_{\rm s}-B_Rv_{\rm e}),
+\]
+where \(L_C\) is the orthogonal right inverse of \(C_R\).
+Then \(R(v_{\rm s},v_{\rm e})=r\), and the triangular
+Jacobian of this change is \(|\det A|^{-1}J_{C_R}^{-1}\).
+Alternatively, first use the coarea factor \(J_R^{-1}\)
+with the induced measure on \(\ker R\), and then use
+\(J_\pi^{-1}\) to express that measure in \(w\).
+Equality of these Jacobians proves \eqref{gi:eq-stabilizer-coarea}.
+
+Because \(|\det(GD_0)|=|\det(GD_{\rm e}|_{\ker C_R})|J_\pi\),
+the original invariant equals \(|\det A|\) times
+the invariant for the effective chain, with its induced
+orthogonal Hilbert measures. Theorem~\ref{gi:thm-relative-gauge}
+applies to the effective chain. Under \(R'=R+SD\) the map
+\(A\) is unchanged, and the effective map is
+\(C_R'=C_R+P_{\mathcal K_{\rm e}}SD_{\rm e}\).
+This is exactly the same constraint change for that chain
+because \(d\) annihilates \(\mathcal K_{\rm s}\).
+The effective invariance and the fixed factor \(|\det A|\)
+prove both claims with the original measures.
+\end{proof}
+
+The factor involving $R$ cannot be dropped. For example, take
+$E=\mathbb R^2$, $F=\mathcal H=\mathcal K=\mathbb R$,
+$Dv=(0,v)$, $d=1$, $Q(u,v)=\alpha u+\beta v$ with
+$\beta\ne0$, and $B=\operatorname{diag}(\lambda,0)$,
+$\lambda>0$. There is no residual gauge coordinate.
+Then $R=\beta$ and
+\[
+ I(B,Q)=|\beta|^{-1}\sqrt{2\pi/\lambda},\qquad
+ \mathcal J(B,Q,R,0)=\sqrt{2\pi/\lambda}.
+\]
+Changing the coarse gauge constraint changes the uncorrected
+integral even though it leaves the physical quotient unchanged.
+
+\subsection{The background gauge and stabilizers}
+
+Set $\Delta=D^*D$, $P_0=I-R^*(RR^*)^{-1}R$, and use
+$G=P_0D^*:E\to\mathcal H_0$. Then
+$GD_0=\Delta_{00}$, the compression of $\Delta$ to
+$\mathcal H_0$, and $G^*G=DP_0D^*$. The saddle determinant
+formula for $\mathbb S(A,Q)=\left(\begin{smallmatrix}A&Q^*\\Q&0\end{smallmatrix}\right)$
+therefore gives
+\begin{equation}\label{gi:eq-background-gauge-normalizer}
+ \mathcal J=
+ \frac{|\det\mathbb S(\Delta,R)|}{\sqrt{\det(RR^*)}}
+                    I(B+DP_0D^*,Q).
+\end{equation}
+Indeed $|\det\mathbb S(\Delta,R)|=
+\det(RR^*)\det\Delta_{00}$; substitution into
+\eqref{gi:eq-relative-gauge-normalizer} proves the formula.
+When $RR^*=I$, its logarithm is
+\begin{align}
+ \log\mathcal J={}&
+  -\tfrac12\log|\det\mathbb S(B+D(I-R^*R)D^*,Q)|
+  +\log|\det\mathbb S(\Delta,R)|
+  +\tfrac{\dim E-\dim F}{2}\log(2\pi).
+ \label{gi:eq-background-gauge-log}
+\end{align}
+The second determinant is a constrained site determinant.
+It is not an arbitrary determinant of a gauge operator.
+
+For complex data all transposes are bilinear continuations
+of the physical real adjoints. For a saddle with target dimension $m$, the real positive factor
+is $(-1)^m\det\mathbb S(T,Q)$. Continue its logarithm and
+square root from that positive value on the admitted branch
+domain. The site saddle uses its own target dimension
+$\dim\mathcal K$. Absolute values are not holomorphic
+normalizations.
+
+\subsection{The specified physical fibre}
+
+We now state the use of the preceding algebra on lattice data.
+The geometric maps and their derivatives are those of
+\cite{BA}; the nondegenerate quadratic forms are the inputs
+treated in \cite{MB}. No existence of a nonlinear critical
+background is inferred from the following Gaussian identity.
+
+Consider a homogeneous blocking with fine mesh $\eta$ and
+coarse mesh one. Give fine site coordinates weight $\eta^4$
+and coarse site coordinates weight one. Let $R_0$ evaluate
+a site field at the distinct coarse nodes. Its physical
+adjoint inserts $\eta^{-4}$ times each node value, so
+\begin{equation}\label{gi:eq-node-coarea}
+                         R_0R_0^*=\eta^{-4}I.
+\end{equation}
+For an assigned block with $N$ fine sites, the relative
+transported average has the form
+$R\lambda=N^{-1}\sum_x O_x\lambda_x$, where every $O_x$
+is a real adjoint transport. The fine-to-coarse measure
+ratio is $N^{-1}$. Therefore its physical adjoint has
+components $O_x^*$, and
+\begin{equation}\label{gi:eq-site-coisometry}
+                       RR^*=N^{-1}\sum_x O_xO_x^*=I.
+\end{equation}
+Different blocks are disjoint. A homogeneous composition
+of these coisometries is again a coisometry, by applying
+$R_1R_1^*=I$ successively from the inside. The maps here
+are relative derivatives centered at the given real
+background. A derivative of a fixed-reference nonlinear
+chart at a nonzero coordinate is a different map.
+
+Let $T_{yx}$ be the mean contour transport from a parent
+node $y$ to a site $x$ at the real reference background.
+Endpoint covariance gives the derivative of its relative
+left logarithm as
+$\lambda(y)-\operatorname{Ad}(T_{yx})\lambda(x)$,
+up to the fixed overall sign. At a mean-contour axial
+representative $T_{yx}=I$. A representative that fixes
+only a single comb need not have this property.
+Order noncoarse sites by the hierarchy, putting a parent
+before its descendants, and set the final coarse-node
+values to zero. The resulting map on these site values
+is triangular, with diagonal blocks
+$\pm\operatorname{Ad}(T_{yx})$. These adjoint transports
+have determinant one. The same is true of any transported
+colour frames.
+Consequently the actual axial coordinate $G_{\rm ax}$
+satisfies
+\begin{equation}\label{gi:eq-axial-constant}
+ \sqrt{\det(R_0R_0^*)}\,
+   |\det(G_{\rm ax}D|_{\ker R_0})|=c_{\eta,j},
+\end{equation}
+where $c_{\eta,j}>0$ depends on the meshes, hierarchy,
+coordinate measures and fixed gauge weights, but not
+on the background. The determinant one calculation is
+in unweighted site coordinates; conversion by
+\eqref{gi:eq-coordinate-measures} accounts for its
+physical measure factors.
+
+The linear coarea factor also equals the pivot-elimination
+factor in a local fibre chart. To see this in orthonormal
+coordinates, split $x=(u,p)$ so that
+$Q=(Q_u,Q_p)$ with $Q_p$ invertible. The kernel is the
+graph $p=-Q_p^{-1}Q_u u$. Its induced measure is
+$\det(I+A^*A)^{1/2}du$, where $A=-Q_p^{-1}Q_u$.
+Since
+\[
+ QQ^*=Q_p(I+AA^*)Q_p^*,\qquad
+                  \det(I+AA^*)=\det(I+A^*A),
+\]
+the kernel measure divided by $\sqrt{\det QQ^*}$ is
+$|\det Q_p|^{-1}du$. The determinant identity follows
+by eliminating either diagonal block of
+$\left(\begin{smallmatrix}I&-A^*\\A&I\end{smallmatrix}\right)$.
+This is precisely the derivative of constraint
+elimination. In the product Haar disintegration of
+\cite[Proposition ``Local disintegration of product Haar
+measure'']{BA}, the left exponential density at the
+origin is field independent. Its central value and the
+fixed coordinate scales multiply this linear integral
+by constants; its nonconstant part is a nonquadratic
+correction and remains outside the present calculation.
+
+For clarity, these central Haar constants can be written
+explicitly in the present colour convention. In a Pauli
+basis of norm one, normalized $\operatorname{SU}(2)$ Haar
+measure in $U=\exp(i x\cdot\sigma)$, $|x|<\pi$, is
+\[
+ \frac1{2\pi^2}\left(\frac{\sin|x|}{|x|}\right)^2d^3x.
+\]
+Indeed $\operatorname{SU}(2)$ is the unit three-sphere
+$(\cos r,n\sin r)$. Multiplication by a unit quaternion
+is orthogonal, so normalized spherical volume is Haar measure.
+Its polar volume is
+$\sin^2r\,dr\,d\Omega$, of total volume $2\pi^2$.
+Euclidean polar measure is $r^2dr\,d\Omega$.
+Thus the coordinate $U=e^{ih A}U_0$ has central Haar
+density $(2\pi^2)^{-1}h^3d^3A$. The physical bond
+Lebesgue measure of the pairing $h^4\langle A,A\rangle$
+is $h^6d^3A$, giving the central ratio
+\begin{equation}\label{gi:eq-central-haar-factor}
+                         c_h=(2\pi^2)^{-1}h^{-3}.
+\end{equation}
+Before any gauge insertion, the linear fibre density
+relative to prescribed target product Haar measure
+therefore carries $\prod_{b\in E_f}c_{h_b}/
+\prod_{c\in E_c}c_{h_c}$, multiplying the physical
+delta integral. The sets $E_f,E_c$ here are all fine
+and coarse link variables of that disintegration, not
+only nonpivot variables. The pivot determinant is
+already in the coarea factor. A subsequent rescaling
+of the free integration coordinates contributes its
+own Jacobian. These constants are retained for an
+absolute normalizer and cancel only in a comparison
+with the same coordinate and measure conventions.
+
+\begin{proposition}[Normalized physical Gaussian]
+\label{gi:prop-physical-normalizer}
+Fix the spaces, meshes, coordinate measures and soft-gauge
+normalization conventions. Suppose the following finite data
+are given at each real background parameter $V$, including
+a reference $V_*$.
+The plain and straightened constraints satisfy
+\[
+ Q=Q_0+dS,\qquad R=R_0+SD,\qquad Q_0D=dR_0,
+\]
+and the hypotheses of the relative gauge identity,
+with ineffective gauge directions treated by \cref{gi:cor-relative-gauge-stabilizer}, hold for both constraints. Their
+physical quadratic form is represented by a common
+symmetric $B$ with $BD=0$. A specified complete fibre
+Hessian $B_{\rm fib}$ obeys
+\begin{equation}\label{gi:eq-given-complete-hessian}
+                     B=B_{\rm fib}-Q^*H_cQ
+\end{equation}
+for a symmetric coarse form $H_c$. Assume
+\eqref{gi:eq-site-coisometry} and
+\eqref{gi:eq-axial-constant}, and use the physical
+coarea and central Haar conventions just described.
+Let $\Psi(V)$ be the logarithm of the plain-fibre
+Gaussian normalizer minus the same logarithm at $V_*$.
+Then
+\begin{align}
+ \Psi(V)={}&
+  -\tfrac12\log\left|\det\mathbb S
+       (B_{\rm fib}+D(I-R^*R)D^*,Q)\right|
+  +\log|\det\mathbb S(D^*D,R)|\nonumber\\
+ &\quad-\left(\text{the same two terms at }V_*\right).
+ \label{gi:eq-physical-normalizer}
+\end{align}
+In a nonlinear application the identification
+$B_{\rm fib}=A''-\langle\mu,q''\rangle$ and the common
+form in \eqref{gi:eq-given-complete-hessian} are supplied
+data. This proposition does not prove their admission
+or an extension to independent currents.
+\end{proposition}
+
+\begin{proof}
+Write $c_{\rm Haar}$ for the product of the declared central
+Haar factors, divided by the target Haar factors when that
+is the target convention. Write $c_{\rm soft}>0$ for the
+product of any prescribed fixed soft-gauge prefactors;
+it is one when the quadratic gauge weights have no
+prefactors. Both constants are independent of $V$.
+The absolute plain-fibre normalizer
+and the relative invariant satisfy separately
+\[
+ Z_{\rm plain}=c_{\rm Haar}c_{\rm soft}
+                         I(B+G_{\rm ax}^*G_{\rm ax},Q_0),
+ \qquad
+ \mathcal J=c_{\eta,j}I(B+G_{\rm ax}^*G_{\rm ax},Q_0).
+\]
+Thus $Z_{\rm plain}=(c_{\rm Haar}c_{\rm soft}/c_{\eta,j})\mathcal J$.
+Apply gauge and
+constraint invariance, then use the background gauge on
+the straightened side. Formula
+\eqref{gi:eq-background-gauge-log} gives the two saddle
+logarithms and the fixed power of $2\pi$. The row-penalty
+invariance of the saddle determinant removes $Q^*H_cQ$
+from the first quadratic form. Every removed constant
+is independent of $V$, so subtraction at $V_*$ proves
+\eqref{gi:eq-physical-normalizer}.
+\end{proof}
+
+The second saddle matrix stays invertible when $D$ has
+global zero modes, provided it is injective on $\ker R$:
+its compressed site form is then positive, and $R$ is
+onto. Thus the formula uses finite constrained
+determinants; an uncanceled whole-space site determinant
+would not have the same property. For successive
+integrations all measure constants must first be
+retained in the exact composition formula. Cancellation
+in a normalized logarithm uses the same reference and
+the same coordinate conventions at the corresponding
+stage.
+
+\subsection{Scaling the action while keeping the gauge weight}
+
+Let $V$ be a real $d$-dimensional Hilbert space and suppose
+\[
+ V=V_{\rm p}\oplus V_{\rm g},\qquad \dim V_{\rm g}=r.
+\]
+This is a direct sum, not necessarily orthogonal. Let
+$K_A,K_G$ be symmetric quadratic forms such that $K_A$
+vanishes on $V_{\rm g}$, $K_G$ vanishes on $V_{\rm p}$,
+both have zero mixed terms, and each is positive on its
+other summand. Thus $K=K_A+K_G>0$. These are the precise
+splitting properties supplied by the complete fibre
+Hessian and residual gauge coordinate in the linear
+estimates; a partial Wilson Hessian need not have them.
+
+\begin{proposition}[The two action-weight powers]
+\label{gi:prop-action-gauge-powers}
+For $\operatorname{Re}\tau>0$, put $K_\tau=\tau K_A+K_G$,
+and continue powers from $\tau=1$. Then
+\begin{align}
+ \det K_\tau&=\tau^{d-r}\det K,\label{gi:eq-action-determinant}\\
+ \int_Ve^{-u^{\mathsf T}K_\tau u/2}\,du
+    &=\tau^{-(d-r)/2}\int_Ve^{-u^{\mathsf T}Ku/2}\,du,
+       \label{gi:eq-action-integral}\\
+ \int_V e^{(\tau-1)u^{\mathsf T}K_Gu/2}
+                         d\mu_{(\tau K)^{-1}}(u)
+    &=\tau^{r/2}.
+       \label{gi:eq-gauge-compensation}
+\end{align}
+The last measure is the normalized Gaussian on all of $V$,
+before any fluctuation test is inserted.
+\end{proposition}
+
+\begin{proof}
+Choose fixed bases of the two summands. The two forms are
+block diagonal in their concatenation, so multiplication
+of the first block by $\tau$ multiplies the determinant
+by $\tau^{d-r}$. The square of the basis-change Jacobian
+is the same in numerator and denominator; orthogonality
+is unnecessary. Integrating the two blocks for real
+$\tau>0$ proves \eqref{gi:eq-action-integral}. For complex
+$\tau$ the real part remains positive on compact subsets
+of the right half-plane, so Gaussian domination and
+holomorphic continuation prove the same identity there.
+Finally the product of the exponential in
+\eqref{gi:eq-gauge-compensation} and the density with
+precision $\tau K$ has exponent $-u^{\mathsf T}K_\tau u/2$.
+Its normalizing factor differs from that for $K$ by
+$\tau^{d/2}$. Combining this with
+\eqref{gi:eq-action-integral} gives $\tau^{r/2}$.
+\end{proof}
+
+Thus scaling the full Gaussian precision and compensating
+the gauge weight contributes separately
+$-d\log\tau/2$ and $r\log\tau/2$ to the logarithm of
+the unnormalized integral. Their sum is
+$-(d-r)\log\tau/2$. This identity contains no estimate
+for a sharply truncated or interacting Gaussian integral.
+
+\begin{proposition}[Successive residual gauge factors]
+\label{gi:prop-gauge-stage-factors}
+Let \(R_i:\mathcal H_{i-1}\to\mathcal H_i\), \(i=1,2\),
+be onto maps of finite real site spaces with fixed Hilbert
+measures. Let \(D_i:\mathcal H_i\to E_i\), \(i=0,1,2\),
+be the gauge tangents of the three field spaces. Let
+\(M:E_0\to E_1\) and \(N:E_1\to E_2\) be onto field rows
+satisfying \(MD_0=D_1R_1\) and \(ND_1=D_2R_2\).
+For \(i=1,2\) let \(Z_i\) be fixed real Hilbert target spaces
+and let \(G_i:E_{i-1}\to Z_i\) be such that
+\(G_iD_{i-1}|_{\ker R_i}:\ker R_i\to Z_i\) is invertible,
+using the induced site measures on these kernels. Put
+\(G_{\rm tot}=(G_1,G_2M):E_0\to Z_1\oplus Z_2\), with
+the orthogonal product measure on the target. Then
+\begin{equation}\label{gi:eq-gauge-stage-factors}
+\begin{aligned}
+ J_{R_2R_1}|\det(G_{\rm tot}D_0|_{\ker(R_2R_1)})|
+  ={}& J_{R_1}|\det(G_1D_0|_{\ker R_1})|\\
+     &{}\cdot J_{R_2}|\det(G_2D_1|_{\ker R_2})| .
+\end{aligned}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+For a right inverse \(L_1\) of \(R_1\), the map
+\(\Phi(u,v)=u+L_1v\) is an isomorphism
+from \(\ker R_1\oplus\ker R_2\) to \(\ker(R_2R_1)\).
+In the declared Hilbert measures the two-step coarea change
+has factor \(J_{R_1}^{-1}J_{R_2}^{-1}\).
+On the other hand first passing through the composite
+fibre gives factor \(J_{R_2R_1}^{-1}|\det\Phi|\).
+Thus
+\[
+                  |\det\Phi|=\frac{J_{R_2R_1}}{J_{R_1}J_{R_2}} .
+\]
+The lower block of \(G_{\rm tot}D_0\Phi(u,v)\) is
+\(G_2D_1v\) by the first gauge-chain identity. Its upper
+block is \(G_1D_0u+G_1D_0L_1v\). The map is triangular
+with the two residual gauge maps on its diagonal. Taking
+absolute determinants gives \eqref{gi:eq-gauge-stage-factors}.
+\end{proof}
+
+The number of residual site coordinates is additive across the
+two stages. Thus any powers of \(2\pi\) used to normalize the
+residual gauge Gaussians also multiply. Suppose the two
+stages and the total form satisfy the hypotheses of
+\cref{gi:thm-relative-gauge} or
+\cref{gi:cor-relative-gauge-stabilizer}. If their gauge-fixed
+precisions also obey the hierarchical splitting of
+Section~\ref{gi:sec-successive}, multiplication of the two
+relative gauge normalizers follows
+from \eqref{gi:eq-successive-normalizers} and
+\eqref{gi:eq-gauge-stage-factors}, with the stated measures
+at the intermediate field and site spaces.
+
+For a full periodic one-step $\operatorname{SU}(2)$ fibre with
+$n$ coarse sites and blocking factor $L$, the admitted geometry
+has $d=12(L^4-1)n$ free link coordinates and
+$r=3(L^4-1)n$ residual site coordinates. There are $4L^4n$
+stored positive fine bonds and $4n$ coarse bond constraints,
+each with three colours; fixing the coarse nodes leaves
+$(L^4-1)n$ site gauges. Thus $d-r=9(L^4-1)n$.
+These counts apply to the full periodic fibre. A cut or
+different gauge must use its actual dimensions and splitting.
+
+\section{Complex Gaussian integrals}
+\label{gi:sec-complex-gaussian}
+
+Use orthonormal real coordinates on the selected fluctuation space. The
+integrals below are over this fixed real coordinate space, with Lebesgue
+measure \(du\). Matrix transposes are bilinear. Norms are Euclidean
+operator norms, and real-part inequalities in a Gaussian exponent are
+tested on real integration variables.
+
+\begin{theorem}[The relative covariance sector]
+\label{gi:thm-complex-sector}
+Let \(D_0\) be a real positive definite matrix on \(\mathbb R^d\) with
+\(\|D_0\|\le K\), where \(K>0\), and let \(D=D^{\mathsf T}\) satisfy
+\[
+ E=D_0^{-1/2}(D-D_0)D_0^{-1/2},\qquad r=\|E\|<\tfrac14 .
+\]
+Use the branch
+\begin{equation}\label{gi:eq-complex-density}
+ \log\det D=\log\det D_0+\operatorname{Tr}\log(I+E),\qquad
+ d\mu_D(u)=(2\pi)^{-d/2}e^{-\frac12\log\det D}
+                         e^{-u^{\mathsf T}D^{-1}u/2}\,du .
+\end{equation}
+Then \(\int d\mu_D=1\). For \(0\le\rho\le (8K)^{-1}\),
+\begin{equation}\label{gi:eq-complex-growth}
+ \int e^{\rho|u|^2}|d\mu_D(u)|
+                 \le \exp\{C(r+K\rho)d\},
+ \qquad
+ |\log\det D-\log\det D_0|\le 2dr .
+\end{equation}
+Here \(C\) is absolute. The exponential transform for
+\(\ell\in\mathbb C^d\) is
+\begin{equation}\label{gi:eq-complex-exponential}
+ \int e^{\ell^{\mathsf T}u}d\mu_D(u)
+                         =e^{\ell^{\mathsf T}D\ell/2}.
+\end{equation}
+In particular all odd moments of linear forms vanish. For \(2m\) linear
+forms their moment is the sum over pairings of their covariances
+\(\ell_i^{\mathsf T}D\ell_j\), with absolute value at most
+\((2m-1)!!\|D\|^m\prod_{i=1}^{2m}\|\ell_i\|\).
+The absolute moment for \(j\ge1\) satisfies
+\begin{equation}\label{gi:eq-complex-absolute-moment}
+ \int \prod_{i=1}^j|\ell_i^{\mathsf T}u|\,|d\mu_D(u)|
+       \le e^{Crd}(C\sqrt{Kj})^j\prod_{i=1}^j\|\ell_i\|.
+\end{equation}
+The measure on the zero-dimensional space has mass one.
+\end{theorem}
+
+\begin{proof}
+The logarithm in \eqref{gi:eq-complex-density} is the norm-convergent
+series for \(\log(I+E)\). Its trace gives the branch of the scalar
+determinant logarithm because \(\det\exp B=\exp(\operatorname{Tr}B)\)
+for a complex square matrix \(B\). The series bounds the trace
+difference by \(d\sum_{k\ge1}r^k/k\le2dr\).
+
+Make the real change \(u=D_0^{1/2}v\) and write
+\[
+ R_\rho=\operatorname{Re}(I+E)^{-1}-2\rho D_0.
+\]
+The real part here is entrywise. The matrix is real symmetric, and the
+inverse series gives
+\(\|R_\rho-I\|\le r/(1-r)+2\rho K\le 7/12\).
+Thus \(R_\rho>0\). Real Gaussian integration gives the exact identity
+\begin{equation}\label{gi:eq-absolute-sector}
+ \int e^{\rho |u|^2}|d\mu_D(u)|
+           =|\det(I+E)|^{-1/2}(\det R_\rho)^{-1/2}.
+\end{equation}
+The singular values of \(I+E\) are at least \(1-r\).
+Every eigenvalue of \(R_\rho\) is at least \(1-r/(1-r)-2\rho K\).
+Using \(-\log(1-x)\le Cx\) for \(0\le x\le 7/12\) proves the first
+bound in \eqref{gi:eq-complex-growth}.
+
+For fixed \(D_0\), the density and its exponential transform are
+holomorphic in the independent complex symmetric entries of \(E\)
+on the open norm ball. Indeed on each compact set there is an
+integrable Gaussian majorant, also after multiplying by
+\(e^{M|u|}\) for any fixed \(M\). The normalization and
+\eqref{gi:eq-complex-exponential} hold on the real symmetric ball by
+diagonalization and the real one-dimensional Gaussian integral.
+For the exponential transform, the real identity first continues
+in \(\ell\), using its entire dependence. The real symmetric ball
+has a full set of real coordinates for the complex symmetric
+space. The one-variable identity theorem in each coordinate on
+a small product of discs, followed by connectedness of the norm
+ball, proves both identities throughout the sector.
+
+Differentiate \eqref{gi:eq-complex-exponential} in the scalar
+coefficients of a finite list of linear forms. The exponential of
+the quadratic form gives precisely the pairings. For the absolute
+moment, the absolute density is its total mass times the real
+Gaussian of covariance \(D_0^{1/2}R_0^{-1}D_0^{1/2}\), by
+\eqref{gi:eq-absolute-sector} with \(\rho=0\). Its covariance norm
+is at most \(3K/2\). A real linear functional of this Gaussian has
+\(L^j\)-norm at most \(C\sqrt{Kj}\) times its coefficient norm.
+This follows from the one-dimensional Gaussian even moments,
+using the next even integer if necessary. Splitting a complex
+linear functional into its real and imaginary parts gives the
+same bound with a fixed factor. Apply H\"older's inequality with
+exponent \(j\) to each of the \(j\) factors and use
+\eqref{gi:eq-complex-growth}.
+\end{proof}
+
+\begin{corollary}[Parameters and localization cost]
+\label{gi:cor-complex-parameters}
+Let \(D(s)\) be holomorphic on a finite parameter domain and
+satisfy the sector of \cref{gi:thm-complex-sector} about a fixed
+real comparison matrix \(D_0\). Suppose \(F_s(u)\) is Borel in
+the real variable \(u\), holomorphic in \(s\) for each \(u\), and
+\(|F_s(u)|\le A e^{\rho |u|^2}\) on each closed parameter polydisc
+under consideration, with \(0\le\rho\le(8K)^{-1}\).
+A fixed bounded Borel test, including a characteristic function,
+is allowed. Then \(I(s)=\int F_s\,d\mu_{D(s)}\) is holomorphic.
+If the closed polydisc of radii \(t_\Delta>0\) centered at \(s\)
+is in the given domain and \(r_*\) bounds \(\|E\|\) on it, then
+\begin{equation}\label{gi:eq-parameter-derivative}
+ |\partial_s^\nu I(s)|
+ \le A\,\nu!\prod_{\Delta:\nu_\Delta>0}t_\Delta^{-\nu_\Delta}
+                     \exp\{C(r_*+K\rho)d\}.
+\end{equation}
+In this estimate it suffices to vary the coordinates with
+\(\nu_\Delta>0\). The same Cauchy bound applies to a finite set of
+directional derivatives in the given field and current norms,
+using only a polydisc of increments contained in the original
+parameter domain. For the relative log determinant, the
+same derivative bound uses \(2dr_*\) in place of the
+expectation bound.
+
+If each of \(N\) localization cubes carries at most \(aM^4\)
+selected real coordinates, the exponential cost in
+\eqref{gi:eq-parameter-derivative} is at most
+\(\exp\{Ca(r_*+K\rho)M^4N\}\).
+The corresponding determinant difference costs at most
+\(2ar_*M^4N\) in its logarithm.
+\end{corollary}
+
+\begin{proof}
+The lower bound on \(R_\rho\) in the proof of the theorem supplies
+an integrable majorant uniform on the chosen polydisc.
+Joint measurability follows by approximating the parameter by
+finite grids and using its pointwise continuity.
+Continuity and Morera's theorem, with Fubini on one coordinate
+disc at a time, prove holomorphy. Cauchy's formula in the
+differentiated variables proves \eqref{gi:eq-parameter-derivative}.
+For the directional version compose with the finite affine map
+from the coordinate discs to the given domain. For the determinant
+apply the same formula to the trace-log bound in
+\eqref{gi:eq-complex-growth}. The count is
+\(d\le aM^4N\), with each selected coordinate counted once.
+\end{proof}
+
+On independent cube discs of radius \(\mathcal S>1\), the difference between \(s_\Delta=1\)
+and \(s_\Delta=0\) costs at most \((R-1)^{-1}\) times the
+supremum on \(|s_\Delta|=R\), for \(1<R<\mathcal S\).
+Indeed the difference of the two Cauchy kernels is
+\(1/[z(z-1)]\). Taking differences in distinct coordinates
+multiplies these factors. This gives the same cost per
+cube for mixed first differences of the Gaussian integral
+or the relative logarithm.
+
+In the matrix construction of \cite[Theorem F and Corollary 12.1]{MB},
+\(D=D_W(s)\) is the covariance on the selected outer coordinates
+\(W\), with \(\|E\|<1/4\) relative to its common real comparison.
+The real coordinate count is the outer count on the wall and
+held guards. The inner fine lattice and the full torus add no
+dimension to this bound. The small sector budget there, chosen
+after the localization scale, can in particular pay for the
+factor \(M^4\) in the relative log determinant. The field and
+current derivatives above are taken on contained discs in the
+weighted domains of that construction. For independent cube
+parameters of radius \(\mathcal S\), the Cauchy radii may be
+chosen from the distance to its boundary.
+
+At complete parameters, if \(A_Y\) is the precision on the
+conditioned coordinate domain \(Y\), then
+\(D_W=\chi_WA_Y^{-1}\chi_W^{\mathsf T}\). This is a marginal
+after conditioning on \(Y\). For separated guarded components
+the constructed covariance is block diagonal. Each block
+inherits the relative sector: for its coordinate selector $J$,
+the map $(JD_0J^{\mathsf T})^{-1/2}JD_0^{1/2}$ is a coisometry,
+and the block relative perturbation is its compression of $E$.
+The exponents split, and absolute convergence permits Fubini.
+The full measure and each block measure have mass one, so their
+normalizing determinant factors also multiply with the specified
+branches. Thus the integrals of products of admissible tests factor.
+These assertions use the prescribed covariance on
+each declared domain. Independently chosen guarded extensions
+need not have common marginals away from complete parameters.
+
+\subsection{An auxiliary Gaussian and its local marginal}
+
+\begin{proposition}[Eliminating an auxiliary Gaussian]
+\label{gi:prop-auxiliary-gaussian}
+Let \(C=C^{\mathsf T}\) and \(\Gamma\) be complex matrices of
+sizes \(m\times m\) and \(m\times n\). Suppose \(C_0>0\) is real
+symmetric, \(\Gamma_0\) is real, and
+\[
+ \|C_0\|+\|C_0^{-1}\|+\|\Gamma_0\|\le K,\qquad
+ \|C-C_0\|+\|\Gamma-\Gamma_0\|\le\varepsilon .
+\]
+Put \(D=C+C\Gamma\Gamma^{\mathsf T}C\) and define \(D_0\) by the
+same formula at the real reference. There are positive
+\(\varepsilon_0,\rho_0,C_K\), depending only on \(K\), with the
+following properties. If \(\varepsilon\le\varepsilon_0\) and
+\(|F(u)|\le A e^{\rho|u|^2}\) for a real-variable Borel test
+and \(0\le\rho\le\rho_0\), then the joint real-coordinate
+integral below converges absolutely and satisfies
+\begin{equation}\label{gi:eq-auxiliary-integral}
+ \int d\mu_{I_n}(v)\,
+ e^{-\frac12 v^{\mathsf T}\Gamma^{\mathsf T}C\Gamma v}
+             \int e^{u^{\mathsf T}\Gamma v}F(u)\,d\mu_C(u)
+       =\int F(u)\,d\mu_D(u).
+\end{equation}
+Its value at \(F=1\) is one, and
+\begin{equation}\label{gi:eq-auxiliary-marginal-bound}
+ \int |F(u)|\,|d\mu_D(u)|
+                   \le A e^{C_K(\varepsilon+\rho)m}.
+\end{equation}
+The dimensions \(m,n\) do not enter the constants.
+\end{proposition}
+
+\begin{proof}
+The joint precision on the real variables \((u,v)\) is
+\[
+ B=\begin{pmatrix}
+    C^{-1}&-\Gamma\\
+    -\Gamma^{\mathsf T}&I_n+\Gamma^{\mathsf T}C\Gamma
+   \end{pmatrix}.
+\]
+At the reference its quadratic form is
+\[
+ (u-C_0\Gamma_0v)^{\mathsf T}C_0^{-1}(u-C_0\Gamma_0v)+|v|^2 .
+\]
+The triangular map \((u,v)\mapsto(u-C_0\Gamma_0v,v)\)
+and its inverse have norm at most \(1+K^2\). Thus \(B_0\ge c_K I\).
+The inverse identity for \(C\) and expansion of the remaining
+products give \(\|B-B_0\|\le C_K\varepsilon\).
+Choose the two radii so that this change and \(2\rho\) together
+are less than \(c_K/2\). The real part of the exponent then
+gives an integrable joint Gaussian majorant. Fubini applies to
+\eqref{gi:eq-auxiliary-integral}.
+
+Set \(A_v=I_n+\Gamma^{\mathsf T}C\Gamma\). It is in a fixed
+relative precision sector about its real positive reference.
+Its inverse is in the covariance sector of
+\cref{gi:thm-complex-sector} after decreasing
+\(\varepsilon_0\). Integrating \(v\) first, apply
+\eqref{gi:eq-complex-exponential} with covariance \(A_v^{-1}\)
+and force \(\Gamma^{\mathsf T}u\). The result is the factor
+\[
+ (\det A_v)^{-1/2}
+       \exp\!\left(\tfrac12u^{\mathsf T}
+             \Gamma A_v^{-1}\Gamma^{\mathsf T}u\right).
+\]
+There is no change in the real argument of \(F\). Direct
+multiplication and the determinant obtained by eliminating either
+off-diagonal block of
+\(\left(\begin{smallmatrix} I_m&-C\Gamma\\
+\Gamma^{\mathsf T}&I_n\end{smallmatrix}\right)\)
+give
+\[
+ D^{-1}=C^{-1}-\Gamma A_v^{-1}\Gamma^{\mathsf T},
+ \qquad \det D=\det C\,\det A_v .
+\]
+The determinant roots multiply at the real reference. Nonvanishing
+and connectedness extend that equality to the small neighborhood.
+The \(u\) density after integration is exactly \(d\mu_D\).
+The convention \(n=0\) removes the auxiliary integral and factor.
+
+Since \(D_0\ge C_0\), its inverse norm is at most \(K\);
+also \(\|D_0\|\le C_K\).
+Expanding \(D-D_0\) gives
+\(\|D_0^{-1/2}(D-D_0)D_0^{-1/2}\|\le C_K\varepsilon\).
+Thus \cref{gi:thm-complex-sector} gives normalization and
+\eqref{gi:eq-auxiliary-marginal-bound}, after decreasing the
+radii to fit that sector. The bound takes the absolute value
+after forming the marginal, which accounts for the dimension
+\(m\).
+\end{proof}
+
+Partition \(u\) into disjoint coordinate blocks \(u_b\).
+For a set \(P\) of distinct blocks, thresholds \(B_b>0\), and
+\(\gamma\ge0\) with \(\rho+\gamma/2\le\rho_0\),
+\begin{equation}\label{gi:eq-auxiliary-failure}
+ \int \prod_{b\in P}\mathbf1_{\{|u_b|\ge B_b\}}
+              e^{\rho|u|^2}|d\mu_D(u)|
+ \le
+ \exp\!\left\{C_K(\varepsilon+\rho+\gamma/2)m
+                   -\tfrac{\gamma}{2}\sum_{b\in P}B_b^2\right\}.
+\end{equation}
+On the event in the integrand \(|u|^2\ge\sum_{b\in P}B_b^2\).
+Insert this inequality and apply
+\eqref{gi:eq-auxiliary-marginal-bound} at growth
+\(\rho+\gamma/2\). The argument needs no independence between
+the tested coordinates. Fixed Borel restrictions and holomorphic
+parameter dependence are covered by \cref{gi:cor-complex-parameters}.
+For the rescaled pair
+\((\tau^{-1}C,\tau^{1/2}\Gamma)\), the effective covariance is
+\(\tau^{-1}D\). Use the positive square root at a real
+\(\tau>0\) and its nearby continuation. On a fixed compact real
+interval in \((0,\infty)\) the rescaled reference bounds are uniform,
+and a sufficiently small complex displacement of \(\tau\) stays
+in the same type of matrix neighborhood. When a region has
+\(N\) localization cubes and \(m\le aM^4N\), its cost is
+\(\exp\{C_Ka(\varepsilon+\rho)M^4N\}\). When the count is already
+the number \(m\) of selected coordinates, that count is used
+directly in \eqref{gi:eq-auxiliary-marginal-bound}.
+A localization cube of side $M$ in coarse lattice units
+contains at most $C(LM)^4$ fine bond-colour coordinates.
+For this fine-coordinate auxiliary marginal one can
+therefore take $a=CL^4$. This count is distinct from the
+outer selected-coordinate count in the moving-wall
+application above.
+
+\section{Real Gaussian block restrictions}
+\label{gi:sec-gaussian-cutoffs}
+
+Let \(Z=(Z_b)_{b\in\mathcal I}\) be a centered real Gaussian
+on finitely many Euclidean blocks, with coordinate covariance
+\(\Gamma\ge0\). It can be represented as \(Z=A X\) with \(X\)
+a standard Gaussian in \(\mathbb R^q\), allowing \(q=0\).
+For \(B_b>0\), write
+\[
+ \mathcal B=\prod_b\{|z_b|\le B_b\},\qquad
+ \nu=\mathcal L\bigl(Z\mid |Z_b|<B_b\text{ for every }b\bigr).
+\]
+This event has positive probability because its preimage contains
+a neighborhood of zero. Let \(d_b=\operatorname{rank}\Gamma_{bb}\)
+and \(\Gamma_{bb}\le\sigma_b^2 I\). If \(d_b>0\), take
+\(\sigma_b>0\).
+
+\begin{lemma}[Conditional supports and radial weights]
+\label{gi:lem-gaussian-radial}
+For \(d_b>0\), put \(V_b=\operatorname{ran}\Gamma_{bb}\).
+Let $A_a$ be the block row of $A$ with output $Z_a$.
+Let $W$ be an independent standard Gaussian on the possibly
+zero-dimensional space $\ker A_b$, with its induced Euclidean
+inner product, and set $A_a'=A_a|_{\ker A_b}$.
+Let \(\Gamma_{bb}^{+}\) be the inverse on \(V_b\) extended
+by zero.
+Conditional on \(Z_b=z\in V_b\), the other blocks have a
+version of their joint law given by
+\begin{equation}\label{gi:eq-conditional-blocks}
+ Z_a=\Gamma_{ab}\Gamma_{bb}^{+}z+A_a'W,\qquad a\ne b,
+\end{equation}
+For continuous even log-concave
+functions \(0\le\psi_a\le1\) on the real blocks, the conditional
+weight
+\[
+ w_b(z)=\mathbb E_W\prod_{a\ne b}
+           \psi_a(\Gamma_{ab}\Gamma_{bb}^{+}z+A_a'W)
+\]
+is even and log-concave on \(V_b\). In particular
+\(w_b(rn)\le w_b(sn)\) if \(r\ge s\ge0\) and \(|n|=1\) in \(V_b\).
+\end{lemma}
+
+\begin{proof}
+Decompose \(X\) orthogonally into the row space of \(A_b\)
+and \(\ker A_b\). These projections are independent standard
+Gaussians on their subspaces. The projection onto the row space
+is determined by \(z\) and equals
+\(A_b^{\mathsf T}\Gamma_{bb}^{+}z\).
+Applying \(A_a\) gives \eqref{gi:eq-conditional-blocks}.
+No estimate of the regression matrix is needed.
+
+We use a one-dimensional integration fact. Suppose
+\(f,g,h\ge0\) are integrable continuous functions on the line,
+positive on the interiors of their interval supports, and
+\[
+ h((1-t)x+ty)\ge f(x)^{1-t}g(y)^t,\qquad 0<t<1.
+\]
+If \(F=\int f\) and \(G=\int g\) are positive, let \(T\) be
+the increasing quantile map from \(f/F\) to \(g/G\).
+In the positive interior its derivative is
+\(T'(x)=f(x)G/(F g(T(x)))\). Substitute
+\((1-t)x+tT(x)\) in the integral of \(h\).
+Its derivative is at least \(T'(x)^t\) by the arithmetic-geometric
+mean inequality. Integrating first on compact intervals in the
+positive interior and then exhausting it gives
+\[
+ \int h\ge\int f(x)^{1-t}g(T(x))^t T'(x)^t\,dx
+                   =F^{1-t}G^t .
+\]
+If either integral vanishes, the same conclusion holds directly.
+Applying this fact to slices of a jointly log-concave function
+shows that integration in one coordinate preserves log-concavity.
+The positive sets of these slices are intervals, and the slices
+and their marginals are continuous by domination by a Gaussian
+in the integrated variables. Iterating one coordinate at a time
+therefore proves the marginal claim for the product of the
+cutoffs and the Gaussian density of \(W\). That product is
+log-concave by affine substitution and multiplication. It is
+invariant under \((z,W)\mapsto(-z,-W)\). Hence \(w_b\) is even.
+Writing \(sn\) as a convex combination of \(rn\) and \(-rn\)
+gives the ray inequality, including when \(w_b(rn)=0\).
+\end{proof}
+
+For \(0<\delta\le1/2\), use smooth radial cutoffs
+\(\psi_{B,\delta}\) that equal one on \(|z|\le(1-\delta)B\)
+and vanish on \(|z|\ge B\). To construct them, put
+\(\phi=0\) on \((-\infty,0]\), take
+\[
+ \phi(t)=\int_0^t(t-s)e^{-1/s^2}(1-s)^{-4}\,ds
+       \quad(0<t<1),\qquad \phi=+\infty\text{ on }[1,\infty),
+\]
+and set \(\psi_{B,\delta}(z)=
+\exp[-\phi((|z|/B-1+\delta)/\delta)]\).
+The function \(\phi\) is nondecreasing and convex. It is flat
+at zero and grows at least as \(c(1-t)^{-2}\) at one. Its
+derivatives at one grow at most as inverse powers of \(1-t\),
+so every derivative of the exponential vanishes there.
+This proves smoothness of the cutoff at its two transition
+spheres. Convex composition with the norm gives log-concavity.
+As \(\delta\downarrow0\), the argument of \(\phi\) decreases at
+every fixed \(|z|<B\), so the cutoffs increase to the strict-ball
+indicator. Put
+\[
+ \chi_\delta=\prod_b\psi_{B_b,\delta}(Z_b),\qquad
+ \nu_\delta[P]=\frac{\mathbb E[P(Z)\chi_\delta]}
+                         {\mathbb E\chi_\delta}.
+\]
+The denominators are positive. For each polynomial, dominated
+convergence gives \(\nu_\delta[P]\to\nu[P]\).
+
+\begin{proposition}[Normalized cutoff flux]
+\label{gi:prop-gaussian-cutoff-flux}
+For each block define
+\begin{equation}\label{gi:eq-smooth-flux}
+ \beta_{b,\delta}=
+ \frac{\mathbb E[|\nabla\psi_{B_b,\delta}(Z_b)|
+                \prod_{a\ne b}\psi_{B_a,\delta}(Z_a)]}
+      {\mathbb E\chi_\delta}.
+\end{equation}
+For \(d_b=0\) this is zero. If \(d_b>0\), then
+\begin{equation}\label{gi:eq-flux-bound}
+ \beta_{b,\delta}\le\beta_b^*=
+ \frac{C_{d_b}}{B_b}
+ \left[1+(B_b/\sigma_b)^{d_b}\right]
+                      e^{-c_{d_b}B_b^2/\sigma_b^2}.
+\end{equation}
+Take \(\beta_b^*=0\) at rank zero. These bounds are independent
+of the other blocks, of their number and dependencies, and of
+any lower marginal eigenvalue. If \(B_b\ge\sigma_b>0\) the right
+side is at most
+\(2 C_{d_b}B_b^{d_b-1}\sigma_b^{-d_b}
+ e^{-c_{d_b}B_b^2/\sigma_b^2}\).
+\end{proposition}
+
+\begin{proof}
+A rank-zero block is identically zero and its cutoff is constant
+there. For positive rank use \cref{gi:lem-gaussian-radial}
+and polar coordinates \(z=rn\) in \(V_b\). Its intrinsic
+Gaussian density in direction \(n\), omitting a common
+determinant constant, is \(r^{d_b-1}e^{-q(n)r^2/2}\), where
+\[
+ q(n)=n^{\mathsf T}(\Gamma_{bb}|_{V_b})^{-1}n
+                  \ge\sigma_b^{-2}.
+\]
+The radial gradient of the cutoff is also intrinsic in \(V_b\).
+Set \(B=B_b\), \(a=(1-\delta)B\), and \(d=d_b\).
+Let \(D_n\) denote the integral in \(r\) of this density times
+\(\psi_{B,\delta}(rn)w_b(rn)\). On the plateau the cutoff is one.
+For every \(r\in[a,B]\) ray monotonicity gives
+\[
+ D_n\ge w_b(rn)\,I(q(n),a),\qquad
+ I(q,a)=\int_0^a s^{d-1}e^{-qs^2/2}\,ds .
+\]
+The negative radial derivative of the cutoff has integral one
+on \([a,B]\). Thus the flux numerator in this direction is at
+most \(D_n B^{d-1}e^{-q(n)a^2/2}/I(q(n),a)\).
+This also holds if \(D_n=0\).
+
+Integrating to \(\min(a,q^{-1/2})\) shows
+\(I(q,a)\ge e^{-1/2}\min(a,q^{-1/2})^d/d\).
+Since \(a\ge B/2\), the ratio is at most
+\(C_d B^{-1}[1+(qB^2)^{d/2}]e^{-qB^2/8}\).
+For \(qB^2\ge B^2/\sigma_b^2\), absorb the polynomial at
+\(qB^2\) into half the exponential. This gives the bound in
+\eqref{gi:eq-flux-bound}. Integration in \(n\) cancels the common
+determinant constant and the integral of \(D_n\), which proves
+the normalized estimate.
+\end{proof}
+
+The \(B_b^{-1}\) term matters at small radius. For an isotropic
+\(d\)-dimensional block, the sharp radial boundary density divided
+by the ball probability is asymptotic to \(d/B_b\) as
+\(B_b/\sigma_b\to0\). This follows by substituting \(r=B_b t\)
+in the two radial integrals.
+
+\gineedspace{17\baselineskip}
+\begin{corollary}[Integration by parts at a sharp block restriction]
+\label{gi:cor-gaussian-cutoff-ibp}
+For a linear statistic \(L=\sum_i\ell_i^{\mathsf T}Z_i\) and
+polynomial \(P\), let
+\begin{equation}\label{gi:eq-sharp-defect}
+ \mathcal D_L(P)=\nu[LP]
+               -\sum_{i,b}\ell_i^{\mathsf T}\Gamma_{ib}\nu[\nabla_bP].
+\end{equation}
+Then
+\[
+ |\mathcal D_L(P)|\le
+ \|P\|_{\infty,\mathcal B}
+                  \sum_{i,b}|\ell_i|\|\Gamma_{ib}\|\beta_b^* .
+\]
+For an empty block set all sums and the nonnegative budgets below are zero.
+In particular, with positive amplitudes \(a_b\) and cell measures
+\(m_b\), set
+\[
+ S=\sup_i\sum_bm_b\frac{\|\Gamma_{ib}\|}{a_i a_b},\qquad
+ \varepsilon_\partial=\sup_b\frac{a_b\beta_b^*}{m_b}.
+\]
+The bound is at most
+\(S\varepsilon_\partial\|P\|_{\infty,\mathcal B}
+ \sum_i a_i|\ell_i|\).
+\end{corollary}
+
+\begin{proof}
+Apply Gaussian integration by parts in \(X\) to \(P(AX)\)
+times the smooth product cutoff. The two factors of \(A\) give
+\(AA^{\mathsf T}=\Gamma\), regardless of its rank. The cutoff
+derivative at block \(b\) contributes
+\(\ell_i^{\mathsf T}\Gamma_{ib}\) times
+\[
+ \frac{\mathbb E[P(Z)\nabla\psi_{B_b,\delta}(Z_b)
+                    \prod_{a\ne b}\psi_{B_a,\delta}(Z_a)]}
+           {\mathbb E\chi_\delta}.
+\]
+Its norm is bounded by \(\|P\|_{\infty,\mathcal B}\beta_b^*\),
+since the derivative and other cutoffs restrict to \(\mathcal B\).
+The polynomial terms converge to the two terms of
+\eqref{gi:eq-sharp-defect}. Thus the total defect has the
+claimed bound, even if separate boundary contributions of
+coincident constraints have no intrinsic sharp limit.
+Insert \(a_i m_b/(a_i a_b)\) and the compensating factor
+\(a_b/m_b\) in the displayed sum to obtain the weighted bound.
+\end{proof}
+
+Here \(\Gamma_{ib}\) is a coordinate covariance. If a positive
+definite precision \(K\) is self-adjoint for the weighted pairing with
+matrix \(M=\operatorname{diag}(m_b I)\), the coordinate density
+uses precision \(MK\). When the inverse has physical kernel
+\(\mathsf G\), the array identity is \(K^{-1}=\mathsf G M\),
+so \((MK)^{-1}=\mathsf G\) is the coordinate covariance.
+This explains the factor \(m_b^{-1}\) in the boundary budget.
+
+\gineedspace{9\baselineskip}
+\begin{corollary}[Linear statistics under block restrictions]
+\label{gi:cor-gaussian-cutoff-moments}
+For a real linear statistic \(L\) with unconditioned variance \(v^2\),
+and any nonnegative increasing function \(f\) on \([0,\infty)\),
+\[
+                \nu[f(|L|)]\le \mathbb E f(v|N|),
+               \qquad N\sim N(0,1).
+\]
+In particular \(\nu[L^{2m}]\le(2m-1)!!v^{2m}\),
+\(\nu[e^{tL}]\le e^{t^2v^2/2}\) for real \(t\), and
+\(\operatorname{Cov}_{\nu}(Z)\le\Gamma\).
+\end{corollary}
+
+\begin{proof}
+If \(v=0\), both sides use \(L=0\). Otherwise condition \(X\)
+on the single linear coordinate \(L=x\), using the orthogonal
+decomposition in \cref{gi:lem-gaussian-radial}. With all
+smooth cutoffs included, the resulting weight on the
+one-dimensional Gaussian density is even and nonincreasing in
+\(|x|\). Let \(R,R'\) be independent copies of \(v|N|\).
+The product \((f(R)-f(R'))(w(R)-w(R'))\) is nonpositive.
+For bounded \(f\), take expectations and divide by
+\(\mathbb E w(R)>0\) to get the claimed inequality for
+\(\nu_\delta\). Pass to \(\nu\) by dominated convergence and
+then to unbounded \(f\) by truncation. The entire restricted
+law is even. Apply the inequality to powers and to
+\(\cosh(t|L|)\), and use the Gaussian moment identities.
+Testing all real linear statistics proves the covariance order.
+\end{proof}
+
+
+
+
+\section{A holomorphic constrained coordinate chart}
+\label{gi:sec-complex-chart}
+
+A complex constraint does not define a real delta measure by
+substitution into $\delta_F$. We instead continue a specified
+real fibre chart. The normalized Gaussian theorems then act on
+its fixed real coordinates. The chart Jacobian remains part of
+the exact, unnormalized block integral.
+
+Let $Q_0:E\to F$ be an onto real map, let $K_0=\ker Q_0$,
+and let $L_0=Q_0^*(Q_0Q_0^*)^{-1}$. Write $i_0:K_0\to E$
+for inclusion. Suppose $Q(z),T(z)$ depend holomorphically
+on a parameter domain containing a real reference $z_0$,
+with $Q(z_0)=Q_0$ and $T(z_0)$ real symmetric and positive
+on $K_0$. Transposes below are bilinear continuations.
+Assume $A(z)=Q(z)L_0$ is invertible and define
+\begin{equation}\label{gi:eq-complex-fibre-chart}
+ L(z)=L_0A(z)^{-1},\qquad
+ Z(z)=(I-L(z)Q(z))i_0,\qquad
+ \mathcal T(z)=Z(z)^{\mathsf T}T(z)Z(z).
+\end{equation}
+Then $QL=I$ and $QZ=0$. Relative to the decomposition
+$E=i_0K_0\oplus L_0F$, the map $(u,b)\mapsto Zu+Lb$
+has triangular blocks
+$\left(\begin{smallmatrix}I&0\\-A^{-1}Qi_0&A^{-1}\end{smallmatrix}\right)$.
+Its continued coarea density is therefore
+\begin{equation}\label{gi:eq-complex-coarea-density}
+             j(z)=J_{Q_0}^{-1}\det A(z)^{-1}.
+\end{equation}
+The orientation is chosen so that $j(z_0)>0$. Where $Q(z)$ is real
+and $\det A(z)>0$, this is
+the real measure factor in the $u$ coordinate. It is not
+obtained by putting an absolute value into a complex determinant.
+
+\begin{proposition}[A constrained integral in fixed coordinates]
+\label{gi:prop-complex-chart}
+In \eqref{gi:eq-complex-fibre-chart}, suppose
+$T(z)^{\mathsf T}=T(z)$ and that
+$\mathcal T(z)^{-1}$ lies in the relative covariance sector
+of \cref{gi:thm-complex-sector} about
+$\mathcal T(z_0)^{-1}$. For $b\in F_{\mathbb C}$ define
+\[
+ \mathcal I(z,b)=j(z)\int_{K_0}
+   \exp\{-\tfrac12(Zu+Lb)^{\mathsf T}T(z)(Zu+Lb)\}\,du,
+\]
+where $u$ is real. Put
+\begin{align}
+ H(z)&=L-Z\mathcal T^{-1}Z^{\mathsf T}TL,
+ &C(z)&=Z\mathcal T^{-1}Z^{\mathsf T},\nonumber\\
+ \Sigma(z)&=L^{\mathsf T}TL
+       -L^{\mathsf T}TZ\mathcal T^{-1}Z^{\mathsf T}TL.
+ \label{gi:eq-complex-chart-matrices}
+\end{align}
+Then
+\begin{equation}\label{gi:eq-complex-chart-integral}
+ \mathcal I(z,b)=j(z)(2\pi)^{\dim K_0/2}
+       \det(\mathcal T(z))^{-1/2}
+                          e^{-b^{\mathsf T}\Sigma(z)b/2},
+\end{equation}
+with the positive-reference branch. The integral is
+holomorphic in $z$ and entire in $b$. Its normalized
+exponential test is
+\begin{equation}\label{gi:eq-complex-chart-characteristic}
+ \frac{j(z)}{\mathcal I(z,b)}
+ \int_{K_0}e^{\ell^{\mathsf T}(Zu+Lb)}
+          e^{-(Zu+Lb)^{\mathsf T}T(Zu+Lb)/2}\,du
+       =e^{\ell^{\mathsf T}Hb+\ell^{\mathsf T}C\ell/2}.
+\end{equation}
+It gives all polynomial tests by differentiation in
+$\ell\in E_{\mathbb C}$. In particular $QH=I$, $QC=0$,
+and $Z^{\mathsf T}TH=0$.
+\end{proposition}
+
+\begin{proof}
+The inverse covariance sector gives a strictly positive
+real part of $u^{\mathsf T}\mathcal T u$, uniformly on
+compact parameter sets. On compact sets of $b$ the cross
+term is bounded by a constant times $|u|$. Gaussian
+domination therefore proves absolute convergence and
+holomorphic parameter dependence. Write
+$g=Z^{\mathsf T}TLb$. The exponent is
+$-u^{\mathsf T}\mathcal T u/2-g^{\mathsf T}u
+-b^{\mathsf T}L^{\mathsf T}TLb/2$.
+Apply \eqref{gi:eq-complex-exponential} to the fixed
+real variable $u$ with covariance $\mathcal T^{-1}$ and
+linear force $-g$. This proves
+\eqref{gi:eq-complex-chart-integral}. With the additional
+test, the force becomes $Z^{\mathsf T}\ell-g$ and the
+constant term gains $\ell^{\mathsf T}Lb$. Expanding this
+quadratic expression proves
+\eqref{gi:eq-complex-chart-characteristic}. No integration
+variable was shifted by a complex vector. The three
+matrix identities follow directly from $QL=I$, $QZ=0$
+and the definition of $H$.
+\end{proof}
+
+When $Q,T,b$ are real and $\det A>0$, this chart integral
+is the original constrained integral. The untested
+formula is independent of the chosen splitting on the common
+connected parameter component containing the reference, when
+the branches agree at the reference. Indeed another kernel
+basis and right inverse have the form $Z'=ZM$ and
+$L'=L+ZX$, with $M$ invertible and real at the reference.
+Put $\epsilon_M=\operatorname{sgn}\det M(z_0)$.
+The positive-reference coordinate density is multiplied by
+$\epsilon_M\det M$, while the restricted quadratic form
+becomes $M^{\mathsf T}\mathcal T M$. Its positive-reference
+continued square root is multiplied by the same
+$\epsilon_M\det M$. The
+Schur form $\Sigma$ is unchanged by the shear $X$.
+These algebraic identities prove agreement on that component.
+On any other component of the overlap, the transition branches
+must be matched separately; agreement at the reference alone
+does not determine their relative sign there. No open set of
+real points on a parameter curve is needed.
+The exact determinant identity, including the chart density, is
+\[
+ j(z)^{-2}\det\mathcal T(z)
+       =(-1)^{\dim F}\det\mathbb S(T(z),Q(z)).
+\]
+It follows by the same saddle congruence as
+\eqref{gi:eq-saddle-det}, using $QZ=0$ and $QL=I$.
+The right side is positive at the real reference.
+The sign of a real saddle determinant must be accounted
+for before selecting its positive-reference square root.
+
+A fixed Borel test may be integrated on the real $u$
+coordinates. At nonzero complex datum the normalized
+density in this chart is the tilted measure
+\begin{equation}\label{gi:eq-affine-tilt}
+ e^{-g^{\mathsf T}u-g^{\mathsf T}\mathcal T^{-1}g/2}
+                          d\mu_{\mathcal T^{-1}}(u),
+ \qquad g=Z^{\mathsf T}TLb.
+\end{equation}
+The centered estimate cannot be used without this tilt.
+For a test bounded by $F_0 e^{\rho|u|^2}$ with $F_0\ge0$ and
+$0\le\rho\le(8K)^{-1}$, put $D=\mathcal T^{-1}$ and
+$A_\rho=\operatorname{Re}D^{-1}-2\rho I$.
+The sector proof gives $A_\rho>0$ and
+$\|A_\rho^{-1}\|\le12K/5$. After taking the absolute
+value, completion of a real square gives the additional
+factor
+\[
+ \exp\!\left\{-\tfrac12\operatorname{Re}(g^{\mathsf T}Dg)
+       +\tfrac12(\operatorname{Re}g)^{\mathsf T}
+                     A_\rho^{-1}(\operatorname{Re}g)\right\}.
+\]
+It is at most $e^{CK|g|^2}$ because $\|D\|\le5K/4$.
+Thus the normalized absolute integral is bounded by
+$F_0\exp\{CK|g|^2+C(r+K\rho)\dim K_0\}$, including
+the endpoint $\rho=(8K)^{-1}$.
+Uniform bounds on a parameter polydisc give the Cauchy
+derivative estimates in the same way. A Gaussian defined
+instead on the centered chart $x=Hb+Zv$ has the centered
+measure in its declared real $v$ coordinate. Arbitrary
+Borel tests on these two complex charts are not identified.
+They cannot be evaluated at complex-shifted points without
+an extension and a proof of the resulting formula.
+The finite determinant $j(z)$ is retained in the
+unnormalized integral. A cost per localization cube for
+a normalized selected Gaussian is the separate dimension
+bound in \cref{gi:cor-complex-parameters}; the chart
+identity alone gives no locality estimate for a global
+coarea determinant.
+
+\subsection{The physical normalizer in complex parameters}
+
+\begin{corollary}[Complex physical parameters]
+\label{gi:cor-physical-complex}
+Suppose the data of \cref{gi:prop-physical-normalizer}
+extend holomorphically to a connected physical parameter
+chart containing an open neighborhood of $V_*$ in its
+underlying real coordinate slice.
+Require its real hypotheses on that neighborhood. Assume
+the fibre Gaussians have the fixed-coordinate representations
+and relative covariance sectors of
+\cref{gi:prop-complex-chart}, with their transition branches
+matched, and that the signed saddle determinants below
+are nonzero and have holomorphic logarithms continued from
+their positive real reference values. With bilinear
+physical transposes, put
+\begin{align*}
+ s_{\rm f}(V)&=(-1)^{\dim F}\det\mathbb S
+     (B_{\rm fib}+D(I-R^{\mathsf T}R)D^{\mathsf T},Q),\\
+ s_{\rm s}(V)&=(-1)^{\dim\mathcal K}\det\mathbb S
+                                      (D^{\mathsf T}D,R).
+\end{align*}
+Then the normalized physical Gaussian logarithm is
+\[
+ \Psi(V)=-\frac12\log\frac{s_{\rm f}(V)}{s_{\rm f}(V_*)}
+                 +\log\frac{s_{\rm s}(V)}{s_{\rm s}(V_*)},
+\]
+with both logarithms zero at the reference. The parameters
+are those of the physical chart; the conclusion asserts
+no extension to independent currents off that chart.
+\end{corollary}
+\begin{proof}
+The fixed-coordinate Gaussian formula and its domination
+argument in \cref{gi:prop-complex-chart} prove holomorphy
+of the normalized integral; that argument uses only the
+stated covariance sector. Exponentiating the displayed
+signed saddle expression gives a holomorphic function on
+the chart. On a small connected real neighborhood of
+$V_*$, $\det A$ is real, nonzero and has a fixed sign.
+The continued chart integral differs from the positive
+real integral by this fixed sign, which cancels on
+normalization at $V_*$. Proposition~\ref{gi:prop-physical-normalizer}
+therefore identifies the normalized chart integral with
+the exponential of the displayed saddle expression.
+An equality of holomorphic functions on an open real
+coordinate neighborhood extends to a complex neighborhood:
+all real partial derivatives of the difference vanish
+there, and hence so do its complex Taylor coefficients.
+The identity theorem on the connected chart proves their
+equality. The displayed expression therefore supplies a
+holomorphic logarithm of this normalized integral, equal
+to zero at the reference. Nonvanishing of the integral
+alone would not have guaranteed such a global logarithm.
+\end{proof}
+
+\gineedspace{8\baselineskip}
+\section{The free action-density covariance}\label{gi:sec-free-density}
+
+Use the Hermitian colour convention of
+Section~\ref{gi:sec-real-gaussian} and write \(d_G=3\)
+for its real dimension. The calculation below
+uses \(d_G\) independent scalar colour components. Let \(g>0\)
+be the coupling for which \(g^{-2}\) multiplies the Wilson
+action in the exponent. On a raw link field \(A\), the
+coboundary \(\mathrm d A\) is its unscaled oriented plaquette sum.
+The quadratic action at the identity is
+\[
+                    \frac1{2g^2}\|\mathrm d A\|_2^2
+\]
+in counting coordinates. Indeed the logarithm of the
+plaquette product of \(e^{itA_b}\) has first term
+\(it(\mathrm d A)(p)\) and has trace zero. Thus the
+\(t^2\) coefficient of \(1-\tfrac12\operatorname{Re}\operatorname{tr}U_p(t)\)
+is \(\tfrac12|(\mathrm d A)(p)|^2\). This agrees with the
+flat curl form of \cite[eqs.~(3.10)--(3.12), p.~392]{Bal85p}.
+
+\subsection{The continuum curvature and its contractions}
+
+Use the Fourier transform \(\widehat f(k)=\int e^{-ik\cdot x}f(x)\,dx\)
+with inverse factor \((2\pi)^{-4}\). Define the potential as four
+independent centred Gaussian test families per colour, with
+covariance \(g^2 G\) in each family, where
+\[
+ \widehat G(k)=|k|^{-2},\qquad
+ G(x)=\int_0^\infty(4\pi t)^{-2}e^{-|x|^2/(4t)}\,dt
+                         =\frac1{4\pi^2|x|^2}\quad(x\ne0).
+\]
+The heat integral follows by Fourier inversion of the Gaussian
+and the identity \(\int_0^\infty e^{-t|k|^2}\,dt=|k|^{-2}\).
+Both identities hold against Schwartz tests by absolute
+integration, using their decay and the local integrability
+of \(|x|^{-2}\) and \(|k|^{-2}\) in four dimensions.
+The covariance form is positive
+because it is the \(L^2\) pairing of the Fourier tests multiplied
+by \(|k|^{-1}\). In the separable real Hilbert completion for
+this form, summing independent standard normals against the
+orthonormal coordinates of a test constructs the family in
+\(L^2\).
+
+The curvature is \(F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu\)
+in the sense of test families. Write \(\mathsf K\) for its
+unit-coupling covariance distribution in one colour and use
+the orthonormal basis \(e_\mu\wedge e_\nu\), \(\mu<\nu\),
+on \(\Lambda^2\mathbb R^4\). For \(P=(\mu,\nu)\) and
+\(Q=(\rho,\sigma)\) the distribution is
+\begin{equation}\label{gi:eq-curvature-kernel}
+ \begin{split}
+ \mathsf K_{PQ}={}&-\delta_{\nu\sigma}\partial_\mu\partial_\rho G
+                   +\delta_{\nu\rho}\partial_\mu\partial_\sigma G\\
+                &+\delta_{\mu\sigma}\partial_\nu\partial_\rho G
+                   -\delta_{\mu\rho}\partial_\nu\partial_\sigma G.
+ \end{split}
+\end{equation}
+One derivative acts in each covariance argument, which gives
+the minus sign on the first term.
+
+\begin{lemma}[The curvature tensor away from coincidence]
+\label{gi:lem-curvature-reflection}
+For \(u\ne0\), put \(\widehat u=u/|u|\) and
+\(R_u=I-2\widehat u\widehat u^{\mathsf T}\). Then
+\[
+       \mathsf K(u)=\pi^{-2}|u|^{-4}\Lambda^2R_u,\qquad
+       \|\mathsf K(u)\|_{\mathrm{HS}}^2=6\pi^{-4}|u|^{-8}.
+\]
+Here \(\|\cdot\|_{\mathrm{HS}}\) is the Hilbert--Schmidt norm
+in the six-dimensional two-form basis.
+\end{lemma}
+
+\begin{proof}
+The Hessian of \(G\) is
+\((4\widehat u\widehat u^{\mathsf T}-I)/(2\pi^2|u|^4)\).
+For a symmetric matrix \(M\), its action on each of the
+two factors of a wedge, added together, sends
+\(v\wedge w\) to \(Mv\wedge w+v\wedge Mw\).
+Equation~\ref{gi:eq-curvature-kernel} is the negative
+of this action for \(M=\nabla^2G\). Since
+\(\widehat u\widehat u^{\mathsf T}\) has rank one, the
+product term with this matrix acting on both factors
+vanishes. Expanding \(\Lambda^2R_u\) therefore gives
+the stated identity. The reflection is orthogonal, as is
+its two-form action.
+\end{proof}
+
+To define the separated density correlations, fix an even,
+nonnegative smooth function $\chi$ of integral one supported
+in the unit ball and set
+$\chi_\varepsilon(x)=\varepsilon^{-4}\chi(x/\varepsilon)$.
+Let \(F_\varepsilon(x)\) be the curvature
+tested against its translate to \(x\). Use the centred density
+\[
+ q_\varepsilon(x)=\frac12\sum_{\alpha=1}^{d_G}\sum_P
+  \bigl(F_{\varepsilon,P}^{\alpha}(x)^2
+          -\mathbb E[F_{\varepsilon,P}^{\alpha}(x)^2]\bigr).
+\]
+For each \(\varepsilon>0\), integrate this field against
+continuous compactly supported tests by \(L^p\) Riemann sums,
+\(1\le p<\infty\). The smoothed covariance is continuous.
+Gaussian moment bounds then give \(L^{2p}\) continuity of
+each curvature component and \(L^p\) continuity of its square.
+
+\begin{proposition}[Separated connected Gaussian densities]
+\label{gi:prop-free-continuum-cycles}
+For \(n\ge2\), the mixed cumulant of the regularized density
+has a limit on every collection of pairwise separated compact
+supports. For noncoincident points \(x_1,\ldots,x_n\) its kernel is
+\begin{equation}\label{gi:eq-free-cycle}
+ C_n(x_1,\ldots,x_n)=\frac{d_Gg^{2n}}{2n}
+  \sum_{\sigma\in S_n}
+  \operatorname{tr}\!\left(
+    \prod_{j=1}^n\mathsf K(x_{\sigma(j)}-x_{\sigma(j+1)})\right),
+ \qquad \sigma(n+1)=\sigma(1).
+\end{equation}
+The product follows the displayed order. In particular the
+two-point smearing limit is \(C_Gg^4\mathcal K(f,h)\), where
+\begin{equation}\label{gi:eq-free-coefficient}
+       C_G=\frac{3d_G}{\pi^4}=\frac9{\pi^4},\qquad
+       \mathcal K(f,h)=\iint f(x)h(y)|x-y|^{-8}\,dx\,dy.
+\end{equation}
+Every odd kernel \(C_n\), \(n\ge3\), vanishes on the separated
+configuration space. At four distinct collinear points,
+\begin{equation}\label{gi:eq-free-collinear-four}
+ C_4(x_1,x_2,x_3,x_4)=\frac{6d_Gg^8}{\pi^8}
+       \sum_{\text{three unoriented cycles}}
+          \prod_{\{i,j\}\,\text{in the cycle}}|x_i-x_j|^{-4}.
+\end{equation}
+This is strictly positive and remains positive on the product
+of sufficiently small disjoint neighborhoods of the four points.
+\end{proposition}
+
+\begin{proof}
+For any real finite Gaussian vector with covariance \(C\),
+write it as \(C^{1/2}\) times a standard Gaussian. If \(T_i\)
+are real symmetric matrices, the logarithmic moment generating
+function of its centred half-quadratic forms is
+\[
+ -\frac12\log\det\bigl(I-C\textstyle\sum_i z_iT_i\bigr)
+                 -\frac12\sum_i z_i\operatorname{tr}(CT_i).
+\]
+Diagonalizing the symmetric quadratic form for small real \(z\)
+and integrating each coordinate proves the formula. Sylvester's
+determinant identity also covers singular \(C\). The resulting
+power series at zero is obtained by integrating the convergent
+geometric series for the inverse in the derivative of the
+logarithm. For \(n\ge2\), the mixed derivative of order \(n\)
+comes from its term \(\operatorname{tr}((C\sum_i z_iT_i)^n)/(2n)\).
+For curvature at \(n\) points use the coordinate projections for
+the \(T_i\). Each permutation gives one ordered cycle of
+covariance blocks. Independence multiplies the expression
+by \(d_G\).
+
+For separated supports the smoothed cross-covariance blocks
+converge uniformly, with every fixed derivative, to
+\(g^2\mathsf K\). Indeed their convolutions sample a fixed
+compact neighborhood away from coincidence, on which each
+derivative of the kernel is uniformly continuous. Differentiation
+under the convolution and the unit integral of the mollifier
+give the asserted convergence. Integrating the finite cycle formula and taking
+this limit proves \eqref{gi:eq-free-cycle}. For \(n=2\) the
+two permutations give the squared Hilbert--Schmidt norm with
+prefactor \(d_Gg^4/2\). Lemma~\ref{gi:lem-curvature-reflection}
+gives \eqref{gi:eq-free-coefficient}.
+
+On two-forms the Hodge star \(J\) satisfies \(J^2=I\) and
+\(J\Lambda^2R=(\det R)\Lambda^2R\,J\) for \(R\) orthogonal.
+This follows by applying \(R\) to the defining wedge identity
+for the star and tracking its action on the oriented volume.
+Each \(\mathsf K(u)\) thus anticommutes with \(J\), so
+conjugation by \(J\) negates an odd product and preserves its trace.
+At collinear points all the reflections agree, since
+\(R_u=R_{-u}\). The product of four two-form actions is the
+identity, whose trace is six. Each unoriented four-cycle has
+eight representatives in \(S_4\), giving
+\eqref{gi:eq-free-collinear-four}. Smoothness at separated
+arguments then gives positivity on the stated neighborhoods.
+\end{proof}
+
+The separated limits concern mixed cumulants. In fact for a
+nonnegative nonzero test \(f\), the variance of
+\(\int f(x)q_\varepsilon(x)\,dx\) grows at least as
+\(c_f g^4\varepsilon^{-4}\). Choose a ball on which \(f\)
+has a positive lower bound. In its interior, and for
+\(M\varepsilon\le |x-y|\) with \(M\) sufficiently large,
+the convolution error in \(\mathsf K(x-y)\) is at most
+\(C\varepsilon|x-y|^{-5}\), by its first derivative.
+Its squared Hilbert--Schmidt norm is thus bounded below by
+\(c|x-y|^{-8}\). The Wick variance integrates this
+bound on a shell with fixed outer radius inside the ball.
+Its radial integral is a positive multiple of
+\(\int_{M\varepsilon}^{r_0}r^{-5}\,dr\).
+
+\subsection{The lattice projection and its physical kernel}
+
+Let \(a>0\), \(\ell=ma\) with \(m\) a positive integer, and
+\(\Lambda_{a,\ell}=a\mathbb Z^4/\ell\mathbb Z^4\).
+The coordinates are based positive bonds and plaquettes.
+Write \(p=(x,P)\), \(P=(\mu,\nu)\) with \(\mu<\nu\), and
+\(x_p=x+ac_P\), where \(c_P=(e_\mu+e_\nu)/2\).
+Use the exact-form projection \(P_{\rm ex}\) of
+Section~\ref{gi:sec-free-slices} in one colour, also on lattices
+with no blocking step. On \((\ker\mathrm d)^\perp\) the map
+\(\mathrm d\) is a linear isomorphism onto \(\mathcal E\).
+It sends the normalized Gaussian for the raw quadratic
+action to the Gaussian with covariance \(g^2P_{\rm ex}\).
+The change of coordinates has a constant Jacobian, which
+cancels in this normalized law.
+
+For independent raw colour curvatures \(F_p^\alpha\) with
+this covariance, their physical values are \(a^{-2}F_p^\alpha\).
+The physical unit-coupling covariance entry is consequently
+\begin{equation}\label{gi:eq-lattice-curvature-kernel}
+            \mathsf K_{a,\ell}(p,q)=a^{-4}P_{\rm ex}(p,q).
+\end{equation}
+The centred quadratic observable for a real test \(f\) on the
+torus is
+\begin{equation}\label{gi:eq-free-lattice-density}
+ Q_a(f)=\frac12\sum_{\alpha=1}^{d_G}\sum_p f(x_p)
+                \bigl((F_p^\alpha)^2-\mathbb E[(F_p^\alpha)^2]\bigr).
+\end{equation}
+In physical coordinates the \(a^4\) integration weight cancels
+the \(a^{-4}\) in the square of the physical curvature.
+The finite Gaussian calculation in
+Proposition~\ref{gi:prop-free-continuum-cycles}, with the \(T_i\)
+given by diagonal test multipliers on plaquettes, yields
+\begin{equation}\label{gi:eq-free-lattice-wick}
+ \operatorname{Cov}(Q_a(f),Q_a(h))
+     =\frac{d_Gg^4}{2}\,a^8\sum_{p,q}
+                      f(x_p)h(x_q)\mathsf K_{a,\ell}(p,q)^2 .
+\end{equation}
+For a mixed cumulant of order \(n\), the same calculation gives
+a sum over the permutations in \eqref{gi:eq-free-cycle}
+and all \(p_1,\ldots,p_n\). Its summand has
+\(a^{4n}\prod_i f_i(x_{p_i})\) times the product of the entries
+\(\mathsf K_{a,\ell}(p_{\sigma(j)},p_{\sigma(j+1)})\).
+The prefactor is \(d_Gg^{2n}/(2n)\). These are real scalar
+entries, including when the plane labels differ.
+
+Let \(\delta=2\pi/\ell\) and choose the finite frequency set
+\(\mathcal B_a=\delta\mathbb Z^4\cap[-\pi/a,\pi/a)^4\).
+For \(k\in\mathcal B_a\) put
+\[
+ t_{a,\mu}(k)=a^{-1}(e^{iak_\mu}-1),\qquad
+ \omega_a(k)=|t_a(k)|^2,\qquad B_a(k)v=t_a(k)\wedge v.
+\]
+The symbol \(B_a\) represents the difference \(a^{-1}\mathrm d\),
+which has the same range as \(\mathrm d\).
+The wedge norm identity gives
+\(B_a^\dagger B_a=\omega_a I-t_at_a^\dagger\).
+Here \(\dagger\) is the Hermitian adjoint of a Fourier matrix.
+As \(B_a t_a=0\), the projection symbol is
+\begin{equation}\label{gi:eq-curvature-projection}
+    \Pi_a(k)=B_a(k)B_a(k)^\dagger/\omega_a(k)\quad(k\ne0),
+                    \qquad \Pi_a(0)=0 .
+\end{equation}
+The rank is three at each nonzero frequency. A constant
+two-form has zero exact component, including on the one-site
+torus. The unitary discrete Fourier transform has factor
+\(m^{-2}\) in both directions. Inserting it in
+\eqref{gi:eq-lattice-curvature-kernel} gives, for \(p=(x,P)\)
+and \(q=(y,Q)\),
+\begin{equation}\label{gi:eq-lattice-curvature-fourier}
+  \mathsf K_{a,\ell}(p,q)
+  =\left[\ell^{-4}\sum_{k\in\mathcal B_a}
+                   e^{ik\cdot(x-y)}\Pi_a(k)\right]_{PQ}.
+\end{equation}
+In particular the finite Fourier coefficient is
+\(a^{-4}m^{-4}=\ell^{-4}\).
+
+The continuum multiplier \(\Pi_{\mathrm{cont}}(k)\) is
+\eqref{gi:eq-curvature-projection} with \(t_0=ik\) and
+\(\omega_0=|k|^2\), and \(\Pi_{\mathrm{cont}}(0)=0\) on the
+reciprocal grid.
+Its inverse transform on \(\mathbb R^4\) is
+\eqref{gi:eq-curvature-kernel}.
+On the torus write \(\mathsf K_\ell\) for the distribution with
+Fourier series
+\(\ell^{-4}\sum_{k\in\delta\mathbb Z^4}
+e^{ik\cdot z}\Pi_{\mathrm{cont}}(k)\).
+The zero-frequency convention matters even away from
+coincidence. The traces of the raw lattice matrix in
+\eqref{gi:eq-lattice-curvature-fourier} and of \(\mathsf K_\ell\)
+are, respectively,
+\[
+  3\bigl(a^{-4}\mathbf 1_{\{z=0\}}-\ell^{-4}\bigr),
+                 \qquad 3\bigl(\delta_{\rm per}(z)-\ell^{-4}\bigr).
+\]
+These identities follow by taking the trace of the projection
+symbol. Here \(z=x-y\) and \(\delta_{\rm per}\) is the unit point
+mass at the origin of the torus.
+
+\begin{proposition}[Separated comparison of curvature kernels]
+\label{gi:prop-free-lattice-kernel}
+Let \(r\) be the Euclidean distance on the torus from \(x_p\)
+to \(x_q\). For \(r\ge10a\), if \(u\) is the short displacement
+from \(x_q\) to \(x_p\), then
+\begin{equation}\label{gi:eq-free-fixed-torus-error}
+   \left|\mathsf K_{a,\ell}(p,q)-\mathsf K_{\ell,PQ}(u)\right|
+             \le C r^{-4}(a/r)^{1/2}.
+\end{equation}
+For \(10a\le r\le\ell/10\) one has
+\begin{equation}\label{gi:eq-free-volume-mesh-error}
+   \left|\mathsf K_{a,\ell}(p,q)-\mathsf K_{PQ}(u)\right|
+      \le C r^{-4}\bigl[(a/r)^{1/2}+(r/\ell)^4\bigr].
+\end{equation}
+The constant is independent of the orientation labels, the
+mesh and the period. The smooth torus kernel in
+\eqref{gi:eq-free-fixed-torus-error} is periodic in \(u\).
+\end{proposition}
+
+\begin{proof}
+We first obtain the continuum torus estimates. Its heat kernel is
+the sum of translates by \(\ell\mathbb Z^4\) of
+\(p_t(x)=(4\pi t)^{-2}e^{-|x|^2/(4t)}\), since integrating
+this sum against each Fourier mode gives
+\(\ell^{-4}e^{-t|k|^2}\). Integrating the heat kernel with
+its mean \(\ell^{-4}\) subtracted gives the periodic Green
+distribution \(G_\ell\) of zero mean. Inserting \(G_\ell\)
+into \eqref{gi:eq-curvature-kernel} produces \(\mathsf K_\ell\).
+
+At period one and \(|z|\le1/4\), the difference \(G_1-G\)
+is smooth. On \(0<t\le1\) all image terms other than the
+central one, with any fixed number of derivatives, have an
+integrable bound \(C t^{-M}e^{-c/t}\) for suitable \(M\).
+This follows from the lower bound \(|z+m|\ge c|m|\) on each
+noncentral image. On \(t\ge1\), the nonzero torus Fourier
+modes decay exponentially with all fixed derivatives, and
+the corresponding free heat derivatives are bounded by
+\(C_\alpha t^{-2-|\alpha|/2}\). The mean subtraction over
+\((0,1]\) is constant. Thus the difference has bounded
+derivatives of all fixed orders on the ball. On the rest of the
+unit torus away from zero the same split gives smoothness
+and bounded derivatives on closed sets. Scaling
+\(G_\ell(z)=\ell^{-2}G_1(z/\ell)\) shows, with
+\(r_z=\operatorname{dist}(z,\ell\mathbb Z^4)>0\), that
+\begin{equation}\label{gi:eq-free-torus-green-bounds}
+ \begin{aligned}
+ \|\partial^\alpha\mathsf K_\ell(z)\|
+       &\le C_\alpha r_z^{-4-|\alpha|} &&(r_z>0),\\
+ \|\partial^\alpha(\mathsf K_\ell-\mathsf K)(z)\|
+       &\le C_\alpha\ell^{-4-|\alpha|}
+                         &&(0<|z|\le\ell/4).
+ \end{aligned}
+\end{equation}
+
+We compare the Fourier sums at the raw displacement \(z=x-y\).
+The bound \(|t_a(k)|\asymp|k|\) on the Brillouin cube follows
+from the sine formula for \(|t_a|\).
+Differentiating \(t_a\) gives
+\(|\partial^\alpha t_a|\le C_\alpha|k|^{1-|\alpha|}\)
+away from zero, since \(a|k|\) is bounded on that cube.
+The product and quotient rules in \eqref{gi:eq-curvature-projection}
+therefore give
+\(\|\partial^\alpha\Pi_a(k)\|\le C_\alpha|k|^{-|\alpha|}\).
+The same estimates hold for \(\Pi_{\mathrm{cont}}\). Taylor
+expansion of \(t_a\) yields
+\(\|\Pi_a(k)-\Pi_{\mathrm{cont}}(k)\|\le Ca|k|\) on
+\(a|k|\le c_0\), for a fixed small numerical \(c_0\).
+
+Choose a smooth frequency cutoff equal to one for \(|k|\le R\)
+and zero for \(|k|\ge2R\). Assume for now that \(R\ge18\delta\)
+and \(2aR\le c_0\). On its support the two reciprocal grids
+coincide. Counting disjoint cubes of side \(\delta\) around
+the grid points shows that the low-frequency difference has
+norm at most \(CaR^5\), with the Fourier factor \(\ell^{-4}\).
+For the high-frequency lattice symbol, apply the ninth
+forward frequency difference in a coordinate \(\mu\) with
+\(|z_\mu|\ge r_z/2\) in a short representative. The cutoff
+extends periodically on the Brillouin torus. The derivative
+estimates above and the product rule bound this difference at
+\(k\) by
+\[
+   C\delta^9\bigl(R+\operatorname{dist}(k,(2\pi/a)\mathbb Z^4)\bigr)^{-9}.
+\]
+Indeed the difference is the integral of the ninth derivative
+over nine shifts of length at most \(\delta\), and \(R\)
+dominates the sum of those lengths. Summation by parts has
+factor \((e^{-i\delta z_\mu}-1)^9\) on the Fourier sum.
+The raw \(z/a\) is integral, so the sum has periodic phase
+on this frequency torus. The modulus of the factor is at
+least \((2r_z/\ell)^9\), by the sine bound for
+\(|z_\mu|\le\ell/2\). The ninth difference has absolute sum
+at most \(C\delta^9R^{-5}\) after multiplying by \(\ell^{-4}\).
+This follows by comparing the grid sum of
+\((R+|k|)^{-9}\) with its integral. The same argument applies
+to the high-frequency continuum symbol on the full reciprocal
+grid. For its distributional Fourier series the multiplication
+by \((e^{-i\delta z_\mu}-1)^9\) gives an absolutely convergent
+series of ninth differences. Dividing away from the zero set
+of this factor proves the pointwise bound there.
+Both high-frequency terms are thus at most \(C r_z^{-9}R^{-5}\).
+
+Take \(R=D r_z^{-1}(r_z/a)^{1/10}\) with a fixed \(D\)
+large enough that \(R\ge18\delta\), since \(r_z\le\ell\).
+For \(r_z/a\) above a fixed numerical threshold the support
+condition \(2aR\le c_0\) holds. The sum of the two errors is
+bounded by \(C r_z^{-4}(a/r_z)^{1/2}\).
+For the remaining nonzero raw displacements, the lattice
+Fourier sum has norm at most \(a^{-4}\) and
+\eqref{gi:eq-free-torus-green-bounds} bounds the torus
+kernel by \(Cr_z^{-4}\). Here \(1\le r_z/a\) is bounded
+above by the fixed threshold. Increasing \(C\) gives the
+same claimed raw-displacement bound.
+
+The shift \(a(c_P-c_Q)\) from origins to centres has length
+at most \(a\). When \(r\ge10a\), the shifted segment has
+torus distance at least \(r-a\) from zero. The first derivative
+bound in \eqref{gi:eq-free-torus-green-bounds} gives an error
+of at most \(Ca r^{-5}\) for that shift.
+This proves \eqref{gi:eq-free-fixed-torus-error}. Applying the
+second estimate in \eqref{gi:eq-free-torus-green-bounds}
+at \(u\) proves \eqref{gi:eq-free-volume-mesh-error}.
+\end{proof}
+
+\subsection{Separated tests and a coarsened Gaussian}
+
+\begin{proposition}[Limits of the separated lattice cumulants]
+\label{gi:prop-free-density-limits}
+For \(n\ge2\) and continuous tests on the torus with pairwise
+separated supports, the mixed cumulant of \(Q_a(f_i)\) converges,
+as \(a\downarrow0\) through subdivisions of \(\ell\), to the
+integral of \eqref{gi:eq-free-cycle} with \(\mathsf K_\ell\)
+in place of \(\mathsf K\).
+For periodizations of tests in a fixed compact subset of
+\(\mathbb R^4\) with positive pairwise separation, it
+converges to the integral of
+\eqref{gi:eq-free-cycle} along every sequence with
+\(a\downarrow0\), \(\ell\to\infty\) and \(\ell/a\) integral.
+The same Euclidean integral is obtained by taking the
+fixed-volume limit first and then increasing \(\ell\).
+
+For a quantitative version, let \(n\) be fixed and let the
+tests be real Lipschitz functions, each supported in a ball
+of radius \(d\) in a common Euclidean lift. Suppose every
+distance between a point of one support and a point of a
+distinct support lies in \([d,C_{\rm sh}d]\),
+\(10a\le d\) and \(C_{\rm sh}d\le\ell/10\), and that
+\(\operatorname{Lip}(f_i)\le M\|f_i\|_\infty/d\).
+The difference between the lattice cumulant and the integral
+of \eqref{gi:eq-free-cycle} is bounded by
+\begin{equation}\label{gi:eq-free-higher-error}
+ C_{n,M,C_{\rm sh}}d_Gg^{2n}\prod_i\|f_i\|_\infty
+                     \bigl[(a/d)^{1/2}+(d/\ell)^4\bigr].
+\end{equation}
+For odd \(n\ge3\) this is an absolute bound on the lattice
+cumulant.
+\end{proposition}
+
+\begin{proof}
+Use the finite cycle sum following \eqref{gi:eq-free-lattice-wick}.
+Each edge of a contributing cycle joins distinct supports.
+The convergence of every kernel entry is uniform there by
+Proposition~\ref{gi:prop-free-lattice-kernel}.
+The plaquette counts in the sum, after multiplication by
+\(a^{4n}\), are bounded on a fixed compact support stock.
+For each set of plane labels the limit is the Riemann integral
+on the corresponding shifted grids. The integrand is continuous
+after being assigned the value zero in a neighborhood of each
+partial diagonal, since the product of the tests vanishes
+there. Summing the plane labels gives the trace in the cycle.
+The fixed-volume and joint limits follow from the two kernel
+estimates. The periodic-to-Euclidean difference after taking
+the fixed-volume limit tends to zero by
+\eqref{gi:eq-free-torus-green-bounds}.
+
+For the rate, write the difference of the cycle products as
+a sum in which one kernel changes in each term. All kernels
+are \(O(d^{-4})\) on the contributing configurations.
+By \eqref{gi:eq-free-volume-mesh-error} the changed kernel
+has the additional factor \(C[(a/d)^{1/2}+(C_{\rm sh}d/\ell)^4]\).
+The \(a^{4n}\)-weighted
+count of sites on all test supports is \(O(d^{4n})\).
+This bounds the lattice kernel error by the right side of
+\eqref{gi:eq-free-higher-error}. The Riemann error of the
+Euclidean integrand has the additional factor \(C_{n,M}a/d\)
+in place of the bracket. Indeed each kernel has first
+derivative \(O(d^{-5})\) on the cells of the contributing
+stock, enlarged by one mesh, and the same product estimate
+uses the stated Lipschitz bounds of the tests. The total
+volume of these cells is \(O(d^{4n})\).
+Since \(a/d\le1\), this last error is absorbed in the
+displayed bound. The odd case uses the exact continuum
+cancellation in Proposition~\ref{gi:prop-free-continuum-cycles}.
+\end{proof}
+
+\gineedspace{11\baselineskip}
+\begin{corollary}[Finite volume for continuous separated tests]
+\label{gi:cor-continuous-volume}
+Let $f,h$ be nonzero nonnegative continuous compactly supported
+tests in a common Euclidean lift. Suppose all cross-distances
+between their supports lie in $[d,C_{\rm sh}d]$, where
+$d>0$, $C_{\rm sh}\ge1$, and
+$C_{\rm sh}d\le\ell/4$. Denote the limiting torus two-point
+covariance of their periodizations, as in
+\cref{gi:prop-free-density-limits}, by
+$\mathcal C_\ell(f,h)$. Then
+\[
+ \left|\frac{\mathcal C_\ell(f,h)}
+ {C_Gg^4\mathcal K(f,h)}-1\right|
+       \le C_{C_{\rm sh}}(d/\ell)^4.
+\]
+No Lipschitz or lower-mass assumption is required for this
+finite-volume comparison of the limiting kernels.
+\end{corollary}
+\begin{proof}
+The two-point Wick formula gives
+\[
+ \mathcal C_\ell(f,h)=\frac{d_Gg^4}{2}
+       \iint f(x)h(y)\|\mathsf K_\ell(x-y)\|_{\rm HS}^2\,dx\,dy.
+\]
+Equation~\ref{gi:eq-free-torus-green-bounds} and
+$\|\mathsf K(z)\|_{\rm HS}\le C|z|^{-4}$ give
+\[
+ \left|\|\mathsf K_\ell(z)\|_{\rm HS}^2
+              -\|\mathsf K(z)\|_{\rm HS}^2\right|
+                \le C\ell^{-4}|z|^{-4}
+       \quad(0<|z|\le\ell/4).
+\]
+Multiply by $f(x)h(y)\ge0$ and use
+$|x-y|^{-4}\le(C_{\rm sh}d)^4|x-y|^{-8}$.
+The denominator is positive because both tests are
+continuous, nonnegative and nonzero. Division proves
+the bound.
+\end{proof}
+
+The odd-cycle cancellation pertains to the Euclidean limit.
+For example, group the six plaquettes at each raw base site
+on the torus with \(a=1,\ell=2\). For one colour at unit
+coupling, the third cumulant of their centred half-squares
+at the three base sites \(0,e_4,e_3\) equals \(25/36864\).
+To evaluate it directly, let \(A(z)\) be the matrix in
+\eqref{gi:eq-lattice-curvature-fourier} before taking its
+\(PQ\) entry. If \(b_S(v)=\mathbf 1_S\wedge v\), with
+\(\mathbf 1_S\) the coordinate indicator vector of
+\(S\subset\{1,2,3,4\}\), the two-site frequencies give
+\[
+ 192A(z)=\sum_{S\ne\varnothing}
+            \frac{12}{|S|}(-1)^{\sum_{\mu\in S}z_\mu} b_S b_S^{\mathsf T}.
+\]
+In the ordered plane basis \(12,13,14,23,24,34\) the diagonal
+of \((192A(e_4))(192A(e_3+e_4))(192A(e_3))\) is
+\((20096,6240,6240,6240,6240,-40256)\).
+All six ordered cycles in the third cumulant have the same
+trace, by cyclicity and transpose. Dividing the sum of these
+diagonal entries by \(192^3\) gives the stated cumulant.
+
+For the two-point estimate fix \(d>0\) and \(0<\vartheta\le1\).
+Take nonzero, nonnegative Lipschitz tests \(f,h\), each
+supported in a ball of radius \(d\), with
+\begin{equation}\label{gi:eq-free-shape-class}
+ \begin{gathered}
+ d\le\operatorname{dist}(\operatorname{supp} f,
+                            \operatorname{supp} h)\le6d,\\
+ \int f\ge\vartheta\|f\|_\infty d^4,\qquad
+ \operatorname{Lip}(f)\le\|f\|_\infty/(\vartheta d),
+ \end{gathered}
+\end{equation}
+and the same last two inequalities for \(h\).
+Amplitudes are arbitrary. Dividing by the amplitude and
+dilating a support ball to radius one gives a profile with
+integral at least \(\vartheta\) and Lipschitz constant at
+most \(\vartheta^{-1}\). For \(d\le\ell/100\) these conditions
+also define a class on the torus. To evaluate \(\mathcal K\)
+there, lift the two support balls so a minimizing pair of
+support points has the short displacement. Each ball lifts
+injectively, and all resulting cross-displacements have
+length at most \(10d\) by the two support diameters.
+Their Euclidean lengths are the torus distances. The value
+of \(\mathcal K\) is thus independent of the simultaneous
+periodic translate of the chosen lifts.
+
+To describe coarsening let \(L\) be the fixed odd block factor
+and \(b=L^j a\) for a nonnegative integer \(j\).
+For \(j\ge1\) use the compatible periodic hierarchy on which
+each period contains an integer number of blocks at scale
+\(b\) and at least two coarse sites.
+For the corresponding projections \(P_j\),
+Proposition~\ref{gi:prop-free-slices} identifies the
+conditional mean curvature as the Gaussian with covariance
+\(g^2P_j\).
+Let \(Q_a^{[j]}\) be \eqref{gi:eq-free-lattice-density} for
+that curvature, centred with respect to its own law.
+
+\gineedspace{15\baselineskip}
+\begin{theorem}[The uniform separated two-point comparison]
+\label{gi:thm-free-separated-comparison}
+For the shape class \eqref{gi:eq-free-shape-class} with
+\(10a\le d\le\ell/100\), the full curvature covariance obeys
+\[
+ \left|
+ \frac{\operatorname{Cov}(Q_a(f),Q_a(h))}
+             {C_Gg^4\mathcal K(f,h)}-1
+ \right|
+ \le C\bigl[(a/d)^{1/2}+(d/\ell)^4+a/(\vartheta^3 d)\bigr].
+\]
+The denominator is strictly positive.
+If \(b=L^j a\le d\) in the compatible hierarchy, then the
+corresponding bound for \(Q_a^{[j]}\) is
+\begin{equation}\label{gi:eq-free-background-error}
+ \left|
+ \frac{\operatorname{Cov}(Q_a^{[j]}(f),Q_a^{[j]}(h))}
+             {C_Gg^4\mathcal K(f,h)}-1
+ \right|
+ \le C_L\bigl[(a/d)^{1/2}+(d/\ell)^4+a/(\vartheta^3 d)
+                           +\mathbf 1_{\{j\ge1\}}e^{-c_Ld/b}\bigr].
+\end{equation}
+The constants are independent of depth, the torus side, mesh,
+test amplitudes and positions, and \(g\).
+\end{theorem}
+
+\begin{proof}
+The supports and mass lower bounds give
+\[
+        c\vartheta^2\|f\|_\infty\|h\|_\infty
+        \le \mathcal K(f,h)\le C\|f\|_\infty\|h\|_\infty.
+\]
+For the upper bound use the volume of the two balls and
+the lower separation. For the lower bound use the maximum
+distance \(10d\) and the two mass bounds.
+
+For \(j\ge1\), \cite[Proposition~6.4]{MB} gives, for
+\(1\le i\le j\), the counting-coordinate entry bound
+\[
+  |(P_{i-1}-P_i)(p,q)|
+     \le C_L(a/b_i)^4 e^{-c_L r/b_i},
+                         \qquad b_i=L^{i-1}a .
+\]
+Here \(r\) may be taken as the barycentre distance, because
+moving the chosen plaquette reference sites by \(O(a)\)
+changes the exponential by a fixed factor.
+Multiplying by \(a^{-4}\) and summing gives a physical kernel
+error bounded by \(C_L r^{-4}e^{-c'_L r/b}\) for \(r\ge b\).
+In fact \(r/b_i=L^{j-i+1}r/b\), and the sum of
+\((r/b_i)^4 e^{-c_L r/b_i}\) is bounded by a smaller
+exponential in \(r/b\). For \(j=0\) the difference vanishes.
+This derives the coarsened kernel error by subtracting
+the fluctuation projections from the full projection.
+
+On the cross-support lattice pairs write \(E\) for the
+sum of the mesh and volume errors and, for the coarsened
+law, the exponential error on the right of
+\eqref{gi:eq-free-background-error}, without the quadrature
+term. Each physical entry of the relevant covariance
+divided by \(g^2\) differs from
+\(\mathsf K_{PQ}(u)\) by at most \(C_L E|u|^{-4}\).
+Its squared entry therefore differs by at most
+\(C_L E|u|^{-8}\), since \(E\) is bounded in the stated
+range. Positivity of the tests bounds the summed error by
+this factor times the corresponding Riemann sum of
+\(f(x)h(y)|u|^{-8}\).
+
+For each fixed pair of plane labels, the shifted-grid
+quadrature for \(f(x)h(y)|u|^{-8}\) has absolute error at
+most \(C a\|f\|_\infty\|h\|_\infty/(\vartheta d)\).
+Indeed the mesh cells meeting the product of the supports
+are contained in the product of two balls of radius
+\(d+2a\), and throughout them the cross-distance is
+bounded below by \(d-4a\). The product rule bounds the
+Lipschitz norm of the integrand there by
+\(C\vartheta^{-1}d^{-9}\|f\|_\infty\|h\|_\infty\).
+Using the cell diameter \(Ca\) and the product volume
+\(Cd^8\) proves the bound. The same argument applies to
+the integrand with \(\mathsf K_{PQ}(u)^2\) in place of
+\(|u|^{-8}\), by Lemma~\ref{gi:lem-curvature-reflection}
+and its differentiated expression.
+The relative quadrature cost is at most
+\(Ca/(\vartheta^3d)\) by the lower bound on \(\mathcal K\).
+Multiplication of that cost by the bounded \(E\) still
+gives a term of the stated order.
+
+Finally sum over the planes and apply
+Lemma~\ref{gi:lem-curvature-reflection} to the continuum
+integral. The Wick factor \(d_Gg^4/2\) in
+\eqref{gi:eq-free-lattice-wick} then gives the coefficient
+in \eqref{gi:eq-free-coefficient}.
+\end{proof}
+
+\clearpage
+\begin{thebibliography}{9}
+\raggedright
+\bibitem{BA} \emph{Block averaging and gauge geometry for four-dimensional lattice Yang--Mills theory}, companion manuscript, 2026.
+\bibitem{MB} \emph{Linear lattice PDE with block constraints}, companion manuscript, 2026.
+\bibitem{Bal84a} T. Ba\l aban, \emph{Propagators and renormalization transformations for lattice gauge theories. I}, Comm. Math. Phys. \textbf{95} (1984), 17--40. \href{https://doi.org/10.1007/BF01215753}{doi:10.1007/BF01215753}.
+\bibitem{Bal84b} T. Ba\l aban, \emph{Propagators and renormalization transformations for lattice gauge theories. II}, Comm. Math. Phys. \textbf{96} (1984), 223--250. \href{https://doi.org/10.1007/BF01240221}{doi:10.1007/BF01240221}.
+\bibitem{Bal85p} T. Ba\l aban, \emph{Propagators for lattice gauge theories in a background field}, Comm. Math. Phys. \textbf{99} (1985), 389--434. \href{https://doi.org/10.1007/BF01240355}{doi:10.1007/BF01240355}.
+\end{thebibliography}
+\end{document}

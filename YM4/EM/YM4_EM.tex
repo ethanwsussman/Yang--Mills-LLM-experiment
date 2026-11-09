@@ -1,0 +1,2001 @@
+\documentclass[11pt,letterpaper,reqno]{amsart}
+% BEGIN INLINE manuscript-style
+\makeatletter
+\NeedsTeXFormat{LaTeX2e}[2020/10/01]
+% Use with \documentclass[11pt,letterpaper,reqno]{amsart}.
+% This file controls presentation only. It supplies no mathematical content.
+
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern}
+\RequirePackage{microtype}
+\RequirePackage[letterpaper,margin=1in,headheight=15pt]{geometry}
+\RequirePackage{amsmath,amsthm,amssymb,mathtools}
+\RequirePackage{enumitem}
+\RequirePackage{perpage}
+\RequirePackage{longtable}
+\RequirePackage{xcolor}
+\definecolor{manuscriptred}{rgb}{0.6,0.1,0.1}
+\definecolor{manuscriptblue}{rgb}{0.1,0.3,0.5}
+\definecolor{manuscriptmagenta}{HTML}{60445C}
+\RequirePackage[breaklinks=true,colorlinks=true,
+  linkcolor=manuscriptred,citecolor=manuscriptblue,urlcolor=manuscriptmagenta]{hyperref}
+\RequirePackage{cleveref}
+\hypersetup{pdfauthor={}}
+
+% Retain the AMS paragraph, title, heading and running-head conventions.
+% Equation counters restart each section: 2.i, 2.ii, ... .
+% Appendix sections keep their letters: A.i, A.ii, ... .
+\numberwithin{equation}{section}
+\renewcommand{\theequation}{\thesection.\roman{equation}}
+% Prose references include "eq." and omit parentheses around the number.
+\renewcommand{\eqref}[1]{\textup{eq.~\ref{#1}}}
+\crefname{equation}{eq.}{eqs.}
+\Crefname{equation}{eq.}{eqs.}
+\creflabelformat{equation}{#2#1#3}
+\setcounter{tocdepth}{1}
+\renewcommand{\thefigure}{\Roman{figure}}
+\renewcommand{\thetable}{\Roman{table}}
+\newcommand{\emneedspace}[1]{\par\begingroup
+  \dimen0=\pagegoal\advance\dimen0 by-\pagetotal
+  \ifdim\dimen0<#1\relax\newpage\fi\endgroup}
+\MakePerPage{footnote}
+\renewcommand{\thefootnote}{%
+  \ifnum\value{footnote}>9\arabic{footnote}\else\fnsymbol{footnote}\fi}
+
+% Upright statements. Main results are A, B, C; supporting statements
+% share a section-local sequence. These end marks indicate typography,
+% never proof completeness, validation, or a deferred-proof status.
+\theoremstyle{definition}
+\newtheorem{ms@theorem}{Theorem}
+\renewcommand{\thems@theorem}{\Alph{ms@theorem}}
+\newtheorem*{ms@theoremstar}{Theorem}
+\newtheorem*{ms@theoremzero}{Theorem 0}
+\newtheorem{ms@proposition}{Proposition}[section]
+\newtheorem{ms@lemma}[ms@proposition]{Lemma}
+\newtheorem{ms@definition}[ms@proposition]{Definition}
+\newtheorem{ms@corollary}[ms@proposition]{Corollary}
+\newtheorem*{ms@corollarystar}{Corollary}
+
+\newcommand{\ms@majorstart}{%
+  \pushQED{\qed}\renewcommand{\qedsymbol}{$\blacksquare\square$}}
+\newcommand{\ms@minorstart}{%
+  \pushQED{\qed}\renewcommand{\qedsymbol}{$\blacksquare$}}
+\newenvironment{theorem}[1][]{\ms@majorstart\ms@theorem[#1]}
+  {\popQED\endms@theorem}
+\newenvironment{theorem*}[1][]{\ms@majorstart\ms@theoremstar[#1]}
+  {\popQED\endms@theoremstar}
+\newenvironment{theoremzero}[1][]{\ms@majorstart\ms@theoremzero[#1]}
+  {\popQED\endms@theoremzero}
+\newenvironment{proposition}[1][]{\ms@minorstart\ms@proposition[#1]}
+  {\popQED\endms@proposition}
+\newenvironment{lemma}[1][]{\ms@minorstart\ms@lemma[#1]}
+  {\popQED\endms@lemma}
+\newenvironment{definition}[1][]{\ms@minorstart\ms@definition[#1]}
+  {\popQED\endms@definition}
+\newenvironment{corollary}[1][]{\ms@majorstart\ms@corollary[#1]}
+  {\popQED\endms@corollary}
+\newenvironment{corollary*}[1][]{\ms@majorstart\ms@corollarystar[#1]}
+  {\popQED\endms@corollarystar}
+% The source's lemma/proposition variants are deliberately not carried over:
+% choose one marker for each statement type rather than encode proof status.
+
+\theoremstyle{remark}
+\newtheorem{remark}[ms@proposition]{Remark}
+\newtheorem*{remark*}{Remark}
+% The ordinary amsthm proof environment retains its open square.
+
+\crefname{ms@theorem}{theorem}{theorems}
+\Crefname{ms@theorem}{Theorem}{Theorems}
+\crefname{ms@proposition}{proposition}{propositions}
+\Crefname{ms@proposition}{Proposition}{Propositions}
+\crefname{ms@lemma}{lemma}{lemmas}
+\Crefname{ms@lemma}{Lemma}{Lemmas}
+\crefname{ms@definition}{definition}{definitions}
+\Crefname{ms@definition}{Definition}{Definitions}
+\crefname{ms@corollary}{corollary}{corollaries}
+\Crefname{ms@corollary}{Corollary}{Corollaries}
+\crefname{remark}{remark}{remarks}
+\Crefname{remark}{Remark}{Remarks}
+
+% Bibliography configuration for this manuscript.
+\makeatother
+% END INLINE manuscript-style
+
+
+\title[Iteration of regular interactions]{Iteration of regular interactions on prescribed coupling prefixes}
+\date{Working draft, 9 November 2026}
+\begin{document}
+\raggedbottom
+\begin{abstract}
+We prove uniform bounds for two chains of regular interactions formed
+by prescribed small-field integration steps. The unmarked chain uses
+fixed physical radii and no inherited remainders. The full chain
+admits older remainders on running radii. A summable age kernel and
+a squared-radius remainder sum control their difference uniformly
+in the length of the prefix. Physical Cauchy estimates then give the
+marked quadratic action coefficient, with its radius loss retained.
+For complete profiles with their scalar coefficient subtracted,
+an exact transport law gives a uniform forward stability estimate.
+The conclusions assume the actual one-step formation, domain and
+companion estimates, the stated flow comparisons, and the supplied
+inherited remainder bounds. They do not construct those inputs or
+solve for a coupling trajectory.
+\end{abstract}
+\maketitle
+\tableofcontents
+
+\section{Introduction}
+
+A local interaction created by block integration is evaluated again
+at later scales. Its repeated contribution depends on what has been
+subtracted from it. A regular family carries its own quadratic action
+subtraction, and the one-step estimate supplies a decaying weight
+for its age. A vacuum-subtracted remainder has no such quadratic
+subtraction. Its bound instead retains the squared ratio of the
+evaluation radius to its creation radius. The distinction matters
+when the number of integration steps is unbounded.
+
+We study the iteration on a given finite prefix of reference and
+running data. The reference data fix the integration coordinates,
+cutoffs and Gaussian conventions. The action weights vary within
+their declared complex domains. The two chains use these same
+choices. Their common part cancels only after the chain on fixed
+radii has been restricted as the same actual function to the
+running domain. This identity is stronger than equality of norm
+bounds or agreement of separately chosen logarithms.
+
+The proof first makes the required one-step hypotheses explicit.
+It then sums the regular age kernel and the inherited remainder
+load. A weighted supremum induction bounds the marked difference.
+The coefficient readout uses the physical background field, so a
+second derivative costs the inverse square of the physical
+analyticity radius. Finally, a norm adapted to exact transport
+gives forward stability for complete regular profiles. This last
+argument controls the profile for a prescribed coupling sequence;
+it does not impose the equation determining that sequence.
+
+Conditional small-field effective-action induction is treated in
+\cite[Theorems~1 and~3, pp.~259 and~264; hypotheses on pp.~260--264]{Bal87}.
+The local cluster expansion and its effective-action estimates are
+completed in \cite[\S2, pp.~11--22]{Bal88c}.
+The arguments below give the finite-prefix summations, domain
+compatibility and coefficient estimates in the explicitly stated
+two-chain setting. The marked recurrence is not attributed to
+those cited theorems.
+
+The inherited remainder estimates, their analytic domains, and the
+actual one-step theorem are premises of this manuscript. The
+quantitative statements distinguish the implications proved from
+these premises from their admission in a full lattice construction.
+No boundary or large-field history estimate is inferred from a
+regular-family norm.
+
+\section{The regular data at a prescribed step}
+\label{em:sec-regular-data}
+
+Fix an odd block factor $L\ge3$ and a localization side $M$, a power of
+$L$. Use centered compatible grids on the finite four-dimensional tori
+and their unit-lattice covers. A level-$j$ domain $X$ is a connected union
+of level-$j$ localization cubes. In level-$j$ units let $d_j(X)$ be the
+length of a shortest tree in $X$ meeting every cube, divided by $M$.
+We use the actual determining windows of the step, including the collars
+needed for the fluctuation response and for the pointing at unit sites
+$z\in X$. Every assertion about a common lift includes these windows.
+Unless a result states a more specific dependence, an unsubscripted
+$C$ may change from line to line and depends only on the fixed
+geometry, rates and admitted domain bounds. It is independent of
+the prefix length, fine mesh and compatible volume. Named input
+constants remain fixed when the common coupling floor is increased.
+
+The real gauge group is $\operatorname{SU}(2)$ and its complexification
+is $\operatorname{SL}_2(\mathbb C)$. Use traceless Hermitian Lie
+coordinates with pairing $\langle X,Y\rangle=\tfrac12\operatorname{tr}(XY)$,
+continued bilinearly. The Wilson action is
+$A(U)=\sum_p(1-\tfrac12\operatorname{tr}U_p)$ over the stored positive
+plaquettes, with $U_p$ the oriented plaquette product. The physical
+current $J$ is a bond one-form in the units of its level.
+
+Write $P=(\mathbf U,J)$ for a configuration and current pair on a read
+window. The current is an independent complex variable in a local core.
+A core with radii $\mathbf a=(a_0,a_1)$ uses representatives
+$\mathbf U=e^{i\eta_j A'}U$ with $U$ real and $\eta_j$ the bare spacing
+in level-$j$ units. The radius $a_0$ bounds the real and complex plaquette
+defects in units $\eta_j^2$ and the current in its level-$j$ units.
+The radius $a_1$ bounds $A'$ and its covariant first differences.
+The real factor must lie in its declared local gauges. The corresponding
+curvature and current bounds, with the prescribed changes of units and
+margins, are required at every restricted tower used by the step.
+Denote the resulting admitted core by
+$\mathcal U_j(X;\mathbf a)$. We use the core inclusions supplied by the
+background and one-step theorems. In particular, a substitution along a
+complex decoupling contour must map into the core of the potential being
+read, including its original tower and collar data. A radius comparison
+by itself is not a substitution theorem.
+
+A pointed family $G$ at level $j$ assigns a holomorphic function
+$G(X,P,z)$ to each $(X,z)$. The value is gauge invariant under the
+declared action and depends on the pair, independently of its splitting
+into $U,A',J$. These analytic families form complex linear spaces.
+Their real subspaces consist of families that take real values on
+real admitted pairs. At real values of all input parameters the
+supplied input and output families belong to these real subspaces.
+Complex directions and complex parameter values are not subject
+to that real-valuedness condition.
+Its norm is
+\begin{equation}\label{em:eq-pointed-norm}
+ \|G\|_{j,\kappa;\mathbf a}
+   =\sup_{\mathbb T,\,X,\,z\in X}\ 
+           e^{\kappa d_j(X)}\sup_{P\in\mathcal U_j(X;\mathbf a)}
+                 |G(X,P,z)| .
+\end{equation}
+Here the supremum includes the admissible tori and the infinite-lattice
+companion. An unpointed family obeys the same analyticity, gauge and
+reality conventions on its admitted cores and uses the same norm
+without $z$. Parameter
+suprema are also taken when families are prescribed on a complex
+parameter domain. There is no sum over $z$ in this norm. The rooted
+domain sums use the separate entropy bound of the one-step construction
+at the chosen decay rate. Restricting a family to a smaller core reduces
+its norm.
+
+The block map $\mathcal M$ is the prescribed one-step average from
+level-$j$ link fields to level-$(j+1)$ link fields, expressed in their
+respective units. Its iterates are compositions of these actual maps.
+For a level-$j$ datum $W$, let $U_j(W)$ be the supplied fine
+constrained background with $\mathcal M^j U_j(W)=W$, and set
+$U_0(W)=W$. Its gauge representatives, local analytic continuations
+and physical current are part of the admitted background data.
+The block and gauge geometry is developed in \cite{BA}; its
+nonlinear stationary background is an input here.
+
+A companion $\widehat G$ is one family on the cover that agrees with
+each torus function on every common nonwrapping read, after transport
+of all determining data. We require this agreement for the same frame
+and weights through the forming step and all compatible cutoffs.
+Translations preserving the partition act on individual terms.
+For the real fields with backgrounds
+$P_j(W)=(U_j(W),J(U_j(W)))$ in the required cores, the pointed total is
+\[
+                   \mathcal P_z(G;W)=\sum_{X\ni z}G(X,P_j(W),z).
+\]
+The scalar Euclidean class requires
+$\mathcal P_{rz}(G;rW)=\mathcal P_z(G;W)$ for the admitted lattice
+isometries, including unit translations, on the common covariance
+class. This is a property for each base point. The invariance of the
+sum over base points alone would not give it.
+
+A regular member has this covariance, a companion and its scalar
+coefficient $b_j(\widehat G)$. This is the linear readout from the
+companion's physical Hessian, defined below on the stated response and
+summability domains. Its own Wilson counterterm is pointed using the
+same midpoint tents as the regular family. We require the actual
+fine Wilson action $A(U_j(W))$ to have coefficient one in that
+readout. Unit-translation covariance of the curl response and
+affine-curl reproduction by the supplied background give this normalization by the
+calculation in \cref{em:sec-coefficient}; their admission is part of
+the background input. In level-$j$ units, put
+\begin{equation}\label{em:eq-tents}
+                h_z(x)=\prod_{\mu=1}^4(1-|x_\mu-z_\mu|)_+.
+\end{equation}
+Periodize these functions on a torus. The two neighboring linear
+weights in each coordinate sum to one, so $\sum_z h_z(x)=1$.
+Thus the sum of the counterterms is
+$-b_j(\widehat G)A(U)$, with $A$ the Wilson action. Each member is first
+vacuum subtracted. For an unpointed remainder $H$ we subtract only its
+vacuum value. Its domains are unions of the older cells of side
+$M\check R_j$ at its birth scale. It has a companion and covariant terms
+under the translations preserving that partition. Its total is invariant
+on its declared background class under the allowed partition isometries.
+
+
+\section{Summing the inherited loads}
+\label{em:sec-loads}
+
+Use the fixed blocking factor $L$ and localization side $M$. Fix
+an exponent $0<\alpha_{\rm H}<1$. The age of a term of origin
+$j$ in the step from $m$ to $m+1$ is $n=m+1-j$. The regular
+comparison uses the weight
+\begin{equation}\label{em:eq-regular-age}
+  \omega_n=(n+1)^{3/2}L^{-\alpha_{\rm H}(n-1)},\qquad n\ge1.
+\end{equation}
+This is the weight in the one-step estimate after each regular
+member's own quadratic action has been subtracted. The use of that
+estimate includes its stated read domains and the fixed bound for
+subtracting each member's own counterterm. Its numerical load is
+charged to the original family norms, as specified below.
+
+\begin{lemma}[Summability of regular ages]\label{em:lem-age-kernel}
+The sum $\Omega=\sum_{n\ge1}\omega_n$ is finite. It stays finite
+after multiplying the summand by any fixed nonnegative power of
+$n+1$. More generally, a supplied kernel bounded by
+$C(n+1)^dL^{-\alpha(n-1)}$ is bounded by a fixed multiple of
+\eqref{em:eq-regular-age} for any
+$0<\alpha_{\rm H}<\min\{1,\alpha\}$. The multiple can depend
+on $d,L,\alpha-\alpha_{\rm H}$.
+\end{lemma}
+
+\begin{proof}
+For each fixed $s\ge0$ the ratio of successive terms of
+$(n+1)^s\omega_n$ tends to $L^{-\alpha_{\rm H}}<1$. After a
+fixed age these ratios are bounded by a number less than one.
+This proves the two summability assertions. For the comparison,
+the quotient of the proposed majorant and $\omega_n$ is
+$C(n+1)^{d-3/2}L^{-(\alpha-\alpha_{\rm H})(n-1)}$. The positive
+exponential reserve bounds this quotient uniformly in $n$.
+\end{proof}
+
+For the running-radius chain fix real numbers
+$\theta_0,\ldots,\theta_N$ above a floor $X>e$ and constants
+$\lambda_\flat>0$, $c_5\ge0$ and $\bar B>0$. Assume the weak
+flow comparison
+\begin{equation}\label{em:eq-weak-flow}
+  \lambda_\flat(j-i)-c_5\le\theta_i-\theta_j
+                     \le\bar B(j-i),\qquad 0\le i\le j\le N.
+\end{equation}
+For example, when $0<\lambda_\flat\le\bar B$, the frame
+$\theta_j=X+\lambda_\flat(N-j)$ meets these inequalities for
+every finite $N$.
+This permits bounded excursions between adjacent entries. The
+frame is fixed when the action weights vary on their admitted
+domains. It supplies steps $m+1$ for $0\le m\le N$.
+For fixed positive $A_1,C_0,C_1,\beta_{\rm s}$ and
+$q>\mathfrak p_0\ge0$, use
+\begin{align}
+  \alpha_\iota(y)&=C_\iota y^{-1/2}(\log y)^q,
+          &\delta(y)&=A_1y^{-1/2}(\log y)^{\mathfrak p_0},\nonumber\\
+  \bar a_{m,\iota}&=(1+\beta_{\rm s})\alpha_\iota(\theta_m),
+          &\check a_{j,\iota}&=\min\{\alpha_\iota(\theta_{j-1}),
+                                      \alpha_\iota(\theta_j)\},
+  \label{em:eq-running-radii}\\
+  \mathsf s_m&=\delta(\theta_m)/\bar a_{m,0},
+          &w_{m,j}&=\max_{\iota=0,1}
+                       (\bar a_{m,\iota}/\check a_{j,\iota})^2.
+  \label{em:eq-running-weight}
+\end{align}
+The enlarged output radius $\bar a_{m,\iota}$ is fixed before
+forming step $m+1$. For an inherited term of origin $j$, the
+radius $\check a_{j,\iota}$ is a permitted restriction of its
+creation domain. The weight $w_{m,j}$ is the squared ratio
+used in the inherited-remainder comparison. Domain admission and
+the quadratic evaluation estimate that supplies this ratio belong
+to the one-step input. A comparison of numerical radii alone
+gives no evaluation identity.
+
+For fixed $r>0$ set
+\[
+  R(y)=\min\{L^b:b\in\mathbb Z_{\ge0},\ L^b\ge(\log y)^r\},
+  \qquad \check R_j=R\bigl(\min_{0\le i\le j}\theta_i\bigr).
+\]
+An inherited origin $j\le m$ passes the numerical age gate of
+step $m+1$ when $M\check R_j\le L^{m+1-j}$. Insertion also
+requires the supplied companion and analytic admission for that
+term. Write $J_m$ for the designated existing origins passing the
+numerical gate, and $J_m^{\rm rec}$ for the existing origins that
+fail it. These lists are fixed on each parameter domain, since
+the frame and the existing origin labels are fixed there. Every
+member of $J_m$ must satisfy its companion and analytic hypotheses
+throughout that domain. Failure of such a hypothesis makes the step
+inadmissible there; it does not silently remove that member from
+the list. Origins in $J_m^{\rm rec}$ are outside the regular exponent
+of this step.
+
+\begin{lemma}[Squared-radius loads]\label{em:lem-remainder-load}
+Let $\kappa_0>4$ and $p=(\kappa_0-2)/2$. Assume the creation
+norms of the inherited remainders are bounded by
+$\rho_j\le C_R\theta_j^{-\kappa_0/2}$. For a fixed floor high
+enough in terms of the stated constants, one has
+\begin{equation}\label{em:eq-aged-load}
+  \sum_{j\in J_m} w_{m,j}\rho_j
+  \le \sum_{j=1}^m w_{m,j}\rho_j
+  \le C_{\mathfrak h}\theta_m^{-p},\qquad
+  C_{\mathfrak h}\le C\left(1+\frac{1}{\lambda_\flat(p-1)}\right).
+\end{equation}
+The constant $C$ may depend on $p,q,\beta_{\rm s},C_R,c_5,\bar B$.
+For $1\le j\le m$ the radii also satisfy
+\begin{equation}\label{em:eq-radius-nesting}
+  \check a_{j,\iota}\le\bar a_{m,\iota}
+       \le C(m+2-j)^{1/2}\check a_{j,\iota},\qquad \iota=0,1.
+\end{equation}
+The numerical gate, applied to the full set of origins, selects
+an initial segment. For its recent complement,
+\begin{equation}\label{em:eq-recent-load}
+  \sum_{j\in J_m^{\rm rec}}w_{m,j}\rho_j
+  \le C(1+\log\log\theta_m)^2\theta_m^{-\kappa_0/2}.
+\end{equation}
+The constant in this last bound can also depend on $r,L,M$.
+All bounds are independent of $m,N$ and the frame above the floor.
+\end{lemma}
+
+\begin{proof}
+The fixed constants $C_\iota$ cancel in each ratio in
+\eqref{em:eq-running-weight}. In particular that weight is
+\[
+ (1+\beta_{\rm s})^2\max_{i\in\{j-1,j\}}
+   \frac{\theta_i}{\theta_m}
+        \left(\frac{\log\theta_m}{\log\theta_i}\right)^{2q}.
+\]
+By the lower bound in \eqref{em:eq-weak-flow}, both $\theta_i$
+in this maximum are at least $\theta_m-c_5$. Above a fixed floor
+the logarithmic ratio is bounded by two. The upper bound for one
+step gives $\theta_{j-1}\le\theta_j+\bar B$. Increasing the floor
+once more yields
+\begin{equation}\label{em:eq-weight-comparison}
+    w_{m,j}\le C\theta_j/\theta_m\le C(1+m+1-j).
+\end{equation}
+In the second inequality use the upper bound from $j$ to $m$.
+This also gives the upper inequality in \eqref{em:eq-radius-nesting}.
+For the lower one take $X-c_5>e^{2q}$, so each $\alpha_\iota$
+decreases on $[X-c_5,\infty)$. From $\theta_j\ge\theta_m-c_5$,
+\[
+ \check a_{j,\iota}\le \alpha_\iota(\theta_m-c_5)
+     \le (1-c_5/\theta_m)^{-1/2}\alpha_\iota(\theta_m).
+\]
+The last factor in front of $\alpha_\iota$ is at most
+$1+\beta_{\rm s}$ after increasing the fixed floor.
+The summands in \eqref{em:eq-aged-load} are therefore bounded by
+$C\theta_m^{-1}\theta_j^{-p}$. The lower flow comparison gives
+$\theta_j\ge (\theta_m+\lambda_\flat(m-j))/2$ if $X\ge2c_5$.
+The summand $t\mapsto(\theta_m+\lambda_\flat t)^{-p}$ decreases.
+Its sum over nonnegative integers is at most its value at zero
+plus its integral on $[0,\infty)$, namely
+\[
+   \theta_m^{-p}+
+                \frac{\theta_m^{1-p}}{\lambda_\flat(p-1)}.
+\]
+Multiplication by $C\theta_m^{-1}$ proves the bound. The empty
+sum at $m=0$ is zero.
+
+For the gate, put $y_j=\min_{i\le j}\theta_i$. If the minimum
+drops, $y_j-y_{j+1}\le\theta_j-\theta_{j+1}\le\bar B$.
+Above a fixed floor this makes the ratio of
+$(\log y_j)^r$ to $(\log y_{j+1})^r$ less than $L$. Rounding up to
+the next $L$-power gives $\check R_j/\check R_{j+1}\in\{1,L\}$.
+Thus $L^j\check R_j$ is nondecreasing. The inequality defining the
+gate is $M L^j\check R_j\le L^{m+1}$, proving the initial-segment
+property.
+
+If an origin fails the gate, its age $n=m+1-j$ satisfies
+\[
+  L^n<M\check R_j\le ML(\log\theta_j)^r
+     \le C(\log\theta_m)^r(1+\log(n+1))^r.
+\]
+The last inequality follows from
+$\theta_j\le\theta_m+\bar B(n-1)$ and $\log\theta_m\ge1$.
+The last factor is bounded by $C_{L,r}L^{n/2}$ for all $n\ge1$.
+Taking logarithms gives $n\le C(1+\log\log\theta_m)$. Each such
+origin has $\rho_j\le C\theta_m^{-\kappa_0/2}$ by the lower flow
+bound. Sum $C(1+n)$ from \eqref{em:eq-weight-comparison} over these
+distinct ages to obtain \eqref{em:eq-recent-load}.
+\end{proof}
+
+One common geometric margin also follows numerically from these
+profiles. If the supplied curvature threshold is
+$\varepsilon(y)=A_0y^{-1/2}(\log y)^{\mathfrak p_0}$ with $A_0>0$,
+then
+\[
+ \frac{\check R_m^2\varepsilon(\theta_m)}{\alpha_0(\theta_m)}
+ \le\frac{L^2A_0}{C_0}
+                (\log\theta_m)^{\mathfrak p_0+2r-q}.
+\]
+Indeed the running minimum is at most $\theta_m$, and rounding
+gives $\check R_m\le L(\log\theta_m)^r$. Thus the stronger choice
+$q>\mathfrak p_0+2r$ makes this ratio uniformly small above a fixed
+floor. This supplies that numerical margin when the one-step
+geometry requires it. Actual read-domain and collar admission
+remain separate hypotheses.
+
+The positive lower slope is essential for the aged-load bound.
+For a constant frame the weight is constant and the number of
+origins passing the numerical gate grows with the prefix. At
+$\kappa_0=4$ even a linearly decreasing frame can give a logarithmic
+loss in \eqref{em:eq-aged-load}. For $\theta_{m-n}=X+n$,
+$m=X^2$ and $X$ a large integer, take $\rho_j=\theta_j^{-2}$ and
+sum over the lags $n=m-j$ from $X$ to $X^2-1$. These origins pass
+the gate since $M\check R_j\le C(\log X)^r<L^{n+1}$. The logarithms
+of their frame entries are comparable to $\log X$, so their
+contribution is bounded below by $cX^{-1}\log X$.
+
+
+\section{The two chains and their common step}
+
+
+Let $\theta_0,\ldots,\theta_m$ be the supplied real frame prefix, above a
+common floor. Write $x_k$ for the prescribed Wilson weight and
+$\tau_k=x_k/\theta_k$. The frame fixes the lattice partitions, Gaussian
+references, real fluctuation coordinates and tests. The variable $x_k$
+does not change those choices. For the absolute chain fix a pair
+$\mathbf a_*$ of small positive radii. Its output and inherited cores
+use $\mathbf a_*$ throughout. In the convention that the one-step
+theorem enlarges its target radii by $1+\beta_{\rm s}$, its target radii before
+enlargement are $\mathbf a_* /(1+\beta_{\rm s})$.
+
+For the running chain use the creation radii $\bar{\mathbf a}_k$
+and the inherited radii $\check{\mathbf a}_j$ in
+\eqref{em:eq-running-radii}. The latter are
+formed only once $\theta_j$ is supplied. The inherited restriction uses
+the same function on the smaller core. We assume the admitted core nesting,
+including $\bar a_{k,\iota}\le a_{*,\iota}$, on the common parameter
+domains. For both systems the radii satisfy the one-step admissibility
+conditions, including $CMa_0<a_1$ and $a_1^2\le C'a_0$ with the fixed
+chart constants. If a separate current radius is used, it is subject to
+the same componentwise domain and ratio tests. The present convention
+ties it to $a_0$.
+
+At input step $k$ the full list uses the regular members from levels
+$1,\ldots,k$ and the designated aged remainders $H_j$ at the origins
+$J_k$ of \eqref{em:eq-aged-load}. The prefix must supply and admit all
+its required aged inputs. The inequality $M\check R_j\le L^{k+1-j}$
+is their numerical age test.
+Since the lengths are powers of $L$, the old cell side then divides
+the new unit side in old units. With centered aligned partitions, the
+new lattice translations and signed coordinate permutations therefore
+preserve the old cell partition. This supplies the geometric part of
+the old remainder's symmetry at insertion. Its background membership
+still has to hold. A family that fails this age test stays outside the
+regular list. The unmarked list uses only its own regular outputs, from
+levels $1,\ldots,k$. Both lists begin with no entries.
+
+For either list $\mathfrak f$ let $S_{\mathfrak f}(U)$ be the sum of its
+vacuum-subtracted regular families, their own Wilson counterterms and
+its vacuum-subtracted remainders. The current used in this expression
+on a physical background is its actual current. Each older entry is
+evaluated in its own units and on its own determining data. The regular
+one-step theorem is an input for the following actual finite integral.
+At real admitted data let $K_{k,\theta_k}(W,dV)$ be the fixed all-small-
+field kernel on $\mathcal M(V)=W$. It uses the given fibre density,
+gauge weight and fluctuation cut. In the resolved fibre chart its real
+free array is $B$ and its field is $V'(W,B)$ with $\mathcal M(V')=W$.
+The completed fluctuation logarithm includes the pivot links. The
+analytic continuations and potential bounds used below refer to that
+completed map. The admitted background nesting identifies
+$V'(W,0)=\mathcal M^kU_{k+1}(W)$ and
+$U_k(V'(W,0))=U_{k+1}(W)$ up to a site gauge. Thus gauge-invariant
+carried differences vanish at zero fluctuation. These identities
+are required of the supplied backgrounds; their existence is not
+deduced from the integral formula. Put
+\begin{align}
+ \mathcal E_{k+1}[x_k,\mathfrak f](W)
+  ={}&\log\!\int K_{k,\theta_k}(W,dV)
+          e^{-x_k A(U_k(V))+S_{\mathfrak f}(U_k(V))}\notag\\
+     &+x_k A(U_{k+1}(W))-S_{\mathfrak f}(U_{k+1}(W)).
+ \label{em:eq-actual-step}
+\end{align}
+The integral retains its prescribed numerical normalization. The
+regular one-step expansion separates a field-independent scalar
+$\mathfrak v_{k+1}$ from this physical logarithm:
+\[
+ \mathcal E_{k+1}[x_k,\mathfrak f](W)
+   =\mathfrak v_{k+1}+\sum_{X,z}E_{k+1}(X,P_{k+1}(W),z).
+\]
+The scalar includes the dimensional and reference-normalizer
+constants specified by the actual kernel. At the same frozen step
+and action weight this scalar is independent of the incoming list.
+The same convention is used on every common read, and this scalar is
+retained separately in the exact identity. The regular norm below
+bounds the localized remainder in this identity, not an arbitrary
+unnormalized logarithm. The scalar has zero curvature coefficient.
+For a real physical datum, real action weight and real inherited
+data, the logarithm is the real logarithm of the positive integral.
+
+The reference-weight and weight-shifted Gaussian presentations use the
+same integral. In its supplied fibre quadratic splitting let
+$\Delta_A$ be the action precision, $\Delta_G$ the gauge precision and
+$\Delta=\Delta_A+\Delta_G$. The weight shift in the action then obeys
+\begin{equation}\label{em:eq-frozen-gaussian-rewrite}
+ e^{-\langle B,\Delta B\rangle/2}
+ e^{-(\tau_k-1)\langle B,\Delta_A B\rangle/2}
+ =e^{-\tau_k\langle B,\Delta B\rangle/2}
+  e^{(\tau_k-1)\langle B,\Delta_G B\rangle/2}.
+\end{equation}
+If $B$ has dimension $d$ and the scaled Gaussian is normalized,
+retain the multiplier $\tau_k^{-d/2}$ relative to the normalization
+at $\tau_k=1$. Here $\tau_k^{-d/2}=\exp[-(d/2)\log\tau_k]$,
+with the logarithm continued from zero at $\tau_k=1$ on the
+relative disc $|\tau_k-1|<\sigma_*\le1/2$. The gauge compensation on the
+right is still a factor on the cut. The pure Gaussian value of its
+integral in the action-only split of \cite{GI} does not replace it in
+the interacting integral. On the unrestricted Gaussian with the
+admitted action--gauge splitting and residual gauge dimension
+$d_{\mathrm g}$, its normalized compensation is
+$\tau_k^{d_{\mathrm g}/2}$ by \cite[Proposition~4.3]{GI}. The two
+scalar logarithms are therefore $-(d/2)\log\tau_k$ and
+$(d_{\mathrm g}/2)\log\tau_k$. In the stated decomposition the
+first belongs to $\mathfrak v_{k+1}$, while the second is the
+physical total of the Gaussian mismatch family. This unrestricted identity leaves
+the compensation factor on the cut unchanged. All remaining
+vertices and the cut are kept.
+
+Here are the one-step inputs used by the induction. They concern the
+same actual kernel and localization on all stated domains.
+
+\begin{enumerate}
+\item The real backgrounds and their complex extensions, the actual
+  fibre chart, the completed response and the cuts are supplied on the
+  requested field, coupling and remainder parameter domains. In the
+  prefix parameterization, the maps taking the current parameters to
+  every earlier input's parameters are holomorphic and have images
+  in those inputs' declared domains. For shared prefix coordinates
+  these maps are the coordinate projections. The lists and all
+  discrete choices are held fixed throughout each such domain. In the
+  analytic integral presentation the sharp test is a fixed Borel
+  restriction in the real free variables. The Gaussian matrices and
+  the potentials admit the enlarged decoupling contours of the
+  localization. Their local guards, nonvanishing logarithm domains and
+  simultaneous core inclusions are part of the input. At complete
+  physical data the localized sum, together with the prescribed
+  scalar $\mathfrak v_{k+1}$, gives \eqref{em:eq-actual-step}.
+  At an independent-current pair it is the prescribed local analytic
+  expression.
+\item One prescribed convergent localization gives the pointed output
+  $E_{k+1}$ after the specified scalar has been separated from
+  \eqref{em:eq-actual-step}. Each localized summand has a
+  determining read and a fixed logarithm branch. The supplied
+  localization preserves the pair gauge identities. On physical
+  data these use the admitted gauge change of variables for the
+  actual fibre measure, relative gauge weight and cut, including
+  the prescribed chart identity if an axial presentation is used.
+  Invariance of an arbitrary gauge-fixing weight is not assumed.
+  Identifications of
+  complete reads transport the formulas, their Borel cuts, branches
+  and their assignment to carriers and points. The one-step pointing
+  identity transports the complete pointed sum, allowing reassignment
+  to carriers under a unit isometry that moves the
+  localization partition. For an admitted isometry $r$, the real free
+  coordinates change by an orthogonal map $O_{r,W}$ with
+  $V'(rW,O_{r,W} B)=rV'(W,B)$. The real map may depend on $W$.
+  This change transports the cut, completed
+  response, measure factors and point $z$ to $rz$. There is an open
+  real fluctuation ball on which all inherited backgrounds have their
+  required covariance. The covariance radii $e_j$ obey
+  $e_{j'}\le L^{2(j'-j)}e_j$ for $j\le j'$. This inequality compares
+  thresholds for the same curvature in different units. The earlier
+  backgrounds used by the actual step also have to lie in their own
+  covariance classes throughout the retained real cut. The creation
+  radius is $c_e\varepsilon(\theta_k)$
+  at step $k\to k+1$, where $\varepsilon$ is the supplied real curvature
+  threshold and $c_e$ is fixed by the domain margin. At every formed
+  level, the supplied background, pair core and companion satisfy
+  the domain, response, summability and cofinal compatibility
+  hypotheses of
+  \cref{em:lem-physical-radius,em:prop-physical-polarization,em:prop-companion-coefficient}
+  uniformly on the output domains. The actual gauge and pointing
+  identities supply the symmetry hypotheses as explained below.
+  The readout results then define the new scalar coefficient
+  before this output is used in a later list. Their analytic
+  bounds use the supplied background and family estimates,
+  independently of the present iteration.
+\item For a list of regular entries of norm at most $E_0$, let $\mathcal
+  N_k$ be its sum of the restricted original regular-family norms,
+  before vacuum and quadratic subtraction, with weights
+  $\omega_{k+1-j}$, plus the aged remainder norms with weights
+  $\max_\iota(\bar a_{k,\iota}/\check a_{j,\iota})^2$ in the running
+  chain. The weights $\omega_n$ are those in \eqref{em:eq-regular-age}.
+  The comparison evaluates each regular member with its own
+  counterterm. The fixed subtraction-operator bounds are included
+  in $K$ and in the admission threshold, rather than being treated
+  as contractive. Remainders receive their radius weights without
+  that age gain.
+  For $s(1+\mathcal N_k)\le\epsilon_{\rm step}$, the output is
+  \begin{equation}\label{em:eq-rs-formation}
+    E_{k+1}=N_{k+1}+G_{k+1,\tau_k}+F_{k+1}[\mathfrak f],\qquad
+    \|F_{k+1}[\mathfrak f]\|\le
+        K\{\delta(\theta_k)+s\mathcal N_k
+                    +e^{-c\theta_k\delta(\theta_k)^2}\} .
+  \end{equation}
+  The norms are the output norms \eqref{em:eq-pointed-norm} with the
+  stated radii. Fixed enlargement factors are absorbed in $K$ and in
+  the threshold for $s$. Thus $s$ is $\delta(\theta_k)/a_{*,0}$ for
+  the absolute chain and $\delta(\theta_k)/\bar a_{k,0}$ for the
+  running chain. The separately given Gaussian families satisfy
+  $\|N_{k+1}\|\le B_N$ and $\|G_{k+1,\tau}\|\le B_G|1-\tau|$ on the
+  absolute cores. They depend only on the frozen Gaussian data and
+  the weight ratio, and restrict to the same terms on the running
+  cores. The normalization of the first family is fixed by
+  \[
+   \sum_{X,z}N_{k+1}(X,P_{k+1}(W),z)
+        =\log Z_k(W)-\log Z_k(1),
+  \]
+  where $Z_k(W)$ is the supplied actual constrained reference
+  Gaussian normalizer without a fluctuation cut. Its logarithm
+  has the fixed branch from the positive real normalizer. This
+  identity identifies its curvature coefficient with that of the
+  physical Gaussian normalization. In the physical action-only
+  splitting the total of the
+  Gaussian mismatch is field independent, by the Gaussian gauge
+  normalization. Its scalar coefficient is zero, although its
+  pointed norm need not have a small-coupling factor.
+\item For two admitted lists on the common smaller cores, the one-step
+  comparison bounds the difference of their actual $F$ outputs by
+  $Ks$ times the weighted load of the differences of their inputs,
+  with the same age and radius weights. This is the comparison for
+  the same completed fibre map, potential and cut domains and
+  logarithm expansion. The admitted marked slot has the prescribed
+  interpolation and contour domains, including the zero-marked list.
+  It is additional to the one-list bound in
+  \eqref{em:eq-rs-formation}.
+\end{enumerate}
+
+The constants in these inputs are uniform over the compatible tori,
+over the declared parameter domains and over the number of older levels.
+For every fixed prefix the compatible tori include arbitrarily large
+periods in every direction, so that each fixed finite read and its
+collar embed in all sufficiently large members of a cofinal sequence.
+For the running construction, one sufficient size convention is
+$P_i\ge2L^{11}M\check R_i$ at every used level $i$, where $P_i$
+is the shortest torus period in level-$i$ units. Every common
+lifted read, with its collar, must fit in a box shorter than half
+each torus side. When forming level $j$ before $\theta_j$ is
+supplied, the known stronger condition
+$P_j\ge2L^{11}M\check R_{j-1}$ suffices for these numerical period
+floors. Indeed $P_i=L^{j-i}P_j$ and
+$\check R_i\le L^{j-1-i}\check R_{j-1}$ for $i<j$, while an
+eventual extension has $\check R_j\le\check R_{j-1}$. These size
+conditions do not supply the analytic read identities. The
+standalone absolute-radius chain has no remainder-radius condition.
+The blocking factor, localization side, geometric rules and regular
+norm cap are fixed before raising the common frame floor. The
+supplied estimates are uniform over the resulting frame-dependent
+domains. Existence of these one-step data is the separate
+small-field result. The conditions here specify the estimates used from
+it, including the weighted comparison on the enlarged contours.
+
+On the admitted real common covariance class, change $B$ to $O_{r,W}B$.
+The Wilson term is invariant. The earlier pointed totals, their
+counterterms and the admitted aged remainder totals transform as
+specified. The tents satisfy $h_{rz}(rx)=h_z(x)$. By the one-step
+pointing identity the transformed rooted expression therefore gives the
+same pointed value at $rz$ as before at $z$. A covariance proof for the
+unpointed integral alone would not give this identity. On a connected
+complex parameter domain a covariance identity of holomorphic terms
+continues from an open full-dimensional real slice where both are
+admitted. For logarithms with already identified exponentials on that
+domain, a single real anchor fixes the difference in $2\pi i\mathbb Z$.
+This is also the branch check for an inherited remainder whose supplied
+exponential is invariant. It does not form the remainder.
+
+\emneedspace{12\baselineskip}
+\begin{proposition}[Restriction of the same step]\label{em:prop-common-restriction}
+Assume the one-step inputs on the absolute and running cores just
+specified. On every complete common read the unmarked construction on
+the absolute core restricts to the construction made with its restricted
+unmarked list on the running core. The full and restricted unmarked
+outputs admit the marked difference
+\begin{equation}\label{em:eq-marked-difference}
+ E_{k+1}^{\mathrm m}=E_{k+1}-E_{k+1}^{\mathrm u}|_{\bar{\mathbf a}_k}.
+\end{equation}
+The two Gaussian families in \eqref{em:eq-rs-formation} cancel in this
+difference. At input level $j$ its regular marked member carries the
+difference of the two coefficients, and its nonregular inputs are
+exactly the admitted aged remainders. These identities hold for the
+companions as well as the torus families.
+\end{proposition}
+
+\begin{proof}
+First compare the unmarked step on the two cores. The initial list is
+empty. At a later step restrict each earlier unmarked function and its
+vacuum value by the previous identification. Its coefficient is a
+readout of the same companion on the common near-zero physical ball.
+Hence its
+Wilson counterterm is unchanged. On a common read the actual response
+and the arguments of these functions agree on the whole fluctuation
+cut and the prescribed decoupling contours. The same term formula and
+branch therefore give the same integrand in the real free coordinates.
+Their integrals and the normally convergent localized series agree. This
+proves the restriction at the next level. It compares analytic functions
+on their cores directly. Agreement of totals on the graph of real
+backgrounds would not identify functions of an independent current.
+
+In the full versus unmarked comparison the two lists give different
+potentials but have the same reference measure and cuts. Put
+$D=S_{\mathfrak f}-S_{\mathfrak f^{\rm u}}$ on their common reads.
+Move the last two terms of \eqref{em:eq-actual-step} inside the
+exponential. The marked vertex is then exactly
+\[
+             D(U_k(V'(W,B)))-D(U_{k+1}(W)).
+\]
+In the localized logarithm put this carried difference in its marked
+slot and set the slot to zero. The subtracted background value is
+included once. This is the difference to which the one-step comparison
+applies; a raw insertion of $D(U_k(V'))$ alone would give a different
+functional. The prescribed
+expansion at zero is precisely the restricted unmarked one. At this
+zero value the two unmarked presentations on physical pairs give the
+same nonvanishing integral, with the same real logarithm at the
+reference. Any difference of their two continuations of this logarithm
+is locally constant with values in $2\pi i\mathbb Z$. It vanishes on
+the connected component containing the reference. On any other
+admitted common component, agreement uses the matching branch
+specified by the transported local formulas in the one-step input. The full output uses the prescribed branch at the full
+marked input. For local independent-current terms the comparison uses
+the same analytic coefficient expressions and branch choices from the
+input. This gives \eqref{em:eq-marked-difference} and cancels $N$ and
+$G_{\tau_k}$. Linearity of the coefficient and vacuum subtraction gives
+the list difference with the marked members' own counterterms and all
+and only the aged remainder inputs.
+
+The same argument compares two tori on a common lifted read. All
+coefficients transported by that lift use identical data and indices.
+Choose any compatible torus large enough to contain the lifted read
+to define the companion there. The comparisons prove independence of
+that choice. Larger tori exhaust the finite reads. This also proves
+compatibility with restriction of a frame prefix. Wrapping terms retain
+their torus formulas and do not define extra companion coefficients.
+\end{proof}
+
+\emneedspace{22\baselineskip}
+\begin{proposition}[Formation along prescribed prefixes]
+\label{em:prop-prefix-formation}
+Assume the preceding one-step inputs uniformly on the prescribed
+parameter domains. Suppose the regular age weights have finite sum
+$\Omega$ and the aged remainder loads of the running prefixes
+are bounded by $R_*$. Fix $E_0>B_N$ before increasing the common frame
+floor. Suppose $\delta(\theta)\to0$, $s\to0$ in both systems, and the
+failure term in \eqref{em:eq-rs-formation} is $O(\delta(\theta))$ as the
+floor increases. Take a fixed relative coupling radius $0<\sigma_*\le1/2$
+with $B_G\sigma_*\le(E_0-B_N)/4$ and with the one-step admission on
+$|x_k/\theta_k-1|<\sigma_*$. The running parameters lie in the stated
+smaller domains. Then a sufficiently high floor, uniform in the prefix
+length, gives both regular chains from their empty initial lists with
+norm at most $E_0$ at every creation. The unmarked output satisfies
+\[
+            \|E_{k+1}^{\mathrm u}-N_{k+1}-G_{k+1,\tau_k}\|
+                      \le C\delta(\theta_k)
+\]
+on its absolute core. The outputs are holomorphic on the admitted
+parameter domains, causal in the supplied frame and weights, and
+compatible with the stated torus, companion and core restrictions.
+The unmarked conclusions also hold on their own under the absolute
+one-step hypotheses, summable regular weights and the stated tail
+bound. They require neither a running chain nor inherited remainders
+nor a lower drift bound; their floor depends only on these absolute
+inputs.
+\end{proposition}
+
+\begin{proof}
+Put $D_* =\Omega E_0+R_*$ for the two-chain assertion.
+For the unmarked assertion alone put $D_*=\Omega E_0$.
+Choose the floor so that for the relevant
+systems
+\[
+    s(1+D_*)\le\epsilon_{\rm step},\qquad
+    K\{\delta(\theta)+sD_*+e^{-c\theta\delta(\theta)^2}\}
+                               \le (E_0-B_N)/2 .
+\]
+These are uniform scalar conditions on the half-line above that floor.
+All earlier regular creation norms are at most $E_0$ at the induction
+step. Their inherited restrictions have no larger norm. Their total
+load is at most $\Omega E_0$, and the full list adds at most
+$R_*$. The one-step hypotheses thus apply to the actual lists.
+Equation \eqref{em:eq-rs-formation} gives the new norm at most
+$B_N+(E_0-B_N)/4+(E_0-B_N)/2<E_0$. The empty input at the first step
+starts the same induction. With no remainder terms and fixed absolute
+radii, $s=\delta/a_{*,0}$ and the bound for $F$ is $C\delta$ as claimed.
+For example the failure condition follows when
+$\delta(\theta)=c_\delta\theta^{-1/2}(\log\theta)^{\mathfrak p_0}$
+with $c_\delta>0$ and $2\mathfrak p_0>1$. Its negative exponent then
+dominates any fixed multiple of $\log\theta$. On running radii the
+required smallness of $s$ follows from their stated comparison with
+$\delta$, independently of this failure estimate.
+
+At step $k$ the parameters of the earlier outputs enter only through
+their already formed analytic functions. The supplied parameter maps
+land inside those earlier domains, so their compositions are defined
+and holomorphic. The fixed-domain step and
+its normally convergent expansion give joint holomorphy with the new
+parameters. Finite induction gives it on each declared prefix domain.
+There is no sum over all possible prefixes. The new family, its
+coefficient and its creation covariance radius use only data through
+$\theta_k,x_k$. The choice of the next frame entry is needed only to
+specify the inherited restriction. The common read identities in
+\cref{em:prop-common-restriction} persist at each induction step. For
+the absolute chain no lower drift bound and no remainder are used.
+Its independent weight parameters may range over the full admitted
+product of relative discs. The marked parameter domain projects into
+that product in the shared weights. For example a tube
+$|z_i|<\varpi_0\theta_i(\log\theta_i)^{-2q_0}$ with
+$q_0\ge0$, $\theta_i>e$ and $0<\varpi_0\le\sigma_*/2$ has this
+inclusion. Its inherited functions retain their separate declared
+domains. For the full chain the prescribed weaker
+flow and smaller analytic domains are used only where required for
+the running radii and inherited loads.
+\end{proof}
+
+\section{The marked estimate}
+\label{em:sec-marked-recursion}
+
+Write $u_i$ for the norm of the marked difference of the two
+outputs at level $i$, on their common running creation domain,
+including the prescribed parameter supremum. The level-$i$ output was formed using $\theta_{i-1}$.
+In later lists it is used by restriction and with its own linear
+quadratic subtraction. The restriction and subtraction norms used
+by the one-step comparison are included in its fixed constants.
+
+\emneedspace{18\baselineskip}
+\begin{proposition}[Uniform marked recurrence]\label{em:prop-marked-recursion}
+Use \eqref{em:eq-regular-age}--\eqref{em:eq-running-weight} and
+the inherited loads of \cref{em:lem-remainder-load}. Suppose the
+two constructions start with the empty list and satisfy the
+one-step comparison and common-restriction hypotheses of
+\cref{em:prop-common-restriction}. At every step $m+1$, $0\le m\le N$,
+they satisfy
+\begin{equation}\label{em:eq-marked-input}
+  u_{m+1}\le K_M\mathsf s_m\left(
+         \sum_{i=1}^m\omega_{m+1-i}u_i
+                   +\sum_{j\in J_m}w_{m,j}\rho_j\right).
+\end{equation}
+Here $K_M$ is uniform on the stated one-step admission class and
+is fixed before choosing the frame floor. Above a sufficiently
+large fixed floor $X$, one has
+\begin{equation}\label{em:eq-marked-envelope}
+  \sup_{1\le i\le N+1}\theta_{i-1}^{p}u_i
+        \le 2K_MC_{\mathfrak h}\mathsf s_* ,\qquad
+  u_{m+1}\le 2K_MC_{\mathfrak h}\mathsf s_m\theta_m^{-p},
+  \qquad
+  \mathsf s_* =\sup_{y\ge X}
+    \frac{\delta(y)}{(1+\beta_{\rm s})\alpha_0(y)}.
+\end{equation}
+If the norms and input estimate hold uniformly on an admitted
+parameter domain, the bounds are uniform on that same domain.
+\end{proposition}
+
+\begin{proof}
+By \cref{em:prop-common-restriction}, the two Gaussian families
+cancel. Linearity of the coefficient and of vacuum subtraction
+makes the difference of the carried regular actions the action
+of the marked regular members with their own counterterms. The
+remaining input differences are the admitted aged remainders.
+The one-step comparison charges their original family norms,
+with the fixed subtraction costs included in $K_M$. It gives
+\eqref{em:eq-marked-input} on the same actual cores.
+
+Let $u_m^*=\max_{1\le i\le m}\theta_{i-1}^pu_i$, with $u_0^*=0$.
+For every $i\le m$, the lower flow comparison and the floor give
+$\theta_{i-1}\ge\theta_m/2$. Hence
+\[
+   \theta_m^p\sum_{i=1}^m\omega_{m+1-i}u_i
+                        \le 2^p\Omega u_m^*.
+\]
+Multiplying \eqref{em:eq-marked-input} by $\theta_m^p$ and using
+\eqref{em:eq-aged-load} gives
+\[
+  \theta_m^p u_{m+1}
+       \le K_M\mathsf s_m(2^p\Omega u_m^*+C_{\mathfrak h}).
+\]
+The ratio defining $\mathsf s_*$ is a fixed multiple of
+$(\log y)^{\mathfrak p_0-q}$. Thus we may choose $X$ so that
+$K_M\mathsf s_*2^p\Omega\le1/2$. Inductively, if
+$u_m^*\le 2K_MC_{\mathfrak h}\mathsf s_*$, the right side is at
+most $2K_MC_{\mathfrak h}\mathsf s_m$. This proves both
+estimates at the new level and starts from $u_0^*=0$.
+\end{proof}
+
+Only frame data through $m$ are used in the estimate of the newly
+formed output. The later restriction involving $\theta_{m+1}$ is
+performed on that output once this entry is available. The recent
+load \eqref{em:eq-recent-load} bounds the available input sizes in
+that band. Its use in forming a new remainder or a boundary family
+requires the separate operations for those outputs.
+
+\section{Extraction on the physical radii}
+\label{em:sec-coefficient}
+
+The coefficient is a second derivative in the physical block datum.
+In level-$j$ units write $\eta_j\in(0,1]$ for the fine mesh, with
+$\eta_j^{-1}$ integral, and
+$V=e^{iB}$ for the unit-lattice block datum. The stored positive
+bonds specify all signs of the cochain coboundary. In a chart based
+at the identity pair $P_\circ=(\mathbf 1,0)$ use
+\begin{equation}\label{em:eq-physical-pair-norm}
+ P=(e^{i\eta_j A},J),\qquad
+ \|(A,J)\|_{1,j;D}
+   =\max\{\|A\|_{\infty,D},\|\nabla_{\eta_j}A\|_{\infty,D},
+                             \|J\|_{\infty,D}\} .
+\end{equation}
+The differences in this formula are physical difference quotients
+on the complete stencils of the declared read window $D$. The current
+$J$ is independent in the complex pair domain. On a physical
+background it is the Wilson current in the physical fine pairing.
+The two radii $r_0,r_1$ bound the physical curvature and current, and
+the $C^1$ perturbation of the potential, respectively.
+
+\begin{lemma}[A physical ball in the pair domain]
+\label{em:lem-physical-radius}
+Suppose the hereditary pair domain at radii $r_0,r_1$ has the following
+tower input. For a triple whose real and complex plaquette defects
+are at most $\eta_j^2\epsilon_0$, whose real factor admits the declared
+local gauges, whose perturbation has physical $C^1$ norm at most
+$\epsilon_1$ and whose independent current is at most $\epsilon_0$,
+the prescribed real and complex towers on every allowed restricted
+window exist and satisfy the hereditary curvature and physical-current
+bounds with radius $K_T(\epsilon_0+\epsilon_1^2)$ in the respective
+units. Assume this estimate with uniform constants and on fixed
+positive ceilings for $\epsilon_0,\epsilon_1$.
+Then the ball
+\[
+       \|(A,J)\|_{1,j;D}< a,
+       \qquad a=c\min\{r_0,r_1,1\}
+\]
+about $P_\circ$ lies in the pair domain on $D$. Here $c>0$ can be
+chosen independently of the fine mesh, level and compatible volume.
+
+Suppose also that the actual continued physical background pair
+$p_j(B)$ is holomorphic on $\|B\|_\infty<r_B$, satisfies
+$p_j(0)=P_\circ$, and has $\|p_j(B)\|_{1,j;D}\le C_B\|B\|_\infty$
+in the coordinates of \eqref{em:eq-physical-pair-norm}, with uniform
+$r_B,C_B>0$. Its data ball of radius
+$\min\{r_B/2,a/(2C_B)\}$ then lies in the same pair domain and
+is comparable to $a$ with fixed constants.
+\end{lemma}
+
+\begin{proof}
+Use $\mathbf 1$ as the real factor. It has zero curvature and the
+zero potential in each of the required local gauges. In the product
+of four link exponentials around a plaquette, the linear term is
+$i\eta_j^2\mathrm d_{\eta_j}A$. Here $\mathrm d_{\eta_j}$ is the
+oriented curl per unit length. The remaining series is bounded by
+$C\eta_j^2\|A\|_\infty^2$ on the fixed small chart, because every
+monomial of order at least two contains two factors of size at most
+$\eta_j\|A\|_\infty$. Thus the plaquette defect is bounded by
+$C\eta_j^2(a+a^2)$. The independent current is bounded by $a$.
+Use $\epsilon_0=C'(a+a^2)$ and $\epsilon_1=a$ in the tower estimate.
+Reducing $c$ places these numbers below the input ceilings and makes
+$K_T(\epsilon_0+\epsilon_1^2)<r_0$. It also ensures the simple pair
+conditions at $r_0,r_1$. This verifies every hereditary condition
+on its own window. The assertion about $p_j$ follows by the displayed
+linear bound on the actual background. The first difference in
+\eqref{em:eq-physical-pair-norm} is used in the plaquette estimate.
+\end{proof}
+
+In the physical chart write $H_j$ for the first derivative of the
+potential of $p_j$. The first response of the pair is
+\begin{equation}\label{em:eq-coefficient-response}
+       \mathfrak h_j B
+       = (H_j B,\mathrm d_{\eta_j}^*\mathrm d_{\eta_j}H_j B).
+\end{equation}
+Indeed the Wilson action to second order is
+$\tfrac12\eta_j^4\sum_p|(\mathrm d_{\eta_j}A)(p)|^2$ in four
+dimensions. Its physical gradient uses the bond pairing with weight
+$\eta_j^4$. Thus the second entry in
+\eqref{em:eq-coefficient-response} is the derivative of the current
+on link fields. All these normalizations use the half-trace colour
+pairing.
+
+\subsection{Polarization of a pointed family}
+
+Use localization domains $X$ of fixed cell side $M$ and denote their
+tree length in cell units by $d_j(X)$. A base point $z\in X$ is a
+unit-lattice site. Write $X^+$ for the fixed-width enlarged read window
+of $X$. We use the rooted entropy bound $C e^{\kappa_D m}$ for the
+number of domains meeting a given cell with $m\le d_j(X)<m+1$.
+The diameter in level-$j$ units is at most $C M(m+1)$ and the number
+of base points is at most $C_M(m+1)^4$. These hypotheses hold on the
+declared tori and on the companion, with the distance and lift used
+in the family.
+
+For a pointed family $E(X,P,z)$, let $\mathcal A$ be a bound for its
+weighted supremum norm with exponent $\kappa$. Thus each term on
+its core has modulus at most $\mathcal A e^{-\kappa d_j(X)}$.
+The family is holomorphic in the pair. Use an orthonormal colour
+basis $t_1,t_2,t_3$,
+and write $\delta_b^s$ for the unit datum on the positive bond $b$
+in colour $t_s$. For the companion, define
+\begin{equation}\label{em:eq-polarization-kernel}
+ \Pi_E(b,c)=\frac13\sum_{s=1}^3\sum_X\sum_{z\in X}
+       D_P^2 E(X,P_\circ,z)
+             [\mathfrak h_j\delta_b^s,\mathfrak h_j\delta_c^s] .
+\end{equation}
+The same definition is used on a torus, with its own physical
+response. The Hessian is in the coordinates
+\eqref{em:eq-physical-pair-norm}.
+
+\emneedspace{22\baselineskip}
+\begin{proposition}[The radius cost in the polarization]
+\label{em:prop-physical-polarization}
+Let $\kappa>\kappa_D$ with a fixed margin. Suppose the pair ball of
+radius $a>0$ in \eqref{em:eq-physical-pair-norm} on each read window
+lies in the core, and the actual first response satisfies
+\begin{equation}\label{em:eq-response-decay}
+ \|\mathfrak h_j\delta_b^s\|_{1,j;X^+}
+                \le C_h e^{-\delta\operatorname{dist}(b,X^+)}
+\end{equation}
+for some fixed $\delta>0$. The kernel
+\eqref{em:eq-polarization-kernel} converges absolutely and obeys
+\begin{equation}\label{em:eq-polarization-bound}
+  |\Pi_E(b,c)|\le C a^{-2}\mathcal A
+                            e^{-\delta_1|b_--c_-|} .
+\end{equation}
+Here the distance is periodic for a torus. At a single base point
+$z$, the absolute double sum of the corresponding kernel with weight
+$|b_--z|\,|c_--z|$ is bounded by $Ca^{-2}\mathcal A$.
+The same bound, with a constant depending on the powers, holds
+with any fixed nonnegative powers of $1+|b_--z|$ and $1+|c_--z|$.
+The constants depend on the fixed geometry and response and entropy
+bounds and are uniform in depth and compatible volume. On a finite
+torus, if the complete pair total is invariant under constant colour
+conjugations near $P_\circ$, then the kernel is the colour average
+of the Hessian of the composed physical total.
+\end{proposition}
+
+\begin{proof}
+For two nonzero directions $v,w$ in a read window, take the bidisc
+with radii $a/(4\|v\|_{1,j;X^+})$ and
+$a/(4\|w\|_{1,j;X^+})$ in the two direction parameters. Its image
+lies in the pair ball. The two-variable Cauchy formula yields
+\[
+ |D_P^2E(X,P_\circ,z)[v,w]|
+   \le 16a^{-2}\mathcal A e^{-\kappa d_j(X)}
+                  \|v\|_{1,j;X^+}\|w\|_{1,j;X^+} .
+\]
+The estimate is immediate if either direction is zero. On the
+response directions the two factors contribute
+$e^{-\delta\operatorname{dist}(b,X^+)}$ and
+$e^{-\delta\operatorname{dist}(c,X^+)}$. The distance between the
+lower endpoints is at most the sum of these distances and
+$C_M(d_j(X)+1)$. Reserve a fixed small fraction of all three
+exponentials to supply $e^{-\delta_1|b_--c_-|}$. Choose the fraction
+so that the remaining tree exponent is larger than $\kappa_D$.
+Root each domain at a cell nearest $b$. At a fixed root, the domain
+entropy and the base point count are summable against the remaining
+tree exponent. The remaining root-distance exponential sums over
+root cells, also on a torus by counting shortest lifts. This proves
+\eqref{em:eq-polarization-bound}.
+
+For the single base point bound, root at the cell containing $z$.
+For a fixed $X$, group $b$ by a cell of $X^+$ nearest its lower
+endpoint. The weight $|b_--z|$ is at most its distance to that cell
+plus $C_M(d_j(X)+1)$. The cell count in $X^+$ and the weighted
+distance sum are bounded by polynomials in $d_j(X)+1$. Use the same
+bound for $c$. The tree exponent exceeds the entropy exponent, so
+the resulting polynomial factors sum. This proof makes no symmetry
+assertion about the kernel at a single base point.
+
+For the finite-torus identification, the differential of the pair
+total at $P_\circ$ is invariant under the adjoint action of
+$\operatorname{SU}(2)$. Differentiating this invariance gives zero on
+every commutator in each potential and current coordinate. Since
+commutators span the colour algebra, the differential vanishes.
+The chain rule for the composed total therefore has zero contribution
+from the second derivative of the physical background. The remaining
+term is precisely \eqref{em:eq-polarization-kernel}. This argument
+uses only the colour symmetry of the complete pair total.
+\end{proof}
+
+If the families vary holomorphically with admitted parameters and
+have the same uniform estimates on compact parameter sets, the
+derivatives and the sums in \eqref{em:eq-polarization-kernel} are
+holomorphic. This follows by the same Cauchy contours and normal
+convergence. For a given frame the response is fixed. The conclusion
+also applies to a holomorphic response with the same local bounds.
+
+\emneedspace{27\baselineskip}
+\subsection{The scalar coefficient and its normalization}
+
+\begin{proposition}[The companion coefficient]
+\label{em:prop-companion-coefficient}
+Assume the hypotheses of \cref{em:prop-physical-polarization} for
+the finite families and their companion. On each common nonwrapping
+lift the actual functions and their pair charts agree with the
+companion, including their read collars. Assume a cofinal sequence
+of compatible cubic tori whose periods tend to infinity, and local
+convergence of the responses on every
+bounded window along it, with the uniform bound
+\eqref{em:eq-response-decay}. Suppose the finite pair totals are
+invariant under constant colour conjugations as above, and the
+full physical totals on
+these cubic tori are invariant under the unit translations,
+signed coordinate permutations and physical gauge transformations
+near the trivial datum. Then the companion kernel is translation
+invariant, written $\Pi_{E,\mu\nu}(u)$ with $u=b_--c_-$ and bond
+directions $\mu,\nu$. Its zeroth and first spatial moments vanish.
+For $\mu\ne\nu$ set
+\begin{equation}\label{em:eq-coefficient-moment}
+    b_j(E)=\sum_{u\in\mathbb Z^4}\Pi_{E,\mu\nu}(u)u_\mu u_\nu .
+\end{equation}
+This value is independent of $\mu,\nu$, and
+\begin{equation}\label{em:eq-maxwell-moment}
+ \sum_u\Pi_{E,\mu\nu}(u)u_\rho u_\sigma
+  =b_j(E)(\delta_{\mu\rho}\delta_{\nu\sigma}
+      +\delta_{\mu\sigma}\delta_{\nu\rho}
+      -2\delta_{\mu\nu}\delta_{\rho\sigma}) .
+\end{equation}
+In particular $|b_j(E)|\le C a^{-2}\mathcal A$.
+The map $b_j$ is linear and real on real data. It is unchanged by
+admitted restriction of the same functions around $P_\circ$ and by
+changing coherent localizations of the same physical total.
+\end{proposition}
+
+\begin{proof}
+Fix two bond arguments and first retain domains of bounded tree
+length whose nearest root to the first argument lies in a bounded
+set. Eventually each such window and collar embeds in the torus.
+Its Hessian at $P_\circ$ agrees with the companion Hessian by the
+common-chart hypothesis. The responses converge there. The tails
+of the rooted sums are uniform by the proof of
+\eqref{em:eq-polarization-bound}. Sending both bounds to infinity
+therefore identifies the infinite kernel with the limit of the
+physical torus Hessian kernels. Their spatial moments through order
+two pass to this limit by the exponential bound, using the short
+representatives on the torus. These steps also show that two
+coherent localizations of the same total give the same kernel.
+Restriction of an actual function to a smaller neighborhood of the
+origin preserves its derivatives.
+
+The covariance identities of the finite physical Hessians pass to
+the limit. The gauge identity implies that the Hessian annihilates
+a gradient in either slot. In fact, differentiate the physical
+gauge identity first in a site gauge and then in a bond datum.
+At zero the gauge tangent is the ordinary signed site difference,
+and the derivative of that tangent is multiplied by the zero first
+differential. The statement passes to the infinite kernel on
+finitely supported site functions. Colour averaging preserves it.
+
+Write $\widehat\Pi(p)=\sum_u e^{-ip\cdot u}\Pi_E(u)$ and
+$t_\mu(p)=e^{ip_\mu}-1$. The exponential bound gives derivatives of
+the symbol near zero, and the Ward identity reads
+$\widehat\Pi(p)t(p)=0$. Its term of degree one gives
+$\widehat\Pi(0)p=0$ for every $p$, hence $\widehat\Pi(0)=0$.
+Put $U_{\mu\mu}(p)=e^{ip_\mu/2}$ and use the midpoint symbol
+$U(p)^{-1}\widehat\Pi(p)U(p)$. In these coordinates every signed
+coordinate permutation acts by its ordinary signed matrix on the
+link directions, since it maps bond midpoints to bond midpoints.
+Inversion therefore makes this symbol even. This eliminates its
+linear term, and the changes of phase preserve the degree-two
+part because the constant and linear parts vanish.
+
+Let $Q(p)$ be that quadratic part. Coordinate reflections force
+$Q_{\mu\mu}=A p_\mu^2+B\sum_{\nu\ne\mu}p_\nu^2$ and
+$Q_{\mu\nu}=C p_\mu p_\nu$ for $\mu\ne\nu$. Permutations give
+common coefficients $A,B,C$. The leading midpoint Ward vector is
+$ip$, so $Q(p)p=0$. Its $\mu$ component gives $A=0$ and $C=-B$.
+Thus $Q(p)=B(|p|^2 I-pp^{\mathsf T})$. The second derivative of
+the Fourier series is the negative second moment. The mixed
+off-diagonal moment in \eqref{em:eq-coefficient-moment} is $B$,
+and the full tensor is \eqref{em:eq-maxwell-moment}. The coefficient
+bound follows by summing $C a^{-2}\mathcal A |u|^2e^{-\delta_1|u|}$.
+Linearity and reality follow from the defining derivatives.
+\end{proof}
+
+The limiting response may be taken in any coherent representative
+family for which the hypotheses of
+\cref{em:prop-companion-coefficient} hold. Suppose two such
+responses in the common pair chart differ, on each datum direction
+\(B\), by \((D_{\eta_j}\lambda_B,0)\), where the restriction
+of \(\lambda_B\) to each determining window generates an admitted
+fine gauge there. For this site-to-link difference,
+\(D_{\eta_j}\lambda(x,x+\eta_je_\mu)
+=(\lambda(x)-\lambda(x+\eta_je_\mu))/\eta_j\). At \(P_\circ\) the
+gauge tangent in the current slot is zero, because the current
+transforms by conjugation and \(J=0\). Differentiate the gauge
+identity of a local pair term first in the gauge and then in an
+arbitrary pair direction. Its first differential at \(P_\circ\)
+vanishes by constant-colour invariance. The resulting Hessian
+therefore annihilates \((D_{\eta_j}\lambda_B,0)\) in either
+slot. Thus both responses give the same term in
+\eqref{em:eq-polarization-kernel}, and hence the same coefficient.
+This comparison uses actual response convergence for both
+representative families.
+
+For the unit-lattice Wilson action the quadratic term is
+$\tfrac12\|\mathrm d B\|_2^2$. Its Hessian symbol is
+$|t|^2 I-tt^*$, whose quadratic part is the Maxwell symbol with
+coefficient one. This fixes $b_j(A_{\rm block})=1$, with no additional
+factor of two. For a fine Wilson action pulled back by a background,
+the same conclusion has a separate hypothesis and warrant.
+Assume the curl response $\mathrm d_{\eta_j}H_j$ is covariant under
+unit translations and $H_j$ reproduces affine curls exactly in physical units. That is,
+$\mathrm d_{\eta_j}H_jB$ is the constant continuum curl of an affine
+unit-lattice datum $B$. Interpret these affine data by the absolutely
+convergent response moments. The curl of the response to a midpoint
+plane wave in direction $\mu$ then has first-order symbol
+$i p\wedge e_\mu$ at every fine position in a unit cell. To see this,
+expand the plane wave at the cell origin. Its constant part has zero
+curl, its affine part has the stated curl by reproduction, and the
+second-order remainder is bounded by the second absolute moment of
+the response. That moment is uniform by
+\eqref{em:eq-response-decay}. Squaring the first-order term in the
+fine energy and summing with weight $\eta_j^4$ over the fine
+positions in a unit cell gives $|p|^2 I-pp^{\mathsf T}$, since the
+fine weights sum to one for each plaquette orientation. Thus
+the pulled-back fine Wilson action has coefficient one under this
+affine response hypothesis.
+
+For the prescribed pointed Wilson insertion the tents sum to one
+on the physical total. Each tent has bounded support in level units.
+On a pair core of curvature radius $r_0$, a fine plaquette action is
+$O(\eta_j^4 r_0^2)$ by the trace expansion at the identity. The
+$O(\eta_j^{-4})$ fine plaquettes in a tent give a pointed norm at
+most $C r_0^2$, with the fixed localization weight included in $C$.
+When $r_0$ and $a$ are comparable and the insertion has coefficient
+one by the preceding normalization, subtracting
+$b_j(E)$ times this insertion costs at most $C\mathcal A$ in the
+same pointed norm. The scalar normalization uses the total and
+does not identify the tensor at each base point.
+
+For $g>0$, if the unit-block datum is written $B=gB_{\rm s}$, the chain rule gives
+$D^2(E\circ p_j(g\,\cdot))(0)=g^2D^2(E\circ p_j)(0)$. The scaled
+coefficient is $g^2b_j(E)$, while the Cauchy radius in the scaled
+datum is proportional to $a/g$. Its bound is thus
+$|g^2b_j(E)|\le C\mathcal A(g/a)^2$. Dividing by $g^2$ gives the
+same physical estimate $C a^{-2}\mathcal A$. The bound on the
+physical field cannot be replaced by a bound on the normalized
+fluctuation variable.
+
+\subsection{The marked coefficient on a prescribed prefix}
+
+At step $k\to k+1$, use the common absolute and running restrictions
+of the two actual outputs. On the absolute domain the unmarked
+output decomposes as $N_{k+1}+G_{k+1,\tau_k}+F_{k+1}^{\rm u}$.
+Here $N_{k+1}$ is the normalized Gaussian family, and
+$G_{k+1,\tau_k}$ is the family of the change of Gaussian weight.
+Throughout the admitted physical chart its total is a background-free
+number by the action--gauge splitting in
+\cite[Proposition~4.3]{GI}. Consequently its coefficient
+vanishes by \cref{em:prop-companion-coefficient}. This cancellation
+uses the splitting identity for the actual Gaussian and does not
+follow from the size of $G_{k+1,\tau_k}$.
+
+\emneedspace{25\baselineskip}
+\begin{theorem}[The coefficient bounds on the two domains]
+\label{em:thm-coefficient-envelope}
+Use the pair-domain, response and companion hypotheses of
+\cref{em:lem-physical-radius,em:prop-companion-coefficient} uniformly
+on the corresponding formed families. Suppose the unmarked
+residual has norm at most
+\[
+  C_{\rm u}\theta_k^{-1/2}(\log\theta_k)^{\mathfrak p_0}
+\]
+on its absolute pair core, holomorphically in the independent
+weight deviations $z_i=\theta_i-x_i$ on
+$|z_i|<\sigma_*\theta_i$, $0\le i\le k$. The normalized Gaussian
+family is fixed on the frame. Suppose the actual marked difference
+$E_{k+1}^{\rm m}$ in \eqref{em:eq-marked-difference}
+has norm at most $C_{\rm m}\theta_k^{-p}$ on the common running
+core, where $p=(\kappa_0-2)/2$ and $\kappa_0>4$. Assume joint
+holomorphy on the admitted narrower weight tube and inherited
+remainder domains. The weight tube is contained in
+$|z_i|<\varpi_0\theta_i(\log\theta_i)^{-2q_0}$ for fixed positive
+$\varpi_0,q_0$. Let the frame entries exceed $e$. The two
+component radii for that creation step are comparable to
+$\theta_k^{-1/2}(\log\theta_k)^q$ with fixed positive comparison
+constants. The absolute radii are fixed positive numbers.
+Then
+\begin{equation}\label{em:eq-coefficient-envelope}
+ \begin{aligned}
+ b_{k+1}&=b^0_{k+1}+f_{k+1}(z_0,\ldots,z_k)+q_{k+1},\\
+ |f_{k+1}|&\le C\theta_k^{-1/2}(\log\theta_k)^{\mathfrak p_0},\\
+ |q_{k+1}|&\le C\theta_k^{-(\kappa_0-4)/2}(\log\theta_k)^{-2q}.
+ \end{aligned}
+\end{equation}
+The last estimate and its holomorphy hold on the admitted marked
+parameter domain. The coefficients are real on real data. They
+are independent of the compatible torus and of subsequent
+restrictions of the same creation functions. If
+\eqref{em:eq-marked-envelope} holds on this domain, the bound
+for $q_{k+1}$ also holds with the extra factor $\mathsf s_k$
+defined in \eqref{em:eq-running-weight}.
+\end{theorem}
+
+\begin{proof}
+Set $b_{k+1}^0=b_{k+1}(N_{k+1})$,
+$f_{k+1}=b_{k+1}(F_{k+1}^{\rm u})$ and
+$q_{k+1}=b_{k+1}(E_{k+1}^{\rm m})$. Linearity and the vanishing
+coefficient of $G_{k+1,\tau_k}$ give the equality. The absolute
+core has a fixed physical ball by \cref{em:lem-physical-radius},
+so the extraction bound costs a fixed constant for $f_{k+1}$.
+The running core has physical ball radius at least
+$c\theta_k^{-1/2}(\log\theta_k)^q$ in the same lemma. Its
+extraction cost is at most $C\theta_k(\log\theta_k)^{-2q}$.
+Multiplication by $\theta_k^{-p}$ gives the stated marked bound.
+Applying the sharper norm estimate in
+\eqref{em:eq-marked-envelope} before extraction retains $\mathsf s_k$.
+This spends the physical radius once. When a transferred old
+quadratic term is charged with the factor $(a/a_i)^2$ on the
+output radius $a$, the readout costs
+$a^{-2}(a/a_i)^2=a_i^{-2}$. A separate charge of the creation
+radius would count it twice. The parameter claims follow from
+the normal convergence in \cref{em:prop-physical-polarization}
+and the companion identification in
+\cref{em:prop-companion-coefficient}. The coefficient uses
+the step-$k$ creation radii and therefore requires no next frame
+entry.
+\end{proof}
+
+\begin{corollary}[Cauchy bounds in the weight and bare variables]
+\label{em:cor-coefficient-slopes}
+Under \cref{em:thm-coefficient-envelope}, let $\epsilon_k$ denote
+the unmarked bound in \eqref{em:eq-coefficient-envelope} and put
+$\|v\|_\theta=\max_{0\le i\le k}|v_i|/\theta_i$.
+On the half-polydisc $|z_i|\le\sigma_*\theta_i/2$ one has
+\[
+ |Df_{k+1}(\mathbf z)[v]|\le C_{\sigma_*}\epsilon_k\|v\|_\theta.
+\]
+In particular, when $\theta_i\ge\theta_k-c_5$ on the prefix and
+$\theta_k\ge2c_5$, the Lipschitz bound in the unweighted supremum
+norm is at most $C\epsilon_k/\theta_k$ on that half-polydisc.
+
+For the marked term, suppose the actual fixed-frame outputs and
+inherited lists are holomorphic along a bare-variable disc
+$|\zeta-\zeta_0|<R$ with the indicated common domains, cuts,
+branches and companion. Suppose the marked bound in
+\eqref{em:eq-coefficient-envelope} holds throughout this disc.
+Writing $\epsilon'_k$ for that bound, one has
+\[
+       |\partial_\zeta q_{k+1}(\zeta)|\le 2\epsilon'_k/R
+                    \qquad (|\zeta-\zeta_0|\le R/2).
+\]
+\end{corollary}
+
+\begin{proof}
+For nonzero $v$ the line $\mathbf z+t v$ remains in the unmarked
+polydisc for $|t|<\sigma_*/(2\|v\|_\theta)$. Cauchy's formula on
+that line gives the derivative bound. The zero direction is
+immediate. Integrating along a segment in the convex half-polydisc
+gives the Lipschitz bound, and the lower frame comparison bounds
+$\|v\|_\theta\le 2\|v\|_\infty/\theta_k$. This argument avoids a
+sum of bounds for the separate coordinate derivatives.
+On the marked disc use the actual one-variable holomorphic
+coefficient, including the inherited dependence. The distance
+from its half-disc to the outer boundary is at least $R/2$.
+Cauchy's formula gives the second bound. The line in the unmarked
+polydisc gives no enlargement of the marked bare-variable disc.
+\end{proof}
+
+For example, two inherited lists at real centres of the same
+frame may be compared on their actual common cores. The list
+$H_\upsilon=(1-\upsilon)H_0+\upsilon H_1$ has norm at most $4r$
+on $|\upsilon|<3/2$ if each has norm at most $r$ there before
+interpolation. The estimate is the triangle inequality. Their
+common companion and linear covariance identities persist under
+this interpolation. The list can be used in the marked estimate
+when its slot admits that norm on those same cores. Holomorphy
+along this list interpolation and along a bare-variable disc are
+different hypotheses on the actual inputs.
+
+\section{Forward iteration of complete regular profiles}
+\label{em:sec-profile}
+
+The list estimates also have a formulation for the complete regular
+profile after its scalar curvature coefficient has been subtracted.
+This formulation requires a transport estimate on complete functions.
+An estimate on one chosen local representation alone does not imply
+the required composition identity.
+
+Fix a finite horizon $N$. For $0\le j\le N$, let $\mathcal B_j$ be a
+complex Banach space of complete pointed analytic families at scale
+$j$, using the complex classes just defined. Each family has zero value and first derivative at the trivial
+field, zero companion curvature coefficient, and the prescribed gauge,
+lattice-symmetry and period-compatibility identities. The spaces use
+a common physical field radius and a common localization rate.
+Their norms include the companion and finite-period compatibility
+bounds. A faithful realization starts with a Banach space of weighted
+summable local analytic representations, with bounded complete
+evaluation and compatibility maps. Quotient this Banach space by
+the joint kernel of all complete evaluations. That kernel is closed,
+so the quotient is Banach and two quotient classes give the same
+complete functions only when they are equal. The gauge, covariance,
+zero-jet and zero-coefficient conditions are imposed as closed
+identities, using their bounded maps on the quotient. The supplied
+local formation construction must provide these bounded maps and
+the compatible analytic representations.
+
+\begin{lemma}[Affine test of a complete pointing]
+\label{em:lem-affine-pointing}
+On the infinite unit lattice let \(f_z\) be a complete pointed
+physical family that is Fr\'echet holomorphic near zero in the
+supremum norm on bounded bond data. Assume its physical
+Hessian kernels have absolutely summable moments of every fixed
+polynomial order in the distances of their two bond arguments from
+\(z\), uniformly in \(z\). Define its bulk kernel by the translation
+sum of these Hessians and its colour-averaged coefficient \(b(f)\)
+by \eqref{em:eq-coefficient-moment}. The pair hypotheses of
+\cref{em:prop-physical-polarization,em:prop-companion-coefficient}
+are one sufficient source of these moment bounds.
+Suppose each \(f_z\) is gauge invariant, and the family is covariant
+as a scalar pointing under all unit translations and signed
+coordinate permutations. Let \(F_{\rho\mu}=-F_{\mu\rho}\) be a
+real constant colour two-form and \(a^F_\mu(x)=
+\frac12\sum_\rho(x_\rho-z_\rho)F_{\rho\mu}\) its affine potential.
+Then the affine test, defined by the absolutely convergent Hessian
+moments, is
+\begin{equation}\label{em:eq-affine-pointing}
+ \frac12D^2 f_z(0)[a^F,a^F]
+                  =\frac12 b(f)\sum_{\rho<\mu}|F_{\rho\mu}|^2 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The first differential of the complete pointing vanishes by constant
+colour conjugation. Differentiate its gauge invariance in a site
+gauge and in a bond datum. Its Hessian annihilates a gradient in
+either slot. Constant colour conjugation makes every colour block
+scalar, since the adjoint representation is the full rotation
+group on the three real colours. Let \(K_z(b,c)\) be this scalar
+Hessian. The assumed absolute moments allow the Ward identities to
+be tested on
+gradients of linear or quadratic site polynomials by cutting them
+off at radius \(R\) and sending \(R\) to infinity. The gradients
+of these cutoffs are bounded by \(C(1+|x-z|)\) uniformly in \(R\).
+
+Define the pointed second moment
+\[
+ T_{\mu\nu,\rho\sigma}(z)
+  =\sum_{\substack{b\ \mathrm{in\ direction}\ \mu\\
+                   c\ \mathrm{in\ direction}\ \nu}}
+      (b_--z)_\rho(c_--z)_\sigma K_z(b,c).
+\]
+Testing linear site polynomials gives zero row and column sums
+in each direction. Testing quadratic site polynomials then makes
+\(T\) antisymmetric under \(\mu\leftrightarrow\rho\) and
+\(\nu\leftrightarrow\sigma\). The extra constant in a repeated-index
+discrete derivative vanishes by the linear test. The same zero sums
+permit using midpoints in place of the lower endpoints. Translation
+covariance makes \(T\) independent of \(z\). Using the midpoints,
+a reflection acts on the four indices with the ordinary four sign
+factors. Thus any nonzero component must have each index occurring
+an even number of times. Antisymmetry leaves only the two pairings
+\(\mu=\nu,\rho=\sigma\) and \(\mu=\sigma,\nu=\rho\) with distinct
+indices. Permutations and antisymmetry give
+\[
+ T_{\mu\nu,\rho\sigma}
+       =t(\delta_{\mu\nu}\delta_{\rho\sigma}
+                  -\delta_{\mu\sigma}\delta_{\nu\rho})
+\]
+for one scalar \(t\).
+
+Fix the first lower endpoint at zero in the bulk second moment and
+sum over \(z\). Translation covariance lets \(b_--z\) range over
+all first lower endpoints in \(K_0\) and \(c_--z\) over all second
+ones. The terms involving only the first or only the second endpoint
+vanish by the directional zero sums. The two cross terms give
+\(-T_{\mu\nu,\rho\sigma}-T_{\mu\nu,\sigma\rho}\). For
+\(\rho=\mu,\sigma=\nu,\mu\ne\nu\) this is \(t\), so \(t=b(f)\).
+Contracting \(T\) with \(F_{\rho\mu}/2,F_{\sigma\nu}/2\)
+and multiplying by \(1/2\) proves \eqref{em:eq-affine-pointing}.
+\end{proof}
+
+\emneedspace{8\baselineskip}
+\begin{proposition}[Transport after summing old anchors]
+\label{em:prop-anchor-transport}
+Fix \(i<k\), let \(\xi=L^{-(k-i)}\), and suppose the literal
+intermediate background map \(B_\xi\) from final to old datum is
+Fr\'echet holomorphic on the admitted fixed radii in the supremum
+norms on bounded bond data, preserves the zero datum,
+and intertwines
+physical gauges and lattice isometries on the scaled old lattice.
+Assume its first response sends a final affine potential of curvature
+\(F\) to an old affine potential of curvature \(\xi^2F\) modulo
+the gradient of a polynomially bounded site field. This identity
+includes any node frame change. Put $H_\xi=DB_\xi(0)$ and assume
+its first absolute row moment is finite,
+\[
+ \sup_b\sum_c\|H_\xi(b,c)\|
+              (1+|c_--\xi b_-|)<\infty,
+\]
+where $b$ is an old bond and $c$ a final bond. 
+
+
+Let \(f_{i,z}\) satisfy \cref{em:lem-affine-pointing}, and subtract
+its own normalized classical pointing to obtain
+\(r_{i,z}=f_{i,z}-b_i(f_i)\mathsf e_{i,z}\). Assume the classical
+pointing also satisfies the hypotheses of
+\cref{em:lem-affine-pointing}, has coefficient one and its total
+\(S_i\) satisfies the
+actual identity \(S_i(B_\xi(w))=S_k(w)\). The input local transport
+estimate is the following per-anchor estimate on the composed
+function \(r_{i,z}\circ B_\xi\). It has a normally convergent local
+representation rooted at the cell of \(\xi z\) of norm at most
+\(C\varepsilon_i r^2\xi^{4+\beta}\) for \(\beta>0\) on fixed
+output radius and carrier rate. Here \(r>0\) is the fixed input
+radius parameter. Each term depends on the final bond data in a
+fixed-width determining collar of its connected final-cell carrier.
+The norm sums the weighted suprema of these terms with the same
+positive tree weight as the profile norm. Assume the same
+per-anchor estimate for the companion, and for the finite-period
+difference with the extra weight \(e^{\gamma P/M}\), where \(P\)
+is the final shortest period and \(\gamma>0\) is fixed. The
+companion and finite-period terms use the specified coherent
+localizations. All constants are independent of \(i,k,P,z\).
+
+Define the new complete pointing by
+\begin{equation}\label{em:eq-anchor-transport}
+ R_{i,k,y}(w)=\sum_z h_y(\xi z)\,r_{i,z}(B_\xi(w)),
+\end{equation}
+with periodized tents on compatible tori. Its rooted norm is at most
+\(C'\varepsilon_i r^2 L^{-\beta(k-i)}\), including the stated
+finite-period compatibility bound. It has zero value and first
+derivative if \(r_{i,z}(0)=0\), and zero companion curvature
+coefficient. Its complete pointings preserve the stated covariance.
+The exact classical decomposition is
+\[
+ \sum_z f_{i,z}(B_\xi(w))= b_i(f_i)S_k(w)+\sum_y R_{i,k,y}(w)
+\]
+on the tori. For several old levels the sum of the remainders has
+rooted norm at most
+\[
+                 \frac{C'r^2}{L^\beta-1}\sup_{i<k}\varepsilon_i.
+\]
+\end{proposition}
+
+\begin{proof}
+Write \(n=\xi^{-1}\). In one dimension the tent at an integral
+anchor has samples \(1-|m|/n\) for \(|m|<n\) and zero otherwise,
+after translating the index by the anchor times \(n\). Their sum
+is \(1+2\sum_{m=1}^{n-1}(1-m/n)=n\). Products and periodization
+give the exact quadrature \(\xi^4\sum_z h_y(\xi z)=1\). For
+each positive weight the old root lies a bounded final distance
+from \(y\). Adding a bounded join to its carrier multiplies the
+norm by a fixed constant. Sum the per-anchor estimate with the
+tent weights and use this quadrature. The same argument applied
+to the finite-period difference gives the compatibility bound,
+since the shortest final period is common to all its terms.
+
+The old gauge invariance and covariance of the literal background
+give gauge invariance of each new pointing. Every final unit
+translation is an integral old translation in old units, and the
+tents respect translations and signed coordinate permutations.
+Finiteness for each
+fixed transport suffices for the affine identity. It bounds the
+response to cut-off affine data by $C_\xi(1+|\xi b_--y|)$,
+uniformly in the cutoff radius, at final anchor $y$. The old
+Hessian moments therefore justify the dominated cutoff limit in
+the affine second derivative. To see why its kernel computes the
+Hessian on these responses, first take finitely supported final
+data $v$ with support $S$. The row bound gives
+\[
+ |(H_\xi v)(b)|\le
+ \frac{C_\xi\|v\|_\infty}{1+\operatorname{dist}(\xi b_-,S)}.
+\]
+Thus $H_\xi v$ tends to zero at infinity. Its finite truncations
+converge in supremum norm, and continuity of the old bilinear
+Hessian identifies its value with the coefficient-kernel sum.
+Apply this first to finite affine cutoffs and then use the stated
+moment domination. A unit lattice first-difference norm gives the
+same topology, since a first difference is bounded by twice the
+supremum norm.
+
+The first derivative vanishes by the chain rule and the old
+vanishing first derivative. In the affine second derivative of
+the composition, the second derivative of the background is
+therefore multiplied by zero. The first response contributes the
+old affine curvature \(\xi^2F\). The polynomially bounded gradient
+disappears by the two-leg Ward identity used in
+\cref{em:lem-affine-pointing}. Indeed, cut off its site field and
+use the old Hessian moments to pass to the limit; those moments
+hold at every fixed polynomial order. The remaining term is the old affine
+test times \(\xi^4\), and that test is zero since \(b_i(r_i)=0\).
+The local Hessian and response moments justify each cutoff limit.
+The finite tent sum preserves this zero at each anchor.
+In the direct final datum chart write the new rooted representation
+as $\sum_X F_X$. A term's Hessian vanishes unless both bond
+directions lie in its determining collar. That collar contains
+at most $C_M(1+d_k(X))^4$ bonds, each within
+$C_M(1+d_k(X))$ of the root after the bounded join. For a fixed
+output ball of radius $r_{\rm out}>0$, the bidisc Cauchy estimate
+therefore bounds its double Hessian moment of total degree $a$ by
+$C_a r_{\rm out}^{-2}(1+d_k(X))^{8+a}\|F_X\|_\infty$.
+Summing over $X$ gives every fixed moment in
+\cref{em:lem-affine-pointing}, because any fixed polynomial is
+bounded by a constant times the positive exponential tree weight.
+This uses the weighted sum norm of the representation.
+Equation \eqref{em:eq-affine-pointing} for the output now gives
+zero companion coefficient.
+
+Sum \eqref{em:eq-anchor-transport} over \(y\) and use
+\(\sum_y h_y(\xi z)=1\) and the assumed exact transport of the
+classical total. This gives the decomposition. Finally
+\(\sum_{n\ge1}L^{-\beta n}=(L^\beta-1)^{-1}\), which gives the
+claimed bound for the old levels. Holomorphy and compatibility
+are preserved by the normally convergent sums on the common
+output domains.
+\end{proof}
+
+Let $T_{i,k}:\mathcal B_i\to\mathcal B_k$ be bounded linear maps,
+for $0\le i\le k\le N$, with
+\begin{equation}\label{em:eq-transport-data}
+ T_{i,i}=I,\qquad T_{j,k}T_{i,j}=T_{i,k},\qquad
+ \|T_{i,k}\|\le C_T\lambda^{k-i},\qquad
+ C_T\ge1,\quad 0<\lambda<1.
+\end{equation}
+The constants and the spaces' analytic and compatibility bounds
+are independent of $N$ and of the admitted volume.
+For literal transport, \cref{em:prop-anchor-transport} supplies the
+decay bound whenever its per-anchor estimate is uniform in the input
+profile norm and applies on these common spaces. Its fixed radius
+factor is included in $C_T$. The identities below supply composition.
+
+
+The semigroup requirement can be checked directly when transport is
+literal pullback followed by the tent pointing of \eqref{em:eq-tents}.
+If $\xi^{-1}$ is a positive integer, then
+\begin{equation}\label{em:eq-tent-refinement}
+ \sum_{z\in\mathbb Z^4}h_y(\xi z)h_z(t)=h_y(\xi t).
+\end{equation}
+In one dimension the function on the right is piecewise linear and
+its knots are integers. Its linear interpolation from integer values
+is therefore exact. Taking products proves the displayed identity.
+Periodizing proves the same identity on compatible tori. If the
+literal background pullbacks compose up to site gauge, gauge
+invariance of each complete pointing removes that gauge. Applying
+\eqref{em:eq-tent-refinement} to the two successive pointing sums
+then gives $T_{j,k}T_{i,j}=T_{i,k}$. Absolute convergence of those
+sums is required before changing their order. This argument does
+not prove the decay estimate in \eqref{em:eq-transport-data}.
+
+\begin{lemma}[A norm adapted to transport]\label{em:lem-adapted-norm}
+Suppose \eqref{em:eq-transport-data} holds. Fix $\lambda<\rho<1$.
+For $\psi\in\mathcal B_j$ set
+\begin{equation}\label{em:eq-adapted-norm}
+ \|\psi\|_{j,*}=\max_{0\le n\le N-j}
+       \rho^{-n}\|T_{j,j+n}\psi\|_{\mathcal B_{j+n}}.
+\end{equation}
+These are Banach norms satisfying
+\[
+ \|\psi\|_{\mathcal B_j}\le\|\psi\|_{j,*}
+ \le C_T\|\psi\|_{\mathcal B_j},\qquad
+ \|T_{j,j+1}\psi\|_{j+1,*}\le\rho\|\psi\|_{j,*}
+ \quad(j<N).
+\]
+All constants are independent of the horizon.
+\end{lemma}
+\begin{proof}
+The term $n=0$ gives the lower bound. The transport bound gives
+$\rho^{-n}\|T_{j,j+n}\psi\|\le C_T(\lambda/\rho)^n\|\psi\|$,
+which proves the upper bound and completeness. For $j<N$, composition
+and the change of index $r=n+1$ give
+\[
+ \begin{split}
+ \|T_{j,j+1}\psi\|_{j+1,*}
+ &=\rho\max_{1\le r\le N-j}
+             \rho^{-r}\|T_{j,j+r}\psi\|_{\mathcal B_{j+r}}\\
+ &\le\rho\|\psi\|_{j,*}.
+ \end{split}
+\]
+\end{proof}
+
+For the next result the coupling sequence is prescribed independently
+of the profile recursion. Fix $m>1$, and write
+$\varepsilon_{\mathrm f}(t)=t^{-1}(\log t)^m$ for $t>1$.
+Let $\Theta_0,\ldots,\Theta_N>1$ be a real frame with
+\begin{equation}\label{em:eq-profile-frame}
+ |\Theta_j-\{\Theta_*+b_\infty(N-j)\}|\le B_a,
+ \qquad b_\infty>0,\quad B_a\ge0.
+\end{equation}
+Here $\Theta_*$ is a lower-scale parameter that will be taken large.
+The constants $b_\infty,B_a$ are fixed. For example, if
+$\Theta_j=\Theta_*+\sum_{\ell=j}^{N-1}\beta_\ell$ and
+$|\beta_\ell-b_\infty|\le B_b\lambda_b^\ell$ with
+$0<\lambda_b<1$, then \eqref{em:eq-profile-frame} holds with
+$B_a=B_b/(1-\lambda_b)$. This follows by summing the geometric tail.
+No positivity of every $\beta_\ell$ is needed.
+
+In the regular step, let $\mathsf e_j$ be the actual classical
+action pointing, normalized by $b(\mathsf e_j^\infty)=1$ on the
+companion. For a complete vacuum-subtracted pointing $H$, its
+projection is $H-b(H^\infty)\mathsf e_j$. On the fixed-radius
+spaces both this projection and the coefficient readout are assumed
+bounded with a uniform constant, as supplied by the physical
+coefficient estimate. They preserve the real subspaces: the readout
+is real on real families and the actual classical pointing is real
+on real fields. The seed $n_j$ below is the projection of
+the Gaussian pointing. The map $\mathcal F_j^\perp$ is the
+projection of the complete non-Gaussian formation, with the scalar
+vacuum normalization retained separately. Exact transport of the
+old complete pointing and this projection identify the profile
+recursion below with the profile part of that step. This
+identification, including the literal domains and pointings, is
+part of its one-step admission.
+
+This profile presentation must place the scalar Gaussian weight
+powers entirely in the vacuum normalization. Constancy of their
+total alone does not identify each complete pointing with a
+constant. If the chosen pointing retains a nonconstant family
+with zero total, that family must be included in
+$\mathcal F_j^\perp$ and satisfy its stated bounds. Neither a
+zero total nor a zero companion coefficient implies those bounds.
+
+Fix $0<\sigma_{\mathrm p}<\sigma_{\mathrm p}^+$. At step $j<N$ suppose a jointly
+holomorphic map $\mathcal F_j^{\perp}(x,\psi)\in\mathcal B_{j+1}$ is given on
+$|x-\Theta_j|<\sigma_{\mathrm p}^+\Theta_j$, $\|\psi\|_{j,*}<H_*+1$.
+Suppose $n_j\in\mathcal B_{j+1}$ and, on this domain,
+\begin{equation}\label{em:eq-profile-formation}
+ \begin{split}
+ \|n_j\|_{j+1,*}&\le B_n,\\
+ \|\mathcal F_j^{\perp}(x,\psi)\|_{j+1,*}
+  &\le C_{H_*}\varepsilon_{\mathrm f}(\Theta_j).
+ \end{split}
+\end{equation}
+These bounds are assumed for the same actual formation map on its
+buffered domains. The buffer gives the derivative estimates used
+below, by the following Cauchy argument. Frozen cutoffs, Gaussian
+scaling and scalar vacuum normalization are part of that map.
+A bound on an unbuffered domain alone would not give uniform
+derivative estimates up to its boundary.
+
+\begin{lemma}[Derivatives on the buffered profile domain]
+\label{em:lem-profile-cauchy}
+Let $X,Y$ be complex Banach spaces, $H_*\ge0$, $\Theta>0$ and
+$0<\sigma_{\mathrm p}<\sigma_{\mathrm p}^+$. Suppose
+$F(x,\psi)\in Y$ is holomorphic on
+\[
+ |x-\Theta|<\sigma_{\mathrm p}^+\Theta,\qquad
+ \|\psi\|_X<H_*+1,
+\]
+with $\|F(x,\psi)\|_Y\le A$ there. On the inner product of balls
+$|x-\Theta|\le\sigma_{\mathrm p}\Theta$, $\|\psi\|_X\le H_*$,
+one has
+\[
+ \|D_\psi F(x,\psi)\|_{X\to Y}\le 2A,\qquad
+ \|\partial_x F(x,\psi)\|_Y
+   \le \frac{2A}{(\sigma_{\mathrm p}^+-\sigma_{\mathrm p})\Theta}.
+\]
+\end{lemma}
+\begin{proof}
+For any unit vector $v\in X$, the circle $|t|=1/2$ in the
+variation $\psi+t v$ lies in the outer profile ball. Cauchy's
+formula bounds the derivative at $t=0$ in $Y$ by $2A$.
+The circle of radius $(\sigma_{\mathrm p}^+-\sigma_{\mathrm p})\Theta/2$
+in the variation $x+t$ lies in the outer weight disc. The same
+formula gives the second estimate. These arguments use one
+complex line at a time and are independent of the dimension of
+either space.
+\end{proof}
+
+\begin{theorem}[Uniform forward profile bounds]\label{em:thm-profile}
+Assume \eqref{em:eq-transport-data}, \eqref{em:eq-profile-frame}
+and \eqref{em:eq-profile-formation}. Choose
+$H_*\ge1+2B_n/(1-\rho)$, where $\lambda<\rho<1$.
+There is a floor for $\Theta_*$, depending only on the stated constants,
+such that every sequence with $|x_j-\Theta_j|\le\sigma_{\mathrm p} \Theta_j$ gives a
+well-defined recursion
+\begin{equation}\label{em:eq-profile-recursion}
+ \psi_0=0,\qquad
+ \psi_{j+1}=T_{j,j+1}\psi_j+n_j+\mathcal F_j^{\perp}(x_j,\psi_j),\qquad j<N,
+\end{equation}
+with $\|\psi_j\|_{j,*}\le H_*$ at every $0\le j\le N$.
+The solution is holomorphic on a neighborhood of this closed
+coupling polydisc. For two such sequences, let
+$D=\max_{0\le i<N}|x_i-\widetilde x_i|$, with $D=0$ if $N=0$.
+Then
+\begin{equation}\label{em:eq-profile-stability}
+ \|\psi_j(x)-\psi_j(\widetilde x)\|_{j,*}
+ \le C\frac{(\log \Theta_j)^m}{\Theta_j^2}D,
+ \qquad 0\le j\le N.
+\end{equation}
+The constant and the floor are independent of the horizon and volume.
+\end{theorem}
+\begin{proof}
+By \eqref{em:eq-profile-frame}, $\Theta_j\ge \Theta_*-B_a$.
+The function $\varepsilon_{\mathrm f}(t)$ tends to zero as $t$ tends
+to infinity. Choose $\Theta_*$ so that the last term in
+\[
+ \|\psi_{j+1}\|_{j+1,*}
+ \le\rho H_*+B_n+C_{H_*}\varepsilon_{\mathrm f}(\Theta_j)
+\]
+is at most $(1-\rho)H_*/2$. The choice of $H_*$ makes the
+right side at most $H_*$. Starting with $\psi_0=0$ proves existence
+by finite induction, with every intermediate profile inside the
+open formation ball. The same estimate holds on a larger open
+coupling polydisc whose relative radius is strictly between
+$\sigma_{\mathrm p}$ and $\sigma_{\mathrm p}^+$. Finite composition there proves holomorphy.
+
+For stability the coupling disc and profile ball are convex.
+Apply \cref{em:lem-profile-cauchy} with
+$A=C_{H_*}\varepsilon_{\mathrm f}(\Theta_j)$, and integrate the
+two derivatives along their straight segments. Absorb the fixed
+Cauchy constants into $C_{H_*}$. With
+$d_j=\|\psi_j(x)-\psi_j(\widetilde x)\|_{j,*}$ and
+$k_j=(\log \Theta_j)^m/\Theta_j^2$, this yields
+\[
+ d_{j+1}\le
+  \{\rho+C_{H_*}\varepsilon_{\mathrm f}(\Theta_j)\}d_j
+  +C_{H_*}k_jD.
+\]
+Increase the floor until the coefficient of $d_j$ is at most
+a fixed $\rho_1<1$. For $i<j$, the frame bound gives
+$\Theta_i\ge \Theta_j-2B_a$. On $t>e^{m/2}$ the function
+$(\log t)^m/t^2$ is decreasing. If $\Theta_i\ge \Theta_j$ this gives
+$k_i\le k_j$. Otherwise choose $\Theta_*$ so $\Theta_j-2B_a\ge \Theta_j/2>1$;
+then $k_i/k_j\le(\Theta_j/\Theta_i)^2\le4$.
+Iterating from $d_0=0$ therefore gives
+\[
+ d_j\le C_{H_*}D\sum_{i<j}\rho_1^{j-1-i}k_i
+ \le\frac{4C_{H_*}}{1-\rho_1}k_jD.
+\]
+For $N=0$ the only profile is zero, and the statement holds directly.
+\end{proof}
+
+\begin{corollary}[The scalar term of the forward profile step]
+\label{em:cor-profile-scalar}
+Use the admitted actual step and prescribed sequences of
+\cref{em:thm-profile}. Let $\mathcal A_j$ be an ambient complex Banach space
+of complete pointings on the same fixed radii, with zero value and
+first derivative at the trivial field. Assume its companion readout
+$H\mapsto b(H^\infty)$ and the projection
+$\mathsf P_jH=H-b(H^\infty)\mathsf e_j$ from $\mathcal A_j$ to
+$(\mathcal B_j,\|\cdot\|_{j,*})$ are bounded uniformly. The complete
+classical pointing $\mathsf e_j\in\mathcal A_j$ has coefficient one and total
+$S_j$. Let $\mathsf N_{j+1}^{\mathrm p}$ be the Gaussian pointing fixed by the reference frame of
+the actual profile step in $\mathcal A_{j+1}$, with scalar vacuum factors kept separately,
+and put $b^{\mathrm G}_{j+1}=b((\mathsf N_{j+1}^{\mathrm p})^\infty)$. Then
+\[
+ \mathsf N_{j+1}^{\mathrm p}=b^{\mathrm G}_{j+1}\mathsf e_{j+1}+n_j,
+ \qquad n_j=\mathsf P_{j+1}\mathsf N_{j+1}^{\mathrm p}.
+\]
+
+Suppose the supplied unprojected non-Gaussian formation
+$\mathcal F_j(x,\psi)\in\mathcal A_{j+1}$ is holomorphic on the
+buffered product used in \eqref{em:eq-profile-formation} and has
+norm at most $C_{H_*}\varepsilon_{\mathrm f}(\Theta_j)$ there.
+It uses the same complete pointing and vacuum convention as the
+actual step, with $\mathcal F_j^\perp=\mathsf P_{j+1}\mathcal F_j$.
+More precisely, after the scalar vacuum factor is separated, the
+actual exponent on a compatible finite torus is
+\[
+ -x S_{j+1}+\sum_y\bigl\{
+       (T_{j,j+1}\psi)_y+(\mathsf N_{j+1}^{\mathrm p})_y
+                            +(\mathcal F_j(x,\psi))_y\bigr\}.
+\]
+This identity is required of the supplied unprojected formation;
+an identity of its projection alone would not determine the scalar.
+Set
+\[
+    r_j(x,\psi)=b\bigl(\mathcal F_j(x,\psi)^\infty\bigr).
+\]
+On the inner product of balls $|x-\Theta_j|\le\sigma_{\mathrm p}\Theta_j$,
+$\|\psi\|_{j,*}\le H_*$, one has
+\begin{equation}\label{em:eq-profile-scalar-bounds}
+  |r_j|+\|D_\psi r_j\|\le C\varepsilon_{\mathrm f}(\Theta_j),
+  \qquad
+  |\partial_x r_j|\le C\varepsilon_{\mathrm f}(\Theta_j)/\Theta_j.
+\end{equation}
+The same bounds, in the output profile norm, hold for
+$\mathcal F_j^\perp$ and its derivatives. Along two of the prescribed
+sequences in \cref{em:thm-profile},
+\begin{equation}\label{em:eq-profile-scalar-stability}
+ \big|r_j(x_j,\psi_j(x))-r_j(\widetilde x_j,\psi_j(\widetilde x))\big|
+ \le C\frac{\varepsilon_{\mathrm f}(\Theta_j)}{\Theta_j}
+                     \max_{0\le i<N}|x_i-\widetilde x_i|,
+ \qquad j<N.
+\end{equation}
+The scalar action weight carried out of that step is exactly
+$x_j-b^{\mathrm G}_{j+1}-r_j(x_j,\psi_j)$.
+\end{corollary}
+
+\begin{proof}
+The Gaussian identity is the definition of its projection. The
+bounded readout and projection give the respective outer norm
+bounds from that of $\mathcal F_j$. Apply
+\cref{em:lem-profile-cauchy} to each map to obtain
+\eqref{em:eq-profile-scalar-bounds} and its profile counterpart.
+Integrate the two derivatives along the inner weight and profile
+segments. By \eqref{em:eq-profile-stability}, the profile difference
+is at most $C\varepsilon_{\mathrm f}(\Theta_j)D/\Theta_j$, where $D$
+is the maximum in \eqref{em:eq-profile-scalar-stability}. The
+additional factor $\varepsilon_{\mathrm f}(\Theta_j)$ from $D_\psi r_j$
+is bounded above on the admitted half-line. This proves
+\eqref{em:eq-profile-scalar-stability}.
+
+The old transported profile has zero companion coefficient. In
+the actual exponent the classical term is $-x_j S_{j+1}$.
+The Gaussian and non-Gaussian decompositions add respectively
+$b^{\mathrm G}_{j+1} S_{j+1}$ and $r_j S_{j+1}$ to it. The remaining complete
+pointing is exactly \eqref{em:eq-profile-recursion}. This computes
+the scalar carried by one step on the prescribed input. The next
+prescribed weight is independent of this computation.
+\end{proof}
+
+The transport spaces in this section have fixed physical radii.
+Their norm equivalence does not remove the running-radius factor
+in quadratic extraction. The theorem constructs profiles for
+already prescribed couplings. Solving a backward equation for
+those couplings, or admitting inherited remainder and boundary
+histories, requires additional results.
+
+\begin{thebibliography}{9}
+\raggedright
+\bibitem{BA} \emph{Block averaging and gauge geometry for four-dimensional lattice Yang--Mills theory}, companion manuscript, 2026.
+\bibitem{GI} \emph{Gaussian block integration and free action-density correlations}, companion manuscript, 2026.
+\bibitem{Bal87} T. Ba\l aban, \emph{Renormalization group approach to lattice gauge field theories. I. Generation of effective actions in a small field approximation and a coupling constant renormalization in four dimensions}, Comm. Math. Phys. \textbf{109} (1987), 249--301. \href{https://doi.org/10.1007/BF01215223}{doi:10.1007/BF01215223}.
+\bibitem{Bal88c} T. Ba\l aban, \emph{Renormalization group approach to lattice gauge field theories. II. Cluster expansions}, Comm. Math. Phys. \textbf{116} (1988), 1--22. \href{https://doi.org/10.1007/BF01239022}{doi:10.1007/BF01239022}.
+\end{thebibliography}
+\end{document}
