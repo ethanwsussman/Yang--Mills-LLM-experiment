@@ -1,0 +1,2868 @@
+\documentclass[11pt,letterpaper,reqno]{amsart}
+% BEGIN INLINE manuscript-style
+\makeatletter
+\NeedsTeXFormat{LaTeX2e}[2020/10/01]
+% Use with \documentclass[11pt,letterpaper,reqno]{amsart}.
+% This file controls presentation only. It supplies no mathematical content.
+
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern}
+\RequirePackage{microtype}
+\RequirePackage[letterpaper,margin=1in,headheight=15pt]{geometry}
+\RequirePackage{amsmath,amsthm,amssymb,mathtools}
+\RequirePackage{mathrsfs}
+\RequirePackage{enumitem}
+\RequirePackage{perpage}
+\RequirePackage{longtable}
+\RequirePackage{xcolor}
+\definecolor{manuscriptred}{rgb}{0.6,0.1,0.1}
+\definecolor{manuscriptblue}{rgb}{0.1,0.3,0.5}
+\definecolor{manuscriptmagenta}{HTML}{60445C}
+\RequirePackage[breaklinks=true,colorlinks=true,
+  linkcolor=manuscriptred,citecolor=manuscriptblue,urlcolor=manuscriptmagenta]{hyperref}
+\RequirePackage{cleveref}
+\hypersetup{pdfauthor={}}
+
+% Retain the AMS paragraph, title, heading and running-head conventions.
+% Equation counters restart each section: 2.i, 2.ii, ... .
+% Appendix sections keep their letters: A.i, A.ii, ... .
+\numberwithin{equation}{section}
+\renewcommand{\theequation}{\thesection.\roman{equation}}
+% Prose references include "eq." and omit parentheses around the number.
+\renewcommand{\eqref}[1]{\textup{eq.~\ref{#1}}}
+\crefname{equation}{eq.}{eqs.}
+\Crefname{equation}{eq.}{eqs.}
+\creflabelformat{equation}{#2#1#3}
+\setcounter{tocdepth}{1}
+\renewcommand{\thefigure}{\Roman{figure}}
+\renewcommand{\thetable}{\Roman{table}}
+\newcommand{\rtneedspace}[1]{\par\begingroup
+  \dimen0=#1\relax
+  \vskip0pt plus\dimen0\penalty-100
+  \vskip0pt plus-\dimen0\vskip\dimen0
+  \penalty9999\vskip-\dimen0\vskip0pt\endgroup}
+\MakePerPage{footnote}
+\renewcommand{\thefootnote}{%
+  \ifnum\value{footnote}>9\arabic{footnote}\else\fnsymbol{footnote}\fi}
+
+% Upright statements. Main results are A, B, C; supporting statements
+% share a section-local sequence. These end marks indicate typography,
+% never proof completeness, validation, or a deferred-proof status.
+\theoremstyle{definition}
+\newtheorem{ms@theorem}{Theorem}
+\renewcommand{\thems@theorem}{\Alph{ms@theorem}}
+\newtheorem*{ms@theoremstar}{Theorem}
+\newtheorem*{ms@theoremzero}{Theorem 0}
+\newtheorem{ms@proposition}{Proposition}[section]
+\newtheorem{ms@lemma}[ms@proposition]{Lemma}
+\newtheorem{ms@definition}[ms@proposition]{Definition}
+\newtheorem{ms@corollary}[ms@proposition]{Corollary}
+\newtheorem*{ms@corollarystar}{Corollary}
+
+\newcommand{\ms@majorstart}{%
+  \pushQED{\qed}\renewcommand{\qedsymbol}{$\blacksquare\square$}}
+\newcommand{\ms@minorstart}{%
+  \pushQED{\qed}\renewcommand{\qedsymbol}{$\blacksquare$}}
+\newenvironment{theorem}[1][]{\ms@majorstart\ms@theorem[#1]}
+  {\popQED\endms@theorem}
+\newenvironment{theorem*}[1][]{\ms@majorstart\ms@theoremstar[#1]}
+  {\popQED\endms@theoremstar}
+\newenvironment{theoremzero}[1][]{\ms@majorstart\ms@theoremzero[#1]}
+  {\popQED\endms@theoremzero}
+\newenvironment{proposition}[1][]{\ms@minorstart\ms@proposition[#1]}
+  {\popQED\endms@proposition}
+\newenvironment{lemma}[1][]{\ms@minorstart\ms@lemma[#1]}
+  {\popQED\endms@lemma}
+\newenvironment{definition}[1][]{\ms@minorstart\ms@definition[#1]}
+  {\popQED\endms@definition}
+\newenvironment{corollary}[1][]{\ms@majorstart\ms@corollary[#1]}
+  {\popQED\endms@corollary}
+\newenvironment{corollary*}[1][]{\ms@majorstart\ms@corollarystar[#1]}
+  {\popQED\endms@corollarystar}
+% The source's lemma/proposition variants are deliberately not carried over:
+% choose one marker for each statement type rather than encode proof status.
+
+\theoremstyle{remark}
+\newtheorem{remark}[ms@proposition]{Remark}
+\newtheorem*{remark*}{Remark}
+% The ordinary amsthm proof environment retains its open square.
+
+\crefname{ms@theorem}{theorem}{theorems}
+\Crefname{ms@theorem}{Theorem}{Theorems}
+\crefname{ms@proposition}{proposition}{propositions}
+\Crefname{ms@proposition}{Proposition}{Propositions}
+\crefname{ms@lemma}{lemma}{lemmas}
+\Crefname{ms@lemma}{Lemma}{Lemmas}
+\crefname{ms@definition}{definition}{definitions}
+\Crefname{ms@definition}{Definition}{Definitions}
+\crefname{ms@corollary}{corollary}{corollaries}
+\Crefname{ms@corollary}{Corollary}{Corollaries}
+\crefname{remark}{remark}{remarks}
+\Crefname{remark}{Remark}{Remarks}
+
+% Bibliography configuration for this manuscript.
+\makeatother
+% END INLINE manuscript-style
+
+
+\title[Trajectory and partition stability]{Coupling trajectories and partition stability in lattice Yang--Mills theory}
+\date{Working draft, 9 November 2026}
+\begin{document}
+\raggedbottom
+\begin{abstract}
+We construct a coupling trajectory and its common vacuum normalization
+from admitted small-field formation, coefficient and large-field
+closure estimates. Uniform block drift gives a protected terminal
+window, arbitrarily fine first-passage cutoffs and the leading
+logarithmic ultraviolet law without positivity of each increment.
+Frozen-choice analytic estimates give tuned bare couplings under
+their stated prefix domains. Component bounds and label counting
+control the normalized zero-source history sum; a retained
+small-field event supplies the matching partition lower bound.
+The local analytic constructions, the one-loop coefficient and
+the quantitative history estimates are explicit inputs. No
+complex-source stability or continuum limit is asserted here.
+\end{abstract}
+\maketitle
+\tableofcontents
+
+\section{Introduction}
+
+Renormalization produces a new action coefficient before it has
+finished restoring the form of the effective measure. To iterate
+the construction, that computed coefficient must first be admitted
+on the domains required by the remaining operations. A proof that
+assumes the next complete effective density while checking this
+admission is circular. We give an induction in which the current
+history data determine the regular output and its coefficient,
+the coefficient extends the numerical frame, and the large-field
+operation then restores the next hypothesis. The common vacuum
+normalization is completed with the remainder returned by that
+last operation.
+
+Two further issues are separate from this induction. A positive
+average drift need not make every coupling increment positive;
+first passage must allow bounded backward excursions. Also, a
+stochastic realization preserves total mass without bounding it.
+The partition estimates require quantitative bounds on actual
+components, the count of their labels, the retained integrals,
+and a lower-bound event with the same vacuum normalization.
+
+The regular-iteration companion \cite{EM} supplies bounds along
+prescribed admissible prefixes. Here the one-step coefficient
+and closure inputs are used to produce a prefix to which those
+bounds apply. The scalar forward-profile estimate in that
+companion also has a backward fixed-point application. We keep
+this homogeneous profile argument distinct from tuning the full
+history-dependent trajectory, whose marked terms have separate
+analytic domains.
+
+Ba\l aban's effective-density estimates and stability bounds
+provide the conditional renormalization framework
+\cite[Theorem~2 and Corollary~3, pp.~263--264]{Bal88} and
+\cite[Theorem~1 and (0.1), pp.~355--356]{Bal89}.
+The running-coupling hypothesis is retained explicitly in the
+latter theorem. Those results do not by themselves supply the
+common trajectory or the coefficient identifications required
+here. We use actual local formation, geometry, normalization and
+history estimates as named hypotheses, and prove the ensuing
+induction, arithmetic, analytic tuning and partition deductions.
+
+The partition bounds are uniform in cutoff and compatible finite
+volume at a fixed sufficiently small terminal coupling. The trajectory
+and tuning estimates state their dependence on the inverse-coupling floor. Complex-source estimates, transfer to infinite-volume
+Gibbs states and limiting field constructions require further
+results. The present arguments do not establish those conclusions.
+
+\section{Finite measures and the common vacuum normalization}
+\label{rt:sec-normalization}
+
+Fix an odd integer $L\ge3$, a length $\ell>0$, and a finite
+cutoff index $K'\in\mathbb Z_{\ge0}$.
+The physical torus is $T_\ell=(\mathbb R/\ell\mathbb Z)^4$.
+At level $j$ its lattice $\Lambda_j$ has mesh $L^{j-K'}$, for
+$0\le j\le K'$. We require $\ell L^{K'-j}$ to be a positive integer and
+require all partitions used by the construction to be compatible
+with these periods. Write
+\[
+ a_{K'}=L^{-K'},\qquad
+ N_j=|\Lambda_j|=\ell^4L^{4(K'-j)}.
+\]
+The geometric admission conditions below may require a larger
+period than this divisibility condition alone.
+
+A configuration assigns $U_b\in\operatorname{SU}(2)$ to each
+positive bond, with $U_{\bar b}=U_b^{-1}$ on the reverse bond.
+Every unoriented plaquette is counted once, with one fixed
+orientation. Set
+\begin{equation}\label{rt:eq-wilson-measure}
+ A(U)=\sum_p\left(1-\tfrac12\operatorname{Tr}U_p\right),
+ \qquad d\mu_{0,\beta}(U)=e^{-\beta A(U)}\prod_b dU_b,
+ \qquad Z_{K',\ell,\beta}=\mu_{0,\beta}(1),
+\end{equation}
+where $dU_b$ is Haar probability measure and $\beta>0$.
+The trace of an $\operatorname{SU}(2)$ matrix is real. On complexified
+link charts we use this same trace polynomial as the holomorphic
+extension of the action.
+The finite partition function is positive: the integrand is a
+strictly positive continuous function on a compact product.
+The initial presentation has this Wilson action, one empty history,
+and no effective regular, remainder or boundary families. Its
+membership in the admitted initial class also requires the
+geometric and bare-boundary inputs stated with that class.
+
+At a later level the state includes the current bond configuration,
+the retained fields, and the discrete history records. We use the
+Borel sigma field on each finite-dimensional field space and the
+disjoint-union sigma field for the records. A stochastic kernel
+is a measurable probability kernel on these spaces. For a finite
+positive measure $\mu$ and a kernel $Q$, the measure $\mu Q$ is
+defined by $(\mu Q)(F)=\int Q(F)(u)\,d\mu(u)$ for bounded Borel
+$F$. Each fixed real operation used here is supplied as such a
+kernel or as a composition of the operations in the next lemma.
+An analytic expansion of its density may have summands of either
+sign; that does not change the underlying positive measure.
+
+\begin{lemma}[Mass and retained variables]\label{rt:lem-mass}
+Suppose a finite positive measure is transformed by finitely many
+of the following operations: a Borel test with finitely or countably many outcomes that
+partition the entire state space; a draw from a stochastic kernel; or a
+measurable map, including a map which forgets variables. Sum over
+all test outcomes. The total mass is unchanged.
+
+More specifically, let $m$ be a finite positive measure on
+$\mathsf A\times\mathsf B$ and let $\kappa$ be a stochastic
+kernel from $\mathsf A$ to $\mathsf C$. Adjoin a draw from
+$\kappa$ and then retain only the $\mathsf C$ coordinate. The
+result is
+\begin{equation}\label{rt:eq-standing-kernel}
+       \bigl[m(\kappa\otimes1)\bigr]_{\mathsf C}
+                          =m_{\mathsf A}\kappa.
+\end{equation}
+These statements hold for a fixed signed or complex measure if
+all displayed integrals are absolutely integrable.
+\end{lemma}
+\begin{proof}
+For a test with indicators $\chi_r$, the sum of the masses is
+$\int\sum_r\chi_r\,d\mu=\mu(1)$ because $\sum_r\chi_r=1$.
+For a draw, $Q1=1$ gives $(\mu Q)(1)=\mu(1)$. For a map $f$,
+$f_*\mu(1)=\mu(1)$. Composition proves the first assertion.
+To prove \eqref{rt:eq-standing-kernel}, test both sides on a
+bounded Borel function $F$ on $\mathsf C$. The left side is
+\[
+ \int_{\mathsf A\times\mathsf B}
+       \left(\int_{\mathsf C}F(c)\,\kappa(a,dc)\right)m(da,db).
+\]
+The inner integral depends only on $a$, so integration against the
+marginal $m_{\mathsf A}$ gives the right side. Fubini's theorem
+applies because the measure is finite and $F$ is bounded. Absolute
+integrability gives the same argument for signed or complex measures.
+\end{proof}
+
+For actual Borel block averages $M_j$ between the successive
+link spaces, write $T_j=(M_j)_*$. Their bare pushforwards satisfy
+\[
+ T_{n-1}\cdots T_0=(M_{n-1}\circ\cdots\circ M_0)_*.
+\]
+Indeed both sides integrate a bounded Borel function against its
+composition with $M_{n-1}\circ\cdots\circ M_0$. For $n=0$ both
+are the identity. This concerns the bare averaging maps; the
+full real operations also keep the stipulated history variables.
+
+Undefined local means, logarithms or minimizers are assigned a
+failed-test outcome, so they do not leave an unassigned part of
+the configuration space. A gauge or frame draw precedes every
+test that depends on that draw, and its value is retained in the
+history until it is forgotten by a specified map. Replacing such
+a draw by multiplication by a gauge-fixing weight is valid only
+under the separate density identity that justifies that replacement.
+In particular, the mass passing a subsequent frame-dependent test
+must be averaged with the frame actually used by that test.
+
+For a fixed real run let $Q_j$ be its complete operation on the
+extended states at step $j\to j+1$, and put
+$\mu_{j+1}=\mu_jQ_j$. Its stochastic realization is part of the
+actual local construction. If reference laws are fixed in advance,
+the same $Q_j$ acts linearly on a family of input measures. An
+operation whose reference law is recomputed from each density
+cannot be declared linear for this reason. At zero source,
+\cref{rt:lem-mass} gives $\mu_j(1)=Z_{K',\ell,\beta}$.
+This identity supplies no bound uniform in the cutoff after a vacuum
+normalization: every multiple $c\nu$ of a probability measure
+also satisfies the same mass-preservation identity, for any $c>0$.
+
+\begin{lemma}[Bounded insertions and positive history kernels]
+\label{rt:lem-history-insertion}
+Let \(\mu\) be a finite positive measure with positive mass on
+a standard Borel bare state space \(X\). Let \(K_h\) be positive measurable
+kernels from \(X\) to standard Borel retained state spaces \(Y_h\),
+indexed by a finite or countable set of records, with
+\(\sum_h K_h(u,Y_h)=1\) for every \(u\). For a bounded Borel
+function \(F:X\to\mathbb C\), put
+\[
+ \tau_h(B)=\int K_h(u,B)\,d\mu(u),\qquad
+ \tau_h^F(B)=\int F(u)K_h(u,B)\,d\mu(u).
+\]
+Then \(|\tau_h^F|\le\|F\|_\infty\tau_h\). The density
+\(F_h=d\tau_h^F/d\tau_h\) is a version of the conditional
+expectation of \(F\) given the record and retained state, under
+the probability law on the disjoint union of the spaces \(X\times Y_h\)
+whose record-\(h\) part is \(\mu(du)K_h(u,dy)/\mu(1)\). In particular,
+\begin{equation}\label{rt:eq-history-insertion}
+  \frac{\int F\,d\mu}{\mu(1)}
+    =\frac{\sum_h\int F_h\,d\tau_h}{\sum_h\tau_h(1)},
+   \qquad |F_h|\le\|F\|_\infty\quad \tau_h\text{-a.e.}
+\end{equation}
+If \(f_h\) is Borel and \(F(u)=f_h(y)\) almost everywhere in the joint law of record
+\(h\), then \(F_h=f_h\) almost everywhere on \(Y_h\).
+If a measurable symmetry \(r\) with measurable inverse preserves \(\mu\), permutes the records
+and transports their spaces and kernels by
+\(K_{rh}(ru,rB)=K_h(u,B)\), then \(r_*\tau_h=\tau_{rh}\)
+and \(r_*\tau_h^F=\tau_{rh}^{F\circ r^{-1}}\).
+\end{lemma}
+\begin{proof}
+For each measurable partition of \(B\), the sum of the moduli
+of the inserted integrals is at most
+\(\int |F(u)|K_h(u,B)\,d\mu(u)\). The variation bound follows.
+The Radon--Nikodym theorem gives \(F_h\) and its essential
+bound. Testing the defining identity against functions of
+\((h,y)\) identifies the conditional expectation. It also
+gives the asserted version when \(F\) is already determined
+by the retained state. The sums are absolutely convergent
+by the variation bound and \(\sum_h K_h(u,Y_h)=1\). Summing
+the inserted and uninserted masses gives
+\eqref{rt:eq-history-insertion}. For the covariance assertions,
+change \(u\) to \(ru\) in the measures of \(rB\) for record \(rh\).
+\end{proof}
+
+For the Wilson measure one may take \(F(u)\) to be a bounded
+gauge-invariant function of the iterated bare average. Its
+conditional value is the corresponding function of the
+retained fields when those fields determine it. The complete
+history operation may replace other fields, so the insertion
+formula uses the joint law of the original field and the
+retained state.
+
+We now fix the numerical subtraction used throughout the paper.
+The new regular family at level $j+1$ is
+$\mathcal E_{j+1}(X,P,z)$, and the new remainder family is
+$\mathcal R_{j+1}(X,P)$. Their carrier $X$ is a specified finite
+union of localization cells, $z$ is a pointing index, and
+$P=(V,J)$ is the admitted field-current pair. The trivial pair is
+$P_\circ=(\mathbf1,0)$. Values at this pair use the actual
+localization and its fixed logarithm branches. The sums below
+are finite or absolutely convergent in the supplied rooted norms.
+They range over the complete periodic reference families, with
+the same convention at every history.
+
+Let $\mathfrak n_j$ be the field-independent numerical factor
+assigned to the actual step. Define
+\begin{equation}\label{rt:eq-vacuum-recursion}
+ \begin{aligned}
+ E_{(0)}&=0,\qquad E_{(j+1)}=E_{(j)}+\mathsf e_j,\\
+ \mathsf e_j&=\mathfrak n_j+
+   \sum_X\left\{\sum_z\mathcal E_{j+1}(X,P_\circ,z)
+                            +\mathcal R_{j+1}(X,P_\circ)\right\}.
+ \end{aligned}
+\end{equation}
+The number $E_{(j)}$ may depend on the run, cutoff and torus.
+It is common to all histories on that fixed torus. Missing local
+vacuum contributions in a particular history remain in its
+normalized activity; they are not subtracted a second time.
+The new remainder in \eqref{rt:eq-vacuum-recursion} is the one
+returned by the completed large-field operation. Thus this
+recursion is completed after coupling admission and closure,
+and is not an input to the calculation of that coupling.
+
+At step $j$, the positive number $x_j$ is the action weight,
+and the positive number $\theta_j$ is its frozen reference weight.
+For $\tau_j=x_j/\theta_j$, one assigned Gaussian factor in a
+resolved $\operatorname{SU}(2)$ fibre is
+$-\tfrac32|\mathfrak X_j|\log\tau_j$, where
+$\mathfrak X_j$ is its set of free non-pivot bonds.
+Each such bond has three real coordinates. The logarithm is
+based at $\tau_j=1$ on the admitted connected relative disc.
+Haar, gauge and reference-normalizer constants are assigned by
+the same actual formula. We use the Gaussian family normalized
+at the trivial datum, as in \cite[\S4]{EM}; its removed reference
+values are included once in $\mathfrak n_j$. A presentation
+retaining the original Gaussian vacuum values is equivalent
+only after the opposite change to $\mathfrak n_j$, as proved
+below. The gauge-compensation factor
+in an interacting cut remains part of that integral; its
+unrestricted Gaussian integral cannot replace it there.
+
+\rtneedspace{14\baselineskip}
+\begin{lemma}[Common normalization and redistribution of constants]
+\label{rt:lem-vacuum-normalization}
+Let the actual finite measures and the real numbers in
+\eqref{rt:eq-vacuum-recursion} be supplied as above. Put
+\[
+ \nu_j=e^{-E_{(j)}}\mu_j,\qquad
+ \widehat Z_j=e^{-E_{(j)}}Z_{K',\ell,\beta}.
+\]
+Then
+\begin{equation}\label{rt:eq-normalized-operation}
+ \nu_{j+1}=e^{-\mathsf e_j}\nu_jQ_j,
+ \qquad \nu_j(1)=\widehat Z_j.
+\end{equation}
+Replacing a local family by that family minus a field-independent
+number, and adding the sum of the removed numbers to
+$\mathfrak n_j$, leaves $\mathsf e_j$, $E_{(j)}$ and these
+normalized measures unchanged. The same assertion holds if the
+numbers are moved in the opposite direction.
+\end{lemma}
+\begin{proof}
+Since $Q_j$ is fixed for this run, multiplication of its input
+measure by the scalar $e^{-E_{(j)}}$ commutes with its action.
+The identity $E_{(j+1)}=E_{(j)}+\mathsf e_j$ therefore gives
+the first equation. Taking total mass and using
+\cref{rt:lem-mass} gives the second. In
+\eqref{rt:eq-vacuum-recursion}, subtracting constants from the
+vacuum values cancels their sum added to $\mathfrak n_j$.
+Absolute convergence permits that redistribution. Induction on
+$j$ leaves every accumulated number unchanged.
+\end{proof}
+
+Redistribution is made in the complete density. If a history
+omits a carrier, its residual numerical factor changes by the
+corresponding omitted constant, so the physical measure stays fixed.
+
+The coupling subtraction has a different role. The coefficient
+$b_{j+1}$ is read from the newly formed complete regular family,
+using the normalized classical insertion whose coefficient is
+one. Subtracting $b_{j+1}$ times that insertion changes the
+classical exponent from $-x_j A$ to
+$-(x_j-b_{j+1})A$. Its vacuum value is zero, since $A(\mathbf1)=0$.
+The new young remainder is retained in its designated class;
+its vacuum value contributes to \eqref{rt:eq-vacuum-recursion}
+after closure. One does not add its quadratic coefficient as a
+second coupling subtraction. Older admitted remainders already
+enter the computed full regular coefficient through the actual
+regular step.
+
+The counterterm bookkeeping also applies to a spatially varying
+record of completed steps. Put
+$A(w,U)=\sum_p w(p)(1-\tfrac12\operatorname{Tr}U_p)$ for a plaquette
+weight $w$. If the actual history assigns a counterterm $b_i\phi_i(p)$
+at plaquette $p$, set $w_0(p)=\beta$ and
+$w_i(p)=w_{i-1}(p)-b_i\phi_i(p)$. At a fixed read of the field $U$,
+linearity in the weights gives
+\[
+       -A(w_k,U)-\sum_{i=1}^k b_i A(\phi_i,U)=-\beta A(U).
+\]
+The profile $\phi_i$ records where step $i$ was performed. On the
+all-small-field history it is one for the corresponding complete
+counterterm. The displayed identity concerns the actual assignment of
+coefficients and does not change the background or replace its tests.
+
+For the real history estimate, the actual profiles on this same
+plaquette field are required to satisfy
+$1\ge\phi_1(p)\ge\cdots\ge\phi_k(p)\ge0$. If $x_j>0$ and
+$b_j=x_{j-1}-x_j$, summation by parts gives
+\begin{equation}\label{rt:eq-positive-action-profile}
+ w_k(p)=x_0(1-\phi_1(p))
+   +\sum_{j=1}^{k-1}x_j(\phi_j(p)-\phi_{j+1}(p))
+   +x_k\phi_k(p)\ge0.
+\end{equation}
+The coefficients are nonnegative and sum to one. This proves
+positivity without requiring $b_j\ge0$. For $k=0$ use $w_0=x_0$.
+The native geometric condition gives this ordering when each profile
+is supported in its action region and equals one on its one-cell
+interior, and the next action region lies in that interior. Wherever
+the next profile is positive, the preceding one is then one.
+On a stock where the actual profiles equal one for $j<t$ and zero
+for $j\ge t$, the weight is $x_{t-1}$. That stock identity is a
+geometric input about the actual action profiles. All these action
+terms use the same field read. An inner retained island uses its
+own assigned field and Wilson factor. Every allocation of energy
+shares must consume at most the original nonnegative weight on
+each plaquette of its own field, leaving a nonnegative residual.
+
+All constants in the later estimates are uniform in the cutoff,
+the length of an admitted prefix and the compatible torus,
+except where a dependence on the terminal coupling or volume is
+displayed. Geometric constants, localization parameters and
+analytic reserves are fixed before the final inverse-coupling
+floor. A numerical inequality about the resulting increments
+does not by itself provide the admitted local maps or their
+common domains.
+
+\subsection{The logarithmic cost of a local normalizer}
+
+The numerical factors in a history must be charged on their
+actual carriers. One elementary estimate explains the logarithmic
+cost of the scalar Haar normalizers used in that assignment.
+
+\begin{lemma}[A truncated Haar normalizer]\label{rt:lem-haar-normalizer}
+For $y\ge1$, let $\chi_y:\operatorname{SU}(2)\to[0,1]$ be Borel.
+Suppose a fixed $a_*>0$ satisfies
+$\chi_y(U)=1$ whenever $\|U-I\|_{\rm op}<a_*y^{-1/2}$.
+With Haar probability measure define
+\[
+ z(y)=\int\chi_y(U)
+       e^{-y(1-\frac12\operatorname{Tr}U)}\,dU.
+\]
+There are constants $0<c\le C<\infty$, depending only on $a_*$,
+such that
+\[
+       c y^{-3/2}\le z(y)\le C y^{-3/2},
+       \qquad |\log z(y)|\le C+\tfrac32\log y.\qedhere
+\]
+\end{lemma}
+\begin{proof}
+The class angle $\phi\in[0,\pi]$ has Haar density
+$(2/\pi)\sin^2\phi\,d\phi$. Also
+$1-\tfrac12\operatorname{Tr}U=1-\cos\phi$ and
+$\|U-I\|_{\rm op}=2\sin(\phi/2)$.
+The inequalities $\sin\phi\le\phi$ and
+$1-\cos\phi\ge2\phi^2/\pi^2$ on this interval give
+\[
+ z(y)\le\frac2\pi\int_0^\infty
+                 \phi^2e^{-2y\phi^2/\pi^2}\,d\phi
+                      =C y^{-3/2}.
+\]
+Put $a=\min\{a_*/2,1\}$. For $0\le\phi<a y^{-1/2}$,
+the cutoff is one, $\sin\phi\ge2\phi/\pi$, and
+$y(1-\cos\phi)\le a^2/2$. Integrating on this interval
+gives $z(y)\ge (8a^3/(3\pi^3))e^{-a^2/2}y^{-3/2}$.
+Finally $z(y)\le1$ and this lower bound give the logarithmic
+estimate.
+\end{proof}
+
+For example, a fixed numerical factor $\sigma_0>0$ contributes
+$\log\sigma_0-\tfrac32\log x_j$ per assigned free bond,
+and a factor $z(x_j)^{-(L^4-1)}$ contributes
+$-(L^4-1)\log z(x_j)$ per assigned coarse cell. Each costs
+at most $C(1+\log x_j)$ at its own level. Their actual
+multiplicities and carriers come from the finite density formula.
+When a history omits such a carrier, its cost is charged there;
+it is not bounded by the number of final coarse sites without
+the geometric and weighted-integral estimates proved below.
+
+The regional formula can be seen explicitly in the
+self-calibrated convention \(x_{j-1}=\theta_{j-1}\). At a
+step with regions \(\Lambda\subset\Omega\), write \(B_{j-1}^{\rm free}(Y)\)
+for the number of incident free fine bonds in \(Y\) after
+pivot removal, and \(\#_j(Y)\) for the level-\(j\) site
+count. Let \(\sigma_0\) be the Haar density at the identity
+in the chosen exponential coordinates, let \(z_{j-1}\) be
+the scalar site-gauge normalizer. On $\mathfrak g=\mathfrak{su}(2)$,
+with its chosen Euclidean inner product and Lebesgue measure, set
+\(\nu_{\mathfrak g}=\log\int_{\mathfrak g}e^{-|Y|^2/2}\,dY\).
+In the convention
+that keeps the unnormalized Gaussian local vacuum values in
+the regular family, the three elementary scalar contributions at this
+step are
+\begin{equation}\label{rt:eq-native-regional-scalar}
+ \begin{aligned}
+ &\bigl(\log\sigma_0-\tfrac32\log x_{j-1}\bigr)B_{j-1}^{\rm free}(\Omega)
+        -(L^4-1)\#_j(\Omega)\log z_{j-1}\\
+ &\hspace{35mm}+\nu_{\mathfrak g}B_{j-1}^{\rm free}(\Lambda).
+ \end{aligned}
+\end{equation}
+The vacuum values of the regular and remainder families on
+their actual ranges are added to this number. If a local
+Gaussian family is normalized at the trivial pair, its
+removed vacuum values are instead added once to the assigned
+number, as in \eqref{rt:eq-vacuum-recursion}.
+
+The first term of \eqref{rt:eq-native-regional-scalar}
+comes from extracting \(\sigma_0\) from each free-link Haar
+density and scaling its three real coordinates by
+\(x_{j-1}^{-1/2}\). The second counts the \(L^4-1\)
+noncentral site gauges per level-\(j\) block. The last is
+the scalar for expressing the fixed reference Gaussian on the
+three real coordinates of each counted bond as a probability measure.
+This normalization is an identity between reference densities
+before the cut is imposed. The cut and every
+gauge-compensation factor stay inside the resulting integral.
+
+The last factor normalizes the product standard reference density.
+Any other field-independent covariance or pivot number keeps its
+prescribed allocation in the raw local Gaussian total or assigned
+scalar, with its trivial value counted once. It is not an additional
+evaluation of an interacting cut integral.
+
+\begin{proposition}[Regional counts and comparison of prefix scalars]
+\label{rt:prop-vacuum-count}
+At a step $j-1\to j$, let $Y\subset\Lambda_j$ and identify it with
+the union of its fine blocks. Count a positive bond in the regional
+normalizer when at least one endpoint is in $Y$, and remove one distinct fine
+pivot for each incident coarse bond, using the actual incidence convention. Use $L^4-1$ normalized site
+gauges per coarse site in $Y$. Let $d_{j-1}(Y)$ be the number of
+remaining incident fine bonds minus the number of these site gauges.
+Let $B_j^\partial(Y)$ be the number of coarse bonds with exactly one endpoint
+in $Y$. Then
+\begin{equation}\label{rt:eq-vacuum-incidence}
+\begin{aligned}
+ d_{j-1}(\Lambda_j)&=3(L^4-1)N_j,\\
+ d_{j-1}(\Lambda_j)-d_{j-1}(Y)
+   &=3(L^4-1)|Y^c|-\tfrac12(L^3-1)B_j^\partial(Y).
+\end{aligned}
+\end{equation}
+The second line lies between zero and $3(L^4-1)|Y^c|$.
+
+Suppose the actual normalizers assign the Gaussian scale
+$-\tfrac32\log\theta_{j-1}$ to each free bond and the reciprocal
+Haar scale $+\tfrac32\log\theta_{j-1}$ to each such gauge. Keep the
+remaining scalar prices, including the bounded ratios
+$x_{j-1}/\theta_{j-1}$, in the prescribed step constants. The
+logarithmic part left after subtracting the full-torus value is
+$\tfrac32\log\theta_{j-1}$ times the second line of
+\eqref{rt:eq-vacuum-incidence}. In particular it is a nonnegative
+cost when $\theta_{j-1}\ge1$.
+
+If the remaining scalar price on a full level is bounded in absolute
+value by $C N_j$, and a fixed $C_{\rm exc}\ge0$ satisfies
+$\theta_i-\theta_j\ge-C_{\rm exc}$ for $i\le j$, then on
+one fixed run, for $0\le k\le n\le K'$,
+\begin{equation}\label{rt:eq-vacuum-prefix-comparison}
+ E_{(n)}-E_{(k)}
+ =-\tfrac92(L^4-1)\sum_{j=k}^{n-1}(\log\theta_j)N_{j+1}
+     +O(N_k).
+\end{equation}
+Consequently replacing the prefix normalization $E_{(k)}$ by
+$E_{(n)}$ changes the normalized mass by a factor between
+$e^{-C N_k}$ and $e^{C(1+\log\theta_k)N_k}$, for $\theta_j\ge1$.
+\end{proposition}
+\begin{proof}
+There are $4N_j$ positive coarse bonds and $4L^4N_j$ positive
+fine bonds. The full free-bond count is $4(L^4-1)N_j$. The full
+site-gauge count is $(L^4-1)N_j$, proving the first line.
+Count coarse bond endpoints in $Y^c$ to get
+$4|Y^c|-B_j^\partial(Y)/2$ bonds with both endpoints outside $Y$. There
+are $L^3$ fine crossings per coarse face, so the analogous fine
+count is $4L^4|Y^c|-L^3B_j^\partial(Y)/2$. Each omitted pivot corresponds
+to a coarse bond with both endpoints outside $Y$. Subtract the
+omitted pivot and site-gauge counts from the omitted fine count
+to get the second line. The bound $B_j^\partial(Y)\le8|Y^c|$ gives its
+nonnegativity for $L\ge3$. Its upper bound follows by dropping the
+boundary term. The count applies on the periodic lattice, counting
+oriented occurrences if projected edges have the same endpoints.
+
+The signed scale price is $-\tfrac32\log\theta_{j-1}$ times the
+difference of free-bond and site-gauge counts. Subtract its value
+on the full torus. This gives the sign and magnitude claimed for
+the regional omission. Summing the full-torus values in the
+once-counted recursion gives the principal term of
+\eqref{rt:eq-vacuum-prefix-comparison}. The remaining costs sum
+to $O(N_k)$ because $N_{j+1}=L^{-4(j+1-k)}N_k$. Finally
+$0\le\log\theta_j\le\log(\theta_k+C_{\rm exc})$ for $j\ge k$.
+Exponentiating the comparison with the sign in the normalized
+mass proves both factor bounds.
+\end{proof}
+
+\section{Joint construction of the weights and presentations}
+\label{rt:sec-joint-construction}
+
+Use the finite measures and the vacuum convention of
+\cref{rt:sec-normalization}. To distinguish a chosen finite lattice
+from the stopping time, write \(K'\) for the finite cutoff and use
+\(K\) for first passage. At level \(j\) the period in its own units
+is \(P_j=\ell L^{K'-j}\). Prefixes on different tori or cutoffs
+are compared through the prescribed common lifted reads.
+
+\subsection{The local inputs}
+\label{rt:subsec-local-inputs}
+
+For a real reference frame \(\theta=(\theta_0,\ldots,\theta_k)\),
+an admitted presentation through \(k\) records the following data.
+It records the weights \(x_j\), their relative domains in the frame,
+the complete regular families of both chains and their common
+companions, and their coefficients at each created level. It also
+records the unpointed remainders with their birth cores, the boundary
+terms with their determining data, and the positive history measures
+with retained fields, tests, and local exponents. The exponents have
+the Wilson weight and the once-counted common scalar of
+\cref{rt:eq-vacuum-recursion}. Each regular term in the action is
+vacuum subtracted and carries its own classical quadratic
+counterterm. Each remainder is vacuum subtracted.
+
+The analytic class includes the declared real gauge covariance.
+History kernels are covariant under lattice isometries preserving
+all their partitions. Each localized regular or remainder family
+has translation covariance under the translations preserving its
+own partition. Full lattice-isometry covariance is required of the
+unrestricted pointed totals on jointly admitted real background
+pairs; it is not imposed on every filed local term. Identifications of complete reads
+transport the actual local formulas, including the support tests,
+retained variables, measure factors and branches. The assigned
+remainder and boundary spaces, together with the birth domains of
+standing operations, remain part of the data. A bound on an activity
+does not identify its formula, or change the space in which a later
+step may read it.
+
+We use three local inputs. They are uniform for the prescribed
+constants and for every admitted old prefix, with no hypothesis on a
+future trajectory.
+
+\begin{enumerate}
+\item The initial Wilson presentation is admitted. At level \(k\),
+  the actual regular and boundary formation reads the given
+  presentation and the frame through \(k\). It supplies the new
+  complete regular output, its absolute-radius unmarked counterpart,
+  their common analytic restrictions and companions, and the boundary
+  data required for the succeeding operations. The full regular list
+  uses the old remainders that have passed their age and domain tests.
+  The unmarked list has none. These formations use the same frozen
+  reference, real fluctuation cut and physical coordinate choices
+  on their common reads. They are available before a new frame entry
+  is chosen. In particular the physical creation radii and covariance
+  threshold are specified by the old reference \(\theta_k\).
+\item The physical coefficient is linear on the common creation
+companion. Each finite realization assigns that same companion read
+as its counterterm; wrapping terms remain in its finite action bounds.
+The unmarked and marked envelopes from the regular
+  iteration apply on this prefix \cite[Sections~3--6]{EM}. On the
+  self-calibrated choice \(\theta_j=x_j\) for \(j\le k\), the actual
+  counterterm has the form
+  \begin{equation}\label{rt:eq-trajectory-increment}
+     b_{k+1}=b_{k+1}^0+f_{k+1}+q_{k+1},\qquad
+     |f_{k+1}|\le\epsilon_{\rm u}(x_k),\quad
+     |q_{k+1}|\le\epsilon_{\rm m}(x_k).
+  \end{equation}
+  The nonnegative envelopes tend to zero at infinity. The actual
+  one-loop data are independent of the initial weight, admissible
+  torus and unused finer horizon. We require
+  \begin{equation}\label{rt:eq-one-loop-input}
+     \left|\sum_{l=1}^r(b_l^0-c_0)\right|\le c_2
+           \quad(r\ge0),\qquad
+     c_0=\frac{11N^2}{12\pi^2}\log L,\qquad N=2 .
+  \end{equation}
+  Here \(c_2\ge0\). This is the determinant and trace input in the
+  Wilson convention \(x_0=\beta=g_0^{-2}\). A Gaussian
+  finite-dimensional integration identity alone does not compute
+  \(c_0\). For the quantitative estimate below the ordinary regular
+  envelopes can be taken as
+  \[
+     \epsilon_{\rm u}(y)\le C_{\rm u}y^{-1/2}(\log y)^{\mathfrak p_0},
+     \qquad
+     \epsilon_{\rm m}(y)\le C_{\rm m}y^{-p_R},
+     \qquad p_R=(\kappa_0-4)/2 ,
+  \]
+  on the supplied domains, with fixed \(\mathfrak p_0\ge0\) and
+  \(\kappa_0>4\). Dropping the logarithmic improvement in
+  the marked estimate only enlarges this envelope.
+\item For an admitted presentation and an admitted new weight, the
+  actual large-field closure returns the successor presentation
+  with the same constants and prolongs the old data. Admission
+  requires the real tube, frame inequalities, geometric tests and
+  coupling ceilings of the construction. Its conclusion supplies the
+  next positive histories, regular and remainder bounds, boundary
+  terms, and their covariance and common-read identities. At fixed
+  torus and cutoff the actual measure transformation has the mass identity
+  of \cref{rt:lem-mass}. The new final remainder and the step scalar
+  for \cref{rt:eq-vacuum-recursion} are supplied after this closure.
+\end{enumerate}
+
+The common-read input includes the infinite companion and compatibility
+under unused finer cutoffs, with the same reference and weight prefix.
+For each bare weight above the fixed input floor, the Wilson
+presentation with $\theta_0=x_0=\beta$ is admitted on a cofinal family
+of sufficiently large tori and fine cutoffs. Given an admitted old
+prefix, its regular formation is available on such a family. If its
+computed next weight and chosen reference entry satisfy the numerical
+admission inequalities, assume there is a cofinal family on which the
+entire finite proposed extension has the geometric and analytic read
+admissions of the actual closure. This includes the contour, chart,
+determining-history and support conditions for the prescribed tests and
+outcomes. If two realizations contain the same complete lifted read
+with its margins, the prescriptions agree there, including earlier
+reads used in the new step. These are local inputs for the initial
+entry and for one computed extension at a time. Each realization uses
+its own finite measure and scalar constants.
+
+\begin{lemma}[A conditional construction of coherent coefficients]
+\label{rt:lem-coherent-supply}
+Fix a real frame prefix and its localization parameters. Suppose the
+basic local coefficients on compatible tori are holomorphic on the
+specified complex read charts, with uniform bounds there. The charts
+include the actual determining collars. On each torus take the finite
+subgroup of translations preserving the admitted settings, charts,
+labels and rooted bounds. The coefficients have a specified sum rule
+whose total is covariant under this subgroup.
+
+Suppose a nested cofinal sequence of finite covers eventually covers
+each fixed target torus and each bounded lifted read. The covers
+supply linear filing maps. A filing assigns lifted labels to their
+actual target labels and reads their entries by fixed chart pullbacks.
+For each fixed finite part of a filing these pullbacks take compact
+subsets of the target chart into compact subsets of the corresponding
+source charts. Assume the filings compose under coverings and
+restrictions. Each admitted target translation has compatible admitted
+lifts on sufficiently large covers, and filing commutes with these
+translations. The filed sums obey the actual cover identity for the
+prescribed total on each target. Fix $C_0,C_1>0$, $D_{\rm cat}\ge1$ and $0<q<D_{\rm cat}^{-1}$.
+On each fixed rooted chart assume there is a fixed catalogue of at most $C_0 D_{\rm cat}^m$ length-$m$ labels,
+the same across all covers, with absent entries set to zero and entry bound $C_1q^m$
+and filing multiplicity at most $m+1$, uniformly over the
+covers. The target charts form a countable collection of finite-dimensional
+charts, with countably many
+discrete read types, labels and entries.
+
+Then translation averaging preserves the local read, bounds and sum
+rule. Along one cofinal subsequence the averaged, filed entries have
+holomorphic limits on the common charts. The limits are translation
+covariant, compatible under the filing maps, and satisfy the
+prescribed sum rules. The compatible restrictions to bounded lifted
+reads give a subsequential infinite companion. For representatives in
+a box, the comb with a prescribed exterior root and entrance bond
+gives a local gauge rule. Transforming the input by a site gauge $u$
+transforms its representative by $u$ outside the box and by the
+constant $u(o)$ inside, where $o$ is the exterior root.
+\end{lemma}
+\begin{proof}
+On a finite torus let $T$ be the admitted translation subgroup, acting on formulas
+by translating the setting, the label and the read coordinates. For
+a coefficient family $C$ use $|T|^{-1}\sum_{a\in T}a^*C$. If two
+settings have the same complete local read, their translates do also,
+so every summand has the same value on the two settings. This proves
+locality of the average. Convexity preserves the rooted bounds. A
+translation permutes the summands, proving covariance. Summing the
+averaged coefficients gives the average of the translated sum rules,
+which equals the original covariant total.
+
+For a box representative let $g_U(x)$ be the ordered transport along
+the prescribed tree from $o$ to $x$ inside, and put $g_U=1$ outside.
+With $U^g(x,y)=g(x)U(x,y)g(y)^{-1}$, each tree bond of $U^{g_U}$
+is the identity. The root value and the tree equations determine
+$g_U$ uniquely. In the transformed field the tree transport is
+$g_{U^u}(x)=u(o)g_U(x)u(x)^{-1}$ inside. The product gauge
+$g_{U^u}u$ therefore equals $u(o)g_U$ inside and $u$ outside.
+This is the stated transformation law and uses only the actual tree
+and its entrance read.
+
+File the averages on the common charts. Uniform boundedness of each
+scalar entry gives a normal family on its finite-dimensional chart.
+Extract successively on compact exhaustions of the countably many
+charts and take a single diagonal subsequence. Each admissible target
+translation is realized by the stated lifts for all sufficiently large
+covers, so its identity passes to the local uniform limits. The
+compact containment for the pullbacks ensures local uniform
+convergence of every finite filed sum. For a rooted filing or
+sum rule the tail beyond length $s$ is bounded uniformly by
+\[
+  C_0C_1\sum_{m>s}(m+1)(D_{\rm cat}q)^m,
+\]
+which tends to zero. Pass first to the limit in each finite partial
+sum, then let $s$ increase. Composability of the filing maps before
+the limit gives the corresponding identities between limits, and the
+supplied cover identity identifies the limiting sum with the
+prescribed total on its stated domain.
+\end{proof}
+
+The chart margins, compatibility of the filings and cover identity
+are inputs about the actual local operators. The limit supplies a
+coherent choice of basic coefficients. Exact agreement with an
+already fixed finite realization on a nonwrapping read still requires
+the stated common-read identification. Identification of the physical
+coefficient uses convergence of the actual responses on the common
+charts and the moment argument of \cite[Proposition~6.3]{EM}.
+
+\subsection{An order for the constants}
+
+In the local input order, the exponents and fixed separation fractions
+precede $L$ and the initial linear cubes. The prescribed decay rates
+and their reserves come next, followed by the enlarged localization
+cubes and the final cell multiplier $M$. Fix the analytic reserves,
+norm caps and cutoff constants before the weak frame triple. The
+triple is fixed before the upper coupling ceiling $\gamma$ is chosen.
+The bare-disc radius and the room for the admitted background
+continuations come after that ceiling, and before the final
+inverse-coupling floor and the physical choices of terminal coupling,
+compatible torus, bare weight and cutoff. Each local constraint is
+checked at its last free parameter after substitution of quantities
+determined by earlier choices. For example, a lower bound on a decay
+reserve must be met before imposing the larger cube size that pays
+for it, and the final coupling floor must allow the already fixed
+bare-disc and background rooms. The local analytic and geometric
+inequalities used at these stages are the supplied ones.
+The reserve for retained integrals is a separate choice. Fix it after
+the required loads and their charge constants, and before any coupling
+ceiling or inverse-coupling floor used to pay those charges.
+
+The class conditions at a chosen parameter must be finitely many
+floors, ceilings, or endpoints of a nonempty window, with earlier
+data fixed. A uniform estimate indexed by a later observable
+exponent is used only at the finitely many exponents fixed at this
+stage.
+
+\rtneedspace{26\baselineskip}
+\begin{lemma}[Order of the numerical choices]
+\label{rt:lem-constant-order}
+Suppose the local inputs admit the preceding finite order of choices.
+Fix \(c_0,c_2\) from \cref{rt:eq-one-loop-input}, and choose
+\(C_\beta\ge c_0+2c_2+1\). Set
+\begin{equation}\label{rt:eq-flow-constants}
+ \begin{gathered}
+  c_5=2c_2,\qquad \lambda_{\rm w}=c_0/4,\qquad
+  B_{\rm w}=C_\beta+1,\\
+  \lambda_{\rm s}=c_0/2-\varsigma,\qquad
+  B_{\rm s}=C_\beta+\varsigma,\qquad
+  0<\varsigma\le\min\{c_0/4,1\}.
+ \end{gathered}
+\end{equation}
+After fixing the weak triple \((\lambda_{\rm w},c_5,B_{\rm w})\),
+one can impose all the following numerical conditions on a common
+floor \(Y\):
+\begin{equation}\label{rt:eq-trajectory-error-floor}
+  \epsilon_{\rm u}(y)+\epsilon_{\rm m}(y)\le\min\{c_0/4,1\},
+  \qquad \epsilon_{\rm m}(y)\le\varsigma\qquad(y\ge Y).
+\end{equation}
+It can also impose \(Y>\max\{2c_5,\gamma^{-2}+c_5+1\}\), where
+\(\gamma\) is the supplied upper coupling ceiling. For the fixed
+cell exponent \(r>0\) it can impose
+\[
+        \left(\frac{\log(y+2B_{\rm s})}{\log y}\right)^r<L
+                  \qquad(y\ge Y).
+\]
+If the required reserve is
+\(\varsigma=C_*\gamma^{\kappa_0-8}\) with \(C_*>0\) fixed before
+\(\gamma\), then \(\kappa_0>8\) permits that reserve in
+\cref{rt:eq-flow-constants}.
+\end{lemma}
+\begin{proof}
+With earlier data fixed, finitely many floors on a free upward
+parameter are combined by their maximum. Finitely many positive
+ceilings are combined by their minimum. A window may be chosen
+only after its nonemptiness has been checked in the preceding
+parameters. Apply this rule through the supplied local choices.
+The weak triple is fixed before taking the constants of the marked
+bound. If the displayed reserve is used, its positive exponent
+allows the ceiling \(\gamma\) to be reduced until \(\varsigma\)
+lies in the stated range. Both error envelopes tend to zero with
+the fixed earlier constants. This permits \cref{rt:eq-trajectory-error-floor}
+and the other finite floors to be met together. The strong triple
+satisfies \(\lambda_{\rm s}\ge\lambda_{\rm w}\) and
+\(B_{\rm s}\le B_{\rm w}\), so it needs no new estimate on a
+different weak class. The logarithmic ratio in the cell
+condition tends to one, allowing its floor at the same stage.
+\end{proof}
+
+The source uses rounded cells based on a running minimum. Fix the
+power \(r>0\) chosen with the geometry, and write
+\begin{equation}\label{rt:eq-running-cell}
+ R(y)=\min\{L^m:m\in\mathbb Z_{\ge0},\ L^m\ge(\log y)^r\},
+ \qquad R_j=R\!\left(\min_{0\le i\le j}x_i\right).
+\end{equation}
+The real cutoff can be chosen on any cofinal class satisfying the
+actual geometric admission conditions. The numerical floor in the
+source is \(P_j\ge 2L^{11}M R_j\) at each used level, where \(M\)
+is the fixed localization side in level units. If a construction
+needs a prospective floor at \(j+1\) before \(x_{j+1}\) is known,
+\(P_{j+1}\ge2L^{11}M R_j\) is sufficient for that numerical
+condition. The local contour and history-domain tests remain
+separate inputs.
+
+\subsection{Admission and closure}
+
+\begin{theorem}[The joint trajectory through first passage]
+\label{rt:thm-joint-trajectory}
+Assume the three local inputs and the cofinal admission stated
+in \cref{rt:subsec-local-inputs} on weak prefixes, with the constants
+chosen as in \cref{rt:lem-constant-order}. On an admitted old
+prefix the weak frame inequalities are
+\[
+  \lambda_{\rm w}(j-i)-c_5\le x_i-x_j
+                           \le B_{\rm w}(j-i)\qquad(i\le j).
+\]
+Fix \(h\ge Y\) and \(\beta\ge h+B_{\rm s}\). Start from the
+admitted Wilson presentation, put \(x_0=\beta\), and use
+\(\theta_j=x_j\) as each new entry is admitted. The prescribed
+construction forms the real coefficients and actual presentations
+through
+\begin{equation}\label{rt:eq-first-passage}
+   K=K(\beta,h)=\min\{j\ge0:x_j\le h+B_{\rm s}\}.
+\end{equation}
+The coefficients and the stopping index are common to all
+admitted tori and unused finer horizons that realize this prefix.
+The joint vacuum recursion is \cref{rt:eq-vacuum-recursion} with
+the same convention in each finite realization.
+
+The stopping index is finite. For all \(0\le i\le j\le K\),
+\begin{equation}\label{rt:eq-strong-drift}
+ \tfrac34c_0(j-i)-c_5\le x_i-x_j\le B_{\rm s}(j-i),
+ \qquad
+ \lambda_{\rm s}(j-i)-c_5\le x_i-x_j.
+\end{equation}
+The terminal value is protected by the preceding window:
+\begin{equation}\label{rt:eq-first-passage-bounds}
+ h<x_K\le h+B_{\rm s},\qquad
+ \frac{\beta-h}{B_{\rm s}}-1\le K
+ \le1+\frac{\beta-h-B_{\rm s}+c_5}{\lambda_{\rm s}} .
+\end{equation}
+In particular, for fixed \(h\) the stopping depths are unbounded
+as \(\beta\) tends to infinity.
+\end{theorem}
+\begin{proof}
+At \(k=0\) the frame inequalities have no nontrivial segment.
+If \(x_0=h+B_{\rm s}\), the initial presentation is already
+terminal. Otherwise suppose the construction has reached \(k\)
+without stopping. In particular \(x_k>h+B_{\rm s}\), the
+current presentation is admitted, and its frame is weak.
+Apply the first local input at this prefix. It forms the
+regular coefficient from the actual companion at level \(k+1\),
+using the old \(\theta_k,x_k\) and the already available
+remainder data. By the second input, with
+\(s_j=jc_0-\sum_{l=1}^j b_l^0\), we have \(|s_j|\le c_2\).
+For each candidate segment ending at the computed value
+\(x_{k+1}:=x_k-b_{k+1}\), telescoping gives
+\begin{equation}\label{rt:eq-block-telescope}
+ x_i-x_{k+1}-c_0(k+1-i)
+     =s_i-s_{k+1}+\sum_{l=i+1}^{k+1}(f_l+q_l).
+\end{equation}
+The input for the last error is \(x_k\), so it obeys
+\cref{rt:eq-trajectory-error-floor} before any test on
+\(x_{k+1}\). The earlier errors obey the same bound by induction.
+This gives the lower inequality in \cref{rt:eq-strong-drift}.
+The one-step partial-sum estimate gives
+\(|b_l^0|\le c_0+2c_2\). Thus
+\(|b_l^0+f_l|\le C_\beta\) and \(b_l\le B_{\rm s}\);
+summing gives the upper bound.
+
+In particular \(x_{k+1}\ge x_k-B_{\rm s}>h\). The new
+entry remains above the floor and extends the strong and weak
+frame inequalities. Its tube deviation is zero when
+\(\theta_{k+1}=x_{k+1}\). If the running minimum drops, its
+drop is at most \(B_{\rm s}\). The cell condition in
+\cref{rt:lem-constant-order} makes the ratio of \((\log y)^r\)
+at the two successive minima less than \(L\). Taking the least
+\(L\)-powers gives
+\begin{equation}\label{rt:eq-adjacent-cell}
+                  R_j/R_{j+1}\in\{1,L\}.
+\end{equation}
+The same argument with a bound \(2B_{\rm s}\) on the drop of
+the minimum across two steps excludes two consecutive drops
+of \(R_j\). Indeed, two drops by \(L\) would force a ratio
+greater than \(L\) between the unrounded powers.
+Thus the numerical frame, tube and cell requirements have been verified
+for the proposed next entry. Use the one-step cofinal admission to
+choose tori and cutoffs on which all reads of this finite extension are
+admitted. The common-read identity preserves the coefficients already
+computed when passing to a larger realization. Apply closure on each
+admitted geometry to obtain the full successor presentation and its
+new final remainder. The scalar update \eqref{rt:eq-vacuum-recursion}
+is then evaluated for that realization. It was unnecessary for
+computing the new weight. Repeating the one-step argument requires no
+advance choice of the stopping horizon. On any admitted fixed finite
+torus and cutoff, the same inputs realize the common coefficient
+prefix through every available step.
+
+If stopping never occurs, this procedure constructs a prefix of
+every length with \(x_j>h+B_{\rm s}\). The lower drift yields
+\(x_j\le\beta+c_5-\lambda_{\rm s}j\), a contradiction for
+large \(j\). If \(K>0\), its preceding value is above
+\(h+B_{\rm s}\), and the last decrement is at most \(B_{\rm s}\).
+This gives the terminal lower endpoint. The upper endpoint
+follows from the definition of \(K\). Applying the upper drift
+to the whole run and the lower drift up to \(K-1\) gives
+\cref{rt:eq-first-passage-bounds}. At \(K=0\), \(\beta=h+B_{\rm s}\)
+and both bounds hold directly. The lower bound on \(K\)
+then gives the unboundedness assertion.
+\end{proof}
+
+Only the block drift in \cref{rt:eq-strong-drift} is positive at
+large separations. For example the arithmetic model
+\(b_l^0=c_0+(-1)^l d\) with \(d>c_0\) has bounded one-loop
+partial sums after subtracting \(c_0\) and a negative decrement
+at every odd step. It satisfies the numerical premises with
+vanishing corrections. Thus the stopping proof cannot require
+stepwise positivity. For \(g=h^{-1/2}\) define the sets
+\[
+ \mathcal W_k(g)=\{\beta\ge h+B_{\rm s}:K(\beta,h)=k\}.
+\]
+Unbounded stopping depths make \(\mathcal W_k(g)\) nonempty
+for infinitely many \(k\). The existence of one tuned value
+for every prescribed depth uses a separate argument.
+
+\rtneedspace{17\baselineskip}
+\begin{proposition}[Finite realization and the torus floor]
+\label{rt:prop-torus-realization}
+Let the prefix of \cref{rt:thm-joint-trajectory} be given by its
+common companion. If \(K'\ge K\), the numerical period conditions
+at levels \(0,\ldots,K\) follow from
+\[
+                \ell\ge 2L^{11}M R(h+B_{\rm s}).
+\]
+If the stronger prospective condition stated after
+\cref{rt:eq-running-cell} is required at every step, it suffices
+to multiply this terminal side floor by \(L\). In a finite realization with
+the supplied actual geometric and analytic admissions, the
+finite construction then realizes the same weights through \(K\).
+\end{proposition}
+\begin{proof}
+By \cref{rt:eq-adjacent-cell}, \(R_i\le L^{K-i}R_K\).
+The running minimum is at most \(x_K\), so
+\(R_K\le R(h+B_{\rm s})\). Since
+\(P_i=\ell L^{K'-i}\ge\ell L^{K-i}\), the first
+assertion follows. For the prospective condition at \(i+1\),
+one needs \(P_{i+1}\ge2L^{11}M R_i\), which is obtained with
+the stated extra factor. These computations select numerical
+periods. To realize the known run, apply the common-read input
+and the same closures on the admitted torus and cutoff. The
+vacuum subtraction still uses the scalar numbers of that
+realization.
+\end{proof}
+
+\section{Depth estimates and the logarithmic law}
+\label{rt:sec-first-passage}
+
+\begin{proposition}[Terminal-depth bounds]
+\label{rt:prop-depth-envelopes}
+In the trajectory of \cref{rt:thm-joint-trajectory}, put
+\(x_{[s]}=x_{K-s}\) for \(0\le s\le K\). Then
+\begin{equation}\label{rt:eq-depth-envelope}
+  h+\max\{0,\lambda_{\rm s}s-c_5\}< x_{[s]}
+                              \le h+B_{\rm s}(s+1).
+\end{equation}
+In addition,
+\[
+ h-c_5+\tfrac12c_0s<x_{[s]}
+       \le h+B_{\rm s}+c_5+\tfrac32c_0s .
+\]
+At fixed \(h\), any sequence with \(K\to\infty\) has a
+subsequence with a limit of \(x_{[s]}\) for every fixed \(s\).
+These limits lie in the closed versions of the intervals, and
+the corresponding couplings converge by continuity of
+\(x\mapsto x^{-1/2}\). The limiting terminal coupling lies in
+\([(h+B_{\rm s})^{-1/2},h^{-1/2}]\).
+
+For any \(H\ge h\), the number of steps \(1\le j\le K\)
+whose preceding value satisfies \(x_{j-1}\le H\) is bounded by
+\(1+(H-h+c_5)/\lambda_{\rm s}\), independently of the initial
+weight.
+\end{proposition}
+\begin{proof}
+Apply \cref{rt:eq-strong-drift} from \(K-s\) to \(K\), and use
+the terminal window. Each preceding value is itself above \(h\).
+This gives \cref{rt:eq-depth-envelope}. For the additional
+upper bound, the telescoping identity gives
+\(x_{[s]}-x_K\le c_5+\tfrac54c_0s\). The lower bound follows
+from \cref{rt:eq-strong-drift}. Each fixed-depth interval has
+compact closure. Extract successively at depths \(0,1,\ldots\),
+discarding the finitely many runs too short for the depth being
+considered, and take a diagonal subsequence.
+
+If a preceding value at most \(H\) occurs, let \(i\) be its
+first index. Every counted step has preceding index between
+\(i\) and \(K-1\). The lower drift from \(i\) to \(K\) gives
+\(\lambda_{\rm s}(K-i)-c_5\le x_i-x_K<H-h\).
+This bounds the entire remaining length, even if the weights
+later rise above \(H\) again. If no such index exists, the
+count is zero.
+\end{proof}
+
+\begin{lemma}[Sums of running powers]
+\label{rt:lem-scale-sums}
+Let \(g_j=x_j^{-1/2}\). On the prefix of
+\cref{rt:thm-joint-trajectory}, for \(p>2\),
+\begin{equation}\label{rt:eq-scale-power-sum}
+ \sum_{j=0}^k g_j^p
+ \le C_p\left(1+\frac1{\lambda_{\rm s}(p-2)}\right)
+                              x_k^{1-p/2}\qquad(k\le K).
+\end{equation}
+For the marginal power at \(k=K\),
+\[
+ \frac1{B_{\rm s}}\log\!\left(1+\frac{B_{\rm s}(K+1)}
+                                             {h+B_{\rm s}}\right)
+ \le \sum_{j=0}^K g_j^2
+ \le \frac2h+\frac1{\lambda_{\rm s}}
+                 \log\!\left(1+\frac{2\lambda_{\rm s}K}{h}\right)
+\]
+once \(h\ge2c_5\). For every fixed \(p\ge0\) and \(\eta>0\),
+let \(t_p(y)=y^{-1/2}(\log y)^p\). Above a fixed floor,
+\[
+  t_p(x_n)\le(1+\eta)\sqrt{n-m}\,t_p(x_m),\qquad
+  t_p(x_m)\le(1+\eta)t_p(x_n)\qquad(m<n).\qedhere
+\]
+\end{lemma}
+\begin{proof}
+For \(j\le k\), the lower drift gives
+\(x_j\ge x_k-c_5+\lambda_{\rm s}(k-j)\). With the fixed
+floor \(x_k\ge\max\{1,2c_5\}\), this is at least
+\(x_k/2+\lambda_{\rm s}(k-j)\). Bound the first term
+separately and compare the remaining decreasing sequence with
+the integral on the nonnegative half-line. This yields
+\cref{rt:eq-scale-power-sum}. For \(p=2\) the same integral
+up to \(K\) gives the upper logarithm. The upper terminal-depth
+bound gives the lower logarithm by integrating the reciprocals
+of \(h+B_{\rm s}(s+1)\) from zero to \(K+1\).
+
+The profile \(t_p\) decreases above \(e^{2p}\). If \(x_m\ge
+x_n\), the first ratio is at most
+\((1+B_{\rm s}(n-m)/x_n)^{1/2}\), since its logarithmic factor
+is at most one. It is at most \((1+\eta)\sqrt{n-m}\) above
+a fixed floor. If \(x_m<x_n\), the first ratio is at most
+one. In the latter case the reverse ratio is bounded by
+\((1+c_5/x_m)^{1/2}\) from the lower drift, again with
+logarithmic factor at most one. In the former case the reverse
+ratio is at most one by monotonicity.
+\end{proof}
+
+A weighted age sum used for inherited remainder coefficients is
+also a consequence. For $\kappa_0>6$ and $k\le K$,
+\begin{equation}\label{rt:eq-inherited-remainder-sum}
+ \sum_{j=0}^k(x_j/x_k)^2g_j^{\kappa_0}
+  =x_k^{-2}\sum_{j=0}^k g_j^{\kappa_0-4}
+  \le C g_k^{\kappa_0-2}.
+\end{equation}
+Use \eqref{rt:eq-scale-power-sum} with $p=\kappa_0-4>2$.
+This estimate sums an already supplied local remainder bound;
+it does not establish that bound. The positive block drift,
+rather than a bound on backward excursions alone, controls the
+number of contributing levels.
+
+\begin{theorem}[Uniform ultraviolet asymptotics]
+\label{rt:thm-ultraviolet-law}
+Set
+\[
+ \omega_*(y)=\sup_{t\ge y}
+                 \{\epsilon_{\rm u}(t)+\epsilon_{\rm m}(t)\},
+\]
+on the half-line of admitted real inverse couplings. For the
+trajectory in \cref{rt:thm-joint-trajectory}, the depth error is
+bounded by
+\begin{equation}\label{rt:eq-depth-error}
+ |x_{[s]}-x_K-c_0s|\le \Delta_h(s),\qquad
+ \Delta_h(s)=c_5+\sum_{u=0}^{s-1}
+       \omega_*\bigl(h+\max\{0,\lambda_{\rm s}u-c_5\}\bigr).
+\end{equation}
+The envelope is nondecreasing in \(s\) and
+\(\Delta_h(s)/s\to0\) at fixed \(h\). In particular the
+mean of \(|f_j+q_j|\) over the full run tends to zero.
+At \(a_K=L^{-K}\),
+for \(K\ge1\),
+\[
+  \left|\frac{\beta}{\log(a_K^{-1})}
+                  -\frac{11}{3\pi^2}\right|
+  \le \frac{h+B_{\rm s}+\Delta_h(K)}{K\log L}.
+\]
+In particular this convergence is uniform over the admitted
+initial weights with the same stopping depth and fixed \(h\).
+If the power and logarithmic envelopes of
+\cref{rt:eq-trajectory-increment} hold with \(p_R>1\), then
+above a fixed floor one may take
+\[
+     \Delta_h(s)\le C\left\{1+\sqrt{h+\lambda_{\rm s}s}\,
+                         [\log(h+\lambda_{\rm s}s)]^{\mathfrak p_0}\right\}.
+\]
+The corresponding relative error at fixed \(h\) is
+\(O_h(K^{-1/2}(\log K)^{\mathfrak p_0})\) as \(K\to\infty\).
+\end{theorem}
+\begin{proof}
+Apply the telescoping identity on the last \(s\) steps. The
+one-loop sum error is at most \(c_5\). The preceding argument
+of each error in those steps has depth \(u\) between \(1\)
+and \(s\). By \cref{rt:eq-depth-envelope} and the monotonicity
+of \(\omega_*\), the error sum is at most the same sum at
+depths \(0,\ldots,s-1\). This proves \cref{rt:eq-depth-error}.
+Its summands tend to zero as the depth increases, so their
+averages tend to zero. At \(s=K\), use \(x_{[K]}=\beta\)
+and the terminal window, then divide by \(K\log L\).
+The numerical coefficient is \(c_0/\log L\) from the
+one-loop input with \(N=2\).
+
+Above a fixed monotonicity floor the two errors have a
+common majorant \(C y^{-1/2}(\log y)^{\mathfrak p_0}\).
+Use \(h+\max\{0,\lambda_{\rm s}u-c_5\}\ge
+(h+\lambda_{\rm s}u)/2\) for \(h\ge2c_5\).
+Bound all logarithms by
+\(\log(h+\lambda_{\rm s}s)\). The remaining decreasing
+sum is at most
+\[
+ h^{-1/2}+\int_0^s (h+\lambda_{\rm s}t)^{-1/2}\,dt
+ \le h^{-1/2}+2\lambda_{\rm s}^{-1}\sqrt{h+\lambda_{\rm s}s}.
+\]
+This proves the quantitative estimate with constants independent of
+the prefix and \(h\) above the fixed floor.
+\end{proof}
+
+\begin{lemma}[Change of lattice units]\label{rt:lem-dilation}
+For compatible finite lattices, let \(b\) be an integer with
+\(K'-b\ge0\). In four dimensions,
+\[
+       Z_{K',\ell,\beta}=Z_{K'-b,L^b\ell,\beta}.
+\]
+At a fixed initial weight, a datum at horizon \(K'\ge K(\beta,h)\)
+therefore represents the same finite Wilson integral as the
+first-passage datum at side \(L^{K'-K}\ell\). The reverse change
+of units is valid for the bare integral on the contracted torus.
+To use the normalized history estimates there one must still
+meet its geometric admission conditions.
+\end{lemma}
+\begin{proof}
+The map \(u\mapsto L^b u\) bijects the sites of the two lattices,
+their positive bonds, and their oriented plaquettes. Give
+corresponding bonds the same group variables. The plaquette
+products and normalized product Haar measure are unchanged,
+and the Wilson action has no spacing prefactor in four
+dimensions. This proves the equality. When \(K'\ge K\), take
+\(b=K'-K\). Identification of intermediate renormalized
+coefficients uses the common-prefix hypothesis and
+\cref{rt:prop-torus-realization}, not this bare equality alone.
+\end{proof}
+
+\begin{proposition}[Common prefixes under change of units]
+\label{rt:prop-common-prefix-units}
+Suppose the actual supply rule is natural under the bond
+relabeling of \cref{rt:lem-dilation}. The identified frame
+and weight prefixes, towers, partitions and retained records
+must identify the local formulas, Borel tests, measures and
+determining collars. On the resulting admitted tori and
+cutoffs, relabeling identifies the formed presentations
+through their common prefix. For the affine reference frame
+\(\theta_j=h+c_0(K'-j)\), its prefix ending at \(K'-s\) has
+the same frame as the shorter run with terminal reference
+value \(h_s=h+c_0s\). It is carried to the torus of side
+\(L^s\ell\), for every integer \(0\le s\le K'\). A reference
+side floor of the form \(\ell\ge C M R(h+B_{\rm s})\)
+implies \(L^s\ell\ge C M R(h_s+B_{\rm s})\) above a fixed
+floor on \(h\).
+\end{proposition}
+\begin{proof}
+The bare measures agree by \cref{rt:lem-dilation}. At each
+common step, transport the actual tests and kernels by the
+same relabeling. A test indicator and its transported version
+have the same value on corresponding configurations. A
+draw and any projection have the corresponding pushforward
+law by \cref{rt:eq-standing-kernel}. The local densities and
+companions then agree on identified reads, so their coefficients
+agree. Induction identifies the retained history measures
+and the given local expressions at each step in the prefix.
+
+For the affine frame,
+\(h+c_0(K'-j)=h_s+c_0(K'-s-j)\) for \(j\le K'-s\).
+The relabeling with \(b=s\) gives the stated torus.
+For large \(y\), the ratio
+\((\log(y+c_0))^r/(\log y)^r\) is less than \(L\).
+Thus \(R(y+c_0)\le L R(y)\). Iterate this bound \(s\)
+times at \(y=h+B_{\rm s}\) to obtain the size implication.
+\end{proof}
+
+For a self-calibrated run, a smaller terminal inverse
+coupling \(h'\le h\) gives a lower stopping threshold.
+If \(h'\ge Y\) and the prolonged geometries are admitted,
+the same construction continues the old prefix until its
+first passage at \(h'\). If the old terminal value already
+lies at or below \(h'+B_{\rm s}\), the two stopping indices
+agree. In either case the earlier prefix measures and
+coefficients are the original ones. Comparing two different
+histories or frames from a bare change of units alone
+requires extra compatibility.
+
+\section{Tuning with fixed choices}
+\label{rt:sec-frozen-tuning}
+
+Let $c_0>0$ be the one-loop drift in the coupling normalization of
+this manuscript. Fix a nonnegative integer horizon $K$ and an
+inverse-coupling floor $h>1$. For the slope estimates, fix an admitted
+real frame satisfying, for constants $\lambda_\theta>0$ and $d_\theta\ge0$,
+\begin{equation}\label{rt:eq-frozen-frame-drift}
+  \theta_j\ge h,\qquad
+  \theta_j-\theta_l\ge\lambda_\theta(l-j)-d_\theta
+                  \quad(0\le j\le l\le K).
+\end{equation}
+We take $h\ge2d_\theta$ and increase its floor below. Constants
+in the slope estimates may depend on the fixed drift and analytic
+parameters, but not on the horizon or volume. The canonical
+tuning interval will use the affine frame with $h=g^{-2}$,
+\begin{equation}\label{rt:eq-frozen-frame}
+       \theta_j=h+c_0(K-j),\qquad 0\le j\le K.
+\end{equation}
+Hold the frame and all lattice, cutoff, gauge and scaling choices
+fixed as the bare weight $\beta$ varies. Write $x_j^\theta$ for
+its actual weights, $x_0^\theta=\beta$, and
+$b_i=x_{i-1}^\theta-x_i^\theta$ for its extracted increments. The
+frame and the actual weights are different inputs to a step.
+
+We use the coefficient comparison of \cite[Theorem A and Corollary
+6.4]{EM} on the actual admitted reads. Its two estimates concern
+different parameter domains. At step $i$ write
+\begin{equation}\label{rt:eq-frozen-increment}
+  b_i=b_i^0+f_i(z_0,\ldots,z_{i-1})+q_i(\beta),
+  \qquad z_j=\theta_j-x_j^\theta(\beta).
+\end{equation}
+The Gaussian numbers $b_i^0$ are fixed by the reference data and
+obey $|s_k|\le c_2$, where $s_k=kc_0-\sum_{i=1}^k b_i^0$.
+Fix an admitted relative radius $0<\sigma_*\le1/2$. The
+unmarked function $f_i$ is holomorphic on the full product
+$|z_j|<\sigma_*\theta_j$ for $j<i$, with supremum at most
+\[
+     \epsilon_{i-1}=C_{\mathrm u}\theta_{i-1}^{-1/2}
+                                  (\log\theta_{i-1})^{\mathfrak p_0}.
+\]
+For the bare-disc route fix $\varrho>0$, $c_\beta>0$ and $p_R>1$.
+At each admitted real
+centre, $q_i$ has an actual bare-variable holomorphic germ on the
+disc of radius $c_\beta\varrho$ about that centre, with supremum
+at most $\epsilon'_{i-1}=C_{\mathrm m}\theta_{i-1}^{-p_R}$.
+This is the marked coefficient of the same actual step, including
+the variation of all its supplied inherited remainder data. The
+marked estimate is a separate input on its disc. All constants in
+these inputs are uniform in the horizon and admissible torus. The
+coefficient reads use the common companions and are real on real
+data.
+
+\begin{lemma}[A product-disc derivative bound]\label{rt:lem-polydisc-slope}
+Let $f$ be holomorphic and bounded by $E$ on the finite product
+$|z_j|<r_j$, with all $r_j>0$. Throughout this product,
+\begin{equation}\label{rt:eq-polydisc-weighted}
+ \sum_j r_j(1-|z_j/r_j|^2)|\partial_j f(z)|\le E.
+\end{equation}
+On the half product, $\sum_jr_j|\partial_j f(z)|\le4E/3$ and
+$|f(z)-f(\widetilde z)|\le(4E/3)\max_j|z_j-\widetilde z_j|/r_j$.
+The constant is independent of the number of factors.
+\end{lemma}
+\begin{proof}
+Put $\alpha_j=z_j/r_j$. For $|t|<1$ map each coordinate by
+\[
+  \phi_j(t)=r_j\frac{\alpha_j+e^{i\vartheta_j}t}
+                         {1+\bar\alpha_j e^{i\vartheta_j}t}.
+\]
+This map takes the disc into the $j$th factor and has derivative
+$r_j(1-|\alpha_j|^2)e^{i\vartheta_j}$ at zero. Choose the phases
+so that the nonzero derivative terms in $(f\circ\phi)'(0)$ have
+the same argument. Cauchy's bound on the unit disc gives
+$\sum_j r_j(1-|\alpha_j|^2)|\partial_jf(z)|\le E$. On the half
+product each factor $1-|\alpha_j|^2$ is at least $3/4$. Integrating
+the directional estimate on the segment in that convex product
+proves the difference bound.
+\end{proof}
+
+\rtneedspace{17\baselineskip}
+\begin{proposition}[Slope along a frozen prefix]
+\label{rt:prop-frozen-slopes}
+Use the fixed frame \eqref{rt:eq-frozen-frame-drift}. Suppose the
+actual increments on a prefix satisfy \eqref{rt:eq-frozen-increment}
+and the stated analytic bounds. At the real centre in question
+assume $|z_j|\le\sigma_*\theta_j/2$ for all used entries. The earlier
+weights and the last formed coefficient are germs of the actual
+functions at this same centre. Then,
+uniformly in prefix length and volume,
+\begin{equation}\label{rt:eq-frozen-slope-total}
+ \sum_{i=1}^k |b_i'|\le e^{A_k}(1+D_k)-1,
+ \qquad
+ A_k\le C h^{-1/2}(\log h)^{\mathfrak p_0},\quad
+ D_k\le C\varrho^{-1} h^{1-p_R},
+\end{equation}
+where primes denote differentiation in $\beta$. For sufficiently
+large $h$ the right side is at most $1/3$. Thus
+$2/3\le (x_j^\theta)'\le4/3$ on real admitted prefixes.
+On a real segment with these hypotheses throughout, the individual
+increments have Lipschitz bounds $(4/3)a_i+d_i$, with $a_i,d_i$
+as in \eqref{rt:eq-forced-slope}. Their sum is bounded by
+$C\{h^{-1/2}(\log h)^{\mathfrak p_0}+\varrho^{-1}h^{1-p_R}\}$.
+\end{proposition}
+\begin{proof}
+In the unmarked term, $z_j'=-(x_j^\theta)'$. For $j<i$, the frame
+bound gives $\theta_j\ge\theta_{i-1}-d_\theta\ge\theta_{i-1}/2$. Lemma
+\ref{rt:lem-polydisc-slope} and Cauchy's bound on the actual marked
+disc give
+\begin{equation}\label{rt:eq-forced-slope}
+   |b_i'|\le a_i M_{i-1}+d_i,
+   \qquad M_{i-1}=\max_{0\le j<i}|(x_j^\theta)'|,
+   \quad a_i=\frac{8\epsilon_{i-1}}{3\sigma_*\theta_{i-1}},
+   \quad d_i=\frac{2\epsilon'_{i-1}}{c_\beta\varrho}.
+\end{equation}
+The factor two in $d_i$ allows Cauchy circles strictly inside the
+supplied disc. This differentiation includes the actual inherited
+remainders through $q_i$.
+
+Since $(x_0^\theta)'=1$, the differentiated scalar recursion bounds
+$M_{i-1}$ by $V_{i-1}=1+\sum_{l<i}|b_l'|$. Then
+$V_i\le(1+a_i)V_{i-1}+d_i$. Iterating gives
+$V_k\le e^{A_k}(1+D_k)$ for $A_k=\sum_{i\le k}a_i$ and
+$D_k=\sum_{i\le k}d_i$. For example, each product of factors
+$1+a_i$ is bounded by the exponential of their sum. For $i\le k$,
+\eqref{rt:eq-frozen-frame-drift} gives
+\[
+  \theta_{i-1}\ge h+\lambda_\theta(k-i)-d_\theta
+                 \ge\tfrac12\{h+\lambda_\theta(k-i)\}.
+\]
+Above a fixed floor the summands decrease. Comparison with the
+integrals along this affine lower envelope bounds the first sum by
+$C h^{-1/2}(\log h)^{\mathfrak p_0}$ and the second by
+$C\varrho^{-1}h^{1-p_R}$. For the first integral, integrate by
+parts and absorb the term with exponent $\mathfrak p_0-1$ at large
+$h$. The second is the integral of a power with exponent less
+than $-1$. Both bounds tend to zero. Finally
+$(x_j^\theta)'-1=-\sum_{i\le j}b_i'$ gives the claimed slopes.
+Substitute $M_{i-1}\le4/3$ in \eqref{rt:eq-forced-slope} and
+integrate over the admitted segment to obtain the Lipschitz bounds.
+Their sum is at most $(4/3)A_k+D_k$.
+\end{proof}
+
+The relative disc for $f_i$ supplies one inverse power of
+$\theta_{i-1}$. The bare disc for $q_i$ supplies one inverse power
+of $\varrho$. The total slope error in
+\eqref{rt:eq-frozen-slope-total} is
+$O(h^{-1/2}(\log h)^{\mathfrak p_0}+\varrho^{-1}h^{1-p_R})$.
+In particular the first term controls its order when $p_R\ge3/2$ and
+$\varrho$ is fixed. The derivative bound for a product disc gives no
+decay with the age of a particular input coordinate.
+
+\begin{proposition}[Slope with an independent marked polydisc]
+\label{rt:prop-independent-marked-slope}
+Use the fixed frame \eqref{rt:eq-frozen-frame-drift} and the
+stated unmarked coefficient bound. Suppose instead that the actual
+marked coefficient factors through the earlier deviations in
+\eqref{rt:eq-frozen-increment} as a
+holomorphic function $q_i(z_0,\ldots,z_{i-1})$. Assume that it has
+supremum at most $C\theta_i^{-p_R}$ on the product of discs of radii
+$c_{\rm m}\theta_j(\log\theta_j)^{-C_*}$, $j<i$, for fixed $c_{\rm m}>0$,
+$C_*\ge0$ and $p_R>0$. This factorization includes the genuine
+inherited dependence. Assume the runs remain in the half products
+for both terms, with the same compatible core and coefficient
+choices. Then the bare slope satisfies
+\begin{equation}\label{rt:eq-independent-marked-slope}
+   \sum_{i\le k}|b_i'|\le e^{A_k^\flat}-1,
+   \qquad
+   A_k^\flat\le C\bigl[h^{-1/2}(\log h)^{\mathfrak p_0}
+                         +h^{-p_R}(\log h)^{C_*}\bigr].
+\end{equation}
+The bound is uniform in $K$, $k$ and compatible volume.
+\end{proposition}
+\begin{proof}
+Above a fixed floor $y(\log y)^{-C_*}$ increases. For $j<i$,
+the frame bound gives $\theta_j\ge\theta_i-d_\theta\ge\theta_i/2$.
+The marked radii are therefore bounded below by a fixed multiple
+of $\theta_i(\log\theta_i)^{-C_*}$. The unmarked radii are bounded
+below by $\sigma_*\theta_{i-1}/2$, and $\theta_{i-1}\ge\theta_i/2$.
+Using eventual monotonicity of $y^{-3/2}(\log y)^{\mathfrak p_0}$
+in the unmarked bound, \cref{rt:lem-polydisc-slope} gives the
+absolute derivative row bound
+\[
+  a_i^\flat\le C\bigl[\theta_i^{-3/2}(\log\theta_i)^{\mathfrak p_0}
+                   +\theta_i^{-p_R-1}(\log\theta_i)^{C_*}\bigr].
+\]
+The chain rule gives $|b_i'|\le a_i^\flat M_{i-1}$. The scalar
+iteration in the preceding proof with $d_i=0$ gives
+$1+\sum_{i\le k}|b_i'|\le\exp(\sum_{i\le k}a_i^\flat)$. Here
+$\theta_i\ge\{h+\lambda_\theta(k-i)\}/2$. Compare both sums with
+the integrals of their decreasing envelopes above $h/2$.
+Writing $y=(h/2)u$ leaves an integrable power $u^{-1-\delta}$
+times a fixed power of $1+\log u$, with $\delta>0$. This gives
+\eqref{rt:eq-independent-marked-slope}.
+\end{proof}
+
+\subsection{The interval of admitted bare weights}
+
+Let $\mathsf t^\sharp(y)=\varpi y(\log y)^{-2q_{\mathrm t}}$ with
+$\varpi>0$ and $q_{\mathrm t}\ge0$. A tube is a positive
+nonincreasing sequence $\mathsf t_j$, with
+$\mathsf t_j\le\mathsf t^\sharp(\theta_{j+1})$ for $j<K$.
+For $K=0$ use $\mathsf t_0\le2\mathsf t^\sharp(\theta_0)$.
+For any frame of length $K\ge1$ the largest tube has entry
+$\min_{1\le i\le\min(j+1,K)}\mathsf t^\sharp(\theta_i)$ at $j$.
+The preceding upper bounds and monotonicity require this minimum,
+and these minima themselves satisfy the requirements. A constant
+tube of radius $t$ is permitted whenever
+$t\le\varpi x_*^{3/4}/C_a$ and every frame entry is at least $x_*>e$,
+where $a=2q_{\mathrm t}$ and $C_a=\max\{1,(4a/e)^a\}$ with
+$C_0=1$ in this formula. Indeed, maximizing
+$u^a e^{-u/4}$ gives $(\log y)^a\le C_a y^{1/4}$ for $y\ge1$.
+
+For the canonical interval construction, now specialize to the
+affine frame \eqref{rt:eq-frozen-frame}. Put $\iota_j=\epsilon_j+\epsilon'_j$ and choose
+\begin{align}
+ T_K&=\varrho+c_2,&
+ T_j&=T_K+\sum_{l=j}^{K-1}\iota_l,&
+ \widehat{\mathsf t}_j&=T_j+c_2+8\varrho,\label{rt:eq-canonical-tube}\\
+ F_j(\beta)&=\theta_j-x_j^\theta(\beta)+s_j.\nonumber
+\end{align}
+Here $F_j$ is defined once the weight at $j$ is computed, before
+requiring closure at that weight. The sum of $\epsilon_l$ in
+$T_j$ is at most $C\theta_j^{1/2}(\log\theta_j)^{\mathfrak p_0}$.
+To see this, bound its logarithm factor by the one at $\theta_j$
+and sum the inverse square roots on the reference line by an
+integral. The sum of $\epsilon'_l$ is at most $C h^{1-p_R}$.
+For $j<K$ and sufficiently large $h$, $\theta_{j+1}\ge\theta_j/2$.
+Consequently the ratio of $\widehat{\mathsf t}_j$ to
+$\mathsf t^\sharp(\theta_{j+1})$ tends uniformly to zero as $h$
+increases. The terminal value of $\widehat{\mathsf t}$ is fixed,
+and the one-entry convention holds at the same large floor.
+The sequence in \eqref{rt:eq-canonical-tube} is therefore a tube.
+Increasing the floor also makes
+$\widehat{\mathsf t}_j\le\sigma_*\theta_j/2$ at every level.
+At retained entries $x_j^\theta\ge\theta_j-T_j-c_2\ge\theta_j/2$.
+Choose $h/2$ above all absolute input floors. The terminal range
+$[h-\varrho,h+\varrho]$ then also stays above those floors.
+
+\rtneedspace{27\baselineskip}
+\begin{theorem}[Full tuning in the canonical interval]
+\label{rt:thm-frozen-tuning}
+Use the reference frame \eqref{rt:eq-frozen-frame}, the actual
+increment bounds of \eqref{rt:eq-frozen-increment}, and the uniform
+one-loop partial-sum bound above. Assume the following admitted
+prefix operation. The initial Wilson inputs are admitted on the
+interval $|\theta_0-\beta|\le T_0$. From each real prefix with
+$|F_j|\le T_j$ at every closed level, the actual next coefficient
+is formed on a neighbourhood before imposing the new bound on
+$F_{j+1}$. The coefficient and all earlier weights there have the
+analytic inputs of \cref{rt:prop-frozen-slopes}. When the computed
+entry satisfies $|F_{j+1}|\le T_{j+1}$, the actual next level closes
+with the declared tube room. This operation includes the inherited
+history and vacuum data at each closed prefix. It uses one frame,
+with common companions and coefficients on the admissible tori.
+
+For a floor on $h$ independent of $K$, there are nested compact
+intervals $I_j$ of actual closed prefixes with
+$|F_l|\le T_l$ for $l\le j$. On $I_j$, $F_j$ decreases from $T_j$
+to $-T_j$. For each real $v$ with $|v-h|\le\varrho$ there is one
+$\beta\in I_K$ such that $x_K^\theta(\beta)=v$. The tuned bare
+weight $\beta_K^\theta$ for $v=h$ satisfies
+\begin{equation}\label{rt:eq-full-tuned-weight}
+ \tfrac12c_0 K-2c_2\le \beta_K^\theta-h
+                   \le\tfrac32c_0 K+2c_2,
+ \qquad
+ |\beta_K^\theta-h-c_0K|\le c_2+\sum_{j<K}\iota_j .
+\end{equation}
+For all $\beta\in I_K$ and $0\le i\le j\le K$ one has
+\[
+ \tfrac12c_0(j-i)-2c_2\le x_i^\theta-x_j^\theta
+                   \le \tfrac32c_0(j-i)+2c_2 .
+\]
+The uniqueness assertion concerns the fixed frame and its
+canonical interval.
+\end{theorem}
+\begin{proof}
+The initial $F_0=\theta_0-\beta$ maps $I_0$ decreasingly onto
+$[-T_0,T_0]$. The high floor makes all initial weights positive.
+At a closed prefix the bound $|F_l|\le T_l$ gives
+$|z_l|\le T_l+c_2$, leaving room $8\varrho$ inside the chosen tube.
+The premise supplies the next coefficient before any closure at
+the next weight. Its real function $F_j$ on a neighbourhood of
+$I_{j-1}$ has derivative $-(x_j^\theta)'\le-2/3$ by
+\cref{rt:prop-frozen-slopes}. Moreover
+\begin{equation}\label{rt:eq-frozen-F-difference}
+     F_j-F_{j-1}=b_j-b_j^0,
+     \qquad |F_j-F_{j-1}|\le\iota_{j-1}.
+\end{equation}
+This follows directly from the changes in the frame and in $s_j$.
+At the left endpoint of $I_{j-1}$, $F_{j-1}=T_j+\iota_{j-1}$,
+so $F_j\ge T_j$. At the right endpoint $F_j\le-T_j$. The strict
+slope and continuity give the unique ordered preimages of $T_j$
+and $-T_j$. Their interval $I_j$ meets the new bound at every point.
+The supplied closure operation applies on it with the same room.
+
+At $K$, $x_K^\theta=h+s_K-F_K$. Its image contains
+$[h-\varrho,h+\varrho]$ because $T_K=\varrho+c_2$ and
+$|s_K|\le c_2$. Strict monotonicity gives the stated uniqueness.
+Summing the increments from $i+1$ through $j$ gives
+\[
+  x_i^\theta-x_j^\theta=c_0(j-i)+s_i-s_j
+                                  +\sum_{i<l\le j}(b_l-b_l^0).
+\]
+The high floor gives $\sup_l\iota_l\le c_0/2$. This proves the
+spacing bounds. At the tuned value $x_K^\theta=h$ and $s_0=0$,
+the same sum gives \eqref{rt:eq-full-tuned-weight}. For $K=0$,
+the initial interval and $x_0^\theta=\beta$ already prove all
+assertions.
+\end{proof}
+
+On $I_K$ the terminal slope gives, for a bare offset $t$ with
+$\beta_K^\theta-t\in I_K$,
+\[
+       x_K^\theta(\beta_K^\theta-t)=h-t+O(\eta_h|t|),
+       \qquad \eta_h=e^{A_K}(1+D_K)-1.
+\]
+This follows by integrating the slope error on the intervening
+real segment. The tuned endpoint $h$ is a condition on the fixed
+reference run. First passage is defined separately for the
+self-calibrated trajectory.
+
+\section{A backward equation for homogeneous profiles}
+\label{rt:sec-homogeneous-tuning}
+
+Use the complete profile spaces and the scalar interface of
+\cite[Theorem B and Corollary~7.5]{EM}. For a prescribed weight
+sequence $x$, the forward profile $\psi_j(x)$ starts at zero.
+At each step the actual homogeneous formation carries the scalar
+$x_j-b^{\mathrm G}_{j+1}-r_j(x_j,\psi_j(x))$. Here
+$b^{\mathrm G}_{j+1}$ is the companion coefficient of the actual
+reference Gaussian, and $r_j$ is the bounded companion readout of
+the actual unprojected formation. The Gaussian coefficient is fixed
+when the action weights vary. For an endpoint reference $X$ at level
+$n$, the nominal frame at level $j$ is
+$a_j=X+\sum_{\ell=j}^{n-1}b^{\mathrm G}_{\ell+1}$. On the declared
+relative weight box about this frame the forward result supplies
+\begin{equation}\label{rt:eq-homogeneous-interface}
+ \begin{aligned}
+ |r_j(x_j,\psi_j(x))|&\le C e(a_j),\\
+ |r_j(x_j,\psi_j(x))-r_j(\widetilde x_j,\psi_j(\widetilde x))|
+     &\le C k(a_j)\|x-\widetilde x\|_\infty,\\
+ \|\psi_j(x)-\psi_j(\widetilde x)\|_{j,*}
+     &\le C k(a_j)\|x-\widetilde x\|_\infty.
+ \end{aligned}
+\end{equation}
+The functions are $e(y)=y^{-1}(\log y)^m$ and $k(y)=e(y)/y$
+with fixed $m>1$. The first two bounds hold for $0\le j<n$ and
+concern the unprojected scalar interface. The profile difference
+bound holds for $0\le j\le n$, including the terminal profile.
+These are inputs to this construction.
+
+\rtneedspace{25\baselineskip}
+\begin{theorem}[Homogeneous terminal tuning]\label{rt:thm-homogeneous-tuning}
+Fix a horizon $n\ge0$, a positive real endpoint reference $X$, and
+real Gaussian coefficients with
+\[
+   \left|\sum_{\ell=j}^{n-1}(b^{\mathrm G}_{\ell+1}-b_\infty)\right|
+             \le B_a,\qquad 0\le j\le n,
+\]
+for fixed $b_\infty>0$ and $B_a<\infty$. Define
+\[
+     a_j=X+\sum_{\ell=j}^{n-1}b^{\mathrm G}_{\ell+1},
+     \qquad a_n=X.
+\]
+Assume the admitted actual forward profile and scalar operations of
+\eqref{rt:eq-homogeneous-interface} on the frozen frame $a$, with
+holomorphy and the uniform profile bound on the buffered domains of
+the forward theorem. Their exact physical exponent includes the
+scalar vacuum factor as a separate number. Fix a relative radius
+$\delta\in(0,1/2]$ within the inner profile weight domain.
+
+Above a floor on $X$ independent of the horizon, for every complex
+$\zeta$ with $|\zeta|<cX$ for a fixed $c>0$, there is one trajectory
+in the box $|x_j-a_j|\le\delta a_j$ with initial profile zero and
+terminal weight $x_n=X+\zeta$. It is real for real data and real
+$\zeta$. The trajectory and its forward profiles are holomorphic in
+$\zeta$. At $\zeta=0$, $x_j\asymp X+n-j$ and
+\begin{equation}\label{rt:eq-homogeneous-tuned-law}
+     x_0=X+b_\infty n+O\bigl(1+(\log(X+n))^{m+1}\bigr).
+\end{equation}
+All these constants are uniform in $n$ and the admitted volume. On
+a fixed smaller endpoint disc,
+\begin{equation}\label{rt:eq-homogeneous-endpoint-jets}
+ \sup_j|x_j'-1|\le C\frac{(\log X)^m}{X},\qquad
+ \|\psi_j'\|_{j,*}\le C k(a_j),\qquad
+ |x_j^{(s)}|\le C_s\frac{(\log X)^m}{X^s}\quad(s\ge2).
+\end{equation}
+In particular the real bare weight is strictly increasing with the
+real endpoint there.
+\end{theorem}
+\begin{proof}
+The Gaussian bound gives $|a_j-X-b_\infty(n-j)|\le B_a$. In
+particular $a_j\asymp X+n-j$ above a fixed floor, even if some
+Gaussian increments are negative. Compare the sums with those
+over $X+c_1 q$ for $q\ge0$, using fixed $c_1>0$. The first
+comparison integrates $(\log y)^m/y$ up to $C a_j$. The second
+integrates $(\log y)^m/y^2$ on a half-line, where integration by
+parts bounds it by $C(\log X)^m/X$. Including the first terms gives
+\begin{equation}\label{rt:eq-homogeneous-sums}
+ \sum_{\ell=j}^{n-1}e(a_\ell)\le C\bigl(1+(\log a_j)^{m+1}\bigr),
+ \qquad
+ \sum_{\ell<n}k(a_\ell)\le C(\log X)^m/X.
+\end{equation}
+
+The backward sum of the exact outgoing weights is the fixed-point
+equation
+\begin{equation}\label{rt:eq-homogeneous-backward}
+   (\Phi^\zeta x)_j=a_j+\zeta+
+             \sum_{\ell=j}^{n-1}r_\ell(x_\ell,\psi_\ell(x)).
+\end{equation}
+Take $c\le\delta/8$. Since $a_j\ge X/2$ for large $X$, the endpoint
+term is at most $\delta a_j/4$. By the first bound in
+\eqref{rt:eq-homogeneous-sums}, increasing the floor makes the
+remainder sum at most $\delta a_j/4$. Thus the image is within the
+half box. The second bound in \eqref{rt:eq-homogeneous-sums} and
+the scalar difference bound in \eqref{rt:eq-homogeneous-interface}
+give a contraction in the unweighted supremum norm with rate
+$\mathfrak k_X\le C(\log X)^m/X$. Increase the floor so that
+$\mathfrak k_X\le1/5$. The closed finite box is complete. Iteration
+gives one fixed point, and taking adjacent differences in
+\eqref{rt:eq-homogeneous-backward} gives the actual outgoing-weight
+recursion. Every trajectory in the box has the prescribed forward
+profiles and must satisfy that equation, which proves uniqueness
+there.
+
+Iteration starting at $a$ preserves reality on the real interval.
+For complex $\zeta$ the iterates are holomorphic because the
+prescribed profiles and scalar readout are holomorphic on the
+larger admitted domain. The uniform contraction gives normal
+convergence on smaller endpoint discs, so the fixed point is
+holomorphic there. Summing the scalar correction and using
+\eqref{rt:eq-homogeneous-sums} gives \eqref{rt:eq-homogeneous-tuned-law}.
+The exact unprojected step identifies the resulting physical
+profile and carried weight at each level with its actual integral.
+The separate scalar vacuum factor is the one of that step.
+
+At the fixed point, which is in the interior of the box, the
+operator norm of $D_x\Phi^\zeta$ is at most $\mathfrak k_X$.
+Differentiating the fixed-point equation gives
+$\|x'\|_\infty\le1+\mathfrak k_X\|x'\|_\infty$ and hence
+$\|x'-1\|_\infty\le\mathfrak k_X/(1-\mathfrak k_X)$.
+The forward profile estimate gives the claimed bound on $\psi_j'$.
+Apply Cauchy's estimate to $x_j'-1$ on circles of radius a fixed
+multiple of $X$ inside the larger endpoint disc. Each additional
+derivative costs a factor $X^{-1}$, giving the higher jets in
+\eqref{rt:eq-homogeneous-endpoint-jets}. The real slopes lie in
+$[3/4,5/4]$. When $n=0$, the sums are empty and the equation is
+$x_0=X+\zeta$, with zero profile.
+\end{proof}
+
+The actual operations in this theorem are the homogeneous regular
+ones on their fixed physical radii. Their scalar interface is
+separate from the actual marked bare-disc dependence used in
+\cref{rt:thm-frozen-tuning}.
+
+\section{Comparison of admitted presentations}
+\label{rt:sec-presentation-matching}
+
+For a real run over a fixed frame, let $x_j$ be the weight used
+in the Gaussian presentation. A uniform scalar shift $\mathsf c_j$ is
+carried in the local action as $\mathsf c_j A$. The effective Wilson
+weight in the all-small-field exponent is $x_j-\mathsf c_j$. We consider
+presentations with one Euclidean regular member at each level,
+one companion coefficient and one scalar shift, with the real
+weights and shifts admitted in their stated domains. All tests,
+charts and underlying integration choices are those of the common
+frame. In particular the shift is not a spatially varying source.
+
+Write $b_j=x_{j-1}-x_j$ for the chosen decrement, and $\widehat b_j$
+for the scalar actually read from the new regular member. The
+bookkeeping identities are
+\begin{equation}\label{rt:eq-effective-weight}
+ \begin{aligned}
+  \mathsf c_j&=\mathsf c_0+\sum_{l=1}^j(\widehat b_l-b_l),\\
+  x_j-\mathsf c_j&=x_{j-1}-\mathsf c_{j-1}-\widehat b_j .
+ \end{aligned}
+\end{equation}
+The first line follows by successively equating the
+effective outgoing coefficient to the incoming coefficient minus
+the coefficient read from the physical step.
+
+\begin{proposition}[Matching on common all-small-field windows]
+\label{rt:prop-presentation-matching}
+Consider two such real presentations, with primed symbols for the
+second, on one fixed frame. Assume their unnormalized all-small-field
+measures agree on every admitted torus through level $n$. At each
+level $m$ assume an open physical window $\mathfrak O_m$ about the
+identity where the relevant tests equal one and the physical density
+has its positive continuous all-small-field formula. These windows
+are hereditary. The earlier averages of a background in
+$\mathfrak O_m$ belong to the corresponding windows. The complete
+retained physical pairs, including their physical currents, agree
+at the corresponding earlier reads up to the admitted site gauges. For each outer datum, use the common parametrization of the actual
+free fluctuations on a connected complex domain containing the real
+cut and zero fluctuation. The incoming physical exponent and each omitted remainder total,
+composed with their actual physical reads, are holomorphic there.
+A nonempty open set in the full real fluctuation coordinate space
+maps all those reads into the hereditary windows. These are
+hypotheses on the actual fluctuation maps, not on a detached
+independent-current extension.
+
+Assume the exact common formation and vacuum conventions. The
+centered raw regular integral uses the incoming effective exponent,
+with the omitted earlier remainder terms removed by their actual
+common reads. The two Gaussian presentations of its logarithm
+separate the same reference constants and the respective term
+$-(D_j/2)\log(x_{j-1}/\theta_{j-1})$ at step $j$, where $D_j$ is
+the real dimension of the free fluctuation coordinates. Write
+$\mathscr E_l(P)=\sum_{X,z}\mathcal E_l(X,P,z)$ and
+$\mathscr R_l(P)=\sum_X\mathcal R_l(X,P)$ for the complete raw totals
+on the physical pair $P$. Let $P_l(W)$ be the retained physical pair
+at the prescribed earlier averaged datum, on which the level-$l$
+family is read in the window $\mathfrak O_m$.
+On $\mathfrak O_m$ the exact
+raw all-small-field density is taken in a common reference measure
+with full support on each open window, such as product Haar
+measure in the free link coordinates. It has the form
+\begin{equation}\label{rt:eq-matching-density}
+  p_m(W)\exp\left\{E_{(m)}-(x_m-\mathsf c_m) A(U_m(W))
+      +\sum_{l\le m}\bigl(\overline{\mathscr E}_l(P_l(W))
+                       +\overline{\mathscr R}_l(P_l(W))\bigr)\right\}.
+\end{equation}
+Here $p_m$ is the same positive prefactor in both presentations,
+$\overline{\mathscr E}_l$ subtracts the trivial value and its own
+extracted classical term, and
+$\overline{\mathscr R}_l=\mathscr R_l-\mathscr R_l(P_\circ)$.
+The trivial datum is $P_\circ=(\mathbf1,0)$. Require
+$P_l(\mathbf1)=P_\circ$ up to the admitted gauge for every retained
+read. In particular the actual physical current vanishes at the
+trivial field, and the trivial background satisfies $A(U_m(\mathbf1))=0$.
+The complete remainder at $m$ is used after closure at $m$.
+The once-counted increment of $E_{(m)}$ in
+\eqref{rt:eq-vacuum-recursion} contains the displayed Gaussian
+scalar and $\mathscr E_m(P_\circ)+\mathscr R_m(P_\circ)$.
+Its other factors are the same in both presentations. Use cofinal
+compatible tori and the common physical coefficient readout of
+\cite[Proposition~6.3]{EM}.
+
+Then $x_j-\mathsf c_j=x'_j-\mathsf c'_j$ through $n$. The extracted coefficients
+match, and on every corresponding hereditary background the
+regular totals obey
+\begin{equation}\label{rt:eq-regular-presentation-constant}
+  \mathscr E_j(P)-\mathscr E'_j(P)
+            =\frac{D_j}{2}\log(x_{j-1}/x'_{j-1}).
+\end{equation}
+The remainder totals and the accumulated vacuum agree through $n$
+on their common all-small-field windows. If the next regular formation
+satisfies the same common-read, cut and continuation hypotheses on
+a common physical window, its coefficient agrees as well.
+\end{proposition}
+\begin{proof}
+At the bare level equality of the positive densities identifies the
+effective Wilson weight. The action is zero at the identity and
+is nonconstant on its neighbourhood. On a later open window equality
+of the measures gives pointwise equality of the continuous densities.
+Indeed the stipulated common reference measure has full support there. Taking the real
+logarithm introduces no branch ambiguity.
+
+Proceed by induction. The preceding regular and remainder identities
+hold on the earlier backgrounds of the new window by heredity. If
+the formation omits recent remainders from its regular list, their
+totals already agree at the actual common reads. The composed differences vanish on the stated real open fluctuation
+patch. Successive one-variable identity theorems make them zero
+on a complex neighborhood, and connectedness makes them zero
+throughout the common fluctuation domain. Thus the incoming
+physical exponents in the next centered regular integral agree.
+The possibly Borel cut indicators are applied only on the real slice. Its subtraction at zero fluctuation
+is also identical. Integration on the same real cut gives the same
+raw regular logarithm. The prescribed scalar difference gives
+\eqref{rt:eq-regular-presentation-constant}. The curvature coefficient
+of a field-independent total is zero. The cofinal companion readout
+therefore gives $\widehat b_j=\widehat b'_j$, and
+\eqref{rt:eq-effective-weight} identifies the new effective weights.
+
+The regular difference in \eqref{rt:eq-regular-presentation-constant}
+cancels after its value at the trivial datum is subtracted. The
+classical terms agree by equality of the extracted coefficients.
+At $W=\mathbf1$ the right side of \eqref{rt:eq-matching-density}
+is $p_m(\mathbf1)e^{E_{(m)}}$. Equality there identifies the accumulated
+vacuum. Dividing by the common effective Wilson, regular and
+earlier remainder factors identifies the vacuum-subtracted new
+remainder total. In the prescribed vacuum increment, the change of the
+Gaussian scalar cancels the change of the regular trivial value
+by \eqref{rt:eq-regular-presentation-constant}, and the other factors
+are common. Equality of the vacuum increments therefore gives
+equality of the new remainder trivial values. This finishes the
+induction. At a next regular formation the comparison through the
+raw regular integral and coefficient uses only the preceding equal
+data. It does not require closure at the new weight.
+\end{proof}
+
+The use of this result for a constant scalar shift is precise. Take
+an admitted bare centre $\beta$ and a real shift $\zeta$ on a common
+admitted interval. Compare the presentation starting at
+$\beta-\zeta$ with zero initial shift and the presentation using
+the Gaussian weights $x_j^\theta(\beta)$ of the admitted run at
+$\beta$, with initial shift $\zeta$ carried subsequently as
+$\zeta_j$. If their actual all-small-field measures and reads meet
+the hypotheses above, then
+\begin{equation}\label{rt:eq-source-shift-match}
+          x_j^\theta(\beta-\zeta)=x_j^\theta(\beta)-\zeta_j.
+\end{equation}
+The two initial densities coincide since
+$e^{-\beta A+\zeta A}=e^{-(\beta-\zeta)A}$. When both presentations
+use the same fixed labelled kernels, each all-small-field measure
+is obtained by applying the same linear kernel to this density.
+This supplies the measure equality for the application. It uses
+the actual identity of the tests, gauge weights and retained maps
+in each labelled kernel. On an admitted real segment with the
+stated slope hypotheses, \cref{rt:prop-frozen-slopes} gives
+$|\zeta_j|\le4|\zeta|/3$. The fixed frame may be the affine
+reference frame or the weight prefix of the self-calibrated run
+at the bare centre. In the latter case hold that whole reference
+prefix fixed while varying the bare weight on the segment.
+Differentiating \eqref{rt:eq-source-shift-match} at $\zeta=0$
+gives $\partial_\zeta\zeta_j|_{\zeta=0}=(x_j^\theta)'(\beta)$.
+This is the normalization of the running constant insertion in this
+comparison. Identification with any separate observable construction
+requires that construction's own actual matching.
+
+The bare-variable holomorphic germs about centres of a canonical
+interval $I_k$ can be glued when they agree with the actual real
+run on the real part of that interval. For two distinct centres in
+$I_k$, intersection of their open discs implies that their common
+real intervals contain an open segment between the centres. For
+coincident centres, use the one-sided interval inside $I_k$ if
+necessary. The identity theorem on the convex disc intersection
+gives equality there. For regular and remainder totals, first fix
+a physical datum in a window common to both germs throughout an
+open admitted real subinterval of the overlap. Their actual totals
+agree there, with the fixed scalar convention, so the same argument
+identifies their bare-variable continuations at that datum on the
+connected common domain containing that real subinterval. This
+identification uses the stated common physical window. A comparison
+at centres from different real components
+needs a common admitted real interval or a separately supplied
+identification of the analytic branches. This gluing uses one frame
+and compares complete physical totals on the stated windows.
+
+\rtneedspace{19\baselineskip}
+\begin{lemma}[A weighted two-run estimate]\label{rt:lem-weighted-two-run}
+Let $r_0,n$ be integers with $0\le r_0<n$, let $0<\rho<1$ and $\Pi\ge0$, and set
+\[
+    S_w=\frac{\rho^{n-w+1}}{1-\rho}+(w-r_0)\Pi,
+    \qquad r_0<w\le n.
+\]
+Suppose the nonnegative quantities $y_w,D_u,k_{u,w},h_u,h'$ of
+a finite comparison satisfy, for $r_0\le s,u<n$,
+\begin{align*}
+ y_{s+1}&\le\sum_{u=r_0}^sD_u, &
+ D_u&\le M_*(\rho^{n-u}+\Pi)+\sum_{w=u+1}^n k_{u,w}y_w,\\
+ \sum_{w=u+1}^n k_{u,w}S_w&\le h_u S_{u+1}+h'\Pi, &
+ \sum_{u=r_0}^{n-1}h_u+h'&\le1/2,
+\end{align*}
+where $M_*\ge0$. Then $y_w\le2M_*S_w$ for every indicated $w$.
+\end{lemma}
+\begin{proof}
+The weights $S_w$ are positive and nondecreasing. Put
+$Z=\max_{r_0<w\le n}y_w/S_w$. The forcing sum through $s$ is at
+most $M_*S_{s+1}$ by the geometric sum. The other sum is bounded by
+\[
+ Z\left(\sum_{u=r_0}^s h_u S_{u+1}+(s-r_0+1)h'\Pi\right)
+          \le\tfrac12 ZS_{s+1}.
+\]
+Divide by $S_{s+1}$ and take the maximum. This gives $Z\le2M_*$.
+\end{proof}
+
+The kernel inequality in this last lemma is a premise on the
+actual comparison of two runs. It allows dependence on later
+depths. A bound on the single-run increments alone supplies no
+such kernel estimate.
+
+\section{The zero-source partition function}
+\label{rt:sec-partition}
+
+Fix an admitted real run through level \(n\). Its terminal measure is
+\(\mu_n\), and the common subtraction \(E_{(n)}\) is given by
+\eqref{rt:eq-vacuum-recursion}. Let \(\mathcal S\) be a standing
+label at level \(n\). Histories with that label have already been
+summed in its measure \(\tau_{\mathcal S}\). In particular the
+empty label includes histories whose large-field components have
+been healed. Positivity and exactness give
+\begin{equation}\label{rt:eq-history-decomposition}
+   \mu_n=\sum_{\mathcal S}\tau_{\mathcal S},
+   \qquad \tau_{\mathcal S}\ge 0,
+   \qquad \sum_{\mathcal S}\tau_{\mathcal S}(1)=Z_{K',\ell,\beta}.
+\end{equation}
+Each measure can be projected to the final links for the purposes
+of this section. The history sum does not require an exponential
+formula for the measure of a single raw history.
+
+\subsection{Bounding the retained integrals}
+\label{rt:subsec-retained-integrals}
+
+The exponent of a label has a numerical part \(v_{n,\mathcal S}\).
+Use the sign in which the numerical factor in the measure is
+\(\exp v_{n,\mathcal S}\). For the empty label this factor is
+\(\exp E_{(n)}\). For another label the difference
+\(v_{n,\mathcal S}-E_{(n)}\) stays in its normalized contribution.
+The absolute value of this difference need not be bounded by a
+constant per final site if an old fine region is present.
+
+\begin{lemma}[Majorizing coupled integrals]\label{rt:lem-component-majorant}
+Let \(\xi_1,\ldots,\xi_b\) be disjoint groups of retained
+variables, with sigma-finite reference measures and product
+reference measure \(\prod_i\mu_i(d\xi_i)\). Let \(y\) denote the remaining variables,
+with a probability reference measure \(\pi(dy)\). Suppose the
+factor \(f_i(\xi_i,e_i)\) is evaluated at an admissible exterior
+argument \(e_i=e_i(y,\xi_1,\ldots,\xi_b)\). Assume the admitted
+support is Borel and the evaluated factors are measurable there.
+Include the support restrictions in the domain of integration.
+If \(\mathcal D_i(\xi_i)\)
+contains all those exterior arguments, then an integral of the
+absolute product of the factors is bounded by
+\begin{equation}\label{rt:eq-retained-product}
+   \int \prod_i |f_i(\xi_i,e_i)|\,d\pi(y)\prod_i d\mu_i(\xi_i)
+   \ \le\
+   \prod_i \int^*\sup_{e\in\mathcal D_i(\xi_i)}
+                         |f_i(\xi_i,e)|\,d\mu_i(\xi_i).
+\end{equation}
+Assume each upper integral on the right is finite. The integral
+on the left is over the admitted support. Here
+\(\int^*\) is the upper integral over nonnegative measurable
+majorants. The same conclusion holds with a nonnegative Borel factor
+depending only on \(\xi_i\) inserted on both sides for each \(i\),
+provided the modified upper integrals are finite.
+\end{lemma}
+\begin{proof}
+For each \(i\) choose a measurable majorant of its supremum, taking
+the supremum over an empty exterior set to be zero. Drop the support
+indicator after applying the majorants. The product then depends
+only on the disjoint groups \(\xi_i\), so Tonelli's theorem gives the
+product of their integrals. Integrating \(y\) costs one. Taking
+majorants with integrals arbitrarily close to the finite upper
+integrals proves the estimate used here. The inserted factors can
+be included in the definition of \(f_i\).
+\end{proof}
+
+The same estimate controls composition of retained kernels.
+For a measurable kernel $K(\xi;p)$, nonnegative Borel site weight
+$v(\xi)$ and $c\ge0$, set
+\[
+ \|K\|_c=\int^*e^{c v(\xi)}\sup_p|K(\xi;p)|\,d\mu(\xi).
+\]
+If this is finite, the integral operator
+$(T_KF)(p)=\int K(\xi;p)F(\xi,p)\,d\mu(\xi)$ satisfies
+$\|T_K F\|_\infty\le\|K\|_0\|F\|_\infty$ for bounded Borel $F$.
+For two kernels, suppose the actual measurable read $q(\xi,p)$
+belongs to the second exterior domain at $\eta$ for every
+$(\xi,\eta,p)$ on the admitted joint support. Extend the evaluated
+integrand by zero outside that support.
+Bound the joint supremum pointwise by the two local suprema,
+then use the product-majorant argument of
+\eqref{rt:eq-retained-product} to obtain
+\[
+ \int^* e^{c(v_1(\xi)+v_2(\eta))}
+  \sup_p |K_1(\xi;p)K_2(\eta;q(\xi,p))|
+                 \,d\mu_1(\xi)d\mu_2(\eta)
+       \le \|K_1\|_c\|K_2\|_c.
+\]
+Both norms are assumed finite. Discrete record sums with their
+normalized frame weights can be included in the reference measures.
+The actual read inclusion is required before making this estimate.
+
+The distinction between the two orders of supremum and integration
+is necessary. For \(0<\epsilon<1\), on \([0,1]^2\) take both
+component factors to be \(1_{\{|u-v|<\epsilon\}}\). At each fixed
+exterior value the integral in the component's own variable is at
+most \(2\epsilon\). Their product has integral
+\(2\epsilon-\epsilon^2\), which exceeds \(4\epsilon^2\) for
+\(\epsilon<2/5\). The upper integrals in
+\eqref{rt:eq-retained-product} do bound this product.
+
+For a retained operation born on \(X\) at level \(i\), write
+\(\omega\) for its discrete record, \(\xi\) for its stored
+variables and \(\mu_\omega\) for their reference measure. On its
+support let \(w_\omega(\xi,e)\) be the actual integrand with the
+energy factors assigned to this operation. Let \(\varpi(\omega)\)
+be the product of the normalized reference-frame weights for this
+record. Other discrete choices have counting weight one. The
+supremum in its weighted mass is taken in a determining domain
+chosen at its birth using only the prefix through level $i$.
+The supplied invariant inclusion places every later admitted
+evaluation in that birth domain. It is not enlarged after a
+future evaluation has been selected.
+In a drop-out it is taken over the admitted real evaluations
+compatible with the stored variables and the recorded tests,
+except for the test that caused the drop-out. The mass used in the
+comparison is
+\begin{equation}\label{rt:eq-weighted-retained-mass}
+   \mathsf M_c(i,X;\mathcal B)=
+   \sum_{\omega\in\mathcal B} \varpi(\omega)
+      \int^* e^{c\,v(\omega)}
+         \sup_e |w_\omega(\xi,e)|\,d\mu_\omega(\xi).
+\end{equation}
+Here \(\mathcal B\) can restrict the visible records of the
+operation, and \(v(\omega)\) is the sum of
+\(1+\log x_t\) over its charged stored sites at their own levels
+\(t\). In this sum each site at a given level is charged at most a
+fixed number of times. A mass bound is required for the actual
+reference measures, including their Jacobians or densities when
+these occur in the step.
+
+An island includes its assigned core Wilson factor. A drop-out
+uses a share of the Wilson action of the term that carries it,
+over bare plaquettes in its assigned core, because the retained
+operation by itself has no such factor. A failure of a plaquette
+test uses an assigned positive Wilson contribution; a failure of
+an approximate fluctuation test may also use a retained gauge
+contribution. The genuine fluctuation, collar and rim tests use
+the corresponding positive quadratic contributions on their
+carriers. More precisely, if a certified failure forces an
+allocated nonnegative energy \(Q\ge 2a\) on the test support,
+then
+\[
+     1_{\{\mathrm{failure}\}}e^{-Q}\le e^{-a}e^{-Q/2}.
+\]
+The reference integral of the remaining density must still be
+estimated. For example replacing \(e^{-Q}\) by \(e^{-Q/2}\) in
+a full-space \(d\)-dimensional positive quadratic Gaussian integral multiplies
+its mass by \(2^{d/2}\). This follows by scaling all \(d\)
+coordinates by \(\sqrt2\) and is a volume cost to be recorded.
+For a site-gauge factor normalized by the truncated Haar number
+$z(y)$ of \cref{rt:lem-haar-normalizer}, the corresponding ratio
+after half of its energy is extracted is at most
+$z_{\rm full}(y/2)/z(y)\le C$ for $y\ge2$. Here $z_{\rm full}$
+uses cutoff one. The upper and lower $y^{-3/2}$ estimates in that
+lemma prove this bound, so this normalization spends a bounded
+logarithmic price at each such site.
+These uses of positive energy require an allocation of disjoint
+shares, including multiplicities when carriers overlap. The same
+energy share cannot produce a gain in two factors of
+\eqref{rt:eq-retained-product}.
+
+\subsection{Counting the standing labels}
+\label{rt:subsec-history-inputs}
+
+We state the local quantitative inputs for the label estimate.
+They concern the exact zero-source representation at the stated
+stop. They are supplied by the regular and large-field steps on
+the actual carriers and reference laws. No bound on the sum over
+final supports is part of these inputs.
+
+The cell side at level \(t\) is \(M\check R_t\) in its
+lattice units. Write \(\vartheta_t=\min_{i\le t}\theta_i\).
+In this partition estimate specialize the cell exponent of
+\eqref{rt:eq-running-cell} to a fixed \(r\ge1\). Use the actual rounded scale
+\[
+      \check R_t=L^{\lceil \log_L((\log\vartheta_t)^r)\rceil}.
+\]
+The frame bound \(\theta_i-\theta_t\ge-c_*\) for \(i\le t\)
+gives \(\theta_t-c_*\le\vartheta_t\le\theta_t\).
+Comparability \(x_t\asymp\theta_t\) on the real tube
+therefore gives \(1+\log x_t\le C\check R_t\) above a fixed
+floor, while \(\check R_t\le L(\log\theta_t)^r\).
+If \(\theta_t-\theta_{t+1}\le B\), the running minimum
+drops by at most \(B\) in a step. Above a further fixed floor,
+\((\log\vartheta_t/\log(\vartheta_t-2B))^r<L\).
+Consequently the rounded scale decreases by at most one
+power of \(L\) over two successive steps. The physical
+partitions, which are aligned, either agree or coarsen by
+\(L\) at each step, and two successive partitions cannot
+both agree with their predecessors.
+
+The final cells form a finite graph by the adjacency used in
+the operation. Its maximum degree \(D_0\) is fixed, and the
+number of cells is at most \(N_n\). A label has a unique
+collection of connected standing supports in that graph.
+For a fixed collection, its remaining visible information is
+recorded separately under those supports. Internal records
+already summed in a retained mass need only be tracked insofar
+as the label distinguishes them. If labels distinguish their
+visible traces, the mass in \eqref{rt:eq-weighted-retained-mass}
+is split according to those traces; summing the disjoint parts
+recovers the original mass. The record for a support may be
+bounded by a larger set of possibilities, with repetitions only
+if their counts are charged explicitly.
+
+For each support \(C\), root its record at a fixed final cell
+of \(C\). The active addresses are level-cell pairs, including
+the final cells of \(C\). They form a connected set by the
+parent and merger rules, with any necessary bounded collars
+included in the charge. At successive levels the partition
+either stays the same or coarsens by \(L\), so a cell has at
+most \(L^4\) children. A neighbor at the same level has bounded
+range in cell units. The address graph has fixed degree
+\(D\ge2\), also on a periodic quotient. For an active set
+\(\mathcal A_C\) define its charged volume by
+\[
+ v_C=\sum_{(t,\mathfrak c)\in\mathcal A_C}
+       (M\check R_t)^4(1+\log x_t).
+\]
+This dominates both the number of its active addresses and
+\(|C|\), the number of final cells in \(C\). A fixed
+multiplicity of charges changes the cost constant. For a
+fixed active set the count of the other
+record choices, excluding normalized frame choices, is at
+most \(\exp(bv_C)\) with a fixed \(b\). In the actual local
+code this follows when a bounded alphabet records a bounded
+number of tests per site and bond, and choices of stage or
+failure type at level \(t\) have at most a fixed power of
+\(1+\check R_t\) possibilities per active cell.
+Indeed \(\log(1+\check R_t)\le C(1+\log x_t)\) for the
+chosen polynomial sizes in \(\log x_t\). Multiplying the
+local counts gives the stated bound with the own-scale volume.
+Frame counts are integrated with their normalized laws, which
+have total mass at most one on any restriction. Every
+additional discrete choice must be included in this local code.
+
+The second input is the local action and cost estimate. Separate
+the exponential remaining after removing \(v_{n,\mathcal S}\)
+into the assigned energy factors, the retained integrands and
+the remaining regular, remainder and boundary exponent. Its
+positive part, together with the unused reference and vacuum
+costs, is bounded by
+\begin{equation}\label{rt:eq-history-cost}
+      A_0(1+\log x_n)N_n + A_1\sum_C v_C.
+\end{equation}
+The first term is the contribution of the regular region in
+final units. The second is an own-scale estimate for terms
+meeting the recorded large-field regions. In particular the
+missing vacuum contributions are charged at their own levels:
+each omitted or reassigned numerical contribution has a charged
+carrier of bounded multiplicity and costs at most a constant
+times \(1+\log x_t\) per site at its level \(t\).
+The same allocation applies to normalization costs of the
+reference integrals. Any part of the cost inside a retained
+operation is paid using \eqref{rt:eq-weighted-retained-mass}
+at a reserve weight chosen before the inverse-coupling floor.
+When a record sees only the visible part of a drop-out, the
+remaining volume it sees is charged to that same operation
+at the raised weight. Its already integrated creations are
+not separate gains. Charges paid in this way can be removed
+from \eqref{rt:eq-history-cost}.
+
+After these choices, the actual weighted retained masses and
+certified failed tests give a product of factors \(e^{-G_C}\).
+For each fixed exterior record the analytic input consists of
+the local failure gains and mass bounds with the supremum
+in \eqref{rt:eq-weighted-retained-mass}. In a component
+they supply gains \(g(e)\) on its paying events, so
+\(G_C=\sum_e g(e)\). Here \(e\) ranges over creations outside
+outermost retained carriers and the distinct retained marks
+with one certified, unused gain assigned to their visible successor. A creation outside
+those carriers supplies \(g(e)\ge c_1 p_0(g_t^{\rm ref})^2\) in its
+own level \(t\), or the reduced \(c_1p_0(g_t^{\rm ref})\) estimate
+after any preceding allocations. A mark supplies \(g(e)\ge c_1p_0(g_t^{\rm ref})\) either from a
+reserved part of its weighted mass or from a separately allocated
+last-test share. For a native drop-out, its inner weighted mass
+excludes the failed last test: that test supplies the gain for
+the renewed wait, while the inner mass pays its recorded loads.
+No gain is inferred merely from the presence of a mark, and each
+energy share is used once.
+We use \(g_t^{\rm ref}=\theta_t^{-1/2}\) and
+\(p_0(g_t^{\rm ref})=A(\log\theta_t)^p\) for fixed \(A,p>0\).
+Every nonempty component has at least one paying event.
+
+The geometric inputs for the genealogy charge are the following
+features of the actual hull and waiting rules. Each active
+component has a skeleton of occupied cells connected by
+bounded-range steps in the cell graph, and each charged cell
+is within a fixed cell distance of the skeleton. At the next
+level the occupied cells come from the parent images of
+predecessor skeletons and at most a bounded number of new
+occupied cells per paying event. Here a retained mark uses
+the visible skeleton after its own hidden records have been
+integrated. The seeds of an event enter at its own level or
+at a later level, as for a bare failure recorded at the first
+step. A cut leaf that needs a new gain uses an assigned
+last-test share outside the inner mass.
+
+The fixed-distance property is compatible with a collar
+at every step. If an old collar has radius \(d\) in its
+cell units and the partition coarsens by \(q\), its
+new radius is at most \(d/q+A\) for a fixed \(A\),
+including the parent-boundary ambiguity and the new collar.
+Over two levels the older radius contracts by \(L^{-1}\).
+Its accumulated contribution is therefore bounded by
+\(2A/(1-L^{-1})\). Boxing only components of bounded diameter
+adds a fixed amount to \(A\). The unique-address parent
+map is applied to the occupied cells, while the closed
+cell carriers and their collars enter the volume estimate.
+
+A stretch with one predecessor and no new
+paying event evolves by the quiet rule. For a fixed
+skeleton-size threshold, once the skeleton has at most
+that many cells, at most \(C\check R_t\) quiet levels may
+occur before another event, a join, the end of the genealogy,
+or a healing,
+if the stretch started at level \(t\).
+The constant may depend on the fixed threshold. This is
+the local waiting bound, with the size at the start of the
+stretch. We use it only on the non-erased
+genealogy. Each unerased predecessor has a unique successor
+containing its whole hull; components can merge but cannot split.
+Consequently the ancestry of one standing component is a rooted
+tree, directed toward that component. Every leaf has a paying
+event. The size
+\(\check R_t\) is nonincreasing, and the partition has no
+two consecutive steps without coarsening.
+
+The waiting bound uses an embedded light component and its
+required collar. If that light geometry has no embedded
+chart, its bounded cell diameter and bounded collars imply
+that some torus period in cell units is bounded. This
+period is divided by at least \(L\) every two further
+levels. Since it must stay an integer at least one, only
+a fixed number of further levels can be admitted. This is
+also covered by the waiting bound, by increasing its
+constant.
+
+\begin{lemma}[Own-scale charge of a standing genealogy]
+\label{rt:lem-genealogy-charge}
+Under the skeleton and waiting conditions above, the record
+volume is bounded by
+\begin{equation}\label{rt:eq-genealogy-charge}
+        v_C\le C_{\mathrm{geo}}\sum_e M^4\check R_{t(e)}^6 .
+\end{equation}
+The sum uses the same paying events as the mass estimate
+and has no factor depending on the total depth.
+\end{lemma}
+\begin{proof}
+Over \(s\) steps the parent partition coarsens by a factor
+\(Q\ge L^{\lfloor s/2\rfloor}\) in cell units. For a connected
+skeleton of \(m\) cells, walk twice along a spanning tree.
+The walk has total length at most \(C m\) in the old cell
+units, with every step of bounded length. Divide it into at
+most \(C(1+m/Q)\) consecutive portions of length at most
+\(CQ\). Each portion lies in a box of side \(O(Q)\), hence
+meets only \(O(1)\) parent cells. On a torus lift each portion
+before counting its parent cells; projection can only
+decrease the number. Thus the skeleton has at most
+\(C_1(1+m/Q)\) parent cells. Fix \(s\) so that \(Q\ge4C_1\).
+For \(m\ge4C_1\) the count is at most \(m/2\); below
+this fixed size it is bounded by a constant.
+
+Write \(o_j\) for the total number of occupied cells in
+the level-\(j\) members of the genealogy, \(l_j\) for the
+number of its members below the fixed size, and \(a_j\)
+for the number of events whose seeds enter at \(j\). The parent rule,
+allowing a new occupied cell per event with fixed multiplicity,
+gives
+\[
+   o_j\le \tfrac12 o_{j-s}+C l_{j-s}
+                      +C\sum_{j-s<t\le j}a_t .
+\]
+Use zero counts before the first level. For
+\(r_j=M^4\check R_j^5\), multiply by \(r_j\) and sum.
+Because \(r_j\) is nonincreasing, moving the first sum to the
+left gives
+\[
+       \sum_j r_j o_j
+          \le C\sum_j r_j l_j+C\sum_t r_t a_t .
+\]
+If an event pays at an earlier level than its insertion,
+monotonicity bounds its weight by the weight at its paying
+level. Bounded skeleton neighborhoods and
+\(1+\log x_j\le C\check R_j\) bound \(v_C\) by a constant
+times the left side.
+
+Divide the genealogy tree into stretches by beginning a new
+stretch at a paying event, just after a keeping mark, or at
+a join. Along a stretch without
+an event the parent images cannot increase the number of
+occupied cells. Its light members therefore form a last
+segment, of length at most \(C\check R_t\) for a start at
+\(t\), by the quiet waiting bound. Its cost in
+\(\sum_j r_j l_j\) is at most \(C r_t\check R_t\).
+Charge an event start or a successor of a mark to its event
+or that preceding mark, respectively. To charge
+join starts, designate a first predecessor at each vertex
+with predecessors. At a join take a non-first predecessor,
+then follow first predecessors down to a leaf. This assigns
+distinct leaves to distinct joins. Indeed on the path up
+from the chosen leaf the first ascent from a non-first
+predecessor occurs at the specified join. A leaf is no later
+than the join and has a paying event. Monotonicity of
+\(r_t\check R_t\) allows that earlier event to pay.
+Each event is used at most a fixed number of times.
+This bounds the right side of the last display by the right
+side of \eqref{rt:eq-genealogy-charge}.
+\end{proof}
+
+Different histories with one visible label can have different
+exterior creation sets. Extracting their largest remaining factor
+requires a common reference after all the preceding changes of
+variables and density factors. More precisely, suppose the hidden
+record $h$ is integrated by a nonnegative kernel $K(dh\mid z)$
+with $K(1\mid z)\le1$. If $H(h,z)\le M(z)$ on its support,
+then $\int H(h,z)K(dh\mid z)\le M(z)$. The bound $M(z)$
+remains inside the $z$ integral. To select a single worst record
+for the label, first extract a common nonnegative integrable
+envelope in $z$; the remaining outside factor, including its
+record-dependent numerical costs, must depend only on $h$.
+Its maximum is then a deterministic factor. The chosen record
+and visible trace must remain in the stated code count. The original stochastic operation alone
+does not provide this domination after a density is refactored.
+An alternative is to keep the actual disjoint record pieces and
+include their reference masses or multiplicities in the count
+before summing. One of these two warrants is part of the actual
+record input. Without it, $m$ pieces of mass $e^{-G}$ have total
+mass $m e^{-G}$, which a maximum alone does not bound.
+
+\begin{lemma}[Rooted record count]\label{rt:lem-history-code}
+For each final support \(C\), choose a fixed root in \(C\).
+Suppose the record inputs just stated hold. There is a fixed
+\(c_{\rm e}\) for which the sum of \(e^{-c_{\rm e}v_C}\) over
+its possible outer records, with normalized frame laws, is
+at most one.
+\end{lemma}
+\begin{proof}
+Order the neighbors of each vertex of the address graph.
+Associate to each connected active set of size \(m\) containing
+the root a deterministically chosen rooted spanning tree, then
+record the depth-first walk that traverses each tree edge twice.
+The visited set determines the active set, and the walk has
+length \(2(m-1)\). Hence there are at most \(D^{2(m-1)}\)
+choices of active set. The other choices for an active set
+use at most \(e^{b v_C}\) codes. Thus the sum
+is at most
+\[
+   \sum_{m\ge1}D^{2(m-1)}e^{-(c_{\rm e}-b)m}\le 1
+\]
+if \(c_{\rm e}-b\ge 2\log D+\log2\).
+The root level is fixed. Positions at earlier levels are
+part of the same walk, and do not cost a factor equal to
+the depth or the fine volume.
+\end{proof}
+
+\begin{proposition}[Upper bound for the history sum]
+\label{rt:prop-history-upper}
+Suppose the zero-source representation satisfies
+\eqref{rt:eq-history-decomposition}, the integral and gain inputs
+of \cref{rt:subsec-retained-integrals}, and the record, cost and
+genealogy inputs of \cref{rt:subsec-history-inputs}. Assume
+\(\check R_t\le C(1+\log\theta_t)^r\), \(p>6r\), and
+\(\theta_t\ge\theta_n-c_*\) for \(t\le n\), with a fixed
+\(c_*\). Then, with the inverse-coupling floor sufficiently
+large, uniformly in \(n\), cutoff and admissible volume,
+\begin{equation}\label{rt:eq-partition-upper}
+    \widehat Z_n=e^{-E_{(n)}}Z_{K',\ell,\beta}
+          \le \exp\{C(1+\log x_n)N_n\}.
+\end{equation}
+The same bound holds for the sum of absolute retained integrals
+with any inserted component weights already covered by the
+specified reserve.
+\end{proposition}
+\begin{proof}
+Insert and remove the numerical factor \(e^{v_{n,\mathcal S}}\)
+in the common normalization of each term of
+\eqref{rt:eq-history-decomposition}. Bound the residual
+exponent by \eqref{rt:eq-history-cost}. The retained and
+failure factors are handled by \cref{rt:lem-component-majorant}
+with the reference product of the actual record, including the
+reserve for any inserted weight. The finite sums over disjoint
+pieces of an internal record can be taken inside the resulting
+majorants. We obtain an upper bound by a sum of products, with
+factor \(e^{A_1v_C-G_C}\) for each outer record of \(C\), and
+the same factor \(e^{A_0(1+\log x_n)N_n}\) for all labels.
+
+Choose \(\kappa>2\log D_0\), using \(D_0\ge2\) without loss
+of generality. Since \(p>6r\), the gain of each paying event
+exceeds \(2(A_1+\kappa+c_{\rm e})C_{\rm geo}
+M^4\check R_{t(e)}^6\) when the common floor is large
+enough. The floor can also ensure
+\(\log\theta_t\ge\tfrac12\log\theta_n\) for \(t\le n\).
+Thus one half of \(G_C\) pays \((A_1+\kappa+c_{\rm e})v_C\)
+by \eqref{rt:eq-genealogy-charge}. The other half leaves
+\(s_n=c_{\rm gain}p_0(g_n^{\rm ref})\) for a fixed \(c_{\rm gain}>0\), because there
+is at least one paying event. It follows that
+\[
+       e^{A_1v_C-G_C}
+        \le e^{-s_n-\kappa|C|}e^{-c_{\rm e}v_C}.
+\]
+The sum over records on a fixed \(C\) is at most
+\(a(C)=e^{-s_n-\kappa|C|}\) by \cref{rt:lem-history-code}.
+This step takes place before the sum over placements of the
+final supports.
+
+Apply the same walk count in the final graph, now with
+degree \(D_0\). The sum of \(a(C)\) over all nonempty
+connected supports is at most
+\[
+   N_n e^{-s_n}\sum_{m\ge1}D_0^{2(m-1)}e^{-\kappa m}
+       \le C_0 N_n .
+\]
+Finally, discard compatibility between distinct final supports
+in the sum over their collections. Every collection occurs
+at most once once its records are fixed. Its weight is
+nonnegative, so the sum is at most
+\(\prod_C(1+a(C))\le\exp(\sum_C a(C))\).
+Combining the bounds proves \eqref{rt:eq-partition-upper}.
+\end{proof}
+
+The reference to actual component integrals in this argument
+cannot be replaced by a pointwise bound on one polymer gas.
+If a representation is \(Z=\int q(y)\Xi_y\,d\pi(y)\), where
+\(q\ge0\) and a real logarithm satisfies
+\(|\log\Xi_y|\le cN_n\), then
+\[
+   e^{-cN_n}\int q\,d\pi\le Z\le e^{cN_n}\int q\,d\pi.
+\]
+For an empty gas and \(q\) the indicator of a Haar set of
+measure \(e^{-N_n^2}\), the logarithm vanishes and \(Z=e^{-N_n^2}\).
+The lower bound below uses an explicit event with a controlled
+Haar measure.
+
+\subsection{The upper bound with a specified label load}
+
+The actual read ownership gives a more precise estimate when the
+remaining unmarked regular energy has an extensive bound in final
+units. We state this version with the scalar load in its own level
+units. On a standing label let \(\Omega_j\) be the determining
+regions and let \(\Lambda_j^{\mathrm a}\) be the small-field regions
+of the action sequence. Put \(Z_j^{\mathrm a}=(\Lambda_j^{\mathrm a})^c\)
+and let \(Z_j^+\) be its one-cell enlargement. Write
+\(\#_j(D)\) for the number of level-\(j\) sites in \(D\).
+Set \(Y_0^{\mathrm d}=T_\ell\setminus\Omega_1\) and
+\(Y_m^{\mathrm d}=\Omega_m\setminus\Omega_{m+1}\) for \(1\le m\le n\),
+with \(\Omega_{n+1}=\varnothing\). Thus \(Y_0^{\mathrm d}\) is the
+full outside layer in bare units. For \(c\ge0\), define
+\begin{equation}\label{rt:eq-label-load}
+ \mathscr L_c(\mathcal S)
+   =c\sum_{m=0}^{n}\#_m(Y_m^{\mathrm d})
+      +\sum_{j=1}^{n}
+       \{C_{\log}\log\theta_{j-1}+C_{\rm loc}+c\}\#_j(Z_j^+).
+\end{equation}
+At \(n=0\) use \(Y_0^{\mathrm d}=T_\ell\). For each fixed $c$, the two price constants in
+\eqref{rt:eq-label-load} are nonnegative. Fix them and the raised
+retained-integral reserve before the inverse-coupling floor. Use \(\sigma_{\mathcal S,c}\) for the
+literal absolute integral of this label after stripping its
+own factor \(e^{v_{n,\mathcal S}}\) and inserting the factors
+\(e^{c\,v(\omega)}\) at the outermost retained operations.
+
+\begin{proposition}[The loaded history estimate]
+\label{rt:prop-loaded-upper}
+Use the actual product coordinates, reserve, and record inputs
+of \cref{rt:prop-history-upper}. Suppose the entire remaining
+final-site price after stripping the label vacuum is bounded by
+\(C_{\rm sf}N_n\). This includes the unmarked energy and every
+regular, remainder, boundary or reference factor not already paid
+by the retained masses or assigned own-scale defect prices.
+The actual remaining Wilson factor uses the ordered profiles of
+\eqref{rt:eq-positive-action-profile}, and its allocated shares
+leave nonnegative plaquette coefficients.
+The determining regions
+are nested with \(\Omega_{m+1}\) aligned at level \(m+1\),
+and \(\Lambda_j^{\mathrm a}\subset\Omega_j\).
+The frame has \(1<\theta_j\) and
+\(\theta_{j-1}-\theta_j\le B\) with a fixed \(B\).
+Use the disjoint final-cell partition from the standing geometry,
+in which every cell contains at least \(M^4\) level-\(n\) sites.
+Assume the actual local read ownership. Every earlier layer
+address and enlarged defect address lies in the collar of its
+assigned action cell, or is assigned to the latest retained
+operation that remade that address. These assignments have
+bounded multiplicity in the original level of each address.
+For a remade portion of volume \(V_{\rm in}\), measured
+with its own logarithmic site weights, every retained record
+allowed by the visible label has \(v(\omega)\ge V_{\rm in}\).
+Assume the local mass bounds hold at the correspondingly raised
+reserve, chosen before the inverse-coupling floor. Then
+\begin{equation}\label{rt:eq-loaded-label-sum}
+ \sum_{\mathcal S} e^{\mathscr L_c(\mathcal S)}
+                   \sigma_{\mathcal S,c}(1)
+       \le \exp\{(c+C_{\rm sf}+M^{-4})N_n\}.
+\end{equation}
+If the price \(\mathscr L_0\) bounds the positive omitted
+vacuum number \(v_{n,\mathcal S}-E_{(n)}\), this also bounds
+\(\widehat Z_n\) by the right side for \(c=0\).
+\end{proposition}
+\begin{proof}
+The last layer contributes at most \(cN_n\). For \(m<n\),
+\[
+ \#_m(Y_m^{\mathrm d})\le\#_m(\Omega_{m+1}^c)
+      =L^4\#_{m+1}(\Omega_{m+1}^c)
+      \le L^4\#_{m+1}(Z_{m+1}^{\mathrm a}).
+\]
+The equality counts the level-\(m\) sites of each aligned
+level-\((m+1)\) block. The first inequality at \(m=0\)
+includes every bare site of the outside layer. Assign
+the enlarged \(Z_j^+\) cells to neighboring original
+cells of \(Z_j^{\mathrm a}\), with bounded multiplicity.
+The one-step frame bound gives
+\(\log\theta_{j-1}\le C(1+\log\theta_j)\).
+It follows that the earlier portions of \(\mathscr L_c\)
+are bounded by own-scale prices, with constants affine in
+\(c\). Apply the read ownership to retain the assigned
+addresses when an operation remakes a determining layer.
+An ordinary address is paid from the genealogy's event
+reserve. A remade address is charged to the operation that
+owns it, in the original level units, even if several later
+terms read that operation.
+
+For the latter cost first restrict to the compatible
+inner records \(\mathcal B\) of that mark. If its assigned
+price is at most \(A_c V_{\rm in}\), choose \(c'\ge c+A_c\).
+On these records
+\[
+    e^{A_cV_{\rm in}}e^{c v(\omega)}
+                          \le e^{c' v(\omega)} .
+\]
+Consequently the price times \(\mathsf M_c(i,X;\mathcal B)\)
+is bounded by \(\mathsf M_{c'}(i,X;\mathcal B)\), with the
+same restriction. The unrestricted raised mass is an upper
+bound for this restricted mass. Keeping the restriction when
+labels separate visible records preserves their disjoint sums.
+The older failures already integrated in the mark are not
+charged or used as a gain a second time. An unfinished live
+lineage has no completed mark mass; its actual failures and waiting
+costs are charged by the preceding genealogy estimate.
+
+Apply the exterior-supremum estimate and the event prepayment
+of \cref{rt:prop-history-upper} with these fixed, increased
+local costs. The surviving regular factor is at most
+\(e^{(c+C_{\rm sf})N_n}\). By
+\eqref{rt:eq-positive-action-profile} and the share allocation,
+the remaining real Wilson factor is at most one. The remaining Haar probability
+measure has mass at most one on the cut. Each final connected
+component \(C\), after summation of its records, keeps the
+bound \(e^{-s_n-\kappa |C|}\). Choose the fixed \(\kappa\)
+so that \(\sum_{m\ge1}D_0^{2(m-1)}e^{-\kappa m}\le1\).
+There are at most \(N_n/M^4\) possible root cells, since a
+final cell contains at least \(M^4\) sites. The sum of these
+component weights is at most \(N_n/M^4\). The product over
+distinct compatible components is bounded by its exponential,
+as in the proof of \cref{rt:prop-history-upper}. This gives
+\eqref{rt:eq-loaded-label-sum}. At $c=0$ the
+absolute integral controls the vacuum-stripped label, so
+the final assertion follows by reinserting the common
+vacuum difference.
+\end{proof}
+
+\subsection{An event in the empty standing label}
+
+For the empty label the determining sequence is constant and
+only the final bonds \(V\) remain. Use the actual small-field
+test \(\chi_n\) and background \(U_n(V)\) of this label. The
+supplied density formula is
+\begin{equation}\label{rt:eq-empty-label-density}
+ e^{-E_{(n)}}d\tau_{\emptyset}(V)
+   =\chi_n(V)\exp\{-x_n A(U_n(V))+F_n(U_n(V))\}
+                      \prod_{b}dV_b .
+\end{equation}
+The equality of the numerical factor here with \(E_{(n)}\)
+uses the same localization and normalizers as
+\eqref{rt:eq-vacuum-recursion}. On this label the exponent
+\(F_n\) contains the vacuum-subtracted regular and remainder
+terms, including those produced by healing. There is no
+standing boundary term.
+
+We record the needed regularity inputs for this formula.
+For age \(h=n-j\), the bound on the pointed, vacuum- and
+classically subtracted regular family is, per level-\(j\)
+base site,
+\[
+  C_E\{(1+h)L^{-b_{\rm T}h}+L^{-h}\}L^{-4h},
+  \qquad b_{\rm T}>0 .
+\]
+It is evaluated on the constant determining sequence, where
+the partition functions used for pointing sum to one. The
+corresponding bound on the vacuum-subtracted remainder is
+\(C_R(1+h)L^{-4h}\theta_j^{-q}\), with \(q>2\).
+These are rooted bounds on the actual test support. They include
+the localization tails on wrapping domains and any terms made
+by the large-field step. Assume
+\(\theta_j\ge\theta_n+\lambda(n-j)-c_*\) for \(\lambda>0\)
+and \(\theta_n\ge1+c_*\). There are \(L^{4h}N_n\) base sites.
+Summing first at age \(h\) removes \(L^{-4h}\); summing over
+ages uses the two convergent series
+\[
+   \sum_{h\ge0}\{(1+h)L^{-b_{\rm T}h}+L^{-h}\},
+   \qquad \sum_{h\ge0}(1+h)(1+\lambda h)^{-q}.
+\]
+Consequently \(|F_n|\le C_I N_n\) on the stated support.
+
+\rtneedspace{25\baselineskip}
+\begin{lemma}[Admitting a product of link balls]
+\label{rt:lem-small-field-event}
+Suppose the actual terminal test uses the separated
+determining towers of the empty standing label, with all
+tested plaquettes in the interior test window. The actual
+determining datum on each tower, including the constant global
+sequence, is the centered face lift of the terminal bonds and
+its prescribed iterated averages, as described in the proof.
+This is an identity for the datum used by the operation. Assume the
+linear background regularity estimate on these towers and
+on the constant global sequence. Namely, a determining datum
+of plaquette radius \(d\) below a fixed ceiling gives
+plaquette defects at most \(B_3dL^{-2n}\) on the tested
+plaquettes and on the bare plaquettes of the global
+background, respectively. Suppose $\chi_n$ is exactly the product
+of these terminal plaquette tests on the admitted stock; any
+other terminal condition has already been verified to be one
+there. Each plaquette test is one below \(\varepsilon_n L^{-2n}\), with
+\(\inf_n\varepsilon_n\sqrt{\theta_n}>0\) and
+\(x_n\asymp\theta_n\ge1\) uniformly. Then for some fixed
+\(c_{\rm sf}\in(0,1]\), on
+\[
+   \mathcal B_n=\{V:\|V_b-I\|_{\mathrm{op}}
+                         <c_{\rm sf} x_n^{-1/2}\text{ for every }b\}
+\]
+one has \(\chi_n=1\) and
+\begin{equation}\label{rt:eq-floor-action}
+   x_n A(U_n(V))\le 48B_3^2 c_{\rm sf}^2 N_n .
+\end{equation}
+At level zero the action estimate holds with \(B_3=1\)
+without a background construction.
+\end{lemma}
+\begin{proof}
+Put \(s=c_{\rm sf}x_n^{-1/2}\). The product of the four unitary
+matrices around a final plaquette differs from the identity
+in operator norm by at most \(4s\), by telescoping and
+unitarity. To compute the radius of the actual determining
+datum, lift \(V\) to finer links as follows. A link staying
+inside a top block is the identity. A link crossing a top
+block face is assigned its corresponding oriented top link.
+These prescriptions use the periodic centered blocks, or
+their common lift in a test window, and commute with reversal.
+
+An elementary fine plaquette crossing faces in no coordinate
+has holonomy \(I\). If it crosses faces in only one coordinate,
+the two crossing factors are inverses and the other two are
+identities. If it crosses in both coordinates, the four
+crossing factors form the corresponding top plaquette
+holonomy with its induced orientation. Thus its radius is
+at most \(4s\). The one-step averaging of this link field
+is its lift at the coarser resolution. Indeed, at an
+intermediate scale the two endpoint contours are inside
+their own top blocks and contribute identities. Each joining
+segment on a coarse bond crosses either no top face or
+the same single face in the same orientation, so every
+transported candidate in the group mean has the same value.
+Centered nested blocks ensure this also for projected paths
+at a periodic face, counting the oriented path occurrences.
+Iteration gives the same radius on the averaged rows of
+each terminal tower. This is the radius of the actual datum
+when it is formed by the prescribed lift and averages.
+
+The stated linear estimates now give defect at most
+\(4B_3sL^{-2n}\) on the tested stock and the global bare
+background. Choose \(c_{\rm sf}\) small enough for \(4s\) to be
+below the datum ceiling and \(4B_3s<\varepsilon_n\).
+The choices are uniform by the two comparisons in the
+statement. The test is then one. Earlier fluctuation tests
+are already incorporated in \eqref{rt:eq-empty-label-density}.
+For \(U\in\operatorname{SU}(2)\) with class angle \(\varphi\),
+\[
+      1-\tfrac12\operatorname{Tr}U
+         =1-\cos\varphi=\tfrac12\|U-I\|_{\mathrm{op}}^2 .
+\]
+There are \(6N_0\) plaquettes in the bare Wilson sum and
+\(N_0=L^{4n}N_n\). The two powers of \(L^{-2n}\) cancel
+this site conversion and give
+\(A(U_n(V))\le48B_3^2s^2N_n\).
+At \(n=0\) use the direct plaquette telescoping with the
+bare field \(V\) in the same calculation.
+\end{proof}
+
+\rtneedspace{23\baselineskip}
+\begin{theorem}[Common-normalized partition bounds]
+\label{rt:thm-partition}
+Under the history hypotheses of \cref{rt:prop-history-upper}
+and the empty-label density, rooted estimates and regularity
+hypotheses of \cref{rt:lem-small-field-event}, one has
+\begin{equation}\label{rt:eq-partition-two-sided}
+   e^{-(C+6\log x_n)N_n}
+     \ \le\ e^{-E_{(n)}} Z_{K',\ell,\beta}
+     \ \le\ e^{C(1+\log x_n)N_n}.
+\end{equation}
+At the terminal first passage \(n=K\) with
+\(h=g^{-2}\le x_K\le h+B_{\rm s}\) and \(K'=K\), this gives
+\[
+       e^{-C_g\ell^4}
+          \le e^{-E_{(K)}}Z_{K',\ell,\beta}
+          \le e^{C_g\ell^4}.
+\]
+The constants are independent of the bare cutoff and compatible
+volume. At earlier stops \eqref{rt:eq-partition-two-sided}
+uses \(N_n\) and requires the same local inputs at that stop.
+\end{theorem}
+\begin{proof}
+For \(0<s\le1\), an \(\operatorname{SU}(2)\) matrix in
+the class-angle range \(0\le\varphi<s\) belongs to the
+operator-norm ball of radius \(s\), since
+\(\|U-I\|_{\mathrm{op}}=2\sin(\varphi/2)\).
+The normalized Haar angle density is
+\((2/\pi)\sin^2\varphi\,d\varphi\). The inequality
+\(\sin\varphi\ge 2\varphi/\pi\) for \(0\le\varphi\le1\)
+therefore gives ball mass at least \(8s^3/(3\pi^3)\).
+There are \(4N_n\) independently integrated positive links.
+
+By positivity, keep the empty label in
+\eqref{rt:eq-history-decomposition}, then restrict its
+integral to \(\mathcal B_n\). Use \(|F_n|\le C_I N_n\)
+and \eqref{rt:eq-floor-action}. With \(c_H=8/(3\pi^3)\)
+this gives the lower bound
+\[
+  e^{-E_{(n)}}Z_{K',\ell,\beta}
+     \ge e^{-(C_I+48B_3^2c_{\rm sf}^2)N_n}
+            (c_Hc_{\rm sf}^3 x_n^{-3/2})^{4N_n}.
+\]
+The upper bound is \eqref{rt:eq-partition-upper}.
+At the first passage with \(K'=K\), \(N_K=\ell^4\) and the inverse
+coupling lies in a fixed interval depending on \(g\).
+Absorb its endpoint into \(C_g\).
+\end{proof}
+
+\begin{thebibliography}{9}
+\raggedright
+\bibitem{EM} \emph{Iteration of regular interactions on prescribed coupling prefixes}, companion manuscript, 2026.
+\bibitem{Bal88} T. Ba\l aban, \emph{Convergent renormalization expansions for lattice gauge theories}, Comm. Math. Phys. \textbf{119} (1988), 243--285. \href{https://doi.org/10.1007/BF01217741}{doi:10.1007/BF01217741}.
+\bibitem{Bal89} T. Ba\l aban, \emph{Large field renormalization. II. Localization, exponentiation, and bounds for the R operation}, Comm. Math. Phys. \textbf{122} (1989), 355--392. \href{https://doi.org/10.1007/BF01238433}{doi:10.1007/BF01238433}.
+\end{thebibliography}
+\end{document}
