@@ -1,0 +1,2175 @@
+\documentclass[11pt,letterpaper,reqno]{amsart}
+% BEGIN INLINE manuscript-style
+\makeatletter
+\NeedsTeXFormat{LaTeX2e}[2020/10/01]
+% Use with \documentclass[11pt,letterpaper,reqno]{amsart}.
+% This file controls presentation only. It supplies no mathematical content.
+
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern}
+\RequirePackage{microtype}
+\RequirePackage[letterpaper,margin=1in,headheight=15pt]{geometry}
+\RequirePackage{amsmath,amsthm,amssymb,mathtools}
+\RequirePackage{mathrsfs}
+\RequirePackage{enumitem}
+\RequirePackage{perpage}
+\RequirePackage{longtable}
+\RequirePackage{xcolor}
+\definecolor{manuscriptred}{rgb}{0.6,0.1,0.1}
+\definecolor{manuscriptblue}{rgb}{0.1,0.3,0.5}
+\definecolor{manuscriptmagenta}{HTML}{60445C}
+\RequirePackage[breaklinks=true,colorlinks=true,
+  linkcolor=manuscriptred,citecolor=manuscriptblue,urlcolor=manuscriptmagenta]{hyperref}
+\RequirePackage{cleveref}
+\hypersetup{pdfauthor={}}
+
+% Retain the AMS paragraph, title, heading and running-head conventions.
+% Equation counters restart each section: 2.i, 2.ii, ... .
+% Appendix sections keep their letters: A.i, A.ii, ... .
+\numberwithin{equation}{section}
+\renewcommand{\theequation}{\thesection.\roman{equation}}
+% Prose references include "eq." and omit parentheses around the number.
+\renewcommand{\eqref}[1]{\textup{eq.~\ref{#1}}}
+\crefname{equation}{eq.}{eqs.}
+\Crefname{equation}{eq.}{eqs.}
+\creflabelformat{equation}{#2#1#3}
+\setcounter{tocdepth}{1}
+\renewcommand{\thefigure}{\Roman{figure}}
+\renewcommand{\thetable}{\Roman{table}}
+\newcommand{\fpneedspace}[1]{\par\begingroup
+  \dimen0=#1\relax
+  \vskip0pt plus\dimen0\penalty-100
+  \vskip0pt plus-\dimen0\vskip\dimen0
+  \penalty9999\vskip-\dimen0\vskip0pt\endgroup}
+\MakePerPage{footnote}
+\renewcommand{\thefootnote}{%
+  \ifnum\value{footnote}>9\arabic{footnote}\else\fnsymbol{footnote}\fi}
+
+% Upright statements. Main results are A, B, C; supporting statements
+% share a section-local sequence. These end marks indicate typography,
+% never proof completeness, validation, or a deferred-proof status.
+\theoremstyle{definition}
+\newtheorem{ms@theorem}{Theorem}
+\renewcommand{\thems@theorem}{\Alph{ms@theorem}}
+\newtheorem*{ms@theoremstar}{Theorem}
+\newtheorem*{ms@theoremzero}{Theorem 0}
+\newtheorem{ms@proposition}{Proposition}[section]
+\newtheorem{ms@lemma}[ms@proposition]{Lemma}
+\newtheorem{ms@definition}[ms@proposition]{Definition}
+\newtheorem{ms@corollary}[ms@proposition]{Corollary}
+\newtheorem*{ms@corollarystar}{Corollary}
+
+\newcommand{\ms@majorstart}{%
+  \pushQED{\qed}\renewcommand{\qedsymbol}{$\blacksquare\square$}}
+\newcommand{\ms@minorstart}{%
+  \pushQED{\qed}\renewcommand{\qedsymbol}{$\blacksquare$}}
+\newenvironment{theorem}[1][]{\ms@majorstart\ms@theorem[#1]}
+  {\popQED\endms@theorem}
+\newenvironment{theorem*}[1][]{\ms@majorstart\ms@theoremstar[#1]}
+  {\popQED\endms@theoremstar}
+\newenvironment{theoremzero}[1][]{\ms@majorstart\ms@theoremzero[#1]}
+  {\popQED\endms@theoremzero}
+\newenvironment{proposition}[1][]{\ms@minorstart\ms@proposition[#1]}
+  {\popQED\endms@proposition}
+\newenvironment{lemma}[1][]{\ms@minorstart\ms@lemma[#1]}
+  {\popQED\endms@lemma}
+\newenvironment{definition}[1][]{\ms@minorstart\ms@definition[#1]}
+  {\popQED\endms@definition}
+\newenvironment{corollary}[1][]{\ms@majorstart\ms@corollary[#1]}
+  {\popQED\endms@corollary}
+\newenvironment{corollary*}[1][]{\ms@majorstart\ms@corollarystar[#1]}
+  {\popQED\endms@corollarystar}
+% The source's lemma/proposition variants are deliberately not carried over:
+% choose one marker for each statement type rather than encode proof status.
+
+\theoremstyle{remark}
+\newtheorem{remark}[ms@proposition]{Remark}
+\newtheorem*{remark*}{Remark}
+% The ordinary amsthm proof environment retains its open square.
+
+\crefname{ms@theorem}{theorem}{theorems}
+\Crefname{ms@theorem}{Theorem}{Theorems}
+\crefname{ms@proposition}{proposition}{propositions}
+\Crefname{ms@proposition}{Proposition}{Propositions}
+\crefname{ms@lemma}{lemma}{lemmas}
+\Crefname{ms@lemma}{Lemma}{Lemmas}
+\crefname{ms@definition}{definition}{definitions}
+\Crefname{ms@definition}{Definition}{Definitions}
+\crefname{ms@corollary}{corollary}{corollaries}
+\Crefname{ms@corollary}{Corollary}{Corollaries}
+\crefname{remark}{remark}{remarks}
+\Crefname{remark}{Remark}{Remarks}
+
+% Bibliography configuration for this manuscript.
+\makeatother
+% END INLINE manuscript-style
+
+\title[Physical short-distance asymptotics]{Physical short-distance asymptotics of the lattice Yang--Mills action density}
+\date{Working draft, 9 November 2026}
+\begin{document}
+\raggedbottom
+\begin{abstract}
+We derive a two-point action-density comparison at a prescribed
+short-distance scale from explicit local comparison and running
+coefficient estimates. The source factor is the derivative of the
+actual running coupling shift with the real reference data fixed.
+The normalized free curvature covariance gives the coefficient
+\(9/\pi^4\) for \(SU(2)\). Exact source differentiation, local
+response estimates and a conditional reference-law comparison
+control the physical errors relative to the leading fourth power
+of the running coupling. A common holomorphic cell normalizer
+transfers the comparison to every admitted periodic Gibbs state
+at the same bare datum. The result gives a logarithmically
+decreasing ultraviolet upper bound and a positive lower bound
+for separated nonnegative tests. The actual local conditional
+law, history estimates and running coefficient bounds remain
+explicit hypotheses; continuum existence is not asserted.
+\end{abstract}
+\maketitle
+\tableofcontents
+
+\section{Introduction}
+
+The short-distance covariance of the Wilson action density has
+two distinct sources of normalization. The quadratic curvature
+law fixes its free coefficient. The response of the extracted
+couplings to a scalar source fixes the factor multiplying each
+physical insertion. Both must be identified before a comparison
+with a Gaussian measure has a definite meaning. A bound that is
+merely small in absolute terms is insufficient when the leading
+covariance itself tends to zero with the running coupling.
+
+We first fix the physical observable and its free normalization.
+The running coefficient estimates then select the observation
+depth and determine the constant-source response with all real
+reference data held fixed. Differentiation of the actual retained
+source weight separates the covariance of its first logarithmic
+jets from its mixed logarithmic jet. The local comparison hypotheses control
+these terms, including the contributions of retained histories
+and the conditional exterior field.
+
+The passage from a reference torus to arbitrary periodic Gibbs
+states is a separate step. A common cell normalizer permits
+source derivatives to be compared without estimating their
+possibly divergent individual means. Signed copies of a test
+pair improve the resulting state difference by the number of
+disjoint copies. The error is then negligible relative to the
+positive free signal on the full prescribed shape class.
+
+The extraction of a scalar curl coefficient from an effective
+action follows the polarization analysis of
+Ba\l aban \cite[\S5, pp.~292--297]{Bal87}. That work treats a
+small-field approximation. It does not provide the physical
+conditional-law and history estimates assumed here. We use the
+free curvature calculation of \cite{GI}, the admitted trajectory
+and normalization conventions of \cite{RT}, and the fixed-source
+and state-transfer results of \cite{SI}, with reflection and
+chessboard estimates from \cite{LP}. The hypotheses below state
+the additional local comparison and coefficient information
+needed for the physical law. Their establishment and continuum
+reconstruction are separate problems.
+
+\section{Physical observables and fixed source data}
+\label{fp:sec-setting}
+
+Fix an odd integer block factor \(L\ge3\). At cutoff depth
+\(K\in\mathbb N\), the mesh is \(a=L^{-K}\). A compatible
+torus is \(\Lambda_{a,\ell}=(a\mathbb Z/\ell\mathbb Z)^4\),
+with \(\ell/a\) integral and with the block divisibilities required
+at the depths in use. One independent bond variable lies in
+\(SU(2)\) for each positively oriented nearest-neighbour bond;
+reversing a bond replaces its variable by its inverse. Haar measure
+has mass one. For a positively oriented plaquette \(p\), let
+\(U_p\) be its ordered bond product and \(x_p\) its barycentre.
+Put
+\begin{equation}\label{fp:eq-physical-observable}
+ A(U)=\sum_p a_p(U),\qquad
+ a_p(U)=1-\tfrac12\operatorname{tr}U_p,\qquad
+ \mathcal O_a(f)=\sum_p f(x_p)a_p(U).
+\end{equation}
+Here \(f\) is a compactly supported real Lipschitz function, or
+its periodic version on the torus. The continuum test class will
+be the \(C_c^1\) subclass. The six positive plaquette
+orientations are all included. The trace is real on \(SU(2)\),
+and \(0\le a_p\le2\). In particular, every fixed-cutoff compact
+insertion is bounded.
+
+The torus Wilson measure is the normalized measure
+\(e^{-\beta A(U)}dU\), where \(\beta\ge0\). On the infinite
+lattice, an admitted state is a periodic Wilson Gibbs state at
+this same pair \((a,\beta)\). Periodicity means invariance under
+a finite-index subgroup of bare lattice translations. The
+reflection theorem of \cite[Theorem B]{LP} gives invariance under
+all bare lattice translations for these states. It does not
+identify every such state with a particular sequence of torus
+measures. For any of these probability measures \(\rho\), write
+\begin{equation}\label{fp:eq-physical-covariance}
+ S^T_{2;a,\rho}(f,h)
+   =\rho\bigl(\mathcal O_a(f)\mathcal O_a(h)\bigr)
+      -\rho\bigl(\mathcal O_a(f)\bigr)
+       \rho\bigl(\mathcal O_a(h)\bigr).
+\end{equation}
+This is a bilinear covariance, without complex conjugation.
+Complex sources are used to differentiate it; the comparison
+and positivity conclusions concern real nonnegative tests.
+
+There is no additional \(a^4\) in
+\eqref{fp:eq-physical-observable}. To check the convention, use
+traceless Hermitian colour coordinates with
+\(\langle X,Y\rangle=\tfrac12\operatorname{tr}(XY)\).
+For a smooth field,
+\(U_p=\exp(i a^2F_{\mu\nu}(x_p)+O(a^3))\) implies
+\(a_p=\tfrac12a^4|F_{\mu\nu}(x_p)|^2+O(a^5)\).
+The plaquette sum therefore approximates
+\(\tfrac12\int f\sum_{\mu<\nu}|F_{\mu\nu}|^2\).
+This expansion fixes the normalization of the free quadratic
+density. It is not a smoothness assertion about the random field.
+
+For finitely many tests, let
+\(W_z=\sum_i z_i f_i\). On a finite torus set
+\[
+ Z_{a,\ell}(W_z)=\int
+       \exp\{-\beta A(U)+\mathcal O_a(W_z)\}\,dU.
+\]
+For an infinite-volume state use
+\(\rho(e^{\mathcal O_a(W_z)})\) instead of the partition ratio.
+Both functions are entire in the finite source vector at fixed
+cutoff: the exponent is a finite linear combination of bounded
+observables, so its power series is uniformly dominated on every
+compact source set. Both have value one after normalization at
+zero, and hence have a local holomorphic logarithm there.
+
+All real reference couplings, test cutoffs, averaging kernels,
+coordinate choices and history labels are fixed before the
+source is varied. In an exact blocked representation, its
+positive reference measure is likewise the unsourced measure.
+The source dependence is carried by the actual retained weight. The
+transport identity of \cite[Proposition 3.1]{SI} supplies this
+representation when its fixed-kernel hypotheses hold. A new
+reference construction at each source value would require the
+derivatives of that construction as well and is not used here.
+
+The running inverse coupling at a witness depth will be denoted
+by \(x=x_{K}(d)\), with \(g_K(d)=x^{-1/2}\). Its constant-source
+response is determined from the actual coefficient maps below.
+The fixed small terminal coupling that selects the bare sequence
+is a different parameter. Constants may depend on that terminal
+choice, \(L\), the fixed construction parameters and the fixed
+shape threshold. They are independent of cutoff depth, admitted
+state, test position and test amplitudes unless a statement says
+otherwise. Uniform error functions are always stated on the
+admitted parameter range. All logarithms are natural.
+
+
+\section{The separated free comparison}
+\label{fp:sec-free}
+
+\subsection{Test geometry}
+
+Write \(T_\ell=\mathbb R^4/\ell\mathbb Z^4\), with its flat distance and
+unnormalized volume measure. Let \(Y=\mathbb R^4\) or \(T_\ell\).
+\begin{definition}[Separated test pairs]\label{fp:def-shape}
+For \(d>0\) and \(0<\vartheta\le1\), let
+\(\mathfrak T_Y(d;\vartheta)\) consist of pairs \((f,h)\) of nonzero,
+nonnegative Lipschitz functions. Each support lies in a ball of
+radius \(d\). Write \(M_v=\|v\|_\infty\) and \(m_v=\int_Y v\)
+for \(v=f,h\).
+The requirements are
+\begin{equation}\label{fp:eq-shape}
+ \begin{gathered}
+ d\le\operatorname{dist}(\operatorname{supp}f,\operatorname{supp}h)
+       \le6d,\\
+ m_v\ge\vartheta M_vd^4,\qquad
+ \operatorname{Lip}(v)\le M_v/(\vartheta d).
+ \end{gathered}
+\end{equation}
+On \(T_\ell\) take \(\ell\ge40d\).
+The \(C_c^1\) class used in the continuum application is contained in
+this class with the same parameter \(\vartheta_*=1/12000\).
+\end{definition}
+
+\begin{lemma}[Size and scaling of the comparison integral]
+\label{fp:lem-shape-kernel}
+For \((f,h)\in\mathfrak T_Y(d;\vartheta)\), the two supports lie in a
+common ball of radius \(5d\). On their product the distance lies in
+\([d,10d]\). With \(v_4=\pi^2/2\), the integral
+\[
+ \mathcal K(f,h)=\iint f(x)h(y)|x-y|^{-8}\,dx\,dy
+\]
+satisfies
+\begin{equation}\label{fp:eq-shape-kernel-bounds}
+ 10^{-8}\vartheta^2 M_fM_h
+ \le (10d)^{-8}m_fm_h
+ \le\mathcal K(f,h)
+ \le d^{-8}m_fm_h
+ \le v_4^2 M_fM_h .
+\end{equation}
+On a torus the integral is evaluated using a common lift of the supports
+to \(\mathbb R^4\). It is independent of the lift. For \(t>0\) let
+\(v_t(x)=v(x/t)\) on \(tY\). Then
+\((f_t,h_t)\in\mathfrak T_{tY}(td;\vartheta)\) and
+\(\mathcal K(f_t,h_t)=\mathcal K(f,h)\).
+\end{lemma}
+
+\begin{proof}
+Choose points attaining the minimum cross-support distance. The
+distance of the two supporting ball centres is at most \(d+6d+d=8d\).
+Choose lifts of those centres realizing that distance when \(Y\)
+is a torus. Their midpoint has distance at most \(5d\) from both
+lifted balls. Any difference in this larger ball has length at
+most \(10d<\ell/2\). Its Euclidean length therefore equals the
+flat torus distance. This identifies the integral with the one
+using the flat distance intrinsically. The lower separation follows
+from \eqref{fp:eq-shape} and the upper separation from the diameter
+of the common ball. Integration against the nonnegative product
+gives the two middle inequalities. The mass floor and the volume
+of each support ball give the outer inequalities. Under dilation
+the distances are multiplied by \(t\), the Lipschitz constants by
+\(t^{-1}\) and the masses by \(t^4\). The factor \(t^8\) in the
+product measure cancels the homogeneity \(t^{-8}\) of the kernel.
+\end{proof}
+
+\subsection{Curvature normalization}
+
+In the pairing of Section~\ref{fp:sec-setting}, take an orthonormal basis
+of Hermitian traceless colour generators \(T_\alpha\),
+\(1\le\alpha\le3\), with
+\(\tfrac12\operatorname{tr}(T_\alpha T_\beta)=\delta_{\alpha\beta}\).
+For a raw link increment \(A\), the leading plaquette logarithm
+of \(e^{itA}\) is \(it\,\mathrm d A\), where \(\mathrm d\) is the
+unscaled oriented link circulation. Its trace vanishes at every
+order. Expanding the exponential in the Wilson action gives
+\[
+ 1-\tfrac12\operatorname{Re}\operatorname{tr}U_p(t)
+   =\tfrac12 t^2|(\mathrm dA)(p)|^2+O(t^3).
+\]
+Thus the free Wilson curvature at coupling \(g\) is the
+three-colour Gaussian with covariance \(g^2P_{\rm ex}\) per
+colour, where \(P_{\rm ex}\) is the counting-coordinate
+orthogonal projection onto \(\operatorname{ran}\mathrm d\).
+Indeed \(\mathrm d\) is an isomorphism on
+\((\ker\mathrm d)^\perp\) onto this range, and its constant
+Jacobian cancels in the normalized Gaussian integral.
+
+For one colour, differentiating
+\(\delta_{\mu\nu}/(4\pi^2|u|^2)\) once in each curvature argument
+gives the unit-coupling continuum curvature matrix on
+\(\Lambda^2\mathbb R^4\).
+In detail, with \(G(u)=(4\pi^2|u|^2)^{-1}\) and
+\(J=\widehat u\widehat u^{\mathsf T}\), its action is
+the negative of \(\nabla^2G=(4J-I)/(2\pi^2|u|^4)\)
+on each factor of the wedge, added together. Since \(J\)
+has rank one, the term \(Jv\wedge Jw\) vanishes. Consequently
+\begin{equation}\label{fp:eq-free-coefficient}
+ \mathsf K(u)=\frac{\Lambda^2(I-2J)}{\pi^2|u|^4},\qquad
+ \|\mathsf K(u)\|_{\mathrm{HS}}^2=\frac{6}{\pi^4|u|^8},\qquad
+ C_G=\frac{9}{\pi^4}.
+\end{equation}
+The norm calculation uses orthogonality of \(I-2J\) and the six
+positive plane labels. For real centred Gaussian coordinates \(X,Y\)
+of any covariance, \(\operatorname{Cov}(X^2,Y^2)=2(\mathbb E XY)^2\).
+The two half-density factors give \(1/4\), and summing over
+independent colours gives \(3\). Thus the separated half-square
+covariance at coupling \(g\) is \(C_Gg^4\mathcal K(f,h)\).
+This calculation concerns only separated correlations.
+
+\begin{proposition}[Free reference at a blocked scale]
+\label{fp:prop-free-reference}
+On the periodic fine lattice of spacing \(a=L^{-K}\) and side \(\ell\),
+use a compatible block hierarchy of odd factor \(L\).
+Take \(0\le j\le K\), \(b=L^ja\), and for \(j\ge1\) require at
+least two sites per direction at mesh \(b\). Let \(P_j\) be
+the unit-coupling counting-coordinate covariance of the
+conditional mean of the exact free curvature given its
+level-\(j\) plaquette sheet averages. In particular \(P_0=P_{\rm ex}\).
+Use the barycentre \(x_p\) of each positively oriented fine
+plaquette \(p\). Define the free reference sum by
+\[
+ \mathcal K_{a,j,\ell}(f,h)=
+       \sum_{p,q}f(x_p)h(x_q)P_j(p,q)^2.
+\]
+Then the connected covariance of the centred free half-squares
+of that conditional mean at coupling \(g>0\) is exactly
+\(\tfrac32g^4\mathcal K_{a,j,\ell}(f,h)\).
+For \((f,h)\in\mathfrak T_{T_\ell}(d;\vartheta)\) with
+\(10a\le d\le\ell/100\) and \(b\le d\), it satisfies
+\begin{equation}\label{fp:eq-free-reference-error}
+ \left|\frac{(3/2)\mathcal K_{a,j,\ell}(f,h)}
+                 {C_G\mathcal K(f,h)}-1\right|
+ \le C_L\left[
+     (a/d)^{1/2}+(d/\ell)^4+\frac{a}{\vartheta^3d}
+     +\mathbf1_{\{j\ge1\}}e^{-c_Ld/b}\right].
+\end{equation}
+The constants are uniform in \(a,j,\ell,g\), positions and amplitudes.
+\end{proposition}
+
+\begin{proof}
+The orthogonal splitting for the actual sheet averages in
+\cite[Proposition~3.2]{GI} identifies \(P_j\). The Gaussian
+square identity gives the exact covariance above. The counting
+entries \(P_j(p,q)\) become physical entries after multiplication
+by \(a^{-4}\), since the physical curvature is \(a^{-2}\) times
+the raw flux. This change supplies \(a^8\) in the double
+quadrature for the squared physical entries. In these conventions
+\cite[Theorem~D]{GI} gives \eqref{fp:eq-free-reference-error}.
+In its application here, every cross-displacement lies in
+\([d,10d]\) by Lemma~\ref{fp:lem-shape-kernel}. Thus the
+pointwise comparison range \([10a,\ell/10]\) contains every
+contributing pair, including pairs whose support balls meet
+a seam of the torus. The lost fluctuation kernel has the
+exponential bound in that theorem at distance \(r\ge b\).
+The shifted-grid quadrature has absolute cost
+\(CaM_fM_h/(\vartheta d)\). Dividing by
+\eqref{fp:eq-shape-kernel-bounds} gives the relative cost
+\(Ca/(\vartheta^3d)\).
+\end{proof}
+
+\begin{lemma}[Bounds for the raw background and slice kernels]
+\label{fp:lem-free-kernel-bounds}
+Use the hierarchy and the counting-coordinate projections of
+Proposition~\ref{fp:prop-free-reference}. At level \(j\) put
+\(b_j=L^ja\), and let \(r\) be the flat torus distance between
+the fine plaquette barycentres. Uniformly over the compatible
+tori and \(0\le j\le K\),
+\begin{equation}\label{fp:eq-free-point-bounds}
+ \begin{split}
+ |P_j(p,q)|&\le C_L(a/b_j)^4,\\
+ |P_j(p,q)|&\le C_L a^4r^{-4}
+       \qquad(\max(10a,b_j)\le r\le\ell/10).
+ \end{split}
+\end{equation}
+For \(j\ge1\) the slice satisfies
+\[
+ |(P_{j-1}-P_j)(p,q)|
+     \le C_L(a/b_{j-1})^4 e^{-c_L r/b_{j-1}} .
+\]
+\end{lemma}
+
+\begin{proof}
+Write \(n=L^j=b_j/a\). In raw counting coordinates let \(H_n B\)
+be the least-norm fine exact curvature with sheet datum
+\(\mathrm d_c B\), where \(\mathrm d_c\) is the coarse circulation.
+If the fine torus has just one site, all raw circulations vanish,
+so we may work with at least two sites at every used level.
+The range of \(H_n\) is \(\operatorname{ran}P_j\) by the sheet identity and
+the least-norm characterization. In fact the image of the sheet
+map on exact fine curvatures is the range of \(\mathrm d_c\),
+since the link average is onto. The lift bound proved in
+\cite[proof of Proposition~6.4]{MB} gives
+\[
+ \sum_e |H_n(p,e)|\le C_L n^{-2}.
+\]
+Here \(e\) ranges over coarse bonds. The bound follows by
+summing the kernel \(C_L n^{-2}e^{-c_L\operatorname{dist}(p,e)/b_j}\)
+on the coarse lattice. The sum of its periodic images is
+bounded by the sum on the full coarse lattice. The lift
+estimate is at mesh \(b_j\) and uses no step above that mesh.
+For \(n=1\) the lift is the ordinary plaquette circulation
+and the row bound follows by counting its four entries.
+
+Set \(\mathcal E_n=H_n^{\mathsf T}H_n\) and use \({}^+\) for the
+inverse on \((\ker\mathrm d_c)^\perp\), extended by zero on
+\(\ker\mathrm d_c\). The kernel is the same for \(\mathcal E_n\)
+and \(\mathrm d_c\) by the defining datum and least-norm property.
+By \cite[Proposition~4.1]{MB},
+\(\mathcal E_n\ge\mathrm d_c^{\mathsf T}\mathrm d_c\).
+Order reversal on the quotient gives
+\(\mathcal E_n^+\le(\mathrm d_c^{\mathsf T}\mathrm d_c)^+\).
+If there are \(N=\ell/b_j\ge2\) sites per direction, the
+diagonal entries of the latter are bounded by
+\[
+ \frac1{N^4}\sum_{k\ne0}
+       \frac1{4\sum_{\mu=1}^4\sin^2(\pi k_\mu/N)}
+ \le \frac C{N^2}\sum_{0<|k|_\infty\le N/2}|k|^{-2}
+ \le C .
+\]
+The frequencies are represented with \(|k_\mu|\le N/2\).
+The eigenvalue displayed is the positive curl eigenvalue on
+the Fourier complement of the discrete gradients, and the
+zero frequency is removed. The last estimate counts at most
+\(C m^3\) frequencies with \(|k|_\infty=m\).
+Positivity and Cauchy--Schwarz then bound every entry of
+\(\mathcal E_n^+\) by \(C\). Apply the row bound twice to
+\(P_j=H_n\mathcal E_n^+H_n^{\mathsf T}\). This proves the first
+line of \eqref{fp:eq-free-point-bounds}. All matrices here
+use raw flux and counting pairings.
+
+The slice bound is \cite[Proposition~6.4]{MB}, expressed in the
+distance \(r\) by moving the plaquette base points by \(O(a)\).
+At the distances of the second line, \cite[Proposition~8.3]{GI}
+and \eqref{fp:eq-free-coefficient} give \(|P_0(p,q)|\le Ca^4r^{-4}\).
+For \(1\le i\le j\), put \(t_i=r/b_{i-1}\).
+The sum of the slice bounds is at most
+\(C_L a^4r^{-4}\sum_i t_i^4e^{-c_Lt_i}\).
+Since \(r\ge b_j\), all \(t_i\ge1\). Use
+\(t_i^4e^{-c_Lt_i}\le C_L/t_i\) and the geometric sum of
+\(b_{i-1}/r\) to bound the last sum uniformly. Subtracting the
+slices from \(P_0\) proves the second line.
+\end{proof}
+
+
+\section{The witness scale and the source coefficient}
+\label{fp:sec-witness}
+
+Fix a terminal floor \(H>1\) and a first-passage trajectory
+\(x_0=\beta,\ldots,x_K\) of the real construction in
+\cite[Theorem~A]{RT}. Use the same formed coefficients in every
+admitted finite realization of that prefix. Thus
+\(H<x_K\le H+B\), and there are fixed \(\lambda,B>0\) and \(C_0\ge0\)
+such that
+\begin{equation}\label{fp:eq-depth-drift}
+ \lambda(j-i)-C_0\le x_i-x_j\le B(j-i)
+ \qquad (0\le i\le j\le K).
+\end{equation}
+The actual increments have a common one-loop part \(b_i^0\),
+whose partial sums differ from \(ic_0\) by at most a fixed
+constant, and a remaining part bounded at step \(i\) by
+\(e(x_{i-1})\), where the nonnegative envelope \(e\) is bounded on \([H,\infty)\)
+and tends to zero at infinity.
+In the half-trace Wilson convention,
+\[
+ c_0=\frac{11}{3\pi^2}\log L.
+\]
+These are the real trajectory and coefficient inputs of
+\cite{RT}. The one-loop coefficient is a determinant and trace
+input in that construction.
+
+Write \(\eta_j=L^{j-K}\) for the physical mesh at level \(j\), and
+let \(M\) be the fixed side of a localization cube in its own
+mesh units. Fix the shape parameter \(\vartheta>0\) and the
+positive logarithmic exponent \(p\) of the small-field radius.
+Define
+\begin{equation}\label{fp:eq-witness-room}
+ \overline x_s=H+B(s+1),\qquad
+ D(s)=D_0(\log\overline x_s)^{2p},\qquad
+ s(d)=\min\{s\in\mathbb Z_{\ge0}:L^sd\ge D(s)\}.
+\end{equation}
+The fixed constant \(D_0\) is chosen after \(L,M,\vartheta\), with
+room for the localization and source ranges specified below.
+Choose it so that \(D(s)\ge1\). This can be done uniformly for
+\(H\ge e\).
+
+\fpneedspace{25\baselineskip}
+\begin{proposition}[Choice of scale]\label{fp:prop-witness}
+For \(0<d<1\), let \(s=s(d)\) and use a cutoff with \(K\ge s\).
+Set
+\[
+ k_0=K-s,\qquad a_s=L^{-s},\qquad
+ \widehat d=d/a_s,\qquad
+ x=x_{k_0},\qquad g_K(d)=x^{-1/2}.
+\]
+Then \(D(s)\le\widehat d<LD(s)\), and at fixed \(H\),
+\begin{equation}\label{fp:eq-witness-asymptotic}
+ \frac{s(d)\log L}{\log(1/d)}\longrightarrow1,\qquad
+ \frac{g_K(d)^{-2}}{\log(1/d)}
+   \longrightarrow c_*:=\frac{11}{3\pi^2}
+ \qquad(d\downarrow0),
+\end{equation}
+uniformly over the admitted first-passage data with \(K\ge s(d)\).
+In particular \(\widehat d\) is bounded above and below by
+fixed positive multiples of \((\log x)^{2p}\) for small \(d\).
+If
+\[
+ m=\lceil 2\log_L\overline x_s\rceil,\qquad k_1=k_0+m,
+\]
+then \(k_1\le K\) for small \(d\), and
+\(\sup_{k_0\le j\le k_1}|x_j/x-1|\to0\) uniformly in the same data.
+
+Suppose the complete clean reads at these levels have a joint lift of
+diameter at most \(P(s)L^{-(s-m)}\), where \(P\) is a fixed
+polynomial with nonnegative coefficients. On any fixed reference
+torus they fit in a common injective patch for all small \(d\).
+For a shape test \(f\), its ordinary source norm at level \(j\) is
+\[
+ \|f\|_{\sharp,K-j}=\max(\|f\|_\infty,c_M\eta_j\operatorname{Lip} f),
+\]
+where \(c_M\) is the fixed locality constant of \cite{SI}.
+For \(D_0\) sufficiently large this is \(\|f\|_\infty\) at \(j=k_0\),
+and is at most \(L^{j-k_0}\|f\|_\infty\) for \(k_0\le j\le k_1\).
+\end{proposition}
+\begin{proof}
+Since \(\log D(s)=O_H(\log\log(s+2))\), the exponential
+\(L^s d\) eventually exceeds \(D(s)\). The minimum is positive
+when \(d<1\). Its defining inequality and the failure at \(s-1\)
+give the two bounds on \(\widehat d\), using that \(D\) is
+nondecreasing. They give
+\(s\log L=\log(1/d)+O_H(\log\log(s+2)+1)\).
+Also \(s\to\infty\) as \(d\downarrow0\), since each fixed set of
+candidate levels fails for small enough \(d\). The first limit
+follows on dividing by \(s\log L\).
+
+For the second limit, write \(e_*(y)=\sup_{t\ge y}e(t)\) on the
+admitted half-line. It is bounded by hypothesis.
+By \eqref{fp:eq-depth-drift},
+\(x_{K-u}\ge H+\max(0,\lambda u-C_0)\).
+Telescoping the last \(s\) increments yields
+\[
+ |x_{K-s}-x_K-c_0s|
+ \le C+\sum_{u=1}^s e_*\bigl(H+\max(0,\lambda u-C_0)\bigr)=o(s).
+\]
+The last bound follows by averaging a bounded sequence tending to
+zero, independent of the datum. The bounded terminal interval
+and the first limit give \eqref{fp:eq-witness-asymptotic}.
+The lower drift and the upper envelope \(\overline x_s\) give
+\(x\asymp_H 1+s\) and \(\overline x_s\asymp_H x\).
+This gives the stated size of \(\widehat d\).
+
+At fixed \(H\), \(m=O_H(\log(s+2))\) and \(L^m\le L\overline x_s^2\).
+The drift bounds give \(|x_j-x|\le Bm+C_0=o(x)\) through \(k_1\).
+The lifted diameter tends to zero since
+\(P(s)L^{m-s}\le L P(s)\overline x_s^2L^{-s}\).
+When it is less than a quarter of the reference period, a ball
+about a point of the read contains the lift and projects
+injectively. This is a geometric consequence of the supplied
+bound on the complete reads. Finally, the shape condition gives
+\(c_M\eta_{k_0}\operatorname{Lip} f
+ \le c_M\|f\|_\infty/(\vartheta\widehat d)\).
+Choose \(D_0\) so the last prefactor is at most one.
+The bound at \(j\ge k_0\) then follows from
+\(\eta_j=L^{j-k_0}\eta_{k_0}\).
+\end{proof}
+
+\begin{corollary}[One-loop comparison and dilation]
+\label{fp:cor-witness-variants}
+At fixed \(H\), let
+\[
+ g_{\rm lin}(d)=\bigl(H+c_*\log(1/d)\bigr)^{-1/2}.
+\]
+Uniformly on the first-passage data of \cref{fp:prop-witness},
+\(g_K(d)/g_{\rm lin}(d)\to1\).
+In a physical comparison with main factor \(g_K(d)^4\), this
+replacement multiplies the existing relative factor by
+\((g_K(d)/g_{\rm lin}(d))^4\).
+
+Let \(K'\) be the first-passage depth for the same bare coupling
+\(\beta\), and let \(b=K-K'\). The Wilson measure on the torus
+of side \(\ell\) at cutoff \(K\) is carried by lattice dilation
+to the torus of side \(L^b\ell\) at cutoff \(K'\).
+For each test put \(f^{[b]}(x)=f(L^{-b}x)\). Then
+\[
+ S^T_{2;K,\ell,\beta}(f,h)=
+ S^T_{2;K',L^b\ell,\beta}(f^{[b]},h^{[b]}).
+\]
+The shape parameter and the free integral \(\mathcal K\) are
+preserved, with observation scale \(L^b d\) on the right.
+A first-passage comparison therefore applies on the right
+when the dilated datum satisfies its volume, scale and cutoff
+hypotheses.
+\end{corollary}
+\begin{proof}
+By \eqref{fp:eq-witness-asymptotic}, the two inverse squared
+couplings divided by \(\log(1/d)\) have the same positive limit.
+This gives the ratio and the stated relative factor.
+
+Dilation by \(L^b\) maps spacing \(L^{-K}\) to \(L^{-K'}\) and
+bijects oriented links and plaquettes. It preserves each
+plaquette product and each Haar factor. The normalized
+measures are therefore identified at the same \(\beta\).
+The transformed test on each corresponding barycentre gives
+the same observable. The support radii and distance multiply
+by \(L^b\), each mass by \(L^{4b}\), and each Lipschitz constant
+by \(L^{-b}\). In the free integral the two volume factors
+cancel the scaling of \(|x-y|^{-8}\). These equalities hold
+also for negative \(b\).
+\end{proof}
+
+\subsection{A constant source in the fixed reference}
+
+Freeze the reference data of the unsourced trajectory at \(\beta\),
+including \(\theta_i=x_i\), the cubes, the cuts, and the readout
+maps. On a constant interior read, let \(b_i(v)\) be the actual
+Wilson coefficient of the complete formed member at step \(i\)
+when the initial scalar source is \(v\). The coefficient is read
+at its own pointing before its Wilson subtraction. The formation
+includes the marked contribution from earlier retained remainders.
+The coefficients are those of the common companion, so the
+interior scalar values agree on the admitted volumes.
+In particular \(b_i(0)=x_{i-1}-x_i\).
+
+We use the fixed-reference analytic and real matching hypotheses of
+\cite[Propositions~4.1 and~4.2]{SI}. For the analytic part, the
+ordinary coefficient is the same formed holomorphic map of the
+old weight deviations in the sourced and unsourced presentations.
+More precisely, it has the form
+\[
+ b_i(v)=b_i^0+\mathcal B_i\bigl(
+        (\theta_l-x_l+Z_l(v))_{0\le l<i}\bigr)+R_i(v),
+\]
+where \(b_i^0\) is source independent, \(Z_l\) is the shift
+defined in \eqref{fp:eq-scalar-shift}, and \(R_i\) is the marked
+part. The ordinary map \(\mathcal B_i\) has no additional
+dependence on \(v\). It is holomorphic on the full relative
+product of weight discs. The half product has room
+\(6\varrho\) beyond the real base weights, for a fixed source radius
+\(\varrho>0\). On the half product its absolute derivative row sum is
+bounded by
+\(C x_{i-1}^{-3/2}(\log x_{i-1})^p\).
+This is the regular coefficient bound on the actual creation
+domains. The marked coefficient is holomorphic and bounded by
+\(C x_{i-1}^{-p_R}\) on \(|v|<4\varrho\), with \(p_R>1\). The
+coefficient maps preserve reality. For matching, the real weights have \(2\varrho\) of room in the
+common tube and the full increments beyond the common one-loop
+part are bounded by \(\varrho/3\). The shifted bare input is
+admitted and each subsequent weight in that tube has actual local
+successor admission. The two real
+presentations have common hereditary reads, centered formation,
+real cuts, vacuum convention and cofinal physical coefficient
+readout as in the same-frame source theorem of \cite{SI}.
+The numerical room does not supply these local admission tests.
+
+\begin{proposition}[The physical source factor]
+\label{fp:prop-source-normalization}
+Under these hypotheses, above a fixed floor for \(H\), set
+\begin{equation}\label{fp:eq-scalar-shift}
+ Z_j(v)=v+\sum_{i=1}^j\bigl(b_i(v)-b_i(0)\bigr),\qquad
+ \zeta_j=Z_j'(0).
+\end{equation}
+The constant-source weight at level \(j\) is \(x_j-Z_j(v)\).
+For the shifted real input, through the same fixed prefix,
+\[
+ x_j^{\rm fix}(\beta-v)=x_j-Z_j(v) \qquad (|v|<\varrho).
+\]
+In particular
+\begin{equation}\label{fp:eq-source-jacobian}
+ \zeta_j=\left.\frac{d}{db}x_j^{\rm fix}(b)\right|_{b=\beta}
+        =1+\sum_{i=1}^j b_i'(0),\qquad
+ \sum_{i=1}^j |b_i'(0)|
+ \le C\bigl[x_j^{-1/2}(\log x_j)^p
+                   +\varrho^{-1}x_j^{1-p_R}\bigr].
+\end{equation}
+The floor can be chosen so that \(2/3\le\zeta_j\le4/3\).
+At the witness set \(\zeta_K(d)=\zeta_{k_0}\). Then
+\(\zeta_K(d)\to1\) as \(d\downarrow0\), uniformly over the
+admitted first-passage data with \(K\ge s(d)\).
+If \(p_R\ge3/2\), its difference from one is bounded by
+\(C g_K(d)(\log g_K(d)^{-2})^p\).
+\end{proposition}
+\begin{proof}
+At the bare level the source changes the coefficient in the Wilson
+weight from \(\beta\) to \(\beta-v\). The coefficient subtracted
+from the regular member is added to the exponent of that weight
+as its own pointed Wilson action. Thus the inverse weight loses
+\(b_i(v)\) at step \(i\). The stage sums of tents equal one on
+the interior read. The resulting weight is
+\(\beta-v-\sum_{i\le j}b_i(v)=x_j-Z_j(v)\).
+For real \(v\), apply the same-frame source theorem of \cite{SI}
+with the stated hereditary admission and common readout. This
+identifies that weight with the real shifted presentation while
+the reference data stay fixed. The derivative in
+\eqref{fp:eq-source-jacobian} follows by the chain rule.
+
+For the estimate put
+\(d_i=\sup_{0<|v|<4\varrho}|b_i(v)-b_i(0)|/|v|\).
+Assume inductively that \(\sum_{l<i}d_l\le1/6\). Each previous
+weight shift then has modulus at most \((7/6)|v|<6\varrho\).
+The segment between the unsourced and sourced old weights lies
+in the half product. Integrating its derivative row bound
+bounds the unmarked difference quotient by
+\(C x_{i-1}^{-3/2}(\log x_{i-1})^p\).
+Subtracting the value at zero from the marked coefficient and
+applying Schwarz's lemma on \(|v|<4\varrho\) bounds its difference
+quotient by \(C\varrho^{-1}x_{i-1}^{-p_R}\). The one-loop part is
+common and cancels.
+
+For \(i\le j\), the lower drift gives
+\(x_{i-1}\ge x_j/2+\lambda(j-i+1)\) once \(H\ge2C_0\).
+Both envelope functions decrease above a fixed floor.
+For \(A\ge e\) and \(q>1\), their required integral bound is
+\[
+ \int_A^\infty y^{-q}(\log y)^p\,dy
+ =A^{1-q}\int_0^\infty e^{-(q-1)t}(\log A+t)^p\,dt
+ \le C_{p,q} A^{1-q}(\log A)^p .
+\]
+Comparison of the sums with this integral gives the right side
+of \eqref{fp:eq-source-jacobian} as a bound on every radial sum.
+Increasing \(H\) makes this bound at most \(1/6\) throughout the
+prefix. This closes the induction, starting with \(Z_0(v)=v\).
+The derivative at zero satisfies \(|b_i'(0)|\le d_i\).
+Reality yields the claimed interval for \(\zeta_j\). The witness
+limit follows from \(x\to\infty\) in
+\eqref{fp:eq-witness-asymptotic}, and the last bound follows from
+\(x^{1-p_R}\le x^{-1/2}\) when \(p_R\ge3/2\).
+\end{proof}
+
+\subsection{Differentiating the pointed classical part}
+
+On an ordinary interior read at the witness, all the used stage
+profiles equal one. Here the action is evaluated on the background
+formed from the level-\(k_0\) data, using its bare-mesh plaquettes.
+The witness mesh \(a_s\) controls the read range. For each step \(j\le k_0\), let \(h_y^{(j)}(p)\)
+be its nonnegative tent weights at the plaquette \(p\) of the
+classical read and let \(p_y\) be its fixed bare source anchor.
+The exact classical identification in \cite{SI} transports the
+pointed action to this read, with
+\(\sum_y h_y^{(j)}(p)=1\) and
+\(\operatorname{dist}(x(p),x(p_y))\le C M\eta_j\)
+when \(h_y^{(j)}(p)\ne0\). These statements apply on the complete
+common read, with its projected branch tests and contours.
+They concern the literal transported Wilson counterterms.
+
+\begin{proposition}[Pointed first derivatives]
+\label{fp:prop-pointed-insertion}
+For \(W=z_1f_1+z_2f_2\) with disjointly supported shape tests,
+define \(f_i^w\) on the bare-mesh plaquettes of the witness background by
+\begin{equation}\label{fp:eq-physical-profile}
+ \zeta_{k_0} f_i^w(p)=f_i(x(p))+
+ \sum_{j=1}^{k_0}b_j'(0)\sum_y h_y^{(j)}(p) f_i(x(p_y)).
+\end{equation}
+The first derivative of the sourced classical exponent at zero
+is the Wilson action weighted by \(\zeta_{k_0}f_i^w\). The mixed
+derivative of that classical exponent vanishes. The discrepancy
+and support obey
+\begin{equation}\label{fp:eq-profile-range}
+ \begin{split}
+ |f_i^w(p)-f_i(x(p))|
+ &\le C M a_s\operatorname{Lip}(f_i)
+                 \sum_{j\le k_0}|b_j'(0)|,\\
+ \{x(p):f_i^w(p)\ne0\}
+ &\subset (\operatorname{supp}f_i)^{+CMa_s}.
+ \end{split}
+\end{equation}
+Here \(E^{+r}\) denotes the closed \(r\)-neighbourhood of \(E\).
+
+For a bilinear form on these plaquette weights, with the physical
+quadrature at the bare mesh \(a=L^{-K}\), write
+\[
+ \mathcal B(u,v)=a^8\sum_{p,q} u(p)v(q)\,B(p,q),
+\]
+assume \(|B(p,q)|\le A d^{-8}\) between the two enlarged supports.
+When \(C M a_s\le d/4\), replacing both sampled tests by the
+profiles \(f_i^w\) changes this form by at most
+\begin{equation}\label{fp:eq-profile-kernel-error}
+ C A\frac{M}{\vartheta\widehat d}
+        \left(\sum_{j\le k_0}|b_j'(0)|\right)
+        \|f_1\|_\infty\|f_2\|_\infty.
+\end{equation}
+The profile can have either sign.
+\end{proposition}
+\begin{proof}
+At the plaquette \(p\) the source changes the inverse weight by
+minus
+\[
+ W(x(p))+\sum_{j\le k_0}\sum_y h_y^{(j)}(p)
+             \bigl[b_j(W(x(p_y)))-b_j(0)\bigr].
+\]
+The weights and anchor locations are fixed. This gives
+\eqref{fp:eq-physical-profile}. Each summand depending on a
+single anchor has mixed derivative proportional to
+\(f_1(x(p_y))f_2(x(p_y))=0\). The bare source is linear.
+
+For the exact accounting, let \(G_{j,y}(v)\) be the unnormalized
+pointed regular member on the fixed read and \(U\) its classical
+field. Its normalized exponent contains
+\[
+ G_{j,y}(v)-G_{j,y}(v)(\mathbf1,0)
+                    -b_j(v)A(h_y^{(j)},U),
+\]
+where \(A(h,U)\) denotes the Wilson action with plaquette weight
+\(h\) and the exact inherited transport. The difference of the
+last term between \(v=W(x(p_y))\) and \(v=0\) cancels precisely
+the contribution of the same coefficient to the shifted weight
+on the common read. Thus differentiating the bare source and
+the regular members before their Wilson subtractions gives the
+same answer as differentiating the running weight and the
+already subtracted members. In the latter representation,
+\eqref{fp:eq-physical-profile} is the classical contribution.
+Its paired regular derivative is the derivative of the
+normalized member, with its own Wilson subtraction. Missing
+shares on other retained reads are separate terms in the
+complete exponent.
+
+Subtract \(\zeta_{k_0} f_i(x(p))\) on the right side of
+\eqref{fp:eq-physical-profile} and use the unit sum of the tents.
+The difference at each anchor is bounded by
+\(CM\eta_j\operatorname{Lip}(f_i)\). Since \(\eta_j\le a_s\)
+and \(\zeta_{k_0}\ge2/3\), this proves the first inequality in
+\eqref{fp:eq-profile-range}. The range of the anchor read proves
+the second one.
+
+The widened supports have separation at least \(d/2\). Each
+contains at most \(C(d/a)^4\) plaquette barycentres, with
+multiplicity over the six orientations. This bound follows
+by covering the enlarged ball by mesh cubes, with a bounded
+number of barycentres per cube. The first inequality in
+\eqref{fp:eq-profile-range}, the shape Lipschitz bound and the
+bound on the slope sum imply \(\|f_i^w\|_\infty\le C_\vartheta
+\|f_i\|_\infty\) there. Expand the difference of products into
+\((f_1^w-f_1)f_2^w+f_1(f_2^w-f_2)\), with the original tests
+evaluated at the respective barycentres. In the estimate on
+each sum the factor \(a^8d^{-8}\) pays for both support
+counts. This yields \eqref{fp:eq-profile-kernel-error}.
+\end{proof}
+
+
+\subsection{Summing the ordinary first source derivatives}
+\label{fp:subsec-ordinary-response}
+
+In this subsection set \(n=k_0\), \(x=x_n\), and let \(f\) be one of
+the shape tests. Write \(M_f=\|f\|_\infty\) and \(M_i=\|f_i\|_\infty\)
+for their amplitudes. The physical meshes at levels \(j\le n\) are
+\(\eta_j=L^{j-K}\). Use the radii and the small-field profile of the
+actual source formation in \cite{SI}, with
+\[
+ \delta_j=x_j^{-1/2}(\log x_j)^p,\qquad
+ \alpha_j=x_j^{-1/2}(\log x_j)^q,\qquad s_j=\delta_j/\alpha_j.
+\]
+Fixed radius constants can be absorbed into the estimates below.
+Take \(q>21p\) and \(p>1\). Formed regular and remainder
+origins have indices \(1\le j\le n\); their lists are empty
+when \(n=0\). On a support neighbourhood, assign each ordinary
+source term once
+in its own class and at its own root. A short ordinary read uses
+the same localized field and current as its whole-lattice
+formation at that root. The complete determining set includes
+every branch test, chart read, gauge contour and source anchor.
+This common-read condition is required before replacing a
+history member by its formed jet. A local curvature test alone
+does not identify those two evaluations.
+
+\fpneedspace{37\baselineskip}
+\begin{lemma}[The summed ordinary source bounds]
+\label{fp:lem-ordinary-response-sums}
+Suppose the localized backgrounds at the witness are real and
+the passed test gives
+\[
+ |\log U_p|\le C(a/a_s)^2\delta_n
+\]
+on the bare plaquettes of the localized read. Suppose the
+ordinary source formation and the hypotheses of
+\cite[Proposition~5.6]{SI} hold on all the following reads.
+\begin{enumerate}
+\item The near regular and defect terms are filed in witness
+windows meeting a fixed \(CMa_s\) enlargement of the support.
+In each window their evaluated complete field and current datum
+has size at most \(C\delta_n\) and satisfies the affine comparison
+and truncation hypotheses of \cite[Proposition~5.6]{SI}.
+At the older origins
+\(\|f\|_{\sharp,K-j}\le M_f\) by the witness room.
+\item For an ordinary remainder of origin \(j\), its actual
+source family is holomorphic on its radius
+\(\varrho/\|f\|_{\sharp,K-j}\). Its bound there is
+\(C x_j^{-\kappa_0/2}e^{-\kappa l}\), where \(l\) is the length
+of its domain and \(\kappa_0>4\). This is a bound both on its
+admitted evaluated pairs and on the product of that source disc
+with an old pair ball of radius \(c\alpha_j\) about the trivial
+pair, on which the family is jointly holomorphic. The source
+family is invariant under constant colour rotations in that chart.
+\item A homogeneous nonwrapping read of age \(A=n-j\) and length
+\(l\) has old pair norm at most
+\(C(1+l)^b\delta_n L^{-2A}\) in its admitted axial frame.
+Its current is included in the pair norm. The ordinary
+long regular jets on these reads have the same admitted core and
+trivial-pair ball bounds as their weighted first-source amplitude.
+They vanish with their first field derivative at the trivial pair.
+Those outside the near windows have \(l\ge cL^A-C\).
+\item At origin \(j\) the domain count at one root and length \(l\)
+is at most \(C e^{\kappa_D l}\), with \(\kappa_D<\kappa\). The complete
+determining set together with its root has diameter at most
+\(C(1+l)\eta_j\).
+For a nonhomogeneous ordinary read which reaches a distant live
+region or winds on the reference torus, require
+\(l\ge c\widehat d L^A-C\). Use the unsubstituted source-disc bounds
+on those reads, with a fixed polynomial in \(x,L^A\) allowed
+in their individual majorants at rate \(\kappa\).
+The ordinary two-source terms are holomorphic with these
+absolute majorants on a fixed source bidisc of radii proportional
+to \(M_i^{-1}\) and
+depend only on the source values in their declared complete
+determining sets. They include the terms in the class-independent
+scalar source energy before vacuum subtraction, as well as the
+remaining normalized interactions. The local scalar energy uses
+the same complete source reads and bounds, as in
+\cite[Proposition~7.1]{SI}.
+\end{enumerate}
+All constants in these inputs are uniform in the cutoff and
+actual retained histories. Let \(I(f)\) be the sum of the
+ordinary normalized first-source terms just specified, and
+\(X(f)\) the localized Wilson read with profile from
+\eqref{fp:eq-physical-profile} and its passed-test indicator.
+For any fixed \(b_0\) with \(0<b_0<\kappa_0/2-2\), the bounds are
+\[
+ \begin{split}
+ \|X(f)\|_\infty
+   &\le Cx^{-1}\widehat d^{\,4}(\log x)^{2p}M_f,\\
+ \|I(f)\|_\infty
+   &\le Cx^{-1}\widehat d^{\,4}
+             [(\log x)^{3p-q}+x^{-b_0}]M_f .
+ \end{split}
+\]
+The ordinary mixed terms are bounded by
+\(C\widehat d^{\,4} e^{-c'\widehat d}M_1M_2\).
+Terms filed as live, missing shares of the source number, and
+errors replacing the history background by its localization
+use separate bounds.
+\end{lemma}
+
+\begin{proof}
+At a passed-test plaquette the half-trace action is bounded
+by \(C(a/a_s)^4\delta_n^2\). The profile and support estimate
+\eqref{fp:eq-profile-range} bounds its weight by \(CM_f\)
+and the number of its bare plaquettes by \(C(d/a)^4\).
+Multiplication gives the bound for \(X(f)\).
+
+The near-window bound in \cite[Proposition~5.6]{SI} gives
+\(C\delta_n^2s_n M_f\) per witness window. It is used with the
+same source anchor for its complete pointed member and its
+own Wilson subtraction. At most \(C\widehat d^4\) such windows
+meet the enlarged support. The contribution of this part is
+therefore bounded by \(C\widehat d^4 M_f x^{-1}
+(\log x)^{3p-q}\).
+
+For the long regular terms, \cite[Proposition~5.6]{SI} gives
+\(A_j\le C\alpha_{j-1}^2s_{j-1}\). Its pointed coefficient bound
+keeps the same norm after the member's own Wilson subtraction.
+The adjacent drift bounds give \(\alpha_{j-1}\le C\alpha_j\), since
+\(|x_{j-1}-x_j|\le B+C_0\). The lower drift gives
+\(x_{j-1}\ge x_n-C_0\), so \(s_{j-1}\le C s_n\) since \(q>p\).
+Using the older sharp norm bound in the statement, the regular
+jet majorant at these reads is thus
+\(C\alpha_j^2s_n M_f e^{-\kappa l}\).
+
+For a homogeneous old domain, use its field and current ratio
+\[
+ u_j=C(1+l)^b(\delta_n/\alpha_j)L^{-2A}.
+\]
+For an old remainder, source Cauchy and vacuum subtraction
+give the jet majorant
+\[
+ C\varrho^{-1}M_f x_j^{-\kappa_0/2}e^{-\kappa l}
+\]
+on the old pair ball and on the evaluated pair. The subtraction
+kills the constant term. Its linear field term vanishes because the
+adjoint representation has no invariant linear functional.
+On the half ball of its old pair chart, Cauchy's formula
+bounds the evaluated jet by \(C u_j^2\) times its jet
+majorant. When \(u_j\) is greater than a fixed small threshold,
+the bound on the actual admitted core gives the same estimate
+after increasing the constant. This also applies to each
+homogeneous long regular jet, whose two vanishing terms are
+part of its normalized formation. No small field ratio is
+asserted on nonhomogeneous reads.
+
+The radius-\(d\) support and the determining-set bound give
+at most \(C(\widehat d L^A+1+l)^4\) possible roots at length
+\(l\). Indeed a root of a read meeting the support is within
+distance \(d+C(1+l)\eta_j\) of its centre, and
+\(d/\eta_j=\widehat d L^A\). Use the bound
+\(C\widehat d^4L^{4A}(1+l)^4\).
+Summing \(u_j^2\) times the remainder majorant over lengths
+with the strict entropy margin cancels \(L^{-4A}\) against
+\(L^{4A}\). The resulting sum is at most
+\[
+ C\widehat d^4 M_f\delta_n^2
+            \sum_{j\le n} x_j^{-\kappa_0/2}\alpha_j^{-2}.
+\]
+Since \(\alpha_j^{-2}\le Cx_j\), comparison with an integral
+using \(x_j\ge x/2+\lambda(n-j)\) bounds the sum by
+\(C x^{2-\kappa_0/2}\). Its product with \((\log x)^{2p}\)
+is \(O(x^{-b_0})\). The homogeneous long regular jets use
+\(\alpha_j^2s_n\) in place of the remainder factor.
+Their lower length bound leaves \(e^{-c'L^A}\) after summing
+the length polynomial at the spare rate. Summing this in
+\(A\) gives \(C\widehat d^4M_f\delta_n^2s_n\).
+
+For a nonhomogeneous or winding read, sum the original
+majorant over its length lower bound. The resulting term
+has an \(e^{-c'\widehat d L^A}\) factor. The root count and
+any fixed polynomial in \(L^A,x,\widehat d\) are absorbed
+by a portion of this exponential, uniformly in age, because
+\(\widehat d\) grows as \((\log x)^{2p}\).
+An ordinary term is independent of either source variable whose
+support misses its read. Thus the contributing mixed terms reach
+both supports and their lengths have the same lower bound.
+Cauchy's formula on the two source circles gives \(C M_1M_2\)
+times the individual analytic bound. The same root and age
+summation proves the mixed estimate. The classical mixed
+terms vanish by \cref{fp:prop-pointed-insertion}.
+\end{proof}
+
+
+\section{The covariance on the reference torus}
+\label{fp:sec-reference-comparison}
+
+All the source derivatives in this section use the same bare datum and
+the same fixed auxiliary choices as in the unsourced run. We write
+$j_0=k_0$, $j_1=k_1$, $n=j_1-j_0$, $x=x_{j_0}$, $g_x=x^{-1/2}$,
+and $\widehat d=d/a_s$ for the witness variables of
+\cref{fp:prop-witness}. Here $a_s=L^{-s}$ is the witness mesh and
+$a=L^{-K}$ is the bare mesh. Put $M_i=\|f_i\|_\infty$ for the two
+source profiles. A positive law on a retained state includes the
+standing class, the block field and all still stored slots. We keep
+these slots when differentiating source integrals.
+
+\begin{lemma}[Derivatives of the actual source integral]
+\label{fp:lem-exact-insertion}
+At a stop \(j\), suppose the actual summed source integral is
+\[
+ \frac{Z(z_1f_1+z_2f_2)}{Z(0)}=\mathbb E_j \mathscr W_j(z),
+ \qquad \mathscr W_j(0)=1\quad\hbox{almost surely},
+\]
+where \(\mathbb E_j\) uses the unsourced positive retained-state
+law. Assume \(\mathscr W_j\) is measurable and pointwise holomorphic on
+a common source bidisc, and integrably dominated on every
+compact subdisc. Define its logarithmic jets at zero by
+\[
+ \Phi_i=\partial_i\mathscr W_j(0),\qquad
+ \Phi_{12}=\partial_1\partial_2\mathscr W_j(0)-\Phi_1\Phi_2.
+\]
+Assume the products used below are integrable. Then the bare
+connected covariance satisfies
+\begin{equation}\label{fp:eq-exact-covariance}
+ S_2^T(f_1,f_2)=\operatorname{Cov}_j(\Phi_1,\Phi_2)
+                         +\mathbb E_j\Phi_{12}.
+\end{equation}
+If the actual retained weight is locally \(e^\Phi\), these are
+its first and mixed exponent derivatives. No common zero-free
+disc for all retained weights is required.
+\end{lemma}
+\begin{proof}
+The compact-disc majorants and Cauchy's formula permit
+derivatives of \(\mathscr W_j\) to pass under the integral. Its integral
+equals one at zero. The mixed derivative of its local logarithm
+is therefore
+\[
+ \mathbb E_j\partial_{12}\mathscr W_j(0)
+       -\mathbb E_j\Phi_1\,\mathbb E_j\Phi_2.
+\]
+Substitute the definition of \(\Phi_{12}\). The bare integral
+gives the physical covariance by differentiating its bounded
+insertions. Each individual retained weight is nonzero on some
+neighbourhood of zero, so its local logarithmic derivatives
+agree with the displayed jets. That neighbourhood need not be
+uniform in the retained state. Integrating stored variables
+before computing these jets adds their conditional covariance
+to the mixed logarithmic derivative. The use of their actual
+retained source weight preserves this contribution.
+\end{proof}
+
+At the witness, write \(\zeta=\zeta_K(d)\) and
+\(\widetilde f_i=f_i^w\) for the profiles in
+\eqref{fp:eq-physical-profile}. Proposition~\ref{fp:prop-pointed-insertion}
+gives their once-counted classical derivative and the vanishing
+of its mixed single-anchor terms.
+
+\begin{lemma}[Removal of the other witness source derivatives]
+\label{fp:lem-witness-errors}
+Use \cref{fp:lem-exact-insertion} at $j_0$. Suppose the actual source
+filing gives
+\[
+ \Phi_i=c_i+\zeta X_i+I_i+B_i ,
+\]
+where $c_i$ is the same scalar on all standing classes and
+$X_i$ is the background Wilson read with weight $\widetilde f_i$
+and its fixed local passed-test indicator. The scalar is the
+derivative of the complete scalar source energy. Its mixed
+derivative is included among the ordinary two-source terms of
+\cref{fp:lem-ordinary-response-sums}. Missing shares on a retained
+class are included in $B_i$. Assume the
+complete ordinary read, response and summation hypotheses of
+\cref{fp:lem-ordinary-response-sums}, with $p>1$ and $q>21p$.
+Suppose $\widehat d\le C(\log x)^{2p}$ and $|\zeta|\le4/3$.
+Assume $B_i$ and the nonordinary mixed derivative consist of
+tails bounded, after division by the same profile norms, by fixed
+powers of $\log x$ times
+$e^{-c\widehat d}+e^{-c\check R}$, and of terms supported on
+contact with a live component.
+On that event their respective pointwise majorants, after division
+by $M_i$ and $M_1M_2$, are
+\[
+ C (\log x)^C L^{C\check R}(1+A)^C L^{4A},
+ \qquad
+ C (\log x)^C L^{C\check R}(1+A)^C L^{8A},
+\]
+where $A$ is the largest contacting lineage age. Suppose there are
+at most $C\widehat d^4$ possible contact roots and the actual
+age tails at each root are bounded by
+$C e^{-c(\log x)^p}(2L^8)^{-a}$ for $A\ge a$.
+Assume $\check R/\log x\to\infty$,
+$\check R=o((\log x)^p)$ and
+$\widehat d\ge c(\log x)^{2p}$.
+Then, uniformly for these data,
+\begin{equation}\label{fp:eq-witness-errors}
+ S_2^T(f_1,f_2)=\zeta^2\operatorname{Cov}_{j_0}(X_1,X_2)
+                          +o(x^{-2})M_1M_2.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The ordinary mixed derivative has no pointwise classical part.
+The remaining ordinary mixed derivative is bounded by
+$C\widehat d^4 e^{-c\widehat d}M_1M_2$ by
+\cref{fp:lem-ordinary-response-sums}. The room makes it
+smaller than any inverse power of $x$. The same lemma gives
+the sup bounds for $X_i$ and $I_i$, with some $b>0$ in its
+inverse-power error.
+
+On the contact event the age estimate gives
+\[
+ \mathbb E_{j_0}\big[1_{\mathrm{contact}}(1+A)^C L^{8A}\big]
+ \le C\widehat d^4 e^{-c(\log x)^p}
+                  \sum_{a\ge0}(1+a)^C2^{-a}.
+\]
+We used the union bound over possible roots and the age tail at
+the same lineage whose fields appear in the pointwise majorant.
+This bounds $\|B_i\|_2/M_i$ and the mean nonordinary mixed
+derivative by $o(x^{-N})$ for every fixed $N$. The loss
+$L^{C\check R}$ is smaller than the rarity exponential, and
+both far exponentials are superpolynomial by the lower
+room and localization-radius bounds.
+Cauchy--Schwarz controls all covariance terms with a $B_i$.
+The constants $c_i$ have zero covariance with every variable.
+Using $|\operatorname{Cov}(Y,Z)|\le2\|Y\|_\infty\|Z\|_\infty$
+for the terms with $I_i$ leaves, after division by $x^{-2}M_1M_2$,
+at most
+\[
+ C\big[(\log x)^{21p-q}+(\log x)^{18p}x^{-b}\big].
+\]
+Indeed the two support counts cost $(\log x)^{16p}$ and the
+background bound costs another $(\log x)^{2p}$. The square of the
+irrelevant bracket is absorbed by the bracket for large $x$.
+The right side tends to zero. Substitute these estimates in
+\eqref{fp:eq-exact-covariance}.
+\end{proof}
+
+\subsection{Comparison of the clean retained law}
+\label{fp:sec-clean-kernels}
+
+Let $u=a/a_s$. In the admitted small logarithm chart write the
+background plaquette on the retained datum at level $j$ as
+$\exp(iu^2Y_{j,p})$. Thus $Y_{j,p}$ is its traceless Hermitian
+curvature coordinate in units of $u^2$, with the half-trace norm
+of the physical setting. For $j=j_0$ it is the
+background logarithm in $X_i$. For each plaquette pair use one
+common colour coordinate for its readouts throughout the
+comparison. The held aligned pair at level $j$, modulo a
+simultaneous colour rotation, is the same measurable function of
+the retained state in both adjacent steps. One may choose any
+measurable representative; each box comparison may rotate both
+reads together because the polynomials used below are invariant.
+A simultaneous colour rotation preserves the scalar colour covariance in
+\eqref{fp:eq-slice-covariance}. Independent rotations of the two
+reads require the corresponding transport in that covariance.
+Individual curvature squares are gauge invariant.
+
+Here are the inputs from the reference-window comparison. They
+concern the complete states of the original run on the reference
+torus. Write \(\lambda_j\) for the unsourced standing law with
+the block field and stored slots, and \(\Pi_j\) for the positive
+joint law of the original step from \(\lambda_{j-1}\) to
+\(\lambda_j\). Its marginals are these two laws.
+Use bounded measurable extensions of the curvature reads to all
+states, with the same read in both adjacent comparisons. At the
+witness set the curvature coordinate to zero whenever its
+passed-test indicator fails. Its square then carries exactly
+the indicator of \(X_i\). Require the extensions to obey
+\[
+             |Y_{j,p}|\le C g_x P
+\]
+on every retained state, including every excluded part, with the
+common factor \(P\) fixed below. On the witness passed-test set
+this bound must hold for the actual read, so the extension does
+not change \(X_i\). Outside admitted reads an extension can be
+clipped or set to zero. Boundedness without the factor \(g_x\)
+would not control the excluded mass relative to the signal.
+
+At step \(j\), the admitted part of \(\Pi_j\) is selected by a
+good event measurable in the held exterior, after summing the
+standing parts. The selector is constant on the product window;
+its complement has mass \(p_j\). On the good exterior the
+normalized box law below is the disintegration of this original
+law. The same box integral normalizes the conditional measure
+and occurs in the exterior mixture weights. The read set
+contains every pivot and contour dependency of the pair. A
+restriction on an already deleted slot needs its own comparison
+and is not imposed by this selector. The argument uses the
+original adjacent laws without conditioning the entire path on
+all good events simultaneously.
+
+For each pair of plaquettes and each step let $S$ be this finite
+set of free coordinates. The following bounds hold
+uniformly over the admitted exterior and all such pairs. A common
+factor $P=(\log x)^B\ge1$ bounds the witness room, read dimension,
+maximum absolute free coordinate on the window, scaled curvature $g_x^{-1}|Y_{j,p}|$, and the
+polynomial chart constants used below. Increasing the fixed
+exponent $B$ is allowed.
+
+\begin{enumerate}
+\item At fixed exterior the normalized actual marginal on $S$
+has density ratio in $[e^{-\xi_j},e^{\xi_j}]$ with respect to the
+same normalized flat box-window marginal. Here $\xi_j\le1$.
+Both flat Gaussians before restricting any window are centred
+in the same free coordinates. The local box Gaussian has
+window-tail probability at most $t_j\le1/2$. Its unwindowed
+covariance compressed to $S$ differs in Hilbert--Schmidt norm by
+at most $d_j$ from the corresponding full flat torus marginal.
+Both compressed covariances have eigenvalues in one fixed
+positive interval. This comparison includes the coarea and
+gauge densities, the full interaction, the exterior force and
+the cut. The marginal before removing the cut is on the same
+coordinates as the one used in the readout.
+
+\item On each selected full product window, the bounded
+previous-read extension agrees with a curvature readout
+\(T_{j,p}(y;e)\), and the passed-test indicators in that
+extension equal one. Here \(y\) consists of the free coordinates
+on \(S\) and \(e\) is the held exterior. The retained read
+\(Y_{j,p}\) is held there. The direct readout estimate is
+\begin{equation}\label{fp:eq-direct-readout}
+ \sup_{y\,\mathrm{in\ window}}
+ |T_{j,p}(y;e)-Y_{j,p}-B^{\rm loc}_{j,p}y|
+       \le Cg_xP^4(\epsilon_j+g_x).
+\end{equation}
+The linear row $B^{\rm loc}_{j,p}$ is the
+flat row for this local read, using the actual physical
+weight of the step. Embed it by zero into the full flat
+coordinate set. There is a full flat row $B_{j,p}$ on that
+set with
+\[
+ \|B^{\rm loc}_{j,p}-B_{j,p}\|_{2\to2}\le Cg_xP\epsilon_j,
+ \qquad \|B_{j,p}\|_{2\to2}
+             \le Cg_x L^{-2(j-1-j_0)} .
+\]
+Choose the full centred flat comparison law
+\(\gamma_j^0\) to be the zero-next-datum soft-contour Gaussian
+of \cite[Proposition~3.3]{GI}, with its fixed positive contour
+weight. Its free-coordinate covariance is uniformly bounded
+on the admitted relative weight range. Write
+\(\widehat g_{j-1}=\theta_{j-1}^{-1/2}\) and
+\(\tau_{j-1}=x_{j-1}/\theta_{j-1}\).
+The full row \(B_{j,p}\) is \(u^{-2}\widehat g_{j-1}\) times
+its linear lifted-curvature row. The local comparison must use
+this same flat coordinate system and row. By
+\cite[Propositions~3.3 and~4.3]{GI}, scaling the action by
+\(\tau_{j-1}\) while keeping the contour weight fixed scales
+its curvature covariance by \(\tau_{j-1}^{-1}\). Consequently
+\begin{equation}\label{fp:eq-slice-covariance}
+ \mathbb E_{\gamma_j^0}
+       [(B_{j,p}y)\otimes(B_{j,q}y)]
+ =u^{-4} x_{j-1}^{-1}(P_{j-1}-P_j)(p,q)\,I_3.
+\end{equation}
+Here \(\mathcal C_{(j)}=P_{j-1}-P_j\) is the unit raw-flux
+slice. The physical factor is exactly
+\(\widehat g_{j-1}^2\tau_{j-1}^{-1}=x_{j-1}^{-1}\).
+
+\item On the admitted terminal part,
+\(|Y_{j_1,p}|\le Cg_xP L^{-2n}\). Its complement has mass
+\(p_{\rm top}\), and the bounded extension is used there.
+The choices of radii, localization buffers and excluded masses give
+\begin{equation}\label{fp:eq-clean-smallness}
+ P^{50}\Delta\longrightarrow0,\qquad
+ \Delta:=L^{-2n}+n g_x+p_{\rm top}+
+       \sum_{j_0<j\le j_1}
+        (p_j+\xi_j+\sqrt{t_j}+d_j+\epsilon_j).
+\end{equation}
+The fixed power $50$ is a sufficient reserve for the finite
+degree comparison below. The geometry and real window widths
+fix $B$ before the analytic decay and window-tail reserves are
+required. For example, the excluded masses are
+superpolynomially small if their events are covered by at most
+a fixed power of \(x\) local contacts throughout the segment,
+each of probability at most \(Ce^{-c(\log x)^p}\), with \(p>1\).
+This union bound concerns the original adjacent laws and their
+actual determining sets.
+\end{enumerate}
+
+One sufficient source of \eqref{fp:eq-direct-readout} is a
+product window centred at zero, with \(\|y\|_2\le P^{3/2}\),
+and the estimates
+\[
+ \begin{split}
+ |T_{j,p}(0;e)-Y_{j,p}|&\le Cg_xP\epsilon_j,\\
+ \|D_yT_{j,p}(0;e)-B^{\rm loc}_{j,p}\|&\le Cg_xP\epsilon_j,\\
+ \sup_{y\,\mathrm{in\ window}}\|D_y^2T_{j,p}(y;e)\|
+     &\le Cg_x^2P.
+ \end{split}
+\]
+Taylor's formula along \([0,y]\) then bounds the constant,
+linear and quadratic errors by
+\(Cg_xP\epsilon_j\), \(Cg_xP^{5/2}\epsilon_j\) and
+\(Cg_x^2P^4\), respectively. The direct readout estimate
+can instead be supplied without these derivative hypotheses.
+
+The normalized density-ratio estimate also has a precise
+sufficient condition. At fixed exterior, suppose the actual
+conditional density on the same cut is proportional to
+\(e^{-V}\) times the flat reference probability, where \(V\)
+is real and its oscillation is at most \(\xi_j\).
+Its normalizing integral lies between
+\(e^{-\sup V}\) and \(e^{-\inf V}\), so the normalized
+ratio lies in \([e^{-\xi_j},e^{\xi_j}]\).
+Conditional expectation gives the same bounds for the marginal
+on \(S\). Establishing this oscillation requires the complete
+conditional interaction and exterior force on that cut.
+A bound on only its quadratic part does not suffice.
+
+\begin{lemma}[Transport of polynomial readouts]
+\label{fp:lem-retained-covariance}
+Under the adjacent-law inputs above, take two read plaquettes
+\(p,q\) and a homogeneous polynomial \(H\) of degree
+\(m\in\{0,2,4\}\) in their six scaled curvature coordinates.
+Its sum of absolute coefficients is at most one, and it is
+invariant under simultaneous \(SO(3)\) rotation of the two reads.
+Put $W_j=(Y_{j,p},Y_{j,q})$ and let $Z_j$ have the law of the
+six-dimensional vector of full flat readouts of $\gamma_j^0$,
+with the $Z_j$ independent over levels. For all sufficiently
+large \(x\), uniformly on the stated input family,
+\begin{equation}\label{fp:eq-polynomial-comparison}
+ \left|\mathbb E_{\lambda_{j_0}} H(W_{j_0})
+        -\mathbb E H\left(\sum_{j_0<j\le j_1}Z_j\right)\right|
+ \le Cg_x^m P^{20}\Delta .
+\end{equation}
+A constant polynomial has zero error.
+\end{lemma}
+
+\begin{proof}
+First, at a given fixed exterior replace the actual read by
+$W_j+(B^{\rm loc}_{j,p}y,B^{\rm loc}_{j,q}y)$. The direct
+estimate \eqref{fp:eq-direct-readout} bounds this replacement
+error by \(Cg_x P^4(\epsilon_j+g_x)\). Increase the floor for
+\(x\) until every \(\epsilon_j\le1\), as permitted by
+\eqref{fp:eq-clean-smallness}. The retained read and the
+linear Gaussian increments on that window have size at most
+$Cg_xP^3$, increasing fixed constants if necessary.
+
+Define polynomials
+\[
+ H_j(w)=\mathbb E H\left(w+\sum_{j_0<l\le j} Z_l\right),
+ \qquad H_{j_0}=H .
+\]
+Every slice has scalar colour covariance in the common pair
+frame. Its law, and therefore each \(H_j\), is invariant under
+a simultaneous rotation of the two reads. Expansion of \(H\)
+into monomials bounds each derivative and moment norm by the
+sum of its individual bounds.
+The bound on the full rows and the geometric sum of their
+squared sizes give bounded moments of each coordinate of the
+Gaussian sum, of order $O(g_x^b)$ for a moment of degree $b$.
+This expansion bounds its derivative of order $r$
+at $|w|\le Cg_xP^4$ by $C g_x^{m-r}P^{4(m-r)}$.
+This gives a local Taylor replacement error bounded by
+$C g_x^m P^{20}(\epsilon_j+g_x)$ for $H_{j-1}$.
+
+The density ratio in the first input changes a bounded
+window expectation by at most $C\xi_j$ times its supremum.
+To remove the window, write the full expectation as the two
+integrals on the window and its complement. Cauchy--Schwarz
+bounds the latter by $\sqrt{t_j}$ times the $L^2$ norm of the
+polynomial. The same Gaussian moment estimates, with the held
+$W_j$ bounded by $Cg_xP$, bound this norm by $Cg_x^mP^{20}$.
+The normalization of the window costs at most a factor two.
+For the difference of unwindowed compressed Gaussians interpolate
+their covariance matrices linearly. If $C_v$ is the interpolant
+and $D$ the covariance difference, the derivative of its density
+is that density times
+\[
+ \tfrac12\big(y^{\mathsf T}C_v^{-1}DC_v^{-1}y
+                       -\operatorname{tr}(C_v^{-1}D)\big).
+\]
+The second moment of the last factor is
+$\tfrac12\|C_v^{-1/2}DC_v^{-1/2}\|_{\rm HS}^2$.
+Uniform bounds on the compressed covariances and
+Cauchy--Schwarz against the polynomial therefore give error
+$Cg_x^mP^{20}d_j$. On the full flat torus now use the same
+Gaussian to replace the local row by the full row. Its linear
+read difference has every fixed $L^b$ norm at most
+$C_b g_xP\epsilon_j$. The polynomial identity for differences
+and Gaussian moments give the same cost with $\epsilon_j$.
+
+On the good exterior the estimates compare
+\(H_{j-1}(W_{j-1})\) under the original box law with
+\(H_j(W_j)\) at the held exterior. Their uniformity permits
+integration against the original exterior weights. On the
+excluded part, bounded extensions and Gaussian moments bound
+both quantities by \(Cg_x^mP^{20}\), so its cost is at most
+\(Cg_x^mP^{20}p_j\). The marginal identities give
+\[
+ \begin{split}
+ &\mathbb E_{\lambda_{j_0}}H(W_{j_0})
+       -\mathbb E_{\lambda_{j_1}}H_{j_1}(W_{j_1})\\
+ &\qquad=\sum_{j_0<j\le j_1}
+   \mathbb E_{\Pi_j}\bigl[H_{j-1}(W_{j-1})-H_j(W_j)\bigr].
+ \end{split}
+\]
+A carried observable is the Radon--Nikodym derivative of its
+weighted pushforward with respect to the uninserted pushforward,
+as one checks against bounded functions of the output. At a
+merge both measures are sums with the original weights. Thus
+this identity preserves the exterior distribution. At the top,
+compare \(H_{j_1}(W_{j_1})\) with \(H_{j_1}(0)\) on the admitted
+part and use the bounded extension on its complement. The cost
+is \(Cg_x^mP^{20}(L^{-2n}+p_{\rm top})\). Summing proves
+\eqref{fp:eq-polynomial-comparison}. Comparing full moments
+before forming their covariance retains the covariance of
+conditional means.
+\end{proof}
+
+\begin{proposition}[The reference covariance]
+\label{fp:prop-clean-reference}
+Suppose the witness and clean-window inputs of
+\cref{fp:lem-witness-errors,fp:lem-retained-covariance} hold on
+one reference torus. Use the admitted flat hierarchy of
+\cref{fp:lem-free-kernel-bounds} through the two stops.
+Assume the enlarged supports are in its separated kernel
+range at the witness, and $x_{j-1}=x+O(n+1)$ on the segment.
+Then
+\begin{equation}\label{fp:eq-reference-wilson}
+ S_{2;\star}^T(f_1,f_2)
+  =\frac32\zeta^2 x^{-2}
+       \sum_{p,q}\widetilde f_1(p)\widetilde f_2(q)
+                           G_{j_0}(p,q)^2
+                +o(x^{-2}) M_1M_2 .
+\end{equation}
+The error is uniform in the admitted bare data and positions.
+\end{proposition}
+
+\begin{proof}
+Let $G_{j_0}=C^{\rm bg}_{K,s}$ and $G_{j_1}$ be its nested
+coarser kernel. By \cref{fp:lem-free-kernel-bounds},
+\[
+ |G_{j_0}(p,q)|\le C a^4 d^{-4},\qquad
+ |G_{j_1}(p,q)|\le C u^4 L^{-4n}.
+\]
+On the same enlarged supports each unit slice is bounded by
+\[
+ |\mathcal C_{(j)}(p,q)|\le C u^4 L^{-4(j-1-j_0)}.
+\]
+With the bounded witness extension, the passed-test Wilson
+read is \(\tfrac12u^4|Y_{j_0,p}|^2+O(u^8|Y_{j_0,p}|^4)\).
+This expansion holds on the witness law, with both sides zero
+when the test fails. No global clean selection is removed.
+There are at most $C\widehat d^4u^{-4}$ plaquettes in
+each read support, including its fixed enlargement.
+Since $|Y_{j_0,p}|\le Cg_xP$ and $\widehat d\le P$, the
+Wilson Taylor error is at most $Cg_x^4P^8M_i$ in the one-point
+read. Each quadratic read is bounded by $Cg_x^2P^6M_i$ on the
+entire witness law, using the bounded extension. The resulting covariance error is at most
+$C(g_x^6P^{14}+g_x^8P^{16})M_1M_2=o(x^{-2})M_1M_2$.
+Apply \cref{fp:lem-retained-covariance} to the square of one
+curvature read and the product of squares at two plaquettes.
+Use \(\Delta\) from \eqref{fp:eq-clean-smallness}.
+After smearing, the factors $u^4$ and $u^8$ cancel the
+plaquette counts. The degree-two mean errors are at most
+$C g_x^2P^{24}\Delta M_i$, and the degree-four product error
+is at most $C g_x^4P^{28}\Delta M_1M_2$. Each Gaussian mean is
+bounded by $C g_x^2P^4 M_i$, while the actual quadratic mean
+has the $P^6$ bound just established. Subtracting the products
+of means thus costs at most $C g_x^4P^{30}\Delta M_1M_2$.
+The reserve $P^{50}\Delta\to0$ pays each of these losses.
+The polynomials \(|Y_p|^2\) and \(|Y_p|^2|Y_q|^2\)
+are invariant under simultaneous colour rotations. Their
+coefficient norms are \(3\) and \(9\); rescaling them to the
+unit coefficient ball only changes the fixed constants.
+Thus the argument uses degree-two and degree-four invariant
+polynomials on a pair of reads.
+
+For the sum of independent slices, Wick's formula gives
+the covariance of two half-squares as $3/2$ times the
+square of the one-colour covariance. Thus its kernel is
+$\tfrac32[\sum_j x_{j-1}^{-1}\mathcal C_{(j)}(p,q)]^2$.
+In particular the square contains the cross terms between
+different steps. They would be lost by summing only the
+one-step covariances at a zero retained field. Replacing
+the weights $x_{j-1}^{-1}$ by $x^{-1}$ has kernel error
+$O(x^{-2}(n+1)u^4)$ before squaring, by the geometric slice
+bound. The full square error after smearing is
+$O(x^{-3}(n+1)\widehat d^8)M_1M_2=o(x^{-2})M_1M_2$.
+The slice sum now telescopes to $G_{j_0}-G_{j_1}$.
+The cross product with $G_{j_1}$ and its square have
+total smeared cost at most
+\[
+ Cx^{-2}\big[(\widehat d L^{-n})^4
+              +(\widehat d L^{-n})^8\big]M_1M_2 .
+\]
+Here $n=\lceil2\log_L\bar x_s\rceil$ and $\widehat d$ is
+polylogarithmic in $x$, so this is $o(x^{-2})M_1M_2$.
+Equation \eqref{fp:eq-witness-errors} proves the result.
+If a local computation uses witness-lattice translates, the
+bare covariance and the free kernel have the same value on
+these translates. One may make all the replacements after
+averaging them; no finer translation invariance of the block
+fields is used.
+\end{proof}
+
+\section{A common normalization with a finite reference torus}
+\label{fp:sec-finite-reference-transfer}
+
+We keep the bare datum fixed while changing volume. Write
+$\ell_\star$ for the reference side and assume every compared
+torus side is an integer multiple of it. Choose an allowed
+board side $l_c=L^m$ with $\ell_\star/l_c$ even and with
+room for a unit ball at fixed positive distance from its
+faces. This side can be fixed at the reference coupling.
+The periodic array of sources below is obtained by the
+same cell reflections on all of these tori. For a physical test
+$f$ use $\|f\|_\sharp=\max(\|f\|_\infty,c_M\operatorname{Lip}f)$,
+with the fixed positive constant $c_M$ of the SI source norm.
+
+\begin{lemma}[Replication of a reflected source]
+\label{fp:lem-replicated-partition}
+Let $w$ be a complex source in the interior of one board cell,
+with no sourced plaquette crossing a cell face. Form the
+reflected array $W_\ell$, conjugating the source under an odd
+number of cell reflections. Then the Wilson partition integrals
+with Haar probability measures satisfy
+\begin{equation}\label{fp:eq-partition-replication}
+ 0\le Z_\ell(W_\ell)
+       \le Z_{\ell_\star}(W_{\ell_\star})^{(\ell/\ell_\star)^4}.
+\end{equation}
+The unsourced bare inverse coupling is the same on every torus.
+\end{lemma}
+
+\begin{proof}
+First lengthen one side, keeping the other three fixed. Use the
+group of spatial bond variables on a slice as the integration
+space, with product Haar probability. Between two slices at a
+cell face there is no source. If their spatial bonds are $u,v$,
+the temporal bonds between slices give, on integration, the
+kernel obtained from
+$\prod_b c(u_b (v_b^h)^{-1})$ by averaging the slice gauge
+$h$, where $c(g)=e^{-\beta(1-\operatorname{Tr}g/2)}$ and
+$v_b^h$ is the usual site gauge action on the bond $b$.
+This is the crossing-plaquette product after cyclically
+permuting its traces. Thus the crossing operator is $K=CP$,
+where $C$ is convolution by the product of $c$ over slice bonds
+and $P$ is Haar averaging over slice gauges. Centrality of $c$
+makes the convolution commute with the left and right group
+actions on each bond, hence with $P$.
+
+The expansion
+$c=e^{-\beta}\sum_{n\ge0}(\beta/2)^n\chi_{1/2}^n/n!$
+has nonnegative character coefficients. Indeed the powers
+are characters of tensor powers of the defining representation.
+At the identity the sum of coefficients times the representation
+dimensions is one. For one bond a coefficient $a_\lambda$ in
+dimension $d_\lambda$ gives convolution eigenvalue
+$a_\lambda/d_\lambda$ with multiplicity $d_\lambda^2$.
+Consequently $C$ is positive trace class on the finite product
+slice space. The commuting orthogonal projection $P$ makes
+$K$ positive trace class as well. Its square root $S$ is
+Hilbert--Schmidt.
+
+Let $B$ be the transfer through one slab between two board
+faces with the crossing factors at its ends removed. It is the
+product of the spatial multiplication factors and the integrated
+interior temporal kernels. These are bounded operators since the
+slice space is a compact product with finite Haar measure and
+the profile is bounded. The next slab is the reflected
+conjugate slab and has operator $B^*$. This follows by reversing
+the order of the slices and of the temporal bond orientations,
+which preserves Haar measure and the plaquette traces. Any
+transverse board array is held fixed in this argument. With
+$A=SBS$, the partition integral over a whole period is
+$\operatorname{Tr}(AA^*)^h$ if the period has $2h$ slabs.
+Indeed before splitting each crossing factor it is the
+cyclic integral of $KB,KB^*,\ldots$. Each of these factors has a
+Hilbert--Schmidt kernel. The trace identity for a product of two
+Hilbert--Schmidt kernels, with the other factors composed by
+Fubini, gives that cyclic integral. Cyclicity of the trace then
+splits the crossing factors into the two square roots. This
+also covers a slab consisting of a single time slice, when $B$
+is a multiplication operator.
+
+The positive trace-class operator $T=(AA^*)^h$ has
+$\operatorname{Tr}T^b\le(\operatorname{Tr}T)^b$ for every
+positive integer $b$, by its nonnegative eigenvalues. Repeating
+the period $b$ times gives exactly the array on the longer side.
+This proves the one-direction inequality. The number of cells
+is even in every direction, so successive replication in all
+four directions preserves the same array. The intermediate
+rectangular tori use only finite Wilson integrals. They require
+no effective-action construction. This proves
+\eqref{fp:eq-partition-replication}.
+\end{proof}
+
+\begin{lemma}[Comparison of vacuum densities]
+\label{fp:lem-vacuum-density}
+Let $b_j=L^{j-K}$, $0\le j\le K$. Suppose the once-counted
+unsourced vacuum on each compared torus has the form
+\[
+ E_{\ell,K}=\sum_{j=0}^K\left[
+ (\ell/b_j)^4 c_{j,K}
+ +\sum_{z\in (b_j\mathbb Z/\ell\mathbb Z)^4}
+                \sum_{D\ni z}v_{\ell,j}(D,z)\right].
+\]
+The numerical coefficients $c_{j,K}$ and the fixed auxiliary
+data are common. There are rooted infinite companions
+$v_{\infty,j}$ with the same translation-covariant sums per
+root. Suppose their rooted domain counts at length $m$ are
+bounded by $C e^{\kappa_D m}$, and their individual absolute
+values by $C e^{-\kappa_E m}$ with $\kappa_E>\kappa_D$.
+The same bounds hold for the finite domains. At each root
+assume a bijection of finite and infinite rooted reads of length
+$m<\ell/(C_0b_j)$ which preserves their vacuum values.
+Then for $\ell\ge\ell_0>0$ there is a common number $A_K$
+such that
+\begin{equation}\label{fp:eq-vacuum-density}
+ \left|\ell^{-4}E_{\ell,K}-A_K\right|
+ \le C\sum_{j=0}^K b_j^{-4}e^{-c\ell/b_j}
+ \le C_{\ell_0}e^{-c\ell/2}.
+\end{equation}
+The constants are independent of the cutoff. The number $A_K$
+is allowed to depend on the cutoff and the common bare datum.
+\end{lemma}
+
+\begin{proof}
+The companion sum $\bar v_j$ at one root is absolutely
+convergent. Set $A_K=\sum_j b_j^{-4}(c_{j,K}+\bar v_j)$.
+Short rooted values cancel in the difference. The two tails
+are bounded by geometric sums with the positive gap
+$\kappa_E-\kappa_D$. Dividing by the physical volume yields
+the first inequality. For the second, put $u=K-j$ and bound
+\[
+ \sum_{u\ge0} L^{4u}e^{-c\ell L^u}
+ \le e^{-c\ell/2}
+              \sum_{u\ge0}L^{4u}e^{-c\ell_0L^u/2}.
+\]
+The last sum converges. Thus $A_K$ cancels exactly in a
+comparison with the reference torus and need not converge.
+In the scalar convention of \cite[Proposition~2.5]{RT} the numerical free-bond and
+gauge factors go in $c_{j,K}$. One can point an unpointed
+remainder by allocating its value equally to its roots.
+The assumed equality is an equality of the actual rooted
+vacuum values on nonwrapping complete reads. Equality of
+bare weights alone does not imply it.
+\end{proof}
+
+\fpneedspace{24\baselineskip}
+\begin{proposition}[One analytic cell subtraction for both measures]
+\label{fp:prop-shared-normalizer}
+Use the comparison geometry and the hypotheses of
+\cref{fp:lem-vacuum-density}. Suppose the actual reference
+torus has the ordinary complex source upper bound of \cite[Proposition~8.1]{SI}
+\[
+ |Z_{\ell_\star}(W)|
+  \le \exp\{E_{\ell_\star,K}+\operatorname{Re}\mathcal E_\star(W)
+                    +C_+\ell_\star^4\},
+\]
+and every compared torus, including the reference, has the
+unsourced floor
+$Z_\ell(0)\ge \exp\{E_{\ell,K}-C_-\ell^4\}$.
+Assume the constants are uniform at the fixed reference
+coupling. In the reference source number, each domain term
+is holomorphic in the source on the ordinary radius $2r$,
+vanishes at zero and depends only on its complete source
+read. At scale $b_j$ root each term at a level site in its
+complete read. At length $m$ assume the absolute bound
+$C e^{-\kappa_E m}$ on the ordinary source ball. Require the
+complete read together with its root to have diameter at most
+$C b_j(m+1)$ and the rooted count to be at most $C e^{\kappa_D m}$,
+with $\kappa_E>\kappa_D$.
+Separate point terms, if used, are holomorphic on the same
+ordinary source ball, vanish at zero and have only their own
+point read.
+
+For any real Lipschitz tests $F_1,F_2$ supported in one unit
+ball, there is one holomorphic function $E^\circ(z)$,
+$E^\circ(0)=0$, for which
+\begin{equation}\label{fp:eq-shared-normalizer}
+ \left|e^{-E^\circ(z)}
+   \omega(e^{z_1\mathcal O_a(F_1)+z_2\mathcal O_a(F_2)})\right|
+     \le Q
+\end{equation}
+on $\sum_i |z_i|\|F_i\|_\sharp<r$.
+Here $\omega$ can be the reference measure, any compared
+torus measure or any periodic Wilson Gibbs state at this
+datum. For the last assertion assume the compared tori
+contain a compatible cofinal sequence. The constants are
+uniform in the cutoff, volume, position and states.
+\end{proposition}
+
+\begin{proof}
+Place the common support ball inside the chosen cell by a
+joint bare lattice shift. Translation invariance lets us
+return to the original position. Use the cell source
+$w_z=z_1F_1+z_2F_2$ and its reflected conjugate array $W_\ell$.
+The even and odd profiles separately vanish near faces, so
+joining copies does not increase their Lipschitz constants.
+Using the two sets of coefficients $z_i$ and $\bar z_i$ gives
+ordinary source size at most $2\sum_i|z_i|\|F_i\|_\sharp$.
+The reflected dissemination of $e^{\mathcal O_a(w_z)}$
+is $e^{\mathcal O_a(W_\ell)}$, since each sourced plaquette
+is internal and reflection preserves its trace. With
+$N_\ell=(\ell/l_c)^4$, its finite chessboard seminorm is
+$[Z_\ell(W_\ell)/Z_\ell(0)]^{1/N_\ell}$. The numerator is
+nonnegative. By \cref{fp:lem-replicated-partition} and the
+two partition bounds, this seminorm is at most
+\[
+ \exp\left\{
+ N_{\ell_\star}^{-1}\operatorname{Re}
+     \mathcal E_\star(W_{\ell_\star})+C l_c^4
+ \right\}.
+\]
+Here we used \eqref{fp:eq-vacuum-density} for the difference
+of the two vacuum densities. The common divergent number
+has cancelled.
+
+Define $E^\circ$ by keeping the reference source terms whose
+complete read lies inside one open board cell and averaging
+over the cells. Keep every nonzero point term. Use the value
+of each even term and the conjugate of each odd term. The
+odd actual value is $h(\bar z)$ for a holomorphic $h$, so
+$\overline{h(\bar z)}$ is holomorphic and has the same real
+part. All the kept terms are evaluated on the source in
+their own cell. They vanish at zero. Normal convergence
+on smaller source discs follows from the rooted bounds
+at the fixed cutoff. This defines the same $E^\circ$ for all
+the measures in the statement.
+
+A discarded nonzero term meets a source support and reads
+outside that support's cell. Its diameter is at least
+the fixed clearance. At scale $b_j$ its length is at least
+$c/b_j-C$. Charge the term to one cell in which it reads a
+nonzero source. Its root is within $C b_j(m+1)$ of the support
+ball in that cell, so there are at most
+$C(1+b_j^{-1})^4(m+1)^4$ possible roots. The strict entropy
+margin absorbs the polynomial in $m$. Summing over the
+allowed lengths and then the scales, the omitted absolute
+source number per cell is bounded by
+\[
+ C\sum_{u\ge0}(1+L^u)^4 e^{-c'L^u},
+ \qquad u=K-j.
+\]
+The constant incorporates the fixed localization side and collar. Thus the finite
+seminorm after subtracting $E^\circ$ is bounded by a
+common $Q$. The one-cell chessboard inequality gives
+\eqref{fp:eq-shared-normalizer} on the tori. The fixed-spacing
+all-state board bound of \cite[Theorem~C]{LP} gives it along
+the same cofinal family for every periodic state. This
+argument uses bounded cylinder exponentials at the fixed
+cutoff. In particular it does not select the state as a
+weak limit of these particular tori.
+\end{proof}
+
+\begin{lemma}[Transfer of a local covariance]
+\label{fp:lem-local-transfer}
+Let two translation-invariant laws at the same bare
+spacing, with the same linear source convention, obey
+\eqref{fp:eq-shared-normalizer} for every unit-ball test pair,
+with a common $E^\circ$ for the two laws. The tests in this
+assumption may overlap and have either sign. For a pair in
+\cref{fp:def-shape}, with $a\le d$ sufficiently small, the
+difference of their connected covariances satisfies
+\begin{equation}\label{fp:eq-local-transfer}
+ |S_{2;1}^T(f_1,f_2)-S_{2;2}^T(f_1,f_2)|
+        \le C_\vartheta d^2 M_1M_2 .
+\end{equation}
+For tori, take supports and the shifted unit ball in one
+common lift.
+\end{lemma}
+
+\begin{proof}
+For any unit-ball pair, apply the local residual Cauchy bound
+of \cite{SI} to $e^{-E^\circ}$ times the two generating
+functions. Their values at zero are one. Equivalently the
+bound $Q$ and radial Schwarz give a logarithm bounded by
+$\log 2$ on a bidisc whose coordinate radii are
+$r/[4(Q+1)\|F_i\|_\sharp]$. The two mixed derivatives of
+$E^\circ$ cancel. If $D$ is the difference of the two
+covariances, then
+$|D(F_1,F_2)|\le C\|F_1\|_\sharp\|F_2\|_\sharp$.
+A zero test gives zero directly.
+
+The two supports lie in one radius-$5d$ ball. Pack
+$J\ge c d^{-4}$ disjoint lattice translates of that ball
+inside a unit ball, using shifts on a grid with a lattice
+spacing comparable to $d$. For independent signs
+$\varepsilon_v$ indexed by the shifts put
+$F_i=\sum_v\varepsilon_v\tau_v f_i$. Both the supremum
+and Lipschitz norms are unchanged or decreased, because the
+supports of the copies are disjoint and each test vanishes
+at its ball boundary. For points in different balls split
+their connecting segment at the two boundaries to obtain
+the Lipschitz assertion. The sign average of $D(F_1,F_2)$
+is $J D(f_1,f_2)$ by bilinearity and joint translation
+invariance. Divide by $J$ and use
+$\|f_i\|_\sharp\le C_\vartheta d^{-1}M_i$.
+This gives \eqref{fp:eq-local-transfer}. Separate analytic
+normalizers would leave their mixed derivative difference
+in this calculation.
+\end{proof}
+
+\begin{theorem}[The short-distance two-point law]
+\label{fp:thm-two-point}
+Use the witness and running source of
+\cref{fp:prop-witness,fp:prop-source-normalization} at one
+fixed sufficiently small reference coupling, the actual
+reference comparison of \cref{fp:prop-clean-reference},
+and the common finite-reference inputs of
+\cref{fp:prop-shared-normalizer}. Fix the common integer
+\(n_0\ge1\) above which those formation and reference inputs
+are supplied, and require \(K\ge s(d)+n_0\).
+Let \((f,h)\) belong to Definition~\ref{fp:def-shape} at
+separation \(d\). Then below a common
+$d_0>0$, on every admitted torus and in every admitted
+periodic Gibbs state,
+\begin{equation}\label{fp:eq-two-point-law}
+ S_{2;a,\rho}^T(f,h)=\frac9{\pi^4}\,\zeta_K(d)^2g_K(d)^4
+       \mathcal K(f,h)(1+r_{K,\rho}(f,h)),
+ \qquad |r_{K,\rho}(f,h)|\le\tfrac12 .
+\end{equation}
+Here \(\rho\) denotes the compared finite-volume law or periodic
+state; the remainder may depend on it. The error tends to zero
+as \(d\downarrow0\), uniformly over
+the bare data, support positions and compared measures
+for which the displayed input estimates are uniform.
+The two factors $\zeta_K(d)$ and $g_K(d)$ are those of the
+same run at the same bare datum throughout the comparison.
+\end{theorem}
+
+\begin{proof}
+To put the same pair on the reference torus, lift it to the
+common radius-\(5d\) ball and extend each test by zero outside
+its supporting ball. Stopping a line segment at its first
+boundary point, where the test vanishes, preserves the
+Lipschitz bound. Periodization into any torus of side at least
+\(40d\) preserves that bound, the masses, support gap and
+\(\mathcal K\); split shortest segments at boundaries of
+the disjoint lifted copies.
+For the actual signed profiles $\widetilde f_i$, the tent estimates give
+$\|\widetilde f_i-f_i\|_\infty=o(1)M_i$ and an enlargement
+by at most $CMa_s$. The supports remain separated by at
+least $d/2$ below a common threshold, by the witness room.
+For small enough \(d\), the witness bounds \(a\le a_s\) and
+\(d/a_s\to\infty\) give \(10a\le d/2\), \(a_s\le d/2\) and
+\(d\le\ell_\star/200\). The enlarged supports then stay in
+the separated kernel range. There are at least two sites in
+each direction at the used coarse levels.
+Apply \cref{fp:prop-clean-reference} with these signed profiles.
+The separated free background bound
+$|G_{j_0}(p,q)|\le C a^4d^{-4}$ and the two plaquette
+counts show that replacing the signed profiles by the
+originals costs $o(x^{-2})M_1M_2$. This uses an absolute
+estimate before any division by a positive main term.
+The hierarchy and distance hypotheses of
+\cref{fp:prop-free-reference} hold for the original pair.
+That proposition replaces the unit raw-flux square sum by
+$6\pi^{-4}\mathcal K(f,h)(1+o(1))$.
+The factor $3/2$ in \eqref{fp:eq-reference-wilson} then
+gives $9\pi^{-4}$.
+
+The shape estimate and running-source lower bound give
+\[
+ \frac9{\pi^4}\zeta_K(d)^2 x^{-2}\mathcal K(f,h)
+      \ge c_\vartheta x^{-2}\|f\|_\infty\|h\|_\infty.
+\]
+The relative reference error therefore tends to zero.
+The free replacement also gives
+\[
+ \sum_{p,q}f(x_p)h(x_q)G_{j_0}(p,q)^2\ge
+                         c_\vartheta M_fM_h .
+\]
+Thus the reference covariance equals this unmodified lattice sum times
+\(3\zeta^2x^{-2}/2\) with relative error at most \(1/4\),
+after decreasing the common threshold.
+Apply \cref{fp:lem-local-transfer} with the finite reference
+and the given measure. Its relative error is
+$C_\vartheta d^2x^2$, which tends uniformly to zero since
+$x\asymp\log(1/d)$. The common-normalizer argument uses
+the same physical source with the same bare datum, without
+changing the Wilson coefficient or rescaling the insertion.
+Decrease $d_0$ until the total relative error is at most
+$1/2$. This proves \eqref{fp:eq-two-point-law}.
+\end{proof}
+
+
+\fpneedspace{18\baselineskip}
+\begin{corollary}[Transfer with a cofinal reference]
+\label{fp:cor-cofinal-reference}
+For each fixed bare datum suppose there is one compatible
+cofinal sequence of finite tori on which
+\eqref{fp:eq-reference-wilson} holds for \(K\ge s(d)+n_0\),
+with one fixed \(n_0\ge1\) and a common positive distance
+threshold for this cofinal comparison. Bound its additive remainder by
+\(\epsilon_{\rm ref}(d)x^{-2}M_1M_2\), where one
+\(\epsilon_{\rm ref}(d)\to0\) works uniformly over the cofinal
+sides above a common positive minimum, all admitted bare data,
+shapes and support positions. Use the same actual profiles and
+hierarchy as in \cref{fp:prop-clean-reference}. The sequence at one datum
+works for every fixed admissible pair there with the same
+witness and coefficient factors. Suppose the fixed-spacing
+state-transfer hypotheses of \cite[Theorem A]{SI} hold uniformly, with
+a common cell subtraction for all periodic states at the datum.
+Then the conclusion of \cref{fp:thm-two-point} holds for the
+periodic states. It needs no comparison of vacuum densities
+with one fixed finite torus in this case.
+\end{corollary}
+
+\begin{proof}
+First replace the pointed profiles by the originals using their
+absolute tent error and the separated kernel bound. Apply
+\cref{fp:prop-free-reference} on each torus; its error is uniform
+once the side is above the common minimum. Dividing the resulting
+additive error by the positive shape floor gives the same
+relative reference law as in the finite-reference proof.
+At fixed spacing take a local weak limit of the cofinal torus
+laws, using compactness and the finite-range Gibbs specification
+as in \cite{LP}. This gives a periodic Wilson Gibbs state at
+the same bare datum. The covariance of the fixed compact
+tests is built from bounded continuous cylinder functions
+at that spacing. The uniform reference estimate therefore
+passes to this state, with the same $\zeta_K(d)$ and $g_K(d)$.
+The common cell subtraction of \cite[Theorem A]{SI} serves the limit state and
+any periodic state at that datum. Apply
+\cref{fp:lem-local-transfer} and the positive shape lower
+bound exactly as in the finite-reference proof. Uniformity
+over the cofinal sequence for fixed pairs is used before
+taking the volume limit. A distance threshold tending to
+zero along that sequence would not suffice for this passage.
+\end{proof}
+
+
+\fpneedspace{23\baselineskip}
+\section{Ultraviolet bounds on the prescribed class}
+\label{fp:sec-consequences}
+
+\begin{corollary}[Bounds and conditional passage to a limit]
+\label{fp:cor-ultraviolet-shape}
+Under the hypotheses of Theorem~\ref{fp:thm-two-point} or
+Corollary~\ref{fp:cor-cofinal-reference}, there are
+\(c,C>0\) such that, for all sufficiently small \(d\) and all
+admitted cutoffs, states and pairs,
+\begin{equation}\label{fp:eq-ultraviolet-shape}
+ \frac{c\vartheta^2 M_fM_h}{[\log(1/d)]^2}
+ \le S^T_{2;a,\rho}(f,h)
+ \le\frac{C}{[\log(1/d)]^2}
+          \min\{M_fM_h,d^{-8}m_fm_h\}.
+\end{equation}
+For each fixed separated pair, any limit of the connected
+correlations along admitted cutoffs obeys the same bounds.
+If such limits exist for every pair in the Euclidean class and
+\(\vartheta\le\vartheta_*\), the limit satisfies the ultraviolet bound on
+\(\mathfrak T_{\mathbb R^4}(d;\vartheta_*)\) with
+\(u(d)=C[\log(1/d)]^{-2}\). For the mass-one dilates constructed
+below and \(\vartheta\le\vartheta_*\), the connected correlations,
+and any corresponding fixed-pair limits, are bounded above and
+below by positive constant multiples of
+\(d^{-8}[\log(1/d)]^{-2}\).
+On a family where the theorem gives
+uniform vanishing of the relative error as \(d\downarrow0\),
+the corresponding limiting correlations have leading coefficient
+\(C_G/c_*^2\) multiplying \(\mathcal K(f,h)[\log(1/d)]^{-2}\).
+\end{corollary}
+
+\begin{proof}
+At the witness, \(\zeta_K(d)\to1\) and
+\(g_K(d)^{-2}/\log(1/d)\to c_*>0\) uniformly in the admitted
+cutoff data. Shrink the distance threshold until the source
+factor and the inverse-coupling ratio have positive lower
+and finite upper bounds. The relative error bound
+\(|r|\le1/2\) puts \(1+r\) in \([1/2,3/2]\).
+Use the two-sided integral estimate
+\eqref{fp:eq-shape-kernel-bounds} in the comparison formula of
+Theorem~\ref{fp:thm-two-point}. This proves
+\eqref{fp:eq-ultraviolet-shape}. Its constants are uniform
+along the admitted cutoff sequence, so the inequalities
+hold in any indicated limit. The inclusion at
+\(\vartheta\le\vartheta_*\) follows from \eqref{fp:eq-shape}.
+
+For an explicit pair at scale one, take
+\(f(x)=(12/\pi^2)(1-|x|^2)_+^2\) and \(h(x)=f(x-4e_1)\).
+The radial integral of \((1-|x|^2)_+^2\) is \(\pi^2/12\),
+and its largest radial derivative has magnitude \(8/(3\sqrt3)\).
+The support gap is two. These facts give
+\((f,h)\in\mathfrak T_{\mathbb R^4}(1;\vartheta_*)\).
+For a fixed \(x_0\), use
+\(f_d(x)=d^{-4}f((x-x_0)/d)\) and
+\(h_d(x)=d^{-4}h((x-x_0)/d)\).
+Both masses stay one, and the amplitude product is a fixed
+positive constant times \(d^{-8}\). Dilation and positive
+amplitude scaling preserve the shape conditions at scale \(d\).
+For these tests \eqref{fp:eq-ultraviolet-shape} gives the
+claimed positive lower and upper bounds.
+
+For the last assertion, divide
+the comparison by \(C_G\mathcal K(f,h)/[c_*^2\log^2(1/d)]\).
+The resulting three factors tend uniformly to one in the
+order stated, and every fixed-pair cutoff limit inherits
+the same uniform small-distance error.
+\end{proof}
+
+\subsection{Explicit tests at the fixed shape parameter}
+The following check gives the explicit tests of the continuum application.
+Let \(A_0\) be one on \([9/4,11/4]\), zero outside \([17/8,23/8]\),
+and use the ramp \(3u^2-2u^3\), \(0\le u\le1\), on each transition
+interval, with \(u\) increasing towards the plateau. Then
+\(\int A_0=5/8\) and \(\|A_0'\|_\infty\le12\), by the integral
+and maximum derivative of the ramp. For \(I=[-1/4,1/4]\) put
+\(B_0=12\mathbf1_I^{*4}\). Direct integration of the triangular
+convolution \(\mathbf1_I^{*2}\) gives
+\[
+ B_0(s)=
+ \begin{cases}
+  1-6s^2+6|s|^3,& |s|\le1/2,\\
+  2(1-|s|)^3,&1/2\le|s|\le1,\\
+  0,&|s|\ge1.
+ \end{cases}
+\]
+It is \(C^2\), \(\|B_0\|_\infty=1\), and
+\(\|B_0'\|_\infty=2\), with the maximum derivative attained at
+\(|s|=1/3\). The Fourier transform is
+\(\widehat B_0(q)=\tfrac34(\sin(q/4)/(q/4))^4\), with value
+\(3/4\) at zero, by taking the fourth power of the transform of
+\(\mathbf1_I\).
+
+For transverse coordinates \(z\in\mathbb R^2\), take
+\(q(s)=B_0(4s/3)\), \(D(s)=\sum_{j\in\mathbb Z}q(s-j)\) and
+\(\chi=q/D\). The nearest integer yields \(D\ge2/27\), and at
+most two summands are nonzero at each point. Since \(q\le D\),
+the quotient rule gives \(\|\chi'\|_\infty\le108\).
+The integer translates of \(\psi(z)=\chi(z_1)\chi(z_2)\) sum
+to one by periodicity of \(D\). Let
+\(\widetilde\psi(z)=\chi_0(z_1)\chi_0(z_2)\), where \(\chi_0=1\)
+on \([-1,1]\), has support \([-3/2,3/2]\) and uses the same
+ramp. The support of \(\psi\) lies in \([-3/4,3/4]^2\), so
+\(0\le\psi\le\widetilde\psi\). The product rule gives
+\(\|\nabla\psi\|_\infty\le216\) and
+\(\|\nabla\widetilde\psi\|_\infty\le6\).
+Integration gives \(\int\widetilde\psi=(5/2)^2\).
+
+For a nonzero real \(\varphi\in C_c^1(\mathbb R^2)\),
+\(\delta>0\), \(1\le\lambda\le2\) and \(i\in\mathbb Z^2\), set
+\[
+ A=\|\varphi\|_\infty+\delta\|\nabla\varphi\|_\infty,\qquad
+ \psi_i(z)=\psi(z/\delta-i),\qquad
+ \widetilde\psi_i(z)=\widetilde\psi(z/\delta-i).
+\]
+Put \(\varphi_i^-=2A\widetilde\psi_i\) and
+\(\varphi_i^+=2A\widetilde\psi_i+\psi_i\varphi\).
+The two functions
+\[
+ H_i^\pm(t,x,z)=A_0(t/\delta)B_0(4x/(\lambda\delta))
+ \varphi_i^\pm(z)
+\]
+lie between \(A\) and \(3A\) times the product of the two
+one-dimensional factors with \(\widetilde\psi_i\).
+In particular their sup norms lie in \([A,3A]\).
+The sum of \(H_i^+-H_i^-\) over the finitely many indices
+with \(\psi_i\varphi\ne0\) equals
+\(A_0(t/\delta)B_0(4x/(\lambda\delta))\varphi(z)\).
+Their supports lie in balls of radius \(d=5\delta/2\), since
+the sum of squared coordinate half-widths around
+\((5\delta/2,0,\delta i)\) is at most \(5\delta^2\).
+Each function and its time reflection have separation
+between \(4\delta\) and \(6\delta\), by the time support
+and the reflected displacement of a point on the plateau.
+The mass is at least \(375A\delta^4/512\) by integrating the
+product lower bound and using \(\lambda\ge1\).
+The Lipschitz constant is bounded by
+\(A[3(12+8)+2\cdot6+216+1]/\delta\).
+Dividing the mass by \(3A(5\delta/2)^4\) gives \(1/160\).
+The derivative bound is at most \(12000A/d\).
+Thus \((H_i^\pm\circ\theta,H_i^\pm)\) belongs to
+\(\mathfrak T_{\mathbb R^4}(5\delta/2;\vartheta_*)\),
+where \(\theta(t,x,z)=(-t,x,z)\).
+
+
+\begin{thebibliography}{Bal87}
+\small
+\bibitem{LP} \emph{Periodic Wilson states and reflection positivity}, companion manuscript, 2026.
+\bibitem{MB} \emph{Linear lattice PDE with block constraints}, companion manuscript, 2026.
+\bibitem{GI} \emph{Gaussian block integration and free action-density correlations}, companion manuscript, 2026.
+\bibitem{RT} \emph{Coupling trajectories and partition stability in lattice Yang--Mills theory}, companion manuscript, 2026.
+\bibitem{SI} \emph{Scalar sources and uniform insertions for lattice Yang--Mills fields}, companion manuscript, 2026.
+\bibitem{Bal87} T.~Ba{\l}aban, \emph{Renormalization group approach to lattice gauge field theories. I. Generation of effective actions in a small field approximation and a coupling constant renormalization in four dimensions}, Comm. Math. Phys. \textbf{109} (1987), 249--301. \href{https://doi.org/10.1007/BF01215223}{doi:10.1007/BF01215223}.
+\end{thebibliography}
+\end{document}

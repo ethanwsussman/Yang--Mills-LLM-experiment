@@ -1,0 +1,2743 @@
+\documentclass[11pt,letterpaper,reqno]{amsart}
+% BEGIN INLINE manuscript-style
+\makeatletter
+\NeedsTeXFormat{LaTeX2e}[2020/10/01]
+% Use with \documentclass[11pt,letterpaper,reqno]{amsart}.
+% This file controls presentation only. It supplies no mathematical content.
+
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern}
+\RequirePackage{microtype}
+\RequirePackage[letterpaper,margin=1in,headheight=15pt]{geometry}
+\RequirePackage{amsmath,amsthm,amssymb,mathtools}
+\RequirePackage{mathrsfs}
+\RequirePackage{enumitem}
+\RequirePackage{perpage}
+\RequirePackage{longtable}
+\RequirePackage{xcolor}
+\definecolor{manuscriptred}{rgb}{0.6,0.1,0.1}
+\definecolor{manuscriptblue}{rgb}{0.1,0.3,0.5}
+\definecolor{manuscriptmagenta}{HTML}{60445C}
+\RequirePackage[breaklinks=true,colorlinks=true,
+  linkcolor=manuscriptred,citecolor=manuscriptblue,urlcolor=manuscriptmagenta]{hyperref}
+\RequirePackage{cleveref}
+\hypersetup{pdfauthor={}}
+
+% Retain the AMS paragraph, title, heading and running-head conventions.
+% Equation counters restart each section: 2.i, 2.ii, ... .
+% Appendix sections keep their letters: A.i, A.ii, ... .
+\numberwithin{equation}{section}
+\renewcommand{\theequation}{\thesection.\roman{equation}}
+% Prose references include "eq." and omit parentheses around the number.
+\renewcommand{\eqref}[1]{\textup{eq.~\ref{#1}}}
+\crefname{equation}{eq.}{eqs.}
+\Crefname{equation}{eq.}{eqs.}
+\creflabelformat{equation}{#2#1#3}
+\setcounter{tocdepth}{1}
+\renewcommand{\thefigure}{\Roman{figure}}
+\renewcommand{\thetable}{\Roman{table}}
+\newcommand{\clneedspace}[1]{\par\begingroup
+  \dimen0=#1\relax
+  \vskip0pt plus\dimen0\penalty-100
+  \vskip0pt plus-\dimen0\vskip\dimen0
+  \penalty9999\vskip-\dimen0\vskip0pt\endgroup}
+\MakePerPage{footnote}
+\renewcommand{\thefootnote}{%
+  \ifnum\value{footnote}>9\arabic{footnote}\else\fnsymbol{footnote}\fi}
+
+% Upright statements. Main results are A, B, C; supporting statements
+% share a section-local sequence. These end marks indicate typography,
+% never proof completeness, validation, or a deferred-proof status.
+\theoremstyle{definition}
+\newtheorem{ms@theorem}{Theorem}
+\renewcommand{\thems@theorem}{\Alph{ms@theorem}}
+\newtheorem*{ms@theoremstar}{Theorem}
+\newtheorem*{ms@theoremzero}{Theorem 0}
+\newtheorem{ms@proposition}{Proposition}[section]
+\newtheorem{ms@lemma}[ms@proposition]{Lemma}
+\newtheorem{ms@definition}[ms@proposition]{Definition}
+\newtheorem{ms@corollary}[ms@proposition]{Corollary}
+\newtheorem*{ms@corollarystar}{Corollary}
+
+\newcommand{\ms@majorstart}{%
+  \pushQED{\qed}\renewcommand{\qedsymbol}{$\blacksquare\square$}}
+\newcommand{\ms@minorstart}{%
+  \pushQED{\qed}\renewcommand{\qedsymbol}{$\blacksquare$}}
+\newenvironment{theorem}[1][]{\ms@majorstart\ms@theorem[#1]}
+  {\popQED\endms@theorem}
+\newenvironment{theorem*}[1][]{\ms@majorstart\ms@theoremstar[#1]}
+  {\popQED\endms@theoremstar}
+\newenvironment{theoremzero}[1][]{\ms@majorstart\ms@theoremzero[#1]}
+  {\popQED\endms@theoremzero}
+\newenvironment{proposition}[1][]{\ms@minorstart\ms@proposition[#1]}
+  {\popQED\endms@proposition}
+\newenvironment{lemma}[1][]{\ms@minorstart\ms@lemma[#1]}
+  {\popQED\endms@lemma}
+\newenvironment{definition}[1][]{\ms@minorstart\ms@definition[#1]}
+  {\popQED\endms@definition}
+\newenvironment{corollary}[1][]{\ms@majorstart\ms@corollary[#1]}
+  {\popQED\endms@corollary}
+\newenvironment{corollary*}[1][]{\ms@majorstart\ms@corollarystar[#1]}
+  {\popQED\endms@corollarystar}
+% The source's lemma/proposition variants are deliberately not carried over:
+% choose one marker for each statement type rather than encode proof status.
+
+\theoremstyle{remark}
+\newtheorem{remark}[ms@proposition]{Remark}
+\newtheorem*{remark*}{Remark}
+% The ordinary amsthm proof environment retains its open square.
+
+\crefname{ms@theorem}{theorem}{theorems}
+\Crefname{ms@theorem}{Theorem}{Theorems}
+\crefname{ms@proposition}{proposition}{propositions}
+\Crefname{ms@proposition}{Proposition}{Propositions}
+\crefname{ms@lemma}{lemma}{lemmas}
+\Crefname{ms@lemma}{Lemma}{Lemmas}
+\crefname{ms@definition}{definition}{definitions}
+\Crefname{ms@definition}{Definition}{Definitions}
+\crefname{ms@corollary}{corollary}{corollaries}
+\Crefname{ms@corollary}{Corollary}{Corollaries}
+\crefname{remark}{remark}{remarks}
+\Crefname{remark}{Remark}{Remarks}
+
+% Bibliography configuration for this manuscript.
+\makeatother
+% END INLINE manuscript-style
+
+\title[Scalar continuum theory]{A scalar continuum theory from lattice Yang--Mills correlations}
+\date{Working draft, 9 November 2026}
+\begin{document}
+\raggedbottom
+\begin{abstract}
+We assemble a scalar continuum hierarchy from uniform separated
+moments of the Wilson action density. The lattice spacing tends
+to zero along one admitted bare sequence after infinite-volume
+Gibbs states have been chosen at each spacing. A quantitative
+extension theorem controls the resulting moments on Schwartz
+functions flat on all coincidence diagonals, with derivative
+order linear in the number of fields and factorial coefficient
+growth. Reflection positivity passes on the corresponding
+positive-time test domain. Uniform lattice clustering estimates
+give realizing pure states for a compact family of continuum
+phases. The source insertion and physical two-point estimates
+verify the stated general rotation and reconstruction criteria
+for these same phases. Their finite means are retained, and the
+connected short-distance lower bound yields a nonzero scalar
+excitation. The actual uniform source, running and physical
+comparison estimates remain hypotheses of the construction.
+\end{abstract}
+\maketitle
+\tableofcontents
+
+\section{Introduction}
+
+The scalar Wilson action density can be tested at distinct
+physical points without first defining products at coincident
+points. Its continuum construction therefore begins with
+separated smeared correlations. A common subsequence at those
+correlations is only the first step: reflection positivity,
+phase selection and reconstruction each use more than
+pointwise existence of the individual limits.
+
+The required quantitative information is a moment bound
+uniform in the cutoff and the Gibbs states, with explicit
+exponential and factorial growth in the number of insertions.
+We use it first for simultaneous compactness.
+A product-box Fourier construction then extends the moments
+to Schwartz tests flat on the coincidence diagonals. Dyadic
+separation cutoffs and Taylor flatness control the distribution
+order and its dependence on the number of variables. The
+positive-time version of the same approximation passes the
+full reflected form, including its degree-zero terms.
+
+The phase construction uses the all-state estimates before
+taking continuum limits. The moment estimates control the
+reflected sizes of local products. The lattice plateau law
+then gives a physical clustering bound uniformly in the
+cutoff. Evaluation coordinates provide both the
+continuum phase law and actual realizing Gibbs-state sequences.
+This realization allows the source insertion and connected
+two-point estimates to be applied to each phase with the
+original bare parameters and source normalization.
+
+Ultraviolet stability under explicit running-coupling
+assumptions is established in Ba{\l}aban's
+\cite[Theorem~2 and Corollary~3, pp.~263--264]{Bal88}
+and \cite[Theorem~1, pp.~355--356]{Bal89}.
+The scalar construction additionally requires the
+uniform source and physical comparison estimates
+specified here.
+
+The fixed-spacing inputs are supplied by
+\cite{LP}, the trajectory by \cite{RT}, the graded source
+and insertion estimates by \cite{SI}, and the physical
+short-distance law by \cite{FP}. The general plateau and
+angular continuation results are stated at their actual
+interfaces below. We check the Euclidean test space,
+growth and ordered positivity required by the corrected
+Osterwalder--Schrader theorem \cite{OS75}.
+The conclusion concerns the scalar sector generated by
+the action density. Identifying a complete Yang--Mills
+observable theory requires additional joint observable
+constructions.
+
+\section{Lattice states and the limiting test spaces}
+\label{cl:sec-setting}
+
+\subsection{The fixed-spacing state space}
+
+Fix an odd integer \(L\ge3\). At spacing \(a>0\), choose one
+orientation of each bond of \(a\mathbb Z^4\), and write
+\(\Omega_a=SU(2)^{\mathcal B_a}\) with its product topology.
+The reverse bond carries the inverse matrix. Haar measure has
+total mass one. For each elementary square \(p\), let \(U_p\)
+be its ordered boundary transport. Its starting vertex and
+orientation do not affect
+\[
+ A_p=1-\tfrac12\operatorname{tr}U_p,\qquad 0\le A_p\le2.
+\]
+The trace is real for \(SU(2)\). We count each of the six
+coordinate planes once at each lattice site and write \(x_p\)
+for the plaquette barycentre.
+
+For a finite bond set \(D\), the Wilson specification at
+\(\beta\ge0\) holds all other bonds fixed and integrates the
+bonds of \(D\) against normalized Haar measure with density
+proportional to
+\[
+             \exp\!\left[-\beta
+                \sum_{p:p\cap D\ne\varnothing}A_p\right].
+\]
+Here \(p\cap D\ne\varnothing\) means that the boundary of \(p\)
+uses a bond of \(D\). A Wilson Gibbs state is a probability
+measure satisfying these conditional expectation identities.
+We denote the translation-invariant such states by
+\(\mathcal G_{a,\beta}\). A periodic state is one invariant
+under a finite-index lattice subgroup. The all-mirror theorem
+of \cite[Theorem~B]{LP} implies that every periodic Wilson state
+belongs to \(\mathcal G_{a,\beta}\), is invariant under signed
+coordinate permutations, and is reflection positive at every
+coordinate site, coordinate link and diagonal lattice mirror.
+Its positivity applies to the full bounded Borel half-space
+bond algebra.
+
+\begin{proposition}[Fixed-spacing infinite-volume states]
+\label{cl:prop-fixed-spacing}
+For each fixed \(a>0\) and \(\beta\ge0\), periodic extensions
+of cubic-torus Wilson measures have weak subsequential limits
+as the torus side tends to infinity. Every such limit lies
+in \(\mathcal G_{a,\beta}\). The set \(\mathcal G_{a,\beta}\)
+is nonempty, compact and convex in the weak topology.
+\end{proposition}
+\begin{proof}
+The countable product \(\Omega_a\) is compact and metrizable.
+Its probability measures are therefore weakly sequentially
+compact. The torus measures, extended periodically, are
+invariant under every lattice translation. This invariance
+passes to a weak limit because translations act continuously.
+
+Fix \(D\) and a continuous cylinder function \(F\).
+The conditional kernel \(\gamma_DF\) depends on only finitely
+many bonds and is continuous. To see this, its denominator
+is at least \(e^{-2\beta N(D)}\), where \(N(D)\) counts
+plaquettes meeting \(D\); both numerator and denominator are
+continuous parameter integrals over a compact group.
+For sufficiently large tori, the bonds needed by \(D\),
+its adjacent plaquettes and \(F\) embed without identifications.
+The finite-torus conditional identity is then
+\(\mu_\ell(\gamma_DF)=\mu_\ell(F)\). Weak convergence passes
+this equality to the limit. Continuous cylinder functions
+determine measures on the countable compact product, so the
+identity extends to bounded Borel functions by the monotone
+class theorem.
+
+The equations for continuous cylinder functions are closed
+conditions on probability measures. The translation equations
+are closed too. Hence \(\mathcal G_{a,\beta}\) is closed
+in a compact space. Each defining identity is linear in
+the measure, which proves convexity.
+\end{proof}
+
+The proposition keeps \(a\) and \(\beta\) fixed. The following
+cutoff assumptions supply the uniform estimates needed when
+they vary.
+
+\subsection{One bare sequence and its reference subtraction}
+
+Take \(K_j\in\mathbb Z_{\ge0}\), \(a_j=L^{-K_j}\downarrow0\),
+and nonnegative real bare couplings
+\(\beta_j\). The data are assumed to lie on one admitted
+trajectory family of \cite[Theorem~A]{RT}, with the same
+fixed geometric and source constants. Assume in addition that the
+ordinary source and actual rooted-domain hypotheses of
+\cite[Theorems~B and C]{SI} hold uniformly on this family.
+The short-distance statements will also use the actual
+running, source-response and comparison assumptions of
+\cite[Theorem~A and its cofinal alternative]{FP}. These
+assumptions concern the given lattice theory and the
+given bare sequence. They do not follow from compactness
+of \(\mathcal G_{a,\beta}\).
+
+Choose reference states \(\nu_j\in\mathcal G_{a_j,\beta_j}\).
+At each datum, the integrating state
+\(\rho_j\in\mathcal G_{a_j,\beta_j}\) may be different.
+For \(f\in C_c^1(\mathbb R^4;\mathbb C)\), define
+\begin{equation}\label{cl:eq-observable}
+ \mathcal O_j(f)=\sum_p f(x_p)A_p,\qquad
+ X_j^\nu(f)=\mathcal O_j(f)-\nu_j(\mathcal O_j(f)).
+\end{equation}
+The sum is finite. There is no extra power of \(a_j\).
+This is the Wilson normalization used in \cite{SI,FP}.
+
+A tuple \((f_1,\ldots,f_n)\) is separated if its nonzero
+entries have pairwise disjoint compact supports. Such
+supports have positive mutual distance. Set
+\begin{equation}\label{cl:eq-cutoff-moments}
+ G_{j,n}(f_1,\ldots,f_n)
+   =\rho_j\!\left(\prod_{i=1}^n X_j^\nu(f_i)\right),
+ \qquad G_{j,0}=1.
+\end{equation}
+We use complex multilinearity, not sesquilinearity, for
+moments. Conjugation enters reflection-positive forms
+separately. A tuple with a zero entry has value zero.
+Write
+\begin{equation}\label{cl:eq-sharp}
+ \|f\|_\sharp=\max\{\|f\|_\infty,c_M\|\nabla f\|_\infty\},
+ \qquad
+ \|f\|_1=\max\{\|f\|_\infty,\|\nabla f\|_\infty\},
+\end{equation}
+where \(c_M>0\) is fixed.
+
+The all-state graded estimate supplied by \cite[Theorem~B]{SI}
+is the following. There are a fixed integer \(k\ge1\) and
+\(B(R)=C(R+1)^4\) such that
+\begin{equation}\label{cl:eq-graded-input}
+ |G_{j,n}(f_1,\ldots,f_n)|
+ \le B(R)^n(n!)^k\bar d^{-5n}
+                         \prod_{i=1}^n\|f_i\|_\sharp .
+\end{equation}
+Each support is contained in its own radius-\(R\) ball;
+the ball centres are arbitrary. For \(n\ge2\) the
+supports have distance at least \(d>0\), and
+\(\bar d=\min(d,1)\). For \(n=1\), set \(\bar d=1\).
+The constants are independent of the cutoff, the two
+states, the support positions and \(n\). They include
+complex tests after a fixed enlargement of \(C\).
+The same estimate applies when \(\rho_j=\nu_j\), and
+when both are replaced by any other pair of states at
+the same datum. This uniformity will permit phase
+selection and self-centering without introducing a
+new continuum sequence.
+
+For each use of a varying constant \(C\), its allowed
+dependencies are \(L,c_M\), the fixed source and
+trajectory bounds, and explicitly displayed geometric
+parameters. Such a constant does not depend on a
+cutoff, state or field number. Dependence on the
+field number is displayed through exponential and
+factorial factors.
+
+\clneedspace{23\baselineskip}
+\subsection{Flat Schwartz functions}
+
+\begin{definition}[The Euclidean test domains]
+\label{cl:def-flat-spaces}
+For \(n\ge2\), let
+\(\Delta_n=\bigcup_{1\le i<h\le n}\{x_i=x_h\}\)
+in \((\mathbb R^4)^n\), and put
+\[
+ \mathcal S_{\ne,n}
+ =\{\varphi\in\mathcal S(\mathbb R^{4n}):
+       \partial^\alpha\varphi|_{\Delta_n}=0
+       \text{ for every multi-index }\alpha\}.
+\]
+Set \(\mathcal S_{\ne,1}=\mathcal S(\mathbb R^4)\)
+and \(\mathcal S_{\ne,0}=\mathbb C\). These spaces
+carry their Schwartz subspace topology. For \(r\)
+a nonnegative integer and \(n\ge1\), use the seminorm
+\begin{equation}\label{cl:eq-schwartz}
+ |\varphi|_r
+  =\max_{|\alpha|\le r}\sup_{x\in\mathbb R^{4n}}
+       (1+|x|^2)^{r/2}|\partial^\alpha\varphi(x)|.
+\end{equation}
+For \(n=0\), the seminorm is the absolute value.
+Let \(\mathcal S_{+,n}\subset\mathcal S_{\ne,n}\)
+consist of functions whose every derivative vanishes
+whenever at least one time coordinate is nonpositive.
+Set \(\mathcal S_{+,0}=\mathbb C\). We use the fourth
+coordinate as time: \(x=(\mathbf x,t)\), and
+\(\theta(\mathbf x,t)=(\mathbf x,-t)\). Thus
+\((\Theta\varphi)(x_1,\ldots,x_n)
+ =\varphi(\theta x_1,\ldots,\theta x_n)\).
+\end{definition}
+
+These are closed subspaces: every pointwise derivative
+evaluation is a continuous functional on Schwartz
+space, and the defining conditions are intersections
+of their kernels. Tensor products of compactly supported
+smooth tests with pairwise disjoint supports belong to
+\(\mathcal S_{\ne,n}\). Arbitrary tensor products need
+not belong to it. In particular, continuity on this
+domain assigns no value to a contact term supported
+on a coincidence diagonal.
+
+The two components of the construction have different
+roles. The bound \eqref{cl:eq-graded-input} gives
+compactness at every fixed separation and controls
+the quantitative extension to the flat spaces.
+The one-field insertion estimate of \cite[Theorem~C]{SI}
+is an operator estimate uniform in the number of
+surrounding fields; it is required separately by
+the angular continuation criterion.
+
+
+\section{A common subsequence for separated tests}
+\label{cl:sec-compactness}
+
+\begin{proposition}[Separated compactness]\label{cl:prop-separated-compactness}
+Let \(a_j\to0\) be the given cutoff sequence. Suppose the moments
+in \eqref{cl:eq-cutoff-moments} obey \eqref{cl:eq-graded-input} for
+the integrating and centering states \((\rho_j,\nu_j)\), and for
+\((\rho_j,\rho_j)\), with common constants. Assume both states
+have the lattice translation and signed coordinate-permutation
+symmetries of the fixed-spacing construction.
+There is one subsequence on which every moment converges on every
+tuple of separated compact \(C^1\) tests, at all orders.
+Write \(G_n\) for these reference-centered limits and \(G_0=1\).
+They obey the original bound, are multilinear on products of
+fixed separated support spaces, and are symmetric, real and
+invariant under all real translations and signed coordinate
+permutations. Moreover \(G_1(f)=b\int f\) for a real constant \(b\).
+The self-centered limits \(G_n^0\) and all connected limits of
+order \(n\ge2\) exist on the same subsequence.
+
+For any fixed product of separated compact support neighborhoods,
+convergence is uniform on its \(C^1\)-compact sets of tuples.
+It also holds for moving tests converging in \(C^1\) with supports
+in such fixed neighborhoods. Closed inequalities involving
+finitely many of these moment and connected evaluations pass
+to the limit, with the same constants when these are uniform.
+\end{proposition}
+
+\begin{proof}
+Consider bounded finite unions of open rational boxes in
+\(\mathbb R^4\). They form a countable class. Separated compact
+supports have neighborhoods \(U_i\) in this class whose closures
+remain pairwise separated, by a finite cover of each support by
+boxes of sufficiently small diameter. For each such \(U\), choose
+smooth cutoffs \(\chi_m\) supported in \(U\) and equal to one on
+the sets \(\{x\in U:\operatorname{dist}(x,U^c)\ge1/m\}\).
+For example, convolve the indicator of the set at distance
+greater than \(1/(2m)\) with a smooth nonnegative mollifier of
+mass one and support radius \(1/(8m)\).
+
+Use the rational complex spans of \(\chi_m\) times the real sines
+and cosines of integral frequencies on integer-period boxes.
+The resulting family is countable and dense in \(C_c^1(U)\)
+for the \(C^1\) norm. Indeed, for a given test choose \(\chi_m=1\)
+on a neighborhood of its support. Mollify the test on a smaller
+scale and periodize it on a box containing \(\overline U\) and
+the mollified support in its interior. Uniform continuity of the
+first derivatives gives \(C^1\) convergence of the mollification.
+Integration by parts in the Fourier series of the smooth function
+gives absolute summability after one differentiation. Approximate
+the coefficients of a finite partial sum by rational complex
+numbers and multiply by the fixed cutoff. Multiplication by it
+is bounded in \(C^1\) and leaves the target test unchanged.
+
+List all finite tuples from these countable families with pairwise
+separated neighborhood closures, including the one-point tuples.
+Their values are bounded by \eqref{cl:eq-graded-input} at their
+fixed order, radius and separation. Successive subsequences
+converge at the successive entries of this countable list.
+Selecting an increasing index from the \(r\)-th nested subsequence
+at stage \(r\) gives one sequence converging on the entire list.
+An eventual bound on each fixed neighborhood product suffices
+for this selection.
+
+To extend convergence, let \(\mathbf f,\mathbf h\) lie in the same
+product of fixed separated support neighborhoods. Telescope by
+replacing the entries one at a time. Every intermediate tuple
+remains separated. Thus for the fixed order \(n\)
+\begin{equation}\label{cl:eq-moment-telescoping}
+ \bigl|G_{j,n}(\mathbf f)-G_{j,n}(\mathbf h)\bigr|
+ \le C\sum_{i=1}^n \|f_i-h_i\|_\sharp
+      \prod_{l\ne i}\max\{\|f_l\|_\sharp,\|h_l\|_\sharp\},
+\end{equation}
+where \(C\) depends on \(n\) and the radius and separation of the
+neighborhoods. Approximate a given tuple in its own neighborhoods
+by a listed tuple. Inequality~\eqref{cl:eq-moment-telescoping}
+makes this approximation uniform in the cutoff tail. The values
+of the original tuple are Cauchy along the same subsequence.
+The same inequality proves uniform convergence on compact sets
+by finite \(C^1\) nets, and convergence on moving tuples by
+comparison with their limit. It also proves continuity of \(G_n\)
+on each fixed support product. The graded bound passes on the
+original supports, so its constants use their radius and gap.
+
+Multilinearity on these products, symmetry and reality pass from
+the lattice identities. For a real translation \(v\), choose
+\(v_j\in a_j\mathbb Z^4\) with \(v_j\to v\). For
+\((\tau_v f)(x)=f(x-v)\) one has
+\[
+ \|\tau_{v_j}f-\tau_v f\|_\sharp
+ \le\max\{\|\nabla f\|_\infty |v_j-v|,
+                  c_M\omega_{\nabla f}(|v_j-v|)\},
+\]
+where \(\omega_{\nabla f}\) is the uniform modulus of continuity
+of \(\nabla f\). Fixed separated neighborhoods of the limiting
+translated supports contain the moving supports for all large
+\(j\). Lattice translation invariance and moving-test convergence
+give invariance under \(v\). The signed coordinate permutations
+act exactly at each cutoff. The same moving-test conclusion
+applies to pullbacks by converging Euclidean isometries whenever
+the limiting tuple remains separated, by the chain rule and
+uniform continuity.
+
+At one point the difference of the two plaquette means is the
+same number \(\delta_j\) for all positions and planes. This uses
+the signed coordinate permutations as well as translations.
+Put
+\begin{equation}\label{cl:eq-reference-mean}
+ b_j=6a_j^{-4}\delta_j,\qquad
+ R_j(f)=\frac{a_j^4}{6}\sum_p f(x_p),\qquad
+ G_{j,1}(f)=b_jR_j(f).
+\end{equation}
+For each of the six plane labels the shifted grid gives a Riemann
+sum for \(\int f\). The mesh cubes meeting a support of radius
+\(R\) have total volume at most \(C(R+2a_j)^4\).
+The oscillation in one cube is at most
+\(2a_j\|\nabla f\|_\infty\), so
+\[
+ |R_j(f)-\textstyle\int f|
+ \le C(R+2a_j)^4a_j\|\nabla f\|_\infty.
+\]
+Choose a fixed compact test of integral one and radius at most
+one. Its Riemann sum is at least \(1/2\) eventually, independently
+of the two states. The one-point bound then bounds \(b_j\)
+uniformly over the states. Convergence at this test gives
+\(b_j\to b\in\mathbb R\) along the chosen subsequence.
+The same identity then gives \(G_1(f)=b\int f\) for every test.
+
+For a finite index set write \(\mathbf f_A=(f_i)_{i\in A}\) in
+its inherited order. Self-centering is obtained by subtracting
+\(G_{j,1}(f_i)\) from each reference-centered variable. Expanding
+the product and passing to the limit gives
+\begin{equation}\label{cl:eq-self-centered-moments}
+ G_n^0(\mathbf f)
+  =\sum_{A\subseteq\{1,\ldots,n\}}G_{|A|}(\mathbf f_A)
+                \prod_{i\notin A}\left(-b\int f_i\right).
+\end{equation}
+Its graded bound passes directly from the bound for
+\((\rho_j,\rho_j)\). In particular \(G_0^0=1\) and \(G_1^0=0\).
+For \(n\ge2\) the cumulant is unchanged by deterministic shifts.
+Its limit is the finite partition sum
+\begin{equation}\label{cl:eq-separated-connected}
+ S_n^T(\mathbf f)=
+ \sum_{\pi}(-1)^{|\pi|-1}(|\pi|-1)!
+        \prod_{A\in\pi}G_{|A|}(\mathbf f_A).
+\end{equation}
+Here \(\pi\) ranges over partitions of \(\{1,\ldots,n\}\).
+The formula follows from expanding the logarithm of the normalized
+source generating function at zero, or equivalently the
+moment--cumulant identity of \cite[Lemma~2.1]{SI}.
+In particular \(G_n^0\) is the sum of products of the \(S_l^T\)
+over partitions with all block sizes at least two.
+
+The same factorial exponent works for the connected functions.
+Indeed we may take the exponent \(k\) of
+\eqref{cl:eq-graded-input} to be at least one. The moment
+weights of a partition into sizes \(n_1,\ldots,n_r\) carry
+\(\prod_l(n_l!)^k\le (n!)^{k-1}\prod_l n_l!\).
+Summing \(\prod_l n_l!\) over ordered blocks of any one composition
+of \(n\) gives \(n!\), since the number of assignments is
+\(n!/\prod_l n_l!\). Each unordered partition with \(r\) blocks
+occurs \(r!\) times. The sum weighted by \((r-1)!\) is therefore
+\(n!\binom{n-1}{r-1}/r\). Summing over \(r\) gives at most
+\(2^{n-1}(n!)^k\) after the common \((n!)^{k-1}\) factor.
+The remaining moment bounds multiply to the original product
+norm and separation power. Hence one extra factor \(2^n\) in
+the exponential constant suffices.
+
+All the limits used here are simultaneous on each fixed finite
+collection of tuples and their subtuples. Thus inequalities
+defined by closed conditions on such evaluations, with any
+convergent scalar coefficients, pass by continuity. This also
+applies to moving tuples by \eqref{cl:eq-moment-telescoping}.
+\end{proof}
+
+\begin{corollary}[Torus sequences]\label{cl:cor-torus-compactness}
+Consider compatible cubic Wilson tori with \(a_j\to0\) and
+even bare lattice side counts \(\ell_j/a_j\).
+Use their Wilson expectation for both integration and centering.
+On a fixed torus, uniform bounds of the form
+\(C_{n,R,d}\prod_i\|f_i\|_\sharp\) at each order and support
+radius and separation suffice for one subsequence on all
+separated \(C^1\) tuples. The limiting hierarchy is self-centered
+and has all torus translations and signed coordinate-permutation
+symmetries. If the torus sides tend to infinity, a fixed compact
+tuple is transported in a common injective lift. Under the
+finite-torus graded bounds with uniform constants, the same
+construction gives the separated limits and bounds of
+Proposition~\ref{cl:prop-separated-compactness} on \(\mathbb R^4\).
+
+Suppose instead that a self-centered continuum hierarchy has
+already been extracted at each of a sequence of torus sides
+tending to infinity. A separated limit of those hierarchies,
+with the uniform per-support bounds at finite cutoffs, is also
+realized by one sequence of original torus data with meshes
+tending to zero.
+\end{corollary}
+
+\begin{proof}
+On a fixed torus use a countable basis of rational coordinate
+boxes in the period-normalized coordinates, the same
+support-adapted cutoffs and rational Fourier polynomials.
+The preceding extraction and telescoping proof applies there.
+Translations are rounded modulo the period. The one-point
+functions vanish because the tori use self-centering.
+On growing tori any fixed finite family of compact support
+neighborhoods fits, eventually, in a common lift of diameter
+less than a quarter of the side. Periodizing the tests in this
+lift preserves the support distances and \(C^1\) norms.
+Indeed the copies are disjoint, and the quotient is an isometry
+on the chosen lift. Thus the bounds needed for each entry of
+the countable list hold eventually. The moving-test and
+symmetry arguments then apply on the lifted support
+neighborhoods with their fixed margins.
+
+For the last assertion fix the countable list of separated
+Euclidean tuples used above. On the \(j\)-th torus select one
+term of its defining cutoff subsequence with \(K\ge j\) whose
+values differ by at most \(1/j\) from the fixed-torus limits
+on the first \(j\) listed tuples whose neighborhoods embed
+there. There are finitely many such conditions, and each
+holds eventually along the defining subsequence at that torus.
+Every fixed listed tuple eventually embeds and is among those
+tested. The selected torus values and the iterated limits
+therefore agree on this list. Inequality~\eqref{cl:eq-moment-telescoping}
+with the common local constants applies both to the inner
+limits and the selected finite cutoffs. Approximate any fixed
+tuple in its separated neighborhoods, and let this approximation
+error tend to zero after the diagonal limit. This gives agreement
+on every fixed separated tuple and all its subtuples.
+\end{proof}
+
+\clneedspace{22\baselineskip}
+\subsection{Recognition on sufficiently large tori}
+
+\begin{proposition}[Large torus recognition]
+\label{cl:prop-large-torus-recognition}
+For each fixed bare datum \(K\in\mathbb Z_{\ge0}\), \(\beta\ge0\),
+with \(a_K=L^{-K}\),
+fix one compatible cofinal family of Wilson tori and let
+\(\mathcal G^{\rm tor}_{K,\beta}\)
+be the set of weak limit points of their periodic lifts.
+Write \(\mu_{\rm torus}\) for the periodic lift at the
+compared side.
+There is a side threshold \(\ell_\flat(K,\beta)\ge2L^K\)
+with the following properties. For every side in that family
+above the threshold there is a state
+\(\mu\in\mathcal G^{\rm tor}_{K,\beta}\) whose marginal on the
+bonds of the physical max-norm cube of radius \(K+1\) has
+Haar density ratio to the torus marginal within
+\(\epsilon_K=2e^{-1/a_K}\) of one uniformly.
+
+For \(K\to\infty\) on such sides, replacing each torus law by
+its chosen state leaves the limiting connected correlations
+and self-centered moments of every fixed separated compact
+tuple unchanged. Conversely, a sequence of states in these
+torus limit sets at their respective bare data admits torus
+approximants above the same thresholds with the same limits.
+On the chosen cube the torus diagonal reflection form satisfies
+\begin{equation}\label{cl:eq-recognition-rp}
+ \mu_{\rm torus}(\Theta_\Pi\overline F\,F)
+ \ge -\epsilon_K\,\mu_{\rm torus}(|F|^2)
+\end{equation}
+for a bounded Borel \(F\) on one side of a diagonal mirror
+\(\Pi\) through the origin. Here \(\Theta_\Pi\) is the linear
+pullback by the bond reflection; conjugation is written separately.
+\end{proposition}
+
+\begin{proof}
+At fixed spacing first use any finite bond set \(W\) such that
+it and the exterior bonds of its incident plaquettes embed in
+the torus. Write \(h_W(V\mid U)\) for the conditional density
+in the Wilson specification of
+Proposition~\ref{cl:prop-fixed-spacing}, relative to normalized
+Haar on \(W\). It is continuous in the finitely many interior
+and exterior variables. If \(N_W\) is the number of plaquettes
+meeting \(W\), then \(h_W\ge e^{-2\beta N_W}\), since every
+plaquette action lies in \([0,2]\).
+For the periodic lift \(\widetilde\mu_\ell\) and each limit
+state \(\mu\) the respective marginals have densities
+\[
+ m_{\widetilde\mu_\ell}(V)=\int h_W(V\mid U)\,d\widetilde\mu_\ell(U),
+ \qquad
+ m_\mu(V)=\int h_W(V\mid U)\,d\mu(U).
+\]
+The first formula follows by integrating the embedded window
+in the finite Wilson integral. The second is the DLR identity.
+The family \(h_W(V\mid\cdot)\) has compact image in the sup norm
+as \(V\) ranges over a compact product of copies of \(SU(2)\).
+Thus along any subsequence of torus lifts converging weakly to
+\(\mu\), a finite sup-norm net of this family gives uniform
+convergence of their marginal densities to \(m_\mu\).
+The common positive lower bound gives uniform convergence
+of \(m_\mu/m_{\widetilde\mu_\ell}\) to one on that subsequence.
+It follows that
+\[
+ \inf_{\mu\in\mathcal G^{\rm tor}_{K,\beta}}
+ \|m_\mu/m_{\widetilde\mu_\ell}-1\|_\infty\longrightarrow0
+ \qquad(\ell\to\infty).
+\]
+Otherwise a violating sequence of sides would have a weak
+subsequence with a limit in this same set.
+
+Now take all bonds with both endpoints in the radius-\((K+1)\)
+cube, with either orientation represented once.
+Choose \(\ell_\flat\) so that the window with its plaquette
+collar embeds and the last infimum is at most \(e^{-1/a_K}\)
+on every later side. Increasing it to \(2L^K\) if needed gives
+the stipulated growth. Select one state within \(2e^{-1/a_K}\)
+in the density-ratio norm. For every bounded measurable \(B\)
+of the window,
+\begin{equation}\label{cl:eq-recognition-density}
+ |\mu(B)-\widetilde\mu_\ell(B)|
+ \le\epsilon_K\,\widetilde\mu_\ell(|B|).
+\end{equation}
+This is one window estimate for all the observables used below.
+
+Fix finitely many compact tests in a cube of physical radius
+\(R\), with a plaquette margin inside the window for large \(K\).
+The number of plaquette centres per test is at most
+\(C(1+R/a_K)^4\). Hence \eqref{cl:eq-recognition-density}
+bounds a difference of raw moments of order \(n\) by
+\[
+ C^n\epsilon_K(1+R/a_K)^{4n}\prod_i\|f_i\|_\infty .
+\]
+Expansion over subsets for self-centering and over partitions
+for cumulants gives the same estimate with a constant
+depending on the fixed order. For a product of expectations,
+replace its factors one at a time and use the corresponding
+raw bounds for the other factors. The exponential
+\(e^{-1/a_K}\) dominates every fixed power of \(a_K^{-1}\).
+This proves recognition of all fixed-tuple limits, with the
+same chosen state for every tuple eventually contained in the
+window. For the converse, at each fixed datum use a cofinal
+subsequence converging to its prescribed torus limit point.
+The ratio convergence already proved allows a side as large
+as desired at that datum with the same window tolerance.
+The same moment estimate gives the converse.
+
+For the reflection claim, the cube and its bond set are
+invariant under a diagonal reflection through the origin.
+The torus lift is invariant under this signed permutation,
+so its expectation of \(\Theta_\Pi\overline F\,F\) is real.
+The state \(\mu\) is reflection positive by
+\cite[Theorem B]{LP}. Apply \eqref{cl:eq-recognition-density}
+to \(\Theta_\Pi\overline F\,F\) and use
+\[
+ \widetilde\mu_\ell(|\Theta_\Pi\overline F|\,|F|)
+ \le \widetilde\mu_\ell(|F|^2)
+\]
+by Cauchy--Schwarz and reflection invariance. This gives
+\eqref{cl:eq-recognition-rp}. Its error tends to zero for
+polynomials of fixed degree in fixed compactly supported
+observables and their centered versions, by the same
+plaquette count. For an affine lattice diagonal mirror,
+a lattice translation moves it to the origin. On fixed
+bounded support sets and bounded mirror offsets the translated
+observables lie in the same growing window eventually.
+\end{proof}
+
+\section{Quantitative extension to flat Schwartz tests}
+\label{cl:sec-flat-extension}
+
+Use the seminorm \eqref{cl:eq-schwartz} and the spaces of
+Definition~\ref{cl:def-flat-spaces}, with the one-slot norm
+\(\|f\|_1\) fixed in \eqref{cl:eq-sharp}.
+
+\begin{proposition}[Flat extension and separated tensor density]
+\label{cl:prop-flat-extension}
+Let \(F_n\), \(n\ge1\), be forms on separated compact \(C^1\) tuples,
+multilinear on each product of separated support spaces.
+Suppose \(D\ge1\), \(\kappa\ge0\) and \(\alpha\ge0\) are independent
+of \(n\), and for radius-one supports at mutual distance at least
+\(d>0\) one has
+\begin{equation}\label{cl:eq-flat-tensor-input}
+ |F_n(f_1,\ldots,f_n)|\le
+ D^n(n!)^\kappa\min(1,d)^{-\alpha n}\prod_i\|f_i\|_1.
+\end{equation}
+At \(n=1\) take \(d=1\). Set \(A=\lceil\alpha\rceil\) and
+\(k_*=A+15\). There is a unique continuous linear extension to
+\(\mathcal S_{\ne,n}\) agreeing with the values on smooth compact
+separated tensors, and
+\begin{equation}\label{cl:eq-flat-growth}
+ |F_n(\varphi)|\le C^n(n!)^{\kappa+32}|\varphi|_{k_*n},
+ \qquad n\ge1 .
+\end{equation}
+Here \(C\) depends on \(D,\alpha\) and numerical cutoff choices,
+uniformly in \(n\) and all families obeying
+\eqref{cl:eq-flat-tensor-input} with those constants.
+Finite sums of the indicated tensors are dense in
+\(\mathcal S_{\ne,n}\) in the Schwartz topology.
+For the positive-time flat subspace, their entries may all have
+compact support strictly in the open positive half-space.
+This density assertion also holds for any affine half-space
+by an isometric change of test coordinates.
+The radius-one bound also gives a radius-\(R\) bound in
+\eqref{cl:eq-flat-tensor-input} with \(CD(1+R)^4\) in place of
+\(D\).
+\end{proposition}
+
+\begin{proof}
+\emph{Cutoffs.}
+We use a finite set of fixed smooth cutoff functions valued in
+\([0,1]\) whose derivatives of order \(q\) are bounded by
+\(C^{q+1}(q!)^2\). To construct them, start with
+\(a(t)=e^{-1/t}\) for \(t>0\) and zero for \(t\le0\).
+On the complex circle \(|z-t|=t/2\) one has
+\(\operatorname{Re}(1/z)\ge2/(9t)\). Cauchy's formula gives
+\[
+ |a^{(q)}(t)|\le q!(2/t)^q e^{-2/(9t)}.
+\]
+The maximum of \(t^{-q}e^{-c/t}\) and the inequality
+\((q/e)^q\le q!\) give the stated bounds and flatness at zero.
+The smooth step \(s(t)=a(t)/(a(t)+a(1-t))\) is zero at \(t\le0\)
+and one at \(t\ge1\). On \([0,1]\) its denominator is at least
+\(e^{-2}\). A reciprocal of a denominator bounded below by
+\(\delta>0\) has the same derivative bound. Indeed, differentiating
+\(D D^{-1}=1\) and dividing by \((q!)^2\) introduces the
+coefficients \(1/\binom qr\). If the denominator bound uses a
+constant \(C_D\), the induction for the reciprocal closes with
+\(M B^q(q!)^2\), \(M\ge\delta^{-1}\), as soon as
+\((C_D/\delta)\sum_{r\ge1}(C_D/B)^r\le1\).
+Leibniz's rule then gives the bound for the step.
+
+Take an even cutoff \(\eta(t)\) equal to one for \(|t|\le5/4\)
+and zero for \(|t|\ge2\), using \(s((2-|t|)/(3/4))\) on the
+transition.
+Put \(\psi(t)=\eta(2t)\) and
+\(\chi_1(t)=\psi(t)/\sum_{m\in\mathbb Z}\psi(t-m)\).
+The denominator is at least one by the nearest integer, and its
+locally finite sum uses at most three terms and has the same
+derivative bounds. Define on \(\mathbb R^4\)
+\[
+ \chi(u)=\prod_{\mu=1}^4\chi_1(u_\mu),\qquad
+ \chi^+(u)=\prod_{\mu=1}^4\eta(u_\mu),\qquad
+ \zeta(u)=1-\chi^+(u).
+\]
+The integer translates of \(\chi\) sum to one.
+Its support is in \([-1,1]^4\), where \(\chi^+=1\), and
+\(\chi^+\) has support in \([-2,2]^4\). Thus \(\zeta\) is zero
+on the first cube and one outside the second. All these
+cutoffs have the stated derivative bounds. For \(N\) such
+factors at a scale proportional to \(h\), Leibniz's rule yields
+\begin{equation}\label{cl:eq-cutoff-product}
+ \left|\partial^\beta \prod_{\nu=1}^N b_\nu\right|
+ \le (CN)^q(q!)^2h^{-q},\qquad q=|\beta|.
+\end{equation}
+To see the dependence on \(N\), distribute the derivative
+among the factors. The multinomial coefficients sum to \(N^q\).
+The assigned factorials have product at most \(q!\), and
+at most \(q\) factors are differentiated. Each undifferentiated
+factor is bounded by one. Using a difference \(x_i-x_l\)
+as an argument changes only derivative signs in this estimate.
+
+For the radius-\(R\) assertion, use translates of this partition
+at a fixed mesh small enough for each piece to fit in a unit
+ball. At most \(C(1+R)^4\) pieces meet a support of radius \(R\).
+Their \(C^1\) norms are bounded by a fixed multiple of the original
+norm. Multiplication by a cutoff preserves containment in the
+original support, and thus preserves each interslot gap.
+Multilinearity and the radius-one estimate give the assertion.
+
+\emph{Local product boxes.}
+Let \(0<h\le1/16\) and \(\lambda=h/64\).
+Suppose the cubes \(c_i+[-2\lambda,2\lambda]^4\) have mutual
+distance at least \(h/2\). For \(u\) smooth and compactly
+supported in the product of open inner cubes
+\(c_i+(-5\lambda/4,5\lambda/4)^4\),
+expand it on the product of the period-\(8\lambda\) cubes.
+Multiply each one-slot Fourier exponential by
+\(\chi^+((x_i-c_i)/\lambda)\). The resulting product series
+equals \(u\), since the periodic extension agrees with \(u\)
+on the support of the product cutoff.
+For its Fourier coefficients \(\widehat u(k)\),
+\(k=(k_i)_{i=1}^n\), put
+\[
+ J_{r,\lambda}(u)=
+     \max_{|\beta|\le r}\lambda^{|\beta|}
+                   \|\partial^\beta u\|_\infty .
+\]
+Rescale each slot to a period-two cube. Integration by parts with
+\((1-\pi^{-2}\Delta_i)^4\) in each slot bounds the coefficients by
+\[
+ |\widehat u(k)|\le C^n J_{8n,\lambda}(u)
+                    \prod_i(1+|k_i|^2)^{-4}.
+\]
+The coefficient sum of this differential operator is a fixed
+constant per slot. The Fourier normalization is the inverse
+volume of the period cube, so it does not add a power of
+\(\lambda^{-1}\). Each localized exponential has
+\(\|\cdot\|_1\le C\lambda^{-1}(1+|k_i|)\).
+The single-slot sum of \((1+|k_i|)(1+|k_i|^2)^{-4}\)
+over \(\mathbb Z^4\) is finite. Equation~\ref{cl:eq-flat-tensor-input} therefore defines a local
+functional \(T(u)\) by an absolutely convergent series and gives
+\begin{equation}\label{cl:eq-flat-box-bound}
+ |T(u)|\le (CD)^n(n!)^\kappa
+                  h^{-(\alpha+1)n}J_{8n,\lambda}(u).
+\end{equation}
+
+For a tensor in the inner cubes the Fourier coefficients factor.
+The localized one-slot series converge in \(C^1\) on fixed
+separated support spaces. The multilinear bound shows that
+the local functional takes the prescribed tensor value.
+On overlaps, partition a compactly supported test into smaller
+product boxes whose expanded supports are inside the overlap.
+This is possible since the overlap is open and disjoint from
+the diagonals. In each smaller box the same cutoff Fourier
+series converges with all derivatives on a fixed compact set,
+by integration by parts at any fixed order. Both local
+functionals agree on these tensor approximants and are continuous
+by \eqref{cl:eq-flat-box-bound}, so they agree on the test.
+Finite smooth partitions of unity now define a single functional
+on compact tests off the diagonals. A different partition gives
+the same value by refining both partitions and using agreement
+on overlaps. For an arbitrary original separated smooth tensor,
+partition each slot into smaller compact pieces with their
+expanded boxes still separated across slots. Multilinearity on
+the original support product then gives the prescribed value.
+In particular linear relations among separated tensors have
+zero value under this construction.
+
+\emph{Summing over scales and positions.}
+Let \(h_j=2^{-j}/16\), \(\lambda_j=h_j/64\), and set
+\[
+ P_h(x)=\prod_{i<l}\zeta((x_i-x_l)/h),\qquad
+ D_0=P_{h_0},\qquad D_j=P_{h_j}-P_{h_{j-1}}\quad(j\ge1).
+\]
+Off the diagonals the sum of the \(D_j\) is one. A fine layer
+and all its derivatives are supported where the smallest
+max-norm pair distance lies between \(h_j\) and \(4h_j\).
+At \(n=1\) the pair product is one, so there are no fine layers.
+At level \(j\) use the product partition
+\(\chi_{j,z}(x)=\prod_i\chi(x_i/\lambda_j-z_i)\) for
+\(z=(z_i)_{i=1}^n\in(\mathbb Z^4)^n\).
+When \(\chi_{j,z}D_j\) is nonzero, a point in its support
+has every pair distance at least \(h_j\). The slot centres
+are at pair distance at least \(h_j-2\lambda_j\) in max norm.
+Their expanded cubes are separated by at least
+\(h_j-6\lambda_j>h_j/2\).
+The closed grid supports lie strictly inside the open inner
+cubes used in the local construction.
+Thus \eqref{cl:eq-flat-box-bound} applies to
+\(u=\chi_{j,z}D_j\varphi\).
+
+In each layer there are at most \(C n^2\) cutoff factors.
+For derivatives through order \(8n\), \eqref{cl:eq-cutoff-product}
+and the scale factor in \(J_{8n,\lambda_j}\) give a cutoff cost
+bounded by
+\begin{equation}\label{cl:eq-factorial-accounting}
+ (Cn^2)^{8n}((8n)!)^2 \le C^n(n!)^{32}.
+\end{equation}
+Here \(n^{16n}\le e^{16n}(n!)^{16}\), and
+\((8n)!\le8^{8n}(n!)^8\) by the multinomial formula.
+No dimension-dependent constant is used in place of this bound.
+
+On a fine layer move the first point of a closest pair onto
+the second. The resulting point is on a diagonal at Euclidean
+distance at most \(8h_j\). The segment uses at most four
+coordinate directions. Since all derivatives of \(\varphi\)
+vanish at its diagonal endpoint, Taylor's formula gives, for
+\(|\beta|\le8n\) and \(m=(A+5)n+2\),
+\[
+ |\partial^\beta\varphi(x)|\le
+ C_A^n h_j^m (1+|x|^2)^{-k_*n/2}|\varphi|_{k_*n}.
+\]
+Indeed \(8n+m\le k_*n\). The directional remainder has
+coefficient at most \((Ch_j)^m/m!\), using the four-coordinate
+\(\ell^1\) displacement. The weights along a segment of length
+at most \(1/2\) are comparable to the weight at \(x\), at cost
+\(C^{k_*n}\). Both costs are bounded by \(C_A^n\) after
+retaining the displayed power of \(h_j\).
+For \(j=0\) use the direct seminorm bound and omit \(h_j^m\).
+
+By Leibniz's rule, the scale factor in \(J_{8n,\lambda_j}\)
+cancels the inverse powers of \(h_j\) on the cutoff derivatives.
+Combining the last estimates gives
+\[
+ J_{8n,\lambda_j}(\chi_{j,z}D_j\varphi)
+ \le C_A^n(n!)^{32}h_j^m|\varphi|_{k_*n}
+     \sup_{x\in\operatorname{supp}\chi_{j,z}}
+                 (1+|x|^2)^{-k_*n/2}
+\]
+on a fine layer, with the same coarse-layer convention.
+For the grid sum use
+\(1+|x|^2\ge\prod_i(1+|x_i|^2)^{1/n}\).
+Each \(x_i\) is a bounded distance from its grid centre, so
+\[
+ \sum_z\sup_{x\in\operatorname{supp}\chi_{j,z}}
+                 (1+|x|^2)^{-k_*n/2}
+ \le C_A^n \prod_i\sum_{z_i\in\mathbb Z^4}
+               (1+|\lambda_j z_i|^2)^{-k_*/2}
+ \le C_A^n h_j^{-4n}.
+\]
+The one-slot bound follows by integrating over its mesh cubes,
+since \(k_*>4\). Substitution in \eqref{cl:eq-flat-box-bound}
+gives the fine-scale bound
+\[
+ \sum_z |T(\chi_{j,z}D_j\varphi)|
+ \le C^n(n!)^{\kappa+32}|\varphi|_{k_*n}
+                  h_j^{m-(\alpha+5)n}.
+\]
+The power of \(h_j\) is at least two. At \(j=0\) its fixed scale
+cost is absorbed in \(C^n\). The sum in \(j\) is absolute,
+so it defines the extension and proves \eqref{cl:eq-flat-growth}.
+For compact support away from the diagonals this sum is finite
+and is the glued local functional.
+
+\emph{Density and the time boundary.}
+First multiply by \(\prod_i\chi^+(x_i/R)\) and send \(R\to\infty\).
+For a fixed seminorm, the discarded derivatives have a point
+with \(|x_i|\ge R\), and one extra power of Schwartz decay
+bounds their seminorm by \(C_{n,r}R^{-1}|\varphi|_{r+1}\).
+Next multiply by \(P_h\) and send \(h\downarrow0\).
+Every surviving derivative of \((1-P_h)\varphi\) has a pair
+within max-norm distance \(2h\). For fixed \(n,r\), the preceding
+Taylor argument with any \(M>r\) gives a bound
+\(C_{n,r,M}h^{M-r}|\varphi|_{r+M}\).
+Thus compact tests away from the diagonals are dense.
+Apply a finite product-box partition and the cutoff Fourier
+expansions to those tests. Partial sums converge with all
+derivatives on a common compact set, hence in the Schwartz
+topology. Choosing the cutoffs and finite sums successively
+for the first \(r\) seminorms gives a single sequence of finite
+sums of separated tensors.
+
+On \(\mathcal S_{+,n}\) also multiply by
+\(B_h(x)=\prod_i s(x_{i,4}/h-1)\).
+The cutoff is zero when a time is at most \(h\) and one when
+all are at least \(2h\). Where it removes a nonzero derivative
+of a positive-time test, some time lies in \([0,2h]\).
+Taylor expansion to that time hyperplane gives the same
+decay \(h^{M-r}\), because every jet there vanishes.
+The compact supports of the approximants lie strictly in
+the positive half-space, so their enlarged Fourier boxes
+can be chosen there too. If one uses \(P_hB_h\) directly
+in the quantitative dyadic construction, a fine layer has
+one close pair or one time within \(4h\) of zero.
+The same Taylor and cutoff estimates apply, since there
+are still at most \(Cn^2\) factors. The constants in
+\eqref{cl:eq-flat-growth} retain the same order and factorial
+exponent on that subspace. An affine isometry of the tests
+gives the density statement for another half-space.
+
+Continuity and this density give uniqueness, independently
+of the boxes and cutoffs. They also transport any symmetry
+of the separated forms whose test pullback is continuous
+in the Schwartz topology.
+\end{proof}
+
+\begin{lemma}[Integration of omitted slots]\label{cl:lem-flat-marginal}
+For \(A\subseteq\{1,\ldots,n\}\), let \(I_A\) integrate the
+variables indexed by \(A\), leaving the other slots in order.
+It maps \(\mathcal S_{\ne,n}\) continuously into
+\(\mathcal S_{\ne,n-|A|}\) and preserves positive-time
+flatness in the remaining variables. If \(m=|A|\) and \(r\ge0\)
+is an integer, then
+\begin{equation}\label{cl:eq-marginal-bound}
+ |I_A\varphi|_r\le C_6^{\,m}|\varphi|_{r+6m},
+ \qquad C_6=\int_{\mathbb R^4}(1+|y|^2)^{-3}\,dy.
+\end{equation}
+For no remaining variables the left side is the absolute value
+of the scalar integral.
+\end{lemma}
+
+\begin{proof}
+Let \(x\) collect the remaining variables and \(y_i\) the
+integrated ones. The weight inequality
+\[
+ (1+|x|^2)^{r/2}\prod_i(1+|y_i|^2)^3
+ \le(1+|x|^2+\textstyle\sum_i|y_i|^2)^{(r+6m)/2}
+\]
+gives an integrable majorant for every retained derivative of
+order at most \(r\). Differentiation under the integral and
+integration of the product weights yield \eqref{cl:eq-marginal-bound}.
+On a remaining diagonal or a forbidden retained time, the
+corresponding derivatives vanish at every integrated datum.
+They therefore vanish after integration as well.
+\end{proof}
+
+\begin{corollary}[Growth and convergence of the extended hierarchy]
+\label{cl:cor-flat-growth}
+The separated limits of Proposition~\ref{cl:prop-separated-compactness}
+extend uniquely to the flat spaces. Their full and self-centered
+moments, and their higher connected functions, satisfy
+\begin{equation}\label{cl:eq-hierarchy-growth}
+ |F_n(\varphi)|\le C^n(n!)^{k+32}|\varphi|_{20n},
+ \qquad n\ge1 ,
+\end{equation}
+uniformly for limits from the same graded input constants.
+For infinite-lattice sequences the same subsequence converges
+on every flat Schwartz test after extending the cutoff forms.
+For growing tori the conclusion concerns the extended limit
+of the compact tuples. The fixed-torus limits define unique
+distributions off the coincidence diagonals.
+\end{corollary}
+
+\begin{proof}
+On radius-one supports \(\|f\|_\sharp\le\max(1,c_M)\|f\|_1\).
+The graded input and the cumulant estimate therefore give
+\eqref{cl:eq-flat-tensor-input} with \(\alpha=5,\kappa=k\)
+and a common \(D\), after increasing it by a fixed factor.
+Proposition~\ref{cl:prop-flat-extension} gives
+\eqref{cl:eq-hierarchy-growth}. It applies with the same
+constants to any admitted phase realized on a sequence of
+states with the same two-state estimates, including its
+reference-centered one-point function.
+
+For the infinite-lattice sequence the uniform graded bound
+also applies to each cutoff form. Approximate a fixed
+\(\varphi\) by a finite sum of smooth separated tensors in
+\(|\cdot|_{20n}\). On that finite sum the cutoff limits are
+already known. Equation~\ref{cl:eq-hierarchy-growth} bounds
+the approximation error at both ends uniformly, so the
+convergence extends to \(\varphi\). On growing tori the
+support-lift argument applies eventually to each compact
+tuple. This suffices for the bound on the limit. At a finite
+torus distant Euclidean supports may overlap after projection,
+so a global Euclidean cutoff functional is not used there.
+
+For a fixed torus take smooth cutoffs in a product of separated
+coordinate neighborhoods. Expand a joint compact test in
+torus Fourier modes and localize each slot by its cutoff.
+At fixed \(n\) the per-support moment bound costs at most
+\(C(1+|k|)^n\) on a mode of combined frequency
+\(k\in\mathbb Z^{4n}\). Integrating by parts \(5n+1\) times
+in a coordinate of maximal frequency gives a summable
+bound after this loss, since the remaining exponent is
+\(4n+1\). The series defines a local functional of finite
+order. It agrees with the tuple moments by the same separated
+tensor approximation as in the product-box proof. Agreement
+on overlaps and a partition of unity give the unique
+off-diagonal distribution.
+\end{proof}
+
+
+\section{Reflection forms and insertions}
+\label{cl:sec-reflection}
+
+Use one subsequence of the two-state moments
+\eqref{cl:eq-cutoff-moments}. In this section \(G_n\) denotes its
+limit with the given reference subtraction. The test spaces and
+Schwartz seminorms are those in Definition~\ref{cl:def-flat-spaces}.
+For an affine hyperplane \(\Pi\) let \(\theta_\Pi\) be reflection in
+\(\Pi\), and let \(\Theta_\Pi\) denote simultaneous pullback on every
+test variable. Choose a positive side of \(\Pi\).
+The space \(\mathcal S_{+,n}(\Pi)\) consists of diagonal-flat
+Schwartz tests also flat outside the set in which all variables
+lie in that open side. Its degree-zero term is \(\mathbb C\).
+We write \(\tau_v f(x)=f(x-v)\), with the simultaneous action on
+multivariable tests. For \(\Pi=\{x_4=0\}\) the positive side is
+\(x_4>0\).
+
+\begin{proposition}[Reflection positivity of the limiting moments]
+\label{cl:prop-reflection-positivity}
+Suppose the two-state moments converge on the
+separated tuples as in
+Proposition~\ref{cl:prop-separated-compactness}. Let their
+diagonal-flat extensions be those of
+Proposition~\ref{cl:prop-flat-extension}. For every affine
+coordinate or diagonal mirror \(\Pi\), and every finite sequence
+\(F=(F_0,\ldots,F_N)\) with \(F_n\in\mathcal S_{+,n}(\Pi)\),
+\begin{equation}
+\label{cl:eq-reflection-form}
+ q_{G,\Pi}(F,F)
+ :=\sum_{m,n=0}^N
+    G_{m+n}(\Theta_\Pi\overline{F_m}\otimes F_n)\ge0 .
+\end{equation}
+The same formula with a second sequence in the second slot
+defines a Hermitian positive semidefinite form, antilinear in
+the first sequence. It is continuous at each pair of fixed
+finite degree bounds in the induced Schwartz topologies.
+The completion of its quotient by the null space is separable.
+\end{proposition}
+
+\begin{proof}
+First take finite linear combinations of compact smooth product
+tests. In each product the factors have mutually separated
+supports on the positive side. There is no separation
+requirement between supports belonging to different products.
+Choose lattice mirrors \(\Pi_j\) of the same normal type with
+heights tending to that of \(\Pi\). Coordinate site and link
+planes and diagonal planes are supplied by \cite[Theorem B]{LP}.
+Every contributing plaquette in a positive product is wholly on
+the positive side of \(\Pi_j\) for large \(j\), since its
+diameter is \(O(a_j)\) and the support has a fixed positive
+distance to \(\Pi\). Thus the corresponding polynomial in
+\(X_j^\nu\) is a bounded function of the positive-side bonds at
+the fixed cutoff.
+
+The barycentre of a reflected plaquette is the reflected
+barycentre. Its trace is unchanged by a change of starting
+vertex or orientation. Consequently the raw observable
+intertwines the lattice reflection and pullback of the test.
+Invariance of \(\nu_j\) under \(\Pi_j\) gives the same identity
+for the subtracted scalar. Apply lattice reflection positivity
+in \(\rho_j\) to the entire polynomial, including its constant
+term. Each entry of the resulting form is a moment of a
+separated tuple: the left entries lie on the negative side,
+the right entries on the positive side, and each side is
+internally separated. Pullback by \(\theta_{\Pi_j}\) converges
+to pullback by \(\theta_\Pi\) in \(C^1\) on a fixed compact
+neighbourhood of each reflected support. The moving-test
+conclusion of Proposition~\ref{cl:prop-separated-compactness}
+therefore passes the finite sum to \eqref{cl:eq-reflection-form}.
+Its degree-zero entry is \(G_0=1\).
+
+For arbitrary \(F_m,F_n\) in the stated spaces, their mixed
+tensor is diagonal-flat. At a coincidence within one group
+every differentiated term vanishes by flatness of that group.
+At a coincidence across groups, the common point cannot lie
+strictly on the respective open sides for both factors.
+Every derivative of at least one factor is therefore zero at
+that point. The same argument covers zero time and all
+multiderivatives. Affine pullback, conjugation and tensor
+product are continuous in Schwartz topology. For example,
+the product of the two weights of order \(r\) bounds the joint
+weight of order \(r\). Thus the continuous extensions of
+\(G_{m+n}\) apply to these mixed tensors. Approximate each
+degree by finite sums of the separated positive-side tensors of
+Proposition~\ref{cl:prop-flat-extension}, after an isometry
+taking \(\Pi\) to the coordinate plane. Passing to the limit
+in the finitely many terms gives the claimed inequality.
+Polarization gives Hermiticity and Cauchy--Schwarz.
+Schwartz space is separable and metrizable, and each flat
+subspace is a separable subspace. Each finite direct sum
+therefore has a countable dense set. Continuity of the form
+makes its image dense for the quotient norm. The union of
+these sets over the finite degree bounds is countable and
+dense in the Hilbert completion. This proves separability.
+\end{proof}
+
+\begin{corollary}[Reflection positivity of growing-torus limits]
+\label{cl:cor-torus-reflection}
+Use the direct growing-torus compactness of
+Corollary~\ref{cl:cor-torus-compactness}, with the graded
+bounds and diagonal-flat extension of
+Proposition~\ref{cl:prop-flat-extension}.
+Then \eqref{cl:eq-reflection-form} holds on every affine
+coordinate mirror for the self-centered limit.
+If the torus sides also lie above the thresholds of
+Proposition~\ref{cl:prop-large-torus-recognition},
+it holds on every affine diagonal mirror as well.
+\end{corollary}
+
+\begin{proof}
+Begin with the compact separated positive-side polynomials
+in Proposition~\ref{cl:prop-reflection-positivity}.
+Round a coordinate mirror to lattice mirrors of one fixed
+type. The antipodal planes have the same type, since the
+number of lattice sites along each side is even. For
+large \(j\) the compact positive supports and their
+sampled plaquettes lie strictly within the torus half
+between these two planes. The first plane converges to
+the prescribed mirror and the antipodal plane leaves
+every fixed support. Finite-torus reflection positivity
+from \cite[Proposition 3.1]{LP} gives the nonnegative
+form on the entire lattice polynomial. Invariance
+makes torus self-centering commute with reflection.
+Use the fixed common lift of the supports and
+the moving-test convergence to pass each form entry.
+
+For a diagonal plane through the origin use the
+approximate lattice inequality
+\eqref{cl:eq-recognition-rp}. For a fixed polynomial of
+degree at most \(N\), the supremum norm of the centered
+lattice polynomial is bounded by \(C a_j^{-4N}\) for
+all sufficiently small \(a_j\). This uses its fixed
+compact supports and the plaquette count. Thus
+\(\epsilon_{K_j}\mu_{\rm torus}(|F_j|^2)\to0\).
+The limiting form is nonnegative. Translation invariance
+carries it to every affine mirror of that orientation.
+In both cases the separated tensor density and continuity
+argument from Proposition~\ref{cl:prop-reflection-positivity}
+gives the full diagonal-flat forms.
+\end{proof}
+
+For a mirror \(\Pi\), let \(\mathcal H_{G,\Pi}\) be the completion
+of the finite-sequence quotient by the null space of
+\(q_{G,\Pi}\). Write \([F]_G\) for a class when the mirror is
+understood. The degree-zero class \(\Omega\) has norm one.
+Compact separated positive-side tensor polynomials are dense
+in this quotient. One can also use compact \(C^1\) factors:
+smooth each within its fixed separated support neighbourhood,
+and use the graded bound for the differences of the finitely
+many norm entries.
+
+\begin{proposition}[Translations on the reflection Hilbert space]
+\label{cl:prop-reflection-semigroup}
+Under Proposition~\ref{cl:prop-reflection-positivity}, fix one
+of its mirrors and its inward unit normal \(e\).
+Normal translations by \(ue\), \(u\ge0\), descend to a
+strongly continuous semigroup \(T_u=e^{-uH}\) of positive
+self-adjoint contractions, with \(H\ge0\).
+Tangential translations descend to a strongly continuous
+unitary group \(U_y=e^{iy\cdot P}\), \(y\perp e\).
+The generators \(H\) and \(P\) have a joint spectral measure.
+Both translation actions fix \(\Omega\).
+\end{proposition}
+
+\begin{proof}
+The identity \(\Theta_\Pi\tau_{ue}=\tau_{-ue}\Theta_\Pi\)
+and joint translation invariance give
+\[
+ q_{G,\Pi}(F,\tau_{ue}J)=q_{G,\Pi}(\tau_{ue}F,J).
+\]
+We first obtain a contraction on compact separated
+polynomials. At a fixed cutoff, use a corresponding lattice
+normal shift \(v\) into the chosen half-space. The same
+reflection identity and semidefinite Cauchy--Schwarz give
+\[
+ \|\tau_v A\|_{\Pi_j}^2
+     \le \|A\|_{\Pi_j}\,\|\tau_{2v}A\|_{\Pi_j}.
+\]
+The cutoff norm is at most the supremum norm of the bounded
+cylinder function, uniformly over its translates at this
+cutoff. If the initial norm is zero, the inequality gives
+a zero shifted norm. Otherwise iterating with \(2^k v\) and
+letting \(k\to\infty\) gives contraction. This argument uses
+the cutoff supremum bound only before taking the cutoff limit.
+
+Choose \(v_j\) in the lattice normal direction converging to
+\(ue\), with nonnegative normal component. For a diagonal
+normal one can use integer multiples of
+\(a_j(e_i\pm e_l)\). Pass the two squared norms to the limit
+by separated moving-test convergence as in the preceding
+proof. This proves contraction on the compact tensor core.
+Continuity of the reflected form and the translation on
+Schwartz tests extend it to finite sequences and preserve the
+null space. It therefore extends to the completed quotient.
+The reflection identity gives self-adjointness, and
+\[
+ q_{G,\Pi}(F,\tau_{ue}F)=
+ q_{G,\Pi}(\tau_{(u/2)e}F,\tau_{(u/2)e}F)
+\]
+gives positivity. Tangential translations and their inverses
+preserve the form, so they descend to unitaries.
+They commute with the normal translations by the translation law.
+
+As the translation tends to zero, its tests converge in
+Schwartz topology. Expand the squared norm of the difference
+of two translated classes into form entries. Their continuity
+gives strong continuity on the test classes, and the norm
+bounds extend it to the completion. The positive contraction
+semigroup has a nonnegative self-adjoint generator. In
+particular \(T_1\) is injective. A vector in its kernel lies
+in the kernel of every \(T_{2^{-k}}\) by self-adjointness
+and the semigroup law, and strong continuity then gives
+the zero vector. One may take \(H=-\log T_1\) by spectral
+calculus, using positive roots and continuity to recover all
+\(T_u\). The tangential translations commute with \(T_1\)
+and hence with its spectral projections. The joint spectral
+theorem for the strongly continuous abelian group
+\((s,y)\mapsto e^{isH}U_y\) gives the asserted spectral
+measure. The degree-zero class is fixed because it has no
+translated arguments.
+\end{proof}
+
+For the coordinate time plane write \(q_G=q_{G,\Pi}\) and
+\(\|F\|_G=q_G(F,F)^{1/2}\). For a compact test \(h\),
+\(\phi(h)\) in a polynomial denotes the entry with test \(h\).
+Write \(G(P)\) for the sum of moments of a finite polynomial
+\(P\), including its constant term. In the expressions below
+each moment has separated arguments unless the stated map
+has already been extended by continuity. Use the source norm
+in \eqref{cl:eq-sharp}.
+
+\begin{proposition}[Uniform insertion on the actual reflection form]
+\label{cl:prop-limit-insertion}
+Use the same cutoff states, reference subtraction and
+separated convergence as in
+Proposition~\ref{cl:prop-reflection-positivity}. Suppose the
+ordinary source and zero-source floor bounds and the
+fixed-layer complete rooted read hypotheses of
+\cite[Theorem C]{SI} hold uniformly for those data.
+Let \(F,J\) be compact separated \(C^1\) tensor polynomials
+with supports in positive time. For \(l\le1\) a power of
+\(L\), and real \(h\in C_c^1\) supported in the radius-\(l/4\)
+ball centered at spatial point \(y\in\mathbb R^3\) and time zero, one has
+\begin{equation}
+\label{cl:eq-insertion}
+ \left|G\big(\Theta\overline J\,\phi(\tau_{(l/2)e_4}h)
+                                  \tau_{le_4}F\big)\right|
+ \le C\|h\|_\sharp\|J\|_G\|F\|_G .
+\end{equation}
+The operation \(\phi(\tau_{(l/2)e_4}h)\tau_{le_4}\)
+descends to a bounded map of norm at most \(C\|h\|_\sharp\)
+on the quotient completion. If \(0<\eta\le1\), \(0<c<1/64\),
+and \(k\in C_c^1\) is supported in the radius-\(c\eta\) ball
+about \(z\) with \(|z_4|\le\eta/8\), then for \(F,J\) strictly
+above time \(\eta/4\) one has
+\begin{equation}
+\label{cl:eq-insertion-near}
+ \begin{aligned}
+ \left|G\big(\Theta\overline J\,\phi(k)F\big)\right|
+ &\le C\eta^{-4}\|k\|_\sharp\,
+     \|\tau_{-(\eta/4)e_4}J\|_G
+     \|\tau_{-(\eta/4)e_4}F\|_G .
+ \end{aligned}
+\end{equation}
+The constants are independent of the degree and number of
+monomials of the surrounding polynomials, the states, the
+cutoff sequence and the support positions. The assertions
+also hold for the self-centered hierarchy \(G^0\) of
+the same selected state sequence.
+\end{proposition}
+
+\begin{proof}
+Use \cite[Proposition 11.2]{SI}, with its actual states
+\(\rho_j,\nu_j\) and uniform source hypotheses. In its
+lattice insertion the plane at \(a_j/2\) approximates time
+zero, and the central cell has time coordinate \(a_j/2+l/2\).
+Since \(l/a_j\) is odd for large \(j\), the center is a
+lattice site. Choose its spatial center within \(O(a_j)\) of
+\(y\). Translate all tests by this common small displacement
+with time component \(a_j/2\), before translating the insertion
+to the middle of its cell. The norm terms agree with the
+lattice reflections of these shifted arguments, and the
+passed fixed gaps give exactly the same limiting values as
+in Proposition~\ref{cl:prop-reflection-positivity}.
+The two-state estimate in the cited source uses the chosen \(\nu_j\) in the
+inserted scalar as well. This verifies that
+\eqref{cl:eq-insertion} applies on the present hierarchy
+without a new centering or a new subsequence.
+
+The polynomial \(\phi(\tau_{(l/2)e_4}h)\tau_{le_4}F\)
+has strictly positive, internally separated arguments.
+Use it as \(J\) in \eqref{cl:eq-insertion}.
+When its norm is nonzero, divide the squared-norm bound by
+that norm. This gives the bounded map and sends every null
+class to zero. When its norm is zero the same norm bound
+holds without division. For complex tests the estimate follows
+by splitting real and imaginary parts and adjusting \(C\).
+
+The near-mirror bound is \cite[Corollary 11.3]{SI}, which
+uses the same limiting forms and the contraction of positive
+normal translations. Its hypotheses keep the reflected left
+and right entries at distance at least \(\eta/8-c\eta\)
+from the insertion support. For clarity, the intermediate
+slab estimate in that corollary gives
+\[
+ \|\phi(f)\tau_{4\eta e_4}F\|_G
+ \le C(1+R)^3\eta^{-4}\|f\|_{C^1}\|F\|_G
+\]
+for tests \(f\) supported in \(\eta\le x_4\le3\eta\)
+of diameter at most \(R\). It is a norm estimate with an
+explicit time separation. The near-mirror inequality concerns
+a sesquilinear form with the stated margins. Neither requires
+a value for coincident insertions.
+
+For \(G^0\) apply the same insertion result with both cutoff states
+equal to \(\rho_j\). The self-centered moments converge on
+the same subsequence by
+Proposition~\ref{cl:prop-separated-compactness}, and the
+hypotheses and constants are uniform for these choices.
+\end{proof}
+
+\section{Phase means and nontriviality}
+\label{cl:sec-mean}
+
+\begin{proposition}[Changing the finite phase mean]
+\label{cl:prop-change-of-mean}
+Suppose the selected full reference-centered hierarchy has
+\(G_1(f)=b\int f\) with \(b\in\mathbb R\), and
+\(G_n^0\) is its self-centered hierarchy on separated tuples.
+Use their continuous flat extensions from
+Proposition~\ref{cl:prop-flat-extension}, and suppose the
+reflection form of Proposition~\ref{cl:prop-reflection-positivity}
+is positive for at least one of them.
+For \(A\subset\{1,\ldots,n\}\) let \(I_A\) integrate the
+variables indexed by \(A\), retaining the other slots in
+order. Then on \(\mathcal S_{\ne,n}\)
+\begin{equation}
+\label{cl:eq-mean-shift}
+ G_n^0(F_n)=
+ \sum_{A\subset\{1,\ldots,n\}}(-b)^{|A|}
+                       G_{n-|A|}(I_AF_n).
+\end{equation}
+The inverse formula has \(b\) in place of \(-b\) and
+interchanges \(G\) with \(G^0\). Both have zeroth moment one.
+If one hierarchy has a bound \(A_0B^n(n!)^p|F_n|_{kn}\)
+with \(p\ge0\), so does the other, with \(k\) replaced by
+\(\max(k,6)\) and the exponential base enlarged by
+\(C|b|\). Their reflection Hilbert spaces are unitarily
+intertwined by the shift of tests in
+\eqref{cl:eq-mean-shift}, preserving the vacuum and
+translation actions. Joint Euclidean invariance and the
+separated cluster property pass between the two hierarchies
+whenever established on either one.
+\end{proposition}
+
+\begin{proof}
+On a separated tensor, subtract \(b\int f\) in each
+entry and expand the product. This gives
+\eqref{cl:eq-mean-shift} including \(A=\{1,\ldots,n\}\),
+whose remaining test is a scalar. Lemma~\ref{cl:lem-flat-marginal}
+preserves the flatness of the remaining variables and gives
+\(|I_AF_n|_r\le C^{|A|}|F_n|_{r+6|A|}\).
+Continuity and density then identify the expression with
+the diagonal-flat extension. If \(k\ge6\), take
+\(r=k(n-|A|)\). The order is at most \(kn\).
+The factorial at degree \(n-|A|\) is at most \((n!)^p\).
+Summing the binomial coefficients bounds the new
+exponential base by \(B+C|b|\), after increasing the
+prefactor to cover degree zero.
+
+On finite sequences let \(C_b\) send each degree-\(n\)
+test to the lower-degree terms \((-b)^{|A|}I_AF_n\)
+and sum all terms of each resulting degree.
+The two opposite shifts compose to the identity:
+for a fixed set of removed slots the coefficient in the
+composition is the binomial sum of \(b\) and \(-b\).
+The maps preserve positive-side flatness of the retained
+variables. They also preserve ordered positive-time tests,
+because any violation of strict order in the retained
+times violates it in the original tuple. The maps commute
+with conjugation and affine
+isometries, since \(b\) is real and the integrated
+Lebesgue measure is invariant. On a product of two
+test groups, integration over subsets splits into the
+independent subsets of those groups. It follows that
+\[
+ q_{G^0,\Pi}(F,J)=q_{G,\Pi}(C_bF,C_bJ).
+\]
+The invertibility of \(C_b\) proves positivity of both forms
+from positivity of either one. The map on quotient classes
+is therefore an isometry with an inverse on the test domain. Its unitary extension fixes
+degree zero and intertwines the translations.
+The same subset identities commute with common Euclidean
+motions. In a clustering expression, the limit for each
+pair of remaining groups factors, including an empty group,
+and the finite subset sums then factor. This proves the
+invariance and clustering claims.
+\end{proof}
+
+\begin{corollary}[The closed physical shape law]
+\label{cl:cor-shape-law}
+Let \(G\) be a separated reference-centered limit along
+one admitted sequence of integrating and subtracting Wilson
+states. Assume the running, source and reference hypotheses of
+\cite[Theorem~A and Corollaries~6.5 and~7.1]{FP}, with the
+finite-reference route or its cofinal alternative, and the same
+physical normalization as in \eqref{cl:eq-observable}.
+For each fixed sufficiently small \(d>0\), require the comparison
+to apply at all sufficiently late cutoffs of this sequence to
+every fixed pair in the following class. The tests \(f,h\) are
+nonzero, nonnegative and compact \(C^1\). Each support lies in a
+ball of radius \(d\), their mutual distance is in \([d,6d]\), and
+each \(v=f,h\) satisfies
+\[
+ \int v\ge\vartheta_*\|v\|_\infty d^4,\qquad
+ \operatorname{Lip}v\le\|v\|_\infty/(\vartheta_*d),
+ \qquad \vartheta_*=\frac1{12000}.
+\]
+Write \(G_2^T(f,h)=G_2(f,h)-G_1(f)G_1(h)\), and let \(c_*>0\)
+be the uniform inverse-coupling logarithmic coefficient in the cited comparison.
+Put
+\[
+ \mathcal K(f,h)=\iint f(x)h(y)|x-y|^{-8}\,dx\,dy,
+ \qquad
+ M_d(f,h)=\frac{9\,\mathcal K(f,h)}
+                 {\pi^4 c_*^2[\log(1/d)]^2}.
+\]
+There is a nonnegative function \(\epsilon_{\rm run}(d)\to0\)
+such that
+\begin{equation}\label{cl:eq-shape-envelope}
+ \frac12(1-\epsilon_{\rm run}(d))^4
+ \ \le\ \frac{G_2^T(f,h)}{M_d(f,h)}
+ \ \le\ \frac32(1+\epsilon_{\rm run}(d))^4 .
+\end{equation}
+In particular, with \(m_v=\int v\) and \(M_v=\|v\|_\infty\),
+\begin{equation}\label{cl:eq-shape-size}
+ \frac{c\vartheta_*^2M_fM_h}{[\log(1/d)]^2}
+ \ \le\ G_2^T(f,h)\
+ \le\frac{C\min\{M_fM_h,d^{-8}m_fm_h\}}{[\log(1/d)]^2}.
+\end{equation}
+The function, constants and small-distance threshold can be
+chosen uniformly over phases realized on these data when the
+comparison assumptions have the corresponding all-state
+uniformity.
+\end{corollary}
+
+\begin{proof}
+For the late admitted cutoffs at scale \(d\), choose
+\(\epsilon_{\rm run}(d)<1\) as a uniform upper bound for
+\[
+ |\zeta_K(d)-1|,\qquad
+ |c_*g_K(d)^2\log(1/d)-1|.
+\]
+Such an envelope tends to zero by the two running limits in
+\cite{FP}. Dividing the cutoff law by \(M_d(f,h)>0\)
+gives the product of the squares of these two running factors
+and \(1+r_{K,\rho}(f,h)\). The latter lies in \([1/2,3/2]\).
+The connected correlation is unchanged by deterministic
+reference subtraction. At a fixed pair its limit exists because
+the two-point and both one-point functions converge.
+Pass the resulting closed inequalities to that limit to obtain
+\eqref{cl:eq-shape-envelope}. The bounds require no convergence
+of the individual running factors as the cutoff is removed at
+fixed \(d\).
+
+Shrink the distance threshold so that
+\(\epsilon_{\rm run}(d)\le1/2\). All point-pair distances on
+the two supports lie in \([d,10d]\).
+Hence \((10d)^{-8}m_fm_h\le\mathcal K(f,h)\le d^{-8}m_fm_h\).
+Use the mass lower bound in the shape class and
+\(m_v\le (\pi^2/2)d^4M_v\) to obtain
+\eqref{cl:eq-shape-size}.
+\end{proof}
+
+
+\begin{corollary}[A nonzero scalar excitation]
+\label{cl:cor-nontrivial}
+Suppose a selected phase is realized by the convergent
+separated reference-centered moments of
+Proposition~\ref{cl:prop-separated-compactness}, with the flat
+extension and positive reflection form of
+Propositions~\ref{cl:prop-flat-extension}
+and~\ref{cl:prop-reflection-positivity}. Let its realizing
+states be admitted periodic Gibbs states
+at the same bare sequence and physical source normalization
+as in the two-point comparison of \cite[Theorem A and
+Corollaries 6.5 and 7.1]{FP}. Require that at each fixed
+sufficiently small \(d\) the chosen comparison route applies
+for all sufficiently late cutoffs at that \(d\), with common
+constants. The selected limit can retain a real mean
+\(G_1(f)=b\int f\). For the fixed-shape real unit-mass tests
+\(f_d\) below, the connected covariance satisfies
+\begin{equation}
+\label{cl:eq-nontrivial}
+ c\,\frac{d^{-8}}{[\log(1/d)]^2}
+ \le G_2(\theta f_d,f_d)-G_1(\theta f_d)G_1(f_d)
+ \le C\,\frac{d^{-8}}{[\log(1/d)]^2}.
+\end{equation}
+Here \(\theta\) reflects in \(x_4=0\) and
+\(c,C>0\) are independent of sufficiently small \(d\).
+The reflection Hilbert space has a nonzero vector
+orthogonal to the vacuum already at degree one.
+\end{corollary}
+
+\begin{proof}
+Let
+\(\varphi(x)=(12/\pi^2)(1-|x|^2)_+^2\) and
+\(f_d(x)=d^{-4}\varphi((x-2de_4)/d)\).
+Radial integration gives unit mass. The profile has
+amplitude \(12/\pi^2\) and Lipschitz constant at most
+\(8/(3\sqrt3)\) times that amplitude. The rescaled
+positive and negative supports have radius \(d\) and
+gap \(2d\). Use \(2d\) as the comparison scale. The supporting
+balls have radius at most \(2d\), and the mass and Lipschitz
+bounds of that shape class hold with parameter \(1/12000\).
+The amplitude product is \((12/\pi^2)^2d^{-8}\), and
+\(\log(1/(2d))\) is comparable to \(\log(1/d)\) as \(d\)
+decreases. Apply the closed bounds
+\eqref{cl:eq-shape-size} from Corollary~\ref{cl:cor-shape-law}
+at scale \(2d\). They give \eqref{cl:eq-nontrivial}.
+That corollary takes the cutoff limit at each fixed pair,
+so this application removes the cutoff before sending \(d\) to zero.
+
+In the reflection space, the squared norm of
+\([\phi(f_d)]_G-G_1(f_d)\Omega\) equals the middle term of
+\eqref{cl:eq-nontrivial}. The vector is orthogonal to
+\(\Omega\), because \(q_G(1,\phi(f_d))=G_1(f_d)\).
+It has positive norm and belongs to the completed ordered
+positive-time sector. To see the latter, approximate the
+degree-one test in \(C^1\) by smooth tests in a fixed
+compact neighbourhood strictly above time zero. Their
+classes converge by the separated moment bound. In a scalar
+reconstruction that matches these moments it excludes a field proportional
+to the identity.
+\end{proof}
+
+
+\section{Translation-ergodic limits}
+\label{cl:sec-phases}
+
+\subsection{The phase law at one spacing}
+
+Let \(\mathcal I_\mu\) denote the completed translation-invariant
+\(\sigma\)-field of a translation-invariant probability measure
+\(\mu\). An ergodic measure is one for which \(\mathcal I_\mu\)
+is trivial. Write \(\mathcal E_{a,\beta}\) for the ergodic
+members of \(\mathcal G_{a,\beta}\).
+
+We use the following external lattice estimate
+\cite[uniform plateau estimate, Appendix~A]{Ext}.
+Its hypotheses are translation invariance and reflection
+positivity on the closed half-lattice for every coordinate
+site, coordinate link and diagonal lattice mirror. Let
+\(A,B\) be bounded Borel observables of bonds with both ends
+in \(a[-r,r]^4\), for an integer \(r\ge1\). For \(v\in
+a\mathbb Z^4\) and \(n=|v|_\infty/a-2r\ge1\), it gives
+\begin{equation}\label{cl:eq-plateau}
+ \begin{split}
+ &\left|\mu(\overline A\,\tau_v B)-
+    \mu\!\left(\overline{E_\mu[A\mid\mathcal I_\mu]}\,
+                     E_\mu[B\mid\mathcal I_\mu]\right)\right|\\
+ &\quad\le C\bigl[(r/n)^2+(r/n)^3\bigr]\,
+              N_{\mu,r}(A)^{1/2}N_{\mu,r}(B)^{1/2},\\
+ &N_{\mu,r}(A)=\max_{\lambda,\gamma}
+      \mu\!\left(\overline{\theta_\lambda\gamma A}\,
+                     \tau_{2ra e_\lambda}\gamma A\right).
+ \end{split}
+\end{equation}
+Here \(\theta_\lambda\) reflects in \(x_\lambda=0\),
+\(\gamma\) ranges over the coordinate sign changes, and
+\(\tau_v\) translates supports by \(v\).
+The terms in the maximum are squared reflection norms
+at \(x_\lambda=ra\). The constant is numerical.
+The lattice theorem in \cite[Theorem~B]{LP} supplies
+all the reflection hypotheses for every member of
+\(\mathcal G_{a,\beta}\).
+
+\begin{proposition}[Ergodic Gibbs states]\label{cl:prop-fixed-pure}
+Fix \(a>0\) and \(\beta\ge0\). Assume the uniform lattice
+plateau estimate \eqref{cl:eq-plateau} for every member of
+\(\mathcal G_{a,\beta}\).
+The set \(\mathcal E_{a,\beta}\) is compact. It equals the set of
+extreme points of \(\mathcal G_{a,\beta}\). Each
+\(\mu\in\mathcal G_{a,\beta}\) is the barycentre of a unique
+probability law \(D_\mu\) on \(\mathcal E_{a,\beta}\).
+For every bounded Borel \(F\), the evaluation
+\(\rho(F)\) under \(D_\mu\) has the law of
+\(E_\mu[F\mid\mathcal I_\mu]\). The identification also holds
+jointly for any finite list of such functions.
+\end{proposition}
+
+\begin{proof}
+Let \(\gamma_D\) be the Wilson conditional kernel on a finite
+bond set \(D\). If \(h\) is a bounded invariant density, then
+\(\mu(hF)=\mu(h\gamma_DF)\). In fact, approximate \(h\) in
+\(L^1(\mu)\) by bounded continuous cylinder functions. Translate
+each approximant until its bonds avoid \(D\).
+Invariance of \(h\) and \(\mu\) preserves its approximation
+error. The translated approximant can be taken outside the
+conditional integral defining \(\gamma_D\). The claimed
+identity follows in the \(L^1\) limit. In particular,
+conditioning on any invariant event of positive probability
+preserves the Gibbs equations.
+
+On the compact metric configuration space, a conditional
+probability \(\omega\mapsto\mu^\omega\) given
+\(\mathcal I_\mu\) can be constructed by taking conditional
+expectations on a countable uniformly dense rational vector
+space of real continuous functions containing \(1\). On one
+set of full measure they are linear, positive on the
+nonnegative members, have absolute value at most \(\|f\|_\infty\)
+on a test function \(f\), and take value \(1\) on the constant \(1\). Their continuous
+extensions are positive by uniform approximation and the
+constant function. The Riesz representation theorem gives
+probability measures. Approximation gives measurability on
+continuous functions, and the bounded monotone class theorem
+gives the conditional identity on bounded Borel functions.
+Use countable continuous cylinder determining families in
+the conditional identities for \(\gamma_D\) and the lattice
+translations. The invariant-density argument and translation
+invariance show that \(\mu^\omega\in\mathcal G_{a,\beta}\)
+almost surely.
+
+For a real continuous local function \(A\), apply
+\eqref{cl:eq-plateau} to \(\mu\) and to each \(\mu^\omega\).
+Dominated convergence in the disintegration of
+\(\mu(A\tau_v A)\) shows that
+\[
+ \int\!\left[
+   \mu^\omega\bigl(E_{\mu^\omega}
+            [A\mid\mathcal I_{\mu^\omega}]^2\bigr)
+             -\mu^\omega(A)^2\right]\,d\mu(\omega)=0 .
+\]
+The two integrands are measurable because the first is the
+limit of local correlations. The integrand in brackets is
+nonnegative. A countable dense family of real continuous
+local functions is dense also in \(L^2\) for each component.
+The vanishing conditional variances on this family prove
+ergodicity almost surely. Push the conditional law to
+\(\mathcal E_{a,\beta}\) to obtain \(D_\mu\).
+
+A nontrivial invariant event splits its measure into two
+different invariant Gibbs states by the density argument.
+Conversely a constituent of a nontrivial convex decomposition
+has a bounded invariant Radon--Nikodym density with respect
+to the barycentre. An ergodic barycentre makes that density
+constant. This proves the extreme point characterization.
+
+For each fixed continuous local \(A,B\), the right side of
+\eqref{cl:eq-plateau} has a state-independent bound using
+their supremum norms. Hence a weak limit of ergodic Gibbs
+states factorizes these two correlations at large separation.
+The plateau identity and the same \(L^2\) argument show that
+the weak limit is ergodic. This proves compactness.
+Finally, a law on \(\mathcal E_{a,\beta}\) with barycentre
+\(\mu\) has all its mixed evaluation moments determined by
+\(\mu\). To obtain the product of \(q\) local evaluations,
+translate the corresponding observables far apart, taking
+successive limits with the other translates fixed.
+The uniform plateau bound permits each limit through the
+law. Products of continuous local evaluations form an algebra
+that separates the compact set \(\mathcal E_{a,\beta}\).
+Stone--Weierstrass gives uniqueness of the law.
+\end{proof}
+
+\subsection{A common cutoff sequence for the continuum phases}
+
+Let \(X\) be a separated tuple of real compact \(C^1\) tests,
+or a finite linear combination of such tuples.
+The empty tuple is the unit.
+Write \(X_j\) for its lattice polynomial formed with
+\(X_j^\nu(f)\) from \eqref{cl:eq-observable}. Products of
+tuples below are used when the resulting supports are
+pairwise disjoint. Assume that the reference states
+\(\nu_j\) define a separated limit \(G\), so that
+\(\nu_j(X_j)\to G(X)\) for every such \(X\). This is one
+choice of the integrating sequence in the separated
+compactness proposition.
+
+\begin{theorem}[The phase law of a reference limit]
+\label{cl:thm-phase-law}
+Let the reference states \(\nu_j\in\mathcal G_{a_j,\beta_j}\)
+converge on the reference-centered separated compact moments
+to \(G\) along one cutoff sequence, and assume the all-state
+bound \eqref{cl:eq-graded-input} at these data. Use the
+lattice plateau estimate \eqref{cl:eq-plateau}.
+There is a compact metrizable space \(\mathcal P\) with
+a probability law \(\lambda\),
+with \(\operatorname{supp}\lambda=\mathcal P\), whose points
+are distinct separated hierarchies \(G_\xi\).
+For each \(\xi\in\mathcal P\) there are states
+\(\rho_{j,\xi}\in\mathcal E_{a_j,\beta_j}\) along the given
+cutoff sequence such that
+\[
+       G_\xi(X)=\lim_j\rho_{j,\xi}(X_j)
+\]
+for every separated compact tuple. Each \(G_\xi\) satisfies
+the same graded estimate as \(G\). The evaluations on
+compact tuples are continuous in \(\xi\), and
+\begin{equation}\label{cl:eq-phase-barycentre}
+                  G(X)=\int_{\mathcal P}G_\xi(X)\,d\lambda(\xi).
+\end{equation}
+For compact tuple polynomials \(X,Y\) and all sufficiently
+large \(|v|_\infty\),
+\begin{equation}\label{cl:eq-pure-cluster}
+ |G_\xi(X\,\tau_vY)-G_\xi(X)G_\xi(Y)|
+             \le C_{X,Y}|v|_\infty^{-2}.
+\end{equation}
+The constant and threshold are independent of \(\xi\).
+The phase law is determined by \(G\) through the formula
+\begin{equation}\label{cl:eq-phase-mixed}
+ \int_{\mathcal P}\prod_{i=1}^q G_\xi(X^i)\,d\lambda(\xi)
+ =\lim_{|v_q|\to\infty}\cdots\lim_{|v_2|\to\infty}
+        G(X^1\,\tau_{v_2}X^2\cdots\tau_{v_q}X^q),
+\end{equation}
+where each inner limit has the outer translates fixed and
+where the other, fixed groups are already separated.
+Any compact Hausdorff representation with continuous
+separating evaluations, a regular law of full support,
+and these mixed moments is related to \((\mathcal P,\lambda)\)
+by an evaluation-preserving measure-preserving homeomorphism.
+\end{theorem}
+
+\begin{proof}
+For any fixed \(X,Y\), put their support sets in a physical
+cube \([-R,R]^4\) with \(R\) a sufficiently large integer
+and a positive margin to all its faces.
+For \(a_j\le1\) put \(r_j=R/a_j\).
+Each lattice polynomial reads only bonds in \(a_j[-r_j,r_j]^4\).
+The reflected pair in \(N_{\rho,r_j}(X_j)\) is a linear
+combination of products of separated compact tests with
+a fixed positive gap at the common face. Its norm is
+bounded uniformly in \(j,\rho\) by
+\eqref{cl:eq-graded-input}. The same holds for \(Y\).
+Sign changes, mirrors and lattice translations carry
+\(X_j^\nu(f)\) to the corresponding transformed test since
+\(\nu_j\) is invariant under these transformations.
+For an ergodic \(\rho\), \eqref{cl:eq-plateau} now gives
+\begin{equation}\label{cl:eq-lattice-pure-cluster}
+ |\rho(X_j\,\tau_vY_j)-\rho(X_j)\rho(Y_j)|
+                  \le C_{X,Y}|v|_\infty^{-2}
+ \qquad (v\in a_j\mathbb Z^4,\ |v|_\infty\ge4R+1).
+\end{equation}
+Complex polynomials follow by using \(\overline X\) in the
+plateau bound or by linearity.
+
+Choose a countable real determining family of tuples. One
+can use the compact supports of finite unions of rational
+closed boxes with interiors, and a countable dense set of
+\(C^1\) tests supported in each such union. Each separated
+tuple is approximated in \(C^1\) in fixed separated unions.
+This follows by first covering its compact supports in
+separated open neighbourhoods by finite box unions.
+The graded bound and multilinearity give equicontinuity
+on these fixed containers, by telescoping in the entries.
+Consequently convergence on the countable family implies
+convergence on every separated tuple for these cutoff laws.
+
+The evaluations on the determining family take values in
+a countable product \(\mathcal K\) of compact real intervals,
+by the graded bound. For \(\rho\in\mathcal E_{a_j,\beta_j}\)
+let \(e_j(\rho)\in\mathcal K\) be its vector of evaluations.
+Let \(\lambda_j=(e_j)_*D_{\nu_j}\). We show that the mixed
+coordinate moments of \(\lambda_j\) are Cauchy. Given any
+finite product of evaluations, first approximate the
+product of its first two factors by the evaluation of a
+single tuple with one group translated by a fixed large
+integer vector, using \eqref{cl:eq-lattice-pure-cluster}.
+Proceed with the third group and then each remaining
+group. Each new translation is chosen after the existing
+groups are fixed. All supports can therefore be kept
+separated, all choices work uniformly in the state and
+cutoff, and the total error can be made arbitrarily small.
+The error terms are multiplied only by uniformly bounded
+evaluations of the remaining factors. The resulting
+single evaluation, integrated against \(D_{\nu_j}\),
+converges by the assumed convergence of \(\nu_j\).
+This proves the Cauchy assertion. Since the coordinate
+algebra separates \(\mathcal K\), compactness and
+Stone--Weierstrass give a unique weak limit \(\lambda\).
+
+Put \(\mathcal P=\operatorname{supp}\lambda\). For
+\(\xi\in\mathcal P\), every open neighbourhood of \(\xi\)
+has positive \(\lambda_j\)-mass for all sufficiently large
+\(j\). For a decreasing sequence of such neighbourhoods
+of radius tending to zero, choose states in their inverse
+images for all sufficiently large indices, increasing the
+neighbourhood index along the full tail. This yields
+\(e_j(\rho_{j,\xi})\to\xi\).
+Uniform equicontinuity in the test functions extends the
+limits to all separated tuples. It also proves continuity
+of the resulting evaluations in \(\xi\), by uniform
+approximation by the coordinate evaluations. The bound
+and \eqref{cl:eq-phase-barycentre} follow by passage to
+the limit, first on the countable family and then by
+approximation.
+The translation and signed coordinate symmetries pass on
+each realizing sequence as in
+Proposition~\ref{cl:prop-separated-compactness}.
+
+Pass \eqref{cl:eq-lattice-pure-cluster} to the limit for
+translations in \(\bigcup_{k\ge0}L^{-k}\mathbb Z^4\).
+These are eventually lattice translations and form a dense
+subgroup. Uniform continuity of the translated tests in
+\(C^1\), with the separated containers enlarged slightly,
+extends the estimate to every large real \(v\).
+This proves \eqref{cl:eq-pure-cluster}.
+To prove \eqref{cl:eq-phase-mixed}, apply
+\eqref{cl:eq-phase-barycentre} and take the inner
+translation to infinity. The other groups have compact
+support and are kept fixed. Their product can be taken
+as the fixed factor in \eqref{cl:eq-pure-cluster}.
+The bound is uniform in \(\xi\). Repeat with the other
+translations in the indicated order. For uniqueness,
+embed both compact phase spaces in the product of real
+evaluation coordinates indexed by all separated real
+tuples. Each map is an embedding because its coordinates
+are continuous and separate points. On the compact
+union of their images, the two laws agree on the polynomial
+coordinate algebra by \eqref{cl:eq-phase-mixed}.
+Stone--Weierstrass gives equality of the regular laws.
+Full support gives equality of the images, and the two
+embeddings give the claimed homeomorphism.
+\end{proof}
+
+\begin{proposition}[The mean of a phase]\label{cl:prop-phase-mean}
+There is a real continuous function \(b\) on \(\mathcal P\)
+such that \(G_{\xi,1}(f)=b(\xi)\int f\) and
+\(\int_{\mathcal P}b\,d\lambda=0\).
+For each selected phase the hierarchies \(G_\xi\) and
+\(G_\xi^0\), obtained from one another by adding or subtracting
+the mean, are limits along the same realizing sequence.
+More precisely \(G_\xi^0\) uses \(\rho_{j,\xi}\) for the
+subtraction in \eqref{cl:eq-observable}, and
+\begin{equation}\label{cl:eq-phase-mean}
+ G_{\xi,n}(f_1,\ldots,f_n)
+  =\sum_{I\subset\{1,\ldots,n\}}G^0_{\xi,|I|}(f_I)
+            \prod_{i\notin I} b(\xi)\int f_i .
+\end{equation}
+For a fixed lattice plaquette \(p_j\) at each spacing,
+\begin{equation}\label{cl:eq-phase-variance}
+ \int b^2\,d\lambda
+ =\lim_j 36a_j^{-8}
+     \operatorname{Var}_{\nu_j}
+         (E_{\nu_j}[A_{p_j}\mid\mathcal I_{\nu_j}]).
+\end{equation}
+In particular, for separated \(f,h\) the mixture two-point
+function is the average of \(G^0_{\xi,2}(f,h)\) plus
+\((\int b^2\,d\lambda)\int f\int h\).
+\end{proposition}
+
+\begin{proof}
+Translations and signed coordinate permutations make
+the plaquette mean the same at every plaquette of the
+same spacing. Put
+\(b_j(\rho)=6a_j^{-4}[\rho(A_{p_j})-\nu_j(A_{p_j})]\)
+and \(R_j(f)=a_j^4\sum_p f(x_p)/6\).
+Then \(\rho(X_j^\nu(f))=b_j(\rho)R_j(f)\).
+The six shifted lattice Riemann sums give
+\(R_j(f)\to\int f\). Use a real test \(f_*\) of integral
+one in the determining family. Its evaluations and the
+graded bound show that \(b_j\) is bounded uniformly for
+large \(j\), and on a realizing sequence
+\(b_j(\rho_{j,\xi})\to G_{\xi,1}(f_*)\).
+This proves the singleton formula and continuity.
+Equation~\ref{cl:eq-phase-barycentre} gives the zero
+average. Expand the finite products after the change
+of subtraction to obtain \eqref{cl:eq-phase-mean}.
+
+The conditional identification in
+Proposition~\ref{cl:prop-fixed-pure} gives
+\(\int b_j(\rho)^2\,dD_{\nu_j}(\rho)\) equal to the
+variance expression at spacing \(a_j\). Since
+\(R_j(f_*)\to1\), weak convergence of the phase laws
+on this bounded coordinate gives \eqref{cl:eq-phase-variance}.
+The last assertion follows from \eqref{cl:eq-phase-mean}
+at order two. The finite-spacing plateau formula also
+identifies the variance before rescaling as the limit
+of the connected plaquette correlation under far lattice
+translation at that spacing.
+\end{proof}
+
+
+\section{Euclidean invariance of the limiting moments}
+\label{cl:sec-euclidean}
+
+\begin{proposition}[The joint transfer spectrum]
+\label{cl:prop-cube-cone}
+For a limit through the infinite-lattice states of
+Proposition~\ref{cl:prop-reflection-positivity},
+use the reflection Hilbert space of any coordinate
+mirror. At each cutoff assume the external lattice carrier
+of \cite[Uniform lattice plateau estimate and the Euclidean
+Hilbert bridge]{Ext}: for joint one-step spectral values
+\(e^{-\epsilon}\in(0,1]\) in the normal direction and
+\(e^{ip}\), \(p\in[-\pi,\pi]\), in any tangential coordinate,
+\(\sinh(\epsilon/2)\ge|\sin(p/2)|\).
+Zero normal-transfer values are also permitted.
+The nonnegative normal generator \(H\) and
+the tangential generators \(P_1,P_2,P_3\) have joint
+spectral support in
+\begin{equation}\label{cl:eq-cube-cone}
+                     E\ge\max_i |p_i|.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Use the site mirror at zero and let \(T_j,V_{j,i}\) be
+the normal transfer and the one-step tangential translations
+at cutoff \(a_j\). The coordinate and diagonal reflection
+hypotheses of the assumed carrier are supplied by
+\cite[Theorem~B]{LP}. Apply it on the joint spectral
+variables \(T_j=e^{-\epsilon}>0\) and \(V_{j,i}=e^{ip}\).
+Convexity of \(\sinh\) on the nonnegative axis and
+\(|\sin(kx)|\le k|\sin x|\) give, for every positive
+integer \(k\),
+\[
+ (1-T_j^k)^2\ \ge\
+          T_j^k(2-V_{j,i}^k-V_{j,i}^{-k}).
+\]
+The inequality includes the kernel of \(T_j\), where its
+two sides are \(1\) and \(0\). Fix \(t>0\) and choose
+\(k_j a_j\to t\). On a compact positive-time polynomial
+each term is a reflected moment with at most a bounded
+positive time shift and a bounded tangential shift.
+The reflected groups retain their fixed separation.
+The centered lattice observables intertwine these lattice
+shifts and the site reflection. The graded bound and
+moving-test convergence pass the inequality to
+\[
+ (1-e^{-tH})^2\ \ge\
+       e^{-tH}(2-e^{itP_i}-e^{-itP_i})
+\]
+on the dense compact positive-time classes and hence on
+the whole Hilbert space. Proposition~\ref{cl:prop-reflection-semigroup}
+supplies the strongly commuting generators and \(H\ge0\).
+For the countable sequence \(t=1/m\) the joint multiplier
+\(2e^{-tE}[\cosh(tE)+\cos(tp_i)-2]\) is nonnegative
+almost everywhere. Dividing the bracket by \(t^2\)
+and taking \(m\to\infty\) proves \(E^2\ge p_i^2\)
+on a common set of full spectral measure.
+\end{proof}
+
+\subsection{Analytic criteria for rotations}
+\label{cl:subsec-rotation-criteria}
+
+We use four external criteria from \cite[analytic insertion
+densities, planar angular kernels, two-point angular elimination,
+and all-orders angular closure]{Ext}. Their common input is a
+centered scalar hierarchy on separated compact \(C^1\) tuples.
+The hierarchy must be symmetric, real, translation invariant,
+invariant under signed coordinate permutations, and continuous
+on each separated support collection with position-uniform
+bounds at fixed diameters and distances. Its coordinate
+reflection forms must have the vacuum vector and the translation
+actions of Proposition~\ref{cl:prop-reflection-semigroup}
+with spectrum \eqref{cl:eq-cube-cone}. The criteria use the
+following further data and implications.
+
+\begin{enumerate}
+\item The insertion-to-density result uses
+\eqref{cl:eq-insertion-near} with a single exponent \(p\)
+in place of \(4\), where \(p\ge0\), uniformly over all compact
+outside polynomials. Fix \(0<c<1/64\) and \(0<\eta\le1\).
+For any coordinate plane, write
+\(y=(x_\lambda,x_\mu)\) with \(x_\lambda\) normal time
+and \(z\) for the remaining coordinates. For a real compact
+\(C^1\) transverse test \(\varphi(z)\), the insertion
+\(\alpha(y)\varphi(z)\), with \(\alpha\) compact \(C^1\)
+and supported in \(|x_\lambda|<c\eta\), has the bound
+\[
+ C_\varphi \eta^{-(p+5)}\|\alpha\|_{L^1}
+         \|F\|_{(\eta/4)}\|J\|_{(\eta/4)}
+\]
+when the outside supports are strictly above \(\eta/4\).
+Here the pulled-down norm is the reflection norm after
+translation by \(-(\eta/4)e_\lambda\).
+The result supplies compatible analytic operator densities
+between positive time margins and translation identities
+for their regularized point-plate operators.
+
+\item The planar kernel criterion uses these \(L^1\) plate
+bounds, the indicated spectral carrier in the plane, the
+common local continuity and the signed coordinate
+symmetries. It supplies holomorphic product kernels and
+continued reflection Gram matrices. Their densities agree
+with the compact separated moment functional on ordinary
+planar ordering charts. In particular for all distinct
+planar pairs there is a continuous two-point density
+\(K_{\varphi,\psi}\) with
+\[
+ G_2^0(\alpha\otimes\varphi,\beta\otimes\psi)
+  =\iint\alpha(y)\beta(y')K_{\varphi,\psi}(y'-y)\,dy\,dy'
+\]
+when the planar profiles have disjoint supports.
+For \(t>2s>0\) this density in the coordinate frame
+has the representation
+\[
+ K_{\varphi,\psi}(t,x)=
+   \langle z_{\varphi,s},
+     e^{-(t-2s)H+ixP}z_{\psi,s}\rangle,\qquad
+ z_{\varphi,s'}=e^{-(s'-s)H}z_{\varphi,s}\quad(s'>s).
+\]
+At order \(n\) the angular coefficients are real analytic
+away from planar coincidences and the band contains only
+\(|m|\le Cn\) with characters \(e^{4imu}\) for planar
+rotation angle \(u\). The continued Gram identities
+give the highest-coefficient positivity on reflected
+half-plane configurations and the inequality
+\(2b_{k+l}\le b_{2k}+b_{2l}\) for the global largest
+absolute angular indices \(b_j\). These statements
+are conclusions of the kernel construction.
+
+\item The order-two criterion uses the continuous
+two-point density and the coordinate spectral
+representation just stated. It also requires
+positivity at the diagonal mirror whose normal makes
+angle \(\pi/4\) with the time axis in that plane.
+Its short-distance input is
+\[
+ 0\le G^0_2(f,h)
+      \le u(d)\|f\|_\infty\|h\|_\infty,\qquad u(d)\to0 ,
+\]
+uniformly on the shape class of
+Corollary~\ref{cl:cor-shape-law}, at its fixed
+parameter \(\vartheta_*=1/12000\), for every sufficiently
+small \(d>0\).
+It gives radiality for each equal-label planar kernel
+and then for mixed labels by polarization. Thus \(b_2=0\).
+
+\item The all-orders criterion uses the band, Gram
+identities, top-coefficient positivity, the coordinate
+reflection and cone hypotheses, and \(b_2=0\). It also uses
+the off-diagonal distribution supplied by
+Proposition~\ref{cl:prop-flat-extension}.
+Its polygon and integer degree argument removes the
+remaining harmonics. Its common-cut argument identifies
+the invariant moment functional on arbitrary separated
+compact four-dimensional tuples, including when planar
+projections overlap. It yields invariance under each
+coordinate-plane rotation, and hence under
+\(\operatorname{O}(4)\) with the signed coordinate
+symmetries.
+\end{enumerate}
+
+\begin{theorem}[Rotations of the realized limits]
+\label{cl:thm-euclidean-rotations}
+Let \(G\) be a separated limit through the stated
+infinite-lattice Wilson states, with the uniform
+ordinary-source and insertion assumptions of the
+setting. Suppose its own realizing sequence satisfies
+the assumptions of the two-point shape bound in
+\cite[Theorem~A and the ultraviolet shape corollary]{FP},
+using that theorem or its cofinal comparison
+alternative at the same bare data. Use the external lattice
+carrier of \cref{cl:prop-cube-cone} and the four analytic
+criteria stated in \cref{cl:subsec-rotation-criteria}.
+Then \(G^0\)
+and \(G\) are invariant under the Euclidean group on
+separated tuples and on \(\mathcal S_{\ne,n}\) at
+each order. When the comparison assumptions are
+uniform over all states at the fixed data, this
+assertion applies to every phase in
+Theorem~\ref{cl:thm-phase-law} and to its barycentre.
+\end{theorem}
+
+\begin{proof}
+The self-centered hierarchy \(G^0\) is realized along
+the same cutoff sequence as \(G\), with the integrating
+states also used as the subtracting states.
+Proposition~\ref{cl:prop-separated-compactness} and
+\eqref{cl:eq-graded-input} give the scalar symmetries
+and the required position-uniform \(C^1\) continuity.
+Propositions~\ref{cl:prop-reflection-positivity} and
+\ref{cl:prop-reflection-semigroup} give the coordinate
+and diagonal positivity, the Hilbert translation actions
+and the unit vacuum. Proposition~\ref{cl:prop-cube-cone}
+gives the carrier in every coordinate picture.
+Proposition~\ref{cl:prop-limit-insertion} on \(G^0\)
+gives the insertion hypothesis with \(p=4\).
+Consequently the first two criteria supply the plate
+bound with \(p+5=9\), the planar density and its spectral
+representation, and the all-orders band and Gram data.
+
+Additive mean shifts leave connected two-point functions
+unchanged. Corollary~\ref{cl:cor-shape-law} gives the
+closed positive-shape law on the specified class with its
+exact \(\vartheta_*\). Its upper bound can be taken to be
+\(u(d)=C[\log(1/d)]^{-2}\) for small \(d\).
+The sign follows from the lower bound on that class.
+The diagonal mirror required by the order-two criterion
+is one of the limiting diagonal lattice reflections.
+Thus the third criterion gives \(b_2=0\), and the fourth
+gives rotation invariance on all separated compact tuples.
+Translations were already available. Restore \(b\int f\)
+by the finite subset expansion, which commutes with every
+isometry. The uniqueness and density of the flat Schwartz
+extension in Proposition~\ref{cl:prop-flat-extension}
+pass each invariance identity to the entire flat space.
+In the phase-law application, every step uses the states
+\(\rho_{j,\xi}\) from Theorem~\ref{cl:thm-phase-law}, or the
+reference states themselves for the barycentre.
+\end{proof}
+
+
+\begin{corollary}[Isometries of the canonical phase law]
+\label{cl:cor-phase-isometries}
+Under Theorem~\ref{cl:thm-phase-law}, every Euclidean
+isometry of the mixture \(G\) induces a measure-preserving
+homeomorphism of \(\mathcal P\) acting by transport on
+the evaluations. In particular, if \(G\) is
+\(\operatorname{O}(4)\)-invariant then each \(G_\xi\)
+is \(\operatorname{O}(4)\)-invariant.
+\end{corollary}
+
+\begin{proof}
+Let \(r\) be an isometry of \(G\) and let \(R\) be
+its linear part. Give the same phase space the transformed
+evaluations \(X\mapsto G_\xi(r^{-1}X)\).
+They are continuous and separate points.
+Since \(r^{-1}\tau_v=\tau_{R^{-1}v}r^{-1}\),
+the mixed moment formula \eqref{cl:eq-phase-mixed}
+and invariance of \(G\) identify all their mixed moments
+with those of the original evaluations. The uniqueness
+assertion of Theorem~\ref{cl:thm-phase-law} gives a
+measure-preserving homeomorphism carrying one system of
+evaluations to the other. Separation of points gives the
+group law for these homeomorphisms.
+
+Each phase is invariant under the coordinate reflection
+\(\theta_1\) by its lattice realization. If \(G\) is
+rotation invariant, every rotate of \(G_\xi\) is another
+phase by the first assertion, and hence is invariant under
+\(\theta_1\). This says that \(G_\xi\) is invariant under
+every conjugate of \(\theta_1\) by an orthogonal map.
+These hyperplane reflections generate \(\operatorname{O}(4)\).
+The same identities hold on the flat Schwartz extension
+by density.
+\end{proof}
+
+
+
+\begin{proposition}[The zero-energy space and spatial rotations]
+\label{cl:prop-phase-hilbert}
+Use the realized phase law of Theorem~\ref{cl:thm-phase-law}
+and the time reflection spaces of
+Propositions~\ref{cl:prop-reflection-positivity}
+and~\ref{cl:prop-reflection-semigroup}. Let \(H\) be the normal
+generator in the reference mixture space and \(P_0\) its
+projection onto \(\ker H\). On compact separated positive-time
+polynomials the map
+\[
+ P_0[F]_G\longmapsto \bigl(\xi\longmapsto G_\xi(F)\bigr)
+\]
+extends to a unitary \(\ker H\to L^2(\mathcal P,\lambda)\)
+sending \(\Omega\) to \(1\).
+If \(\mathcal P\) has \(m<\infty\) points, then
+\(\dim\ker H=m\). If \(\mathcal P\) is infinite, its zero-energy
+space has countably infinite Hilbert dimension. In each
+individual phase the kernel of the normal generator is the
+vacuum line. Its spatial translation matrix elements tend
+to the vacuum product for arbitrary reflection Hilbert
+vectors.
+
+For any of these hierarchies satisfying
+Theorem~\ref{cl:thm-euclidean-rotations}, spatial
+\(\operatorname{O}(3)\) acts by a strongly continuous unitary
+representation on its reflection space. It fixes the vacuum,
+commutes with the normal generator and rotates the spatial
+translations. The joint spectral carrier in
+\eqref{cl:eq-cube-cone} then improves to \(E\ge|p|\).
+\end{proposition}
+
+\begin{proof}
+By spectral calculus \(T_t=e^{-tH}\) converges strongly
+to \(P_0\) as \(t\to\infty\). For compact positive-time
+polynomials \(F,J\), the barycentre formula and the
+uniform phase cluster bound give
+\[
+ \begin{split}
+ \langle[F]_G,T_t[J]_G\rangle
+ &=\int_{\mathcal P}
+   G_\xi(\Theta\overline F\,\tau_{te_4}J)\,d\lambda(\xi)\\
+ &\longrightarrow\int_{\mathcal P}
+             \overline{G_\xi(F)}\,G_\xi(J)\,d\lambda(\xi).
+ \end{split}
+\]
+Each reflected tuple is separated. The identity
+\(G_\xi(\Theta\overline F)=\overline{G_\xi(F)}\)
+uses reality and reflection invariance of the phase.
+Taking the spectral limit proves the asserted isometry
+on the projection of the dense compact core.
+
+The evaluation functions on that core contain constants,
+are closed under conjugation and separate \(\mathcal P\).
+For separation, translate any compact separating tuple
+far enough into positive time and use phase translation
+invariance. Products of evaluations are in their uniform
+closure because
+\[
+ G_\xi(F)\,G_\xi(J)=
+        \lim_{t\to\infty} G_\xi(F\,\tau_{te_4}J)
+\]
+uniformly in \(\xi\), by the same cluster bound.
+For large \(t\) the product on the right has separated
+positive-time arguments. The uniform closure is therefore
+a conjugation-stable subalgebra of \(C(\mathcal P)\).
+Stone--Weierstrass gives density in \(C(\mathcal P)\), and
+hence in \(L^2(\mathcal P,\lambda)\). The isometry extends
+onto this space. If \(\mathcal P\) is finite, each point has
+positive mass by full support. If it is infinite, any finite
+number of distinct points have disjoint open neighbourhoods
+of positive measure. Their indicators give arbitrarily
+large orthogonal sets. Since \(L^2\) of a compact metrizable
+probability space is separable, its Hilbert dimension is
+countably infinite.
+
+For an individual phase the same normal cluster limit
+gives the rank-one vacuum projection on the compact core,
+and hence \(\ker H=\mathbb C\Omega\). With spatial
+translations the compact cluster bound gives the same
+matrix-element limit. Approximate each of two arbitrary
+vectors by compact classes. Unitarity bounds the two
+approximation errors independently of the spatial shift,
+so the limit passes to the entire space.
+
+For \(R\in\operatorname{O}(3)\), let the pullback act by
+\(F((R^{-1}\mathbf x_1,t_1),\ldots,(R^{-1}\mathbf x_n,t_n))\).
+Under Euclidean invariance this action preserves the positive-time
+flat domain and commutes with time reflection. It is an
+isometry for the reflection form, with inverse given by
+the inverse rotation. Thus it descends to a unitary
+\(V_R\). Spatial signed permutations already give these
+unitaries under the coordinate symmetries alone. Pullback is continuous in the Schwartz topology
+as \(R\) varies. The form then gives strong continuity on
+finite test sequences, and the unitary norm gives it on
+the completion. The exact actions on tests show
+\(V_RT_t=T_tV_R\) and \(V_RU_yV_R^{-1}=U_{Ry}\), and
+\(V_R\Omega=\Omega\). The joint spectral measure therefore
+transforms by spatial rotation of its momentum variables.
+The cube inequality \(E\ge |(Rp)_i|\) holds for each
+rotation and coordinate. Intersect its supports over a
+countable dense set of rotations, and use continuity in
+\(R\) to obtain \(E\ge|p|\).
+\end{proof}
+
+
+The vacuum-line conclusion does not give a positive gap above
+zero. For example, take \(H=0\oplus M_E\) on
+\(\mathbb C\oplus L^2((0,\infty),Ee^{-E}\,dE)\), where
+\(M_E\) is multiplication by \(E\). Its kernel is the first
+summand, but the spectrum on the second reaches zero. The
+vector \(v=0\oplus1\) has
+\(\langle v,e^{-tH}v\rangle=\int_0^\infty Ee^{-(1+t)E}\,dE
+=(1+t)^{-2}\). This polynomial decay in time coexists with
+spectral support arbitrarily near zero.
+
+\section{The corrected scalar reconstruction theorem}
+\label{cl:sec-reconstruction}
+
+For \(n\ge1\) write \(\mathcal S_{\mathrm{ord},n}\) for the
+Schwartz functions all of whose derivatives vanish outside
+\[
+ \{(x_1,\ldots,x_n):0<(x_1)_4<\cdots<(x_n)_4\}.
+\]
+Set \(\mathcal S_{\mathrm{ord},0}=\mathbb C\). This space
+is a subspace of \(\mathcal S_{+,n}\). The ordered
+positive-time quotient is the Hilbert completion for the
+restriction of the reflection form in
+\eqref{cl:eq-reflection-form} to finite ordered sequences.
+
+The growth condition below has content beyond the existence
+of all moments. For a standard Gaussian \(Z\), the variable
+\(X=e^Z\) has \(\mathbb E X^n=e^{n^2/2}\). For fixed
+\(A,B,p>0\), the logarithm of \(AB^n(n!)^p\) grows only as
+\(O(n\log n)\). Thus finiteness at every degree does not
+supply the uniform factorial growth required for reconstruction.
+
+\clneedspace{29\baselineskip}
+\begin{proposition}[Applicability of scalar reconstruction]
+\label{cl:prop-scalar-reconstruction}
+Let the selected scalar hierarchy \(G_n\) have the
+diagonal-flat extension of Proposition~\ref{cl:prop-flat-extension},
+a positive full reflection form as in \eqref{cl:eq-reflection-form},
+scalar permutation symmetry, and full Euclidean invariance.
+Suppose its reflected compact separated tensor polynomials
+cluster under all large spatial translations in nonzero
+directions, with the product of the two means as their limit.
+Assume there are \(A,B>0\), \(p\ge0\), and a nonnegative
+integer \(k\), independent of \(n\), such that
+\[
+ |G_n(F)|\le A B^n(n!)^p |F|_{kn}
+ \qquad(F\in\mathcal S_{\ne,n},\ n\ge1),
+ \qquad G_0=1 .
+\]
+Then the corrected Osterwalder--Schrader theorem applies to
+these scalar moments. It gives a Hermitian scalar Wightman
+theory, unique up to unitary equivalence in its cyclic
+realization on a separable Hilbert space, with the Wightman
+covariance, positivity,
+spectrum, locality and vacuum cluster properties and a
+unique translation-invariant vacuum up to scalar multiples.
+Its Euclidean Green functions agree with \(G_n\) on
+\(\mathcal S_{\ne,n}\). If the two-point hypotheses of
+Corollary~\ref{cl:cor-nontrivial} hold, its scalar field is
+nontrivial. The construction applies with the reference
+mean or with the self-centered hierarchy in
+Proposition~\ref{cl:prop-change-of-mean}.
+If \(G_1(f)=b\int f\) as in
+Proposition~\ref{cl:prop-change-of-mean}, write \(\Phi\) for
+the reference-centered reconstructed field. The self-centered
+field on its cyclic polynomial domain is
+\[
+ \Phi^0(f)=\Phi(f)-b\left(\int_{\mathbb R^4} f(x)\,dx\right)I ,
+ \qquad f\in\mathcal S(\mathbb R^4).
+\]
+The domain generated by the shifted field and the vacuum is
+the same cyclic polynomial domain.
+\end{proposition}
+
+\begin{proof}
+The corrected theorem is \(E'\to R'\) in
+\cite[Section IV.1, pp.~287--288, equation (4.1)]{OS75}.
+The Euclidean space in its linear growth condition is the
+Schwartz subspace flat on every coincidence diagonal,
+defined in \cite[Section II, p.~284]{OS75}. This is precisely
+\(\mathcal S_{\ne,n}\). The radial weight and derivative cutoff in its
+Section II, equation (2.1), use the convention of
+\eqref{cl:eq-schwartz}. Choose an integer \(s\ge \max(1,k)\) and put \(B_+=\max(1,B)\).
+Since \(n!\ge 2^{n-1}\) for \(n\ge1\), the sequence
+\(A B_+ (n!)^{p+\lceil\log_2B_+\rceil}\) is a factorial
+majorant and
+\[
+ |G_n(F)|
+ \le A B_+(n!)^{p+\lceil\log_2B_+\rceil}|F|_{sn}.
+\]
+Thus the linear order and factorial coefficient are uniform
+in the degree. If one instead uses the total-monomial
+seminorm
+\[
+ q_{j,n}(F)=
+ \max_{|\alpha|+|\gamma|\le j}
+      \sup_{x\in\mathbb R^{4n}}|x^\gamma\partial^\alpha F(x)|,
+\]
+the same verification is quantitative. Expansion of
+\((1+\sum_i|x_i|)^r\) bounds \(|F|_r\) by
+\((1+4n)^r q_{2r,n}(F)\).
+At \(r=sn\), use \(n^n\le e^n n!\) to bound the extra
+factor by \(((5e)^s)^n(n!)^s\).
+This again spends only a linear order and a factorial
+coefficient. The growth hypothesis is \(E0'\).
+
+For \(E1\) and \(E3\) use Euclidean invariance and scalar
+permutation symmetry on the flat spaces. The positivity
+test of \cite[Sections 2--3, pp.~86--88]{OS73} uses the
+ordered positive-time sequences. Its reflection conjugates
+and reverses the first group of variables. Permutation
+symmetry removes the reversal inside each \(G_{m+n}\),
+so the required form is the restriction of
+\eqref{cl:eq-reflection-form}. This gives \(E2\).
+The Hermiticity of the form, paired with degree zero, gives
+\(G_n(\Theta\overline F)=\overline{G_n(F)}\) on positive-time
+tests. Euclidean reflection invariance removes \(\Theta\).
+Translate each compact separated tensor into positive time
+and then use flat-test density. This proves the scalar
+reality identity on the full diagonal-flat domain.
+The ordered quotient embeds isometrically in
+\(\mathcal H_{G,\{x_4=0\}}\). Its closed range contains
+the vacuum. The spatial translations preserve strict time
+order and act unitarily as shown below, so they preserve this
+closed range. This comparison uses the ordered domain directly.
+
+For \(E4\) take any two finite ordered Schwartz sequences.
+Their classes in the full reflection space can be approximated
+by compact separated positive-time tensor polynomials, by
+Propositions~\ref{cl:prop-flat-extension}
+and~\ref{cl:prop-reflection-positivity}.
+Spatial translations preserve the reflection form by
+translation invariance and have inverse translations.
+They therefore act unitarily on the quotient and its
+completion, as in Proposition~\ref{cl:prop-reflection-semigroup}. Replacing
+either vector by its approximation changes any translated
+matrix coefficient by at most the norm of the error times
+the norm of the other vector, uniformly in the translation.
+The same bound holds for the vacuum coefficients.
+The compact reflected cluster law therefore passes to all
+vectors of the full reflection space, in particular to the
+ordered sequences. This extension is qualitative; it asserts
+no common decay rate for arbitrary vectors. This is the spatially translated
+cluster condition in \cite[Section 3, p.~88]{OS73}.
+Thus the corrected theorem applies with \(E0'\) and
+\(E1\)--\(E4\) to the same selected hierarchy.
+In its cyclic representation the Wightman cluster
+property gives the weak spatial-translation limit onto
+the vacuum line, first on cyclic polynomial vectors and
+then on all vectors by unitarity. A translation-invariant
+vector lies in that line. The Wightman polynomial test maps
+are continuous on each finite direct sum of Schwartz spaces.
+Their countable dense subsets have dense image in the cyclic
+Hilbert space, so that space is separable as well.
+
+The scalar connected covariance in
+\eqref{cl:eq-nontrivial} is unchanged by adding a constant
+multiple of the identity to a field. A scalar field
+proportional to the identity would give zero for it.
+The mean shift of Proposition~\ref{cl:prop-change-of-mean}
+commutes with the required symmetries and preserves
+clustering and positivity, with the same form of growth.
+This proves applicability for either centering.
+
+On the cyclic domain, define \(\Phi^0\) by the displayed subtraction.
+Expanding products with the identity shows that the cyclic
+polynomial domains of \(\Phi\) and \(\Phi^0\) coincide.
+The scalar integral is invariant under the Poincar\'e action
+on tests, and the subtraction preserves Hermiticity and locality.
+The vacuum and its translation representation are unchanged.
+The same finite subset expansion transfers its cluster property.
+
+For strictly time-ordered distinct Euclidean arguments,
+the analytic correlations of the shifted field are obtained
+by the finite subset expansion of its Wightman products.
+Each retained subsequence stays in the ordered tube:
+the imaginary difference between retained adjacent points
+is a sum of the original forward differences. The constant
+terms have the same Euclidean and Minkowski values.
+Restriction to the Euclidean arguments therefore gives the
+shift \eqref{cl:eq-mean-shift}. Every configuration of
+distinct Euclidean arguments can be rotated to have distinct
+time coordinates, by choosing an axis away from the finitely
+many hyperplanes perpendicular to their pair differences.
+Both Euclidean restrictions are symmetric and Euclidean
+covariant. The equality in the ordered regions therefore
+identifies the shift on compact tests away from the diagonals.
+The continuous flat extensions identify it on \(\mathcal S_{\ne,n}\).
+Uniqueness in the corrected reconstruction theorem now
+identifies this shifted Wightman field with the reconstruction
+from \(G^0\).
+\end{proof}
+
+
+\clearpage
+\section{The scalar continuum conclusion}
+\label{cl:sec-conclusion}
+
+\begin{theorem}[A realized nontrivial scalar phase]
+\label{cl:thm-scalar-continuum}
+Let \(K_j\in\mathbb Z_{\ge0}\) and \(a_j=L^{-K_j}\downarrow0\)
+give one sequence of admitted
+real data with bare couplings \(\beta_j\ge0\), as in
+\cref{cl:sec-setting}. Assume that the actual ordinary
+source, rooted-domain and insertion hypotheses of
+\cite[Theorems~B and C]{SI} hold uniformly on these data.
+Assume also the state-uniform physical two-point hypotheses
+of \cite[Theorem~A]{FP}, using its finite-reference route
+or its cofinal alternative, with one common source
+normalization and with the comparison applicable eventually
+at each fixed sufficiently small physical separation.
+Use the external plateau and spectral-carrier estimates
+stated in \cref{cl:sec-phases,cl:prop-cube-cone} and the four
+analytic criteria stated in \cref{cl:sec-euclidean}.
+
+Choose reference states
+\(\nu_j\in\mathcal G_{a_j,\beta_j}\), for example
+fixed-spacing infinite-volume torus limits.
+There is one subsequence with the following properties.
+Its self-centered reference moments converge on every
+separated compact \(C^1\) tuple to a hierarchy \(G\).
+There is a compact metrizable full-support phase law
+\((\mathcal P,\lambda)\) as in
+\cref{cl:thm-phase-law}. Every \(\xi\in\mathcal P\)
+is realized along this same subsequence by translation-ergodic
+Wilson Gibbs states \(\rho_{j,\xi}\), with the original
+reference subtraction \(\nu_j\).
+
+The full phase moments \(G_{\xi,n}\) extend uniquely to
+\(\mathcal S_{\ne,n}\). Their degree-zero value is one and,
+with constants \(1\le A,B<\infty\) independent of \(n\) and \(\xi\),
+\begin{equation}\label{cl:eq-main-growth}
+ |G_{\xi,n}(\varphi)|
+ \le A B^n(n!)^{k+32}|\varphi|_{20n},
+ \qquad \varphi\in\mathcal S_{\ne,n}.
+\end{equation}
+Here \(k\) is the fixed exponent in
+\eqref{cl:eq-graded-input}; the degree-zero convention is
+that of \cref{cl:def-flat-spaces}.
+The same estimate holds for the self-centered phase
+hierarchies and the reference mixture after enlarging
+\(A,B\). For every fixed flat test \(\varphi\), the
+reference-centered evaluations \(\xi\mapsto G_{\xi,n}(\varphi)\)
+are continuous, and their \(\lambda\)-integrals equal the
+corresponding moments of the reference mixture.
+
+Each phase is real, permutation symmetric and Euclidean
+invariant on these test spaces. It is reflection positive
+on every corresponding affine positive-time flat domain.
+It clusters on separated compact groups, and its ordered
+Schwartz sequences satisfy the spatial cluster condition.
+Its first moment is \(b(\xi)\int f\), where \(b\) is a
+bounded continuous real function with
+\(\int b\,d\lambda=0\). The reference subtraction is
+retained in this formula.
+
+The full reflection Hilbert spaces have the zero-energy and
+spatial rotation properties of \cref{cl:prop-phase-hilbert}.
+
+The connected two-point functions satisfy the closed law
+\eqref{cl:eq-shape-envelope} and the bounds
+\eqref{cl:eq-shape-size} on the full shape class of
+\cref{cl:cor-shape-law}, uniformly in \(\xi\).
+For the fixed unit-mass positive-time profile \(f_d\) in
+\cref{cl:cor-nontrivial}, the connected covariance in
+every phase satisfies
+\begin{equation}\label{cl:eq-main-signal}
+ c\,\frac{d^{-8}}{[\log(1/d)]^2}
+ \le
+ G_{\xi,2}(\theta f_d,f_d)
+       -G_{\xi,1}(\theta f_d)G_{\xi,1}(f_d)
+ \le
+ C\,\frac{d^{-8}}{[\log(1/d)]^2}
+\end{equation}
+for sufficiently small \(d>0\), with positive constants
+and a threshold independent of \(\xi\).
+The corrected scalar reconstruction gives each phase
+a local Hermitian scalar Wightman field with positive
+energy and a unique vacuum in its cyclic realization.
+This field is nontrivial.
+\end{theorem}
+
+\begin{proof}
+At each fixed datum \cref{cl:prop-fixed-spacing} gives
+the required reference states. The actual source
+hypotheses give \eqref{cl:eq-graded-input} for every
+integrating/reference pair, by \cite[Theorem~B]{SI}.
+Apply \cref{cl:prop-separated-compactness} to the pair
+\((\nu_j,\nu_j)\). This chooses the single subsequence
+used from now on. The reference singleton is zero.
+The phase construction in \cref{cl:thm-phase-law}
+uses the uniform bound before passing to the limit.
+It supplies the realizing states on that same
+subsequence and the uniform compact cluster law.
+
+Apply \cref{cl:prop-flat-extension} with separation
+exponent five to each realized hierarchy. The
+constants depend on the common radius-one bound,
+so they are uniform in the phase. Self-centering
+uses the pairs \((\rho_{j,\xi},\rho_{j,\xi})\);
+it therefore has the same graded estimate before
+the limit. This proves \eqref{cl:eq-main-growth}.
+Approximate a fixed flat test by finite sums of compact separated tensors
+in the seminorm \(|\cdot|_{20n}\). The uniform bound makes
+the phase evaluations converge uniformly in \(\xi\).
+They are therefore continuous, and the compact barycentre
+identity \eqref{cl:eq-phase-barycentre} passes to the flat test.
+\Cref{cl:prop-phase-mean} identifies the mean and
+its continuity and average.
+
+The full reflected form follows from
+\cref{cl:prop-reflection-positivity}. The insertion
+estimate, spectral carrier and the physical shape
+law meet the four analytic criteria, as checked in
+\cref{cl:thm-euclidean-rotations}. Hence each phase
+is Euclidean invariant. Conjugating a coordinate
+reflection by an isometry transfers its positive
+form to any affine mirror; the pullback preserves
+the corresponding flat test domains.
+The ordered Schwartz cluster condition follows
+from the compact cluster law by the unitary
+translation and Hilbert approximation argument
+in \cref{cl:prop-scalar-reconstruction}.
+The same compact cluster law and Euclidean invariance give
+the Hilbert-space conclusions by \cref{cl:prop-phase-hilbert}.
+
+For each fixed \(d\), the physical two-point bounds apply to all
+late realizing states \(\rho_{j,\xi}\).
+The fixed-pair limit argument of \cref{cl:cor-shape-law}
+therefore gives the closed law on the full prescribed class.
+Its specialization in \cref{cl:cor-nontrivial}
+proves \eqref{cl:eq-main-signal}, with the common
+constants inherited from the state-uniform bounds.
+Finally \cref{cl:prop-scalar-reconstruction}
+matches the quantitative growth, ordered
+positivity, symmetry and cluster assumptions of
+the corrected theorem. The positive connected
+norm excludes a scalar field proportional to
+the identity.
+\end{proof}
+
+The theorem is a deduction from the stated uniform
+lattice estimates. It neither chooses contact terms
+in the Euclidean moments nor identifies a complete
+algebra of Yang--Mills observables. Such an
+identification requires compatible joint continuum
+limits for additional gauge-invariant observables.
+Nontrivial scalar correlations alone also do not establish an
+interaction criterion for an underlying field theory. If \(Z\)
+is a standard Gaussian random variable, then \(Z^2-1\) has
+cumulants \(2^{n-1}(n-1)!\) at every order \(n\ge2\), as follows
+by differentiating \(-t-\tfrac12\log(1-2t)\) at zero. Thus a
+quadratic observable of a Gaussian variable already has
+nonzero higher connected moments.
+
+\clneedspace{24\baselineskip}
+\begin{thebibliography}{OS75}
+\normalsize
+\bibitem{LP} \emph{Periodic Wilson states and reflection positivity}, companion manuscript, 2026.
+\bibitem{RT} \emph{Coupling trajectories and partition stability in lattice Yang--Mills theory}, companion manuscript, 2026.
+\bibitem{SI} \emph{Scalar sources and uniform insertions for lattice Yang--Mills fields}, companion manuscript, 2026.
+\bibitem{FP} \emph{Physical short-distance asymptotics of the lattice Yang--Mills action density}, companion manuscript, 2026.
+\bibitem{Ext} \emph{Four-dimensional \(SU(2)\) Yang--Mills theory: A proof outline for \(\operatorname{tr}(F^2)\)}, 2026. General Euclidean, plateau, angular continuation and phase criteria, with the locators specified in the text.
+\bibitem{Bal88} T.~Ba{\l}aban, \emph{Convergent renormalization expansions for lattice gauge theories}, Comm. Math. Phys. \textbf{119} (1988), 243--285. \href{https://doi.org/10.1007/BF01217741}{doi:10.1007/BF01217741}.
+\bibitem{Bal89} T.~Ba{\l}aban, \emph{Large field renormalization. II. Localization, exponentiation, and bounds for the R operation}, Comm. Math. Phys. \textbf{122} (1989), 355--392. \href{https://doi.org/10.1007/BF01238433}{doi:10.1007/BF01238433}.
+\bibitem{OS73} K.~Osterwalder and R.~Schrader, \emph{Axioms for Euclidean Green's functions}, Comm. Math. Phys. \textbf{31} (1973), 83--112. \href{https://doi.org/10.1007/BF01645738}{doi:10.1007/BF01645738}.
+\bibitem{OS75} K.~Osterwalder and R.~Schrader, \emph{Axioms for Euclidean Green's functions II}, Comm. Math. Phys. \textbf{42} (1975), 281--305. \href{https://doi.org/10.1007/BF01608978}{doi:10.1007/BF01608978}.
+\end{thebibliography}
+\end{document}
