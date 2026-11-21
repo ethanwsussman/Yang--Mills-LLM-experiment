@@ -1,0 +1,34 @@
+{
+  "cases": [
+    {
+      "name": "alternate_valid_helper_proof_accepted",
+      "accept": true,
+      "marker": "source statement comparison passed:",
+      "files": {
+        "challenge.ndjson": "4e71d8e87d33743d55d13fbf98f65bf18b8449b6037bbafdcff29ad6d76964f5",
+        "solution.ndjson": "fb39f4fa687593843a117948af35ba5d355ed3fd452f0d19350d215ab73b997d",
+        "scope.json": "a24ff45f9c5aacc2d9c27d141a87cf5fa7be5a76bdf9a48b69f82ee578ead873"
+      }
+    },
+    {
+      "name": "changed_helper_type_rejected",
+      "accept": false,
+      "marker": "Challenge and solution theorem statement do not match",
+      "files": {
+        "challenge.ndjson": "4e71d8e87d33743d55d13fbf98f65bf18b8449b6037bbafdcff29ad6d76964f5",
+        "solution.ndjson": "3c890390f763fcd54fd774525601e6d1c380cb7f1aa52dbbf787c8ba6a70c356",
+        "scope.json": "a24ff45f9c5aacc2d9c27d141a87cf5fa7be5a76bdf9a48b69f82ee578ead873"
+      }
+    },
+    {
+      "name": "challenge_helper_uses_root_hole_rejected",
+      "accept": false,
+      "marker": "Illegal axiom detected",
+      "files": {
+        "challenge.ndjson": "e8c7d19a6649a0bb13d6bb2c6f95357a135537a76dfda8c086041d39553e5131",
+        "solution.ndjson": "fb39f4fa687593843a117948af35ba5d355ed3fd452f0d19350d215ab73b997d",
+        "scope.json": "a24ff45f9c5aacc2d9c27d141a87cf5fa7be5a76bdf9a48b69f82ee578ead873"
+      }
+    }
+  ]
+}

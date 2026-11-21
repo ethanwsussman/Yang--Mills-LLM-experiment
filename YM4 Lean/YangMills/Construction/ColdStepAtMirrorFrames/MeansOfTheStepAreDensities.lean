@@ -1,0 +1,8 @@
+import YangMills.Construction.ColdStepAtMirrorFrames.DensityHypothesesAtParameters
+import Mathlib
+set_option autoImplicit false
+noncomputable section
+namespace YangMills.Construction.ColdStepAtMirrorFrames
+def meansAreLocalDensities : Prop := EventuallyInParameters MeansAreLocalDensitiesAt
+end YangMills.Construction.ColdStepAtMirrorFrames
+end

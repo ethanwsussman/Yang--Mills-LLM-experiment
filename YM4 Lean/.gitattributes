@@ -1,0 +1,22 @@
+# Preserve the bytes of the accepted Lean source snapshot.
+*.lean -text
+*.md text eol=lf
+*.sh text eol=lf
+*.py text eol=lf
+*.toml text eol=lf
+*.tex text eol=lf
+*.pdf binary
+*.json text eol=lf
+*.jsonl text eol=lf
+*.txt text eol=lf
+lean-toolchain text eol=lf
+
+# Keep the exact root inputs bound by the recorded builds and document hashes.
+/lakefile.toml -text
+/lake-manifest.json -text
+/lean-toolchain -text
+/comparator.json -text
+/doc/Theorem.tex -text
+
+# The adapter and its fixtures are bound by byte-level hashes.
+scripts/comparator/** -text

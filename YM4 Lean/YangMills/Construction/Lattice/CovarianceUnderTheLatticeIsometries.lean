@@ -1,0 +1,28 @@
+import YangMills.Construction.Lattice.BlocksAndLinearSizesUnderIsometries
+import YangMills.Construction.Lattice.CovarianceOfComplexFormsAndOneStepOperations
+import YangMills.Construction.Lattice.CovarianceOfComplexGaugeAndMinimalConfigurations
+import YangMills.Construction.Lattice.CovarianceOfComplexHolonomiesAndAverages
+import YangMills.Construction.Lattice.CovarianceOfGaugeFixingUnderIsometries
+import YangMills.Construction.Lattice.CovarianceOfMinimalOrbitsUnderIsometries
+import YangMills.Construction.Lattice.IsometryCovarianceOfHolonomiesAndActions
+import YangMills.Construction.Lattice.IsometryCovarianceOfRegularSetsAndAxialRepresentatives
+import YangMills.Construction.Lattice.IsometryCovarianceOfTowersAndCubesOfAStep
+import YangMills.Construction.Lattice.IsometryGroupsAndTheirActionOnRegions
+import YangMills.Construction.Lattice.TwistedMapsAndHessiansUnderIsometries
+import Mathlib
+namespace YangMills.Construction.PeriodicLattice
+def LatticeIsometryCovariance : Prop :=
+  LatticeIsometryGroupActionStatement ∧
+  IsometryInvariance.InvariantUnderIsometries ∧
+  IsometriesPreserveTowersAndStepCubes ∧
+  IsometryCovariance.Statement ∧
+  AveragingMapsEquivariant ∧
+  GaugeFixingCovarianceStatement ∧
+  IsometryCovarianceOfMinimalOrbits ∧
+  IsometryCovariantRegularSetsAndAxialGauge ∧
+  TwistedTransportIsometryInvariance ∧
+  IsometryCovarianceOneStep ∧
+  ComplexHolonomiesAndAveragesCovariance.Statement ∧
+  ComplexGaugeAndMinimalFieldCovariance.Statement ∧
+  ComplexFormsAndStepOperationsCovariance.Statement
+end YangMills.Construction.PeriodicLattice

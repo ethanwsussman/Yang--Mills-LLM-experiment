@@ -1,0 +1,150 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=0.95in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={The SU(2) Wilson continuum limit and the Osterwalder-Schrader axioms}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlist{leftmargin=*,itemsep=3pt,topsep=3pt,parsep=0pt}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\E}{\mathbb E}
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\J}{\mathcal J}
+\begin{document}
+\begin{center}
+{\LARGE A subsequential $\SU(2)$ Wilson continuum limit}\\[4pt]
+{\large The Osterwalder--Schrader axioms for the limiting components}
+\end{center}
+
+\textbf{The observable.}
+On a periodic four-dimensional lattice of mesh $a=L^{-K}$ and physical side
+$\ell=2L^m$, give the $\SU(2)$ bond variables $U_b$ the Wilson probability law
+\[
+  d\mu_{K,\ell,g}=Z^{-1}\exp\!\left(-g^{-2}\sum_p s_p\right)\prod_b dU_b,
+  \qquad s_p=1-\tfrac12\operatorname{Re}\operatorname{tr}U_p .
+\]
+Here $dU_b$ is normalized Haar measure, $p$ runs over positively oriented
+plaquettes, and $U_p$ is the ordered product around $p$, taking the inverse on
+a reversed bond. For a real compactly supported test $f$ on $\R^4$, define
+\[
+ f_\ell(x)=\sum_{z\in\mathbb Z^4}f(x+\ell z),\qquad
+ \Phi(f)=\sum_p f_\ell(x_p)(s_p-\E s_p),
+ \qquad
+ M_n(K,\ell,g;\mathbf f)=\E\!\prod_{i=1}^n\Phi(f_i),
+\]
+where $x_p$ is the plaquette barycenter and expectations use $\mu_{K,\ell,g}$.
+
+\textbf{The fixed measurement.}
+Set $b(t)=e^{-1/t}$ for $t>0$ and $b(t)=0$ otherwise. With
+$h(t)=b(t)/(b(t)+b(1-t))$, put
+$\chi(x)=h(2-(80/3)^2|x|^2)$, and let $\chi_0(x)=\chi(x-3e_1)$,
+where $e_1$ is the first coordinate vector. The bump $\chi$ equals one at the
+origin and is supported in the ball of radius $1/8$. On a reference torus
+of side $\ell_0$, set
+\[
+ F_K(g)=M_2(K,\ell_0,g;(\chi,\chi_0)),\qquad
+ r(g_0)=\frac{9g_0^4}{\pi^4}\int_{\R^4}\!\int_{\R^4}
+ \frac{\chi(x)\chi_0(y)}{|x-y|^8}\,dy\,dx .
+\]
+
+\textbf{Theorem.}
+For every sufficiently large odd integer $L$, there exist integers $M\ge1$,
+$K_*\ge1$ and a number $\delta>0$ with the following properties.
+Take $\ell_0=2L^M\ge8$. For every $K\ge K_*$ and every $0<g_0<\delta$,
+the equation $F_K(g)=r(g_0)$ has a least positive solution $g_K$.
+
+Fix such a $g_0$. There are strictly increasing cutoffs $K_j$, observation
+sides $\ell_j=2L^{m_j}\to\infty$, and, for each $j$, sides
+$\ell_{j,t}=2L^{v(j,t)}\to\infty$ as $t\to\infty$. At each $K_j$ the
+coupling $g_{K_j}$ is the least positive solution above. Asymptotic freedom takes the form
+\[
+ a_j=L^{-K_j}\longrightarrow0,\qquad
+ g_{K_j}^{\,2}\log(1/a_j)\longrightarrow\frac{3\pi^2}{11}.
+\]
+There exists a family of Schwinger distributions $S_n$ on four-space
+such that for every $n\ge0$ and all real $f_1,\ldots,f_n\in C_c^\infty(\R^4)$
+with pairwise disjoint supports,
+\[
+ \lim_{j\to\infty}\lim_{t\to\infty} M_n(K_j,\ell_{j,t},g_{K_j};\mathbf f)
+ =\lim_{j\to\infty}M_n(K_j,\ell_j,g_{K_j};\mathbf f)
+ =S_n(f_1\otimes\cdots\otimes f_n).
+\]
+Each inner limit exists. The same sequences work at every order for every
+separated test tuple. Some smooth separated pair has strictly positive
+limiting covariance, and some smooth separated quadruple has strictly
+positive limiting fourth cumulant.
+
+The limiting moments are averages of components that satisfy the full
+Osterwalder--Schrader axioms, including spatial clustering. Almost every
+component has a nonzero connected four-point function on some separated
+smooth quadruple. The test space, averaging formula and axioms are given below.
+
+\newpage
+\section*{Euclidean axioms and component decomposition}
+
+Write $X_n=(\R^4)^n$ and $\Delta_n=\{x\in X_n:x_i=x_j\text{ for some }i\ne j\}$.
+For $n\ge1$ the test space is
+\[
+ \mathcal S_n^{\flat}
+ =\{\varphi\in\mathcal S(X_n;\C):
+          \partial^\alpha\varphi|_{\Delta_n}=0\ \text{for every multi-index }\alpha\}.
+\]
+In degree zero take $\mathcal S_0^{\flat}=\C$. There are a probability space
+$(\Xi,\rho)$ and component Schwinger distributions $T^\xi$ such that, for
+every smooth separated tuple as on page~1, the integrand below is integrable and
+\[
+ S_n(f_1\otimes\cdots\otimes f_n)
+       =\int_\Xi T^\xi_n(f_1\otimes\cdots\otimes f_n)\,d\rho(\xi).
+\]
+The following conditions hold for $S$ and for each $T^\xi$. Write $A$ for
+either family.
+\begin{enumerate}
+\item \textbf{Normalization, linearity and growth.}
+$A_0(c)=c$. Each $A_n$ is complex linear and continuous on $\mathcal S_n^{\flat}$.
+For some integer $k>0$ and $c,C,\kappa>0$, every $n\ge1$ satisfies
+\[
+ |A_n(\varphi)|\le cC^n(n!)^\kappa p_{kn}(\varphi),\qquad
+ p_d(\varphi)=\sup_{x,\,|\alpha|\le d}
+             (1+|x|^2)^{d/2}|\partial^\alpha\varphi(x)|.
+\]
+\item \textbf{Euclidean invariance and permutation symmetry.}
+Simultaneously translating all points, applying any $R\in O(4)$ to them,
+or permuting the arguments leaves $A_n$ invariant.
+\item \textbf{Reflection reality.} Write $\theta$ for reflection of the fourth
+Euclidean coordinate and
+$\J\varphi(x)=\overline{\varphi(\theta x_1,\ldots,\theta x_n)}$.
+Then $A_n(\J\varphi)=\overline{A_n(\varphi)}$.
+\item \textbf{Reflection positivity.} Let $F=(F_n)$ have only finitely many
+nonzero entries. Take $F_0\in\C$, and, for $n\ge1$, take $F_n$ Schwartz with
+all derivatives vanishing outside the set of distinct points whose time
+coordinates are all positive. With $\J F_0=\overline{F_0}$, put
+\[
+ B_A(F,H)=\sum_{p,q\ge0} A_{p+q}(\J F_p\otimes H_q).
+\]
+Then $B_A(F,F)$ is real and nonnegative.
+\end{enumerate}
+
+\textbf{Clustering.} Each component $T^\xi$ also satisfies the spatial cluster
+axiom. For $F,H$ as above and each nonzero spatial vector $v$,
+\[
+ \lim_{t\to+\infty} B_{T^\xi}(F,\tau_{tv} H)
+   =\left(\sum_p T^\xi_p(\J F_p)\right)\left(\sum_q T^\xi_q(H_q)\right),
+\]
+where $\tau_w$ translates each test by $x_i\mapsto x_i-w$.
+The separated smooth quadruple witnessing a nonzero fourth cumulant may
+depend on $\xi$.
+
+\textbf{The construction.} At each $a_j$ the inner limit on page~1 is a moment
+of a probability law on fields on $a_j\mathbb Z^4$, obtained as a subsequential
+weak limit of periodic Wilson measures. The construction also gives convergence
+of separated connected correlations on compactly supported real $C^1$ tests,
+and a canonical component decomposition on a compact metrizable space.
+
+\textbf{Lean statement.} \texttt{YangMills.wilson\_subsequence} proves the
+$\SU(2)$ instance. Its foundational axioms are \texttt{propext},
+\texttt{Classical.choice}, and \texttt{Quot.sound}.
+\end{document}

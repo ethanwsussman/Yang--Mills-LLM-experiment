@@ -1,0 +1,280 @@
+import YangMills.Construction.Analysis.VanishingAndThinSetsProofs
+import YangMills.Construction.ComplexAnalysis.BanachValuedAffineCoordinatesProofs
+import YangMills.Construction.ComplexAnalysis.ConjugationAndInnerProductsProof
+import YangMills.Construction.ComplexAnalysis.MontelSeveralVariablesProof
+import YangMills.Construction.ComplexAnalysis.RealLocusIdentityProof
+import YangMills.Construction.ComplexAnalysis.RealPieceIdentityProof
+import YangMills.Construction.ComplexAnalysis.ScalarHolomorphyAgreementProof
+import YangMills.Construction.Coordinates.BoundedHolomorphicLipschitzProof
+import YangMills.Construction.EuclideanFunctionals.BoundedOperatorOfOnePlateProof
+import YangMills.Construction.EuclideanFunctionals.ContinuationOfTheInsertionFunctionOfATripleProof
+import YangMills.Construction.EuclideanFunctionals.FormsOfTheOperatorsOverTheWedgeProof
+import YangMills.Construction.EuclideanFunctionals.JointSpectralMeasureCarriedByThePyramidProof
+import YangMills.Construction.EuclideanFunctionals.MatrixElementBetweenTwoOperatorsOfTheSemigroupOfTheConeProof
+import YangMills.Construction.EuclideanFunctionals.MeasuresAndOperatorsOfTheReconstructionProof
+import YangMills.Construction.EuclideanFunctionals.MollificationWithinACompactSetProof
+import YangMills.Construction.EuclideanFunctionals.PlateBoundFromTheInsertionBoundWithDataProof
+import YangMills.Construction.EuclideanFunctionals.PlateBoundWithDataAndThePlateBoundWithAnExponentProof
+import YangMills.Construction.EuclideanFunctionals.PlateOperatorOfAProfileInADiscProof
+import YangMills.Construction.EuclideanFunctionals.SemigroupOfTheConeProof
+import YangMills.Construction.EuclideanFunctionals.TensorsWithComplexEntriesTranslationsAndTranslatedClassesProof
+import YangMills.Construction.EuclideanFunctionals.VectorsOfPlatesAndTheProductFormulaProof
+import YangMills.Construction.ForwardTube.ArgumentsOfTheGramKernelInTheShiftedTubesProof
+import YangMills.Construction.ForwardTube.TubeStarAndBoostFactsProof
+import YangMills.Construction.PositiveDefinite.KernelRestrictPullbackLimitProof
+import YangMills.Construction.RealFunctions.ExponentialSumsViaVandermonde
+import YangMills.Construction.RealPlane.ContinuousDensityUniquenessProof
+import YangMills.Construction.RotationInvariance.ConvexityOfTheTopFrequencyProof
+import YangMills.Construction.RotationInvariance.FinitelyManyHarmonicsOnPencilsProof
+import YangMills.Construction.RotationInvariance.FunctionalAndPlaneKernelsAreLinearInEachLabelProof
+import YangMills.Construction.RotationInvariance.GramKernelStaysPositiveAtImaginaryAnglesProof
+import YangMills.Construction.RotationInvariance.HalvingOfZeroSetsProof
+import YangMills.Construction.RotationInvariance.LineSidesAndReflectionByRotationsProof
+import YangMills.Construction.RotationInvariance.PlaneKernelsOfTheFunctionalProof
+import YangMills.Construction.RotationInvariance.PositivityOfTheTopHarmonicAcrossEveryLineProof
+import YangMills.Construction.RotationInvariance.RadialBumpsExistAndMollifyInC1Proof
+import YangMills.Construction.RotationInvariance.RulesOfTheRotationsTheForwardTubeAndTheSectorProof
+import YangMills.Construction.RotationInvariance.ScalarProductsOfBumpVectorsAtComplexPointsProof
+import YangMills.Construction.RotationInvariance.ScalarProductsOfBumpVectorsAtRealPointsProof
+import YangMills.Construction.RotationInvariance.SectorPencilCutAtTheMirrorAndDoubledPencilsProof
+import YangMills.Construction.RotationInvariance.SmearingOfPlatesByRadialBumpsProof
+import YangMills.Construction.RotationInvariance.TopFrequencyRangeSumsAndRateProof
+import YangMills.Construction.Sequences.ConvexNatSequenceLinearProof
+import YangMills.Construction.SpectralTheory.CalculusOfBoundedBorelFunctionsOnTheWholeSpaceProof
+import YangMills.Construction.TheStatementsProvedTogether.FromMeasureOfTheTimeTranslationsProof
+import Mathlib
+namespace YangMills.Construction.TheStatementsProvedTogether
+theorem reconstruction_measure_operator_properties :
+    YangMills.Construction.EuclideanFunctionals.ReconstructionMeasureOperatorFacts :=
+  YangMills.Construction.EuclideanFunctionals.reconstructionMeasureOperatorFacts_holds
+    reconstruction_basic_facts selfAdjoint_spectral_resolution
+    projectionValuedMeasure_calculus tuple_span_action_rules
+theorem tube_operator_forms :
+    YangMills.Construction.EuclideanFunctionals.TubeOperatorForms.Holds :=
+  YangMills.Construction.EuclideanFunctionals.TubeOperatorForms.holds
+    selfAdjoint_spectral_resolution diagonalized_operator_facts
+    joint_spectral_measure_generators_commute projectionValuedMeasure_calculus
+    reconstruction_measure_operator_properties cone_condition_three_forms
+theorem banachValued_holomorphic_comp :
+    YangMills.Construction.BanachValued.AffineCoordinates.HolomorphicCompositionProperties := by apply _root_.YangMills.Construction.BanachValued.AffineCoordinates.holomorphicCompositionProperties_holds <;> assumption
+theorem whole_space_bounded_borel_calculus :
+    YangMills.Construction.WholeSpaceCalculus.BoundedCalculusTheorem :=
+  YangMills.Construction.WholeSpaceCalculus.boundedCalculusTheorem_holds
+    bounded_borel_calculus projection_valued_measure_map borel_calculus_strong_convergence
+theorem tube_semigroup :
+    YangMills.Construction.EuclideanFunctionals.TubeSemigroup.Holds :=
+  YangMills.Construction.EuclideanFunctionals.TubeSemigroup.holds
+    tube_operator_forms reconstruction_measure_operator_properties
+    whole_space_bounded_borel_calculus banachValued_holomorphic_comp
+theorem jointSpectralMeasure_supported_pyramid :
+    YangMills.Construction.EuclideanFunctionals.EuclidFunctionalWithRecon.CarriedByPyramid.statement :=
+  YangMills.Construction.EuclideanFunctionals.EuclidFunctionalWithRecon.CarriedByPyramid.statement_holds
+    reconstruction_basic_facts
+theorem cone_semigroup :
+    YangMills.Construction.EuclideanFunctionals.ConeSemigroup.statement :=
+  YangMills.Construction.EuclideanFunctionals.ConeSemigroupProof.coneSemigroup_holds
+    whole_space_bounded_borel_calculus jointSpectralMeasure_supported_pyramid
+    reconstruction_measure_operator_properties tube_semigroup
+theorem cone_semigroup_matrix_element :
+    YangMills.Construction.EuclideanFunctionals.ConeSandwich.Holds :=
+  YangMills.Construction.EuclideanFunctionals.ConeSandwich.holds_of_coneSemigroup cone_semigroup
+theorem triple_insertion_continuation_exists :
+    YangMills.Construction.EuclideanFunctionals.TripleContinuation.ExtensionExists :=
+  YangMills.Construction.EuclideanFunctionals.TripleContinuationProof.extensionExists_holds
+    one_insertion_operator cone_semigroup_matrix_element insertionValue_properties
+    motion_mul_tuple_rules cone_semigroup
+theorem parametrix_bracket :
+    YangMills.Construction.EuclideanFunctionals.ParametrixBracket.Main :=
+  YangMills.Construction.EuclideanFunctionals.ParametrixBracket.main_holds
+    cauchy_estimate_real_point triple_insertion_continuation_exists insertionValue_properties
+    cubed_laplacian_parametrix sharp_norm_c1
+theorem mollification_in_compact :
+    YangMills.Construction.EuclideanFunctionals.MollificationInCompact := by apply _root_.YangMills.Construction.EuclideanFunctionals.Mollification.mollificationInCompact_holds <;> assumption
+theorem product_bound_of_insertion_bound :
+    YangMills.Construction.EuclideanFunctionals.ProductBoundFromInsertion.Main :=
+  YangMills.Construction.EuclideanFunctionals.ProductBoundFromInsertionProof.main
+    mollification_in_compact insertionValue_properties parametrix_bracket
+    motion_mul_tuple_rules
+theorem plateBound_data_iff_exponent :
+    YangMills.Construction.EuclideanFunctionals.ProductBoundExponent.Main :=
+  YangMills.Construction.EuclideanFunctionals.ProductBoundExponent.main_holds
+    product_bound_of_insertion_bound moments_invariant_reduce_timePlane
+theorem nat_seq_linear_of_convex_bounded_dvd :
+    YangMills.Construction.ConvexNatSequence.LinearOfConvexBoundedDivisible := by apply _root_.YangMills.Construction.ConvexNatSequence.linearOfConvexBoundedDivisible_holds <;> assumption
+theorem forward_tube_star_boost_facts :
+    YangMills.Construction.ForwardTube.TubeStarAndBoostFacts := by apply _root_.YangMills.Construction.ForwardTube.tubeStarAndBoostFacts_holds <;> assumption
+theorem forward_tube_strip_sector_pencil :
+    YangMills.Construction.ForwardTube.TubeFrameStripSectorPencilFacts :=
+  YangMills.Construction.ForwardTube.TubeGeometry.tubeFrameStripSectorPencilFacts_holds
+    forward_tube_star_boost_facts
+theorem functional_real_function_tuples :
+    YangMills.Construction.EuclideanFunctionals.RealTuples.realFunctionTuples :=
+  YangMills.Construction.EuclideanFunctionals.RealTuples.realFunctionTuples_of_centeredSeesTensorComps
+    centred_functional_tensor_components
+theorem exists_radial_mollifier_c1 :
+    YangMills.Construction.EuclideanFunctionals.RadialMollifiers.ExistAndConvergeC1 := by apply _root_.YangMills.Construction.EuclideanFunctionals.RadialMollifiers.existAndConvergeC1_holds <;> assumption
+theorem shifted_tube_lightcone_coords :
+    YangMills.Construction.ForwardTube.ShiftedTubeCoords.Holds := by apply _root_.YangMills.Construction.ForwardTube.ShiftedTubeCoords.holds <;> assumption
+theorem continuous_density_unique :
+    YangMills.Construction.RealPlane.DensityUniqueness.Claim := by apply _root_.YangMills.Construction.RealPlane.DensityUniqueness.holds <;> assumption
+theorem eq_of_eq_on_real_open_holomorphic :
+    YangMills.Construction.ComplexAnalysis.RealPiece.EqOfEqOnRealOpenAndConjHolomorphic :=
+  YangMills.Construction.ComplexAnalysis.RealPiece.eqOfEqOnRealOpenAndConjHolomorphic_of_powerSeries
+    holomorphic_power_series_and_limits
+theorem identity_theorem_real_locus :
+    YangMills.Construction.ComplexAnalysis.IdentityTheoremOnRealLocus :=
+  YangMills.Construction.ComplexAnalysis.identityTheoremOnRealLocus_of_eqOnRealPiece
+    eq_of_eq_on_real_open_holomorphic
+theorem forwardTube_determined_productIntegrals :
+    YangMills.Construction.ForwardTube.HolomorphicDifferences.determinedByProductIntegrals :=
+  YangMills.Construction.ForwardTube.ProductIntegralDetermination.determinedByProductIntegrals_holds
+    continuous_density_unique identity_theorem_real_locus
+theorem banach_holomorphy_scalar_agreement :
+    YangMills.Construction.BanachValued.ScalarAgreement.Agreement :=
+  YangMills.Construction.BanachValued.ScalarAgreement.agreement_holds
+    holomorphic_power_series_and_limits
+theorem euclidean_functional_tensor_translation :
+    YangMills.Construction.EuclideanFunctionals.TensorTranslation.AllFacts :=
+  YangMills.Construction.EuclideanFunctionals.TensorTranslation.allFacts_holds
+    tuple_span_action_rules centred_functional_tensor_components
+theorem product_insertion_bounded :
+    YangMills.Construction.EuclideanFunctionals.ProductInsertionOp.Holds :=
+  YangMills.Construction.EuclideanFunctionals.ProductInsertionOp.holds_of_rules
+    tuple_span_action_rules one_insertion_operator motion_mul_tuple_rules
+theorem plateOperator_profile_in_disc :
+    YangMills.Construction.EuclideanFunctionals.SmallDiscProduct.Holds :=
+  YangMills.Construction.EuclideanFunctionals.SmallDiscProduct.holds
+    product_insertion_bounded centred_functional_initial_values euclidean_functional_tensor_translation
+    tuple_translate_append tuple_span_action_rules
+theorem forward_tube_semigroup :
+    YangMills.Construction.EuclideanFunctionals.TubeSemigroup.ForwardTubeSemigroupFacts :=
+  YangMills.Construction.EuclideanFunctionals.TubeSemigroup.forwardTubeSemigroupFacts_of_holds
+    tube_semigroup
+theorem plateVectors_product_formula :
+    YangMills.Construction.EuclideanFunctionals.PlateVectorsProduct.Holds :=
+  YangMills.Construction.EuclideanFunctionals.PlateVectorsProduct.holds_of
+    plateOperator_profile_in_disc tube_semigroup forward_tube_semigroup
+    reconstruction_measure_operator_properties tuple_translate_append
+    euclidean_translation_motion_rules moments_invariant_reduce_timePlane
+    banachValued_holomorphic_comp banach_holomorphy_scalar_agreement
+theorem plate_smearing_radial_bump :
+    YangMills.Construction.EuclideanFunctionals.PlateSmearing.PlateSmearingStatement :=
+  YangMills.Construction.EuclideanFunctionals.PlateSmearing.plateSmearingStatement_of_lemmas
+    exists_radial_mollifier_c1 euclidean_translation_motion_rules moment_smearing
+    plateVectors_product_formula forwardTube_determined_productIntegrals
+    shifted_tube_lightcone_coords
+theorem bounded_holomorphic_lipschitz :
+    YangMills.Construction.Coordinates.ComplexCoordinates.BoundedHolomorphicLipschitz.Bound := by apply _root_.YangMills.Construction.Coordinates.ComplexCoordinates.BoundedHolomorphicLipschitz.bound_holds <;> assumption
+theorem montel_several_variables :
+    YangMills.Construction.ComplexAnalysis.MontelSeveralVariables :=
+  YangMills.Construction.ComplexAnalysis.Montel.montelSeveralVariables_of_bound
+    bounded_holomorphic_lipschitz
+theorem plane_kernel_properties :
+    YangMills.Construction.EuclideanFunctionals.PlaneKernelProps.Holds :=
+  YangMills.Construction.EuclideanFunctionals.PlaneKernelProps.holds_of_cited
+    montel_several_variables plateVectors_product_formula plate_smearing_radial_bump
+    exists_radial_mollifier_c1 euclidean_moment_bounds_continuous
+    euclidean_translation_motion_rules shifted_tube_lightcone_coords
+    forwardTube_determined_productIntegrals functional_real_function_tuples tuple_span_action_rules
+    forward_tube_strip_sector_pencil holomorphic_power_series_and_limits
+    moments_invariant_reduce_timePlane euclidean_plate_motions
+theorem entire_angle_function_on_pencil :
+    YangMills.Construction.EuclideanFunctionals.AngleFunctionOnPencil.Holds :=
+  YangMills.Construction.EuclideanFunctionals.AngleFunctionOnPencil.holds
+    plane_kernel_properties forward_tube_strip_sector_pencil continuous_density_unique
+    holomorphic_power_series_and_limits
+theorem forwardTube_gramKernel_arguments :
+    YangMills.Construction.ForwardTube.GramKernelArgsFacts := by apply _root_.YangMills.Construction.ForwardTube.gramKernelArgsFacts_holds <;> assumption
+theorem gram_args_in_shifted_tubes :
+    YangMills.Construction.ForwardTube.GramArgsInShiftedTubes.Holds := by apply _root_.YangMills.Construction.ForwardTube.GramArgsInShiftedTubes.holds <;> assumption
+theorem bumpVector_inner_realPoints :
+    YangMills.Construction.EuclideanFunctionals.MollifierInnerAtRealPoints.Holds :=
+  YangMills.Construction.EuclideanFunctionals.MollifierInnerAtRealPoints.holds
+    plateVectors_product_formula functional_real_function_tuples euclidean_translation_motion_rules
+    moments_invariant_reduce_timePlane forwardTube_gramKernel_arguments centred_functional_initial_values
+theorem banach_valued_conj_inner_properties :
+    YangMills.Construction.BanachValued.ConjugationInner.Properties :=
+  YangMills.Construction.BanachValued.ConjugationInner.properties_holds
+    banach_holomorphy_scalar_agreement banachValued_holomorphic_comp
+theorem mollifier_inner_at_complex_points :
+    YangMills.Construction.EuclideanFunctionals.MollifierInnerAtComplexPoints.Holds :=
+  YangMills.Construction.EuclideanFunctionals.MollifierInnerAtComplexPoints.holds
+    bumpVector_inner_realPoints gram_args_in_shifted_tubes
+    plateVectors_product_formula shifted_tube_lightcone_coords banach_valued_conj_inner_properties
+    identity_theorem_real_locus holomorphic_power_series_and_limits
+theorem gram_kernel_posSemidef_imaginary :
+    YangMills.Construction.EuclideanFunctionals.GramKernelImagPosSemidef.Holds :=
+  YangMills.Construction.EuclideanFunctionals.GramKernelImagPosSemidef.holds_of
+    forwardTube_gramKernel_arguments gram_args_in_shifted_tubes plane_kernel_properties
+    exists_radial_mollifier_c1 mollifier_inner_at_complex_points
+theorem sector_pencil_mirror_cut_doubled :
+    YangMills.Construction.EuclideanFunctionals.MirrorCut.Holds :=
+  YangMills.Construction.EuclideanFunctionals.MirrorCut.holds
+    forward_tube_strip_sector_pencil forwardTube_gramKernel_arguments
+    gram_kernel_posSemidef_imaginary entire_angle_function_on_pencil
+theorem pencil_finitely_many_harmonics :
+    YangMills.Construction.EuclideanFunctionals.PencilHarmonics.Holds :=
+  YangMills.Construction.EuclideanFunctionals.PencilHarmonics.holds entire_angle_function_on_pencil
+theorem maxFrequency_sums_rate :
+    YangMills.Construction.EuclideanFunctionals.MaxFrequencyFacts.Holds :=
+  YangMills.Construction.EuclideanFunctionals.MaxFrequencyFacts.holds_of_pencilHarmonics
+    pencil_finitely_many_harmonics
+theorem psd_kernel_restrict_pullback_scale_limit :
+    YangMills.Construction.PositiveDefinite.KernelRestrictPullback.RestrictPullbackScaleLimit :=
+  YangMills.Construction.PositiveDefinite.KernelRestrictPullback.restrictPullbackScaleLimit_holds
+    posSemidef_kernel_symm_bound_and_limits
+theorem max_frequency_convex :
+    YangMills.Construction.EuclideanFunctionals.MaxFrequencyConvex.Holds :=
+  YangMills.Construction.EuclideanFunctionals.MaxFrequencyConvex.holds_of
+    sector_pencil_mirror_cut_doubled gram_kernel_posSemidef_imaginary pencil_finitely_many_harmonics
+    maxFrequency_sums_rate psd_kernel_restrict_pullback_scale_limit
+theorem lineSides_reflection_via_rotations :
+    YangMills.Construction.LineSidesViaRotations.Holds := by apply _root_.YangMills.Construction.LineSidesViaRotations.holds <;> assumption
+theorem exp_sum_coeffs_determined :
+    YangMills.Construction.ExpSums.ExpSumsDetermined := by apply _root_.YangMills.Construction.ExpSums.expSumsDetermined_holds <;> assumption
+theorem functional_plane_kernel_multilinear :
+    YangMills.Construction.EuclideanFunctionals.LabelLinearity.Holds :=
+  YangMills.Construction.EuclideanFunctionals.LabelLinearity.holds
+    centred_functional_tensor_components plane_kernel_properties
+    euclidean_translation_motion_rules
+theorem forward_tube_rotation_rules :
+    YangMills.Construction.ForwardTube.RotationRules.Holds :=
+  YangMills.Construction.ForwardTube.RotationRules.holds_of_facts
+    forward_tube_strip_sector_pencil forward_tube_star_boost_facts
+theorem analytic_zeros_thin :
+    YangMills.Construction.Analysis.ZerosOfAnalyticMapsAndThinSets :=
+  YangMills.Construction.Analysis.zerosOfAnalyticMapsAndThinSets_holds
+    holomorphic_power_series_and_limits realAnalytic_iff_analyticOn
+theorem union_tube_kernel_exists :
+    YangMills.Construction.EuclideanFunctionals.UnionKernel.Holds :=
+  YangMills.Construction.EuclideanFunctionals.UnionKernel.holds_of_rules
+    forward_tube_rotation_rules analytic_zeros_thin functional_plane_kernel_multilinear plane_kernel_properties
+    moments_invariant_reduce_timePlane holomorphic_power_series_and_limits
+    continuous_density_unique
+theorem tube_union_harmonics :
+    YangMills.Construction.EuclideanFunctionals.TubeUnionHarmonics.Holds :=
+  YangMills.Construction.EuclideanFunctionals.TubeUnionHarmonicsProof.holds
+    union_tube_kernel_exists entire_angle_function_on_pencil maxFrequency_sums_rate forward_tube_rotation_rules
+    analytic_zeros_thin holomorphic_power_series_and_limits
+theorem harmonics_rotation_covariant :
+    YangMills.Construction.EuclideanFunctionals.HarmonicRotationCovariance.Holds :=
+  YangMills.Construction.EuclideanFunctionals.HarmonicRotationCovariance.holds
+    forward_tube_rotation_rules union_tube_kernel_exists tube_union_harmonics exp_sum_coeffs_determined
+    holomorphic_power_series_and_limits
+theorem harmonics_distinct_points :
+    YangMills.Construction.EuclideanFunctionals.DistinctHarmonics.Holds :=
+  YangMills.Construction.EuclideanFunctionals.DistinctHarmonics.holds
+    forward_tube_rotation_rules union_tube_kernel_exists tube_union_harmonics harmonics_rotation_covariant
+    analytic_zeros_thin maxFrequency_sums_rate holomorphic_power_series_and_limits
+theorem top_harmonic_line_positivity :
+    YangMills.Construction.EuclideanFunctionals.TopCoeffLinePositivity.AllPositivity :=
+  YangMills.Construction.EuclideanFunctionals.TopCoeffLinePositivity.allPositivity_holds
+    psd_kernel_sesq_form_properties forwardTube_gramKernel_arguments gram_kernel_posSemidef_imaginary
+    tube_union_harmonics lineSides_reflection_via_rotations union_tube_kernel_exists harmonics_distinct_points
+    forward_tube_rotation_rules
+theorem vanishing_set_halving :
+    YangMills.Construction.EuclideanFunctionals.VanishingSetHalving.HalvesVanishingSets :=
+  YangMills.Construction.EuclideanFunctionals.VanishingSetHalving.halvesVanishingSets_of
+    harmonics_distinct_points lineSides_reflection_via_rotations top_harmonic_line_positivity
+    analytic_zeros_thin realAnalytic_iff_analyticOn
+end YangMills.Construction.TheStatementsProvedTogether

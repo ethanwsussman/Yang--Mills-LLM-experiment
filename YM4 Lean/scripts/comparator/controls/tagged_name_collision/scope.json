@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "canonicalDeclarations": [
+    {
+      "name": [
+        [
+          "s",
+          "Control"
+        ],
+        [
+          "s",
+          "goal"
+        ],
+        [
+          "n",
+          0
+        ]
+      ],
+      "kind": "theorem"
+    }
+  ],
+  "supplementDeclarations": [],
+  "theoremTargets": [
+    [
+      [
+        "s",
+        "Control"
+      ],
+      [
+        "s",
+        "goal"
+      ],
+      [
+        "n",
+        0
+      ]
+    ]
+  ],
+  "primitiveTargets": [],
+  "legalAxioms": [],
+  "rootTargets": [
+    [
+      [
+        "s",
+        "Control"
+      ],
+      [
+        "s",
+        "goal"
+      ],
+      [
+        "n",
+        0
+      ]
+    ]
+  ]
+}

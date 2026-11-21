@@ -1,0 +1,6 @@
+import YangMills.Construction.EuclideanAnalysis.KernelsOfACubedLaplacianParametrix
+import Mathlib
+set_option autoImplicit false
+namespace YangMills.Construction.EuclideanAnalysis.CubedLaplacian
+def RadialBumpHasProperties : Prop := IsRadialBump radialBump
+end YangMills.Construction.EuclideanAnalysis.CubedLaplacian

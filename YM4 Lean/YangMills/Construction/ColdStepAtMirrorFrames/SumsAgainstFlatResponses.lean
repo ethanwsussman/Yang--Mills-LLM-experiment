@@ -1,0 +1,15 @@
+import YangMills.Construction.ColdStepAtMirrorFrames.SumAgainstTwoFlatResponses
+import YangMills.Construction.ResponseInTheExpansion.SumAgainstTwoGaugedResponses
+import YangMills.Construction.SummableBoundsOfTheFlow.SumAgainstFlatResponsesAtKSlots
+import Mathlib
+set_option autoImplicit false
+noncomputable section
+namespace YangMills.Construction
+namespace ColdStepAtMirrorFrames
+def FlatResponseSumBounds : Prop :=
+  YangMills.Construction.Interpolation.multilinearResponseBound ∧
+    YangMills.Construction.ColdStepAtMirrorFrames.BilinearResponseBound ∧
+    YangMills.Construction.WeightedResponses.TwoGaugedResponseSumBound
+end ColdStepAtMirrorFrames
+end YangMills.Construction
+end

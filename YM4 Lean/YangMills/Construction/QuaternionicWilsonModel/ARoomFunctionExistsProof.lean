@@ -1,0 +1,11 @@
+import YangMills.Construction.QuaternionicWilsonModel.TheLimitsOfTheTopAreRealAndNotZeroProof
+import YangMills.Construction.QuaternionicWilsonModel.ARoomFunctionExists
+import Mathlib
+set_option autoImplicit false
+open Filter
+open scoped Topology
+noncomputable section
+namespace YangMills.Construction.QuaternionicWilsonModel.RoomFunctionExists
+theorem succIsSubexpGrowth_holds : SuccIsSubexpGrowth := by apply _root_.YangMills.Construction.QuaternionicWilsonModel.TopLimitsRealNonzero.linearGauge_isSubexpGrowth <;> assumption
+end YangMills.Construction.QuaternionicWilsonModel.RoomFunctionExists
+end

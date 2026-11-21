@@ -1,0 +1,31 @@
+# Generated build products and dependency downloads
+.lake/
+*.olean
+*.ilean
+*.olean.private
+*.olean.server
+*.olean.ir
+*.c.o
+*.c.o.export
+*.c.o.noexport
+*.trace
+
+# Local verification output, never treated as a trusted reference
+scripts/comparator/controls-runs/
+*.partial
+
+# LaTeX compilation products (keep the theorem source and final PDF)
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+
+# Local environment and editor files
+.env
+.env.*
+__pycache__/
+*.py[cod]
+.DS_Store
+Thumbs.db
+.vscode/

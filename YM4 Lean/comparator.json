@@ -1,0 +1,7 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Formulation.WilsonSubsequence",
+  "theorem_names": ["«YangMills».«wilson_subsequence»"],
+  "definition_names": [],
+  "permitted_axioms": ["«Classical».«choice»", "«Quot».«sound»", "«propext»"]
+}

@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "canonicalDeclarations": [
+    {
+      "name": [
+        [
+          "s",
+          "Control"
+        ],
+        [
+          "s",
+          "target"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Control"
+        ],
+        [
+          "s",
+          "targetTwo"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Control"
+        ],
+        [
+          "s",
+          "helper"
+        ]
+      ],
+      "kind": "theorem"
+    }
+  ],
+  "supplementDeclarations": [],
+  "theoremTargets": [
+    [
+      [
+        "s",
+        "Control"
+      ],
+      [
+        "s",
+        "target"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Control"
+      ],
+      [
+        "s",
+        "targetTwo"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Control"
+      ],
+      [
+        "s",
+        "helper"
+      ]
+    ]
+  ],
+  "rootTargets": [
+    [
+      [
+        "s",
+        "Control"
+      ],
+      [
+        "s",
+        "target"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Control"
+      ],
+      [
+        "s",
+        "targetTwo"
+      ]
+    ]
+  ],
+  "primitiveTargets": [],
+  "legalAxioms": []
+}

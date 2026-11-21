@@ -1,0 +1,8 @@
+import YangMills.Construction.ToriAtArbitraryCouplings.BoundedSequencesOfCutoffsAndTheirLimits
+import Mathlib
+set_option autoImplicit false
+noncomputable section
+namespace YangMills.Construction.ToriAtArbitraryCouplings.LimitExtraction
+def Combined : Prop := statement ∧ boundFromFamilies
+end YangMills.Construction.ToriAtArbitraryCouplings.LimitExtraction
+end

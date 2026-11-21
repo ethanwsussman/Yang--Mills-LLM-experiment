@@ -1,0 +1,232 @@
+import YangMills.Construction.ColdStepAtMirrorFrames.BoundsOfAWeightedMeanProof
+import YangMills.Construction.ColdStepAtMirrorFrames.ConvexMembersAreClosedProof
+import YangMills.Construction.ColdStepAtMirrorFrames.ConvexityFromAFloorAndRowsProof
+import YangMills.Construction.ColdStepAtMirrorFrames.DerivativesOfAWeightedMeanProof
+import YangMills.Construction.ColdStepAtMirrorFrames.ExpansionTermsOfTheExponentProof
+import YangMills.Construction.ColdStepAtMirrorFrames.FieldNearTheFlatFieldProof
+import YangMills.Construction.ColdStepAtMirrorFrames.FlatChainOfTheLeastCoordinatesProof
+import YangMills.Construction.ColdStepAtMirrorFrames.FlatResponsesAreScalarProof
+import YangMills.Construction.ColdStepAtMirrorFrames.FlowOfACutFieldProof
+import YangMills.Construction.ColdStepAtMirrorFrames.FramesOnTheParametersProof
+import YangMills.Construction.ColdStepAtMirrorFrames.GaugeOfAFormAtTheScaleOfACellProof
+import YangMills.Construction.ColdStepAtMirrorFrames.HaarTermsOfTheExponentProof
+import YangMills.Construction.ColdStepAtMirrorFrames.JetOfAFunctionOfAFieldProof
+import YangMills.Construction.ColdStepAtMirrorFrames.LeftLogarithmOfTheGroupProof
+import YangMills.Construction.ColdStepAtMirrorFrames.MeanAlongAParameterProof
+import YangMills.Construction.ColdStepAtMirrorFrames.MomentOfASquareBoundProof
+import YangMills.Construction.ColdStepAtMirrorFrames.MomentsOfAConvexMeasureProof
+import YangMills.Construction.ColdStepAtMirrorFrames.OtherTermsOfTheExponentProof
+import YangMills.Construction.ColdStepAtMirrorFrames.PlaquetteOfACutFieldProof
+import YangMills.Construction.ColdStepAtMirrorFrames.SecondDerivativesOfSumsProof
+import YangMills.Construction.ColdStepAtMirrorFrames.ShiftOfTheCurlOfAFlatChainProof
+import YangMills.Construction.ColdStepAtMirrorFrames.SizeFromSquareBoundsProof
+import YangMills.Construction.ColdStepAtMirrorFrames.SizeOfAFlatResponseProof
+import YangMills.Construction.ColdStepAtMirrorFrames.SmallChainUnderASmallFieldProof
+import YangMills.Construction.ColdStepAtMirrorFrames.SquareSumOfTheCurlOfAFlatChainProof
+import YangMills.Construction.ColdStepAtMirrorFrames.SumsOfHolonomiesProof
+import YangMills.Construction.ColdStepAtMirrorFrames.ThreeDerivativesInASpaceProof
+import YangMills.Construction.ColdStepAtMirrorFrames.TreeResponseOfTheLeastCoordinatesProof
+import YangMills.Construction.SummableBoundsOfTheFlow.BoundsMatchAtChosenConstantProof
+import YangMills.Construction.SummableBoundsOfTheFlow.ByPartsAtABondProof
+import YangMills.Construction.SummableBoundsOfTheFlow.DerivativeOfATurnedDerivativeProof
+import YangMills.Construction.SummableBoundsOfTheFlow.ExponentIsSmoothAboveProof
+import YangMills.Construction.SummableBoundsOfTheFlow.FieldsOfTheTopBetweenProof
+import YangMills.Construction.SummableBoundsOfTheFlow.JointSmoothnessFromMovesProof
+import YangMills.Construction.SummableBoundsOfTheFlow.LawOfACutIsAProbabilityProof
+import YangMills.Construction.SummableBoundsOfTheFlow.LawsBetweenAreConvexProof
+import YangMills.Construction.SummableBoundsOfTheFlow.MeanAlongAFieldProof
+import YangMills.Construction.SummableBoundsOfTheFlow.MemberThroughAnInjectionProof
+import YangMills.Construction.SummableBoundsOfTheFlow.MomentsInTheLawsBetweenProof
+import YangMills.Construction.SummableBoundsOfTheFlow.RightShiftExistsProof
+import YangMills.Construction.SummableBoundsOfTheFlow.RightShiftIsSmoothProof
+import YangMills.Construction.SummableBoundsOfTheFlow.RightShiftIsUniqueProof
+import YangMills.Construction.SummableBoundsOfTheFlow.RightShiftMovesTheLogarithmProof
+import YangMills.Construction.SummableBoundsOfTheFlow.RightShiftOfTheChartProof
+import YangMills.Construction.SummableBoundsOfTheFlow.RimMomentsOfALawProof
+import YangMills.Construction.SummableBoundsOfTheFlow.SizeFromSquareBoundsProof
+import YangMills.Construction.SummableBoundsOfTheFlow.TheFramesBetweenProof
+import YangMills.Construction.SummableBoundsOfTheFlow.TopFieldDecaysProof
+import YangMills.Construction.TheStatementsProvedTogether.FromTheDifferenceIsASumOfLocalDeterminantsProof
+import Mathlib
+namespace YangMills.Construction.TheStatementsProvedTogether
+theorem gibbs_mean_bounds : ColdStepAtMirrorFrames.GibbsMeanBounds := by apply _root_.YangMills.Construction.ColdStepAtMirrorFrames.gibbsMeanBounds_holds <;> assumption
+theorem gibbs_mean_deriv : ColdStepAtMirrorFrames.GibbsMeanDifferentiation := by apply _root_.YangMills.Construction.ColdStepAtMirrorFrames.gibbsMeanDifferentiation_holds <;> assumption
+theorem gibbs_mean_interval_integral_deriv :
+    ColdStepAtMirrorFrames.IntervalIntegralGibbsMeanDifferentiation :=
+  ColdStepAtMirrorFrames.intervalIntegralGibbsMeanDifferentiation_holds gibbs_mean_bounds
+    gibbs_mean_deriv
+theorem log_deriv_right_translation : Interpolation.logDerivAlongRightTranslationStatement := by apply _root_.YangMills.Construction.Interpolation.logDerivAlongRightTranslation_holds <;> assumption
+theorem exists_left_logarithm : ColdStepAtMirrorFrames.LeftLogarithmExists := by apply _root_.YangMills.Construction.ColdStepAtMirrorFrames.QuaternionLog.leftLogarithmExists_holds <;> assumption
+theorem chart_second_deriv_bound : ColdStepAtMirrorFrames.ChartSecondDerivBound :=
+  ColdStepAtMirrorFrames.ChartSecondDeriv.chartSecondDerivBound_of_leftLogarithmExists
+    exists_left_logarithm
+theorem top_variation_along_field : Interpolation.topVariationAlongField :=
+  Interpolation.topVariationAlongField_proof expansion_along_motion contDiff_log_conj_exp
+    log_deriv_right_translation chart_second_deriv_bound
+    ColdStepAtMirrorFrames.blocksCoverLowerLevel
+theorem rightTranslation_deriv_exists : Interpolation.rightTranslationDerivExistsStatement := by apply _root_.YangMills.Construction.Interpolation.rightTranslationDerivExists <;> assumption
+theorem chart_rightTranslation : Interpolation.rightTranslationChartStatement :=
+  Interpolation.rightTranslationChart_holds rightTranslation_deriv_exists
+    log_deriv_right_translation contDiff_log_conj_exp
+theorem translated_derivative_bound : Estimates.TranslatedDerivativeBound :=
+  TranslatedDerivative.translatedDerivativeBound_holds iterated_deriv_along_list_rules
+    expansion_along_motion contDiff_log_conj_exp
+theorem top_variationField_decay : Interpolation.topVariationFieldDecayStatement :=
+  Interpolation.topVariationField_decay translated_derivative_bound
+theorem top_variation_along_fields : Interpolation.topVariationAlongFields :=
+  Interpolation.topVariationAlongFields_holds interpolation_kernel_bound
+    interpolated_frames_controlled chart_rightTranslation top_variation_along_field
+    top_variationField_decay eventually_parameters_combine site_cell_sup_dist_comparison
+theorem jointly_contDiff_of_displacement_balls :
+    Estimates.JointlyContDiffOnBallsOfDisplacements := by apply _root_.YangMills.Construction.Estimates.jointlyContDiffOnBallsOfDisplacements_holds <;> assumption
+theorem convex_of_hessian_floor_add_small_rows :
+    ColdStepAtMirrorFrames.ConvexityOfHessianFloorPlusSmallRows := by apply _root_.YangMills.Construction.ColdStepAtMirrorFrames.HessianConvexity.convexityOfHessianFloorPlusSmallRows_holds <;> assumption
+theorem frame_bounds_eventually : ColdStepAtMirrorFrames.FrameBoundsEventually :=
+  ColdStepAtMirrorFrames.frameBoundsEventually_holds mirror_frames_bound_by_minimizer
+    mirror_frame_coupling_threshold
+theorem haar_gap_contDiff : ColdStepAtMirrorFrames.HaarGapContDiff := by apply _root_.YangMills.Construction.ColdStepAtMirrorFrames.HaarGap.haarGap_contDiff <;> assumption
+theorem haar_gap_of_norm_near_one : ColdStepAtMirrorFrames.HaarGapOfNormNearOne :=
+  ColdStepAtMirrorFrames.NormNearOne.haarGapOfNormNearOne_of_contDiff_of_derivBound
+    haar_gap_contDiff haar_gap_deriv_bound
+theorem fderiv_finset_sum_second : Calculus.FderivFinsetSum := by apply _root_.YangMills.Construction.Calculus.fderivFinsetSum_holds <;> assumption
+theorem holonomy_sum_deriv_bounds : ColdStepAtMirrorFrames.HolonomySumDerivBounds :=
+  ColdStepAtMirrorFrames.HolonomySums.holonomySumDerivBounds_of_holonomyDerivativeBounds
+    holonomy_derivative_bounds
+theorem gap_terms_chart_bounds : ColdStepAtMirrorFrames.GapTermsChartBounds :=
+  ColdStepAtMirrorFrames.GapTerms.gapTermsChartBounds_holds holonomy_sum_deriv_bounds
+    chart_second_deriv_bound haar_gap_of_norm_near_one fderiv_finset_sum_second
+    site_cell_sup_dist_comparison
+theorem haar_excess_sum_diagonal_bounds : ColdStepAtMirrorFrames.HaarExcessSumDiagonalBounds :=
+  ColdStepAtMirrorFrames.HaarExcessSum.haarExcessSumDiagonalBounds haar_logRatio_near_zero
+    fderiv_finset_sum_second
+theorem exponent_terms_chart_bounds : ColdStepAtMirrorFrames.ExpansionTermsChartBounds :=
+  ColdStepAtMirrorFrames.SeriesExpansionTerms.expansionTermsChartBounds_holds chart_second_deriv_bound
+    fderiv_finset_sum_second site_cell_sup_dist_comparison
+theorem remainderExponent_bounds : ColdStepAtMirrorFrames.RemainderExponentBounds :=
+  ColdStepAtMirrorFrames.RemainderExponent.remainderExponentBounds frame_bounds_eventually
+    eventually_parameters_combine gap_terms_chart_bounds haar_excess_sum_diagonal_bounds
+    exponent_terms_chart_bounds chartShift_lipschitz sum_exp_decay_over_cells_bounded
+    site_cell_sup_dist_comparison
+theorem chart_energy_hessian_rows_eventually :
+    ColdStepAtMirrorFrames.ChartEnergyHessianRowsEventually :=
+  ColdStepAtMirrorFrames.ChartEnergyRows.chartEnergyHessianRowsEventually_of
+    chartEnergy_kernel_bound sum_exp_decay_over_cells_bounded site_cell_sup_dist_comparison
+theorem convex_above_chart_point : ColdStepAtMirrorFrames.ConvexAboveChartPoint :=
+  ColdStepAtMirrorFrames.HessianConvexity.convexAboveChartPoint_holds
+    convex_of_hessian_floor_add_small_rows remainderExponent_bounds
+    chart_energy_hessian_rows_eventually frame_bounds_eventually eventually_parameters_combine
+    chartShift_lipschitz ColdStepAtMirrorFrames.blocksCoverLowerLevel
+theorem convex_class_closed : ColdStepAtMirrorFrames.ConvexClassClosure := by apply _root_.YangMills.Construction.ColdStepAtMirrorFrames.ConvexClass.convexClassClosure_holds <;> assumption
+theorem convex_class_mem_comp_injective : ConvexRestriction.IsConvexClassMemberCompInjective := by apply _root_.YangMills.Construction.ConvexRestriction.isConvexClassMemberCompInjective <;> assumption
+theorem intermediate_laws_mixture_convex : Interpolation.mixturesOfIntermediateLawsConvex :=
+  Interpolation.mixturesOfIntermediateLawsConvex_proof convex_above_chart_point
+    interpolated_frames_controlled interpolated_slope_small_on_torus
+    convex_class_mem_comp_injective convex_class_closed eventually_parameters_combine
+theorem rightTranslation_smooth : Interpolation.rightTranslationSmooth :=
+  Interpolation.rightTranslationSmooth_of_exists rightTranslation_deriv_exists
+theorem right_translation_deriv_unique : Interpolation.RightTranslationDerivUnique := by apply _root_.YangMills.Construction.Interpolation.rightTranslationDerivUnique_holds <;> assumption
+theorem card_sites_cell_le_pow : CellCounting.SitesPerCellLePow := by apply _root_.YangMills.Construction.CellCounting.sitesPerCellLePow_holds <;> assumption
+theorem normalizedBallLaw_isProbabilityMeasure :
+    ConvexObservables.normalizedBallLawIsProbabilityStatement := by apply _root_.YangMills.Construction.ConvexObservables.normalizedBallLaw_isProbability <;> assumption
+theorem convex_measure_moment_bound : ColdStepAtMirrorFrames.GaussianMomentBound := by apply _root_.YangMills.Construction.ColdStepAtMirrorFrames.gaussianMomentBound_proof <;> assumption
+theorem cutoff_factor_radial : ColdStepAtMirrorFrames.CutoffFactorIsRadialCutoff := by apply _root_.YangMills.Construction.ColdStepAtMirrorFrames.cutoffFactor_isRadialCutoff <;> assumption
+theorem moment_bound_of_quadratic_bound : ColdStepAtMirrorFrames.momentBoundOfQuadraticBound :=
+  ColdStepAtMirrorFrames.momentBoundOfQuadraticBound_holds convex_measure_moment_bound
+    cutoff_factor_radial normalizedBallLaw_isProbabilityMeasure
+theorem local_size_of_quadratic_bounds : ColdStepAtMirrorFrames.LocalSizeOfQuadraticBounds :=
+  ColdStepAtMirrorFrames.localSizeOfQuadraticBounds_of_momentBound moment_bound_of_quadratic_bound
+theorem interpolation_local_size_of_quadratic_bounds :
+    Interpolation.localSizeOfQuadraticBoundsStatement :=
+  Interpolation.localSizeOfQuadraticBounds local_size_of_quadratic_bounds
+theorem join_at_lowered_smallness_constant :
+    SummableBounds.joinAtLoweredSmallnessConstantStatement := by apply _root_.YangMills.Construction.SummableBounds.joinAtLoweredSmallnessConstant <;> assumption
+theorem bound_along_perturbations_above_frames : Estimates.boundAlongPerturbationsStatement :=
+  Estimates.boundAlongPerturbations_holds motion_above_frames_bound expansion_along_motion
+    smooth_along_motion ColdStepAtMirrorFrames.blocksCoverLowerLevel cubic_torus_cell_geometry
+theorem interpolated_exponent_bounds : Interpolation.interpolatedExponentBoundsStatement :=
+  Interpolation.interpolatedExponentBounds_holds interpolation_kernel_bound
+    interpolated_slope_small_on_torus interpolated_frames_controlled frame_radius_growth
+    exp_decay_sum_around_cell_bounded interpolated_exponent_bounds_at_top
+    eventually_parameters_combine haar_gap_excess_bounded haar_logRatio_bound
+    chartShift_lipschitz block_site_decomposition ColdStepAtMirrorFrames.blocksCoverLowerLevel
+theorem ball_covariance_bound : ColdStepAtMirrorFrames.BallCovarianceBound := by apply _root_.YangMills.Construction.ColdStepAtMirrorFrames.ballCovarianceBound_holds <;> assumption
+theorem integral_by_parts_bond : BondIntegration.IntegralByPartsAtBond := by apply _root_.YangMills.Construction.BondIntegration.integralByPartsAtBond <;> assumption
+theorem integral_along_field_by_parts : BondIntegration.integralAlongFieldStatement :=
+  BondIntegration.integralAlongField_of_integralByParts integral_by_parts_bond
+theorem cutoff_power_deriv_bounds : Estimates.cutoffDerivBoundsStatement := by apply _root_.YangMills.Construction.Estimates.cutoffDerivBoundsStatement_holds <;> assumption
+theorem cutoff_deriv_moments_bound : Estimates.cutoffDerivMomentsStatement :=
+  Estimates.cutoffDerivMomentsStatement_holds cutoff_power_deriv_bounds integral_along_field_by_parts
+    normalizedBallLaw_isProbabilityMeasure cutoff_factor_radial convex_measure_moment_bound
+theorem interpolating_measure_moments : Interpolation.intermediateLawMoments :=
+  Interpolation.intermediateLawMoments_of_estimates intermediate_laws_mixture_convex
+    ball_covariance_bound convex_measure_moment_bound cutoff_deriv_moments_bound
+    exp_decay_sum_around_cell_bounded cutoff_factor_radial
+    eventually_parameters_combine
+theorem interpolated_block_exponent_smooth :
+    Interpolation.interpolatedBlockExponentSmoothStatement :=
+  Interpolation.interpolatedBlockExponentSmooth joint_mixed_deriv_eq_deriv_along
+    ray_gradient_sum_smooth_bounded cell_exponent_rotated_eval
+theorem interpolated_observable_bounds : Interpolation.observableSizesStatement :=
+  Interpolation.observableSizesStatement_holds interpolation_kernel_bound
+    interpolated_exponent_bounds interpolated_frames_controlled intermediate_laws_mixture_convex
+    exp_decay_sum_around_cell_bounded eventually_parameters_combine
+    site_cell_sup_dist_comparison bound_along_perturbations_above_frames
+    interpolation_local_size_of_quadratic_bounds interpolated_block_exponent_smooth
+    iterated_deriv_along_list_rules joint_mixed_deriv_eq_deriv_along
+    rotated_eval_contDiff_of_displacements block_site_decomposition
+    ColdStepAtMirrorFrames.blocksCoverLowerLevel
+theorem chartedSlope_kernel_le : SummableBoundsOfTheFlow.ChartedSlopeKernelBound :=
+  SummableBoundsOfTheFlow.chartedSlopeKernelBound_of_chartEnergyKernelBound
+    chartEnergy_kernel_bound
+theorem interpolated_slope_local_two_tori : Interpolation.interpolatedSlopeLocalOnTwoTori :=
+  SummableBoundsOfTheFlow.interpolatedSlopeLocalOnTwoTori_holds interpolated_frames_controlled
+    interpolated_slope_small_on_torus chartedSlope_kernel_le
+    charted_slope_two_tori_comparison exp_decay_sum_around_cell_bounded
+    ColdStepAtMirrorFrames.blocksCoverLowerLevel chartedField_lipschitz frame_radius_growth
+    eventually_parameters_combine
+theorem interpolated_frames : Interpolation.interpolatedFramesStatement :=
+  Interpolation.interpolatedFrames_of_components interpolated_frames_controlled
+    interpolated_slope_small_on_torus interpolated_slope_local_two_tori
+    interpolated_exponent_bounds top_variation_along_fields intermediate_laws_mixture_convex
+    interpolating_measure_moments interpolated_observable_bounds eventually_parameters_combine
+theorem chartedField_near_flat : ColdStepAtMirrorFrames.ChartedFieldNearOne := by apply _root_.YangMills.Construction.ColdStepAtMirrorFrames.chartedField_near_one <;> assumption
+theorem exists_small_minimizing_chain : ColdStepAtMirrorFrames.SmallMinimizingChainExists :=
+  ColdStepAtMirrorFrames.smallMinimizingChainExists_of_transfer
+    minimal_action_transfer_across_frames BlockAverages.minimalChainExistence
+theorem axial_response_of_minimizers : ColdStepAtMirrorFrames.AxialResponseOfMinimizers :=
+  ColdStepAtMirrorFrames.axialResponseOfMinimizers_of_smallMinimizingChainExists
+    exists_small_minimizing_chain BlockAverages.minimalChainExistence
+theorem minimizer_coords_flat_chain : ColdStepAtMirrorFrames.flatChainOfMinimizerCoords :=
+  ColdStepAtMirrorFrames.flatChain_of_minimizer_coords axial_response_of_minimizers
+theorem flat_response_scalar : ColdStepAtMirrorFrames.FlatCoordinatesScalar :=
+  ColdStepAtMirrorFrames.flatCoordinatesScalar_of_gaugeCovariance minimal_action_gauge_covariant
+theorem gauge_along_motion : GaugeAlongMotion.gaugeAlongMotionStatement := by apply _root_.YangMills.Construction.GaugeAlongMotion.gaugeAlongMotionStatement_holds <;> assumption
+theorem form_composition_jet : ColdStepAtMirrorFrames.FormCompositionJet := by apply _root_.YangMills.Construction.ColdStepAtMirrorFrames.formCompositionJet_holds <;> assumption
+theorem third_deriv_comp_vectorValued :
+    ColdStepAtMirrorFrames.ThirdOrderChainRuleVectorValued := by apply _root_.YangMills.Construction.ColdStepAtMirrorFrames.thirdOrderChainRuleVectorValued_holds <;> assumption
+theorem deriv_bound_along_flow : ColdStepAtMirrorFrames.DerivBoundAlongFlow :=
+  ColdStepAtMirrorFrames.derivBoundAlongFlow_holds contDiff_log_conj_exp
+    third_deriv_comp_vectorValued form_composition_jet
+theorem scaled_plaquette_bound : ColdStepAtMirrorFrames.ScaledPlaquetteBound := by apply _root_.YangMills.Construction.ColdStepAtMirrorFrames.scaledPlaquetteBound_holds <;> assumption
+theorem cutoff_flow_small_curvature : ColdStepAtMirrorFrames.CutoffFlowSmallCurvature :=
+  ColdStepAtMirrorFrames.cutoffFlowSmallCurvature_holds scaled_plaquette_bound
+theorem derivs_near_uniformTop : ColdStepAtMirrorFrames.DerivsNearUniformTop :=
+  ColdStepAtMirrorFrames.derivsNearUniformTop deriv_bound_along_flow cutoff_flow_small_curvature
+    su2_log_near_one
+theorem frame_gauge_covariant : ColdStepAtMirrorFrames.GaugeCovarianceOfFrame :=
+  ColdStepAtMirrorFrames.gaugeCovarianceOfFrame_holds ColdStepAtMirrorFrames.blocksCoverLowerLevel
+theorem weighted_gauge_fixing_at_cell_scale :
+    ColdStepAtMirrorFrames.weightedGaugeFixingAtCellScale := by apply _root_.YangMills.Construction.ColdStepAtMirrorFrames.weightedGaugeFixingAtCellScale_holds <;> assumption
+theorem flat_chain_energy_near_cell : ColdStepAtMirrorFrames.flatChainEnergyNearCell :=
+  ColdStepAtMirrorFrames.flatChainEnergyNearCell_of_gaugeFixing weighted_gauge_fixing_at_cell_scale
+theorem flat_chain_curl_shift_bound : ColdStepAtMirrorFrames.CurlShiftBound := by apply _root_.YangMills.Construction.ColdStepAtMirrorFrames.curlShiftBound_holds <;> assumption
+theorem curl_square_sum_bound_flat : ColdStepAtMirrorFrames.CurlSquareSumBound := by apply _root_.YangMills.Construction.ColdStepAtMirrorFrames.curlSquareSumBound_holds <;> assumption
+theorem axialResponse_decay : ColdStepAtMirrorFrames.axialResponseDecay :=
+  ColdStepAtMirrorFrames.axialResponseDecay_holds flat_chain_energy_near_cell curl_square_sum_bound_flat
+theorem flat_chain_curl_bound : ColdStepAtMirrorFrames.CurlSizeBound :=
+  ColdStepAtMirrorFrames.CurlSize.curlSizeBound flat_chain_curl_shift_bound curl_square_sum_bound_flat
+    cubic_torus_cell_geometry ColdStepAtMirrorFrames.blocksCoverLowerLevel
+theorem flat_response_sum_bound : ColdStepAtMirrorFrames.FlatResponseSumBounds :=
+  ColdStepAtMirrorFrames.FlatResponseSums.flatResponseSumBounds_holds axialResponse_decay
+    flat_chain_energy_near_cell flat_chain_curl_shift_bound flat_chain_curl_bound curl_square_sum_bound_flat
+end YangMills.Construction.TheStatementsProvedTogether

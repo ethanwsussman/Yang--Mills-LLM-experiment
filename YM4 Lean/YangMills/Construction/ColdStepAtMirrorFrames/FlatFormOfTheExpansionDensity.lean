@@ -1,0 +1,8 @@
+import YangMills.Construction.ColdStepAtMirrorFrames.DensityHypothesesAtParameters
+import Mathlib
+set_option autoImplicit false
+noncomputable section
+namespace YangMills.Construction.ColdStepAtMirrorFrames
+def flatLimitOfStepDensity : Prop := EventuallyInParameters FlatLimitOfExpansionDensityAt
+end YangMills.Construction.ColdStepAtMirrorFrames
+end

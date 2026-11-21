@@ -1,0 +1,42 @@
+import Reconstruction.LegacyBounds
+import YangMills.Construction.TheStatementsProvedTogether.FromTheTopOfTheTrajectoryProof
+import YangMills.Construction.QuaternionicWilsonModel.TheArgumentsLieInTheirDomainsProof
+import Reconstruction.WightmanAssembly
+
+namespace YangMills.Construction.TheStatementsProvedTogether
+
+theorem axiom_arguments_mem_domains : YangMills.Construction.ConditionDomains.Statement :=
+  YangMills.Construction.ConditionDomains.statement_holds configSpace_args_mem_domain_and_summable flatSpace_closed_linComb_tensor wightman_arguments_mem_domain compact_support_tensor_of_separated_tuples open_loci_and_flat_subspaces wightman_of_fieldData
+
+theorem non_gaussian_limit_every_coupling : YangMills.Construction.ModelSeams.everyCouplingStatement :=
+  YangMills.Construction.NonGaussianLimits.everyCouplingStatement_holds wightman_of_fieldData
+    YangMills.Construction.TheStatementsProvedTogether.totalDensity_trajectory_top
+    YangMills.Construction.TheStatementsProvedTogether.flatSpace_closed_linComb_tensor
+
+theorem topConstruction_nonvacuity : YangMills.Construction.TopAux.nonvacuityStatement :=
+  YangMills.Construction.TopAux.nonvacuity_of_parts
+    YangMills.Construction.TheStatementsProvedTogether.axiom_arguments_mem_domains
+    YangMills.Construction.TheStatementsProvedTogether.exists_functional_with_schwinger_functions
+    YangMills.Construction.TheStatementsProvedTogether.condition_fallbacks_nonvacuous
+    _root_.YangMills.Construction.Assembled.exists_room_function_of_apex
+    YangMills.Construction.TheStatementsProvedTogether.testClasses_nonempty_all_scales
+    YangMills.Construction.TheStatementsProvedTogether.torus_limits_eq_infinite_volume_limits
+    YangMills.Construction.TheStatementsProvedTogether.torusStates_nonempty
+    YangMills.Construction.TheStatementsProvedTogether.quaternion_model_eq_wilson_SU2
+    YangMills.Construction.TheStatementsProvedTogether.flow_reads_mixed_moment
+    YangMills.Construction.TheStatementsProvedTogether.model_seams
+    YangMills.Construction.TheStatementsProvedTogether.top_kernel_and_functionals
+    YangMills.Construction.TheStatementsProvedTogether.non_gaussian_limit_every_coupling
+    YangMills.Construction.TheStatementsProvedTogether.top_limits_real_ne_zero
+    YangMills.Construction.TheStatementsProvedTogether.firstPassagePath_data
+    YangMills.Construction.TheStatementsProvedTogether.top_with_flow_bound
+    YangMills.Construction.TheStatementsProvedTogether.step_parameters_exist
+
+end YangMills.Construction.TheStatementsProvedTogether
+
+namespace YangMills
+theorem yangMills_su2_four : Construction.TotalDensities.TrajectoryTopStatement :=
+  Construction.TheStatementsProvedTogether.totalDensity_trajectory_top
+theorem yangMills_su2_four_nonvacuous : Construction.TopAux.nonvacuityStatement :=
+  Construction.TheStatementsProvedTogether.topConstruction_nonvacuity
+end YangMills

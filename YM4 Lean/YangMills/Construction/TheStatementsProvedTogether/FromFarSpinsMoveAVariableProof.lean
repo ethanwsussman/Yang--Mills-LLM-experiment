@@ -1,0 +1,281 @@
+import YangMills.Construction.ClusterExpansionOfAStep.FrameOnASmallTorusProof
+import YangMills.Construction.ColdStepAtMirrorFrames.CountOfTheBondsProof
+import YangMills.Construction.FreeEnergiesOfTheFlow.SupportVariableInASettingProof
+import YangMills.Construction.LawInAState.WilsonSharesAreACurvatureFamilyProof
+import YangMills.Construction.ResponseInTheExpansion.CaseMassWithAFunctionIsBorelProof
+import YangMills.Construction.ResponseInTheExpansion.MajorantsOverAStepOfAnArrayProof
+import YangMills.Construction.ResponseInTheExpansion.MassOfAFunctionOverAStepProof
+import YangMills.Construction.ResponseInTheExpansion.MomentsAlongTheLevelsProof
+import YangMills.Construction.ResponseInTheExpansion.OneStepOfSeveralSupportsProof
+import YangMills.Construction.ResponseInTheExpansion.ResponsesAreLinearProof
+import YangMills.Construction.ResponseInTheExpansion.ResponsesAreMeansProof
+import YangMills.Construction.ResponseInTheExpansion.TiltOfALawOfSpinsProof
+import YangMills.Construction.RunningCouplingSlope.CoefficientOfTheLeastActionProof
+import YangMills.Construction.RunningCouplingSlope.ColdImageOnASmallTorusProof
+import YangMills.Construction.RunningCouplingSlope.ColdSettingIsColdOnASmallTorusProof
+import YangMills.Construction.RunningCouplingSlope.ContoursAboveGivenFramesProof
+import YangMills.Construction.RunningCouplingSlope.CouplingMovesByTheMomentProof
+import YangMills.Construction.RunningCouplingSlope.CutLogarithmIsTwiceDifferentiableProof
+import YangMills.Construction.RunningCouplingSlope.GapAboveGivenFramesProof
+import YangMills.Construction.RunningCouplingSlope.GroupGapAgainstItsLogarithmProof
+import YangMills.Construction.RunningCouplingSlope.HaarAboveGivenFramesProof
+import YangMills.Construction.RunningCouplingSlope.KernelOfASmallFamilyProof
+import YangMills.Construction.RunningCouplingSlope.LaplaceOfAFamilyOfExponentsProof
+import YangMills.Construction.RunningCouplingSlope.LaplaceTotalIsAGaugeFunctionProof
+import YangMills.Construction.RunningCouplingSlope.LaplaceTotalNearTheFlatFieldProof
+import YangMills.Construction.RunningCouplingSlope.LeastPointOfTheCurveHasJetsProof
+import YangMills.Construction.RunningCouplingSlope.MomentOfASumOfFormsProof
+import YangMills.Construction.RunningCouplingSlope.MomentOfTheLeastActionProof
+import YangMills.Construction.RunningCouplingSlope.SecondDerivativeOfALogDeterminantProof
+import YangMills.Construction.RunningCouplingSlope.SecondDerivativeOfTheCutLogarithmProof
+import YangMills.Construction.RunningCouplingSlope.SecondDerivativeThroughAFieldMapProof
+import YangMills.Construction.RunningCouplingSlope.StepExponentNearTheFlatFieldProof
+import YangMills.Construction.RunningCouplingSlope.StepTotalNearTheFlatFieldProof
+import YangMills.Construction.RunningCouplingSlope.TangentsOfTheLeastFieldProof
+import YangMills.Construction.SixteenPointsOnASmallTorus.CopiesAtTheLevelOfTheirRadiusProof
+import YangMills.Construction.SixteenPointsOnASmallTorus.CopiesHaveTheirSignProof
+import YangMills.Construction.SixteenPointsOnASmallTorus.ResponseOfACopyIsBoundedProof
+import YangMills.Construction.SixteenPointsOnASmallTorus.ScoreAtAnyCouplingProof
+import YangMills.Construction.TheStatementsProvedTogether.FromSimilarityCarriesTheInfiniteLatticeProof
+import YangMills.Construction.TransfersOffTheWalk.MeanOfASupportGivenTheFieldOneProof
+import YangMills.Construction.TransfersOffTheWalk.OneStepOfSeveralResponsesProof
+import Mathlib
+namespace YangMills.Construction.TheStatementsProvedTogether
+theorem far_spin_mean_bound :
+    YangMills.Construction.ResponseInTheExpansion.GasSupportMeanFarSpinBound :=
+  YangMills.Construction.ResponseInTheExpansion.gasSupportMeanFarSpinBound_of chart_response_comparison
+    edge_score_properties gasConfig_isAdmissible configuration_mass_eq_integral potential_factorization
+    local_config_settings_agree setting_mean_measurable support_variable_size_bound
+    weights_close_to_block_means
+theorem tilted_gibbs_comparison : YangMills.Construction.LinearResponse.TiltedGibbsComparison :=
+  YangMills.Construction.LinearResponse.tiltedGibbsComparison_holds dobrushin_comparison
+    dobrushin_activity_conditional_laws
+theorem gas_support_mean_under_tilt : YangMills.Construction.ResponseInTheExpansion.GasSupportMeanUnderTilt :=
+  YangMills.Construction.ResponseInTheExpansion.gasSupportMeanUnderTilt_proof polymer_gas_columns_small
+    cluster_score_integral_bound chart_response_comparison edge_score_properties tilted_gibbs_comparison
+    gasSum_near_block_bound exists_coupling_floor gasConfig_isAdmissible configuration_mass_eq_integral
+    potential_factorization local_config_settings_agree setting_mean_measurable
+    dobrushin_mean_of_spin_product dobrushin_activity_conditional_laws weights_close_to_block_means
+theorem gasSupport_means_decorrelate :
+    YangMills.Construction.ResponseInTheExpansion.GasSupportMeansDecorrelate :=
+  YangMills.Construction.ResponseInTheExpansion.gasSupportMeansDecorrelate_holds gas_support_mean_under_tilt
+    far_spin_mean_bound polymer_gas_columns_small cluster_score_integral_bound
+    gasSum_near_block_bound exists_coupling_floor dobrushin_activity_conditional_laws
+    dobrushin_mean_of_spin_product
+theorem supportResponse_mean_trivialField_le :
+    YangMills.Construction.TransfersOffTheWalk.supportResponseMeanAtTrivialFieldBound :=
+  YangMills.Construction.TransfersOffTheWalk.supportResponseMeanAtTrivialFieldBound_holds
+    mean_site_scores_step_bound edge_score_properties weights_close_to_block_means
+theorem gas_mean_score_product_bound : YangMills.Construction.FreeEnergies.gasMeanScoreProductBound :=
+  YangMills.Construction.FreeEnergies.gasMeanScoreProductBound_of_clusterBounds
+    cluster_score_integral_bound product_mean_score_step_bound gas_activity_bounded cluster_sum_bound
+    dobrushin_mean_of_spin_product
+theorem support_response_locality :
+    YangMills.Construction.FreeEnergies.supportResponseLocalityStatement :=
+  YangMills.Construction.FreeEnergies.supportResponseLocality potential_factorization
+    fields_eq_of_coords_eq bond_scores_agree_near_blocks
+theorem several_responses_step_decorrelation :
+    YangMills.Construction.WeightedObservables.severalResponsesStepDecorrelation :=
+  YangMills.Construction.TransfersOffTheWalk.severalResponsesStepDecorrelation_holds
+    case_mean_eq_gas_expectation gas_mean_score_product_bound support_variable_size_bound
+    support_response_locality supportResponse_mean_trivialField_le far_variables_decorrelate
+    gasSupport_means_decorrelate gas_activity_bounded dobrushin_activity_conditional_laws
+    gasConfig_isAdmissible
+theorem several_supports_decorrelation :
+    YangMills.Construction.ResponseInTheExpansion.severalSupportsStepDecorrelation :=
+  YangMills.Construction.ResponseInTheExpansion.severalSupportsStepDecorrelation_holds
+    several_responses_step_decorrelation
+theorem multiscale_several_supports_moment :
+    YangMills.Construction.ResponseInTheExpansion.severalSupportsMomentStatement :=
+  YangMills.Construction.ResponseInTheExpansion.MultiScaleMoments.severalSupportsMoment_of_steps
+    several_supports_decorrelation product_mean_score_step_bound jointMoment_measurable
+    stages_well_posed hull_state_hot_case cold_field_state edge_score_properties
+    weights_close_to_block_means bond_kernel_properties
+theorem stage_mass_pos : YangMills.Construction.ResponseInTheExpansion.stageMassPositive :=
+  YangMills.Construction.ResponseInTheExpansion.stageMassPositive_holds cluster_expansion_basic_bounds
+    haar_ball_mass_cubic_lower_bound
+theorem configuration_mass_measurable :
+    YangMills.Construction.ResponseInTheExpansion.ConfigurationMassMeasurability :=
+  YangMills.Construction.ResponseInTheExpansion.MassMeasurability.configurationMassMeasurability
+    bondKernel_measurable measurable_chart_coord frameCoord_continuousOn_cold
+    coarse_label_measure_by_shapes
+theorem step_mean_of_states : YangMills.Construction.ResponseInTheExpansion.stepMeanOfStatesStatement :=
+  YangMills.Construction.ResponseInTheExpansion.StepMeanOfStates.stepMeanOfStatesStatement_holds
+    configurationMass_withFunction configuration_mass_measurable coarse_hull_is_hull
+    configuration_weight_measurable bond_kernel_properties step_transition_density_bounds
+    score_product_step_mean
+theorem moments_along_scales : YangMills.Construction.ResponseInTheExpansion.momentsAlongStagesStatement :=
+  YangMills.Construction.ResponseInTheExpansion.momentsAlongStagesStatement_holds step_mean_of_states
+    score_product_step_mean edge_score_properties stages_well_posed
+theorem smallTorus_copy_response_le_score :
+    YangMills.Construction.SmallTorusCopies.responseBoundedByScoreStatement := by apply _root_.YangMills.Construction.SmallTorusCopies.responseBoundedByScore <;> assumption
+theorem response_eq_conditional_mean :
+    YangMills.Construction.ResponseInTheExpansion.ResponseConditionalMeanStatement :=
+  YangMills.Construction.ResponseInTheExpansion.ConditionalMeans.responseConditionalMean
+    step_transition_density_bounds edge_score_properties weighted_response_chain_isProbabilityMeasure
+theorem response_linear_local : YangMills.Construction.ResponseInTheExpansion.ResponseLinearLocalStatement :=
+  YangMills.Construction.ResponseInTheExpansion.responseLinearLocal response_eq_conditional_mean
+    weighted_block_mean_linear_local step_transition_density_bounds edge_score_properties
+    weighted_response_chain_isProbabilityMeasure
+theorem reflected_weight_norm_bound :
+    YangMills.Construction.SmallTorusCopies.reflectedWeightNormBoundStatement := by apply _root_.YangMills.Construction.SmallTorusCopies.reflectedWeightNormBound <;> assumption
+theorem reflectedMean_at_radiusLevel :
+    YangMills.Construction.SmallTorusCopies.reflectedMeanAtRadiusLevelStatement :=
+  YangMills.Construction.SmallTorusCopies.reflectedMeanAtRadiusLevel_holds
+    smallTorus_levels_below_radius reflected_copies_centring_const centring_eq_sum_shifts
+    smallTorus_copy_response_le_score reflected_moment_error_le moments_along_scales
+    multiscale_several_supports_moment stage_mass_pos response_linear_local reflectedWeight_support
+    reflected_supports_separated reflected_weight_norm_bound small_torus_reflected_mean_translation
+    eventually_floor_conditions
+theorem reflected_mean_nonneg : YangMills.Construction.SmallTorusCopies.reflectedMeanNonnegStatement :=
+  YangMills.Construction.SmallTorusCopies.reflectedMeanNonneg_of
+    small_torus_reflected_mean_translation tiled_integral_antitone_period tiledMean_eq_reflectedMean
+    smeared_observable_mem_cell
+theorem small_torus_coupling_at_radius :
+    YangMills.Construction.SmallTorusCopies.couplingAtRadiusLevelStatement := by apply _root_.YangMills.Construction.SmallTorusCopies.couplingAtRadiusLevel <;> assumption
+theorem small_torus_copy_bound_no_level :
+    YangMills.Construction.SmallTorusCopies.copyBoundWithoutLevelStatement :=
+  YangMills.Construction.SmallTorusCopies.copyBoundWithoutLevel_of_couplingAtRadiusLevel
+    small_torus_coupling_at_radius
+theorem small_torus_reflected_mean_no_level :
+    YangMills.Construction.SmallTorusCopies.reflectedMeanWithoutLevelStatement :=
+  YangMills.Construction.SmallTorusCopies.reflectedMeanWithoutLevel_of
+    small_torus_copy_bound_no_level
+theorem mass_over_step : YangMills.Construction.ResponseInTheExpansion.massOverStepStatement :=
+  YangMills.Construction.ResponseInTheExpansion.massOverStepStatement_holds configurationMass_withFunction
+    bond_kernel_properties averagedKernel_integral_eq_one step_transition_density_bounds
+    configuration_weight_measurable coarse_hull_is_hull
+theorem symmetricArray_majorant_bound :
+    YangMills.Construction.ResponseInTheExpansion.stepMajorantBoundOfSymmetric :=
+  YangMills.Construction.ResponseInTheExpansion.stepMajorantBoundOfSymmetric_holds
+    product_mean_score_step_bound mass_over_step configurationMass_withFunction
+    config_support_coarse_hull configuration_weights_sum coarse_hull_is_hull hull_state_hot_case
+    coarseWeight_eq_zero_of_factor_eq_zero eventually_floor_conditions bond_kernel_properties
+theorem state_mass_preserved_by_step :
+    YangMills.Construction.ResponseInTheExpansion.StateMassPreservedByStep :=
+  YangMills.Construction.ResponseInTheExpansion.StateMass.stateMassPreservedByStep_holds coarse_states_sum
+    torus_kernel_image_is_density score_product_step_mean step_transition_density_bounds
+    bondKernel_measurable eventually_floor_conditions
+theorem score_exp_mean_bound : YangMills.Construction.SmallTorusCopies.scoreExpMeanBoundStatement :=
+  YangMills.Construction.SmallTorusCopies.scoreExpMeanBound_holds scored_mass_of_field
+    cluster_expansion_basic_bounds haar_ball_mass_cubic_lower_bound cold_field_action_bound
+theorem smallDensity_hessian_bound : YangMills.Construction.RunningCouplingSlope.SmallDensityHessianBound :=
+  YangMills.Construction.RunningCouplingSlope.HessianOfSmallDensity.smallDensityHessianBound_of_expDecay
+    torus_exp_decay_sum_bounded
+theorem form_sum_moment_bound : YangMills.Construction.RunningCouplingSlope.formFamilyMomentStatement := by apply _root_.YangMills.Construction.RunningCouplingSlope.formFamilyMomentStatement_holds <;> assumption
+theorem centered_density_moment_decay :
+    YangMills.Construction.RunningCouplingSlope.CenteredDensityMomentDecay :=
+  YangMills.Construction.RunningCouplingSlope.CenteredDensityMoment.centeredDensityMomentDecay_of_formFamily
+    form_sum_moment_bound
+theorem wilson_shares_curvature_family :
+    YangMills.Construction.ShareFamilies.WilsonSharesFormCurvatureFamily :=
+  YangMills.Construction.ShareFamilies.wilsonSharesFormCurvatureFamily_holds
+    plaquetteEnergy_smooth_bound secondOrder_abelianFields hessian_at_trivial_field
+theorem minimal_action_unit_coefficient :
+    YangMills.Construction.RunningCouplingSlope.MinimalActionHasUnitCoefficient :=
+  YangMills.Construction.RunningCouplingSlope.MinimalActionCoefficient.minimalActionHasUnitCoefficient
+    local_density_coefficient_bound coeff_of_localDensity level_shares_curvature_family
+    block_factor_curvature_form wilson_shares_curvature_family
+theorem minimal_action_moment_near_one :
+    YangMills.Construction.RunningCouplingSlope.MinimalActionMomentNearOne :=
+  YangMills.Construction.RunningCouplingSlope.MinimalActionMoment.minimalActionMomentNearOne_holds
+    minimal_action_unit_coefficient _root_.YangMills.Construction.Assembled.sum_cellShare_eq_action torus_exp_decay_sum_bounded
+theorem coupling_shift_eq_gauge_moment :
+    YangMills.Construction.RunningCouplingSlope.CouplingShiftEqualsGaugeMoment :=
+  YangMills.Construction.RunningCouplingSlope.couplingShiftEqualsGaugeMoment hot_part_factorization
+    centered_density_moment_decay minimal_action_moment_near_one smallDensity_hessian_bound
+    level_shares_curvature_family
+theorem logCutoffIntegral_contDiff_two :
+    YangMills.Construction.LaplaceAsymptotics.LogCutoffIntegralContDiffTwo :=
+  YangMills.Construction.LaplaceAsymptotics.logCutoffIntegralContDiffTwo_of_radial cutoff_factor_radial
+    uniform_deriv_bound_near_compact gibbs_mean_deriv
+theorem haar_gap_sub_log_deriv_bounds : YangMills.Construction.RunningCouplingSlope.HaarGapSubLogDerivBounds :=
+  YangMills.Construction.RunningCouplingSlope.haarGapSubLog_deriv_bounds haar_gap_log_tail haar_gap_tail_smooth
+theorem haar_gap_sum_second_deriv_small :
+    YangMills.Construction.RunningCouplingSlope.haarGapSumSecondDerivStatement :=
+  YangMills.Construction.RunningCouplingSlope.haarGapSumSecondDerivStatement_holds haar_gap_sub_log_deriv_bounds
+    haar_gap_log_tail haar_gap_tail_smooth flat_top_vanishes mirrorFrame_minimizingChart_unique
+theorem gaussian_log_det_mixed_deriv : YangMills.Construction.GaussianMeans.LogDetMixedDerivGaussian :=
+  YangMills.Construction.GaussianMeans.logDetMixedDerivGaussian_of_mixed_logDet mixed_deriv_log_det
+theorem log_cutoff_integral_second_deriv :
+    YangMills.Construction.LaplaceAsymptotics.logCutoffIntegralSecondDeriv :=
+  YangMills.Construction.LaplaceAsymptotics.logCutoffIntegralSecondDeriv_holds cutoff_factor_radial
+    uniform_deriv_bound_near_compact gibbs_mean_deriv
+theorem laplace_method_hessian : YangMills.Construction.RunningCouplingSlope.LaplaceMethodHessian :=
+  YangMills.Construction.LaplaceAsymptotics.laplaceMethodHessian_holds log_cutoff_integral_second_deriv
+    gaussian_log_det_mixed_deriv logCutoffIntegral_contDiff_two
+theorem laplace_remainder_gauge_invariant_near :
+    YangMills.Construction.RunningCouplingSlope.LaplaceRemainderIsGaugeFunctionNear :=
+  YangMills.Construction.RunningCouplingSlope.LaplaceRemainderIsGaugeFunctionNear.holds
+    frame_gauge_translation_covariant shares_sum_eq_action adjoint_action_bond_linear_isometry
+theorem frame_coords_on_small_torus : YangMills.Construction.TorusLumps.FrameCoordOnSmallTorus := by apply _root_.YangMills.Construction.TorusLumps.frameCoordOnSmallTorus_holds <;> assumption
+theorem cold_chart_field_cold_on_small_torus :
+    YangMills.Construction.Slope.ColdChartFieldIsColdOnSmallTorus :=
+  YangMills.Construction.Slope.coldChartFieldIsColdOnSmallTorus isRegular_compl_thickening
+    frame_coords_on_small_torus _root_.YangMills.Construction.Assembled.blocks_cover_lower_level
+theorem coldImageIntegral_eq_smallTorus :
+    YangMills.Construction.StepSettings.coldImageIntegral_eq_on_small_torus :=
+  YangMills.Construction.SmallTorusImage.coldImageIntegral_eq_on_small_torus_holds
+    cold_chart_field_cold_on_small_torus levelShare_eq_minimalSiteShare chart_bond_count_per_block
+    weyl_integration_formula_su2 _root_.YangMills.Construction.Assembled.sum_cellShare_eq_action block_integral_in_fixed_variables
+    _root_.YangMills.Construction.Assembled.blocks_cover_lower_level
+theorem mirrorFrame_bond_card : YangMills.Construction.ColdStepAtMirrorFrames.BondCount :=
+  YangMills.Construction.ColdStepAtMirrorFrames.bondCount_of_blocksCover _root_.YangMills.Construction.Assembled.blocks_cover_lower_level
+theorem charted_energy_jet_bounds : YangMills.Construction.RunningCouplingSlope.ChartedEnergyJetBounds :=
+  YangMills.Construction.RunningCouplingSlope.chartedEnergyJetBounds_of_kernels chartEnergy_kernel_bound
+    charted_energy_in_coordinates _root_.YangMills.Construction.Assembled.exists_admissible_parameters mirrorFrame_bond_card _root_.YangMills.Construction.Assembled.blocks_cover_lower_level
+    _root_.YangMills.Construction.Assembled.exists_minimal_block_chain flat_top_vanishes
+theorem minimizer_coordinates_jet_bound : YangMills.Construction.RunningCouplingSlope.MinimizerCoordinatesJetBound :=
+  YangMills.Construction.RunningCouplingSlope.minimizerCoordinatesJetBound_of_unique
+    mirrorFrame_minimizingChart_unique
+theorem chartEnergy_critical_floor :
+    YangMills.Construction.RunningCouplingSlope.ChartEnergyCriticalWithFloor :=
+  YangMills.Construction.RunningCouplingSlope.chartEnergyCriticalWithFloor_of_jets minimizer_coordinates_jet_bound
+    charted_energy_jet_bounds
+theorem logContour_deriv_bounds : YangMills.Construction.Interpolation.logContourDerivBounds :=
+  YangMills.Construction.Interpolation.logContourDerivBounds_holds holonomy_derivative_bounds
+    motion_above_frames_bound expansion_along_motion _root_.YangMills.Construction.Assembled.charted_field_contour_bound
+    cubic_torus_cell_geometry _root_.YangMills.Construction.Assembled.blocks_cover_lower_level site_cell_sup_dist_comparison
+theorem haar_gap_of_average_deriv_bounds :
+    YangMills.Construction.RunningCouplingSlope.HaarGapOfAverageDerivBounds :=
+  YangMills.Construction.RunningCouplingSlope.haarGapOfAverageDerivBounds_holds logContour_deriv_bounds
+    haar_gap_tail_smooth haar_gap_log_tail haar_gap_deriv_bound faaDiBruno_at
+    iteratedFDeriv_slices_smooth chartShift_lipschitz _root_.YangMills.Construction.Assembled.charted_field_contour_bound
+theorem haar_logRatio_deriv_bounds : YangMills.Construction.RunningCouplingSlope.HaarLogRatioDerivBounds := by apply _root_.YangMills.Construction.RunningCouplingSlope.haarLogRatioDerivBounds_holds <;> assumption
+theorem exponent_remainder_jet_bounds : YangMills.Construction.RunningCouplingSlope.ExponentRemainderJetBounds :=
+  YangMills.Construction.RunningCouplingSlope.exponentRemainderJetBounds_holds iterated_deriv_along_list_rules
+    joint_mixed_deriv_eq_deriv_along chartShift_lipschitz block_site_decomposition
+    _root_.YangMills.Construction.Assembled.blocks_cover_lower_level mirrorFrame_bond_card cold_expansion_regular minimizer_coordinates_jet_bound
+    haar_gap_of_average_deriv_bounds haar_logRatio_deriv_bounds expansionAboveFrame_bound
+theorem step_exponent_near_flat_field :
+    YangMills.Construction.RunningCouplingSlope.stepExponentNearTrivialStatement :=
+  YangMills.Construction.RunningCouplingSlope.stepExponentNearTrivial mirrorFrame_bond_card block_site_decomposition
+    _root_.YangMills.Construction.Assembled.blocks_cover_lower_level minimizer_coordinates_jet_bound charted_energy_jet_bounds
+    chartEnergy_critical_floor exponent_remainder_jet_bounds
+theorem laplace_remainder_near_trivial :
+    YangMills.Construction.RunningCouplingSlope.laplaceRemainderNearTrivialStatement :=
+  YangMills.Construction.RunningCouplingSlope.laplaceRemainderNearTrivial coldImageIntegral_eq_smallTorus
+    isRegular_compl_thickening block_integral_in_fixed_variables step_exponent_near_flat_field
+    cutoff_factor_radial cold_near_along_move
+theorem minimizer_deriv_decay : YangMills.Construction.RunningCouplingSlope.MinimizerDerivativeDecay :=
+  YangMills.Construction.RunningCouplingSlope.minimizerDerivativeDecay_holds flat_top_vanishes
+    mirrorFrame_minimizingChart_unique
+theorem step_total_near_trivial : YangMills.Construction.RunningCouplingSlope.stepTotalNearTrivialStatement :=
+  YangMills.Construction.RunningCouplingSlope.stepTotalNearTrivial step_exponent_near_flat_field
+    step_hessian_posDef minimizer_deriv_decay haar_logRatio_near_zero haar_gap_contDiff
+theorem laplace_remainder_hessian_close :
+    YangMills.Construction.RunningCouplingSlope.LaplaceRemainderHessianClose :=
+  YangMills.Construction.RunningCouplingSlope.laplaceRemainderHessianClose_of_components laplace_method_hessian
+    step_exponent_near_flat_field laplace_remainder_near_trivial step_total_near_trivial
+    haar_gap_sum_second_deriv_small laplace_remainder_gauge_invariant_near logCutoffIntegral_contDiff_two
+theorem cold_densities_zero_coefficient :
+    YangMills.Construction.RunningCouplingSlope.ColdDensitiesHaveZeroCoefficient :=
+  YangMills.Construction.RunningCouplingSlope.ColdDensitiesZeroCoefficientProof.coldDensitiesHaveZeroCoefficient
+    local_density_coefficient_bound coeff_of_localDensity minimal_action_unit_coefficient
+    slopeCoeff_pullback minimizer_is_block_map gauge_total_at_minimizer
+theorem secondDeriv_comp_fieldMap : YangMills.Construction.TorusFields.SecondDerivativePullback := by apply _root_.YangMills.Construction.TorusFields.secondDerivativePullback_holds <;> assumption
+theorem minimizer_density_moment_decay :
+    YangMills.Construction.RunningCouplingSlope.MinimizerDensityMomentDecay :=
+  YangMills.Construction.RunningCouplingSlope.minimizerDensityMomentDecay_holds minimizer_deriv_decay
+    secondDeriv_comp_fieldMap cold_densities_zero_coefficient
+end YangMills.Construction.TheStatementsProvedTogether

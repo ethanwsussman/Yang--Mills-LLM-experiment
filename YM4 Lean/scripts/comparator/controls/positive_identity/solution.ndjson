@@ -1,0 +1,13 @@
+{"meta":{"exporter":{"name":"handwritten-comparator-control","version":"1"},"format":{"version":"3.1.0"},"lean":{"githash":"","version":"4.35.0-rc3"}}}
+{"ie":0,"sort":0}
+{"ie":1,"bvar":0}
+{"ie":2,"bvar":1}
+{"in":1,"str":{"pre":0,"str":"p"}}
+{"ie":3,"forallE":{"name":1,"type":1,"body":2,"binderInfo":"default"}}
+{"in":2,"str":{"pre":0,"str":"P"}}
+{"ie":4,"forallE":{"name":2,"type":0,"body":3,"binderInfo":"default"}}
+{"ie":5,"lam":{"name":1,"type":1,"body":1,"binderInfo":"default"}}
+{"ie":6,"lam":{"name":2,"type":0,"body":5,"binderInfo":"default"}}
+{"in":3,"str":{"pre":0,"str":"Control"}}
+{"in":4,"str":{"pre":3,"str":"target"}}
+{"thm":{"name":4,"levelParams":[],"type":4,"value":6,"all":[4]}}

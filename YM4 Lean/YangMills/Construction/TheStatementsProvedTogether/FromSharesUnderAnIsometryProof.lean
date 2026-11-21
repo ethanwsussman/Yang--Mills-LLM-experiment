@@ -1,0 +1,202 @@
+import YangMills.Construction.ColdChainAtEveryLevel.CurveOfAChartCoordinateProof
+import YangMills.Construction.ColdChainAtEveryLevel.HessianFloorInTheChartProof
+import YangMills.Construction.ColdChainAtEveryLevel.PlaquetteUnderAFramingProof
+import YangMills.Construction.ColdChainAtEveryLevel.SecondVariationOfTheLeastActionAtAColdFieldProof
+import YangMills.Construction.ColdChainAtEveryLevel.SecondVariationOfTheWilsonActionProof
+import YangMills.Construction.ColdChainAtEveryLevel.SizesOfTheMinimalChainProof
+import YangMills.Construction.ColdChainAtEveryLevel.SumOfTheFramedSharesProof
+import YangMills.Construction.ColdChainAtEveryLevel.TheShareIsLocalProof
+import YangMills.Construction.ColdChainAtEveryLevel.VelocityOfTheTopMeanProof
+import YangMills.Construction.ColdStepAtMirrorFrames.ColdChainAtSmallCoordinatesProof
+import YangMills.Construction.HoleBesideASecondHole.AGaugeOnAShellProof
+import YangMills.Construction.HoleBesideASecondHole.APlaquetteAlongFourSegmentsProof
+import YangMills.Construction.HoleBesideASecondHole.ASegmentInTheGroupProof
+import YangMills.Construction.HoleBesideASecondHole.BadCellsPayProof
+import YangMills.Construction.HoleBesideASecondHole.BoxesAreFilledProof
+import YangMills.Construction.HoleBesideASecondHole.BoxesAtACellCloseProof
+import YangMills.Construction.HoleBesideASecondHole.BoxesOfNeighboursAgreeProof
+import YangMills.Construction.HoleBesideASecondHole.CellsKeptOffTheSpotsProof
+import YangMills.Construction.HoleBesideASecondHole.CellsLeftOffTheSpotsProof
+import YangMills.Construction.HoleBesideASecondHole.ChainChangedAtTheBottomProof
+import YangMills.Construction.HoleBesideASecondHole.ContoursAgreeWithTheStraightBondProof
+import YangMills.Construction.HoleBesideASecondHole.ContoursOfABondAreMostlyGoodProof
+import YangMills.Construction.HoleBesideASecondHole.CoordinatesInOneOrderAgainstTheOtherProof
+import YangMills.Construction.HoleBesideASecondHole.CostBelowTheTotalOfCoordinatesProof
+import YangMills.Construction.HoleBesideASecondHole.CostOnWholeCellsIsTheLeastActionProof
+import YangMills.Construction.HoleBesideASecondHole.CountsNearACutProof
+import YangMills.Construction.HoleBesideASecondHole.CrowdedCellsAreFewProof
+import YangMills.Construction.HoleBesideASecondHole.CurvatureBelowTheElementsAtItsCornersProof
+import YangMills.Construction.HoleBesideASecondHole.ElementsOnCellsLieOverThemProof
+import YangMills.Construction.HoleBesideASecondHole.ExcitedCellsPayProof
+import YangMills.Construction.HoleBesideASecondHole.FieldAboveTheLeastFieldPaysItsDistanceProof
+import YangMills.Construction.HoleBesideASecondHole.FieldWithTheBoxesFilledProof
+import YangMills.Construction.HoleBesideASecondHole.FitOfANearMeanProof
+import YangMills.Construction.HoleBesideASecondHole.GaugeInTheHolesProof
+import YangMills.Construction.HoleBesideASecondHole.GaugeOnABoxOfTheLatticeProof
+import YangMills.Construction.HoleBesideASecondHole.GaugeOnAnOrthantOfAShellProof
+import YangMills.Construction.HoleBesideASecondHole.GaugesOnTwoPartsAreGluedProof
+import YangMills.Construction.HoleBesideASecondHole.HolesStandOffTheSpotsProof
+import YangMills.Construction.HoleBesideASecondHole.LeastFieldsOfTwoCutsAgreeFarFromTheirDifferenceProof
+import YangMills.Construction.HoleBesideASecondHole.LeastSumsOfTheLevelsProof
+import YangMills.Construction.HoleBesideASecondHole.LegsInABlockAgreeWithATreeProof
+import YangMills.Construction.HoleBesideASecondHole.MeanOfATurnedVariableProof
+import YangMills.Construction.HoleBesideASecondHole.MeansOfSmallCoordinatesProof
+import YangMills.Construction.HoleBesideASecondHole.OscillationInAFlatBoxProof
+import YangMills.Construction.HoleBesideASecondHole.OscillationOnAPlaneOfAShellProof
+import YangMills.Construction.HoleBesideASecondHole.ReferenceReadsItsDataNearbyProof
+import YangMills.Construction.HoleBesideASecondHole.SitesUnderSitesProof
+import YangMills.Construction.HoleBesideASecondHole.TermsReadTheirCellsProof
+import YangMills.Construction.HoleBesideASecondHole.TotalIsTheSumOfItsTermsProof
+import YangMills.Construction.HoleBesideASecondHole.TurningAChainKeepsItsElementsProof
+import YangMills.Construction.TheStatementsProvedTogether.FromFramesOfAPatchProof
+import Mathlib
+namespace YangMills.Construction.TheStatementsProvedTogether
+theorem block_average_share_isometry_invariant : BlockAverages.symmetryInvarianceOfShareStatement :=
+  BlockAverages.symmetryInvarianceOfShare Assembled.exists_minimal_block_chain
+theorem split_chart_size_near_cell : BlockAverages.splitChartNearCellStatement := by apply _root_.YangMills.Construction.BlockAverages.splitChartNearCell <;> assumption
+theorem gauged_cell_shares_sum : BlockAverages.gaugedCellShareSumStatement := by apply _root_.YangMills.Construction.BlockAverages.gaugedCellShareSumStatement_holds <;> assumption
+theorem blockShare_isLocal : BlockAverages.shareLocalityStatement :=
+  BlockAverages.shareLocalityStatement_of_cell cellShare_depends_locally
+theorem local_evaluation_deriv_along_rotation : BlockAverages.localEvaluation_derivAlongRotationStatement := by apply _root_.YangMills.Construction.BlockAverages.localEvaluation_derivAlongRotation <;> assumption
+theorem cellShares_analytic : BlockAverages.analyticCellSharesStatement :=
+  BlockAverages.analyticCellSharesStatement_of_parts rotated_criticalChains
+    readout_mixedDeriv_bound block_average_mixed_deriv_comparison local_evaluation_deriv_along_rotation
+    gauged_cell_shares_sum split_chart_size_near_cell Assembled.exists_minimal_block_chain
+    blockAverage_share_gauge_invariant block_average_share_isometry_invariant blockShare_isLocal
+    minimalChain_share_eq_average Assembled.criticalValue_eq_minimal_action
+    share_comparison_of_agreeing_pairs
+theorem plaquette_bound_in_fixed_gauge : BlockAverages.pinnedGaugePlaquetteBoundStatement := by apply _root_.YangMills.Construction.BlockAverages.pinnedGaugePlaquetteBound <;> assumption
+theorem hot_plaquette_action_cost : BlockAverages.hotPlaquetteCostStatement :=
+  BlockAverages.HotPlaquetteCost.hotPlaquetteCost exists_critical_chain_of_cold_top
+    Assembled.blockAverage_criticalChain_minimal Assembled.criticalValue_eq_minimal_action
+    plaquette_bound_in_fixed_gauge Assembled.exists_minimal_block_chain
+    Assembled.gaugedChain_lower_bound
+theorem chart_form_lower_bound : BlockAverages.chartFormFloorStatement := by apply _root_.YangMills.Construction.BlockAverages.ChartFloor.chartFormFloor <;> assumption
+theorem block_average_chart_fit_second_variation : BlockAverages.chartFitSecondVariationStatement := by apply _root_.YangMills.Construction.BlockAverages.chartFitSecondVariation <;> assumption
+theorem contDiff_log_conj_exp : ColdStepAtMirrorFrames.ConjugatedExpLogSmooth := by apply _root_.YangMills.Construction.ColdStepAtMirrorFrames.conjugatedExpLogSmooth_holds <;> assumption
+theorem chartCoordinate_expShiftCurve_contDiff : BlockAverages.ExpShiftCurve :=
+  ExpShiftCurves.expShiftCurve_of_conjugatedExpLogSmooth contDiff_log_conj_exp
+theorem top_block_average_curl_bound : BlockAverages.topAverageCurlBoundStatement :=
+  TopAverageCurl.topAverageCurlBoundStatement_holds Assembled.blockAverage_reference_bounds
+theorem top_mean_velocity_bound : BlockAverages.topMeanVelocityStatement :=
+  TopMeanVelocity.topMeanVelocityStatement_holds Assembled.blockAverage_quartic_bound_uniform_in_level
+    Assembled.blockAverage_reference_bounds blockAverage_linearPart_local_bound smallChart_regular
+theorem rotatedTop_action : BlockAverages.rotatedTopActionStatement :=
+  BlockAverages.RotatedTopAction.rotatedTopActionStatement_holds blockAverage_action_taylor_bound top_mean_velocity_bound
+    smallChart_regular
+theorem second_variation_least_action_cold_apex : BlockAverages.coldTopSecondVariationStatement :=
+  BlockAverages.ColdTopSecondVariation.coldTopSecondVariation rotated_criticalChains
+    Assembled.criticalValue_eq_minimal_action slice_norm_le_form rotatedTop_action
+    top_block_average_curl_bound
+theorem wilson_action_second_variation : BlockAverages.wilsonActionSecondVariationStatement := by apply _root_.YangMills.Construction.BlockAverages.WilsonSecondVariation.wilsonActionSecondVariation <;> assumption
+theorem second_variation_least_action_cold_field : BlockAverages.coldFieldSecondVariationStatement :=
+  BlockAverages.ColdFieldSecondVariation.coldFieldSecondVariation wilson_action_second_variation second_variation_least_action_cold_apex cellShares_analytic
+theorem chart_action_second_variation : BlockAverages.chartActionSecondVariationStatement :=
+  ChartSecondVariation.chartActionSecondVariation_holds second_variation_least_action_cold_field chartCoordinate_expShiftCurve_contDiff
+theorem hessian_lower_bound_in_chart : BlockAverages.hessianLowerBoundStatement :=
+  BlockAverages.hessianLowerBound_of_secondVariations chart_action_second_variation block_average_chart_fit_second_variation chart_form_lower_bound
+theorem cold_chain_of_small_coordinates : ColdStepAtMirrorFrames.ColdChainAtSmallCoordinates :=
+  ColdStepAtMirrorFrames.coldChainAtSmallCoordinates_of_uniqueMinimizer block_average_unique_minimizer
+    hessian_lower_bound_in_chart cellShares_analytic blockAverage_analytic_chart_coords hot_plaquette_action_cost
+theorem isRegular_compl_thickening : LumpContours.ComplementOfThickenedLumpsRegular := by apply _root_.YangMills.Construction.LumpContours.complementOfThickenedLumpsRegular <;> assumption
+theorem cells_avoid_bad_components : HoleSavings.keptOffBadLumpsStatement :=
+  HoleSavings.keptOffBadLumpsStatement_holds isRegular_compl_thickening
+theorem kept_cells_away_from_bad_set : HoleSavings.KeptCellsAwayFromBad :=
+  HoleSavings.keptCellsAwayFromBad_of_keptOffBadLumps cells_avoid_bad_components
+theorem bond_coord_lex_compare : LumpContours.BondCoordinatesLexComparison := by apply _root_.YangMills.Construction.LumpContours.bondCoordinatesLexComparison_holds <;> assumption
+theorem whole_cell_cost_eq_minimal_action : LumpContours.WholeCellCostEqualsMinimalAction :=
+  LumpContours.WholeCellCost.wholeCellCost_eq_minimalAction Assembled.exists_minimal_block_chain
+theorem card_crowded_cells_le : HoleSavings.CrowdedCellsBound :=
+  HoleSavings.crowdedCellsBound_holds
+theorem corner_defect_bound : LumpContours.CornerDefectBound :=
+  CornerCounting.cornerDefectBound_of_chainCoercivity Assembled.lump_chain_coercive
+theorem field_coordinates_bound_near_top : LumpContours.NearTopCoordinateBound :=
+  NearTopCoordinates.nearTopCoordinateBound Assembled.bond_contour_variance_le_curvature
+    Assembled.haar_mean_prod_le
+theorem minimizer_quadratic_gap : LumpContours.minimizerQuadraticGapStatement :=
+  LumpContours.minimizerQuadraticGap block_average_unique_minimizer hessian_lower_bound_in_chart
+    field_coordinates_bound_near_top whole_cell_cost_eq_minimal_action Assembled.blockAverage_gauge_covariant
+    Assembled.exists_minimal_block_chain
+theorem minimizingFields_eqOn_far_from_difference : LumpContours.minimizingFieldsLocalStatement :=
+  LumpContours.minimizingFieldsLocalStatement_holds block_average_unique_minimizer blockAverage_analytic_chart_coords
+    whole_cell_cost_eq_minimal_action
+theorem badCells_card_le : HoleSavings.BadCellsBound :=
+  HoleSavings.BadCellCount.badCellsBound minimizer_quadratic_gap minimizingFields_eqOn_far_from_difference field_coordinates_bound_near_top bond_coord_lex_compare corner_defect_bound kept_cells_away_from_bad_set card_crowded_cells_le
+    Assembled.exists_minimal_block_chain whole_cell_cost_eq_minimal_action
+theorem small_chart_bound : CellTerms.smallChartBoundStatement :=
+  SmallChart.smallChartBound Assembled.blockAverage_reference_bounds
+    Assembled.patch_pairing_local_form Assembled.blockAverage_patchTransport
+    Assembled.levelGap_near_cell_bound
+theorem cutAction_eq_minimalAction : LumpContours.CutActionEqualsMinimalAction :=
+  LumpContours.cutActionEqualsMinimalAction_of_minimalChainExistence
+    Assembled.exists_minimal_block_chain
+theorem chartAction_lower_bound : LumpContours.chartActionLowerBoundStatement :=
+  LumpContours.ChartActionLowerBound.chartActionLowerBound Assembled.blockAverage_gauge_covariant
+    Assembled.exists_minimal_block_chain Assembled.gaugedChain_lower_bound
+    cutAction_eq_minimalAction whole_cell_cost_eq_minimal_action
+theorem minimal_chain_energies : ChainEnergies.minimalChainEnergiesStatement := by apply _root_.YangMills.Construction.ChainEnergies.minimalChainEnergiesStatement_holds <;> assumption
+theorem small_coordinate_averages_ne_zero : CellTerms.nonzeroAveragesStatement :=
+  CellTerms.nonzeroAverages Assembled.blockAverage_reference_bounds Assembled.levelGap_near_cell_bound
+theorem reference_isLocal : CellTerms.referenceLocalityStatement :=
+  CellTerms.ReferenceLocality.referenceLocalityStatement_of_leadingEigenvectorLineStatement
+    block_average_leading_eigenvector_line
+theorem minimal_chain_size_bounds : BlockAverages.minimalChartSizesStatement :=
+  BlockAverages.minimalChartSizes exists_critical_chain_of_cold_top
+    Assembled.criticalValue_eq_minimal_action
+theorem cellTerms_small_coordinates_bound : CellTerms.smallCellTermsStatement :=
+  SmallCellTerms.smallCellTerms Assembled.blockAverage_reference_bounds
+    Assembled.top_misfit_near_cell
+theorem cell_terms_local : CellTerms.cellTermsLocalityStatement := by apply _root_.YangMills.Construction.CellTerms.Locality.cellTermsLocality <;> assumption
+theorem chainAction_eq_sum_terms : ChainTerms.chainActionEqSumTermsStatement := by apply _root_.YangMills.Construction.ChainTerms.chainActionEqSumTerms <;> assumption
+theorem contour_reinsertion_cost_bound : LumpContours.ReinsertionCostEstimate :=
+  LumpContours.reinsertionCostEstimate_proof minimal_chain_size_bounds chainAction_eq_sum_terms cellTerms_small_coordinates_bound chartAction_lower_bound small_chart_bound cell_terms_local reference_isLocal small_coordinate_averages_ne_zero block_average_unique_minimizer whole_cell_cost_eq_minimal_action minimal_chain_energies
+theorem excitedCells_energy_lowerBound : HoleSavings.excitedCellsPayStatement :=
+  HoleSavings.excitedCellsPay
+theorem excluded_boxes_at_uncrowded_cell : LumpContours.ExcludedBoxesAtUncrowdedCell := by apply _root_.YangMills.Construction.LumpContours.excludedBoxesAtUncrowdedCell_holds <;> assumption
+theorem excludedBoxes_neighbours_eq : LumpContours.ExcludedBoxesOfNeighboursAgree :=
+  LumpContours.excludedBoxesOfNeighboursAgree_holds excluded_boxes_at_uncrowded_cell
+theorem curvature_bound_at_quiet_cell : HoleSavings.quietCellCurvatureStatement :=
+  HoleSavings.quietCellCurvature Assembled.lump_chain_coercive
+theorem exists_flat_gauge_on_box_boundary : LatticeGauge.FlatGaugeOnBoxBoundary := by apply _root_.YangMills.Construction.LatticeGauge.flatGaugeOnBoxBoundary_holds <;> assumption
+theorem field_with_filled_boxes : HoleSavings.filledFieldStatement :=
+  HoleSavings.filledFieldStatement_holds excluded_boxes_at_uncrowded_cell excludedBoxes_neighbours_eq exists_flat_gauge_on_box_boundary curvature_bound_at_quiet_cell
+theorem exists_gauge_fixed_near_box : BoxGauge.GaugeFixedNearBox := by apply _root_.YangMills.Construction.BoxGauge.gaugeFixedNearBox_holds <;> assumption
+theorem exists_gauge_in_holes : HoleGauge.holeGaugeStatement :=
+  HoleGauge.holeGaugeStatement_holds exists_gauge_fixed_near_box
+theorem gaugeTransform_chain_energy_eq : ChainGauges.GaugeChainPreservesEnergy :=
+  ChainGauges.gaugeChainPreservesEnergy_of_gaugeCovariance Assembled.blockAverage_gauge_covariant
+theorem exists_box_filling : HoleSavings.boxFillingStatement :=
+  HoleSavings.boxFillingStatement_holds field_with_filled_boxes exists_gauge_in_holes _root_.YangMills.Construction.TheStatementsProvedTogether.gaugeTransform_chain_energy_eq
+theorem bond_contours_mostly_good : BondContours.MostContoursGoodStatement := by apply _root_.YangMills.Construction.BondContours.mostContoursGood <;> assumption
+theorem linkComponent_properties : Holes.LinkComponentProperties := by apply _root_.YangMills.Construction.Holes.linkComponentProperties_holds <;> assumption
+theorem torus_dist_block_lump : LumpContours.TorusDistanceBlockLumpFacts := by apply _root_.YangMills.Construction.LumpContours.torusDistanceBlockLumpFacts_holds <;> assumption
+theorem count_bound_near_cutoff : HoleSavings.countsNearCutStatement :=
+  HoleSavings.countsNearCut_holds linkComponent_properties torus_dist_block_lump
+theorem energyOn_le_energyOver : HoleSavings.energyOnLeEnergyOverStatement := by apply _root_.YangMills.Construction.HoleSavings.energyOn_le_energyOver <;> assumption
+theorem near_mean_fit_estimate : LumpContours.NearMeanFitEstimate := by apply _root_.YangMills.Construction.LumpContours.nearMeanFitEstimate_holds <;> assumption
+theorem bottom_modified_chain_eq : LumpContours.BottomModifiedChainIdentity := by apply _root_.YangMills.Construction.LumpContours.bottomModifiedChainIdentity_proof <;> assumption
+theorem orthant_quartic_gauge_of_shell : ShellOrthant.orthantQuarticGaugeStatement :=
+  ShellOrthant.orthantQuarticGauge_of_quarticGauge Assembled.exists_quarticGauge_minimizer
+theorem su2_exists_path_one : GroupPaths.ExistsPathFromOne := by apply _root_.YangMills.Construction.GroupPaths.existsPathFromOne <;> assumption
+theorem oscillation_le_of_flat_box : FlatBoxes.flatBoxOscillationStatement := by apply _root_.YangMills.Construction.FlatBoxes.flatBoxOscillation <;> assumption
+theorem oscillation_on_shell_slice_le : ShellSlices.shellSliceOscillationStatement :=
+  ShellSlices.shellSliceOscillation oscillation_le_of_flat_box
+theorem orthant_gauge_glue : ShellOrthant.orthantGaugeGluingStatement :=
+  OrthantGluing.orthantGaugeGluing oscillation_on_shell_slice_le su2_exists_path_one
+theorem exists_shell_quartic_gauge : ShellOrthant.ShellQuarticGauge :=
+  ShellOrthant.shellQuarticGauge_holds orthant_quartic_gauge_of_shell orthant_gauge_glue
+theorem plaquette_along_four_paths_bound : GroupPaths.PlaquetteAlongPathsBound := by apply _root_.YangMills.Construction.GroupPaths.plaquetteAlongPathsBound_holds <;> assumption
+theorem shell_filling : ShellFilling.shellFillingStatement :=
+  ShellFilling.shellFillingStatement_holds exists_shell_quartic_gauge su2_exists_path_one plaquette_along_four_paths_bound
+theorem each_hole_filled : HoleFilling.eachHoleFilledStatement :=
+  HoleFilling.eachHoleFilled shell_filling
+theorem nested_site_properties : LumpContours.NestedSiteFacts := by apply _root_.YangMills.Construction.LumpContours.nestedSiteFacts_holds <;> assumption
+theorem exists_holeFamily : HoleFilling.holeFamilyExistsStatement :=
+  HoleFilling.holeFamilyExists torus_dist_block_lump linkComponent_properties nested_site_properties
+theorem holes_disjoint_badCells : HoleFilling.holesAwayFromBadCellsStatement :=
+  HoleFilling.holesAwayFromBadCells exists_holeFamily each_hole_filled bottom_modified_chain_eq
+    Assembled.lump_chain_coercive torus_dist_block_lump nested_site_properties linkComponent_properties
+theorem contour_eq_straight_bond : BondContours.contourStraightBondStatement := by apply _root_.YangMills.Construction.BondContours.contourStraightBondStatement_holds <;> assumption
+theorem legs_near_blockTree : BlockTrees.LegNearBlockTree := by apply _root_.YangMills.Construction.BlockTrees.legNearBlockTree_holds <;> assumption
+theorem rotatedVariable_mean_estimate : TurnedMeans.TurnedMeanEstimate := by apply _root_.YangMills.Construction.TurnedMeans.turnedMeanEstimate_holds <;> assumption
+end YangMills.Construction.TheStatementsProvedTogether

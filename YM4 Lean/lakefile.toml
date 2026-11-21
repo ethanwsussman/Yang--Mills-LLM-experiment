@@ -1,0 +1,22 @@
+name = "YangMillsMinimalFull"
+defaultTargets = ["Formulation", "Challenge"]
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "0df444a360eaa60ab8c11dca51a86af692955474"
+
+[[lean_lib]]
+name = "YangMills"
+globs = ["YangMills.+"]
+
+[[lean_lib]]
+name = "Formulation"
+globs = ["Formulation.+"]
+
+[[lean_lib]]
+name = "Challenge"
+
+[[lean_lib]]
+name = "Reconstruction"
+globs = ["Reconstruction.+"]

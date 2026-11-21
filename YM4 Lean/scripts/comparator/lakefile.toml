@@ -1,0 +1,10 @@
+name = "wilson-source-comparator"
+defaultTargets = ["compare_source_statements"]
+
+[[lean_lib]]
+name = "SerializedSupport"
+
+[[lean_exe]]
+name = "compare_source_statements"
+root = "CompareSourceStatements"
+moreLinkArgs = ["-lLake", "-lLeanExport"]

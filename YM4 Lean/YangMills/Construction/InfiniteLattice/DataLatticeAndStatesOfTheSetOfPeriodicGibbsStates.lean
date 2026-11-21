@@ -1,0 +1,6 @@
+import YangMills.Construction.InfiniteLattice.OneLatticeItsConfigurationsAndMeasuresOnCompactSpaces
+import Mathlib
+set_option autoImplicit false
+namespace YangMills.Construction.PeriodicGibbsStateSpace
+abbrev Params : Type := LatticePhases.Setup
+end YangMills.Construction.PeriodicGibbsStateSpace

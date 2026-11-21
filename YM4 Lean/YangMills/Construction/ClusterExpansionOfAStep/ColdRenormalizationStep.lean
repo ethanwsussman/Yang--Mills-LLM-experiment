@@ -1,0 +1,12 @@
+import YangMills.Construction.ClusterExpansionOfAStep.StepVariablesAtParameters
+import YangMills.Construction.ColdStepAtMirrorFrames.DensityHypothesesAtParameters
+import Mathlib
+set_option autoImplicit false
+noncomputable section
+namespace YangMills.Construction
+namespace RenormalizationStepParameters
+def ParameterAssignment.ColdStepHolds (T : ParameterAssignment) : Prop :=
+  T.HoldsFrom ColdStepAtMirrorFrames.DensityConditionsAt
+end RenormalizationStepParameters
+end YangMills.Construction
+end

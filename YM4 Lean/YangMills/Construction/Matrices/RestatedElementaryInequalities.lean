@@ -1,0 +1,5 @@
+import YangMills.Construction.Matrices.ElementaryMatrixInequalities
+import Mathlib
+namespace YangMills.Construction.Matrices.ComplexMatrix2
+def RestatedElementaryInequalitiesStatement : Prop := ElementaryInequalitiesStatement
+end YangMills.Construction.Matrices.ComplexMatrix2

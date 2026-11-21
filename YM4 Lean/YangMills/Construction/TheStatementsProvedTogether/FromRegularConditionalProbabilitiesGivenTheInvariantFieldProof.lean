@@ -1,0 +1,393 @@
+import YangMills.Construction.LatticeForms.LatticeSymbolAndTheTwoGreensFunctionsProof
+import YangMills.Construction.FreeKernel.BoundFromABoundAndADecayProof
+import YangMills.Construction.FreeKernel.BoundOfTheDerivativesOfTheGaussianKernelProof
+import YangMills.Construction.FreeKernel.DifferencesOfTheHeatKernelAgainstTheGaussianProof
+import YangMills.Construction.FreeKernel.DiscreteHeatKernelSeriesProof
+import YangMills.Construction.FreeKernel.GaussianTimesVanishingFunctionProof
+import YangMills.Construction.FreeKernel.HeatKernelsAndTheGreensFunctionsProof
+import YangMills.Construction.FreeKernel.LongTimeBoundOfTheDifferencesOfTheHeatKernelProof
+import YangMills.Construction.FreeKernel.MonomialGaussianDerivativesProof
+import YangMills.Construction.FreeKernel.MonomialGaussianTailProof
+import YangMills.Construction.FreeKernel.MultipliersSymbolCharactersAndGreensFunctionsOnClassesProof
+import YangMills.Construction.FreeKernel.OneDimensionalKernelEstimatesProof
+import YangMills.Construction.FreeKernel.PeriodicIntegrationByPartsProof
+import YangMills.Construction.FreeKernel.SymbolsAddUpAndKernelsAsFourierIntegralsProof
+import YangMills.Construction.HullsInEveryVolume.ARuleDrawsTheChainProof
+import YangMills.Construction.HullsInEveryVolume.BadBlocksArePaidProof
+import YangMills.Construction.HullsInEveryVolume.ChessboardOnABareGridProof
+import YangMills.Construction.HullsInEveryVolume.ClassesOfAHullAreShortProof
+import YangMills.Construction.HullsInEveryVolume.EachTowerHasARuleOfTheNoisesProof
+import YangMills.Construction.HullsInEveryVolume.EvenTranslatesBoundACopyProof
+import YangMills.Construction.HullsInEveryVolume.ExponentialMomentOfTheSizesProof
+import YangMills.Construction.HullsInEveryVolume.FreeEnergyBeforeTheFloorProof
+import YangMills.Construction.HullsInEveryVolume.LeastFieldOfACutProof
+import YangMills.Construction.HullsInEveryVolume.LocalHullLiesInTheHullProof
+import YangMills.Construction.HullsInEveryVolume.MomentOfTheLocalHullProof
+import YangMills.Construction.HullsInEveryVolume.MomentsOfTheSizesOfAHullProof
+import YangMills.Construction.HullsInEveryVolume.NoisesCarryTheChainProof
+import YangMills.Construction.HullsInEveryVolume.NormOfAUnitProof
+import YangMills.Construction.HullsInEveryVolume.PlacesFarApartAreRareProof
+import YangMills.Construction.HullsInEveryVolume.ReachOfAUnitProof
+import YangMills.Construction.HullsInEveryVolume.ReachOfTheLocalHullProof
+import YangMills.Construction.HullsInEveryVolume.SetsOfCentresOfATreeProof
+import YangMills.Construction.HullsInEveryVolume.SitesAlongAClassProof
+import YangMills.Construction.HullsInEveryVolume.SixteenOffsetsSeparatePlacesProof
+import YangMills.Construction.HullsInEveryVolume.TheChainOfTheNoisesIsBorelProof
+import YangMills.Construction.HullsInEveryVolume.TheStatesOfTheChainHaveTheirDensitiesProof
+import YangMills.Construction.HullsInEveryVolume.TranslationsCarryTheBasesAtEverySideProof
+import YangMills.Construction.HullsInEveryVolume.TranslationsMoveAUnitProof
+import YangMills.Construction.HullsInEveryVolume.UnitsInSeparatePlacesProof
+import YangMills.Construction.HullsInEveryVolume.UnitsOfSeveralSitesOfAHullProof
+import YangMills.Construction.InfiniteLattice.AlmostEveryConditionalStateIsAnErgodicPeriodicGibbsStateProof
+import YangMills.Construction.InfiniteLattice.RegularConditionalProbabilitiesGivenTheInvariantFieldProof
+import YangMills.Construction.LawByMomentsOfTheFlow.CurlOfTheGreenPotentialProof
+import YangMills.Construction.LawByMomentsOfTheFlow.DistanceOfTheSitesOfTwoSupportsProof
+import YangMills.Construction.LawByMomentsOfTheFlow.GapOfTheSupportsFromBelowProof
+import YangMills.Construction.LawByMomentsOfTheFlow.GreenFunctionAsATimeIntegralProof
+import YangMills.Construction.LawByMomentsOfTheFlow.KernelOfTheCurvatureOnATorusProof
+import YangMills.Construction.LawByMomentsOfTheFlow.KernelOfTheCurvatureOnTheLatticeProof
+import YangMills.Construction.LawByMomentsOfTheFlow.KernelOfTheCurvatureProof
+import YangMills.Construction.LawByMomentsOfTheFlow.LatticeNumberNearTheCyclicFormulaProof
+import YangMills.Construction.LawByMomentsOfTheFlow.PairingOfACurvatureProof
+import YangMills.Construction.LawByMomentsOfTheFlow.SecondDifferencesOnATorusNearTheLatticeProof
+import YangMills.Construction.TheStatementsProvedTogether.FromVerticesAndCubesOfAConnectedEdgeGraphProof
+import YangMills.Construction.TotalDensitiesGiveASystem.EveryComponentIsALimitOfStatesProof
+import YangMills.Construction.TotalDensitiesGiveASystem.FarTranslatesFactoriseOverThePhasesProof
+import YangMills.Construction.TotalDensitiesGiveASystem.TheMomentsOfThePhasesAreBoundedProof
+import YangMills.Construction.TotalDensitiesGiveASystem.TheMomentsOfThePhasesAreThoseOfTheComponentsProof
+import YangMills.Construction.TotalDensitiesGiveASystem.ThePhasesApproachEveryComponentProof
+import Mathlib
+namespace YangMills.Construction.TheStatementsProvedTogether
+theorem conditional_probability_given_invariant_field :
+    YangMills.Construction.InfiniteLattice.InvariantDisintegrationTheorem :=
+  YangMills.Construction.InfiniteLattice.Disintegration.invariantDisintegrationTheorem_holds
+    _root_.YangMills.Construction.Assembly.rat_poly_state_borel_sets
+theorem ae_conditional_state_ergodic_periodic_gibbs :
+    YangMills.Construction.InfiniteLattice.ErgodicDecompositionStatement :=
+  YangMills.Construction.InfiniteLattice.ErgodicConditionalStates.ergodicDecomposition
+    _root_.YangMills.Construction.Assembly.rat_poly_state_borel_sets
+    YangMills.Construction.TheStatementsProvedTogether.infinite_lattice_wilson_kernel_properties
+    _root_.YangMills.Construction.Assembly.shift_invariance_and_ergodicity
+    _root_.YangMills.Construction.Assembly.box_mean_tendsto_condExp
+    YangMills.Construction.TheStatementsProvedTogether.states_ext_of_continuous_local
+    YangMills.Construction.TheStatementsProvedTogether.conditional_probability_given_invariant_field
+    YangMills.Construction.TheStatementsProvedTogether.periodic_gibbs_states_all_spacings_couplings
+theorem phase_moments_bounded :
+    YangMills.Construction.TotalDensitiesGiveASystem.phaseMomentsBoundedStatement :=
+  YangMills.Construction.TotalDensitiesGiveASystem.PhaseMoments.phaseMomentsBoundedStatement_holds
+    YangMills.Construction.TheStatementsProvedTogether.ae_conditional_state_ergodic_periodic_gibbs
+    YangMills.Construction.TheStatementsProvedTogether.gibbsState_centered_identity
+    YangMills.Construction.TheStatementsProvedTogether.torus_weak_limit_periodic_gibbs
+    _root_.YangMills.Construction.Assembly.reflection_positive_lattice_representatives
+    YangMills.Construction.TheStatementsProvedTogether.periodic_gibbs_lattice_approximation
+theorem far_translates_factorize_over_phases :
+    YangMills.Construction.TotalDensitiesGiveASystem.farTranslatesFactorStatement :=
+  YangMills.Construction.TotalDensitiesGiveASystem.FarTranslatesFactor.farTranslatesFactor_holds
+    _root_.YangMills.Construction.Assembly.volumeLimit_symmetries
+    YangMills.Construction.TheStatementsProvedTogether.ae_conditional_measure_ergodic
+    YangMills.Construction.TheStatementsProvedTogether.energyMomentum_coarse_inverse_square
+    _root_.YangMills.Construction.Assembly.reflection_positive_lattice_representatives
+    _root_.YangMills.Construction.Assembly.sizes_independent_of_spacing
+    YangMills.Construction.TheStatementsProvedTogether.phase_moments_bounded
+theorem phase_moments_eq_component_moments :
+    YangMills.Construction.TotalDensitiesGiveASystem.phaseMomentsConvergeStatement :=
+  YangMills.Construction.TotalDensitiesGiveASystem.PhaseMoments.phaseMomentsConverge
+    YangMills.Construction.TheStatementsProvedTogether.far_translates_factorize_over_phases
+    YangMills.Construction.TheStatementsProvedTogether.gibbsState_centered_identity
+theorem phases_approach_components :
+    YangMills.Construction.TotalDensitiesGiveASystem.phasesApproachComponentsStatement :=
+  YangMills.Construction.TotalDensitiesGiveASystem.PhasesApproachComponents.proof
+    YangMills.Construction.TheStatementsProvedTogether.phase_moments_eq_component_moments
+    _root_.YangMills.Construction.Assembly.moment_limit_charges_open_sets
+    _root_.YangMills.Construction.Assembly.connected_function_of_centred_means
+    _root_.YangMills.Construction.Assembly.periodic_gibbs_condProb_exists_measurable
+    _root_.YangMills.Construction.Assembly.periodic_gibbs_dense_local_family
+    YangMills.Construction.TheStatementsProvedTogether.torus_weak_limit_periodic_gibbs
+    _root_.YangMills.Construction.Assembly.centered_representative_entries_local
+theorem component_tendsto_of_states :
+    YangMills.Construction.TotalDensities.ComponentsAreLimitsOfStates :=
+  YangMills.Construction.TotalDensities.ComponentLimits.componentsAreLimitsOfStates_holds
+    YangMills.Construction.TheStatementsProvedTogether.phases_approach_components
+    YangMills.Construction.TheStatementsProvedTogether.torus_weak_limit_periodic_gibbs
+theorem free_kernel_symbols_fourier_integrals : YangMills.Construction.FreeKernel.symbolsAndFourierIntegrals := by apply _root_.YangMills.Construction.FreeKernel.symbolsAndFourierIntegrals_holds <;> assumption
+theorem heatKernel_gaussian_constants_finite_pos : YangMills.Construction.Constants.HeatKernel.finite_and_pos := by apply _root_.YangMills.Construction.Constants.HeatKernel.finite_and_pos_of_exponential_bounds <;> assumption
+theorem bound_of_bound_and_decay : YangMills.Construction.FreeKernel.BoundFromBoundAndDecay := by apply _root_.YangMills.Construction.FreeKernel.boundFromBoundAndDecay_holds <;> assumption
+theorem oneDimKernel_symbol_deriv_bounds : YangMills.Construction.LatticeKernel.SymbolDerivativeBounds := by apply _root_.YangMills.Construction.LatticeKernel.symbolDerivativeBounds_holds <;> assumption
+theorem monomial_factor_deriv_bounds :
+    YangMills.Construction.FreeKernel.MonomialFactorDerivativeBounds :=
+  YangMills.Construction.FreeKernel.monomialFactorDerivativeBounds
+    YangMills.Construction.TheStatementsProvedTogether.oneDimKernel_symbol_deriv_bounds
+theorem vanishing_mul_gaussian_bound : YangMills.Construction.FreeKernel.VanishingTimesGaussianBound := by apply _root_.YangMills.Construction.FreeKernel.vanishingTimesGaussianBound_holds <;> assumption
+theorem monomial_gaussian_deriv_bounds :
+    YangMills.Construction.FreeKernel.MonomialGaussianDerivativeBounds :=
+  YangMills.Construction.FreeKernel.MonomialGaussian.monomialGaussianDerivativeBounds_holds
+    YangMills.Construction.TheStatementsProvedTogether.vanishing_mul_gaussian_bound
+    YangMills.Construction.TheStatementsProvedTogether.oneDimKernel_symbol_deriv_bounds
+    YangMills.Construction.TheStatementsProvedTogether.monomial_factor_deriv_bounds
+    YangMills.Construction.TheStatementsProvedTogether.heatKernel_gaussian_constants_finite_pos
+theorem line_fourier_integral_by_parts : YangMills.Construction.FreeKernel.LineFourierIntegrationByParts := by apply _root_.YangMills.Construction.FreeKernel.LineIntegration.lineFourierIntegrationByParts_proof <;> assumption
+theorem periodic_fourier_integration_by_parts :
+    YangMills.Construction.FreeKernel.PeriodicFourierIntegrationByParts := by apply _root_.YangMills.Construction.FreeKernel.PeriodicIntegration.periodicFourierIntegrationByParts_proof <;> assumption
+theorem lattice_gaussian_period_diff :
+    YangMills.Construction.FreeKernel.LatticeGaussianDifferenceOnPeriod :=
+  YangMills.Construction.FreeKernel.LatticeGaussianPeriod.latticeGaussianDifferenceOnPeriod_holds
+    YangMills.Construction.TheStatementsProvedTogether.oneDimKernel_symbol_deriv_bounds
+    YangMills.Construction.TheStatementsProvedTogether.vanishing_mul_gaussian_bound
+    YangMills.Construction.TheStatementsProvedTogether.monomial_factor_deriv_bounds
+theorem monomial_gaussian_tail_bound : YangMills.Construction.FreeKernel.MonomialGaussianTailBound :=
+  YangMills.Construction.FreeKernel.monomialGaussianTailBound
+    YangMills.Construction.TheStatementsProvedTogether.monomial_gaussian_deriv_bounds
+theorem heat_kernel_sub_gaussian_bound :
+    YangMills.Construction.FreeKernel.HeatKernelGaussianDifferenceBound :=
+  YangMills.Construction.FreeKernel.HeatKernelGaussian.heatKernelGaussianDifferenceBound_holds
+    YangMills.Construction.TheStatementsProvedTogether.free_kernel_symbols_fourier_integrals
+    YangMills.Construction.TheStatementsProvedTogether.heatKernel_gaussian_constants_finite_pos
+    YangMills.Construction.TheStatementsProvedTogether.monomial_gaussian_deriv_bounds
+    YangMills.Construction.TheStatementsProvedTogether.monomial_gaussian_tail_bound
+    YangMills.Construction.TheStatementsProvedTogether.lattice_gaussian_period_diff
+    YangMills.Construction.TheStatementsProvedTogether.periodic_fourier_integration_by_parts
+    YangMills.Construction.TheStatementsProvedTogether.line_fourier_integral_by_parts
+    YangMills.Construction.TheStatementsProvedTogether.bound_of_bound_and_decay
+theorem gaussianKernel_deriv_bound : YangMills.Construction.FreeKernel.GaussianDerivativeBound :=
+  YangMills.Construction.FreeKernel.GaussianDerivative.gaussianDerivativeBound_holds
+    YangMills.Construction.TheStatementsProvedTogether.free_kernel_symbols_fourier_integrals
+    YangMills.Construction.TheStatementsProvedTogether.monomial_gaussian_deriv_bounds
+    YangMills.Construction.TheStatementsProvedTogether.line_fourier_integral_by_parts
+    YangMills.Construction.TheStatementsProvedTogether.bound_of_bound_and_decay
+    YangMills.Construction.TheStatementsProvedTogether.heatKernel_gaussian_constants_finite_pos
+theorem heat_kernel_diff_long_time_bound :
+    YangMills.Construction.FreeKernel.HeatKernelDiffLongTimeBound :=
+  YangMills.Construction.FreeKernel.HeatKernelDiffLongTimeBoundProof.heatKernelDiffLongTimeBound_holds
+    YangMills.Construction.TheStatementsProvedTogether.free_kernel_symbols_fourier_integrals
+    YangMills.Construction.TheStatementsProvedTogether.oneDimKernel_symbol_deriv_bounds
+    YangMills.Construction.TheStatementsProvedTogether.vanishing_mul_gaussian_bound
+    YangMills.Construction.TheStatementsProvedTogether.heatKernel_gaussian_constants_finite_pos
+    YangMills.Construction.TheStatementsProvedTogether.periodic_fourier_integration_by_parts
+    YangMills.Construction.TheStatementsProvedTogether.bound_of_bound_and_decay
+theorem discrete_heat_kernel_series : YangMills.Construction.FreeKernel.DiscreteHeatKernelSeries := by apply _root_.YangMills.Construction.FreeKernel.HeatKernelSeries.discreteHeatKernelSeries_holds <;> assumption
+theorem one_dimensional_kernel_estimates :
+    YangMills.Construction.LatticeKernelBounds.OneDimensionalEstimates :=
+  YangMills.Construction.FreeKernel.oneDimensionalEstimates_holds
+    YangMills.Construction.TheStatementsProvedTogether.discrete_heat_kernel_series
+    YangMills.Construction.TheStatementsProvedTogether.heat_kernel_diff_long_time_bound
+    YangMills.Construction.TheStatementsProvedTogether.gaussianKernel_deriv_bound
+    YangMills.Construction.TheStatementsProvedTogether.heat_kernel_sub_gaussian_bound
+    YangMills.Construction.TheStatementsProvedTogether.heatKernel_gaussian_constants_finite_pos
+theorem short_distance_symbol_green_functions :
+    YangMills.Construction.PeriodicLattice.ShortDistanceTwoPoint.SymbolAndGreenFunctions := by apply _root_.YangMills.Construction.PeriodicLattice.ShortDistanceTwoPoint.SymbolAndGreen.symbolAndGreenFunctions <;> assumption
+theorem lattice_fourier_green_identities :
+    YangMills.Construction.PeriodicLattice.VectorClasses.FourierFactsAndGreenIdentities.Statement :=
+  YangMills.Construction.PeriodicLattice.VectorClasses.FourierFactsAndGreenIdentities.proof
+    YangMills.Construction.TheStatementsProvedTogether.short_distance_symbol_green_functions
+theorem heat_kernel_green_function :
+    YangMills.Construction.FreeKernel.HeatKernelGreen.HeatKernelGreenProperties :=
+  YangMills.Construction.FreeKernel.HeatKernelGreen.heatKernelGreenProperties_holds
+    YangMills.Construction.TheStatementsProvedTogether.free_kernel_symbols_fourier_integrals
+    YangMills.Construction.TheStatementsProvedTogether.heatKernel_gaussian_constants_finite_pos
+    YangMills.Construction.TheStatementsProvedTogether.one_dimensional_kernel_estimates
+    YangMills.Construction.TheStatementsProvedTogether.lattice_fourier_green_identities
+theorem torusGreen_secondDiff_bound : YangMills.Construction.FreeKernel.TorusGreenSecondDiffBound :=
+  YangMills.Construction.FreeKernel.TorusGreenSecondDiffProof.torusGreenSecondDiffBound_holds
+    YangMills.Construction.TheStatementsProvedTogether.heat_kernel_green_function
+    YangMills.Construction.TheStatementsProvedTogether.heatKernel_gaussian_constants_finite_pos
+    YangMills.Construction.TheStatementsProvedTogether.lattice_fourier_green_identities
+theorem curvature_pairing_sum_by_parts :
+    YangMills.Construction.MomentLaw.curvaturePairingSummationByParts := by apply _root_.YangMills.Construction.MomentLaw.curvaturePairingSummationByParts_holds <;> assumption
+theorem curl_green_potential : YangMills.Construction.MomentLaw.curlGreenPotentialStatement :=
+  YangMills.Construction.MomentLaw.curlGreenPotentialStatement_of_pairing
+    YangMills.Construction.TheStatementsProvedTogether.curvature_pairing_sum_by_parts
+theorem torus_curvature_proj_eq_curl_green :
+    YangMills.Construction.MomentLaw.torusCurvatureProjectionGreenStatement :=
+  YangMills.Construction.MomentLaw.torusCurvatureProjection_eq_curl_green
+    YangMills.Construction.TheStatementsProvedTogether.curl_green_potential
+    YangMills.Construction.TheStatementsProvedTogether.lattice_fourier_green_identities
+theorem green_eq_heat_time_integral :
+    YangMills.Construction.MomentLaw.greenAsHeatTimeIntegralStatement :=
+  YangMills.Construction.MomentLaw.greenAsHeatTimeIntegral
+    YangMills.Construction.TheStatementsProvedTogether.integral_heat_bound_time
+    YangMills.Construction.TheStatementsProvedTogether.integerHeatKernel_evolution
+    YangMills.Construction.TheStatementsProvedTogether.lattice_heat_kernel_decay
+theorem curvature_kernel_green_formula :
+    YangMills.Construction.MomentLaw.curvatureProjectionGreenStatement :=
+  YangMills.Construction.MomentLaw.curvatureProjectionGreenStatement_holds
+    YangMills.Construction.TheStatementsProvedTogether.curl_green_potential
+    YangMills.Construction.TheStatementsProvedTogether.curvature_pairing_sum_by_parts
+    YangMills.Construction.TheStatementsProvedTogether.green_eq_heat_time_integral
+theorem torus_second_diff_near_lattice :
+    YangMills.Construction.MomentLaw.torusSecondDiffNearLatticeStatement :=
+  YangMills.Construction.MomentLaw.torusSecondDiffNearLattice_holds
+    YangMills.Construction.TheStatementsProvedTogether.heat_kernel_green_function
+    YangMills.Construction.TheStatementsProvedTogether.lattice_fourier_green_identities
+    YangMills.Construction.TheStatementsProvedTogether.green_eq_heat_time_integral
+    YangMills.Construction.TheStatementsProvedTogether.discrete_heat_kernel_series
+theorem curvature_kernel_bounds : YangMills.Construction.MomentLaw.curvatureKernelBoundsStatement :=
+  YangMills.Construction.MomentLaw.curvatureKernelBoundsStatement_holds
+    YangMills.Construction.TheStatementsProvedTogether.torus_curvature_proj_eq_curl_green
+    YangMills.Construction.TheStatementsProvedTogether.curvature_kernel_green_formula
+    YangMills.Construction.TheStatementsProvedTogether.torus_second_diff_near_lattice
+    YangMills.Construction.TheStatementsProvedTogether.torusGreen_secondDiff_bound
+    YangMills.Construction.TheStatementsProvedTogether.lattice_fourier_green_identities
+theorem lattice_cycle_sum_approx : YangMills.Construction.MomentLaw.latticeCycleSumApproxStatement :=
+  YangMills.Construction.MomentLaw.latticeCycleSumApprox_of_kernelBounds
+    YangMills.Construction.TheStatementsProvedTogether.curvature_kernel_bounds
+    _root_.YangMills.Construction.Assembly.cycle_integrand_integrable
+    _root_.YangMills.Construction.Assembly.inversion_matrix_properties
+theorem support_site_distance_bounds :
+    YangMills.Construction.LevelTestFunctions.SupportSiteDistanceBounds :=
+  YangMills.Construction.LevelTestFunctions.supportSiteDistanceBounds_holds
+    YangMills.Construction.TheStatementsProvedTogether.circle_rep_properties
+    YangMills.Construction.TheStatementsProvedTogether.support_sites_location
+theorem support_separation_lower_bound :
+    YangMills.Construction.LevelTestFunctions.separationLowerBoundStatement :=
+  YangMills.Construction.LevelTestFunctions.separationLowerBound_of_support_bounds
+    YangMills.Construction.TheStatementsProvedTogether.support_sites_location
+    YangMills.Construction.TheStatementsProvedTogether.support_site_distance_bounds
+theorem sites_along_hull_class : YangMills.Construction.HullTrees.sitesAlongHullClassStatement := by apply _root_.YangMills.Construction.HullsInEveryVolume.sitesAlongHullClass <;> assumption
+theorem chessboard_estimate_bare_grid : YangMills.Construction.ChessboardGrids.chessboardEstimateStatement :=
+  YangMills.Construction.ChessboardGrids.chessboardEstimate_of_cellWindows
+    YangMills.Construction.TheStatementsProvedTogether.bare_grid_chessboard_estimate
+theorem chain_drawn_by_rule : YangMills.Construction.ChainNoise.ruleDrawsChainStatement :=
+  YangMills.Construction.ChainNoise.ruleDrawsChainStatement_holds
+    YangMills.Construction.TheStatementsProvedTogether.step_transition_density_bounds
+    YangMills.Construction.TheStatementsProvedTogether.chain_measurable
+theorem translation_carries_hull_bases : YangMills.Construction.HullTrees.translationCarriesBasesStatement := by apply _root_.YangMills.Construction.HullTrees.translationCarriesBases <;> assumption
+theorem exists_noise_rule : YangMills.Construction.ChainNoise.existsNoiseRuleStatement :=
+  YangMills.Construction.ChainNoise.existsNoiseRule
+    YangMills.Construction.TheStatementsProvedTogether.exists_chain_sampler
+    YangMills.Construction.TheStatementsProvedTogether.translation_carries_hull_bases
+    YangMills.Construction.TheStatementsProvedTogether.base_law_eq_product
+theorem chain_noise_representation : YangMills.Construction.ChainNoise.noiseRepresentationStatement :=
+  YangMills.Construction.ChainNoise.noiseRepresentation
+    YangMills.Construction.TheStatementsProvedTogether.exists_noise_rule
+    YangMills.Construction.TheStatementsProvedTogether.chain_drawn_by_rule
+theorem even_translates_bound_copy : YangMills.Construction.ChessboardGrids.evenTranslatesBoundStatement :=
+  YangMills.Construction.ChessboardGrids.evenTranslatesBound_holds
+    YangMills.Construction.TheStatementsProvedTogether.field_haar_invariant_under_symmetries
+theorem chain_translate_copies_bound : YangMills.Construction.ChainNoise.translatedCopiesBoundStatement :=
+  YangMills.Construction.ChainNoise.translatedCopiesBound_of_evenTranslatesBound
+    YangMills.Construction.TheStatementsProvedTogether.even_translates_bound_copy
+theorem cutoff_minimizing_field : YangMills.Construction.HullsInEveryVolume.minimizingFieldOfCutoff :=
+  YangMills.Construction.HullsInEveryVolume.minimizingFieldOfCutoff_holds
+    YangMills.Construction.TheStatementsProvedTogether.isRegular_compl_thickening
+    YangMills.Construction.TheStatementsProvedTogether.whole_cell_cost_eq_minimal_action
+theorem bad_blocks_paid_by_energy : YangMills.Construction.HullsInEveryVolume.badBlocksPaidByEnergy :=
+  YangMills.Construction.HullsInEveryVolume.badBlocksPaidByEnergy_holds
+    YangMills.Construction.TheStatementsProvedTogether.frame_near_cutoff_minimizer
+    YangMills.Construction.TheStatementsProvedTogether.cutoff_minimizing_field
+    YangMills.Construction.TheStatementsProvedTogether.stepLevels_hole_saving_bound
+    YangMills.Construction.TheStatementsProvedTogether.hot_lumps_of_step
+theorem hull_free_energy_lower_bound : YangMills.Construction.HullTrees.freeEnergyLowerBoundStatement :=
+  YangMills.Construction.HullTrees.freeEnergyLowerBound_of
+    YangMills.Construction.TheStatementsProvedTogether.flow_functional_integral
+    YangMills.Construction.TheStatementsProvedTogether.free_energy_expansion_along_flow
+    YangMills.Construction.TheStatementsProvedTogether.cluster_expansion_basic_bounds
+    YangMills.Construction.TheStatementsProvedTogether.haar_ball_mass_cubic_lower_bound
+    YangMills.Construction.TheStatementsProvedTogether.cold_field_action_bound
+theorem functional_le_lump_price : YangMills.Construction.HullsInEveryVolume.functionalBoundByLumpPrice :=
+  YangMills.Construction.HullsInEveryVolume.functionalBoundByLumpPrice_of_expansionBasicBounds
+    YangMills.Construction.TheStatementsProvedTogether.cluster_expansion_basic_bounds
+theorem stage_state_density : YangMills.Construction.HullTrees.stageStateDensityStatement :=
+  YangMills.Construction.HullTrees.stageStateDensityStatement_holds
+    YangMills.Construction.TheStatementsProvedTogether.box_law_state_density
+    YangMills.Construction.TheStatementsProvedTogether.chain_states_measurable
+    YangMills.Construction.TheStatementsProvedTogether.weighted_response_chain_isProbabilityMeasure
+    YangMills.Construction.TheStatementsProvedTogether.forgetLastStep_law
+theorem farApart_places_rare : YangMills.Construction.HullTrees.separatedUnitsRareStatement :=
+  YangMills.Construction.HullsInEveryVolume.separatedUnitsRare
+    YangMills.Construction.TheStatementsProvedTogether.stage_state_density
+    YangMills.Construction.TheStatementsProvedTogether.hull_free_energy_lower_bound
+    YangMills.Construction.TheStatementsProvedTogether.bad_blocks_paid_by_energy
+    YangMills.Construction.TheStatementsProvedTogether.flow_functional_integral
+    YangMills.Construction.TheStatementsProvedTogether.free_energy_expansion_along_flow
+    YangMills.Construction.TheStatementsProvedTogether.functional_le_lump_price
+    YangMills.Construction.TheStatementsProvedTogether.bond_kernel_properties
+    YangMills.Construction.TheStatementsProvedTogether.log_partition_gap_log_growth
+    YangMills.Construction.TheStatementsProvedTogether.step_transition_density_bounds
+    YangMills.Construction.TheStatementsProvedTogether.chain_measurable
+theorem hull_indicator_local : YangMills.Construction.HullTrees.unitIndicatorLocal :=
+  YangMills.Construction.HullTrees.unitIndicatorLocal_holds
+    YangMills.Construction.TheStatementsProvedTogether.frame_coord_local
+    YangMills.Construction.TheStatementsProvedTogether.block_data_local
+theorem translation_moves_hull : YangMills.Construction.HullsInEveryVolume.unitTranslationStatement :=
+  YangMills.Construction.HullsInEveryVolume.unitTranslationStatement_holds
+    YangMills.Construction.TheStatementsProvedTogether.frame_gauge_translation_covariant
+theorem unit_norm_bound :
+    YangMills.Construction.HullsInEveryVolume.unitProbabilityNormBoundStatement :=
+  YangMills.Construction.HullsInEveryVolume.unitProbabilityNormBound
+    YangMills.Construction.TheStatementsProvedTogether.chain_translate_copies_bound
+    YangMills.Construction.TheStatementsProvedTogether.hull_indicator_local
+    YangMills.Construction.TheStatementsProvedTogether.farApart_places_rare
+    YangMills.Construction.TheStatementsProvedTogether.chain_noise_representation
+    YangMills.Construction.TheStatementsProvedTogether.translation_moves_hull
+    YangMills.Construction.TheStatementsProvedTogether.forgetLastStep_law
+theorem sixteen_offsets_separate_points : YangMills.Construction.ChessboardGrids.offsetSeparationStatement := by apply _root_.YangMills.Construction.ChessboardGrids.offsetSeparationStatement_holds <;> assumption
+theorem hull_separated_pieces_bound : YangMills.Construction.HullTrees.separatedUnitsBoundStatement :=
+  YangMills.Construction.HullsInEveryVolume.separatedUnitsBound
+    YangMills.Construction.TheStatementsProvedTogether.chessboard_estimate_bare_grid
+    YangMills.Construction.TheStatementsProvedTogether.hull_indicator_local
+    YangMills.Construction.TheStatementsProvedTogether.sixteen_offsets_separate_points
+    YangMills.Construction.TheStatementsProvedTogether.farApart_places_rare
+    YangMills.Construction.TheStatementsProvedTogether.unit_norm_bound
+    YangMills.Construction.TheStatementsProvedTogether.chain_noise_representation
+    YangMills.Construction.TheStatementsProvedTogether.chain_measurable
+theorem hullTree_fewLeafSites : YangMills.Construction.HullTrees.FewLeafSiteFamilies :=
+  YangMills.Construction.HullTrees.fewLeafSiteFamilies_of_flowDescendsLinearly
+    YangMills.Construction.TheStatementsProvedTogether.coupling_flow_descends_linearly
+theorem hull_unit_or_separated_children : YangMills.Construction.HullTrees.UnitOrSeparatedChildren :=
+  YangMills.Construction.HullTrees.unitOrSeparatedChildren_of_eventuallyFloorConditions
+    YangMills.Construction.TheStatementsProvedTogether.eventually_floor_conditions
+theorem exists_hull_site_tree : YangMills.Construction.HullTrees.HullSiteTreeExists :=
+  YangMills.Construction.HullTrees.hullSiteTreeExists_of_unitOrSeparatedChildren
+    YangMills.Construction.TheStatementsProvedTogether.hull_unit_or_separated_children
+theorem hull_separatedSites_bound : YangMills.Construction.HullTrees.UnitsOfSeparatedHullSites :=
+  YangMills.Construction.HullTrees.unitsOfSeparatedHullSites_holds
+    YangMills.Construction.TheStatementsProvedTogether.exists_hull_site_tree
+    YangMills.Construction.TheStatementsProvedTogether.hullTree_fewLeafSites
+theorem hull_class_diam_tail : YangMills.Construction.HullTrees.hullClassDiameterTailStatement :=
+  YangMills.Construction.HullTrees.hullClassDiameterTail
+    YangMills.Construction.TheStatementsProvedTogether.sites_along_hull_class
+    YangMills.Construction.TheStatementsProvedTogether.hull_separatedSites_bound
+    YangMills.Construction.TheStatementsProvedTogether.hull_separated_pieces_bound
+    YangMills.Construction.TheStatementsProvedTogether.coupling_flow_descends_linearly
+    YangMills.Construction.TheStatementsProvedTogether.sample_below_law
+    YangMills.Construction.TheStatementsProvedTogether.forgetLastStep_law
+theorem local_hull_subset_hull : YangMills.Construction.HullTrees.localHullSubsetStatement := by apply _root_.YangMills.Construction.HullTrees.localHullSubset <;> assumption
+theorem hull_total_size_exp_moment : YangMills.Construction.HullTrees.totalSizeExpMomentStatement :=
+  YangMills.Construction.HullTrees.totalSizeExpMoment
+    YangMills.Construction.TheStatementsProvedTogether.box_law_state_density
+    YangMills.Construction.TheStatementsProvedTogether.scored_mass_of_field
+    YangMills.Construction.TheStatementsProvedTogether.hull_free_energy_lower_bound
+    YangMills.Construction.TheStatementsProvedTogether.flow_functional_integral
+    YangMills.Construction.TheStatementsProvedTogether.chain_states_measurable
+    YangMills.Construction.TheStatementsProvedTogether.image_lowTemp_expansion
+    YangMills.Construction.TheStatementsProvedTogether.scored_component_price_bound
+    YangMills.Construction.TheStatementsProvedTogether.class_exponent_le_step_cost
+    YangMills.Construction.TheStatementsProvedTogether.parameterFamily_meets_classSum
+    YangMills.Construction.TheStatementsProvedTogether.eventually_floor_conditions
+theorem local_hull_locality : YangMills.Construction.HullsInEveryVolume.localHullLocalityStatement :=
+  YangMills.Construction.HullsInEveryVolume.localHullLocality
+    YangMills.Construction.TheStatementsProvedTogether.frame_coord_local
+    YangMills.Construction.TheStatementsProvedTogether.block_data_local
+    YangMills.Construction.TheStatementsProvedTogether.frame_gauge_translation_covariant
+theorem noise_chain_measurable : YangMills.Construction.HullsInEveryVolume.noiseChainMeasurableStatement :=
+  YangMills.Construction.HullsInEveryVolume.noiseChainMeasurable
+    YangMills.Construction.TheStatementsProvedTogether.chain_measurable
+theorem local_hull_moment_le : YangMills.Construction.HullTrees.localHullMomentBound :=
+  YangMills.Construction.HullsInEveryVolume.localHullMomentBound_proof
+    YangMills.Construction.TheStatementsProvedTogether.chessboard_estimate_bare_grid
+    YangMills.Construction.TheStatementsProvedTogether.chain_translate_copies_bound
+    YangMills.Construction.TheStatementsProvedTogether.local_hull_subset_hull
+    YangMills.Construction.TheStatementsProvedTogether.local_hull_locality
+    YangMills.Construction.TheStatementsProvedTogether.hull_total_size_exp_moment
+    YangMills.Construction.TheStatementsProvedTogether.chain_noise_representation
+    YangMills.Construction.TheStatementsProvedTogether.noise_chain_measurable
+    YangMills.Construction.TheStatementsProvedTogether.chain_measurable
+theorem hull_size_moments : YangMills.Construction.HullTrees.siteSizeMomentStatement :=
+  YangMills.Construction.HullTrees.siteSizeMomentStatement_holds
+    YangMills.Construction.TheStatementsProvedTogether.hull_class_diam_tail
+    YangMills.Construction.TheStatementsProvedTogether.local_hull_subset_hull
+    YangMills.Construction.TheStatementsProvedTogether.local_hull_moment_le
+    YangMills.Construction.TheStatementsProvedTogether.chain_noise_representation
+    YangMills.Construction.TheStatementsProvedTogether.chain_states_measurable
+    YangMills.Construction.TheStatementsProvedTogether.chain_measurable
+end YangMills.Construction.TheStatementsProvedTogether

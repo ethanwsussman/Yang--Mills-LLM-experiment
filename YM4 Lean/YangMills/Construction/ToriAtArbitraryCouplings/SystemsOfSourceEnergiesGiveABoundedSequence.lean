@@ -1,0 +1,14 @@
+import YangMills.Construction.ToriAtArbitraryCouplings.BoundedSequencesOfCutoffsAndTheirLimits
+import Mathlib
+set_option autoImplicit false
+open Filter Set
+open scoped ENNReal Topology
+noncomputable section
+namespace YangMills.Construction.ToriAtArbitraryCouplings
+open YangMills.Construction.ReflectionPositivity.AxisMirror (Ambient)
+namespace LocalizedEnergySystemsBound
+open TorusSide
+def Holds : Prop := LimitExtraction.boundFromFamilies
+end LocalizedEnergySystemsBound
+end YangMills.Construction.ToriAtArbitraryCouplings
+end

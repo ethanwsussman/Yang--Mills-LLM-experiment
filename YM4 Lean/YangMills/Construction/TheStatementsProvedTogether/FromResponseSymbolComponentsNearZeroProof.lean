@@ -1,0 +1,236 @@
+import YangMills.Construction.OneLoopLaw.HolomorphicFunctionsWithACubicDifferenceProof
+import YangMills.Construction.OneLoopLaw.TheSumOfTheOneLoopIncrementsProof
+import YangMills.Construction.PeriodicOperators.BlockMatricesOfJetsAreJetsProof
+import YangMills.Construction.PeriodicOperators.BlockMatricesOfLocalOperatorFunctionsAndOfJetsProof
+import YangMills.Construction.PeriodicOperators.BlockMatricesOfLocalOperatorFunctionsAreLocalProof
+import YangMills.Construction.PeriodicOperators.CopiesAndUnionsOfPeriodicIndexSetsProof
+import YangMills.Construction.PeriodicOperators.JetsAlongFieldsExtendedByZeroProof
+import YangMills.Construction.PeriodicOperators.JetsCarriedOverToCopiesProof
+import YangMills.Construction.PeriodicOperators.JetsOnADisjointSumAndOnTheUnionOfAPairProof
+import YangMills.Construction.PeriodicOperators.LocalOperatorFunctionsCarriedOverToCopiesProof
+import YangMills.Construction.PeriodicOperators.ProductsOfBlockMatricesOfJetsProof
+import YangMills.Construction.TheStatementsProvedTogether.FromPolarisationAtTheResponseFieldProof
+import YangMills.Construction.Towers.CompositionOfATemperedFunctionalWithAStepProof
+import YangMills.Construction.Towers.FamilyOfACompositionIsGivenAtLargeSidesProof
+import YangMills.Construction.Towers.FamilyOfTheTotalNormaliserIsTemperedProof
+import YangMills.Construction.Towers.IteratesOfTheStraightAverageKeepTheFormsProof
+import YangMills.Construction.Towers.MeansOfPlaneWavesAlongStraightPathsProof
+import YangMills.Construction.Towers.OuterFactorsKeepTheNumberOfAJetProof
+import YangMills.Construction.Towers.PlaneWavesUnderTheDilationOfOneStepProof
+import YangMills.Construction.Towers.PowersOfTheMassivePropagatorProof
+import YangMills.Construction.Towers.PropertiesOfTheSymbolOfOneStepProof
+import YangMills.Construction.Towers.ResponseOfAPlaneWaveOnATorusProof
+import YangMills.Construction.Towers.TemperingDataOfACompositionWithAStepProof
+import YangMills.Construction.Towers.TheDeterminantsWithoutConstraintProof
+import YangMills.Construction.Towers.TheFormulaOfTheRemainderProof
+import YangMills.Construction.Towers.TheFreePolarisationIsHolomorphicInThePolydiscProof
+import YangMills.Construction.Towers.TheJetOfTheScaledSaddleOfTheBondsProof
+import YangMills.Construction.Towers.TheJetOfTheScaledSaddleOfTheSitesProof
+import YangMills.Construction.Towers.TheOperatorFunctionsAtTheBackgroundFieldsProof
+import YangMills.Construction.Towers.TheOperatorJetsAreSaddleJetsProof
+import YangMills.Construction.Towers.TheRemainderOfTheFreePolarisationProof
+import YangMills.Construction.Towers.TheSecondDifferentialAtTheResponseSymbolsNearZeroProof
+import YangMills.Construction.Towers.TheSymbolAtZeroOnConstantFormsProof
+import YangMills.Construction.Towers.TheTermsOfTheRemainderAreHolomorphicProof
+import Mathlib
+namespace YangMills.Construction.TheStatementsProvedTogether
+theorem response_symbol_components_near_zero :
+    YangMills.Construction.Tower.ResponseSymbolNearZero.ComponentsNearZero :=
+  YangMills.Construction.Tower.ResponseSymbolNearZero.componentsNearZero_holds response_operators_properties
+    joint_width_and_transpose_average linear_response_properties plane_wave_calculus tower_indexSets_properties
+    towerIndex_translation
+theorem symbol_zero_symmetric_kills_constant_forms :
+    YangMills.Construction.Tower.SymbolAtZero.SymmetricAndKillsConstantForms :=
+  YangMills.Construction.Tower.SymbolAtZero.symmetricAndKillsConstantForms_holds second_derivative_near_symbol
+    hessian_functional_complex_extension hessian_vanishes_on_gauge_directions
+    second_differential_symbol_coeffs_exist joint_width_and_transpose_average
+    periodicExtension_cells_and_classes tower_index_set_periodic infiniteLattice_over_torus
+    bond_opposite_positive_restriction
+theorem response_second_variation_cubic_bound_near_zero :
+    YangMills.Construction.Tower.ResponseSecondVariation.NearZeroCubicBound :=
+  YangMills.Construction.Tower.ResponseSecondVariation.nearZeroCubicBound_holds symbol_zero_symmetric_kills_constant_forms
+    second_differential_symbol_coeffs_exist response_symbol_components_near_zero
+    periodic_operator_determinants_holomorphic tower_index_set_periodic
+theorem secondPartials_eq_of_cubic_difference :
+    YangMills.Construction.OneLoopLaw.CubicAgreement.SecondPartialsAgree :=
+  YangMills.Construction.OneLoopLaw.CubicAgreement.secondPartialsAgree_of_powerSeries
+    holomorphic_power_series_and_limits
+theorem block_matrix_of_jets_is_jet : YangMills.Construction.PeriodicOperators.BlockJetsAreJets.Claim := by apply _root_.YangMills.Construction.PeriodicOperators.BlockJetsAreJets.claim_holds <;> assumption
+theorem blockMatrix_jet_mul : YangMills.Construction.PeriodicOperators.BlockJetProducts.Claim := by apply _root_.YangMills.Construction.PeriodicOperators.BlockJetProducts.claim_holds <;> assumption
+theorem periodic_index_set_copies_unions : YangMills.Construction.PeriodicOperators.CopiesUnions.Claim := by apply _root_.YangMills.Construction.PeriodicOperators.CopiesUnions.claim_holds <;> assumption
+theorem saddle_jet_number : YangMills.Construction.PeriodicOperators.SaddleJetNumber.Claim :=
+  YangMills.Construction.PeriodicOperators.SaddleJetNumber.holds periodic_jet_calculus blockMatrix_jet_mul
+    block_matrix_of_jets_is_jet periodic_index_set_copies_unions jetProduct_arguments_and_equal_jets jet_add_smul
+    jet_transpose periodic_jet_products periodic_operator_jets_constant_part
+    jet_norms_and_affine_invertible_jets
+theorem jets_extend_by_zero : YangMills.Construction.PeriodicOperators.ExtendByZeroJets.Claim :=
+  YangMills.Construction.PeriodicOperators.ExtendByZeroJets.claim_holds taylor_coeff_on_superset
+    taylor_quadratic_unique holomorphic_iff_differentiable
+theorem jets_on_disjoint_sum_and_union : YangMills.Construction.PeriodicOperators.DisjSumJets.Claim :=
+  YangMills.Construction.PeriodicOperators.DisjSumJets.claim_holds localOperatorFunction_jet_triple
+theorem operator_functions_eq_on_small_fields :
+    YangMills.Construction.PeriodicOperators.LocalAgreement.Claim := by apply _root_.YangMills.Construction.PeriodicOperators.LocalAgreement.claim_holds <;> assumption
+theorem diagonalScaling_jetIndex :
+    YangMills.Construction.PeriodicOperators.DiagonalScaling.PreservesJetIndex :=
+  YangMills.Construction.PeriodicOperators.DiagonalScaling.preservesJetIndex_holds jets_on_disjoint_sum_and_union
+    local_operator_function_mul_local jet_comp_local_operator_functions
+    finiteRange_periodicOperator_as_localOpFun jet_log_number_additive_integral
+    jetProduct_arguments_and_equal_jets local_operator_function_jets periodic_operator_symbol_add_mul
+    periodic_index_set_id_kernel
+theorem background_field_extends_by_zero :
+    YangMills.Construction.Tower.FullSpace.BackgroundJets.BackgroundTriple.ExtendsByZero :=
+  YangMills.Construction.Tower.FullSpace.BackgroundJets.BackgroundTriple.extendsByZero_of_responseSymbol
+    responseSymbol_holomorphic_near_strip
+theorem block_matrix_local_of_local : YangMills.Construction.PeriodicOperators.BlockLocality.Claim :=
+  YangMills.Construction.PeriodicOperators.BlockLocality.claim_holds
+    local_operator_function_parameter_independent local_operator_function_kernels
+    periodic_operator_symbol_on_plane_waves
+theorem periodicIndex_copy_quotients : YangMills.Construction.PeriodicOperators.CopyQuotients.Claim := by apply _root_.YangMills.Construction.PeriodicOperators.CopyQuotients.claim_holds <;> assumption
+theorem local_operator_function_copy : YangMills.Construction.PeriodicOperators.CopyOpFuns.Claim :=
+  YangMills.Construction.PeriodicOperators.CopyOpFuns.claim_holds periodic_index_set_copies_unions
+    local_operator_function_jets
+theorem jets_transfer_periodic_copies : YangMills.Construction.PeriodicOperators.CopyJets.Claim := by apply _root_.YangMills.Construction.PeriodicOperators.CopyJets.claim_holds <;> assumption
+theorem block_matrices_local_operator_jets : YangMills.Construction.PeriodicOperators.BlockJets.AllConditions :=
+  YangMills.Construction.PeriodicOperators.BlockJets.allConjuncts_holds periodic_index_set_copies_unions
+    localOperatorFunction_smul_jets block_matrix_of_jets_is_jet blockMatrix_jet_mul block_matrix_local_of_local
+    periodicIndex_copy_quotients local_operator_function_copy jets_transfer_periodic_copies
+theorem rescaled_bond_saddle_jet :
+    YangMills.Construction.Tower.FullSpace.BackgroundJets.RescaledEdgeSaddleJet :=
+  YangMills.Construction.Tower.FullSpace.BackgroundJets.RescaledEdgeSaddleJetProof.rescaledEdgeSaddleJet_holds
+    local_operator_function_jets periodic_jet_calculus jetProduct_arguments_and_equal_jets
+    block_matrices_local_operator_jets scaled_operatorFunctions_properties iterated_average_small_field
+theorem vertex_saddle_jet_local :
+    YangMills.Construction.Tower.FullSpace.BackgroundJets.VertexSaddleJet.LocalWithBlockJet :=
+  YangMills.Construction.Tower.FullSpace.BackgroundJets.VertexSaddleJet.localWithBlockJet_holds
+    block_matrices_local_operator_jets local_operator_function_jets local_operator_transpose_jet
+    tower_indexSets_properties full_space_three_operators_local scaled_blockAverages_local
+    iterated_average_small_field
+theorem background_op_functions_saddle_relations :
+    YangMills.Construction.Tower.FullSpace.BackgroundJets.OpFunsAtBackground.SaddleRelations :=
+  YangMills.Construction.Tower.FullSpace.BackgroundJets.OpFunsAtBackground.saddleRelations_holds
+    small_iterates_near_one background_kernel_at_zero_source whole_lattice_rescaled_saddle_scaling
+theorem remainder_operatorJets_eq_saddleJets :
+    YangMills.Construction.Tower.FullSpace.BackgroundJets.RemainderJets.OperatorJetsSaddle.Claim :=
+  YangMills.Construction.Tower.FullSpace.BackgroundJets.RemainderJets.OperatorJetsSaddle.operatorJetsSaddle_holds
+    jets_on_disjoint_sum_and_union jets_extend_by_zero operator_functions_eq_on_small_fields
+    diagonalScaling_jetIndex jetProduct_arguments_and_equal_jets local_operator_function_jets
+    periodic_index_set_copies_unions background_field_extends_by_zero
+    background_op_functions_saddle_relations rescaled_bond_saddle_jet vertex_saddle_jet_local
+    wholeSpace_operatorFunctions jet_invertible_widths tower_index_set_periodic tower_indexSets_properties
+theorem polarization_logDet_formula :
+    YangMills.Construction.Tower.FullSpace.BackgroundJets.RemainderJets.UnconstrainedDeterminants.PolarizationLogDetFormula :=
+  YangMills.Construction.Tower.FullSpace.BackgroundJets.RemainderJets.UnconstrainedDeterminants.polarizationLogDetFormula_holds
+    remainder_middleJets_invertible saddle_jet_number remainder_operatorJets_eq_saddleJets
+    scaled_operatorFunctions_properties iterated_average_small_field localOperator_jet_entire
+    free_operator_strip_constants_admissible
+theorem free_polarization_remainder_holomorphic :
+    YangMills.Construction.Tower.FullSpace.BackgroundJets.RemainderJets.FreePolarizationHolomorphic :=
+  YangMills.Construction.Tower.FullSpace.BackgroundJets.RemainderJets.FreePolarizationHolomorphy.freePolarizationHolomorphic_holds
+    polarization_logDet_formula jet_invertible_widths background_field_properties
+    response_operators_properties wholeSpace_operatorFunctions tower_index_set_periodic
+    tower_indexSets_properties
+theorem normaliser_stiffness_eq_mixed_partial :
+    YangMills.Construction.Tower.NormaliserStiffness.StiffnessIsMixedPartial :=
+  YangMills.Construction.Tower.NormaliserStiffness.stiffnessIsMixedPartial_of_claims
+    joint_width_and_transpose_average free_operator_strip_constants_admissible
+    total_normaliser_symbol_tempered response_second_variation_cubic_bound_near_zero
+    free_polarization_remainder_holomorphic logNormaliser_isFunctional temperedFunctional_stiffness
+    secondPartials_eq_of_cubic_difference
+theorem total_normaliser_tempered :
+    YangMills.Construction.Tower.NormaliserTempered.TemperedAndStiffness :=
+  YangMills.Construction.Tower.NormaliserTempered.temperedAndStiffness logNormaliser_isFunctional
+    total_normaliser_symbol_tempered response_second_variation_cubic_bound_near_zero
+    normaliser_stiffness_eq_mixed_partial joint_width_and_transpose_average
+    free_operator_strip_constants_admissible polarizationSymbol_determines_functional
+theorem remainder_jet_log_interpolation :
+    YangMills.Construction.Tower.FullSpace.BackgroundJets.RemainderJets.LogNumberInterpolation.Claim :=
+  YangMills.Construction.Tower.FullSpace.BackgroundJets.RemainderJets.LogNumberInterpolation.claim_holds
+    jet_norms_and_affine_invertible_jets periodic_jet_calculus local_operator_function_jets
+    jetProduct_arguments_and_equal_jets periodic_quadruple_algebra
+theorem background_jet_remainder_formula :
+    YangMills.Construction.Tower.FullSpace.BackgroundJets.RemainderJets.Formula.RemainderFormula :=
+  YangMills.Construction.Tower.FullSpace.BackgroundJets.RemainderJets.Formula.remainderFormula_holds
+    remainder_jet_log_interpolation polarization_logDet_formula remainder_middleJets_invertible
+    massiveJets_properties tower_indexSets_properties local_operator_function_jets
+theorem background_operator_jets_bounded :
+    YangMills.Construction.Tower.FullSpace.BackgroundJets.OperatorJetBounds.JetsBoundedAtLevel :=
+  YangMills.Construction.Tower.FullSpace.BackgroundJets.JetBoundsAtLevel.jetsBoundedAtLevel_holds
+    background_field_properties scaled_operatorFunctions_properties norm_periodicHom
+    periodic_symbol_calculus
+theorem background_jet_remainder_terms_holomorphic :
+    YangMills.Construction.Tower.FullSpace.BackgroundJets.RemainderJets.TermsHolomorphic.RemainderTermsHolomorphic :=
+  YangMills.Construction.Tower.FullSpace.BackgroundJets.RemainderJets.TermsHolomorphic.remainderTermsHolomorphic_holds
+    holomorphicJets_closed_add_mul_transpose jet_inverse_holomorphic jet_trace_holomorphic
+    box_integral_holomorphic_in_parameter background_field_properties remainder_middleJets_invertible
+    tower_basicJets_bounded background_operator_jets_bounded periodic_jet_calculus
+    jet_norms_and_affine_invertible_jets periodic_quadruple_algebra local_operator_function_jets
+    tower_indexSets_properties periodic_operator_strip_symbols free_operator_strip_constants_admissible
+    jet_number_bounds
+theorem freePolarisation_remainder_bound :
+    YangMills.Construction.Tower.FullSpace.BackgroundJets.FreePolarizationRemainder.FreePolarizationRemainderBound :=
+  YangMills.Construction.Tower.FullSpace.BackgroundJets.FreePolarizationRemainder.freePolarizationRemainderBound_holds
+    free_operator_strip_constants_admissible polarization_logDet_formula background_jet_remainder_formula
+    background_remainder_jet_edge_term_bounds remainder_jet_vertex_term_bounds
+    background_jet_remainder_terms_holomorphic free_polarization_remainder_holomorphic response_operators_properties
+    periodic_operator_determinants_holomorphic total_normaliser_tempered
+    temperedFunctional_stiffness
+theorem tempered_comp_eventuallyDefined :
+    YangMills.Construction.PeriodicOperators.Tempered.CompStepEventuallyDefined :=
+  YangMills.Construction.PeriodicOperators.Tempered.compStepEventuallyDefined_holds exists_criticalBranch
+    analytic_along_curves_of_charts finiteEdgeSet_configuration_product dilation_near_trivial_config
+theorem comp_step_tempered_functional :
+    YangMills.Construction.PeriodicOperators.Tempered.CompStepPreservesFunctionals :=
+  YangMills.Construction.Tower.StepComposition.compStepPreservesFunctionals_proof exists_criticalBranch
+    analytic_along_curves_of_charts finiteEdgeSet_configuration_product tempered_comp_eventuallyDefined
+    tower_dilation_properties dilation_scaling_compatible tower_sublattices_symmetries_scalings
+    groupLieProduct_holomorphic_calculus
+theorem step_symbol_entry_bounds : YangMills.Construction.Tower.StepEntryBounds.Claim :=
+  YangMills.Construction.Tower.StepEntryBounds.claim_holds response_operators_properties
+    linear_response_properties periodic_operator_strip_symbols towerIndex_translation
+    tower_indexSets_properties
+theorem composite_symbol_near_zero : YangMills.Construction.Tower.StepSymbolNearZero.Claim :=
+  YangMills.Construction.CompositeSymbolNearZero.stepSymbolNearZero step_symbol_entry_bounds
+    response_operators_properties
+theorem iterated_straightAverage_maps_forms :
+    YangMills.Construction.Tower.CrossingSmoothingIterMapsForms :=
+  YangMills.Construction.Tower.CrossingSmoothingIter.mapsForms_of_twoLevelMaps
+    linear_maps_between_tower_levels
+theorem plane_wave_means_along_straight_path : YangMills.Construction.Tower.StraightPathMeans.PlaneWaveMeans :=
+  YangMills.Construction.Tower.StraightPathMeans.planeWaveMeans_proof tower_blocks_paths_contours_pivots
+theorem response_colour_coefficients :
+    YangMills.Construction.Tower.ResponseCoefficients.ColourCoefficientClaim :=
+  YangMills.Construction.Tower.ResponseCoefficients.colourCoefficientClaim_holds
+    response_operators_properties periodic_operator_strip_symbols towerIndex_translation
+    tower_indexSets_properties
+theorem plane_wave_dilation_scaling : YangMills.Construction.Tower.StepScalingOfFourierModes.Claim := by apply _root_.YangMills.Construction.Tower.StepScalingOfFourierModes.claim_holds <;> assumption
+theorem plane_wave_response_on_torus : YangMills.Construction.Tower.PeriodicResponseOfFourierMode.Claim :=
+  YangMills.Construction.Tower.PeriodicResponseOfFourierMode.claim_holds torus_response_relations
+    response_operators_properties periodic_operator_symbol tower_indexSets_properties
+    periodic_quotient_transpose_norm_bound periodicExtension_cells_and_classes plane_wave_calculus
+    response_colour_coefficients plane_wave_dilation_scaling
+theorem step_image_fourier_modes : YangMills.Construction.Tower.StepImageOfFourierModes.ImageExpansion :=
+  YangMills.Construction.Tower.StepImageOfFourierModes.imageExpansion_holds plane_wave_response_on_torus
+    plane_wave_means_along_straight_path plane_wave_dilation_scaling iterated_straightAverage_maps_forms
+    iterates_eq_cubeAverages
+theorem hessian_comp_step : YangMills.Construction.Tower.HessianOfStepComposite.Claim :=
+  YangMills.Construction.Tower.HessianOfStepComposite.claim_holds exists_criticalBranch
+    critical_branch_response gauge_colour_momentum_difference composite_second_order_at_one
+    complex_hessian_polarization tempered_comp_eventuallyDefined tower_dilation_properties
+    real_analytic_map_differentiable finiteEdgeSet_configuration_product expChart_holomorphic
+    groupLieProduct_holomorphic_calculus pauli_matrix_relations
+theorem exists_tempered_witness_comp_step :
+    YangMills.Construction.Tower.TemperedComposition.CompStepTemperedWitnessExists :=
+  YangMills.Construction.Tower.TemperedComposition.compStepTemperedWitnessExists_holds
+    hessian_comp_step step_image_fourier_modes step_symbol_entry_bounds gauge_colour_momentum_difference
+    response_operators_properties complex_hessian_polarization fourier_mode_lattice_symmetry
+    holomorphic_iff_differentiable
+theorem temperedFunctional_comp_blockStep : YangMills.Construction.TemperedComposition.TemperedCompStep :=
+  YangMills.Construction.TemperedComposition.temperedCompStep_holds temperedFunctional_stiffness
+    comp_step_tempered_functional exists_tempered_witness_comp_step composite_symbol_near_zero
+theorem one_loop_increments_sum : YangMills.Construction.OneLoopLaw.IncrementSum.IncrementsSumToTotal :=
+  YangMills.Construction.OneLoopLaw.IncrementSum.incrementsSumToTotal_holds
+    total_normaliser_tempered temperedFunctional_comp_blockStep gauge_colour_momentum_difference
+    temperedFunctional_stiffness normaliser_product_formula criticalBranch_normalisers
+    fourier_mode_lattice_symmetry
+theorem massivePropagator_pow_bounds : YangMills.Construction.Tower.MassivePropagator.PowerBounds := by apply _root_.YangMills.Construction.Tower.MassivePropagator.powerBounds_holds <;> assumption
+end YangMills.Construction.TheStatementsProvedTogether

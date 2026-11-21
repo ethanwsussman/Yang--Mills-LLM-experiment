@@ -1,0 +1,8 @@
+import YangMills.Construction.ColdStepAtMirrorFrames.DensityHypothesesAtParameters
+import Mathlib
+set_option autoImplicit false
+noncomputable section
+namespace YangMills.Construction.ColdStepAtMirrorFrames
+def interactionDensityBoundsStatement : Prop := EventuallyInParameters InteractionDensityBoundsAt
+end YangMills.Construction.ColdStepAtMirrorFrames
+end

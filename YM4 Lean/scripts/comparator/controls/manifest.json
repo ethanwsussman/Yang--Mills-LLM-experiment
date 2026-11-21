@@ -1,0 +1,104 @@
+{
+  "cases": [
+    {
+      "name": "positive_identity",
+      "accept": true,
+      "marker": "serialized comparison passed:",
+      "files": {
+        "challenge.ndjson": "25cd7b37836e9faafb8f9d032d9efed8135e4ac101217e8916f656be1c6c7d2c",
+        "solution.ndjson": "25cd7b37836e9faafb8f9d032d9efed8135e4ac101217e8916f656be1c6c7d2c",
+        "scope.json": "954faf1315fbb467482e56033ec8aeb51c42ac6cb5e286a5a239ec8a59c008e5"
+      }
+    },
+    {
+      "name": "changed_root_type",
+      "accept": false,
+      "marker": "Challenge and solution theorem statement do not match",
+      "files": {
+        "challenge.ndjson": "25cd7b37836e9faafb8f9d032d9efed8135e4ac101217e8916f656be1c6c7d2c",
+        "solution.ndjson": "6d35c31f6b6135b5b01315410599c1c4525bd018d2abeb413bcc5b8bdaed9f3e",
+        "scope.json": "954faf1315fbb467482e56033ec8aeb51c42ac6cb5e286a5a239ec8a59c008e5"
+      }
+    },
+    {
+      "name": "changed_hidden_definition",
+      "accept": false,
+      "marker": "Const does not match between challenge and target",
+      "files": {
+        "challenge.ndjson": "28d894572b44b8c4524084ebf555706b3740608c2349f5789f7568ac68948758",
+        "solution.ndjson": "2a23ba19239174da3b866a983bba402704051e5b1c5132804be7155e5d1b74e8",
+        "scope.json": "f27f26f174427a10bac8206d643f36215cf5021843564baaa4e0274f38e9a6a1"
+      }
+    },
+    {
+      "name": "used_native_style_axiom",
+      "accept": false,
+      "marker": "Illegal axiom detected",
+      "files": {
+        "challenge.ndjson": "25cd7b37836e9faafb8f9d032d9efed8135e4ac101217e8916f656be1c6c7d2c",
+        "solution.ndjson": "76f130adab3d1f72b949ac832373c0466d6b1c8752a7d9487017334316408f73",
+        "scope.json": "954faf1315fbb467482e56033ec8aeb51c42ac6cb5e286a5a239ec8a59c008e5"
+      }
+    },
+    {
+      "name": "tagged_name_collision",
+      "accept": false,
+      "marker": "Solution omitted scoped declaration",
+      "files": {
+        "challenge.ndjson": "7939673c5822c3ecba4be82283c5adea286560c79e6d4206d5ecb057929626e0",
+        "solution.ndjson": "01ce1400daebc29d745509530ac550df3119db6fd4fed5f29883e79d8f559e4b",
+        "scope.json": "c195801e3847e2b0ed801bdf6a0b2eb10861710d7d5fdd1d3b8579e53e4c1451"
+      }
+    },
+    {
+      "name": "allowed_axiom_positive",
+      "accept": true,
+      "marker": "serialized comparison passed:",
+      "files": {
+        "challenge.ndjson": "91d53ebaaf4b386e9a87178ba944966f11fdadccd9f4c2557b432de9c42d89bc",
+        "solution.ndjson": "91d53ebaaf4b386e9a87178ba944966f11fdadccd9f4c2557b432de9c42d89bc",
+        "scope.json": "3cbfcd5b42fa676acc7fdc71bb4cde9f55d58ebcc2ff03a295558f03ae7a55ce"
+      }
+    },
+    {
+      "name": "allowed_axiom_changed_type",
+      "accept": false,
+      "marker": "Const does not match between challenge and target 'propext'",
+      "files": {
+        "challenge.ndjson": "91d53ebaaf4b386e9a87178ba944966f11fdadccd9f4c2557b432de9c42d89bc",
+        "solution.ndjson": "cc198cab76f828dc88b113343c468425d8821c4a8161c28782fba87451e43b24",
+        "scope.json": "3cbfcd5b42fa676acc7fdc71bb4cde9f55d58ebcc2ff03a295558f03ae7a55ce"
+      }
+    },
+    {
+      "name": "omitted_unreferenced_supplement",
+      "accept": true,
+      "marker": "serialized comparison passed:",
+      "files": {
+        "challenge.ndjson": "8e2568560fefd16bae9794efc0b4eee4cce5b58142aab18825419076a7df6fe4",
+        "solution.ndjson": "c2f05da8552865b2cdb0986cb811a4e41b539bc7f8c05db717447018a58d67b0",
+        "scope.json": "be6f00d25ab9a9f67de04a15a823f485697a5ee54d490f53f74facd43ac1c8d5"
+      }
+    },
+    {
+      "name": "omitted_required_canonical_definition",
+      "accept": false,
+      "marker": "Solution omitted scoped declaration",
+      "files": {
+        "challenge.ndjson": "e5edbef45bc9ab90d0f19ca61494f12b3b9ca4f89d9e92172964b31e577fa246",
+        "solution.ndjson": "0420b3ec4cad2ee51140b8d6f044ec00b525fb0cdf028cb15a26e5aa10298a7d",
+        "scope.json": "647281781fb99412449114ccfccd6abac98036abb5067547b6766fdfde3c685d"
+      }
+    },
+    {
+      "name": "omitted_referenced_supplement",
+      "accept": false,
+      "marker": "Const not found in solution '",
+      "files": {
+        "challenge.ndjson": "6b9298b044e65f72a2990a246dcf27e039cc62a76e1a0a9248e01c2771065723",
+        "solution.ndjson": "aae72d0f5e24d410b58119b353a9eff3776110aa55ab2d0fcfe25b931864980c",
+        "scope.json": "6314e642b569cdf70e5d44f7ff7714a997a115bd30ba347a485b8154c3daf247"
+      }
+    }
+  ]
+}

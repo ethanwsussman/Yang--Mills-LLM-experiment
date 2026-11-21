@@ -1,0 +1,10521 @@
+{
+  "schemaVersion": 1,
+  "canonicalDeclarations": [
+    {
+      "name": [
+        [
+          "s",
+          "Control"
+        ],
+        [
+          "s",
+          "target"
+        ]
+      ],
+      "kind": "theorem"
+    }
+  ],
+  "supplementDeclarations": [
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "zero"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "succ"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "PUnit"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "PUnit"
+        ],
+        [
+          "s",
+          "unit"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "PUnit"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "PProd"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "PProd"
+        ],
+        [
+          "s",
+          "mk"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "PProd"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "below"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "brecOn"
+        ],
+        [
+          "s",
+          "go"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "brecOn"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "casesOn"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "add"
+        ],
+        [
+          "s",
+          "match_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "add"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "add"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "OfNat"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "OfNat"
+        ],
+        [
+          "s",
+          "mk"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "OfNat"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "OfNat"
+        ],
+        [
+          "s",
+          "ofNat"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "instOfNatNat"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "mul"
+        ],
+        [
+          "s",
+          "match_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Unit"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Unit"
+        ],
+        [
+          "s",
+          "unit"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "pow"
+        ],
+        [
+          "s",
+          "match_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "pred"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "sub"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "sub"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "mul"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "mul"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "pow"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "pow"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "PSigma"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "PSigma"
+        ],
+        [
+          "s",
+          "mk"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "PSigma"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "InvImage"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "LT"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "LT"
+        ],
+        [
+          "s",
+          "mk"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "LT"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "LT"
+        ],
+        [
+          "s",
+          "lt"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le"
+        ],
+        [
+          "s",
+          "refl"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le"
+        ],
+        [
+          "s",
+          "step"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "lt"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "instLTNat"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "False"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "False"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "False"
+        ],
+        [
+          "s",
+          "elim"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "LE"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "LE"
+        ],
+        [
+          "s",
+          "mk"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "LE"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "LE"
+        ],
+        [
+          "s",
+          "le"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "instLENat"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Eq"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Eq"
+        ],
+        [
+          "s",
+          "refl"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Eq"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le"
+        ],
+        [
+          "s",
+          "casesOn"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "noConfusionType"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Eq"
+        ],
+        [
+          "s",
+          "ndrec"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "noConfusion"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "rfl"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "not_succ_le_zero"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "WellFounded"
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "fix"
+        ],
+        [
+          "s",
+          "go"
+        ],
+        [
+          "s",
+          "_proof_1"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le"
+        ],
+        [
+          "s",
+          "below"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le"
+        ],
+        [
+          "s",
+          "below"
+        ],
+        [
+          "s",
+          "refl"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le"
+        ],
+        [
+          "s",
+          "below"
+        ],
+        [
+          "s",
+          "step"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le"
+        ],
+        [
+          "s",
+          "below"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le"
+        ],
+        [
+          "s",
+          "brecOn"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le"
+        ],
+        [
+          "s",
+          "below"
+        ],
+        [
+          "s",
+          "casesOn"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "HEq"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "HEq"
+        ],
+        [
+          "s",
+          "refl"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "HEq"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Eq"
+        ],
+        [
+          "s",
+          "symm"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "cast"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "eq_of_heq"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le_trans"
+        ],
+        [
+          "s",
+          "match_1_10"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le_trans"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "lt_of_lt_of_le"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "outParam"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "HAdd"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "HAdd"
+        ],
+        [
+          "s",
+          "mk"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "HAdd"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "HAdd"
+        ],
+        [
+          "s",
+          "hAdd"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Add"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Add"
+        ],
+        [
+          "s",
+          "mk"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Add"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Add"
+        ],
+        [
+          "s",
+          "add"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "instHAdd"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "instAddNat"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "pred_le_pred"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le_succ"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "pred_le_pred"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le_of_succ_le_succ"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le_of_lt_add_one"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "WellFounded"
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "fix"
+        ],
+        [
+          "s",
+          "_proof_1"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "WellFounded"
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "fix"
+        ],
+        [
+          "s",
+          "go"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Not"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Decidable"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Decidable"
+        ],
+        [
+          "s",
+          "isFalse"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Decidable"
+        ],
+        [
+          "s",
+          "isTrue"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Decidable"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Decidable"
+        ],
+        [
+          "s",
+          "casesOn"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "ite"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Bool"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Bool"
+        ],
+        [
+          "s",
+          "false"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Bool"
+        ],
+        [
+          "s",
+          "true"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Bool"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "beq"
+        ],
+        [
+          "s",
+          "match_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "beq"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "beq"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "DecidableEq"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Bool"
+        ],
+        [
+          "s",
+          "casesOn"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Bool"
+        ],
+        [
+          "s",
+          "decEq"
+        ],
+        [
+          "s",
+          "match_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Bool"
+        ],
+        [
+          "s",
+          "noConfusionType"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Bool"
+        ],
+        [
+          "s",
+          "noConfusion"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Bool"
+        ],
+        [
+          "s",
+          "decEq"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "instDecidableEqBool"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "WellFounded"
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "eager"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le_refl"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "lt_add_one"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "ite_self"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "WellFounded"
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "eager_eq"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "WellFounded"
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "fix"
+        ],
+        [
+          "s",
+          "_proof_2"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "WellFounded"
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "fix"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "PSigma"
+        ],
+        [
+          "s",
+          "casesOn"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "dite"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "decEq"
+        ],
+        [
+          "s",
+          "match_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "eq_of_beq_eq_true"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "eq_of_beq_eq_true"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "eq_of_beq_eq_true"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "ne_of_beq_eq_false"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "absurd"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "ne_of_beq_eq_false"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "ne_of_beq_eq_false"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "decEq"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "instDecidableEqNat"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "HMod"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "HMod"
+        ],
+        [
+          "s",
+          "mk"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "HMod"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "HMod"
+        ],
+        [
+          "s",
+          "hMod"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Mod"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Mod"
+        ],
+        [
+          "s",
+          "mk"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Mod"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Mod"
+        ],
+        [
+          "s",
+          "mod"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "instHMod"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "namedPattern"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "mod"
+        ],
+        [
+          "s",
+          "match_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "ble"
+        ],
+        [
+          "s",
+          "match_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "ble"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "ble"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Eq"
+        ],
+        [
+          "s",
+          "casesOn"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "True"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "True"
+        ],
+        [
+          "s",
+          "intro"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "True"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "noConfusion_of_Nat"
+        ],
+        [
+          "s",
+          "aux"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "noConfusion_of_Nat"
+        ],
+        [
+          "s",
+          "aux"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "noConfusion_of_Nat"
+        ],
+        [
+          "s",
+          "aux"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "congrArg"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "noConfusion_of_Nat"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Bool"
+        ],
+        [
+          "s",
+          "ctorIdx"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le_of_ble_eq_true"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "zero_le"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "zero_le"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "zero_le"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "succ_le_succ"
+        ],
+        [
+          "s",
+          "match_1_7"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "succ_le_succ"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le_of_ble_eq_true"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le_of_ble_eq_true"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "ble_eq_true_of_le"
+        ],
+        [
+          "s",
+          "match_1_7"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "ble_self_eq_true"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "ble_self_eq_true"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "ble_self_eq_true"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "ble_succ_eq_true"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "ble_succ_eq_true"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "ble_succ_eq_true"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "ble_eq_true_of_le"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "not_le_of_not_ble_eq_true"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "decLe"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "decLt"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "ctorIdx"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "div"
+        ],
+        [
+          "s",
+          "go"
+        ],
+        [
+          "s",
+          "match_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "HSub"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "HSub"
+        ],
+        [
+          "s",
+          "mk"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "HSub"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "HSub"
+        ],
+        [
+          "s",
+          "hSub"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Sub"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Sub"
+        ],
+        [
+          "s",
+          "mk"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Sub"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Sub"
+        ],
+        [
+          "s",
+          "sub"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "instHSub"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "instSubNat"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "And"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "And"
+        ],
+        [
+          "s",
+          "intro"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "And"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "And"
+        ],
+        [
+          "s",
+          "casesOn"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "div_rec_lemma"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "sub_lt"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "not_succ_le_self"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "not_succ_le_self"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "not_succ_le_self"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "lt_irrefl"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "lt_succ_of_le"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "pred_le"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "pred_le"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "sub_le"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "succ_sub_succ_eq_sub"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "sub_lt"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "div_rec_lemma"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le_of_lt_succ"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "div_rec_fuel_lemma"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "modCore"
+        ],
+        [
+          "s",
+          "go"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "modCore"
+        ],
+        [
+          "s",
+          "go"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "lt_succ_self"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "modCore"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "mod"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "instMod"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "id"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "mod_lt"
+        ],
+        [
+          "s",
+          "match_1_3"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "zero_lt_succ"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "mod_lt"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "modCore_lt"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "not_lt_zero"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "modCoreGo_lt"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Or"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Or"
+        ],
+        [
+          "s",
+          "inl"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Or"
+        ],
+        [
+          "s",
+          "inr"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Or"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Or"
+        ],
+        [
+          "s",
+          "casesOn"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Or"
+        ],
+        [
+          "s",
+          "elim"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Or"
+        ],
+        [
+          "s",
+          "elim"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Or"
+        ],
+        [
+          "s",
+          "resolve_right"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "GE"
+        ],
+        [
+          "s",
+          "ge"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "lt_or_ge"
+        ],
+        [
+          "s",
+          "match_1_5"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "lt_or_ge"
+        ],
+        [
+          "s",
+          "match_1_3"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le_succ_of_le"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "lt_or_ge"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "eq_or_lt_of_le"
+        ],
+        [
+          "s",
+          "match_1_3"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "eq_or_lt_of_le"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "eq_or_lt_of_le"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "eq_or_lt_of_le"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "lt_or_ge"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "lt_or_ge"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "lt_of_not_le"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "modCoreGo_lt"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "modCore_lt"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "mod_lt"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Ne"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Data"
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "Basic"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "zero_lt_of_ne_zero"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "zero_lt_of_ne_zero"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Data"
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "Gcd"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "gcd"
+        ],
+        [
+          "s",
+          "_unary"
+        ],
+        [
+          "s",
+          "_proof_1"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "gcd"
+        ],
+        [
+          "s",
+          "_unary"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "gcd"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "div"
+        ],
+        [
+          "s",
+          "go"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "div"
+        ],
+        [
+          "s",
+          "go"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "div"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "HDiv"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "HDiv"
+        ],
+        [
+          "s",
+          "mk"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "HDiv"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "HDiv"
+        ],
+        [
+          "s",
+          "hDiv"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Div"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Div"
+        ],
+        [
+          "s",
+          "mk"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Div"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Div"
+        ],
+        [
+          "s",
+          "div"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "instHDiv"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "instDiv"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Eq"
+        ],
+        [
+          "s",
+          "mpr"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "instDecidableAnd"
+        ],
+        [
+          "s",
+          "match_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "And"
+        ],
+        [
+          "s",
+          "right"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "instDecidableAnd"
+        ],
+        [
+          "s",
+          "_proof_1"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "And"
+        ],
+        [
+          "s",
+          "left"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "instDecidableAnd"
+        ],
+        [
+          "s",
+          "_proof_2"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "instDecidableAnd"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "congr"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Core"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "dif_neg"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "dif_neg"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Decidable"
+        ],
+        [
+          "s",
+          "byCases"
+        ],
+        [
+          "s",
+          "match_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Decidable"
+        ],
+        [
+          "s",
+          "byCases"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Decidable"
+        ],
+        [
+          "s",
+          "em"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Core"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "if_pos"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "if_pos"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Core"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "if_neg"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "if_neg"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "ite_congr"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "congrFun'"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "trivial"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "of_eq_true"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Eq"
+        ],
+        [
+          "s",
+          "trans"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "not_false"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "instDecidableFalse"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Iff"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Iff"
+        ],
+        [
+          "s",
+          "intro"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Iff"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "propext"
+        ]
+      ],
+      "kind": "axiom"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "eq_true"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "eq_self"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "ite_cond_eq_false"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "eq_false"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "false_and"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Core"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "dif_pos"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "dif_pos"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "div"
+        ],
+        [
+          "s",
+          "go"
+        ],
+        [
+          "s",
+          "eq_1"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "and_false"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "instDecidableTrue"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "ite_cond_eq_true"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "and_self"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Data"
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "Div"
+        ],
+        [
+          "s",
+          "Basic"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "div"
+        ],
+        [
+          "s",
+          "go"
+        ],
+        [
+          "s",
+          "fuel_congr"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Data"
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "Div"
+        ],
+        [
+          "s",
+          "Basic"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "div"
+        ],
+        [
+          "s",
+          "go"
+        ],
+        [
+          "s",
+          "fuel_congr"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Data"
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "Div"
+        ],
+        [
+          "s",
+          "Basic"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "div"
+        ],
+        [
+          "s",
+          "go"
+        ],
+        [
+          "s",
+          "fuel_congr"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "div_eq"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "inferInstance"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Data"
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "Div"
+        ],
+        [
+          "s",
+          "Basic"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "div_lt_self"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Acc"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Acc"
+        ],
+        [
+          "s",
+          "intro"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Acc"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "WellFounded"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "WellFounded"
+        ],
+        [
+          "s",
+          "intro"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "WellFounded"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "WellFounded"
+        ],
+        [
+          "s",
+          "fixF"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "WellFounded"
+        ],
+        [
+          "s",
+          "apply"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "WellFounded"
+        ],
+        [
+          "s",
+          "fix"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "WellFoundedRelation"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "WellFoundedRelation"
+        ],
+        [
+          "s",
+          "mk"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "WellFoundedRelation"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "WellFoundedRelation"
+        ],
+        [
+          "s",
+          "rel"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "recAux"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "WF"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "lt_wfRel"
+        ],
+        [
+          "s",
+          "match_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Acc"
+        ],
+        [
+          "s",
+          "recOn"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Acc"
+        ],
+        [
+          "s",
+          "inv"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "lt_wfRel"
+        ],
+        [
+          "s",
+          "_proof_3"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "lt_wfRel"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "WellFoundedRelation"
+        ],
+        [
+          "s",
+          "wf"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "strongRecOn"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "zero_le"
+        ],
+        [
+          "s",
+          "_simp_1"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Data"
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "Div"
+        ],
+        [
+          "s",
+          "Basic"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "div_le_self"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "succ_le_of_lt"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "lt_of_le_of_lt"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "div_le_self"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Exists"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Exists"
+        ],
+        [
+          "s",
+          "intro"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Exists"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Exists"
+        ],
+        [
+          "s",
+          "casesOn"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Data"
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "Basic"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "add_le_of_le_sub"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Data"
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "Basic"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le"
+        ],
+        [
+          "s",
+          "dest"
+        ],
+        [
+          "s",
+          "match_1_3"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Data"
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "Basic"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "add_comm"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Data"
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "Basic"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "zero_add"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "zero_add"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "zero_add"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Data"
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "Basic"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "succ_add"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "succ_add"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "succ_add"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "add_comm"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "add_comm"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Data"
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "Basic"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le"
+        ],
+        [
+          "s",
+          "dest"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le"
+        ],
+        [
+          "s",
+          "dest"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le"
+        ],
+        [
+          "s",
+          "dest"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Data"
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "Basic"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le_add_right"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le_add_right"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le_add_right"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le"
+        ],
+        [
+          "s",
+          "intro"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Data"
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "Basic"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "sub_ne_zero_of_lt"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "eq_false'"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "not_false_eq_true"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "succ_ne_zero"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Data"
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "Basic"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "sub_ne_zero_of_lt"
+        ],
+        [
+          "s",
+          "_simp_1_3"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "succ_sub_succ"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "lt_of_succ_lt_succ"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "sub_ne_zero_of_lt"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "sub_ne_zero_of_lt"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "le_of_succ_le"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "sub_succ"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "add_succ"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "succ_pred"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "add_sub_of_le"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "sub_add_cancel"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "eq_add_of_sub_eq"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Data"
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "Basic"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "add_assoc"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "add_assoc"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "add_assoc"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "add_left_comm"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "add_le_of_le_sub"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "lt_of_succ_le"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Data"
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "Basic"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "add_le_add_left"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "add_le_add_left"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "add_lt_add_left"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "div_lt_self"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "bitwise_rec_lemma"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Data"
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "Bitwise"
+        ],
+        [
+          "s",
+          "Basic"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "bitwise"
+        ],
+        [
+          "s",
+          "_unary"
+        ],
+        [
+          "s",
+          "_proof_1"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Decidable"
+        ],
+        [
+          "s",
+          "decide"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "bitwise"
+        ],
+        [
+          "s",
+          "_unary"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "bitwise"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Bool"
+        ],
+        [
+          "s",
+          "and"
+        ],
+        [
+          "s",
+          "match_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Bool"
+        ],
+        [
+          "s",
+          "and"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "land"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "cond"
+        ],
+        [
+          "s",
+          "match_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Bool"
+        ],
+        [
+          "s",
+          "or"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "lor"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "BEq"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "BEq"
+        ],
+        [
+          "s",
+          "mk"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "BEq"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Bool"
+        ],
+        [
+          "s",
+          "not"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "BEq"
+        ],
+        [
+          "s",
+          "beq"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "bne"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "instBEqOfDecidableEq"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "xor"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "shiftLeft"
+        ],
+        [
+          "s",
+          "match_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "HMul"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "HMul"
+        ],
+        [
+          "s",
+          "mk"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "HMul"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "HMul"
+        ],
+        [
+          "s",
+          "hMul"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Mul"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Mul"
+        ],
+        [
+          "s",
+          "mk"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Mul"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Mul"
+        ],
+        [
+          "s",
+          "mul"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "instHMul"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "instMulNat"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "shiftLeft"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "shiftLeft"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "shiftRight"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "shiftRight"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "List"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "List"
+        ],
+        [
+          "s",
+          "nil"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "List"
+        ],
+        [
+          "s",
+          "cons"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "List"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Fin"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Fin"
+        ],
+        [
+          "s",
+          "mk"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Fin"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "HPow"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "HPow"
+        ],
+        [
+          "s",
+          "mk"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "HPow"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "HPow"
+        ],
+        [
+          "s",
+          "hPow"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Pow"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Pow"
+        ],
+        [
+          "s",
+          "mk"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Pow"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Pow"
+        ],
+        [
+          "s",
+          "pow"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "instHPow"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "NatPow"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "NatPow"
+        ],
+        [
+          "s",
+          "mk"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "NatPow"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "NatPow"
+        ],
+        [
+          "s",
+          "pow"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "instPowNat"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "instNatPowNat"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "BitVec"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "BitVec"
+        ],
+        [
+          "s",
+          "ofFin"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "BitVec"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "UInt32"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "UInt32"
+        ],
+        [
+          "s",
+          "ofBitVec"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "UInt32"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "isValidChar"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Fin"
+        ],
+        [
+          "s",
+          "val"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "BitVec"
+        ],
+        [
+          "s",
+          "toFin"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "BitVec"
+        ],
+        [
+          "s",
+          "toNat"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "UInt32"
+        ],
+        [
+          "s",
+          "toBitVec"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "UInt32"
+        ],
+        [
+          "s",
+          "toNat"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "UInt32"
+        ],
+        [
+          "s",
+          "isValidChar"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Char"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Char"
+        ],
+        [
+          "s",
+          "mk"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Char"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Array"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Array"
+        ],
+        [
+          "s",
+          "mk"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Array"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "UInt8"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "UInt8"
+        ],
+        [
+          "s",
+          "ofBitVec"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "UInt8"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "ByteArray"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "ByteArray"
+        ],
+        [
+          "s",
+          "mk"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "ByteArray"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "List"
+        ],
+        [
+          "s",
+          "below"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "List"
+        ],
+        [
+          "s",
+          "brecOn"
+        ],
+        [
+          "s",
+          "go"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "List"
+        ],
+        [
+          "s",
+          "brecOn"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "List"
+        ],
+        [
+          "s",
+          "casesOn"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "List"
+        ],
+        [
+          "s",
+          "toByteArray"
+        ],
+        [
+          "s",
+          "match_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "ByteArray"
+        ],
+        [
+          "s",
+          "casesOn"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "ByteArray"
+        ],
+        [
+          "s",
+          "push"
+        ],
+        [
+          "s",
+          "match_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "List"
+        ],
+        [
+          "s",
+          "concat"
+        ],
+        [
+          "s",
+          "match_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "List"
+        ],
+        [
+          "s",
+          "concat"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "List"
+        ],
+        [
+          "s",
+          "concat"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Array"
+        ],
+        [
+          "s",
+          "toList"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Array"
+        ],
+        [
+          "s",
+          "push"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "ByteArray"
+        ],
+        [
+          "s",
+          "push"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "List"
+        ],
+        [
+          "s",
+          "toByteArray"
+        ],
+        [
+          "s",
+          "loop"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "List"
+        ],
+        [
+          "s",
+          "toByteArray"
+        ],
+        [
+          "s",
+          "loop"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Array"
+        ],
+        [
+          "s",
+          "emptyWithCapacity"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Array"
+        ],
+        [
+          "s",
+          "empty"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "ByteArray"
+        ],
+        [
+          "s",
+          "emptyWithCapacity"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "ByteArray"
+        ],
+        [
+          "s",
+          "empty"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "List"
+        ],
+        [
+          "s",
+          "toByteArray"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "List"
+        ],
+        [
+          "s",
+          "flatten"
+        ],
+        [
+          "s",
+          "match_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "List"
+        ],
+        [
+          "s",
+          "append"
+        ],
+        [
+          "s",
+          "match_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "List"
+        ],
+        [
+          "s",
+          "append"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "List"
+        ],
+        [
+          "s",
+          "append"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "List"
+        ],
+        [
+          "s",
+          "flatten"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "List"
+        ],
+        [
+          "s",
+          "flatten"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "instDecidableEqList"
+        ],
+        [
+          "s",
+          "match_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "List"
+        ],
+        [
+          "s",
+          "map"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "List"
+        ],
+        [
+          "s",
+          "map"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "List"
+        ],
+        [
+          "s",
+          "flatMap"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Char"
+        ],
+        [
+          "s",
+          "val"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Fin"
+        ],
+        [
+          "s",
+          "Internal"
+        ],
+        [
+          "s",
+          "ofNat"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "pow_pos"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "mul_pos"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "add_pos_right"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "add_pos_right"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "mul_pos"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "pow_pos"
+        ],
+        [
+          "s",
+          "_f"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "pow_pos"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "BitVec"
+        ],
+        [
+          "s",
+          "ofNat"
+        ],
+        [
+          "s",
+          "_proof_1"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "BitVec"
+        ],
+        [
+          "s",
+          "ofNat"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "UInt8"
+        ],
+        [
+          "s",
+          "ofNat"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "String"
+        ],
+        [
+          "s",
+          "utf8EncodeChar"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "List"
+        ],
+        [
+          "s",
+          "utf8Encode"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "ByteArray"
+        ],
+        [
+          "s",
+          "IsValidUTF8"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "ByteArray"
+        ],
+        [
+          "s",
+          "IsValidUTF8"
+        ],
+        [
+          "s",
+          "intro"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "ByteArray"
+        ],
+        [
+          "s",
+          "IsValidUTF8"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "String"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "String"
+        ],
+        [
+          "s",
+          "ofByteArray"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "String"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "String"
+        ],
+        [
+          "s",
+          "ofList"
+        ],
+        [
+          "s",
+          "_proof_1"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "String"
+        ],
+        [
+          "s",
+          "ofList"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "instDecidableOr"
+        ],
+        [
+          "s",
+          "match_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "instDecidableOr"
+        ],
+        [
+          "s",
+          "_proof_1"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "instDecidableOr"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "BitVec"
+        ],
+        [
+          "s",
+          "ofNatLT"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "UInt32"
+        ],
+        [
+          "s",
+          "size"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "isValidChar_UInt32"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nat"
+        ],
+        [
+          "s",
+          "lt_trans"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "of_decide_eq_true"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "ne_true_of_eq_false"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "ne_true_of_eq_false"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "decide_eq_false"
+        ],
+        [
+          "s",
+          "match_1_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "decide_eq_false"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "of_decide_eq_true"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "_private"
+        ],
+        [
+          "s",
+          "Init"
+        ],
+        [
+          "s",
+          "Prelude"
+        ],
+        [
+          "n",
+          0
+        ],
+        [
+          "s",
+          "isValidChar_UInt32"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Char"
+        ],
+        [
+          "s",
+          "ofNatAux"
+        ],
+        [
+          "s",
+          "_private_1"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Char"
+        ],
+        [
+          "s",
+          "ofNatAux"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Char"
+        ],
+        [
+          "s",
+          "ofNat"
+        ],
+        [
+          "s",
+          "_proof_1"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Char"
+        ],
+        [
+          "s",
+          "ofNat"
+        ],
+        [
+          "s",
+          "_proof_2"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Char"
+        ],
+        [
+          "s",
+          "ofNat"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "eagerReduce"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "String"
+        ],
+        [
+          "s",
+          "mk"
+        ],
+        [
+          "s",
+          "_proof_1"
+        ]
+      ],
+      "kind": "theorem"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "String"
+        ],
+        [
+          "s",
+          "mk"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "optParam"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "String"
+        ],
+        [
+          "s",
+          "Pos"
+        ],
+        [
+          "s",
+          "Raw"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "String"
+        ],
+        [
+          "s",
+          "Pos"
+        ],
+        [
+          "s",
+          "Raw"
+        ],
+        [
+          "s",
+          "mk"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "String"
+        ],
+        [
+          "s",
+          "Pos"
+        ],
+        [
+          "s",
+          "Raw"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Substring"
+        ],
+        [
+          "s",
+          "Raw"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Substring"
+        ],
+        [
+          "s",
+          "Raw"
+        ],
+        [
+          "s",
+          "mk"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Substring"
+        ],
+        [
+          "s",
+          "Raw"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Lean"
+        ],
+        [
+          "s",
+          "SourceInfo"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Lean"
+        ],
+        [
+          "s",
+          "SourceInfo"
+        ],
+        [
+          "s",
+          "original"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Lean"
+        ],
+        [
+          "s",
+          "SourceInfo"
+        ],
+        [
+          "s",
+          "synthetic"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Lean"
+        ],
+        [
+          "s",
+          "SourceInfo"
+        ],
+        [
+          "s",
+          "none"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Lean"
+        ],
+        [
+          "s",
+          "SourceInfo"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Lean"
+        ],
+        [
+          "s",
+          "Name"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Lean"
+        ],
+        [
+          "s",
+          "Name"
+        ],
+        [
+          "s",
+          "anonymous"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Lean"
+        ],
+        [
+          "s",
+          "Name"
+        ],
+        [
+          "s",
+          "str"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Lean"
+        ],
+        [
+          "s",
+          "Name"
+        ],
+        [
+          "s",
+          "num"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Lean"
+        ],
+        [
+          "s",
+          "Name"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Lean"
+        ],
+        [
+          "s",
+          "SyntaxNodeKind"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Lean"
+        ],
+        [
+          "s",
+          "Syntax"
+        ],
+        [
+          "s",
+          "Preresolved"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Lean"
+        ],
+        [
+          "s",
+          "Syntax"
+        ],
+        [
+          "s",
+          "Preresolved"
+        ],
+        [
+          "s",
+          "namespace"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Lean"
+        ],
+        [
+          "s",
+          "Syntax"
+        ],
+        [
+          "s",
+          "Preresolved"
+        ],
+        [
+          "s",
+          "decl"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Lean"
+        ],
+        [
+          "s",
+          "Syntax"
+        ],
+        [
+          "s",
+          "Preresolved"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Lean"
+        ],
+        [
+          "s",
+          "Syntax"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Lean"
+        ],
+        [
+          "s",
+          "Syntax"
+        ],
+        [
+          "s",
+          "missing"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Lean"
+        ],
+        [
+          "s",
+          "Syntax"
+        ],
+        [
+          "s",
+          "node"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Lean"
+        ],
+        [
+          "s",
+          "Syntax"
+        ],
+        [
+          "s",
+          "atom"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Lean"
+        ],
+        [
+          "s",
+          "Syntax"
+        ],
+        [
+          "s",
+          "ident"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Lean"
+        ],
+        [
+          "s",
+          "Syntax"
+        ],
+        [
+          "s",
+          "rec_2"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Lean"
+        ],
+        [
+          "s",
+          "Syntax"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Lean"
+        ],
+        [
+          "s",
+          "Syntax"
+        ],
+        [
+          "s",
+          "rec_1"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "autoParam"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "semiOutParam"
+        ]
+      ],
+      "kind": "definition"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Quot"
+        ]
+      ],
+      "kind": "quotient_builtin"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Quot"
+        ],
+        [
+          "s",
+          "mk"
+        ]
+      ],
+      "kind": "quotient_builtin"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Quot"
+        ],
+        [
+          "s",
+          "lift"
+        ]
+      ],
+      "kind": "quotient_builtin"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Quot"
+        ],
+        [
+          "s",
+          "ind"
+        ]
+      ],
+      "kind": "quotient_builtin"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Quot"
+        ],
+        [
+          "s",
+          "sound"
+        ]
+      ],
+      "kind": "axiom"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nonempty"
+        ]
+      ],
+      "kind": "inductive"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nonempty"
+        ],
+        [
+          "s",
+          "intro"
+        ]
+      ],
+      "kind": "constructor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Nonempty"
+        ],
+        [
+          "s",
+          "rec"
+        ]
+      ],
+      "kind": "recursor"
+    },
+    {
+      "name": [
+        [
+          "s",
+          "Classical"
+        ],
+        [
+          "s",
+          "choice"
+        ]
+      ],
+      "kind": "axiom"
+    }
+  ],
+  "theoremTargets": [
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "not_succ_le_zero"
+      ]
+    ],
+    [
+      [
+        "s",
+        "WellFounded"
+      ],
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "fix"
+      ],
+      [
+        "s",
+        "go"
+      ],
+      [
+        "s",
+        "_proof_1"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "le"
+      ],
+      [
+        "s",
+        "brecOn"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Eq"
+      ],
+      [
+        "s",
+        "symm"
+      ]
+    ],
+    [
+      [
+        "s",
+        "eq_of_heq"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "le_trans"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "lt_of_lt_of_le"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "le_succ"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "pred_le_pred"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "le_of_succ_le_succ"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "le_of_lt_add_one"
+      ]
+    ],
+    [
+      [
+        "s",
+        "WellFounded"
+      ],
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "fix"
+      ],
+      [
+        "s",
+        "_proof_1"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "le_refl"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "lt_add_one"
+      ]
+    ],
+    [
+      [
+        "s",
+        "ite_self"
+      ]
+    ],
+    [
+      [
+        "s",
+        "WellFounded"
+      ],
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "eager_eq"
+      ]
+    ],
+    [
+      [
+        "s",
+        "WellFounded"
+      ],
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "fix"
+      ],
+      [
+        "s",
+        "_proof_2"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "eq_of_beq_eq_true"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "ne_of_beq_eq_false"
+      ]
+    ],
+    [
+      [
+        "s",
+        "_private"
+      ],
+      [
+        "s",
+        "Init"
+      ],
+      [
+        "s",
+        "Prelude"
+      ],
+      [
+        "n",
+        0
+      ],
+      [
+        "s",
+        "noConfusion_of_Nat"
+      ],
+      [
+        "s",
+        "aux"
+      ]
+    ],
+    [
+      [
+        "s",
+        "congrArg"
+      ]
+    ],
+    [
+      [
+        "s",
+        "noConfusion_of_Nat"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "zero_le"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "succ_le_succ"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "le_of_ble_eq_true"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "ble_self_eq_true"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "ble_succ_eq_true"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "ble_eq_true_of_le"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "not_le_of_not_ble_eq_true"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "not_succ_le_self"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "lt_irrefl"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "lt_succ_of_le"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "pred_le"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "sub_le"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "succ_sub_succ_eq_sub"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "sub_lt"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "div_rec_lemma"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "le_of_lt_succ"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "div_rec_fuel_lemma"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "lt_succ_self"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "zero_lt_succ"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "not_lt_zero"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Or"
+      ],
+      [
+        "s",
+        "elim"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Or"
+      ],
+      [
+        "s",
+        "resolve_right"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "le_succ_of_le"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "eq_or_lt_of_le"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "lt_or_ge"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "lt_of_not_le"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "modCoreGo_lt"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "modCore_lt"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "mod_lt"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "zero_lt_of_ne_zero"
+      ]
+    ],
+    [
+      [
+        "s",
+        "_private"
+      ],
+      [
+        "s",
+        "Init"
+      ],
+      [
+        "s",
+        "Data"
+      ],
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "Gcd"
+      ],
+      [
+        "n",
+        0
+      ],
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "gcd"
+      ],
+      [
+        "s",
+        "_unary"
+      ],
+      [
+        "s",
+        "_proof_1"
+      ]
+    ],
+    [
+      [
+        "s",
+        "And"
+      ],
+      [
+        "s",
+        "right"
+      ]
+    ],
+    [
+      [
+        "s",
+        "instDecidableAnd"
+      ],
+      [
+        "s",
+        "_proof_1"
+      ]
+    ],
+    [
+      [
+        "s",
+        "And"
+      ],
+      [
+        "s",
+        "left"
+      ]
+    ],
+    [
+      [
+        "s",
+        "instDecidableAnd"
+      ],
+      [
+        "s",
+        "_proof_2"
+      ]
+    ],
+    [
+      [
+        "s",
+        "congr"
+      ]
+    ],
+    [
+      [
+        "s",
+        "dif_neg"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Decidable"
+      ],
+      [
+        "s",
+        "em"
+      ]
+    ],
+    [
+      [
+        "s",
+        "if_pos"
+      ]
+    ],
+    [
+      [
+        "s",
+        "if_neg"
+      ]
+    ],
+    [
+      [
+        "s",
+        "ite_congr"
+      ]
+    ],
+    [
+      [
+        "s",
+        "congrFun'"
+      ]
+    ],
+    [
+      [
+        "s",
+        "trivial"
+      ]
+    ],
+    [
+      [
+        "s",
+        "of_eq_true"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Eq"
+      ],
+      [
+        "s",
+        "trans"
+      ]
+    ],
+    [
+      [
+        "s",
+        "not_false"
+      ]
+    ],
+    [
+      [
+        "s",
+        "eq_true"
+      ]
+    ],
+    [
+      [
+        "s",
+        "eq_self"
+      ]
+    ],
+    [
+      [
+        "s",
+        "ite_cond_eq_false"
+      ]
+    ],
+    [
+      [
+        "s",
+        "eq_false"
+      ]
+    ],
+    [
+      [
+        "s",
+        "false_and"
+      ]
+    ],
+    [
+      [
+        "s",
+        "dif_pos"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "div"
+      ],
+      [
+        "s",
+        "go"
+      ],
+      [
+        "s",
+        "eq_1"
+      ]
+    ],
+    [
+      [
+        "s",
+        "and_false"
+      ]
+    ],
+    [
+      [
+        "s",
+        "ite_cond_eq_true"
+      ]
+    ],
+    [
+      [
+        "s",
+        "and_self"
+      ]
+    ],
+    [
+      [
+        "s",
+        "_private"
+      ],
+      [
+        "s",
+        "Init"
+      ],
+      [
+        "s",
+        "Data"
+      ],
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "Div"
+      ],
+      [
+        "s",
+        "Basic"
+      ],
+      [
+        "n",
+        0
+      ],
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "div"
+      ],
+      [
+        "s",
+        "go"
+      ],
+      [
+        "s",
+        "fuel_congr"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "div_eq"
+      ]
+    ],
+    [
+      [
+        "s",
+        "WellFounded"
+      ],
+      [
+        "s",
+        "apply"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Acc"
+      ],
+      [
+        "s",
+        "inv"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "lt_wfRel"
+      ],
+      [
+        "s",
+        "_proof_3"
+      ]
+    ],
+    [
+      [
+        "s",
+        "WellFoundedRelation"
+      ],
+      [
+        "s",
+        "wf"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "zero_le"
+      ],
+      [
+        "s",
+        "_simp_1"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "succ_le_of_lt"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "lt_of_le_of_lt"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "div_le_self"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "zero_add"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "succ_add"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "add_comm"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "le"
+      ],
+      [
+        "s",
+        "dest"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "le_add_right"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "le"
+      ],
+      [
+        "s",
+        "intro"
+      ]
+    ],
+    [
+      [
+        "s",
+        "eq_false'"
+      ]
+    ],
+    [
+      [
+        "s",
+        "not_false_eq_true"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "succ_ne_zero"
+      ]
+    ],
+    [
+      [
+        "s",
+        "_private"
+      ],
+      [
+        "s",
+        "Init"
+      ],
+      [
+        "s",
+        "Data"
+      ],
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "Basic"
+      ],
+      [
+        "n",
+        0
+      ],
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "sub_ne_zero_of_lt"
+      ],
+      [
+        "s",
+        "_simp_1_3"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "succ_sub_succ"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "lt_of_succ_lt_succ"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "sub_ne_zero_of_lt"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "le_of_succ_le"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "sub_succ"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "add_succ"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "succ_pred"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "add_sub_of_le"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "sub_add_cancel"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "eq_add_of_sub_eq"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "add_assoc"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "add_left_comm"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "add_le_of_le_sub"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "lt_of_succ_le"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "add_le_add_left"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "add_lt_add_left"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "div_lt_self"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "bitwise_rec_lemma"
+      ]
+    ],
+    [
+      [
+        "s",
+        "_private"
+      ],
+      [
+        "s",
+        "Init"
+      ],
+      [
+        "s",
+        "Data"
+      ],
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "Bitwise"
+      ],
+      [
+        "s",
+        "Basic"
+      ],
+      [
+        "n",
+        0
+      ],
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "bitwise"
+      ],
+      [
+        "s",
+        "_unary"
+      ],
+      [
+        "s",
+        "_proof_1"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "add_pos_right"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "mul_pos"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "pow_pos"
+      ]
+    ],
+    [
+      [
+        "s",
+        "BitVec"
+      ],
+      [
+        "s",
+        "ofNat"
+      ],
+      [
+        "s",
+        "_proof_1"
+      ]
+    ],
+    [
+      [
+        "s",
+        "String"
+      ],
+      [
+        "s",
+        "ofList"
+      ],
+      [
+        "s",
+        "_proof_1"
+      ]
+    ],
+    [
+      [
+        "s",
+        "instDecidableOr"
+      ],
+      [
+        "s",
+        "_proof_1"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Nat"
+      ],
+      [
+        "s",
+        "lt_trans"
+      ]
+    ],
+    [
+      [
+        "s",
+        "ne_true_of_eq_false"
+      ]
+    ],
+    [
+      [
+        "s",
+        "decide_eq_false"
+      ]
+    ],
+    [
+      [
+        "s",
+        "of_decide_eq_true"
+      ]
+    ],
+    [
+      [
+        "s",
+        "_private"
+      ],
+      [
+        "s",
+        "Init"
+      ],
+      [
+        "s",
+        "Prelude"
+      ],
+      [
+        "n",
+        0
+      ],
+      [
+        "s",
+        "isValidChar_UInt32"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Char"
+      ],
+      [
+        "s",
+        "ofNat"
+      ],
+      [
+        "s",
+        "_proof_1"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Char"
+      ],
+      [
+        "s",
+        "ofNat"
+      ],
+      [
+        "s",
+        "_proof_2"
+      ]
+    ],
+    [
+      [
+        "s",
+        "String"
+      ],
+      [
+        "s",
+        "mk"
+      ],
+      [
+        "s",
+        "_proof_1"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Control"
+      ],
+      [
+        "s",
+        "target"
+      ]
+    ]
+  ],
+  "primitiveTargets": [
+    [
+      [
+        "s",
+        "propext"
+      ]
+    ]
+  ],
+  "legalAxioms": [
+    [
+      [
+        "s",
+        "propext"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Classical"
+      ],
+      [
+        "s",
+        "choice"
+      ]
+    ],
+    [
+      [
+        "s",
+        "Quot"
+      ],
+      [
+        "s",
+        "sound"
+      ]
+    ]
+  ],
+  "rootTargets": [
+    [
+      [
+        "s",
+        "Control"
+      ],
+      [
+        "s",
+        "target"
+      ]
+    ]
+  ]
+}

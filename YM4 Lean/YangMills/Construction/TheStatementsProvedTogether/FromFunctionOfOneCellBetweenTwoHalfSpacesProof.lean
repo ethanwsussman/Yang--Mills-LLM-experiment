@@ -1,0 +1,303 @@
+import YangMills.Construction.ChessboardTori.BoundByMultipleReflectionsProof
+import YangMills.Construction.Continuum.RingsRingTracesAndTheirIntegralsProof
+import YangMills.Construction.Continuum.TraceOfARingOfPropagatorsProof
+import YangMills.Construction.Cumulants.ExponentialMomentsOfBoundedRandomVariablesProof
+import YangMills.Construction.Cumulants.JointCumulantsAreRealSymmetricAndMultilinearProof
+import YangMills.Construction.Cumulants.JointCumulantsOfBoundedRealVariablesProof
+import YangMills.Construction.Cumulants.MomentsLinearityBoundsAndTelescopingOfJointCumulantsProof
+import YangMills.Construction.Cumulants.MultilinearityShiftsAndMomentsOfJointCumulantsProof
+import YangMills.Construction.FormsOnATorus.DensityOfTheStateAlongTheFlowProof
+import YangMills.Construction.FourPointCondition.ConditionsOfTheRatioAtAnObservableProof
+import YangMills.Construction.FourPointCondition.ConnectedFunctionsAreHomogeneousProof
+import YangMills.Construction.FourPointCondition.ConnectedLawOfAPairProof
+import YangMills.Construction.FourPointCondition.PairAtScaleOneOfAQuadrupleProof
+import YangMills.Construction.FourPointCondition.TransportsOfADilatedPairProof
+import YangMills.Construction.FreeEnergiesOfTheFlow.CasesOfAGroundHaveMassProof
+import YangMills.Construction.FreeEnergiesOfTheFlow.MeansOverTheCasesProof
+import YangMills.Construction.FreeEnergiesOfTheFlow.ProductsAreHadProof
+import YangMills.Construction.FreeEnergiesOfTheFlow.StatesOfATowerStandOnGroundsProof
+import YangMills.Construction.Geometry.MinimalLiftProof
+import YangMills.Construction.InequalityOnMirroredCopies.SizeAtASmallRadiusProof
+import YangMills.Construction.InfiniteLattice.CentredMomentsAtOneIndexAndTheTwoFormsOfVolumeFirstProof
+import YangMills.Construction.InfiniteLattice.ConnectedFourPointOfAStateMomentsExtensionsAndLimitPointsProof
+import YangMills.Construction.InfiniteLattice.FunctionOfOneCellBetweenTwoHalfSpacesProof
+import YangMills.Construction.InfiniteLattice.MomentsAndCumulantsUnderTwoMeasuresProof
+import YangMills.Construction.InfiniteLattice.ObjectsOfAWindowOfTheLatticeOfACutoffAreFormedProof
+import YangMills.Construction.InfiniteLattice.WeakConvergenceAndTheKernelsAndDensitiesOfAWindowProof
+import YangMills.Construction.InfiniteLattice.WindowDensitiesAtOneSpacingProof
+import YangMills.Construction.Lattice.BareLatticeAndBarycentresProof
+import YangMills.Construction.LawByMomentsOfTheFlow.CoordinatesOnACircleProof
+import YangMills.Construction.LinearAlgebra.PropertiesOfTheFreeCurvaturePropagatorProof
+import YangMills.Construction.LinearAlgebra.ReflectionOnTwoVectorsProof
+import YangMills.Construction.ResponseInTheExpansion.CaseMassesAreBorelInAParameterProof
+import YangMills.Construction.ResponseInTheExpansion.CumulantsOfQuadraticFormsProof
+import YangMills.Construction.ResponseInTheExpansion.MeanGivenTheStateOfAStepProof
+import YangMills.Construction.ResponseInTheExpansion.MeansGivenAStateAreMeansOverItsCasesProof
+import YangMills.Construction.ResponseInTheExpansion.StatesAlongTheChainAreBorelProof
+import YangMills.Construction.ResponseInTheExpansion.TotalCovarianceOverAStepProof
+import YangMills.Construction.ResponseInTheExpansion.TraceOfTheFourPointKernelProof
+import YangMills.Construction.ResponseInTheExpansion.TraceOfTheSquareOfTheKernelOfTheCurvatureProof
+import YangMills.Construction.ResponseInTheExpansion.TwoPointFunctionByTotalCovarianceProofForm
+import YangMills.Construction.ResponseInTheExpansion.TwoSumsOfScoresAtAStepProof
+import YangMills.Construction.SystemOfAdmissibleConstants.CentredCellValueOnTheWindowProof
+import YangMills.Construction.TheStatementsProvedTogether.FromGaugeOnBlocksUnderIsometriesProof
+import YangMills.Construction.Torus.CoveringMapOnSmallBallsProof
+import YangMills.Construction.Torus.CubesBallsOfTheTorusAndTheirLiftsProof
+import YangMills.Construction.Torus.FactsOfTheCoveringMapAndTheDistanceOfTheStandingDataProof
+import YangMills.Construction.Torus.LiftOfABallAndOfAFunctionProof
+import YangMills.Construction.Torus.OneBallIntegralsAndLiftOfATestPairProof
+import YangMills.Construction.Torus.PointsSupportsAndLiftsOfAQuadrupleProof
+import YangMills.Construction.Torus.SumOverThePlanesAroundARingProof
+import YangMills.Construction.Torus.TranslationsAndTwoLiftsOfATupleProof
+import YangMills.Construction.TotalDensitiesGiveASystem.OneInsertionOnTheWindowProof
+import YangMills.Construction.TotalDensitiesGiveASystem.TheBoundsOnTheWindowProof
+import YangMills.Construction.TotalDensitiesGiveASystem.TheCentredCellValueOnTheWindowProof
+import Mathlib
+namespace YangMills.Construction.TheStatementsProvedTogether
+theorem cell_observable_between_half_spaces :
+    MultipleReflections.CellObservableBetweenHalfSpaces :=
+  MultipleReflections.cellObservableBetweenHalfSpaces_holds periodic_gibbs_reflection_transfer
+    chessboard_estimate_mirror_grids logConvex_seq_ratio_pow_bounds stackCorrelation_logConvex
+    tallStack_over_tile_crude_bound
+theorem torus_multiple_reflection_bound :
+    ChessboardTori.MultipleReflectionBound.Statement :=
+  ChessboardTori.MultipleReflectionBound.holds cell_observable_between_half_spaces
+    torus_mirror_grid_objects_agree chessboard_estimate_all_sides reflection_grid_properties
+theorem reflectedCopy_size_small_radius : ReflectedCopies.CopySizeSmallRadius.Statement :=
+  ReflectedCopies.CopySizeSmallRadius.holds
+theorem centred_cell_chessboard_bound :
+    SystemOfAdmissibleConstants.CentredCellChessboardBound :=
+  SystemOfAdmissibleConstants.centredCellChessboardBound_holds small_torus_copy_inequality
+    firstPassageWindow_mem_data cell_function_mean_value_bounds reflectedCopy_size_small_radius
+theorem centered_cell_window_bound : TotalDensities.WindowCentredCell.Statement :=
+  TotalDensities.windowCentredCell_of_chessboardBound totalDensity_coupling_window
+    centred_cell_chessboard_bound
+theorem window_insertion : TotalDensities.WindowInsertion.Statement :=
+  TotalDensitiesGiveASystem.windowInsertion_of_reflections torus_multiple_reflection_bound
+    centered_cell_window_bound
+theorem window_bounds_exist : TotalDensities.WindowBoundsExist.Statement :=
+  TotalDensities.windowBoundsExist_of_familyBoundsAlongTrajectory totalDensity_coupling_window
+    four_bounds_admissible_constants
+theorem cutoff_window_well_defined : CutoffLattice.WindowObjectsWellDefined :=
+  CutoffLattice.WindowObjects.wellDefined
+theorem window_densities_fixed_spacing : WindowDensities.Statement :=
+  WindowDensities.statement_holds infinite_lattice_gauge_field_space
+    window_kernel_operator_properties bond_plaquette_covering
+    periodic_extension_equilibrium_equation exists_weakly_convergent_subseq_of_states
+    weak_limit_points_nonempty_closed LatticeSymmetries.torusLattice_covering
+theorem weakConvergence_window_kernels_densities :
+    InfiniteLattice.WeakConvergence.WeakConvergenceWindowStatement :=
+  InfiniteLattice.WeakConvergence.weakConvergenceWindowStatement_holds
+    infinite_lattice_gauge_field_space exists_weakly_convergent_subseq_of_states
+    weak_limit_points_nonempty_closed weak_cluster_pt_eq_seq_limit
+    window_densities_fixed_spacing window_kernel_operator_properties torus_config_equiv_periodic
+    cutoff_window_well_defined
+theorem ball_lift_periodization : QuadrupleBalls.BallLiftPeriodizationStatement :=
+  QuadrupleBalls.ballLiftPeriodization_holds separated_quadruple_geometry torus_ball_projection
+    translated_lattice_cells_and_balls
+theorem connected_four_point_moments_limits :
+    InfiniteLattice.FourPointMoments.MomentsExtensionsAndLimits :=
+  InfiniteLattice.FourPointMoments.momentsExtensionsAndLimits_holds
+    LatticeSymmetries.gauge_field_space_product connected_function_finite_sum_plaquettes
+    joint_cumulant_moment_expansion periodization_covering_identities
+    LatticeSymmetries.infiniteLattice_fieldSpace_and_symmetries
+theorem covering_map_small_balls : TestFunctions.SmallBalls.CoveringOnSmallBalls :=
+  TestFunctions.SmallBalls.coveringOnSmallBalls
+theorem single_ball_test_pair : SingleBallPairs.MainStatement :=
+  SingleBallPairs.mainStatement_holds testPair_geometry_kernel_bounds
+    covering_map_small_balls
+theorem dilated_pair_periodization :
+    FourPointCondition.dilatedPairPeriodizationStatement :=
+  FourPointCondition.dilatedPairPeriodization test_pair_transport_lift_dilation
+    single_ball_test_pair
+theorem four_point_ratio_conditions_eventually : FourPointCondition.ratioConditionsEventually :=
+  FourPointCondition.ratioConditionsEventually_holds dilated_pair_periodization
+    testPair_geometry_kernel_bounds
+theorem bivector_inner_minors_reflection_det :
+    Exterior.BivectorInnerMinorsReflectionDet :=
+  Exterior.bivectorInnerMinorsReflectionDet_holds
+theorem free_curvature_propagator_symm_even_continuous :
+    Exterior.FreeCurvaturePropagatorSymmEvenContinuous :=
+  Exterior.freeCurvaturePropagatorSymmEvenContinuous_holds
+    bivector_inner_minors_reflection_det
+theorem coveringMap_and_distance_properties :
+    Conventions.StandingParameters.CoveringAndDistanceFacts :=
+  Conventions.StandingParameters.CoveringAndDistanceFacts.holds axis_mirror_projection_facts
+    metric_torus_test_function_facts
+theorem testFunction_ballLift : TestFunctions.BallLift.BallAndFunctionLift :=
+  TestFunctions.BallLift.ballAndFunctionLift_of_facts axis_mirror_projection_facts
+theorem torus_minimal_lift_unique : TorusMetric.MinimalLiftUnique :=
+  TorusMetric.LiftUniqueness.minimalLiftUnique_holds
+theorem free_ring_kernel_translation_invariant : FreeRingKernels.TranslationInvariance.Statement :=
+  FreeRingKernels.TranslationInvariance.statement_holds testFunction_ballLift
+    torus_minimal_lift_unique
+theorem rings_order_three_four_kernels :
+    PeriodicLattice.RingsOfOrderThreeFourAndKernels :=
+  PeriodicLattice.ringsOfOrderThreeFourAndKernels_holds
+theorem propagatorRing_trace_cyclic : PropagatorRings.CyclicTraceProperties :=
+  PropagatorRings.cyclicTraceProperties_holds
+    free_curvature_propagator_symm_even_continuous
+theorem free_ring_kernel_integrals : FreeRingKernels.RingIntegrals.Statement :=
+  FreeRingKernels.RingIntegrals.ln propagatorRing_trace_cyclic
+    rings_order_three_four_kernels free_ring_kernel_translation_invariant
+    testFunction_ballLift translated_lattice_cells_and_balls
+    coveringMap_and_distance_properties
+    free_curvature_propagator_symm_even_continuous
+theorem quadruple_points_supports_lifts : QuadrupleGeometry.Statement :=
+  QuadrupleGeometry.statement_holds separated_quadruple_geometry
+    translated_lattice_cells_and_balls integral_covering_map_torus_eq free_ring_kernel_integrals
+theorem cyclic_kernel_order_four : CyclicKernels.CyclicKernelOrderFour :=
+  CyclicKernels.OrderFour.cyclicKernelOrderFour_holds
+    rings_order_three_four_kernels
+theorem exterior_square_trace_hodge_star :
+    PeriodicLattice.ExteriorSquareTraceHodgeFacts :=
+  PeriodicLattice.exteriorSquareTraceHodgeFacts_of_minors
+    bivector_inner_minors_reflection_det
+theorem householder_bivector_facts : PeriodicLattice.HouseholderOnBivectorsFacts :=
+  PeriodicLattice.HouseholderBivectorProof.householderOnBivectorsFacts_of
+    exterior_square_trace_hodge_star bivector_inner_minors_reflection_det
+theorem free_curvature_propagator_properties :
+    Exterior.FreeCurvaturePropagatorProperties :=
+  Exterior.freeCurvaturePropagatorProperties_holds householder_bivector_facts
+    free_curvature_propagator_symm_even_continuous
+theorem bare_lattice_barycentres : BareLattice.BareLatticeProperties :=
+  BareLattice.bareLatticeProperties_holds torus_and_space_lattice_properties
+theorem torus_cubes_balls_lifts : TorusCubesAndBalls.CubesBallsAndLifts :=
+  TorusCubesAndBalls.cubesBallsAndLifts_holds integral_covering_map_torus_eq
+    translated_lattice_cells_and_balls bare_lattice_barycentres
+    torus_projection_volume_le torus_ball_projection
+theorem ring_plane_sum : RingPlaneSums.RingPlaneSumStatement :=
+  RingPlaneSums.ringPlaneSumStatement_holds free_curvature_propagator_properties
+    torus_cubes_balls_lifts cyclic_kernel_order_four
+theorem fourPointKernel_trace : ResponseInTheExpansion.fourPointKernelTraceStatement :=
+  ResponseInTheExpansion.FourPointKernelTrace.fourPointKernelTrace_holds
+theorem collinear_cumulant_bounds :
+    ResponseInTheExpansion.collinearCumulantBoundsStatement :=
+  ResponseInTheExpansion.collinearCumulantBounds_holds fourPointKernel_trace
+    separated_quadruples_collinear_case
+theorem gaussian_four_point_collinear : FourPointCondition.gaussianFourPointCollinear :=
+  FourPointCondition.gaussianFourPointCollinear_holds collinear_cumulant_bounds
+    quadruple_points_supports_lifts ring_plane_sum
+theorem unit_scale_pair_of_quadruple : FourPointBounds.UnitScalePairOfQuadruple :=
+  FourPointBounds.unitScalePairOfQuadruple_of_geometry testPair_geometry_kernel_bounds
+theorem connected_four_point_functions_homogeneous :
+    FourPointCondition.connectedFunctionsHomogeneousStatement :=
+  FourPointCondition.connectedFunctionsHomogeneous torusCumulant_multilinear
+theorem curvature_kernel_sq_trace : LinearResponse.CurvatureKernelSqTraceFormula :=
+  LinearResponse.curvatureKernelSqTraceFormula_holds
+theorem gaussian_twoPoint_pair : FourPointCondition.gaussianTwoPointPair :=
+  FourPointCondition.gaussianTwoPointPair_holds curvature_kernel_sq_trace
+theorem bounded_rv_exp_moment_holomorphic :
+    Cumulants.ExpMoments.HolomorphicAndNormalized :=
+  Cumulants.ExpMoments.holomorphicAndNormalized_holds
+theorem joint_cumulant_bounded_real :
+    Cumulants.RealVariables.BoundedRealCumulantTheorem :=
+  Cumulants.RealVariables.boundedRealCumulantTheorem_holds
+    cumulant_moment_relations joint_mgf_and_log
+theorem jointCumulant_real_symmetric_multilinear :
+    Cumulants.RealSymmetricMultilinear.CumulantIsRealSymmetricMultilinear :=
+  Cumulants.RealSymmetricMultilinear.cumulantIsRealSymmetricMultilinear_holds
+    bounded_rv_exp_moment_holomorphic joint_cumulant_bounded_real
+theorem cumulant_multilinear_shift_moment : Cumulants.MomentCumulantRelations.Holds :=
+  Cumulants.CumulantIdentities.holds
+theorem mixed_cumulant_properties :
+    Cumulants.MixedCumulantFacts.MixedCumulantProperties :=
+  Cumulants.MixedCumulantFacts.mixedCumulantProperties_holds joint_cumulant_moment_expansion
+    jointCumulant_real_symmetric_multilinear cumulant_multilinear_shift_moment
+theorem quadratic_form_cumulants :
+    ResponseInTheExpansion.quadraticFormCumulantsStatement :=
+  ResponseInTheExpansion.QuadraticFormCumulants.quadraticFormCumulants_holds
+    joint_cumulant_moment_expansion
+theorem chain_states_measurable : ResponseInTheExpansion.StageStatesMeasurableStatement :=
+  ResponseInTheExpansion.stageStates_measurable
+theorem sample_below_law : ResponseInTheExpansion.sampleBelowLawStatement :=
+  WeightedResponses.sampleBelowLaw_holds step_transition_density_bounds
+    score_product_step_mean edge_score_properties
+    chain_states_measurable
+theorem centred_moments_volume_first_limit :
+    CutoffLimits.CenteredMomentsAndVolumeFirst.Statement :=
+  CutoffLimits.CenteredMomentsAndVolumeFirst.statement_holds gibbsState_centered_identity
+    fixed_spacing_lattice_basic_facts connected_function_finite_sum_plaquettes
+    LatticeSymmetries.gauge_field_space_product
+theorem moments_cumulants_two_measures :
+    CutoffLimits.TwoMeasures.CumulantComparison :=
+  CutoffLimits.TwoMeasures.cumulantComparison_holds cumulant_moment_relations
+    centred_moments_volume_first_limit
+theorem circle_rep_properties : LevelTestFunctions.CircleRepProperties :=
+  LevelTestFunctions.circleRepProperties_holds
+theorem completed_observables_bounded : FreeEnergies.completedObservablesBounded :=
+  FreeEnergies.completedObservablesBounded_holds edge_score_properties
+theorem coarse_state_weight_ne_zero :
+    FreeEnergiesOfTheFlow.CoarseStateWeightNeZeroOnGround :=
+  FreeEnergies.coarseStateWeight_ne_zero_on_ground case_mean_eq_gas_expectation
+    gas_activity_bounded dobrushin_activity_conditional_laws labelFunction_integrable
+    eventually_floor_conditions
+theorem case_mean_properties : FreeEnergies.caseMeanProperties :=
+  FreeEnergies.caseMeanProperties_holds
+theorem support_variable_mean : FreeEnergies.supportResponseMeanStatement :=
+  FreeEnergies.supportResponseMeanStatement_holds case_mean_properties
+    mean_site_scores_step_bound labelFunction_integrable
+    coarse_state_weight_ne_zero coldStep_integral_eq_gas_mean
+    edge_score_properties weighted_block_mean_linear_local bond_kernel_properties
+theorem box_law_state_density : StageDensity.stageStateDensityStatement :=
+  StageDensity.stageStateDensity_holds configurationMass_withFunction
+    config_support_coarse_hull configuration_weights_sum coarse_hull_is_hull
+    step_transition_density_bounds chain_states_measurable
+    weighted_response_chain_isProbabilityMeasure eventually_floor_conditions
+theorem configurationMass_measurable_in_param :
+    ResponseInTheExpansion.ConfigurationMassMeasurable :=
+  ResponseInTheExpansion.configurationMassMeasurable_holds coarse_label_measure_by_shapes
+theorem conditional_mean_given_coarse_state :
+    WeightedResponses.conditionalMeanGivenCoarseState :=
+  WeightedResponses.conditionalMeanGivenCoarseState_holds configurationMass_withFunction
+    configurationMass_measurable_in_param step_transition_density_bounds
+    configuration_weight_measurable coarse_label_measure_by_shapes
+theorem law_of_total_covariance_increment :
+    WeightedResponses.LawOfTotalCovarianceWithIncrement :=
+  WeightedResponses.lawOfTotalCovarianceWithIncrement_holds
+theorem scoreSum_covariance : WeightedResponses.ScoreSumCovariance :=
+  WeightedResponses.scoreSumCovariance_holds bond_kernel_properties edge_score_properties
+theorem two_point_function_total_covariance :
+    ResponseInTheExpansion.TwoPointByTotalCovarianceStatement :=
+  WeightedResponses.TwoPointCovariance.twoPointByTotalCovariance
+    law_of_total_covariance_increment chain_states_measurable
+    score_product_step_mean step_transition_density_bounds
+    edge_score_properties chain_step_mean scoreSum_covariance
+theorem conditional_mean_eq_case_mean :
+    ResponseInTheExpansion.conditionalMeanIsCaseMeanStatement :=
+  ResponseInTheExpansion.conditionalMeanIsCaseMean conditional_mean_given_coarse_state
+    box_law_state_density chain_states_measurable
+    two_point_function_total_covariance weighted_response_chain_isProbabilityMeasure
+theorem conditionalMean_cases :
+    FreeEnergies.conditionalMeanReadsCasesStatement :=
+  FreeEnergies.conditionalMeanReadsCases_proof conditional_mean_eq_case_mean
+    case_mean_properties bond_kernel_properties
+    two_point_function_total_covariance
+theorem towerStates_are_groundStates : FreeEnergies.TowerStatesAreGroundStates :=
+  FreeEnergies.towerStatesAreGroundStates_holds conditional_mean_eq_case_mean
+    two_point_function_total_covariance chain_states_measurable
+    coarseWeight_eq_zero_of_factor_eq_zero hull_state_hot_case coarse_hull_is_hull
+    eventually_floor_conditions free_energy_expansion_along_flow
+theorem measurable_next_stage_state :
+    FreeEnergiesOfTheFlow.MeasurableNextStageState :=
+  FreeEnergiesOfTheFlow.measurableNextStageState_holds
+theorem stageStates_markov :
+    FreeEnergiesOfTheFlow.MarkovPropertyOfStageStates :=
+  FreeEnergiesOfTheFlow.markovPropertyOfStageStates_holds
+    step_transition_density_bounds score_product_step_mean
+    chain_states_measurable measurable_next_stage_state
+    two_point_function_total_covariance
+theorem fitted_response_eq_conditional_mean :
+    FreeEnergies.fittedResponseIsConditionalMeanStatement :=
+  FreeEnergies.fittedResponseIsConditionalMean chain_states_measurable
+    completed_observables_bounded two_point_function_total_covariance
+    stageStates_markov conditionalMean_cases
+    case_mean_properties support_variable_mean
+    labelFunction_integrable towerStates_are_groundStates
+    free_energy_expansion_along_flow
+theorem conditional_product_means :
+    FreeEnergies.conditionalProductMeansStatement :=
+  FreeEnergies.conditionalProductMeansStatement_holds chain_states_measurable
+    completed_observables_bounded two_point_function_total_covariance
+    fitted_response_eq_conditional_mean
+end YangMills.Construction.TheStatementsProvedTogether

@@ -1,0 +1,1194 @@
+{
+  "date": "2026-11-20",
+  "leanVersion": "4.33.1",
+  "mathlibCommit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "publicTheorem": "YangMills.wilson_subsequence",
+  "constructionTheorem": "YangMills.su2_fixed_observable_continuum_limit",
+  "mainLeanSources": {
+    "packageModules": 12589,
+    "sha256": "3dcd01297c42277f2cf597ad84e6b3913c9e65186cc0277e94d73d77abc2a849",
+    "included": [
+      "Challenge.lean",
+      "Formulation/**/*.lean",
+      "Reconstruction/**/*.lean",
+      "YangMills/**/*.lean"
+    ],
+    "ordering": "Ascending relative POSIX paths",
+    "encoding": "For each file: UTF-8 relative path, NUL, lowercase hex SHA-256 of its exact bytes, LF"
+  },
+  "inputsSha256": {
+    "lakefile.toml": "555f9a16da2acf9322c4230ad8f3e6d243fddb860d74ee267075356891c19a59",
+    "lake-manifest.json": "1ce2275dec14d57fdbd5710d009d6854b79e0848d86c4e3b059d32a39e8bb6cf",
+    "lean-toolchain": "a0ada3782cd088719516bbfdf37b9e7032230e211bf424b85d952ee650c51091",
+    "comparator.json": "7101d1affadfcfbb6ed28282e9b2dba109967afe816eca48fc28c3308d551d19",
+    "Challenge.lean": "ada446fc04ff7991bfaa0d52f71016c33dc003c92bb66d68c80c2cf1251bf9cb",
+    "Formulation/WilsonSubsequence.lean": "caea7a2bfc259a748e19eb78c33d49dad9b6c3e6e55e02493e85ce9dfaa58435",
+    "Formulation/FixedObservableContinuum.lean": "2fe802606806df2c00249fc7384d8fb19619271b790dd0f96526459aa3698a49",
+    "scripts/verify-comparator.py": "010f54df2d85f2c97ff66cc1c0f1e7d54815d869bde37652da0b8848eacc022a",
+    "scripts/comparator/CompareSourceStatements.lean": "bbea15e7162c47a08a4ba516cad480016cad33ca603bd6e3bc25c631c1772e85",
+    "scripts/comparator/SerializedSupport.lean": "a884f2d69dbcdd5a9b1ec70d4ab18f29c916721813dbb0d94b54a0f151dd76ca",
+    "scripts/comparator/scope.json.gz": "9c0bc0060075d947e7176db3a5a8bb54934300c2994b29c26cea7e78456caf79",
+    "scripts/comparator/lakefile.toml": "7e6c5e270561860dde64cf4528814158bca2d3f777b7c95329a1f61f600a1b73",
+    "scripts/comparator/lean-toolchain": "bc84812c94489d1e3e191baa1dc10d5eb684382d7fe9d2a5ab085e72c1c67e47",
+    "scripts/comparator/run_source_controls.py": "8976956387f2dde560beeef859b8479afd4d2c94c0bd74f669026cf717515ca1"
+  },
+  "proofBuild": {
+    "status": "passed",
+    "mode": "incremental, restricted to the two continuum theorem roots",
+    "localModulesInPublicProofClosure": 12435,
+    "recompiledModules": 64,
+    "changedSourceModulesSincePreviousSnapshot": [
+      "YangMills.Construction.TorusOrFourSpace.PartitionsOfUnityOnCompactSubsetsOfPowersProof"
+    ],
+    "additionalModuleRebuildSeeds": [
+      "YangMills.Construction.LinearAlgebra.InnerProductMinorsReflectionDeterminantProof",
+      "YangMills.Construction.LinearAlgebra.ReflectionOnTwoVectorsProof"
+    ],
+    "rebuiltDependents": "All reverse dependencies of these three modules within the public proof import graph.",
+    "unchangedCacheBindings": [
+      {
+        "modules": 12309,
+        "fromFingerprint": "99eeece7f399a233cd0d273cf97601520d5edf17932de4f5656c2eb7892abdf1",
+        "check": "Source SHA-256 matches and compiled artifact is a hard link to the successful full build."
+      },
+      {
+        "modules": 62,
+        "fromFingerprint": "74402798afb14a72e03b00f0ad958ed54f6c9ceab9a633f69c8f006ba249bd62",
+        "check": "Compiled and source SHA-256 match an individual successful recompilation receipt."
+      }
+    ],
+    "entryModules": {
+      "Formulation.WilsonSubsequence": {
+        "sourceSha256": "caea7a2bfc259a748e19eb78c33d49dad9b6c3e6e55e02493e85ce9dfaa58435",
+        "oleanSha256": "eb2b0810bed9456c250c53893b71eab4acde0dddf7914b838ebb83f3553713f1"
+      },
+      "Formulation.FixedObservableContinuum": {
+        "sourceSha256": "2fe802606806df2c00249fc7384d8fb19619271b790dd0f96526459aa3698a49",
+        "oleanSha256": "62013069247329bc68ed82d11d8dee41cbd39595282cdf35d8edb9a40c1e5f0d"
+      }
+    },
+    "compilerSha256": "af49bacfabaa1fea71332ca0feae0fa1a60912219d5902291adc79f905bffb8d",
+    "lockedPackageHeads": {
+      "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+      "plausible": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+      "LeanSearchClient": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+      "importGraph": "16f02aa7642864af59f1ff0e384a015994db9118",
+      "proofwidgets": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+      "aesop": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+      "Qq": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+      "batteries": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+      "Cli": "6130a47896ce867c6a4a55373441e59e565bad0f"
+    },
+    "moduleBuildReceiptSha256": "8b8186ad224c14b1b3a3444284e41f2d0a7428705798a4ecd1e3f626ff9f9b29",
+    "fullPackageRebuiltForThisSnapshot": false
+  },
+  "theoremAssumptions": {
+    "status": "passed",
+    "perTheorem": {
+      "YangMills.wilson_subsequence": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "YangMills.su2_fixed_observable_continuum_limit": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "proofEnvironmentExcluded": [
+      "Challenge",
+      "Reconstruction"
+    ],
+    "leanLogSha256": "6f24fe2c3da7bceb7d1a98a80a27965609581d2ea30377c86066a4c378bf724b"
+  },
+  "referenceChallenge": {
+    "module": "Challenge",
+    "imports": [
+      "Mathlib"
+    ],
+    "independentlyCompiled": true,
+    "expectedTheoremPlaceholderWarnings": 1,
+    "leanLogSha256": "38ca7ffabc9b2e009a6b957939b4d94e6357c9f67c8b99b68ad9cdcfaa285f0d",
+    "sourceSha256": "ada446fc04ff7991bfaa0d52f71016c33dc003c92bb66d68c80c2cf1251bf9cb",
+    "exporterSha256": "29aeb2766d771d108e5d11a99d5d9014ea3ab2ccd8c41cc8adc385dd2f0f9b3f",
+    "nativeExport": {
+      "sha256": "907b72a1fa932c0c653133a9807bf2b9756e1ff9fbe36ad3112e2bcaf6133348",
+      "bytes": 183917728
+    },
+    "stockExport": {
+      "sha256": "770eebd071900b74568f8694a2f48bc53ac596289c6b172e6e5befc8a6f2a1db",
+      "bytes": 183918771,
+      "additionalSeeds": "Lean primitive declarations needed by the stock CLI."
+    },
+    "oleanSha256": "4168cbe5277bca4182f50f5be73389c1d165cf5ab368b84e2f6c99022300a83d"
+  },
+  "proofExport": {
+    "sha256": "b5c57f2186da29e90554e02926113f476ccc3809abd3b8e52451f99f6caacddb",
+    "bytes": 6468805387,
+    "expandedDeclarations": 342292,
+    "rootsWithProofValues": [
+      "YangMills.su2_fixed_observable_continuum_limit",
+      "YangMills.wilson_subsequence"
+    ],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "unsafeDeclarations": 0,
+    "partialDeclarations": 0,
+    "formatVersion": "3.1.0",
+    "exporterSha256": "29aeb2766d771d108e5d11a99d5d9014ea3ab2ccd8c41cc8adc385dd2f0f9b3f",
+    "additionalPrimitiveSeeds": [
+      "Nat.land",
+      "Nat.lor",
+      "Nat.xor",
+      "Nat.shiftLeft",
+      "Nat.shiftRight",
+      "String.ofList",
+      "Char.ofNat",
+      "eagerReduce"
+    ],
+    "integrityReceiptSha256": "c2053b799e67c2a73b69abb0288c590298eb63674b4027bf7c8343df219fef98"
+  },
+  "conLeche": {
+    "mode": "--verified",
+    "exitCode": 0,
+    "binarySha256": "a4e13ed9481e4f61c8c8eb0399013d557cc9602c646f38e5831a74e41ff9ec2e",
+    "recordedSourceCommit": "67f04630d88718e81aa4d07ab64501f68f105398",
+    "exportSha256": "b5c57f2186da29e90554e02926113f476ccc3809abd3b8e52451f99f6caacddb",
+    "logSha256": "dc9ea39e83cc3a85233916c867f0a36cbd7de5b7100c133316f876566746fb49",
+    "status": "passed",
+    "acceptedGroupedDeclarations": 333678
+  },
+  "nativeComparator": {
+    "status": "passed",
+    "exitCode": 0,
+    "apiVersion": "4.35.0-rc3",
+    "upstreamProcedures": [
+      "Lake.Check.compareAt",
+      "Lake.Check.checkAxioms"
+    ],
+    "inputMode": "Separately compiled and exported reference and solution. Native unsandboxed adapter.",
+    "challengeRoot": "YangMills.wilson_subsequence",
+    "challengeExportSha256": "907b72a1fa932c0c653133a9807bf2b9756e1ff9fbe36ad3112e2bcaf6133348",
+    "solutionExportSha256": "b5c57f2186da29e90554e02926113f476ccc3809abd3b8e52451f99f6caacddb",
+    "rawLogSha256": "05d21b4d666014c05a5d71b69eecde7fe810677fb5892c8ea8040dc5bcbe7290",
+    "adapterSha256": "ec5b76412a7af74a92fcfe5a3628bc85e7cdb25aaa60306cef458b3e7336b952",
+    "adapterControlsPassed": 13,
+    "permittedAxioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "coverage": {
+      "absentOptionalSupplementNames": [],
+      "canonicalDeclarationCount": 6087,
+      "canonicalTheoremTypeCount": 2628,
+      "challengeHelperAxiomCheckCount": 2627,
+      "comparedSeedCount": 6088,
+      "comparedTheoremTypeCount": 2628,
+      "definitionHoles": [],
+      "referenceDeclarationCount": 6088,
+      "referenceTheoremTypeCount": 2628,
+      "sourceRootProofHoles": [
+        [
+          [
+            "s",
+            "YangMills"
+          ],
+          [
+            "s",
+            "wilson_subsequence"
+          ]
+        ]
+      ]
+    },
+    "scopeSha256": "cbaa20dfb609daa84df79f6a1ecff714d68c1184755fc419fe43d19cc2558ec8"
+  },
+  "stockComparatorOnExports": {
+    "status": "passed",
+    "version": "4.35.0-rc3",
+    "exitCode": 0,
+    "sandbox": false,
+    "sourceRebuiltByComparator": false,
+    "mode": "Unmodified lake comparator with --challenge-from-export, --solution-from-export and --inadvisably-no-sandbox.",
+    "configuredTheorem": "YangMills.wilson_subsequence",
+    "configSha256": "7101d1affadfcfbb6ed28282e9b2dba109967afe816eca48fc28c3308d551d19",
+    "challengeExportSha256": "770eebd071900b74568f8694a2f48bc53ac596289c6b172e6e5befc8a6f2a1db",
+    "solutionExportSha256": "c64d57811784aa348244b6401af11d1e2df9f7764b6d6b3477d35f20fd079b4c",
+    "comparisonLogSha256": "44185e931f2fc8b47a320483e3fea92b5edc0288cf80f976547fd712815368a4",
+    "lakeExecutableSha256": "5533e4b8acc951aab18835b27b1e631cc52a631c2a81b34d5853f2f54666aa5d",
+    "defaultKernelStarted": true,
+    "acceptedSolution": true,
+    "defaultKernelExecutableSha256": "f9e7fe9279dbd106af8258bc1b1d05be3a93fc44c65620847d3d4ad3b8951ccc",
+    "initialInputAttempt": {
+      "exitCode": 1,
+      "solutionExportSha256": "b5c57f2186da29e90554e02926113f476ccc3809abd3b8e52451f99f6caacddb",
+      "diagnostic": "Const not found in solution 'String.mk'",
+      "logSha256": "a0bd3ac40ec712a15ef2a66fbbc71887c2bf0174226714d6b64ec4929c337d6c",
+      "defaultKernelStarted": false
+    },
+    "solutionExportBytes": 6468805933,
+    "solutionRoots": [
+      "YangMills.su2_fixed_observable_continuum_limit",
+      "YangMills.wilson_subsequence"
+    ],
+    "additionalExportSeeds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound",
+      "Quot",
+      "Quot.mk",
+      "Quot.lift",
+      "Quot.ind",
+      "Eq",
+      "Nat.add",
+      "Nat.sub",
+      "Nat.mul",
+      "Nat.pow",
+      "Nat.gcd",
+      "Nat.div",
+      "Nat.mod",
+      "Nat.beq",
+      "Nat.ble",
+      "Nat.land",
+      "Nat.lor",
+      "Nat.xor",
+      "Nat.shiftLeft",
+      "Nat.shiftRight",
+      "String.ofList",
+      "Char.ofNat",
+      "List",
+      "eagerReduce",
+      "Nat",
+      "String",
+      "String.mk",
+      "Char",
+      "optParam",
+      "autoParam",
+      "semiOutParam",
+      "outParam"
+    ],
+    "proofBuildReceiptSha256": "8b8186ad224c14b1b3a3444284e41f2d0a7428705798a4ecd1e3f626ff9f9b29",
+    "resolvedInputReceiptSha256": "862d8e9447cf20af62a376d43efab395d16d82144bf940aa58b7cea2b4641150",
+    "solutionExporterSha256": "29aeb2766d771d108e5d11a99d5d9014ea3ab2ccd8c41cc8adc385dd2f0f9b3f",
+    "stockExportReceiptSha256": "2c53ce9d47315a3c7871f69ae3326f9bd9d02de677269cef441a07dc18b0aec0",
+    "solutionExpandedDeclarations": 342294,
+    "comparisonToNativeAdapterExport": {
+      "byteIdenticalThroughBothProofs": true,
+      "completeOldExportIsPrefix": true,
+      "byteIdenticalPrefixLength": 6468805387,
+      "addedDeclarations": [
+        {
+          "name": "String.mk",
+          "kind": "def"
+        },
+        {
+          "name": "String.mk._proof_1",
+          "kind": "thm"
+        }
+      ],
+      "removedDeclarations": []
+    },
+    "conLecheOnStockSolutionExport": {
+      "mode": "--verified",
+      "exitCode": 0,
+      "logSha256": "08be634ae3945a5e4dec0b1a69711b2fef9b056b6a515b947d42e705c1d3db78",
+      "binarySha256": "a4e13ed9481e4f61c8c8eb0399013d557cc9602c646f38e5831a74e41ff9ec2e",
+      "status": "passed",
+      "acceptedGroupedDeclarations": 333680
+    }
+  },
+  "stockSandboxedRebuild": {
+    "status": "unsupported on this host",
+    "host": "Windows",
+    "version": "4.35.0-rc3",
+    "exitCode": 2,
+    "diagnostic": "error: `lake comparator` sandboxes the code it checks with `bwrap`, which needs Linux namespaces.",
+    "logSha256": "3520874c2e3affabc51be6e7079e21232661acece22d450463d4d09a358a859e"
+  },
+  "wholePackageScan": {
+    "sourceSha256": "3dcd01297c42277f2cf597ad84e6b3913c9e65186cc0277e94d73d77abc2a849",
+    "implementationModules": 12588,
+    "uniqueFirstPartyDeclarations": 303071,
+    "uniqueFirstPartyTheorems": 229207,
+    "theoremsMissingProofValues": 0,
+    "reachableAxioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "unsafeDeclarations": 0,
+    "generatedPartialRecursionHelpers": 524,
+    "partialDependentsAreExactlyTheHelpers": true,
+    "solutionExportSha256": "c64d57811784aa348244b6401af11d1e2df9f7764b6d6b3477d35f20fd079b4c",
+    "validatedExportRecords": 116828623,
+    "nanoda": {
+      "exitCode": 0,
+      "records": 342294,
+      "allowedAxioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "commit": "0da9f98feadd3a0a2ef4b3dbcf52a298a6fef929",
+      "toolSha256": "b3c3bb59d5dff896156918c2118aa6a5af01f95fd54d11920ed6447d09e9f05d",
+      "logSha256": "89daf4341479753cc8253dfedf0f42c9246dc85aa36042500b5f70ea816624e4"
+    },
+    "nativeComparatorOnStockExport": {
+      "exitCode": 0,
+      "inputsSha256": {
+        "adapter": "ec5b76412a7af74a92fcfe5a3628bc85e7cdb25aaa60306cef458b3e7336b952",
+        "challenge": "907b72a1fa932c0c653133a9807bf2b9756e1ff9fbe36ad3112e2bcaf6133348",
+        "scope": "cbaa20dfb609daa84df79f6a1ecff714d68c1184755fc419fe43d19cc2558ec8",
+        "solution": "c64d57811784aa348244b6401af11d1e2df9f7764b6d6b3477d35f20fd079b4c"
+      },
+      "comparedDeclarations": 6088,
+      "comparedTheoremTypes": 2628,
+      "logSha256": "28fb5ce7b4c40c0d64fb31c2347e6e21ec45784bdad0cc37fe130c1b3c2f243a"
+    },
+    "scanScope": "Dependency and safety inventory of compiled declarations across the implementation. Kernel replays cover the exported theorem proofs."
+  },
+  "history": [
+    {
+      "date": "2026-11-19",
+      "leanVersion": "4.33.1",
+      "mathlibCommit": "0df444a360eaa60ab8c11dca51a86af692955474",
+      "publicTheorem": "YangMills.wilson_subsequence",
+      "constructionTheorem": "YangMills.su2_fixed_observable_continuum_limit",
+      "mainLeanSources": {
+        "packageModules": 12589,
+        "sha256": "74402798afb14a72e03b00f0ad958ed54f6c9ceab9a633f69c8f006ba249bd62",
+        "included": [
+          "Challenge.lean",
+          "Formulation/**/*.lean",
+          "Reconstruction/**/*.lean",
+          "YangMills/**/*.lean"
+        ],
+        "ordering": "Ascending relative POSIX paths",
+        "encoding": "For each file: UTF-8 relative path, NUL, lowercase hex SHA-256 of its exact bytes, LF"
+      },
+      "inputsSha256": {
+        "lakefile.toml": "555f9a16da2acf9322c4230ad8f3e6d243fddb860d74ee267075356891c19a59",
+        "lake-manifest.json": "1ce2275dec14d57fdbd5710d009d6854b79e0848d86c4e3b059d32a39e8bb6cf",
+        "lean-toolchain": "a0ada3782cd088719516bbfdf37b9e7032230e211bf424b85d952ee650c51091",
+        "comparator.json": "7101d1affadfcfbb6ed28282e9b2dba109967afe816eca48fc28c3308d551d19",
+        "Challenge.lean": "ada446fc04ff7991bfaa0d52f71016c33dc003c92bb66d68c80c2cf1251bf9cb",
+        "Formulation/WilsonSubsequence.lean": "caea7a2bfc259a748e19eb78c33d49dad9b6c3e6e55e02493e85ce9dfaa58435",
+        "Formulation/FixedObservableContinuum.lean": "2fe802606806df2c00249fc7384d8fb19619271b790dd0f96526459aa3698a49",
+        "scripts/verify-comparator.py": "010f54df2d85f2c97ff66cc1c0f1e7d54815d869bde37652da0b8848eacc022a",
+        "scripts/comparator/CompareSourceStatements.lean": "bbea15e7162c47a08a4ba516cad480016cad33ca603bd6e3bc25c631c1772e85",
+        "scripts/comparator/SerializedSupport.lean": "a884f2d69dbcdd5a9b1ec70d4ab18f29c916721813dbb0d94b54a0f151dd76ca",
+        "scripts/comparator/scope.json.gz": "9c0bc0060075d947e7176db3a5a8bb54934300c2994b29c26cea7e78456caf79"
+      },
+      "checks": {
+        "sourceImportGraph": {
+          "packageModules": 12589,
+          "missingLocalImports": 0,
+          "cyclicComponents": 0,
+          "defaultTargetLocalClosure": 12438,
+          "publicProofModuleLocalClosure": 12435,
+          "optionalReconstructionLocalModules": 151,
+          "optionalModulesInDefaultTargets": 0
+        },
+        "targetedElaboration": {
+          "compiler": "Lean 4.33.1",
+          "exitCode": 0,
+          "modifiedOrNewModules": 68,
+          "retiredSourcePaths": [
+            "Formulation/Thermodynamic.lean",
+            "Reconstruction/LimitTheorem/WightmanTheoryOfAComponentOnOneCompletionProof.lean",
+            "YangMills/Construction/Algebra/WordExpansion.lean",
+            "YangMills/Construction/BorelSpectral/MatrixMeasuresAndCommutation.lean",
+            "YangMills/Construction/Combinatorics/NonSingletonPartitions.lean",
+            "YangMills/Construction/ConjugationCalculus/ProductsOfGroupAlgebraAndNumbers.lean",
+            "YangMills/Construction/ConjugationCalculus/RealityOfDerivativesPairingsCurrentsAndVariationsOfTheAction.lean",
+            "YangMills/Construction/DirichletGreen/FourDimensionalConstants.lean",
+            "YangMills/Construction/EuclideanBalls/OpenBallAndCompactC1.lean",
+            "YangMills/Construction/Exterior/BivectorInnerMinorsReflectionDet.lean",
+            "YangMills/Construction/Lattice/BondSumBoundedByCurlAndOneStepAverageProof.lean",
+            "YangMills/Construction/Lattice/OneScaleOperatorBoundsProof.lean",
+            "YangMills/Construction/Lattice/SecondGradientOnACubeProof.lean",
+            "YangMills/Construction/Lattice/SourceTermsOfTheGreenOperatorProof.lean",
+            "YangMills/Construction/Lattice/TreePathsProof.lean",
+            "YangMills/Construction/Propagator/ExpansionTerms.lean",
+            "YangMills/Construction/SecondLink/UnitQuaternionsAsMatrices.lean",
+            "YangMills/Construction/SeparatedSequences/ClassSequenceHasASettingOnAGeneralTorusProof.lean",
+            "YangMills/Construction/SeparatedSequences/ClassSequenceHasWeightedDataProof.lean",
+            "YangMills/Construction/Topology/SubsequentialLimitSet.lean",
+            "YangMills/Construction/Topology/SubsequentialLimitSetNonemptyClosed.lean",
+            "YangMills/Construction/Torus/AverageOfABondReadsItsDomainProof.lean",
+            "YangMills/Construction/Torus/ChangeOfTheSequenceOfACubeProof.lean",
+            "YangMills/Construction/Torus/CubesOfASequenceAreFinitelyManyProof.lean",
+            "YangMills/ContinuumLimit/FixedReferenceLevel.lean",
+            "YangMills/ContinuumLimit/StoppedCovariance.lean",
+            "YangMills/SharedMathematics/QuaternionEntries.lean",
+            "YangMills/SharedMathematics/QuaternionNormalization.lean"
+          ],
+          "additionalEntryModules": [
+            "Formulation.FixedObservableContinuum",
+            "Formulation.WilsonSubsequence",
+            "Reconstruction.FixedObservable"
+          ],
+          "entryModuleBindings": {
+            "Formulation.FixedObservableContinuum": {
+              "baselineOleanSha256": "2cfa676eb72382fa20b87d7125a3e67acd759fcab14ad044c6944652b7121e0a",
+              "currentOleanSha256": "62013069247329bc68ed82d11d8dee41cbd39595282cdf35d8edb9a40c1e5f0d",
+              "identical": false
+            },
+            "Formulation.WilsonSubsequence": {
+              "baselineOleanSha256": "7eab35ec2d4cabd3613efd9b357cd973ad87e0a7871c84149e254153553106b3",
+              "currentOleanSha256": "eb2b0810bed9456c250c53893b71eab4acde0dddf7914b838ebb83f3553713f1",
+              "identical": false
+            },
+            "Reconstruction.FixedObservable": {
+              "baselineOleanSha256": "14adc9261c8b54c41811fa99ec943ca59bb5e81bc2be3644b59ad5c57dc09117",
+              "currentOleanSha256": "f67c287dc2d0573cb52bd8c46ef3197573b7cd8b77d57b9107b6bf9c3b6ff6f5",
+              "identical": false
+            }
+          },
+          "sourceCopy": "Local Dropbox release",
+          "method": "Re-elaborated each changed or added source in dependency order, then the three entry modules. Unchanged prerequisites came from the baseline build. The first-party overlay omitted all retired modules.",
+          "unmodifiedPrerequisiteCacheSourceFingerprint": "99eeece7f399a233cd0d273cf97601520d5edf17932de4f5656c2eb7892abdf1",
+          "modules": {
+            "Formulation.FixedObservableContinuum": {
+              "sourceSha256": "2fe802606806df2c00249fc7384d8fb19619271b790dd0f96526459aa3698a49",
+              "oleanSha256": "62013069247329bc68ed82d11d8dee41cbd39595282cdf35d8edb9a40c1e5f0d",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "Formulation.GrowingVolume": {
+              "sourceSha256": "fb77129f5c35482ebd38e23843b88132f27b4702af0566d1b2de35ee6e6585bf",
+              "oleanSha256": "8895c901c26d7e7aa7bc45d764271ebe8ac6fcfa8f8b2e7cb8f8d76f32f84bdd",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "Formulation.WilsonSubsequence": {
+              "sourceSha256": "caea7a2bfc259a748e19eb78c33d49dad9b6c3e6e55e02493e85ce9dfaa58435",
+              "oleanSha256": "eb2b0810bed9456c250c53893b71eab4acde0dddf7914b838ebb83f3553713f1",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "Reconstruction.FixedObservable": {
+              "sourceSha256": "f264b0cb513107210b8c1673c41e59582cc1986bcc0ec1036ade10c97a4671d3",
+              "oleanSha256": "f67c287dc2d0573cb52bd8c46ef3197573b7cd8b77d57b9107b6bf9c3b6ff6f5",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "Reconstruction.LimitTheorem.WightmanTheoryOfAComponentOnOneCompletion": {
+              "sourceSha256": "cdcd9e84de12ba3461a0a819359de846a5adfe7d4695625215f41cd44ed0c147",
+              "oleanSha256": "0af6ac54a690386ae818b6bba612e447a3ef6130f87034addefa24abd1641e20",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "Reconstruction.MinkowskiSpace.WightmanTheoryOfAFunctionalWithOneBoundedFieldProof": {
+              "sourceSha256": "c9b2c52b4ace0d74bc3a625d23cb669047727afa553a31dbff3250dfdf29bf2b",
+              "oleanSha256": "281fd474e08c8e384fd9d42e28fbaaa68b47e6515adaf9df17d19acf320b6c55",
+              "logSha256": "57c850c323c96e6864c8ef0dad570b4ab5870caa1a16d6bace3e8e68a1239e3d"
+            },
+            "Reconstruction.WightmanAssembly": {
+              "sourceSha256": "e7928b51d2eb284aa065df0606104b4243f0921d1ee5e53b798e73b97edb183d",
+              "oleanSha256": "820b046b2dbc87a903ac6a98ad5661ea075ff2b9ff7093bb28585c1eb57df7d4",
+              "logSha256": "77d9cddfdf4f8eba1ac4f32e2583dbf796b303974e362b743be978a71a4c041b"
+            },
+            "YangMills.Construction.Continuum.CentredFunctionalOfAFamily": {
+              "sourceSha256": "8d0e9bfcb0fcbfb1a23520d53a0caaa1b243f88e9ec29216e826824fce320003",
+              "oleanSha256": "86c4d51baf9825d0c4f754a46ca08d49ff117c5a7926f6c8f4c476f16c43f7d7",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.Continuum.FlatSchwartzAndTuples": {
+              "sourceSha256": "2d7c58e515845b0d7dfd018ea5818dc1124d15d1d954a67b1cd4aedf914f51af",
+              "oleanSha256": "322e123cbda05f64177c6ac4670ee8704689b5c64a4733d94d87c651cc1d8174",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.Continuum.LinearInEachArgumentAndVanishingNearAConfiguration": {
+              "sourceSha256": "4629520a5f1ba357fba1cc08506ae78eccdd902a0fe693a619f43dd04ea74707",
+              "oleanSha256": "4ea852d418e6ed217db7f2deb993c92e2adb006adfa2816c758c4038e5f2a431",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.Continuum.PartitionOfUnityAndCutoffOfClassC1": {
+              "sourceSha256": "429f07eae6d3d429a419d47fb7735fe0d6b9158ac1da53c08eaf12ab3b4ec884",
+              "oleanSha256": "78d964f0d35e12896ce0e961819c6d33a0097cba0b920a2cd21c9f728c9bb472",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.Coordinates.HolomorphyInCoordinates": {
+              "sourceSha256": "51b77a1bb7da0629bbadb7c38e21e1bf676d80ba69e1fce60ae9a86fe20eb6a3",
+              "oleanSha256": "16614fc56340e8d025b13aad4e3347ff94f495e5061112cd82242a925471bfcd",
+              "logSha256": "0eacd7667e53dce01f8baa3aac90d500fcfc380b6bd4f86af33e319e207a553d"
+            },
+            "YangMills.Construction.Cumulants.JointCumulantsOfBoundedRealVariables": {
+              "sourceSha256": "77d9c79896b85e8e67784e9825b693b3eee051916e00f737753637dbfc4664c7",
+              "oleanSha256": "a97338bb7a9bdd4df4d1185ffcf344f05747b374db33237d083a54bf03acf56f",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.Cumulants.NonSingletonPartitions": {
+              "sourceSha256": "353669947e14d9b8eeac04bac7fd563d5d83ee268af76d5b26934d774829dbc0",
+              "oleanSha256": "a50d0d7ca3a692f445c3055466d745a15d77f58e5352f4b08ce4464605c0ebec",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.Dirichlet.GreenOperatorEstimates": {
+              "sourceSha256": "c0e5c1d0eb787dc79b67d9d8cbfb453e732e4374837c1675f4137d62093a2a4c",
+              "oleanSha256": "4dad6f51772a7f432faa32aabf090a29d56a6c0ac91bbe092e3237496ee8880e",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.DirichletLaplacian.ExpDecayKernelLocalizedDecayProof": {
+              "sourceSha256": "faddd4c88d69329e774f574001014f8132226121810f5a00909a310c51ec6e1b",
+              "oleanSha256": "172749fed431bc11fe05419c40cd99c009d6b96d9bfa53f02281442779011476",
+              "logSha256": "e4407aa82854b04cf104c1eac1c9c3f30f29dbd40b457fd99baa4366dea4b26a"
+            },
+            "YangMills.Construction.DirichletOperator.ExpansionTerms": {
+              "sourceSha256": "ff7473d51ce00ef141334eabe2688c85df29b9b36b33caf18dc03eb7a7c6f4f5",
+              "oleanSha256": "222f61f1174d6076575b9e6fd7b310c43e33a37e5b9c14a79284cdefe9b00f77",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.DirichletOperator.FloorsOfThePropagator": {
+              "sourceSha256": "f10cc5de7b821f0cae9b8ebd736b5a400bfaab0c3a1aaeb20e22f40b7180b422",
+              "oleanSha256": "2e6d46f7d22be8393d84547d3929b90bed7b56619514fc92b4a23b0b94eecbb4",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.DirichletOperator.PropagatorOfASequenceOfRegions": {
+              "sourceSha256": "bca2505a94923be9c4c2bb3d9e910935af1efe4467d1bd93cdb0718ebb5a6973",
+              "oleanSha256": "0b46b147fcda5aeb8e66d62f6336b5e928d0c41887908a9c689a92f001462fe6",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.InfiniteLattice.ConnectedCorrelations": {
+              "sourceSha256": "de2ac6bd5199660e33c7fdfb45a17f2bcc7c0c9b0d79a5d38b9d28aa8434aec9",
+              "oleanSha256": "1259ff9d3b6cd00a2a89413f7c65302a80abaa15869315fa691c29ec04f13587",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.InfiniteLattice.SignsOfStatesTuplesAndNormsAtACutoff": {
+              "sourceSha256": "4212e11987022c174bb171452bafc0142cfa00d3f1c22ba215e0377aacf808e2",
+              "oleanSha256": "5da2ebc7bd516b8fcc05f7c80554e7cb13a73109c05f5261b98fe2b123b9b105",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.InfiniteLattice.WeakLimitPointsOfExtensionsAreNonEmptyAndClosedProof": {
+              "sourceSha256": "c3280ed0c6da91b0d10f8f5ad6e8442ce77bf7c294085cb802b43ccec1a099e1",
+              "oleanSha256": "d57b1676a317232ff3ba8d0f240ddc167beaaed5b94de87c4c18818fa4a97d11",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.Lattice.DifferencesOfTheSystemAtASmallTriple": {
+              "sourceSha256": "ddd3381f9c095c14bcf4a577c6489c1bd0ad34263cd5452539a1d6136b24153b",
+              "oleanSha256": "100c3dbeaf8e46014ce9150ad1307533c527d3b84a641e24e13e6bb4528d2427",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.Lattice.PeriodicLattices": {
+              "sourceSha256": "e661a2ada1f7ec9c0f087891e5c8dcbbe135a55bd3330953684d84e33e399f9a",
+              "oleanSha256": "34014c7f3178d1e94d34a378f5556db5185f460040aba5ea948b814c23dc111d",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.Lattice.SumsNormsAndKernelsOfTestFunctionsAreFormedProof": {
+              "sourceSha256": "7688b2d2d6a5126e4d66fe2247a5760def9c46864543af71f0c1404b18e1ae5b",
+              "oleanSha256": "a24b74566abaa0ec8eb82390cbce3e47ddedf8e9da758d1a2c6e183818c6171b",
+              "logSha256": "85bda19a15b182201c12e3470c339aa54d04c40201236896a27c2eb4310d84ea"
+            },
+            "YangMills.Construction.Lattice.WilsonMeasureIsometriesAndCumulantsAreFormedProof": {
+              "sourceSha256": "6e9382519cfbcc9ebe29b3ed9935558959b5898d3a83897cbc74a3b446add131",
+              "oleanSha256": "44067f6a7e25cb2621859bc8f5319e65d5231bac508b4ee33be7b5bc10efb4ec",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.LawOnABoxOfTheFlow.DensityInTheChartProof": {
+              "sourceSha256": "1b13a3fb86645be59f9955fd32319b15c70ce2e6c59e16d918a231115c5042db",
+              "oleanSha256": "503db10926bdd43d729a4a6dea2340a0ee5ad09d77ca2f4b137774152b527e1e",
+              "logSha256": "7e3675704249ff36dce0e7bb815adde4c38999ec1e8d0bdf3389f325cd85791c"
+            },
+            "YangMills.Construction.LimitsOfLatticeFamilies.TensorsOfSeparatedTuplesAndCentredFunctionals": {
+              "sourceSha256": "f88a9d6ee125d3834ebfe88cb85f1071fc4f155964339e851055ffb696b3a0b1",
+              "oleanSha256": "9bb4c23fbbb160dca627c8e7d5384e1beabe08910a0536cb2a514e081096cf20",
+              "logSha256": "99af7bbeea24b44ba7f1e38c02a5073ce0c184d18e95309d40e9c4ef15872760"
+            },
+            "YangMills.Construction.LinearAlgebra.BivectorsReflectionsAngles": {
+              "sourceSha256": "31b4dc5aabf2282d5bd6d2ac66263567f7c8c0b2ca9d87962432258f4b971313",
+              "oleanSha256": "fabc510241b36452441e40ee62c3d3ade7a1eed5b7c821646b36105ec1779bfc",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.LinearAlgebra.BoundedMultilinearForms": {
+              "sourceSha256": "063e15fae184556ea12ddcdd72d30f70c3cf9ec2424ccea57f044c140c294e3b",
+              "oleanSha256": "0654104f2600f96474c7900192ffe194b1b9a95175063387673ca45076eb7d96",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.LinearAlgebra.ExteriorSquaresTracesAndTheStarProof": {
+              "sourceSha256": "47d43f7ed23af41e73e01640ec7b1d246a79aef8a478d24c8748280449017122",
+              "oleanSha256": "159c7dc1fe44ea0678cbf50047b4d301a58be6d5466e1e57b79b332b0f10db7d",
+              "logSha256": "86ea6bf0b8e567113f5b422b595471a7d25668a0edb7cf4e3265a38a84e9c77b"
+            },
+            "YangMills.Construction.LinearAlgebra.FreeCurvaturePropagatorIsSymmetricEvenAndContinuousProof": {
+              "sourceSha256": "53acb8b75a0252865f3d172a9d3d283d930b499a162efa3d18af664309f32fef",
+              "oleanSha256": "efe8afdd5f1f8403376782358fbe36341fdcdfda31569b58137c56a5d25ce632",
+              "logSha256": "3724870e7305aa1eb82c8b9dc26f425e577ff88f2bbab48131123c791da70ce2"
+            },
+            "YangMills.Construction.Matrices.SpecialUnitaryTwo": {
+              "sourceSha256": "e27c24cd79fec4f34377e4bf35a52350d60c4340b0cc4a419579f0a499cdeb76",
+              "oleanSha256": "58386b490b78294ddae8487d0134f26bf135b9d74a0e95041a6125d76ccd6f50",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.Matrices.UnitQuaternionsAsMatrices": {
+              "sourceSha256": "39993256f24b73409c1965fa444664e62594244589de46f1fbdddae5bc08141b",
+              "oleanSha256": "fee57e7f2e704448eee1d02b0db4be9fae671789e60b6ce71ce73e7b6c533656",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.PassageToTheLimit.SeparatedTuplesMultilinearFunctionalsCentredFunctionalTensors": {
+              "sourceSha256": "af956842dc677ae2fe55ff2c361eb540c94cfb7ebfb8bae1910f54e317b252b1",
+              "oleanSha256": "77766fb8bdfee05708692caf8a912692c6a5314c93ce73a2928e952d46bc1f30",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.ReflectionPositivity.CentredObservableAndFunctionals": {
+              "sourceSha256": "a94dba5c9e51124a27a056328c93c6ad067ac095d64e149d2e8def5a8d9a111c",
+              "oleanSha256": "d387138448087b9ee405932c49be9e0ed08d223a9747370b8fb687fd5e76fd99",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.ReflectionPositivity.IsometriesCentringTuplesAndTheTwoFunctionals": {
+              "sourceSha256": "6dc347c11eaed35c4b5973ff530ac01ef1cc71a3c5802d5e99ba8da025b6776c",
+              "oleanSha256": "299fee750e692895ddf13c427dab560f85807ccb359221a3c127e26ec270b5d3",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.ResponseInTheExpansion.MainTermOfABlockRemainderProof": {
+              "sourceSha256": "211a63ade73922e785b6a4eebd08ae4e95cc51fb603673c7ca2133b11f524808",
+              "oleanSha256": "b89e5617cdaec78b4ac02d5a4a849301d1b525c1d031faf220810ed24fde1a17",
+              "logSha256": "b12403207b2f470631526e43bfb066046b5fc7dab7578fefeb61239b70e9bf3b"
+            },
+            "YangMills.Construction.RotationInvariance.ComplexTuplesAndPlaneData": {
+              "sourceSha256": "69f81b2ced03efea3f3a94274adaffe8b583afb8370e7daadf48f14d5b2a5db7",
+              "oleanSha256": "61ba04027cc121a29f3d69188f700ec7dd66524fff160190dc524146bd60a769",
+              "logSha256": "916bbb70700d274b45f80c42d67bc88ca358f017d4c7e83fbce1b505d0c5b315"
+            },
+            "YangMills.Construction.RotationInvariance.FiniteSumsOfPlatesApproximateInC1": {
+              "sourceSha256": "508eb2b16a05cba97f527ecf5d3644b1414cc2a8af790a4fd39f171588e6a18f",
+              "oleanSha256": "8a592891ff43f6b8900c378297579abb37b4437b4264eb8b9a7af4803a73f6c1",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.RunningCouplingSlope.ActionOnTheFibreIsSmoothProof": {
+              "sourceSha256": "4d48fcc840b5c2a0cdf33df09544f8c6ce249821882b1b7ce926ae09df98f423",
+              "oleanSha256": "8a527509f21072369bed507e090ae4d1f6ced6fef00256e58db0d9d5692650d0",
+              "logSha256": "37d246c2ec575a3fdd9e250f0bb4338b56fcfa5e1a02b7cb49357f122982e20e"
+            },
+            "YangMills.Construction.RunningCouplingSlope.ActionOnTheFibreUnderAGaugeFunctionProof": {
+              "sourceSha256": "5754029f3c88ed40e23d7f7a614d64f921537572ff6a8b5920a6cb8be0c18446",
+              "oleanSha256": "6bc08ca47c89a569d7a1b2b103867626bdf44fff72adc48bc795759580a02105",
+              "logSha256": "393f3912317f60d50d75c58b7473d161902167e26777165b853ad30ce55e30f5"
+            },
+            "YangMills.Construction.RunningCouplingSlope.DriftOfALeastPointIsLinearProof": {
+              "sourceSha256": "bd475149416efb58b14064510c0b87b13e5ece32f22349a5116275887ea831c0",
+              "oleanSha256": "a9cb96239d6e4dbc60d0ef95d46b9ccb8180f611f3b5407acc18ec0ab3f4c2ed",
+              "logSha256": "9aa0e85f65539c47608ff9c9cc6f62e1afbff9c120ce56aa65e6d7a580f1dd6e"
+            },
+            "YangMills.Construction.RunningCouplingSlope.EntriesOfTheFunctionOfTheWholeChainProof": {
+              "sourceSha256": "76c7d26edc754ba93bf9aba73bc2c01cc94bfa99183d8bf334d407147a0cf5e9",
+              "oleanSha256": "d5d94a1196ac0b480c22cbe20f81c061d3b6ccd7b7426338f72c6588abf76608",
+              "logSha256": "d11d42c132824bbcd58c7fb093e85b69fb8840ef95abd858321be8fbc3b8b3ba"
+            },
+            "YangMills.Construction.RunningCouplingSlope.FibreFormIsTheSumOfTheExcessFormsProof": {
+              "sourceSha256": "8c89ad14b0f911826733f02561c037b4465ff847220b41ce0800fd937a3d3f58",
+              "oleanSha256": "30e3168a94c7f85557ccd96b0e34da3d606eeeabaaac118f833496ef8c96fed4",
+              "logSha256": "8d1b65924d45ae7a1e6089785ce2f25ba04408d4ccb5d637c30573193844ea35"
+            },
+            "YangMills.Construction.RunningCouplingSlope.FieldsAtALeastPointAreSmallProof": {
+              "sourceSha256": "64fb7a4a2c12f25e64136384d941e772a038978c3f789419e2bd325d072e727f",
+              "oleanSha256": "d8092636e93fef1737d0053b512c4b6917b60f0e5d0b021726c765182485487f",
+              "logSha256": "b45e643d157c1e2a0d7e3818fcd41103730c4c5464be383db7e7756aaa034a46"
+            },
+            "YangMills.Construction.RunningCouplingSlope.FormAfterTheChangeOfGaugeProof": {
+              "sourceSha256": "61b7dc06f0b65b0e6b08d9f0b5e3fba2550ffce0d364cf8c86793a46a13ac002",
+              "oleanSha256": "823952445a3b163c99de34413e5d301f92ecf9daccb1180f70cca93874d8441e",
+              "logSha256": "8d9ee88187316100ff091aa5f710641a02656b35cb93c9cd071cd474de59460c"
+            },
+            "YangMills.Construction.RunningCouplingSlope.LeastPointsOverAFieldAreOneOrbitProof": {
+              "sourceSha256": "3de498cbbc51b611a1891e23e086a3076c0a78811e04a2b8d2dca286cf196214",
+              "oleanSha256": "5afa57d3e943527a8d46bc975f35fdbc45a8eb1f9b3f19620cae9defe0c7f411",
+              "logSha256": "e33a2862973c54d163ed3bb8eb17fa6404dcea0f6b0d10f46ee063053d8e108c"
+            },
+            "YangMills.Construction.RunningCouplingSlope.MovementsOfAChainAreTriangularProof": {
+              "sourceSha256": "e3b4d515ee3698ccef7636088848ff0f1165991178bee647a3304f25ba12809d",
+              "oleanSha256": "4b73657fb7b1d24856c4fb9444696df3ead63a591bd916350d5a6e98bb7026d6",
+              "logSha256": "7a5f8a09420c77fd92c1caa9459ad196f14b294cb1b8dcbffab16e66c6ac3434"
+            },
+            "YangMills.Construction.RunningCouplingSlope.RelationsOfTheChainAtARealPointProof": {
+              "sourceSha256": "66e8d670fb4f4820a61beaadda4a31e6eedaf3703684246e1cddaef55d5e3d61",
+              "oleanSha256": "bef36405de52cdbca0402f37788b3216194ef51154749daaf08a18a750d721d1",
+              "logSha256": "2f95074805a4787200c4bdffaf51c82ebff87ee4eebf0b20f14b0ad03786c1b7"
+            },
+            "YangMills.Construction.RunningCouplingSlope.SecondDerivativeOfTheSoftActionProof": {
+              "sourceSha256": "6e1b779ed8efcc951a4e94483fdb9edc905221295ec33bd3aec0d40d1739e03f",
+              "oleanSha256": "bbfc39d06b1f0f82545af28a752152eaeb7f804290fc9ee4bb83ea9d3c61e833",
+              "logSha256": "02c336e623d280723ee38bce58244d0d6ce4d983927e9c0904b1c42507f4dabd"
+            },
+            "YangMills.Construction.RunningCouplingSlope.SecondDerivativeThroughAFieldMapProof": {
+              "sourceSha256": "c2474d2a280f965fa808334fed8117f52a06413b2a6c9cffc57dd541fd2b0a3b",
+              "oleanSha256": "5c2e61bd35e12beb69efa471342b120bcaf95915dafa6b278819ec17741669af",
+              "logSha256": "c7239da430a6512b7af1d044c5af643d7c0855100fe032eaf01ada0eef472963"
+            },
+            "YangMills.Construction.RunningCouplingSlope.TheChainNearARealPointProof": {
+              "sourceSha256": "1777cadf7ae6c0da3a8ff89df70ae90cdd6bb533bf3b1f58d603ad515a0adfc9",
+              "oleanSha256": "95e4f574412fa6f1f625c3acef84dc7eea44fb9f83d924a9c9f7756da202157a",
+              "logSha256": "a44090b5485b32e541da54424962eab68632e439f8e229fbbcc0bb8fcd59d431"
+            },
+            "YangMills.Construction.SeparatedSequences.RatesOfTheInputsAndOfTheExpansion": {
+              "sourceSha256": "8d96524e2e8df1255eeff1ae78e0d498ac74b2687cf4502e2757ddbf9c2f7bed",
+              "oleanSha256": "ef1431e0e0c4a4148f11f9892fb72348e7c9854163b3f2e3b840f42c1509e0aa",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.SpectralTheory.MatrixMeasuresAndCommutation": {
+              "sourceSha256": "352a0e231b6f38feae3e5da30fe47e6dd2934d0767970b943a9b159ab97e6d0d",
+              "oleanSha256": "fde2e23809973dc20b09c25b91d35e4b7954e7e16a8e7750c4fbc8f2a58dd784",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.SpectralTheory.MeasuresIntegralsProductsImagesAndTransportOfAProjectionValuedMeasure": {
+              "sourceSha256": "dc897877dfe7499345398239baf8cfdf3fb6c0cc6f259941c34987f69b875a6a",
+              "oleanSha256": "d9d942cb3e6cfdf7f92bd18615758e728d809fac560e46879ed2cc976371b7a7",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.SpectralTheory.ProductOfTwoCommutingProjectionValuedMeasures": {
+              "sourceSha256": "e3f65a21215eaa48d01f31858ce8e1d7e6b7842f07d9f5f2b4896af72cc1d30a",
+              "oleanSha256": "78203025f0909de594b68b48e2437da99b7f2c6d236838d477e4612654198517",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.SpectralTheory.ProjectionValuedBorelMeasuresOnTheWholeSpaceAndSimpleFunctions": {
+              "sourceSha256": "e9abb67547ba2a247afc8f455efa2b446baa3b322b5832c18f191f2332f483ba",
+              "oleanSha256": "2e2d1cf9bfa2133021e39adae261cd05f45c1fde4942726066a6e46a5d7dc8e0",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.SpectralTheory.ProjectionValuedMeasureFromScalarMeasures": {
+              "sourceSha256": "b7b3907cfefecf901850eb518853a3bffaaba0184278b37c4c458db831f8fe97",
+              "oleanSha256": "1b02dfca75f47e61a0aaee441b303e1a4e123b2a912e88ca53444738b4dcbdd9",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.SpectralTheory.ResolvedOperatorsAndTheirJointSpectralMeasure": {
+              "sourceSha256": "03c2f3b5793a27a7754f42c8772674bafb12d3bd587ae37b0d1cd98ec3034363",
+              "oleanSha256": "2c2379e2a958fab66d20285747262e23400820855ebcc67d6eff24df79fa91ea",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.SubsequentialLimitSet": {
+              "sourceSha256": "72fb1b7c7021ea1a0e4f968b9ad861b223f852df82bfda160317f73bbabf92a9",
+              "oleanSha256": "9f976c59cca220d429f4a423a1f381173dc6894f28e10c027897548683c5d111",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.TheStatementsProvedTogether.FromFactsOfTheFormExtensionProof": {
+              "sourceSha256": "01c5df1ebb07e0a8d32436df50cd6c846f8c0db67fd054b47a3b63eeed5360ac",
+              "oleanSha256": "81826a462d43a41cc844fcf0fb5e14cf50ca4136a1f27f514e8baffb9cff6383",
+              "logSha256": "9630220adcc9eabdd9405c41d054e591f762650becb4ea65a3d4c10677913bb4"
+            },
+            "YangMills.Construction.TheStatementsProvedTogether.FromGreenOperatorBoundsProof": {
+              "sourceSha256": "a89c748f98ea84004861842590aaceed8654c45516a07c0ad93e228db979ed70",
+              "oleanSha256": "f9d558539642d6d7aa9d706d76d64368e20de3e2a35db184048cf7dc62937dc6",
+              "logSha256": "44b2125581621805cf81652baee378f618c8a26bf015c2b868b3db189e7d5f4a"
+            },
+            "YangMills.Construction.TheStatementsProvedTogether.FromTheParametersAreDrawnParametersProof": {
+              "sourceSha256": "28de270bde0ff7a126780887bde0d3c4f87c39966fd27193011dbeee9e6caa27",
+              "oleanSha256": "1114934bd19a94ef613724c6151c3b2dccbe74049117fe50560d3f09be48b0fc",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.TheStatementsProvedTogether.FromWalkBoundsOnFunctionsProof": {
+              "sourceSha256": "db56280a78980f82e79c95cc1e13cff7cc571dbb3f1494486f9d19d851ce938a",
+              "oleanSha256": "dbddbbb72ee83866c7f0b08a007b2d80218a951c287c4e4b4201df792959e499",
+              "logSha256": "259d9845b77a9024068260508e5bb6aba969e0694fe10541eb4b8c81e512ad29"
+            },
+            "YangMills.Construction.Torus.NeumannExpansionOfAParametrix": {
+              "sourceSha256": "98b5784523dcf41e8906d45549493d4f32d29e1a7869a87eb1f5a5188482ac8a",
+              "oleanSha256": "413c2b241c8e9546a7eca87c2893055a4ed07dd3ea971eefe3ac4e7b8f229955",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.Torus.NeumannExpansionOnTheNestedBondsOfASequenceProof": {
+              "sourceSha256": "b7bc3286058f25b25d0ae27a52a4866afe22ab57d320f1276c711dc745f5293c",
+              "oleanSha256": "f12ae948cf1d53ec518308bb44d82d5bcbdb3336b8983da421f570c4b9f39a49",
+              "logSha256": "2ca53afa12ed073f702595a531585bfe1e886174ed4e202e391c328c2ef582a9"
+            },
+            "YangMills.Construction.Torus.PointwiseBoundsOnTheGreenOperator": {
+              "sourceSha256": "2c00c70f7d04878ab7f3e94b54c25b5a31bf71218a58a58b3287d92f4bc38868",
+              "oleanSha256": "3fa09a8f187165de10b14cf0426c8e0181d69513d868bffcd9e6a16926a2080b",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.Construction.Weighted.ProjectionConstants": {
+              "sourceSha256": "185e31bdc14c42190d45a854a74086f66f145fc0ed800abc876a21777c6011cb",
+              "oleanSha256": "ad573c6da6a744d3cabc53c0fdfc7f9d41504aefeb0b9ecc08927dfdee549ff6",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.ContinuumLimit.CovarianceAtTheStoppingLevel": {
+              "sourceSha256": "3d0cd49351cbee6783941a7b03fc963e77e2f9d8407aabf6965fca22900b4114",
+              "oleanSha256": "6796e7f6df5e618deea8c94f71eb91cf432d634a2de296295c804a0c71376437",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "YangMills.ContinuumLimit.FixedReferenceLevelBound": {
+              "sourceSha256": "d4f6df35f70ce917ebc88064b5ad1b6840e7081721d956a54f30956afe1b8f94",
+              "oleanSha256": "7c7ddc677674511b987f98438986eaa08407ed94e341b302ccf3edc644c94473",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          },
+          "onlyAdmissionWarnings": []
+        },
+        "theoremAssumptions": {
+          "public": {
+            "imports": [
+              "Formulation.WilsonSubsequence"
+            ],
+            "roots": {
+              "YangMills.wilson_subsequence": [
+                "Classical.choice",
+                "Quot.sound",
+                "propext"
+              ],
+              "YangMills.su2_fixed_observable_continuum_limit": [
+                "Classical.choice",
+                "Quot.sound",
+                "propext"
+              ]
+            },
+            "guardSha256": "79d9067fcc186de7f5a0918670a785a4a5513ae24f19151d080ebb01ae84f9cc",
+            "logSha256": "6f24fe2c3da7bceb7d1a98a80a27965609581d2ea30377c86066a4c378bf724b",
+            "exitCode": 0
+          },
+          "optionalReconstruction": {
+            "imports": [
+              "Reconstruction.FixedObservable"
+            ],
+            "roots": {
+              "YangMills.su2_fixed_observable_wightman_reconstruction": [
+                "Classical.choice",
+                "Quot.sound",
+                "propext"
+              ]
+            },
+            "guardSha256": "c29a8420db30d436b7ef0a4f934b60cd62352e2c76847a0809111b2240308739",
+            "logSha256": "a48eab1f041a9046dcf391362041a5d2e32f51217616ed6af5f8b9c2c4dc689c",
+            "exitCode": 0
+          }
+        },
+        "quaternionLemmas": {
+          "oldNamespace": "YangMills.SharedMathematics",
+          "newNamespace": "YangMills.Construction.Matrices.ComplexMatrix2",
+          "theorems": [
+            "quaternion_entries_of_mem_specialUnitary",
+            "det_quaternionMatrix",
+            "det_quaternionMatrix_mem_slitPlane",
+            "normalize_quaternionMatrix_mem_specialUnitary"
+          ],
+          "serializedTypesIdentical": 4,
+          "typeEncoding": "Lean reprStr of the elaborated Lean.Expr in both original and reorganized module environments",
+          "typeExpressionSha256": {
+            "quaternion_entries_of_mem_specialUnitary": "2eab30104b2df70e882649b52434444ef6aace66f138822a85c7efda1e365866",
+            "det_quaternionMatrix": "d7f0e2245f8d5f1a98a7b5469b345dc6b66a99f2a2c7272965a9ce013ae449cd",
+            "det_quaternionMatrix_mem_slitPlane": "fc76dbec9109304a46440810821d3e7bfed288c45c93547dc7e8fd8268d7417b",
+            "normalize_quaternionMatrix_mem_specialUnitary": "0369e2d2a8fa0c2203fe3d269fc2455455f158dd25f9e246a599c944d8c5efc8"
+          },
+          "unchangedProofIdentifierBindings": [
+            "quaternion_entries_of_mem_specialUnitary",
+            "det_quaternionMatrix",
+            "det_quaternionMatrix_mem_slitPlane"
+          ],
+          "normalizedNameRule": "Map the former and current quaternion lemma namespaces to a common prefix.",
+          "changedProof": "normalize_quaternionMatrix_mem_specialUnitary now invokes det_quaternionMatrix instead of recomputing the determinant.",
+          "eightPreviousConsumers": {
+            "YangMills.Construction.RunningCouplingSlope.ActionOnTheFibreIsSmoothProof": 3,
+            "YangMills.Construction.RunningCouplingSlope.FormAfterTheChangeOfGaugeProof": 4,
+            "YangMills.Construction.RunningCouplingSlope.TheChainNearARealPointProof": 4,
+            "YangMills.Construction.RunningCouplingSlope.DriftOfALeastPointIsLinearProof": 4,
+            "YangMills.Construction.RunningCouplingSlope.FieldsAtALeastPointAreSmallProof": 3,
+            "YangMills.Construction.RunningCouplingSlope.ActionOnTheFibreUnderAGaugeFunctionProof": 3,
+            "YangMills.Construction.RunningCouplingSlope.MovementsOfAChainAreTriangularProof": 4,
+            "YangMills.Construction.RunningCouplingSlope.RelationsOfTheChainAtARealPointProof": 4
+          }
+        },
+        "challenge": {
+          "sourceSha256": "ada446fc04ff7991bfaa0d52f71016c33dc003c92bb66d68c80c2cf1251bf9cb",
+          "oleanSha256": "4168cbe5277bca4182f50f5be73389c1d165cf5ab368b84e2f6c99022300a83d",
+          "sameOleanBytesAsPreviousIsolatedRun": true,
+          "logSha256": "74136280653993514ba2b385b37d48dc07984ce3281af94d67353afe1c77fa9c",
+          "exitCode": 0,
+          "imports": [
+            "Mathlib"
+          ],
+          "expectedTheoremPlaceholderWarnings": 1,
+          "method": "Compiled in a separate directory with only the pinned package dependencies in the Lean search path. The identical reference statement was exported for the baseline comparison.",
+          "baselineExportSha256": "907b72a1fa932c0c653133a9807bf2b9756e1ff9fbe36ad3112e2bcaf6133348"
+        },
+        "compiledInterfaceComparison": {
+          "sourceFingerprint": "74402798afb14a72e03b00f0ad958ed54f6c9ceab9a633f69c8f006ba249bd62",
+          "oldOleans": 91,
+          "changedRebuiltOleans": 68,
+          "oldDistinctNonPrivateNames": 2534,
+          "newDistinctNonPrivateNamesInChangedModules": 2527,
+          "commonNonPrivateTypesMatched": 2527,
+          "commonDefinitionOrOpaqueBodiesMatched": 741,
+          "commonNonInternalTypes": 2063,
+          "commonNonInternalBodies": 662,
+          "additionalNonInternalEquationTypesResolvedExactly": 6,
+          "totalPublicNamesTypesCompared": 2069,
+          "rawExactCommonNonPrivateTypes": 2497,
+          "rawExactCommonBodies": 713,
+          "rawExactCommonNonInternalTypes": 2041,
+          "rawExactCommonNonInternalBodies": 640,
+          "renamedPublicQuaternionTheorems": 4,
+          "additionalReusedInternalProof": 1,
+          "unmatchedPublicDeclarations": 0,
+          "addedPublicDeclarations": 0,
+          "unequalTypesOrValues": 0,
+          "scope": "Affected modules. Compared declaration kind, universes, safety, types, and definition/opaque values. Theorem proof bodies were excluded. Besides the four quaternion renames, normalization accounts for hygienic binder scopes and shared internal proofs whose proposition types agree.",
+          "readerSummary": "Across the affected modules, Lean matched all 2,069 public declaration types and all 662 public definition or opaque bodies against the previous build, accounting for the four quaternion theorem renames. Six generated equation lemmas were checked separately in the new environment.",
+          "artifactsSha256": {
+            "CompareArtifact.lean": "395c9932f10f8ef956297f876401504e183b78f478fec713add2b9dd81bfb422",
+            "compareSnapshot.py": "5126b0ae74dae147e0050b08b0b6c4104579b3811acfe9bd9fcc2cf586b5b21e",
+            "releaseInterfaceCompare.log": "6187d5e84927206c2d19137681bd4c36499cc08e49cf48e0045b0304d17e643c",
+            "GeneratedEquations.lean": "fd115afce78ac051e1d91ac8ea5b1af88b38ff2b0ee492683eb24085c6c94492",
+            "GeneratedEquations.log": "3b48c46cf9a024a75bb9923e6d9093a1c51acf7b65b5d754631cf09dca665202",
+            "compareA.lst": "62e99e38e023a862b1995190b8a8e97a63535ca9214722d3453b4541add6f4d4",
+            "freshReviewed.lst": "f1e50fa5597f571e8c5bbadeef9f9ae9a60ac4cb54b4eee389872e1a5e2ac2f6",
+            "compiled.json": "4ca1dbe21e535356117d79dfbaca670d94a040e2b4e1475fd30856fe48d0a464"
+          },
+          "evidenceDigest": "8f0bd01879385133e0b3da3f1e0c272717d9a7bdf8a765735dbdc16c2a507969"
+        }
+      },
+      "coverageLimits": {
+        "allLibrariesLakeBuild": "not rerun on this snapshot",
+        "nativeComparatorAndIndependentKernels": "not rerun on this snapshot"
+      }
+    },
+    {
+      "date": "2026-11-18",
+      "leanVersion": "4.33.1",
+      "mathlibCommit": "0df444a360eaa60ab8c11dca51a86af692955474",
+      "mainLeanSources": {
+        "packageModules": 12612,
+        "sha256": "99eeece7f399a233cd0d273cf97601520d5edf17932de4f5656c2eb7892abdf1",
+        "included": [
+          "Challenge.lean",
+          "Formulation/**/*.lean",
+          "Reconstruction/**/*.lean",
+          "YangMills/**/*.lean"
+        ],
+        "ordering": "Ascending relative POSIX paths",
+        "encoding": "For each file: UTF-8 relative path, NUL, lowercase hex SHA-256 of its exact bytes, LF"
+      },
+      "inputsSha256": {
+        "lakefile.toml": "555f9a16da2acf9322c4230ad8f3e6d243fddb860d74ee267075356891c19a59",
+        "lake-manifest.json": "1ce2275dec14d57fdbd5710d009d6854b79e0848d86c4e3b059d32a39e8bb6cf",
+        "lean-toolchain": "a0ada3782cd088719516bbfdf37b9e7032230e211bf424b85d952ee650c51091",
+        "comparator.json": "7101d1affadfcfbb6ed28282e9b2dba109967afe816eca48fc28c3308d551d19",
+        "Challenge.lean": "ada446fc04ff7991bfaa0d52f71016c33dc003c92bb66d68c80c2cf1251bf9cb",
+        "Formulation/WilsonSubsequence.lean": "caea7a2bfc259a748e19eb78c33d49dad9b6c3e6e55e02493e85ce9dfaa58435",
+        "Formulation/FixedObservableContinuum.lean": "2fe802606806df2c00249fc7384d8fb19619271b790dd0f96526459aa3698a49",
+        "scripts/verify-comparator.py": "010f54df2d85f2c97ff66cc1c0f1e7d54815d869bde37652da0b8848eacc022a",
+        "scripts/comparator/CompareSourceStatements.lean": "bbea15e7162c47a08a4ba516cad480016cad33ca603bd6e3bc25c631c1772e85",
+        "scripts/comparator/SerializedSupport.lean": "a884f2d69dbcdd5a9b1ec70d4ab18f29c916721813dbb0d94b54a0f151dd76ca",
+        "scripts/comparator/scope.json.gz": "9c0bc0060075d947e7176db3a5a8bb54934300c2994b29c26cea7e78456caf79"
+      },
+      "publicTheorem": "YangMills.wilson_subsequence",
+      "constructionTheorem": "YangMills.su2_fixed_observable_continuum_limit",
+      "releaseBuild": {
+        "defaultTargets": [
+          "Formulation",
+          "Challenge"
+        ],
+        "packageModules": 12612,
+        "incremental": true,
+        "lakeJobs": 21321,
+        "exitCode": 0,
+        "includedTargets": [
+          "YangMills",
+          "Formulation",
+          "Challenge",
+          "Reconstruction"
+        ],
+        "logSha256": "0c39acb66197aad86f63d606035fec5c807fb34664bd5d5decbc60fbd860bd1c",
+        "onlyAdmissionWarnings": [
+          "Challenge.lean"
+        ],
+        "mode": "Incremental full build in an independent copy of the release, using pinned dependencies and a local copy of the earlier build artifacts. Retired module artifacts are excluded."
+      },
+      "standaloneChallenge": {
+        "module": "Challenge",
+        "lines": 264,
+        "imports": [
+          "Mathlib"
+        ],
+        "intentionalTheoremPlaceholders": 1,
+        "isolatedCompileExitCode": 0,
+        "export": {
+          "sha256": "907b72a1fa932c0c653133a9807bf2b9756e1ff9fbe36ad3112e2bcaf6133348",
+          "bytes": 183917728
+        },
+        "oleanSha256": "4168cbe5277bca4182f50f5be73389c1d165cf5ab368b84e2f6c99022300a83d"
+      },
+      "solutionCheck": {
+        "module": "Formulation.WilsonSubsequence",
+        "importsChallenge": false,
+        "proofModuleImportClosureSize": 12456,
+        "publicRoots": {
+          "YangMills.wilson_subsequence": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "YangMills.su2_fixed_observable_continuum_limit": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        "publicGuardSha256": "37f547c690dfc0a836f5aac6561b886d84519f05e8381f46196e0b995f623ef9",
+        "publicGuardLogSha256": "6f24fe2c3da7bceb7d1a98a80a27965609581d2ea30377c86066a4c378bf724b",
+        "modulesForAllExportChecks": [
+          "Formulation.WilsonSubsequence",
+          "Formulation.CutoffLimit",
+          "Reconstruction.FixedObservable",
+          "Reconstruction.Legacy"
+        ],
+        "theoremsWithExactlyTheseAxioms": [
+          "YangMills.su2_continuum_limit",
+          "YangMills.su2_continuum_limit_of_frequent_passage",
+          "YangMills.su2_fixed_observable_continuum_limit",
+          "YangMills.su2_fixed_observable_coupling",
+          "YangMills.su2_fixed_observable_cutoff_limit_of_bound",
+          "YangMills.su2_fixed_observable_growing_volume",
+          "YangMills.su2_fixed_observable_joint_limit_of_bound",
+          "YangMills.su2_fixed_observable_thermodynamic_limit",
+          "YangMills.su2_fixed_observable_wightman_reconstruction",
+          "YangMills.su2_moments_tendsto",
+          "YangMills.su2_thermodynamic_centered_moments",
+          "YangMills.su2_thermodynamic_limit_at_cutoff",
+          "YangMills.su2_thermodynamic_subsequence_at_cutoff",
+          "YangMills.su2_wilson_subsequence",
+          "YangMills.wilson_subsequence",
+          "YangMills.yangMills_su2_four",
+          "YangMills.yangMills_su2_four_nonvacuous"
+        ],
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "allExportsGuardSha256": "2318826ff96845b305e2bc987c5c2b2aae7431160aca3b2e816174c43e1830a1",
+        "allExportsGuardLogSha256": "cdd66feff001c504eb3c784e34c65a6e4c757f4206557b3677e85925229c3f51"
+      },
+      "nativeComparator": {
+        "status": "passed",
+        "apiVersion": "4.35.0-rc3",
+        "procedures": [
+          "Lake.Check.compareAt",
+          "Lake.Check.checkAxioms"
+        ],
+        "scopeSha256": "cbaa20dfb609daa84df79f6a1ecff714d68c1184755fc419fe43d19cc2558ec8",
+        "referenceDeclarations": 6088,
+        "comparedDeclarations": 6088,
+        "comparedTheoremTypes": 2628,
+        "challengeHelperAxiomChecks": 2627,
+        "missingDeclarations": 0,
+        "definitionHoles": [],
+        "allowedAxioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "binarySha256": "f199201bbd60f6e0747ea1d9e0f084bdc1d5c131cb0cd73ed537a5e8860f3f0c",
+        "logSha256": "28fb5ce7b4c40c0d64fb31c2347e6e21ec45784bdad0cc37fe130c1b3c2f243a",
+        "challengeExportSha256": "907b72a1fa932c0c653133a9807bf2b9756e1ff9fbe36ad3112e2bcaf6133348",
+        "solutionExportSha256": "dc48a888dfcf9f3f2cc0f99f94038bb74a06f86aa15645d5c5c321537f4e8a76",
+        "scopeFile": "scripts/comparator/scope.json.gz",
+        "stockSandboxedRebuild": "outstanding",
+        "inputMode": "Isolated reference statement export and solution export compiled from the proof project.",
+        "adapterControls": {
+          "passed": 13,
+          "adapterSourceSha256": "bbea15e7162c47a08a4ba516cad480016cad33ca603bd6e3bc25c631c1772e85",
+          "supportSourceSha256": "a884f2d69dbcdd5a9b1ec70d4ab18f29c916721813dbb0d94b54a0f151dd76ca",
+          "testedBinarySha256": "f199201bbd60f6e0747ea1d9e0f084bdc1d5c131cb0cd73ed537a5e8860f3f0c"
+        },
+        "descriptorToolSha256": "8d62794bf1d505a1cf5ba55769540dc1aeb020b1ff4b3a6c39218d5f086a10b5"
+      },
+      "proofExport": {
+        "module": "Formulation.WilsonSubsequence",
+        "roots": [
+          "YangMills.su2_fixed_observable_continuum_limit",
+          "YangMills.wilson_subsequence"
+        ],
+        "scope": "Transitive proof dependencies of the public theorem and the fixed-observable continuum construction.",
+        "format": "NDJSON 3.1.0",
+        "bytes": 6468852158,
+        "sha256": "dc48a888dfcf9f3f2cc0f99f94038bb74a06f86aa15645d5c5c321537f4e8a76",
+        "exporter": "lean4export",
+        "sourceCommit": "15f6055e299ad5b89345e533cc2192f4cc00f659",
+        "exporterBinarySha256": "29aeb2766d771d108e5d11a99d5d9014ea3ab2ccd8c41cc8adc385dd2f0f9b3f",
+        "checkedModuleBindings": {
+          "Formulation.WilsonSubsequence": {
+            "source": "caea7a2bfc259a748e19eb78c33d49dad9b6c3e6e55e02493e85ce9dfaa58435",
+            "olean": "7eab35ec2d4cabd3613efd9b357cd973ad87e0a7871c84149e254153553106b3"
+          },
+          "Formulation.FixedObservableContinuum": {
+            "source": "2fe802606806df2c00249fc7384d8fb19619271b790dd0f96526459aa3698a49",
+            "olean": "2cfa676eb72382fa20b87d7125a3e67acd759fcab14ad044c6944652b7121e0a"
+          }
+        },
+        "integrity": {
+          "declarationCount": 342290,
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "theoremsWithSerializedProofValues": [
+            "YangMills.su2_fixed_observable_continuum_limit",
+            "YangMills.wilson_subsequence"
+          ],
+          "unsafeDeclarations": 0,
+          "partialDeclarations": 0
+        }
+      },
+      "independentKernels": {
+        "exportSha256": "dc48a888dfcf9f3f2cc0f99f94038bb74a06f86aa15645d5c5c321537f4e8a76",
+        "nanoda": {
+          "exitCode": 0,
+          "acceptedDeclarations": 342290,
+          "mode": "strict axiom allowlist",
+          "sourceCommit": "0da9f98feadd3a0a2ef4b3dbcf52a298a6fef929",
+          "binarySha256": "b3c3bb59d5dff896156918c2118aa6a5af01f95fd54d11920ed6447d09e9f05d",
+          "logSha256": "f986ca02af7573008bb706b8cabf3ff88e15267d8a9055cc1ffae61ced8cce41"
+        },
+        "con-leche": {
+          "exitCode": 0,
+          "acceptedDeclarations": 333676,
+          "mode": "--verified",
+          "sourceCommit": "67f04630d88718e81aa4d07ab64501f68f105398",
+          "binarySha256": "a4e13ed9481e4f61c8c8eb0399013d557cc9602c646f38e5831a74e41ff9ec2e",
+          "logSha256": "27f4dbeb8e24e182c53eab02ee2709a2203a86bb800080854169c71c01286905"
+        }
+      },
+      "rankThreeStatementCheck": {
+        "exitCode": 0,
+        "sourceChallengeSha256": "ada446fc04ff7991bfaa0d52f71016c33dc003c92bb66d68c80c2cf1251bf9cb",
+        "variantWithTestsSha256": "a61e032dbde9558f65bf8dc5c883e8b07c3405aebbd55c798890cc273b4ad1bb",
+        "oleanSha256": "54d09c9d6558b742496ec7761207d7f8fb0ca367bffb72c8245d033671ee5770",
+        "tested": [
+          "Selected carrier is Mathlib SU(3)",
+          "Reference coefficient is 24",
+          "Asymptotic coefficient is 4*pi^2/33"
+        ]
+      },
+      "reconstructionIsolation": {
+        "defaultTargetLocalClosureSize": 12460,
+        "optionalLibraryModules": 152,
+        "optionalModulesInPublicImportClosure": 0,
+        "missingProjectImports": 0,
+        "guardVerifiedAbsentDeclarations": [
+          "YangMills.su2_fixed_observable_wightman_reconstruction",
+          "YangMills.Construction.WightmanTheory.HermitianScalarTheory",
+          "YangMills.Construction.SystemsWithFiveBounds.IsWightmanSchwingerSequence"
+        ],
+        "sharedMinkowskiSpaceModules": [
+          "YangMills.Construction.MinkowskiSpace.BoundedFieldForms",
+          "YangMills.Construction.MinkowskiSpace.ConditionsOnAFunctionalForAFieldForm",
+          "YangMills.Construction.MinkowskiSpace.MeasureOfTheTimeTranslationsAndTheVectorsTheyFix",
+          "YangMills.Construction.MinkowskiSpace.MeasureOfTheTimeTranslationsAndTheVectorsTheyFixProof",
+          "YangMills.Construction.MinkowskiSpace.MinkowskiFormConesLorentzGroupAndEuclideanPoints"
+        ]
+      },
+      "defaultBuild": {
+        "exitCode": 0,
+        "logSha256": "0b42a40162909821fbab0da6ffb8fc06f4c7ef9b93b553613173402dc1073cb3",
+        "lakeJobs": 21167,
+        "admissions": [
+          "Challenge.lean"
+        ]
+      },
+      "foldedBindingAudit": {
+        "declarationsChecked": 287,
+        "differences": 0,
+        "unresolved": 0,
+        "method": "Compared resolved identifiers in the original and merged declarations using compiler-generated .ilean files, normalizing generated private module prefixes.",
+        "evidenceSha256": "bb6d6ae88b200fcfc4adcb6e15a0e1f9f67c7c214a600a6c03422414b063b1b9"
+      }
+    }
+  ]
+}
