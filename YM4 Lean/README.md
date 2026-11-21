@@ -6,6 +6,8 @@ The LEAN deviates from the informal manuscript in some places, but should be alm
 
 We have more LEAN containing uniqueness in the UV and all possible gauge groups, and we are working on various extensions, in particular the continuum limit for other observables (which we should get shortly). We will post LEAN for a strengthened theorem soon.
 
+[E: The code has been checked using several different implementations of the Lean kernel. The Challenge.LEAN statement was translated into LEAN from an informal statement I wrote. This is my first time using these tools, so hopefully I've used them right!]
+
 # The four-dimensional SU(2) Wilson continuum limit and the Osterwalder–Schrader axioms
 
 At each sufficiently fine lattice spacing, choose the least positive bare coupling that gives a prescribed two-point correlation on a reference torus. At those couplings, the centered Wilson plaquette energy has a nontrivial subsequential continuum limit on four-dimensional Euclidean space. Its moments are averages of components satisfying the full Osterwalder–Schrader axioms, including spatial clustering. [Informal theorem and axioms (PDF)](doc/Theorem.pdf) · [Mathlib-only statement](Challenge.lean#L235) · [Lean proof](Formulation/WilsonSubsequence.lean#L14)
