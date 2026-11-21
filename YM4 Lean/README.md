@@ -66,4 +66,4 @@ The repository contains 2,249,256 lines of Lean across the project and comparato
 
 ## AI assistance
 
-OpenAI Codex assisted with reducing the supplied Lean sources, proving the fixed-observable result, writing the self-contained challenge, and preparing the verification tools and reader documentation.
+**Disclaimer** *This repository contains work-in-progress, written largely by LLM. Its content has not been satisfactorily vetted. All claims should be understood as tentative, pending verification.* Novel mathematical ideas should be attributed to Claude, under the guidance of one of us [LA]. Older mathematical ideas may not be attributed properly now, but should be in due course.
