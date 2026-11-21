@@ -70,6 +70,4 @@ import Formulation.WilsonSubsequence
 
 The allowed foundational axioms are `propext`, `Classical.choice`, and `Quot.sound`. The verification record identifies the exact sources and proof exports covered by each check. [Verification record](doc/verification.md) · [Comparator instructions](scripts/comparator/README.md)
 
-The repository contains 2,249,256 lines of Lean across the project and comparator tools, including 29,617 lines in the optional reconstruction library. The three original archives contained 3,118,662 lines. Counting the entire release gives a 27.88% reduction in physical lines and a 19.00% reduction in nonblank lines.
-
 
