@@ -1,3 +1,11 @@
+**Disclaimer** *This repository contains code written largely by LLM.* Except for this disclaimer and the next paragraph, this README was written by Codex.
+
+This repository contains LEAN code containing a construction of "the" Yang--Mills_4 QFT (with gauge group SU(2)), including a verification of the Osterwalder-Schrader axioms and asymptotic freedom. This repository only verifies the OS axioms for the simplest observable field. We have more LEAN containing uniqueness in the UV and all possible gauge groups, and are working on various extensions, in particular the continuum limit for other observables (which we should get shortly). We will post LEAN for a strengthened theorem soon.
+
+See [https://github.com/yang-mills-group/OpenAI-YM-20261028] for OAI's repository. The construction here was carried out independently of OAI's, along the lines of the informal manuscript posted in our repository previously (following Balaban's approach closely). 
+
+The LEAN deviates from the informal manuscript in some places, but should be almost the same. The theorem statement is in Challenge.LEAN. It contains a full description of the construction, using a simple normalization prescription for the coupling constant.
+
 # The four-dimensional SU(2) Wilson continuum limit and the Osterwalder–Schrader axioms
 
 At each sufficiently fine lattice spacing, choose the least positive bare coupling that gives a prescribed two-point correlation on a reference torus. At those couplings, the centered Wilson plaquette energy has a nontrivial subsequential continuum limit on four-dimensional Euclidean space. Its moments are averages of components satisfying the full Osterwalder–Schrader axioms, including spatial clustering. [Informal theorem and axioms (PDF)](doc/Theorem.pdf) · [Mathlib-only statement](Challenge.lean#L235) · [Lean proof](Formulation/WilsonSubsequence.lean#L14)
@@ -64,6 +72,4 @@ The allowed foundational axioms are `propext`, `Classical.choice`, and `Quot.sou
 
 The repository contains 2,249,256 lines of Lean across the project and comparator tools, including 29,617 lines in the optional reconstruction library. The three original archives contained 3,118,662 lines. Counting the entire release gives a 27.88% reduction in physical lines and a 19.00% reduction in nonblank lines.
 
-## AI assistance
 
-**Disclaimer** *This repository contains work-in-progress, written largely by LLM. Its content has not been satisfactorily vetted. All claims should be understood as tentative, pending verification.* Novel mathematical ideas should be attributed to Claude, under the guidance of one of us [LA]. Older mathematical ideas may not be attributed properly now, but should be in due course.
