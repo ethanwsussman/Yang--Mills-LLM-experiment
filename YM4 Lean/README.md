@@ -1,6 +1,6 @@
 **Disclaimer** *This repository contains code written largely by LLM.* Except for this disclaimer and the next paragraph, this README was written by Codex.
 
-This repository contains LEAN code containing a construction of "the" Yang--Mills_4 QFT (with gauge group SU(2)), including a verification of the Osterwalder-Schrader axioms and asymptotic freedom. This repository only verifies the OS axioms for the simplest observable field. We have more LEAN containing uniqueness in the UV and all possible gauge groups, and are working on various extensions, in particular the continuum limit for other observables (which we should get shortly). We will post LEAN for a strengthened theorem soon.
+This repository contains LEAN code containing a construction of "the" Yang--Mills_4 QFT (with gauge group SU(2)), including a verification of the Osterwalder-Schrader axioms and asymptotic freedom. This repository only verifies the OS axioms for the simplest observable field, the renormalized Lagrangian density. We have more LEAN containing uniqueness in the UV and all possible gauge groups, and are working on various extensions, in particular the continuum limit for other observables (which we should get shortly). We will post LEAN for a strengthened theorem soon.
 
 See [https://github.com/yang-mills-group/OpenAI-YM-20261028] for OAI's repository. The construction here was carried out independently of OAI's, along the lines of the informal manuscript posted in our repository previously (following Balaban's approach closely). 
 
