@@ -49,7 +49,7 @@ The challenge selects its model with `abbrev selectedGauge := specialUnitary 2`.
 
 ## Build and verification
 
-The project pins Lean 4.33.1 and its Mathlib revision. From the repository root run
+The project pins Lean 4.33.1 and its Mathlib revision. The Lake package is the git root; this directory is its `srcDir`. From the git root run
 
 ```sh
 lake exe cache get

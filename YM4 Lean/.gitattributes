@@ -11,10 +11,7 @@
 *.txt text eol=lf
 lean-toolchain text eol=lf
 
-# Keep the exact root inputs bound by the recorded builds and document hashes.
-/lakefile.toml -text
-/lake-manifest.json -text
-/lean-toolchain -text
+# Keep the exact inputs bound by the recorded builds and document hashes.
 /comparator.json -text
 /doc/Theorem.tex -text
 

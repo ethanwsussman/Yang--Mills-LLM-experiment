@@ -1,4 +1,5 @@
 name = "YangMillsMinimalFull"
+srcDir = "YM4 Lean"
 defaultTargets = ["Formulation", "Challenge"]
 
 [[require]]

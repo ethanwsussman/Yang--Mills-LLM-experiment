@@ -1,0 +1,4 @@
+# The Lake package lives at the git root. Keep these bytes fixed.
+/lakefile.toml -text
+/lake-manifest.json -text
+/lean-toolchain -text
